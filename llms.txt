@@ -1,0 +1,10 @@
+# Beequation
+
+> Beequation is a mental maths puzzle game by Trett Labs Limited (UK). Each honeycomb of numbers hides exactly one number that two others add up to (or multiply to); the player finds and taps it. There are two apps: Beequation Kids (ages 5 to 12) and Beequation (teens and adults), plus a free browser version. No ads, no tracking, no personal data collected; free to try with a one-off payment to unlock every level.
+
+- [Play free online](https://beequation.com/play.html): the browser game, with both the kids and adult versions
+- [How to play](https://beequation.com/how-to-play.html): rules, worked examples and tips
+- [Free puzzles for teachers](https://beequation.com/teachers.html): printable pack for number bonds to 20 and the 2 to 6 times tables
+- [Support](https://beequation.com/support.html): purchases, players, refunds and resetting progress
+- [Privacy policy](https://beequation.com/privacy.html): the apps collect no personal data
+- [About](https://beequation.com/about.html): who makes Beequation

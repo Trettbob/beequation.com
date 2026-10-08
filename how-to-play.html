@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to play Beequation: rules, examples and tips</title>
+<meta name="description" content="How to play Beequation, the mental maths puzzle: find the number two others add up or multiply to. Rules, examples and tips.">
+<link rel="canonical" href="https://beequation.com/how-to-play.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beequation">
+<meta property="og:title" content="How to play Beequation: rules, examples and tips">
+<meta property="og:description" content="How to play Beequation, the mental maths puzzle: find the number two others add up or multiply to. Rules, examples and tips.">
+<meta property="og:url" content="https://beequation.com/how-to-play.html">
+<meta property="og:image" content="https://beequation.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to play Beequation","description":"Find the number in the honeycomb that two other numbers add up to, or multiply to.","step":[{"@type":"HowToStep","text":"Look at the honeycomb of numbers. Exactly one number is made from two of the others."},{"@type":"HowToStep","text":"In an adding puzzle, find the number that two others add up to. In a times-table puzzle, find the number two others multiply to."},{"@type":"HowToStep","text":"Tap that number. The two numbers that make it are shown, for example 7 + 5 = 12."}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#12161F">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+:root {
+  --ground: #EEF1F5; --card: #FFFFFF; --ink: #12161F; --mute: #5B6474; --line: #E3E7EE;
+  --cobalt: #2B50E8; --honey: #FFB020; --honey-ink: #12161F;
+  --night: #12161F; --night-cell: #222938; --night-ink: #F2F4F8; --night-mute: #9AA3B2;
+  --sky: #EAF6FF; --grape: #6A4BF5; --grape-lip: #3B24A8; --kid-ink: #1C1A4A; --kid-soft: #5A5688;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #0F131A; --card: #1A2030; --ink: #F2F4F8; --mute: #9AA3B2; --line: #2A3142; --cobalt: #7D95FF; }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 18px/1.55 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+a { color: var(--cobalt); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, .cell:focus-visible { outline: 3px solid var(--honey); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.top { display: flex; align-items: center; gap: 22px; padding: 18px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 21px; letter-spacing: -0.4px; color: inherit; text-decoration: none; flex: 1; }
+.hex { width: 24px; height: 28px; background: var(--honey); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); flex: none; }
+.top a:not(.brand) { color: inherit; text-decoration: none; font-weight: 500; }
+.top a:not(.brand):hover { color: var(--honey); }
+.top a { white-space: nowrap; }
+@media (max-width: 640px) { .top { flex-wrap: wrap; gap: 6px 20px; } .top .brand { flex-basis: 100%; margin-bottom: 4px; } }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 16px; font-weight: 700; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; }
+.btn.honey { background: var(--honey); color: var(--honey-ink); }
+.btn.plain { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 2px var(--line); }
+.doc { max-width: 720px; padding: 40px 0 20px; }
+.doc h1 { font-size: clamp(38px, 6vw, 56px); line-height: 1.02; letter-spacing: -2px; margin: 0 0 18px; }
+.doc h2 { font-size: 21px; margin: 30px 0 6px; }
+.doc p { margin: 0 0 12px; }
+footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); font-size: 15px; color: var(--mute); }
+footer .cols { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-bottom: 14px; }
+footer a { color: var(--mute); }
+footer a:hover { color: var(--ink); }
+</style>
+
+</head>
+<body>
+<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><span class="hex" aria-hidden="true"></span>Beequation</a><a href="/#apps">Apps</a><a href="/how-to-play.html">How to play</a><a href="/teachers.html">Teachers</a><a href="/support.html">Support</a></nav></div>
+<main class="wrap"><div class="doc"><h1>How to play Beequation</h1>
+<p>Every Beequation puzzle is a small honeycomb of numbers. <b>Exactly one</b> of the numbers is made from two of the others. Find it and tap it.</p>
+<h2>Adding puzzles</h2>
+<p>In most puzzles, the number you're looking for is the <b>sum</b> of two others. In this honeycomb, 7 + 5 = 12, so 12 is the one to tap.</p>
+<svg viewBox="0 0 118 170" width="118" height="170" role="img" aria-label="Example honeycomb: 7, 3, 12, 5 and 11. The answer is 12, because 7 plus 5 is 12." style="display:block;margin:18px 0;max-width:100%;height:auto;font-family:inherit"><polygon points="29.4,2.0 57.1,18.0 57.1,50.0 29.4,66.0 1.8,50.0 1.8,18.0" fill="#4A3A17"/><text x="29.4" y="43.0" text-anchor="middle" font-size="24" font-weight="700" fill="#FFD27A">7</text><polygon points="88.3,2.0 116.0,18.0 116.0,50.0 88.3,66.0 60.7,50.0 60.7,18.0" fill="#222938"/><text x="88.3" y="43.0" text-anchor="middle" font-size="24" font-weight="700" fill="#F2F4F8">3</text><polygon points="58.9,53.0 86.6,69.0 86.6,101.0 58.9,117.0 31.2,101.0 31.2,69.0" fill="#FFB020"/><text x="58.9" y="94.0" text-anchor="middle" font-size="24" font-weight="700" fill="#12161F">12</text><polygon points="29.4,104.0 57.1,120.0 57.1,152.0 29.4,168.0 1.8,152.0 1.8,120.0" fill="#4A3A17"/><text x="29.4" y="145.0" text-anchor="middle" font-size="24" font-weight="700" fill="#FFD27A">5</text><polygon points="88.3,104.0 116.0,120.0 116.0,152.0 88.3,168.0 60.7,152.0 60.7,120.0" fill="#222938"/><text x="88.3" y="145.0" text-anchor="middle" font-size="24" font-weight="700" fill="#F2F4F8">11</text></svg>
+<h2>Times-table puzzles</h2>
+<p>In times-table puzzles (Times Garden in Beequation Kids, Times in Beequation), the number is the <b>product</b> of two others. Here, 4 × 6 = 24.</p>
+<svg viewBox="0 0 118 170" width="118" height="170" role="img" aria-label="Example honeycomb: 4, 9, 24, 6 and 15. The answer is 24, because 4 times 6 is 24." style="display:block;margin:18px 0;max-width:100%;height:auto;font-family:inherit"><polygon points="29.4,2.0 57.1,18.0 57.1,50.0 29.4,66.0 1.8,50.0 1.8,18.0" fill="#4A3A17"/><text x="29.4" y="43.0" text-anchor="middle" font-size="24" font-weight="700" fill="#FFD27A">4</text><polygon points="88.3,2.0 116.0,18.0 116.0,50.0 88.3,66.0 60.7,50.0 60.7,18.0" fill="#222938"/><text x="88.3" y="43.0" text-anchor="middle" font-size="24" font-weight="700" fill="#F2F4F8">9</text><polygon points="58.9,53.0 86.6,69.0 86.6,101.0 58.9,117.0 31.2,101.0 31.2,69.0" fill="#FFB020"/><text x="58.9" y="94.0" text-anchor="middle" font-size="24" font-weight="700" fill="#12161F">24</text><polygon points="29.4,104.0 57.1,120.0 57.1,152.0 29.4,168.0 1.8,152.0 1.8,120.0" fill="#4A3A17"/><text x="29.4" y="145.0" text-anchor="middle" font-size="24" font-weight="700" fill="#FFD27A">6</text><polygon points="88.3,104.0 116.0,120.0 116.0,152.0 88.3,168.0 60.7,152.0 60.7,120.0" fill="#222938"/><text x="88.3" y="145.0" text-anchor="middle" font-size="24" font-weight="700" fill="#F2F4F8">15</text></svg>
+<h2>Tips for spotting it fast</h2>
+<p><b>Start with the big numbers.</b> In an adding puzzle the answer is usually one of the larger numbers, because it's made by adding two others.</p>
+<p><b>Use odd and even.</b> An odd total needs one odd and one even number. Two odd numbers, or two even numbers, always make an even total.</p>
+<p><b>Look at the last digit.</b> If the candidate ends in 2, look for two numbers whose last digits add to 2 or 12, such as 7 and 5.</p>
+<p><b>For times tables, think factors.</b> Ask which numbers divide the candidate exactly. 24 could be 4 × 6, 3 × 8 or 2 × 12.</p>
+<p><b>Rule numbers out.</b> The smallest number can almost never be a sum of two others, so you can usually skip it.</p>
+<h2>The Big Hive</h2>
+<p>The Big Hive is a puzzle made of puzzles. You solve four small combs, and their four answers become a final comb that you solve last.</p>
+<h2>Levels</h2>
+<p><b>Beequation Kids</b> (ages 5 to 12) has four worlds: Adding Meadow, Times Garden, Fraction Forest and Big Hive. Tally the bee gives a hint when your child is stuck, and stars count hints and slips gently, with no clock.</p>
+<p><b>Beequation</b> (teens and adults) has levels from Egg to Queen across adding, times, negatives, fractions and mixed puzzles, a new Daily Pro puzzle every day, and a 60-second blitz. Hard mode gives you one tap per puzzle.</p>
+<p><a class="btn honey" href="/play.html" style="margin-top:14px">Play free in your browser</a></p>
+</div></main><div class="wrap"><footer>
+  <div class="cols">
+    <a class="brand" href="/" style="flex:none;color:var(--ink)"><span class="hex" aria-hidden="true"></span>Beequation</a>
+    <a href="/play.html">Play online</a><a href="/how-to-play.html">How to play</a><a href="/teachers.html">Teachers</a><a href="/about.html">About</a><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a>
+    <a href="https://www.instagram.com/beequationapp">Instagram</a><a href="https://www.tiktok.com/@beequationapp">TikTok</a><a href="https://www.youtube.com/@beequationapp">YouTube</a><a href="https://x.com/beequationapp">X</a>
+  </div>
+  <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="mailto:hello@beequation.com">hello@beequation.com</a>. © 2026 Trett Labs Limited.</p>
+</footer></div>
+</body></html>

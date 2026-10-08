@@ -1,9 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Beequation</title>
+<title>Play Beequation free online: mental maths puzzle game</title>
+<meta name="description" content="Play Beequation free in your browser. Find the number two others add up or multiply to, with levels for children aged 5 to 12 and for adults. No sign-up, no ads.">
+<link rel="canonical" href="https://beequation.com/play.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beequation">
+<meta property="og:title" content="Play Beequation free online: mental maths puzzle game">
+<meta property="og:description" content="Play Beequation free in your browser. Find the number two others add up or multiply to, with levels for children aged 5 to 12 and for adults. No sign-up, no ads.">
+<meta property="og:url" content="https://beequation.com/play.html">
+<meta property="og:image" content="https://beequation.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Beequation (play online)","url":"https://beequation.com/play.html","applicationCategory":"EducationalApplication","genre":"Puzzle","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en-GB","image":"https://beequation.com/assets/og-image.png","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://beequation.com/#org"}}</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#12161F">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
 :root {
@@ -126,7 +142,16 @@ h1, h2, p { margin: 0; }
 </style>
 </head>
 <body>
-<main id="app"></main>
+<main id="app">
+  <!-- Shown until the game starts (and to anyone or anything that doesn't run JavaScript). -->
+  <div style="padding-top:20px;font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;line-height:1.5">
+    <h1 style="font-size:32px;letter-spacing:-1px;margin-bottom:12px">Play Beequation free online</h1>
+    <p style="margin-bottom:10px">Beequation is a mental maths puzzle game. Every honeycomb hides one number that two others add up to, or multiply to. Find it and tap it.</p>
+    <p style="margin-bottom:10px">Choose <b>Beequation Kids</b> (ages 5 to 12, with Tally the bee, stars and stickers and no clock) or <b>Beequation</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.</p>
+    <p><a href="/how-to-play.html">How to play</a> · <a href="/teachers.html">Free puzzles for teachers</a> · <a href="/">Beequation home</a></p>
+    <noscript><p><b>The game needs JavaScript.</b> Turn it on in your browser to play.</p></noscript>
+  </div>
+</main>
 <script>
 // Beequation puzzle engine. Pure TypeScript, no React — shared by the app and tests.
 // Rule: in a group of numbers, exactly one number equals (sum | product) of two others.

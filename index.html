@@ -3,11 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Beequation: find the number made by two others</title>
-<meta name="description" content="Beequation and Beequation Kids: quick mental-maths puzzles for every age. No ads, no tracking, pay once.">
-<meta property="og:title" content="Beequation: find the number made by two others">
-<meta property="og:description" content="Beequation and Beequation Kids: quick mental-maths puzzles for every age. No ads, no tracking, pay once.">
-<meta property="og:image" content="https://beequation.com/assets/beequation-icon.png">
+<title>Beequation: mental maths puzzle game for kids and adults</title>
+<meta name="description" content="Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.">
+<link rel="canonical" href="https://beequation.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beequation">
+<meta property="og:title" content="Beequation: mental maths puzzle game for kids and adults">
+<meta property="og:description" content="Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.">
+<meta property="og:url" content="https://beequation.com/">
+<meta property="og:image" content="https://beequation.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://beequation.com/#org","name":"Trett Labs Limited","url":"https://trettlabs.com","logo":"https://beequation.com/assets/beequation-icon.png","email":"hello@beequation.com","identifier":{"@type":"PropertyValue","propertyID":"Companies House company number","value":"17310137"},"address":{"@type":"PostalAddress","streetAddress":"The 1812 Building, Wheatley Park","addressLocality":"Mirfield","addressRegion":"West Yorkshire","postalCode":"WF14 8HE","addressCountry":"GB"},"sameAs":["https://www.instagram.com/beequationapp","https://www.tiktok.com/@beequationapp","https://www.youtube.com/@beequationapp","https://x.com/beequationapp"]},{"@type":"WebSite","@id":"https://beequation.com/#website","url":"https://beequation.com/","name":"Beequation","inLanguage":"en-GB","publisher":{"@id":"https://beequation.com/#org"}}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#12161F">
@@ -35,6 +44,8 @@ a:focus-visible, button:focus-visible, .cell:focus-visible { outline: 3px solid 
 .hex { width: 24px; height: 28px; background: var(--honey); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); flex: none; }
 .top a:not(.brand) { color: inherit; text-decoration: none; font-weight: 500; }
 .top a:not(.brand):hover { color: var(--honey); }
+.top a { white-space: nowrap; }
+@media (max-width: 640px) { .top { flex-wrap: wrap; gap: 6px 20px; } .top .brand { flex-basis: 100%; margin-bottom: 4px; } }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 16px; font-weight: 700; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; }
 .btn.honey { background: var(--honey); color: var(--honey-ink); }
 .btn.plain { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 2px var(--line); }
@@ -114,10 +125,11 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
 
 </head>
 <body>
-<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><span class="hex" aria-hidden="true"></span>Beequation</a><a href="/#apps">Apps</a><a href="/#teachers">Teachers</a><a href="/support.html">Support</a></nav></div>
+<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><span class="hex" aria-hidden="true"></span>Beequation</a><a href="/#apps">Apps</a><a href="/how-to-play.html">How to play</a><a href="/teachers.html">Teachers</a><a href="/support.html">Support</a></nav></div>
 <main class="wrap">
 <section class="hero" style="margin-top:8px" aria-labelledby="hero-h">
   <div>
+    <p style="margin:0 0 10px;font-weight:700;font-size:15px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute)">Mental maths puzzle game for kids and adults</p>
     <h1 id="hero-h">Find the number made by two others.</h1>
     <p class="lede">Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.</p>
     <a class="btn honey" href="/play.html">Play free in your browser</a>
@@ -136,7 +148,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   <p class="sec-lede">The same puzzle, made just right for grown-ups and for children.</p>
   <div class="apps">
     <article class="app app-adult" aria-labelledby="adult-h">
-      <img src="/assets/beequation-icon.png" alt="Beequation app icon">
+      <img src="/assets/beequation-icon.webp" width="512" height="512" alt="Beequation app icon">
       <h3 id="adult-h">Beequation</h3>
       <p class="who">For teens and adults</p>
       <ul>
@@ -154,7 +166,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
         <path d="M101 78 Q108 70 115 78" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><path d="M98 94 Q112 112 126 92" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="124" cy="86" r="6" fill="#FFA8D2"/>
         <path d="M112 46 Q118 22 132 16" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="134" cy="15" r="6" fill="#1C1A4A"/><path d="M28 88 L16 92 L28 96" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/>
       </svg>
-      <img src="/assets/beequation-kids-icon.png" alt="Beequation Kids app icon">
+      <img src="/assets/beequation-kids-icon.webp" width="512" height="512" alt="Beequation Kids app icon">
       <h3 id="kids-h">Beequation Kids</h3>
       <p class="who">For ages 5 to 12</p>
       <ul>
@@ -168,6 +180,11 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   </div>
 </section>
 
+<section aria-labelledby="what-h" style="max-width:760px">
+  <h2 class="sec-h" id="what-h">What is Beequation?</h2>
+  <p>Beequation is a mental maths puzzle game made by Trett Labs Limited in the UK. Each puzzle is a small honeycomb of numbers, and exactly one of them is made from two others: by adding them, or in times-table puzzles, by multiplying them. You find that number and tap it. Puzzles start with sums to 10 for five-year-olds and go up to three-digit numbers, negatives, fractions and the Big Hive for adults.</p>
+  <p>There are two apps: <b>Beequation Kids</b> for ages 5 to 12, and <b>Beequation</b> for teens and adults, with a new Daily Pro puzzle every day. Both are free to try, have no ads and collect no personal data. <a href="/how-to-play.html">Learn how to play</a> or <a href="/play.html">play free in your browser</a>.</p>
+</section>
 <section aria-labelledby="promise-h">
   <h2 class="sec-h" id="promise-h" style="margin-bottom:28px">Made to be trusted</h2>
   <div class="promise">
@@ -184,7 +201,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       <p class="sec-lede" style="margin-bottom:0">A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.</p>
       <div class="btns"><a class="btn honey" href="/assets/beequation-puzzle-pack-a4.pdf" download>Download (A4)</a><a class="btn plain" href="/assets/beequation-puzzle-pack-letter.pdf" download>Download (US Letter)</a></div>
     </div>
-    <img src="/assets/pack-preview.png" alt="First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Tally the bee and spaces to write the number sentence">
+    <img src="/assets/pack-preview.webp" width="794" height="1123" loading="lazy" alt="First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Tally the bee and spaces to write the number sentence">
   </div>
 </section>
 </main>
@@ -241,7 +258,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
 <div class="wrap"><footer>
   <div class="cols">
     <a class="brand" href="/" style="flex:none;color:var(--ink)"><span class="hex" aria-hidden="true"></span>Beequation</a>
-    <a href="/play.html">Play online</a><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a>
+    <a href="/play.html">Play online</a><a href="/how-to-play.html">How to play</a><a href="/teachers.html">Teachers</a><a href="/about.html">About</a><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a>
     <a href="https://www.instagram.com/beequationapp">Instagram</a><a href="https://www.tiktok.com/@beequationapp">TikTok</a><a href="https://www.youtube.com/@beequationapp">YouTube</a><a href="https://x.com/beequationapp">X</a>
   </div>
   <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="mailto:hello@beequation.com">hello@beequation.com</a>. © 2026 Trett Labs Limited.</p>
