@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beequation</title>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* kids */
+  --k-ground: #EAF6FF; --k-card: #FFFFFF; --k-ink: #1C1A4A; --k-soft: #5A5688; --k-shadow: #C7DDF0;
+  /* adult */
+  --a-ground: #EEF1F5; --a-card: #FFFFFF; --a-ink: #12161F; --a-mute: #5B6474; --a-line: #E3E7EE; --a-press: #F6F7FA;
+  --cell-ink: #1C1A4A; --grape: #6A4BF5; --grape-lip: #3B24A8; --lemon: #FFD84D; --lemon-lip: #E0B21A;
+  --cobalt: #2B50E8; --honey: #FFB020; --night: #12161F; --night-cell: #222938; --night-ink: #F2F4F8; --night-mute: #9AA3B2;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --k-ground: #1D1A44; --k-card: #2C2866; --k-ink: #FFFFFF; --k-soft: #C9C3FF; --k-shadow: #14112F;
+  --a-ground: #0F131A; --a-card: #1A2030; --a-ink: #F2F4F8; --a-mute: #9AA3B2; --a-line: #2A3142; --a-press: #222A3C;
+} }
+:root[data-theme="dark"] {
+  --k-ground: #1D1A44; --k-card: #2C2866; --k-ink: #FFFFFF; --k-soft: #C9C3FF; --k-shadow: #14112F;
+  --a-ground: #0F131A; --a-card: #1A2030; --a-ink: #F2F4F8; --a-mute: #9AA3B2; --a-line: #2A3142; --a-press: #222A3C;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; min-height: 100%; -webkit-tap-highlight-color: transparent; background: var(--a-ground); color: var(--a-ink);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+body.kids { background: var(--k-ground); color: var(--k-ink); font-family: Fredoka, ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; }
+body.night { background: var(--night); color: var(--night-ink); }
+body.grape { background: var(--grape); color: #fff; }
+#app { max-width: 460px; margin: 0 auto; padding: 18px 20px 28px; min-height: 100vh; position: relative; overflow-x: hidden; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; }
+button:focus-visible, .cell:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+h1, h2, p { margin: 0; }
+.stack > * + * { margin-top: 16px; }
+.row { display: flex; gap: 12px; align-items: center; }
+.grow { flex: 1; }
+
+/* kids */
+.candy { display: block; width: 100%; border-radius: 24px; background: var(--c, #fff); box-shadow: 0 6px 0 var(--l, var(--k-shadow)); color: var(--k-ink);
+  font-weight: 700; transition: transform .06s, box-shadow .06s; margin-bottom: 6px; }
+.candy:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--l, var(--k-shadow)); }
+.candy.big { height: 72px; font-size: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.candy.mid { height: 60px; font-size: 22px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.k-white { --c: var(--k-card); --l: var(--k-shadow); color: var(--k-ink); }
+.k-grape { --c: var(--grape); --l: var(--grape-lip); color: #fff; }
+.k-lemon { --c: var(--lemon); --l: var(--lemon-lip); color: #1C1A4A; }
+.pill { height: 46px; padding: 0 16px; border-radius: 23px; display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600; width: auto; }
+.logo-k { font-size: clamp(44px, 14vw, 58px); line-height: .95; font-weight: 700; letter-spacing: -1px; }
+.bubble { background: var(--k-card); border-radius: 20px 20px 20px 6px; padding: 12px 14px; font-weight: 600; font-size: 18px; line-height: 1.25; }
+.worlds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.world { text-align: left; padding: 14px; height: 120px; display: flex; flex-direction: column; gap: 2px; color: #1C1A4A; }
+.world b { font-size: 18px; } .world small { font-size: 14px; font-weight: 600; }
+.glyph { font-size: 32px; line-height: 1; font-weight: 700; }
+.card-k { background: var(--k-card); border-radius: 22px; padding: 16px; }
+.soft { color: var(--k-soft); font-weight: 600; font-size: 15px; }
+.map { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 14px; row-gap: 6px; }
+.stone { background: none; padding: 0; text-align: center; color: #1C1A4A; }
+.stone:nth-child(3n+2) { margin-top: 40px; }
+.stars-row { height: 22px; display: flex; justify-content: center; }
+.dots { display: flex; justify-content: space-between; flex: 1; }
+.tray { display: flex; gap: 10px; justify-content: center; }
+.sticker { width: 90px; text-align: center; font-size: 13px; font-weight: 600; }
+.win h1 { font-size: 56px; text-align: center; }
+.win p { font-size: 21px; font-weight: 600; text-align: center; line-height: 1.3; }
+
+/* adult */
+.btn { display: flex; width: 100%; height: 54px; border-radius: 16px; align-items: center; justify-content: center; gap: 10px; font-weight: 700; font-size: 17px; }
+.btn:active { opacity: .85; }
+.b-cobalt { background: var(--cobalt); color: #fff; } .b-honey { background: var(--honey); color: #12161F; }
+.b-plain { background: var(--a-card); color: var(--a-ink); } .b-dark { background: var(--night-cell); color: var(--night-ink); }
+.icon-btn { width: 44px; height: 44px; border-radius: 22px; background: var(--a-card); display: grid; place-items: center; flex: none; }
+.night .icon-btn { background: var(--night-cell); }
+.chip { height: 36px; padding: 0 12px; border-radius: 18px; background: var(--a-card); display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 15px; }
+.hero { background: #12161F; color: #fff; border-radius: 24px; padding: 20px; }
+.hero > * + * { margin-top: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tile { text-align: left; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 6px; background: var(--a-card); color: var(--a-ink); }
+.tile b { font-size: 18px; } .tile small { font-size: 14px; color: var(--a-mute); }
+.tile.blue { background: var(--cobalt); color: #fff; } .tile.blue small { color: #D6DEFF; }
+.list { border-radius: 20px; overflow: hidden; }
+.li { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 58px; padding: 8px 14px; background: var(--a-card); color: var(--a-ink); text-align: left; }
+.li + .li { border-top: 1px solid var(--a-line); }
+.li:active { background: var(--a-press); }
+.bar { height: 4px; border-radius: 2px; background: var(--a-line); margin-top: 6px; } .bar i { display: block; height: 4px; border-radius: 2px; background: var(--cobalt); }
+.mute { color: var(--a-mute); }
+.lv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lv { text-align: left; background: var(--a-card); color: var(--a-ink); border-radius: 20px; padding: 16px; }
+.lv.off { opacity: .6; } .lv .n { font-size: 32px; font-weight: 700; color: var(--cobalt); letter-spacing: -1px; line-height: 1; }
+.card-a { background: var(--a-card); border-radius: 24px; padding: 20px; }
+.card-a > * + * { margin-top: 14px; }
+.hexrow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 8px; justify-items: center; }
+.week { display: flex; justify-content: space-between; text-align: center; font-size: 13px; color: var(--a-mute); }
+.big-num { font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -1.5px; }
+.eqline { height: 52px; display: grid; place-items: center; font-size: 30px; font-weight: 700; color: var(--honey); }
+.timer { height: 6px; border-radius: 3px; background: var(--night-cell); } .timer i { display: block; height: 6px; border-radius: 3px; background: #5B7CFF; }
+.slot { width: 52px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 600; background: var(--night-cell); color: var(--night-mute); }
+.slot.on { background: var(--honey); color: #12161F; }
+
+/* boards */
+.board { display: block; margin: 0 auto; overflow: visible; touch-action: manipulation; }
+.cell { cursor: pointer; }
+.cell text { font-weight: 700; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.adult .cell text { font-weight: 600; }
+.cell.wrong { animation: shake .25s; transform-box: fill-box; transform-origin: center; }
+.cell.correct { animation: pop .3s; transform-box: fill-box; transform-origin: center; }
+@keyframes shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+@keyframes pop { 0% { transform: scale(.84); } 70% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .cell.wrong, .cell.correct { animation: none; } }
+
+/* chooser */
+.choose h1 { font-size: 34px; letter-spacing: -1px; line-height: 1.05; }
+.pick { display: block; width: 100%; text-align: left; border-radius: 24px; padding: 20px; }
+.pick b { display: block; font-size: 24px; margin-top: 10px; } .pick span { display: block; font-size: 15px; margin-top: 4px; line-height: 1.35; }
+.switch-app { display: block; margin: 24px auto 0; background: none; text-decoration: underline; font-size: 14px; opacity: .8; }
+.scrim { position: fixed; inset: 0; background: rgba(28,26,74,.55); display: grid; place-items: center; padding: 24px; z-index: 5; }
+.gate { background: #fff; color: #1C1A4A; border-radius: 28px; padding: 24px; width: 100%; max-width: 380px; font-family: Fredoka, ui-rounded, system-ui, sans-serif; }
+.gate > * + * { margin-top: 12px; }
+.gate input { width: 100%; font: inherit; font-size: 30px; font-weight: 700; text-align: center; border: 3px solid #C7DDF0; border-radius: 16px; padding: 10px; color: #1C1A4A; background: #fff; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #12161F; color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 15px; z-index: 6; }
+.preview-note { font-size: 13px; opacity: .75; text-align: center; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+// Beequation puzzle engine. Pure TypeScript, no React — shared by the app and tests.
+// Rule: in a group of numbers, exactly one number equals (sum | product) of two others.
+
+                               
+                                                                       
+
+                                              
+
+                         
+                 
+         
+                
+                                              
+                                                                             
+ 
+
+                             
+               
+                                                                            
+                
+ 
+
+                                            
+
+                            
+                                    
+               
+                               
+               
+               
+                                                       
+                
+                                                             
+                      
+ 
+
+// ---------- fractions ----------
+function gcd(a        , b        )         {
+  a = Math.abs(a); b = Math.abs(b);
+  while (b) { const t = a % b; a = b; b = t; }
+  return a || 1;
+}
+function frac(n        , d = 1)       {
+  if (d < 0) { n = -n; d = -d; }
+  const g = gcd(n, d);
+  return { n: n / g, d: d / g };
+}
+const eq = (a      , b      ) => a.n === b.n && a.d === b.d;
+function apply(op    , a      , b      )       {
+  return op === 'add' ? frac(a.n * b.d + b.n * a.d, a.d * b.d) : frac(a.n * b.n, a.d * b.d);
+}
+function fmt(f      )         {
+  const sign = f.n < 0 ? '−' : '';
+  return f.d === 1 ? `${sign}${Math.abs(f.n)}` : `${sign}${Math.abs(f.n)}/${f.d}`;
+}
+const opSymbol = (op    ) => (op === 'add' ? '+' : '×');
+function equation(p        )         {
+  const [i, j] = p.pair;
+  return `${fmt(p.cells[i])} ${opSymbol(p.op)} ${fmt(p.cells[j])} = ${fmt(p.cells[p.answer])}`;
+}
+
+// ---------- seeded RNG ----------
+                               
+function makeRng(seed        )      {
+  let s = seed >>> 0;
+  return () => {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function seedFromString(s        )         {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+const randInt = (rng     , lo        , hi        ) => lo + Math.floor(rng() * (hi - lo + 1));
+const pick =     (rng     , arr     )    => arr[Math.floor(rng() * arr.length)];
+function shuffle   (rng     , arr     )      {
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  return arr;
+}
+
+// ---------- solving ----------
+function solutions(cells        , op    ) {
+  const out                                        = [];
+  for (let k = 0; k < cells.length; k++)
+    for (let i = 0; i < cells.length; i++)
+      for (let j = i + 1; j < cells.length; j++)
+        if (i !== k && j !== k && eq(apply(op, cells[i], cells[j]), cells[k])) out.push({ k, i, j });
+  return out;
+}
+function isUnique(cells        , op    )          {
+  const ks = new Set(solutions(cells, op).map(s => s.k));
+  return ks.size === 1;
+}
+
+// Build a puzzle around a chosen pair, adding distractors that never create a second answer.
+function build(rng     , size        , op    , a      , b      ,
+  draw            , near                   , nearMiss        )                {
+  const c = apply(op, a, b);
+  const cells         = [a, b, c];
+  let tries = 0;
+  while (cells.length < size && tries < 600) {
+    tries++;
+    const x = rng() < nearMiss ? near(pick(rng, cells)) : draw();
+    if (x.n === 0) continue;
+    if (cells.some(y => eq(x, y)) && rng() < 0.85) continue; // mostly distinct values
+    const trial = [...cells, x];
+    const sols = solutions(trial, op);
+    if (sols.length > 0 && sols.every(s => s.k === 2)) cells.push(x);
+  }
+  if (cells.length < size) return null;
+  const order = shuffle(rng, cells.map((_, i) => i));
+  const shuffled = order.map(i => cells[i]);
+  const sol = solutions(shuffled, op)[0];
+  return { kind: 'single', op, cells: shuffled, answer: sol.k, pair: [sol.i, sol.j] };
+}
+
+function retry   (fn                )    {
+  for (let i = 0; i < 200; i++) { const r = fn(); if (r) return r; }
+  throw new Error('generator failed');
+}
+
+// ---------- mode tables ----------
+const TIER_NAMES = ['Egg', 'Larva', 'Buzz', 'Worker', 'Forager', 'Guard', 'Royal', 'Queen'];
+const AGES = ['5+', '6+', '7+', '8+', '10+', '12+', 'Teen & adult', 'Expert'];
+
+                                                                         
+const ADD            = [
+  { size: 4, lo: 1, max: 10, near: 0 },
+  { size: 5, lo: 1, max: 15, near: 0 },
+  { size: 5, lo: 1, max: 20, near: 0.1 },
+  { size: 7, lo: 1, max: 30, near: 0.15 },
+  { size: 7, lo: 3, max: 50, near: 0.25 },
+  { size: 9, lo: 5, max: 100, near: 0.3 },
+  { size: 9, lo: 10, max: 250, near: 0.4 },
+  { size: 9, lo: 50, max: 999, near: 0.55 },
+];
+                                                                            
+const MUL            = [
+  { size: 4, fmin: 2, fmax: 5, near: 0 },
+  { size: 5, fmin: 2, fmax: 6, near: 0 },
+  { size: 5, fmin: 2, fmax: 9, near: 0.1 },
+  { size: 7, fmin: 2, fmax: 10, near: 0.15 },
+  { size: 7, fmin: 2, fmax: 12, near: 0.25 },
+  { size: 9, fmin: 3, fmax: 15, near: 0.3 },
+  { size: 9, fmin: 4, fmax: 20, near: 0.4 },
+  { size: 9, fmin: 6, fmax: 30, near: 0.55 },
+];
+const NEG            = [
+  { size: 4, lo: 1, max: 10, near: 0 },
+  { size: 5, lo: 1, max: 15, near: 0.1 },
+  { size: 5, lo: 1, max: 20, near: 0.15 },
+  { size: 7, lo: 1, max: 30, near: 0.25 },
+  { size: 9, lo: 1, max: 50, near: 0.35 },
+  { size: 9, lo: 1, max: 100, near: 0.5 },
+];
+                                                                 
+const FRAC             = [
+  { size: 4, dens: [2, 4], near: 0 },
+  { size: 5, dens: [2, 4, 8], near: 0.1 },
+  { size: 5, dens: [2, 3, 6], near: 0.15 },
+  { size: 7, dens: [2, 3, 4, 6, 12], near: 0.25 },
+  { size: 7, dens: [2, 3, 4, 5, 6, 8, 10, 12], near: 0.35 },
+  { size: 9, dens: [2, 3, 4, 5, 6, 7, 8, 9, 10, 12], near: 0.5 },
+];
+                                                                 
+const HIVE             = [
+  { subSize: 4, max: 20, near: 0 },
+  { subSize: 5, max: 30, near: 0.1 },
+  { subSize: 5, max: 50, near: 0.2 },
+  { subSize: 7, max: 60, near: 0.25 },
+  { subSize: 7, max: 100, near: 0.35 },
+  { subSize: 9, max: 200, near: 0.5 },
+];
+
+function genAdd(rng     , t         )         {
+  return retry(() => {
+    const c = randInt(rng, Math.max(2 * t.lo, Math.ceil(t.max * 0.35)), t.max);
+    const a = randInt(rng, t.lo, c - t.lo);
+    const b = c - a;
+    return build(rng, t.size, 'add', frac(a), frac(b),
+      () => frac(randInt(rng, t.lo, t.max)),
+      c => frac(Math.max(t.lo, c.n + pick(rng, [-2, -1, 1, 2, 10, -10]))), t.near);
+  });
+}
+function genMul(rng     , t         )         {
+  if (t.fmin < 2) t = { ...t, fmin: 2 };
+  return retry(() => {
+    const a = randInt(rng, t.fmin, t.fmax), b = randInt(rng, t.fmin, t.fmax);
+    return build(rng, t.size, 'mul', frac(a), frac(b),
+      () => rng() < 0.55
+        ? frac(randInt(rng, t.fmin, t.fmax) * (rng() < 0.5 ? randInt(rng, t.fmin, t.fmax) : 1))
+        : frac(randInt(rng, t.fmin, t.fmax * t.fmax)),
+      c => frac(Math.max(2, c.n + pick(rng, [-1, 1, -2, 2]))), t.near);
+  });
+}
+function genNeg(rng     , t         )         {
+  const nz = () => { let v = 0; while (v === 0) v = randInt(rng, -t.max, t.max); return v; };
+  return retry(() => {
+    const a = nz(), b = nz(), c = a + b;
+    if (c === 0 || Math.abs(c) > t.max || (a > 0 && b > 0)) return null; // always involve a negative
+    return build(rng, t.size, 'add', frac(a), frac(b), () => frac(nz()),
+      x => frac(pick(rng, [-x.n, x.n + 1, x.n - 1])), t.near);
+  });
+}
+function genFrac(rng     , t          )         {
+  const r = () => { const d = pick(rng, t.dens); return frac(randInt(rng, 1, d - 1), d); };
+  return retry(() => {
+    const a = r(), b = r();
+    return build(rng, t.size, 'add', a, b,
+      () => { const d = pick(rng, t.dens); return frac(randInt(rng, 1, 2 * d - 1), d); },
+      x => frac(x.n + pick(rng, [1, -1]), x.d), t.near);
+  });
+}
+function genHive(rng     , t          )             {
+  const lo = 4;
+  const final = genAdd(rng, { size: 4, lo, max: t.max, near: t.near });
+  const subs = final.cells.map(v => retry(() => {
+    const a = randInt(rng, 1, v.n - 1);
+    return build(rng, t.subSize, 'add', frac(a), frac(v.n - a),
+      () => frac(randInt(rng, 1, t.max)),
+      c => frac(Math.max(1, c.n + pick(rng, [-2, -1, 1, 2]))), t.near);
+  }));
+  return { kind: 'hive', subs, final };
+}
+
+const MODES                                                                  = [
+  { id: 'add', title: 'Add', tagline: 'Find the number that is the sum of two others', tiers: ADD.length },
+  { id: 'mul', title: 'Times', tagline: 'Find the product of two others', tiers: MUL.length },
+  { id: 'neg', title: 'Negatives', tagline: 'Sums with numbers below zero', tiers: NEG.length },
+  { id: 'frac', title: 'Fractions', tagline: 'Add fractions in your head', tiers: FRAC.length },
+  { id: 'mixed', title: 'Mixed', tagline: 'Plus or times — it changes every puzzle', tiers: 6 },
+  { id: 'hive', title: 'Big Hive', tagline: 'Solve four, then solve their answers', tiers: HIVE.length },
+];
+
+const FREE_TIERS                         = { add: 4, mul: 2, neg: 1, frac: 1, mixed: 1, hive: 1 };
+const MODE_PACE                         = { add: 1, mul: 1.2, neg: 1.4, frac: 2, mixed: 1.3, hive: 1 };
+
+function sizeOf(mode        , tier        )         {
+  const i = tier - 1;
+  switch (mode) {
+    case 'add': return ADD[i].size;
+    case 'mul': return MUL[i].size;
+    case 'neg': return NEG[i].size;
+    case 'frac': return FRAC[i].size;
+    case 'mixed': return ADD[Math.min(7, i + 2)].size;
+    case 'hive': return HIVE[i].subSize;
+  }
+}
+
+function level(mode        , tier        )            {
+  const size = sizeOf(mode, tier);
+  const isHive = mode === 'hive';
+  const roundLength = isHive ? 3 : 10;
+  const perPuzzle = isHive ? size * 4 * 1.3 + 8 : size * 1.1 * MODE_PACE[mode];
+  const ageIdx = Math.min(7, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1);
+  return {
+    id: `${mode}-${tier}`, mode, tier, size,
+    name: TIER_NAMES[Math.min(7, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1)],
+    ages: AGES[ageIdx],
+    free: tier <= FREE_TIERS[mode],
+    par: Math.round(perPuzzle * roundLength),
+    roundLength,
+  };
+}
+function levelsFor(mode        )              {
+  const m = MODES.find(x => x.id === mode) ;
+  return Array.from({ length: m.tiers }, (_, i) => level(mode, i + 1));
+}
+
+function generate(mode        , tier        , rng     )            {
+  const i = tier - 1;
+  switch (mode) {
+    case 'add': return genAdd(rng, ADD[i]);
+    case 'mul': return genMul(rng, MUL[i]);
+    case 'neg': return genNeg(rng, NEG[i]);
+    case 'frac': return genFrac(rng, FRAC[i]);
+    case 'mixed': {
+      const add = ADD[Math.min(7, i + 2)];
+      return rng() < 0.5 ? genAdd(rng, add) : genMul(rng, { ...MUL[Math.min(7, i + 1)], size: add.size });
+    }
+    case 'hive': return genHive(rng, HIVE[i]);
+  }
+}
+
+function stars(level           , seconds        , mistakes        , relaxed         )         {
+  if (relaxed) return mistakes <= 1 ? 3 : mistakes <= 4 ? 2 : 1;
+  if (seconds <= level.par && mistakes <= 1) return 3;
+  if (seconds <= level.par * 2 && mistakes <= 3) return 2;
+  return 1;
+}
+
+// Daily challenges: same puzzles for everyone on a given date.
+const DAILIES = [
+  { id: 'junior', title: 'Daily Junior', mode: 'add'          , tier: 3 },
+  { id: 'pro', title: 'Daily Pro', mode: 'mixed'          , tier: 5 },
+];
+function dailyRng(dateKey        , id        )      {
+  return makeRng(seedFromString(`${dateKey}:${id}`));
+}
+
+
+// ---------- helpers ----------
+const app = document.getElementById('app');
+const load = (k, d) => { try { const r = localStorage.getItem(k); return r ? { ...d, ...JSON.parse(r) } : d; } catch (e) { return d; } };
+const store = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+const SQ3 = Math.sqrt(3);
+const hexPts = (cx, cy, rr) => Array.from({ length: 6 }, (_, k) => { const a = Math.PI / 3 * k - Math.PI / 2; return `${(cx + rr * Math.cos(a)).toFixed(1)},${(cy + rr * Math.sin(a)).toFixed(1)}`; }).join(' ');
+const hexSVG = (w, fill, inner = '', lip = '') => { const h = w * 1.155, r = h / 2; return `<svg width="${w}" height="${(h + (lip ? 6 : 0)).toFixed(1)}" viewBox="0 0 ${w} ${(h + (lip ? 6 : 0)).toFixed(1)}" aria-hidden="true">${lip ? `<polygon points="${hexPts(w / 2, r + 6, r)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(w / 2, r, r)}" fill="${fill}"/>${inner}</svg>`; };
+const STAR = '50,6 61,37 94,37 67,57 77,89 50,70 23,89 33,57 6,37 39,37';
+const star = (s, on = true, fill = '#FFD84D') => `<svg width="${s}" height="${s}" viewBox="0 0 100 100" aria-hidden="true"><polygon points="${STAR}" fill="${on ? fill : 'rgba(28,26,74,.14)'}" stroke="${on ? '#1C1A4A' : 'none'}" stroke-width="6" stroke-linejoin="round"/></svg>`;
+const I = {
+  back: c => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>`,
+  close: c => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>`,
+  lock: (c, s = 18) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`,
+  bolt: (c, s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>`,
+  flame: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E07A00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.7 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8 0 4.3 3 7 7 7z"/></svg>`,
+  gear: c => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>`,
+  hex: c => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.2" stroke-linejoin="round"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"/><path d="M12 8l3.46 2v4L12 16l-3.46-2v-4z"/></svg>`,
+  share: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v14"/></svg>`,
+  play: `<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></svg>`,
+  bulb: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>`,
+  cal: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6A4BF5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>`,
+};
+const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .875).toFixed(0)}" viewBox="0 0 160 140" role="img" aria-label="Tally the bee">
+  <ellipse cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(-20 62 38)"/>
+  <ellipse cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(18 96 34)"/>
+  <ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="#1C1A4A" stroke-width="4"/>
+  <path d="M60 46 Q55 84 62 122" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M84 42 Q78 84 86 126" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
+  ${happy ? '<path d="M101 78 Q108 70 115 78" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/>' : '<circle cx="108" cy="76" r="7" fill="#1C1A4A"/><circle cx="110" cy="74" r="2.2" fill="#fff"/>'}
+  <path d="${happy ? 'M98 94 Q112 112 126 92' : 'M100 96 Q112 106 124 94'}" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="124" cy="86" r="6" fill="#FFA8D2"/>
+  <path d="M112 46 Q118 22 132 16" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="134" cy="15" r="6" fill="#1C1A4A"/>
+  <path d="M28 88 L16 92 L28 96" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/></svg>`;
+function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
+
+// ---------- boards ----------
+const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1] };
+const CANDY = [['#FFD84D', '#E0B21A'], ['#7EE8C6', '#3FC497'], ['#8FD3FF', '#4FAEE8'], ['#FFA8D2', '#EB72AC'], ['#FFB37A', '#EE8A3E'], ['#C6B2FF', '#9A80F2']];
+function board(p, marks, W, maxH, skin, seed = 0) {
+  const rows = ROWS[p.cells.length], kids = skin === 'kids';
+  const r = Math.min(W / (Math.max(...rows) * SQ3), maxH / ((rows.length - 1) * 1.5 + 2.2), kids ? 64 : 62);
+  const w = SQ3 * r, pad = kids ? 12 : 0, H = (rows.length - 1) * 1.5 * r + 2 * r + pad * 2;
+  const pos = []; rows.forEach((n, row) => { for (let c = 0; c < n; c++) pos.push([W / 2 + (c - (n - 1) / 2) * w, pad + r + row * 1.5 * r]); });
+  const cells = p.cells.map((v, i) => {
+    const [x, y] = pos[i], m = marks[i] || '', label = fmt(v);
+    let fill, lip = '', ink, ring = '';
+    if (kids) {
+      [fill, lip] = m === 'correct' ? ['#6A4BF5', '#3B24A8'] : m === 'wrong' ? ['#F2545B', '#C23A41'] : CANDY[(i + seed) % CANDY.length];
+      ink = m === 'correct' || m === 'wrong' ? '#fff' : '#1C1A4A';
+      if (m === 'hint') ring = `<polygon points="${hexPts(x, y, r * 1.06)}" fill="none" stroke="#6A4BF5" stroke-width="4" stroke-dasharray="10 8" stroke-linejoin="round"/>`;
+    } else {
+      [fill, ink] = m === 'correct' ? ['#FFB020', '#12161F'] : m === 'pair' ? ['#4A3A17', '#FFD27A'] : m === 'wrong' ? ['#E5484D', '#fff'] : ['#222938', '#F2F4F8'];
+    }
+    const rr = r * (kids ? .9 : .95);
+    let txt;
+    if (v.d !== 1) {
+      const fs = r * .44;
+      txt = `<text x="${x}" y="${y - fs * .62}" font-size="${fs}" fill="${ink}">${v.n < 0 ? '−' : ''}${Math.abs(v.n)}</text><line x1="${x - r * .3}" x2="${x + r * .3}" y1="${y}" y2="${y}" stroke="${ink}" stroke-width="${kids ? 4 : 2}" stroke-linecap="round"/><text x="${x}" y="${y + fs * .66}" font-size="${fs}" fill="${ink}">${v.d}</text>`;
+    } else {
+      const fs = r * (label.length <= 2 ? (kids ? .78 : .7) : label.length === 3 ? .58 : .48);
+      txt = `<text x="${x}" y="${y + fs * .04}" font-size="${fs}" fill="${ink}">${label}</text>`;
+    }
+    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${label.replace('/', ' over ')}">${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}</g>`;
+  }).join('');
+  return `<svg class="board" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${cells}</svg>`;
+}
+function wireBoard(tap) {
+  app.querySelectorAll('.cell').forEach(g => {
+    g.onclick = () => tap(+g.dataset.i);
+    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(+g.dataset.i); } };
+  });
+}
+
+// ---------- router ----------
+let stack = [{ name: 'choose' }], cleanup = null;
+const go = r => { stack.push(r); render(); };
+const back = () => { if (stack.length > 1) stack.pop(); render(); };
+const replace = r => { stack[stack.length - 1] = r; render(); };
+const h = html => { app.innerHTML = html; };
+const on = (sel, fn) => app.querySelectorAll(sel).forEach(el => el.onclick = fn.bind(null, el));
+function render() {
+  if (cleanup) { cleanup(); cleanup = null; }
+  const r = stack[stack.length - 1];
+  const kids = r.name.startsWith('k_');
+  document.body.className = r.name === 'choose' ? '' : kids ? (r.name === 'k_win' ? 'kids grape' : 'kids') : (r.name === 'a_game' ? 'adult night' : 'adult');
+  SCREENS[r.name](r);
+  window.scrollTo(0, 0);
+}
+const switchLink = () => `<button class="switch-app" data-switch>Switch app</button>`;
+const wireSwitch = () => on('[data-switch]', () => { stack = [{ name: 'choose' }]; render(); });
+
+// ================= KIDS =================
+const WORLDS = [
+  { id: 'add', title: 'Adding Meadow', glyph: '+', c: '#FFD84D', l: '#E0B21A', tiers: 6, free: 3, stickers: ['Sum Sprout', 'Plus Pal', 'Sum Superstar', 'Adding Ace', 'Total Hero', 'Meadow Master'] },
+  { id: 'mul', title: 'Times Garden', glyph: '×', c: '#7EE8C6', l: '#3FC497', tiers: 6, free: 2, stickers: ['Times Tadpole', 'Double Dazzler', 'Multiply Magic', 'Product Pro', 'Garden Genius', 'Times Titan'] },
+  { id: 'frac', title: 'Fraction Forest', glyph: '½', c: '#FFA8D2', l: '#EB72AC', tiers: 4, free: 1, stickers: ['Half Hero', 'Quarter Queen', 'Slice Star', 'Fraction Champ'] },
+  { id: 'hive', title: 'Big Hive', glyph: 'hex', c: '#8FD3FF', l: '#4FAEE8', tiers: 3, free: 1, stickers: ['Busy Bee', 'Comb Captain', 'Hive Legend'] },
+];
+const wOf = id => WORLDS.find(w => w.id === id);
+const KK = 'beequation.kids.v1';
+let K = load(KK, { full: false, stars: {}, stickers: [], dailyDone: '' });
+const kSave = () => store(KK, K);
+const kStatus = (mode, t) => (t > wOf(mode).free && !K.full) ? 'paid' : (t === 1 || (K.stars[`${mode}-${t - 1}`] || 0) > 0) ? 'open' : 'locked';
+const kidStars = (m, hn) => (m + hn <= 1 ? 3 : m + hn <= 4 ? 2 : 1);
+const LET = [['B', '#6A4BF5'], ['e', '#F2545B'], ['e', '#1E8FE0'], ['q', '#E07A1F'], ['u', '#12A37A'], ['a', '#6A4BF5'], ['t', '#F2545B'], ['i', '#1E8FE0'], ['o', '#E07A1F'], ['n', '#12A37A']];
+const kTop = title => `<div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none" aria-label="Back" data-back>${I.back('#1C1A4A')}</button><h1 style="font-size:28px;flex:1">${title}</h1></div>`;
+
+function parentGate(onPass) {
+  const ONES = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  const el = document.createElement('div'); el.className = 'scrim';
+  const ask = miss => {
+    const t = 2 + Math.floor(Math.random() * 8), o = 1 + Math.floor(Math.random() * 9), n = t * 10 + o;
+    el.innerHTML = `<div class="gate" role="dialog" aria-modal="true" aria-label="Grown-ups only"><h2 style="font-size:26px">Grown-ups only</h2><div style="font-size:17px">Type this number using digits:</div>
+      <div style="font-size:30px;font-weight:700;color:#6A4BF5">${TENS[t]}-${ONES[o]}</div><input inputmode="numeric" maxlength="2" aria-label="Answer" autocomplete="off">
+      ${miss ? '<div style="color:#F2545B;font-weight:600">That\'s not it. Try the new number.</div>' : ''}
+      <button class="candy mid k-grape" data-ok>Continue</button><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-x>Cancel</button></div>`;
+    const inp = el.querySelector('input'); inp.focus();
+    const check = () => { if (+inp.value === n) { el.remove(); onPass(); } else ask(true); };
+    el.querySelector('[data-ok]').onclick = check; inp.onkeydown = e => { if (e.key === 'Enter') check(); };
+    el.querySelector('[data-x]').onclick = () => el.remove();
+  };
+  document.body.appendChild(el); ask(false);
+}
+
+function k_home() {
+  const done = K.dailyDone === dayKey();
+  h(`<div class="stack">
+    <div class="row" style="justify-content:space-between">
+      <button class="candy k-white pill" data-stickers>${star(18)} ${K.stickers.length} stickers</button>
+      <button class="candy k-white pill" data-grown aria-label="Grown-ups area">${I.lock('#1C1A4A')} Grown-ups</button>
+    </div>
+    <div class="row" style="gap:0">${buzz(140)}<div class="bubble" style="border-radius:20px">Hi! I'm Tally.<br>Let's find some sums!</div></div>
+    <h1 class="logo-k" aria-label="Beequation">${LET.map(([c, col]) => `<span style="color:${col}">${c}</span>`).join('')}</h1>
+    <button class="candy big k-grape" data-play>${I.play} Play</button>
+    <div class="worlds">${WORLDS.map(w => {
+      const earned = Array.from({ length: w.tiers }, (_, i) => K.stars[`${w.id}-${i + 1}`] || 0).reduce((a, b) => a + b, 0);
+      const g = w.glyph === 'hex' ? '<svg width="30" height="34" viewBox="0 0 30 34"><polygon points="15,2 28,9.5 28,24.5 15,32 2,24.5 2,9.5" fill="#fff" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/></svg>' : `<span class="glyph">${w.glyph}</span>`;
+      return `<button class="candy world" style="--c:${w.c};--l:${w.l}" data-world="${w.id}">${g}<b>${w.title}</b><small>${kStatus(w.id, 1) === 'paid' ? 'Unlock' : `★ ${earned} of ${w.tiers * 3}`}</small></button>`;
+    }).join('')}</div>
+    <button class="candy k-white" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px" data-daily>${I.cal}<span class="grow" style="text-align:left">Today's puzzle</span><span class="soft">${done ? 'Done ✓' : 'New!'}</span></button>
+    ${switchLink()}
+  </div>`);
+  on('[data-stickers]', () => go({ name: 'k_stickers' }));
+  on('[data-grown]', () => parentGate(() => go({ name: 'k_grown' })));
+  on('[data-world]', el => go({ name: 'k_world', mode: el.dataset.world }));
+  on('[data-daily]', () => go({ name: 'k_game', mode: 'add', tier: 3, daily: true }));
+  on('[data-play]', () => {
+    for (const w of WORLDS) for (let t = 1; t <= w.tiers; t++)
+      if (kStatus(w.id, t) === 'open' && !(K.stars[`${w.id}-${t}`] > 0)) return go({ name: 'k_game', mode: w.id, tier: t });
+    go({ name: 'k_world', mode: 'add' });
+  });
+  wireSwitch();
+}
+
+function k_world(r) {
+  const w = wOf(r.mode), anyPaid = Array.from({ length: w.tiers }, (_, i) => kStatus(r.mode, i + 1)).includes('paid');
+  h(`<div class="stack">${kTop(w.title)}
+    <div class="map">${Array.from({ length: w.tiers }, (_, i) => {
+      const t = i + 1, st = kStatus(r.mode, t), s = K.stars[`${r.mode}-${t}`] || 0;
+      const inner = st === 'paid' ? `<g transform="translate(31,37)">${I.lock('#1C1A4A', 34).replace('<svg', '<svg x="0" y="0"')}</g>`
+        : `<text x="48" y="56" text-anchor="middle" dominant-baseline="central" font-size="40" font-weight="700" fill="${st === 'open' ? '#1C1A4A' : '#8A93A6'}" font-family="Fredoka, ui-rounded, system-ui, sans-serif">${t}</text>`;
+      return `<button class="stone" data-t="${t}" data-st="${st}" aria-label="Level ${t}${st === 'paid' ? ', locked' : st === 'locked' ? ', not open yet' : `, ${s} stars`}">
+        ${hexSVG(96, st === 'open' ? w.c : '#DCE4EE', inner, st === 'open' ? w.l : '#BFCBD9')}
+        <div class="stars-row">${st === 'open' ? [1, 2, 3].map(n => star(22, n <= s)).join('') : ''}</div></button>`;
+    }).join('')}</div>
+    <div class="row" style="align-items:flex-end;gap:8px" ${anyPaid ? '' : 'hidden'} id="nudgeRow">${buzz(84)}<div class="bubble grow" style="margin-bottom:14px" id="nudge">More levels are waiting in the full game.</div></div>
+    ${anyPaid ? '<button class="candy mid k-lemon" data-ask>Ask a grown-up</button>' : ''}
+  </div>`);
+  on('[data-back]', back);
+  on('[data-t]', el => {
+    const st = el.dataset.st, t = +el.dataset.t, n = app.querySelector('#nudge');
+    if (st === 'open') return go({ name: 'k_game', mode: r.mode, tier: t });
+    app.querySelector('#nudgeRow').hidden = false;
+    n.textContent = st === 'paid' ? 'These levels are in the full game. Ask a grown-up!' : `Finish level ${t - 1} first. You can do it!`;
+  });
+  on('[data-ask]', () => parentGate(() => go({ name: 'k_grown' })));
+}
+
+function k_game(r) {
+  const L = level(r.mode, r.tier), w = wOf(r.mode);
+  const rng = r.daily ? dailyRng(dayKey(), 'kids') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
+  const CHEER = ['You can do it!', 'Take your time.', 'Find two that make a third!', 'Look at every number.'], YAY = ['Yes!', 'Great!', 'You got it!', 'Super!', 'Wow!'];
+  let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, mistakes = 0, hints = 0, marks = {}, say = CHEER[0], busy = false, done = false, puzzleAt = Date.now();
+  const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
+  function draw() {
+    const p = cur(), W = Math.min(app.clientWidth, 460);
+    const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
+    h(`<div class="stack">
+      <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="Back" data-back>${I.back('#1C1A4A')}</button><div class="dots" aria-label="Puzzle ${solved + 1} of ${L.roundLength}">${dots}</div></div>
+      <div class="card-k"><div class="soft">${r.daily ? "Today's puzzle" : `${w.title}, level ${r.tier}`}${item.kind === 'hive' ? (stage < 4 ? `, small comb ${stage + 1} of 4` : ', big comb!') : ''}</div>
+        <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? 'Now use your four answers!' : `Which number is two others ${p.op === 'add' ? 'added' : 'multiplied'} together?`}</div></div>
+      ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? fmt(v) : '?'}</text>`)).join('')}</div>` : ''}
+      <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
+      <div class="row" style="align-items:flex-end;gap:8px">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px" aria-live="polite">${say}</div></div>
+      <button class="candy mid k-lemon" data-hint>${I.bulb} Hint</button>
+    </div>`);
+    on('[data-back]', back); on('[data-hint]', () => hint(false)); wireBoard(tap);
+  }
+  function hint(auto) {
+    if (busy || Object.values(marks).includes('hint')) return;
+    if (!auto) hints++;
+    const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = `Psst! Try starting with ${fmt(p.cells[p.pair[0]])}.`; draw();
+  }
+  function tap(i) {
+    if (busy || done) return;
+    const p = cur();
+    if (i === p.answer) {
+      marks = { [p.pair[0]]: 'pair', [p.pair[1]]: 'pair', [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${equation(p)}`; busy = true; draw();
+      setTimeout(advance, 1100);
+    } else {
+      mistakes++; say = 'Oops! Try another one.';
+      marks = Object.fromEntries(Object.entries(marks).filter(([, v]) => v === 'hint')); marks[i] = 'wrong'; draw();
+      setTimeout(() => { if (marks[i] === 'wrong' && !done) { delete marks[i]; draw(); } }, 500);
+    }
+  }
+  function advance() {
+    if (done) return;
+    busy = false; marks = {}; puzzleAt = Date.now(); say = CHEER[(solved + stage + 1) % CHEER.length];
+    if (item.kind === 'hive' && stage < 4) { stage++; return draw(); }
+    solved++;
+    if (solved >= L.roundLength) return finish();
+    item = generate(r.mode, r.tier, rng); stage = 0; draw();
+  }
+  function finish() {
+    done = true;
+    const s = kidStars(mistakes, hints), id = `${r.mode}-${r.tier}`, sticker = !r.daily && s === 3 && !K.stickers.includes(id);
+    if (r.daily) K.dailyDone = dayKey(); else K.stars[id] = Math.max(K.stars[id] || 0, s);
+    if (sticker) K.stickers.push(id);
+    kSave();
+    replace({ name: 'k_win', res: { mode: r.mode, tier: r.tier, daily: !!r.daily, stars: s, hints, solved, sticker: sticker ? w.stickers[r.tier - 1] : '' } });
+  }
+  const t = setInterval(() => { if (!busy && !done && Date.now() - puzzleAt > 15000) hint(true); }, 1000);
+  cleanup = () => { clearInterval(t); done = true; };
+  draw();
+}
+
+function k_win(r) {
+  const x = r.res, w = wOf(x.mode), next = x.tier < w.tiers ? x.tier + 1 : null, nextOpen = next && kStatus(x.mode, next) === 'open';
+  const HEAD = ['', 'Well done!', 'Great job!', 'Amazing!'];
+  const conf = Array.from({ length: 24 }, (_, i) => { const c = CANDY[i % 6][0], s = 10 + (i % 3) * 4;
+    return `<div style="position:absolute;left:${(i * 53) % 420}px;top:${(i * 37) % 420}px;transform:rotate(${(i * 41) % 90}deg)" aria-hidden="true">${i % 3 === 0 ? hexSVG(s, c) : `<div style="width:${s}px;height:${s / 2}px;border-radius:3px;background:${c}"></div>`}</div>`; }).join('');
+  const helpLine = x.hints === 0 ? 'and needed no hints at all!' : x.hints === 1 ? 'and only needed 1 hint.' : `with ${x.hints} hints.`;
+  h(`${conf}<div class="stack win" style="position:relative;padding-top:50px;display:flex;flex-direction:column;align-items:center">
+    <div class="row" style="align-items:flex-start;gap:4px" aria-label="${x.stars} of 3 stars"><div style="margin-top:22px">${star(84, x.stars >= 1)}</div>${star(110, x.stars >= 2)}<div style="margin-top:22px">${star(84, x.stars >= 3)}</div></div>
+    <h1>${HEAD[x.stars]}</h1><p>You solved all ${x.solved} puzzles<br>${helpLine}</p>
+    ${x.daily ? '<p style="font-size:18px;color:#FFD84D">Come back tomorrow for a new one!</p>' : ''}
+    ${x.sticker ? `<div style="align-self:stretch;background:#fff;color:#1C1A4A;border-radius:26px;padding:16px;display:flex;align-items:center;gap:16px;box-shadow:0 6px 0 #3B24A8">
+      ${hexSVG(78, w.c, `<g transform="translate(18,24)">${star(42, true, '#fff')}</g>`)}<div><div style="font-size:15px;font-weight:600;color:#5A5688">New sticker!</div><div style="font-size:24px;font-weight:700">${x.sticker}</div><div style="font-size:15px;font-weight:600">Added to your sticker book</div></div></div>` : ''}
+    ${!x.daily && x.stars < 3 ? `<p style="font-size:16px;color:#E4DDFF">Get 3 stars to win this level's sticker.</p>` : ''}
+    <div style="align-self:stretch;margin-top:28px">
+      ${nextOpen ? '<button class="candy big k-lemon" style="font-size:26px" data-next>Next level</button>' : ''}
+      ${!x.daily ? '<button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-again>Play again</button>' : ''}
+      <button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-done>${x.daily ? 'Home' : 'Map'}</button>
+    </div></div>`);
+  on('[data-next]', () => replace({ name: 'k_game', mode: x.mode, tier: next }));
+  on('[data-again]', () => replace({ name: 'k_game', mode: x.mode, tier: x.tier }));
+  on('[data-done]', back);
+}
+
+function k_stickers() {
+  h(`<div class="stack">${kTop('My stickers')}<p class="soft" style="font-size:17px">Get 3 stars on a level to win its sticker.</p>
+    ${WORLDS.map(w => `<div class="card-k"><h2 style="font-size:20px;margin-bottom:12px">${w.title}</h2><div class="row" style="flex-wrap:wrap;align-items:flex-start">${w.stickers.map((n, i) => {
+      const got = K.stickers.includes(`${w.id}-${i + 1}`);
+      return `<div class="sticker" aria-label="${got ? n : n + ', not won yet'}">${hexSVG(64, got ? w.c : '#E6ECF3', got ? `<g transform="translate(16,21)">${star(32, true, '#fff')}</g>` : `<g transform="translate(21,26)">${I.lock('#9AA6B8', 22)}</g>`, got ? w.l : '')}<div style="color:${got ? 'inherit' : '#7C86A0'}">${got ? n : '???'}</div></div>`;
+    }).join('')}</div></div>`).join('')}</div>`);
+  on('[data-back]', back);
+}
+
+function k_grown() {
+  const total = WORLDS.reduce((n, w) => n + w.tiers, 0), free = WORLDS.reduce((n, w) => n + w.free, 0);
+  h(`<div class="stack">${kTop('For grown-ups')}
+    <div class="card-k stack"><h2 style="font-size:22px">${K.full ? 'Full game unlocked' : `Unlock all ${total} levels`}</h2>
+      <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? 'Thank you! Every world and level is open.' : `The free game has ${free} levels and a daily puzzle. One payment opens every level in all four worlds: harder sums, times tables up to 15, fractions, and Big Hive.`}</p>
+      <p style="font-size:16px;font-weight:500">No ads. No subscription. No data collected.</p>
+      ${K.full ? '<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>Back to the free version (preview only)</button>' : '<button class="candy mid k-grape" data-buy>Unlock for $3.99</button>'}
+      <p class="soft" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
+    <div class="card-k stack"><h2 style="font-size:22px">How it helps</h2><p style="font-size:16px;line-height:1.45;font-weight:500">Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Tally keep it calm, and stars count hints and slips gently, so there is no clock to beat.</p></div>
+    <div class="card-k stack"><h2 style="font-size:22px">Progress</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>Reset progress</button></div>
+  </div>`);
+  on('[data-back]', back);
+  on('[data-buy]', () => { K.full = true; kSave(); toast('Full game unlocked'); render(); });
+  on('[data-lock]', () => { K.full = false; kSave(); render(); });
+  on('[data-reset]', () => { if (confirm('Clear stars and stickers on this device?')) { K = { ...K, stars: {}, stickers: [], dailyDone: '' }; kSave(); toast('Progress reset'); } });
+}
+
+// ================= ADULT =================
+const AK = 'beequation.adult.v1';
+let P = load(AK, { full: false, stars: {}, blitz: {}, daily: {} });
+const aSave = () => store(AK, P);
+const aStatus = (mode, t) => (!level(mode, t).free && !P.full) ? 'paid' : (t === 1 || (P.stars[`${mode}-${t - 1}`] || 0) > 0) ? 'open' : 'locked';
+const PRACTICE = [['add', '+', 'Add'], ['mul', '×', 'Times'], ['neg', '−', 'Negatives'], ['frac', '½', 'Fractions'], ['mixed', '±', 'Mixed']];
+const LAUNCH = new Date(2026, 9, 1);
+const dailyNo = (d = new Date()) => Math.max(1, Math.round((new Date(d.getFullYear(), d.getMonth(), d.getDate()) - LAUNCH) / 864e5) + 1);
+const streak = () => { let d = P.daily[dayKey()] ? new Date() : addDays(new Date(), -1), n = 0; while (P.daily[dayKey(d)]) { n++; d = addDays(d, -1); } return n; };
+const DATE = new Intl.DateTimeFormat(undefined, { weekday: 'long', day: 'numeric', month: 'long' });
+const WD = new Intl.DateTimeFormat(undefined, { weekday: 'narrow' });
+const aTop = title => `<div class="row"><button class="icon-btn" aria-label="Back" data-back>${I.back('currentColor')}</button><h1 style="font-size:22px;letter-spacing:-.4px" class="grow">${title}</h1></div>`;
+const hexIcon = (w, fill, glyph = '', ink = '#fff') => hexSVG(w, fill, glyph ? `<text x="${w / 2}" y="${w * .58}" text-anchor="middle" dominant-baseline="central" font-size="${w * .52}" font-weight="700" fill="${ink}" font-family="Space Grotesk, ui-sans-serif, system-ui, sans-serif">${glyph}</text>` : '');
+
+function a_home() {
+  const today = P.daily[dayKey()], s = streak(), best = Math.max(0, ...Object.values(P.blitz));
+  h(`<div class="stack">
+    <div class="row" style="gap:10px">${hexIcon(26, '#FFB020')}<b class="grow" style="font-size:20px;letter-spacing:-.4px">Beequation</b>
+      ${s ? `<span class="chip" aria-label="${s}-day streak">${I.flame} ${s}</span>` : ''}<button class="icon-btn" aria-label="Settings" data-settings>${I.gear('currentColor')}</button></div>
+    <div class="hero"><div style="font-size:14px;color:#AEB6C4">Daily Pro, ${DATE.format(new Date())}</div>
+      <div style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">Hive No. ${dailyNo()}</div>
+      <div style="font-size:15px;color:#CBD1DB;line-height:1.4">${today ? `Done in ${fmtTime(today.seconds)}. A new hive opens at midnight.` : 'Ten mixed puzzles. Everyone plays the same ones today.'}</div>
+      ${today ? '<button class="btn b-dark" data-seedaily>See your result</button>' : '<button class="btn b-honey" data-daily>Play today\'s hive</button>'}</div>
+    <div class="tiles"><button class="tile blue" data-blitz>${I.bolt('#fff')}<b>60s Blitz</b><small>${best ? `Best ${best}` : 'Beat the clock'}</small></button>
+      <button class="tile" data-hive>${I.hex('currentColor')}<b>Big Hive</b><small>Expert, 4 into 1</small></button></div>
+    <div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:18px">Practice</b><span class="mute" style="font-size:14px">Highest level reached</span></div>
+    <div class="list" style="margin-top:10px">${PRACTICE.map(([id, g, t]) => {
+      const ls = levelsFor(id), d = ls.filter(l => (P.stars[l.id] || 0) > 0);
+      return `<button class="li" data-mode="${id}">${hexIcon(32, 'var(--a-ink)', g, 'var(--a-ground)')}<span class="grow"><span class="row" style="justify-content:space-between"><b style="font-weight:600">${t}</b><span class="mute" style="font-size:14px">${d.length ? d[d.length - 1].name : 'Not started'}</span></span><div class="bar"><i style="width:${d.length / ls.length * 100}%"></i></div></span></button>`;
+    }).join('')}</div>
+    ${switchLink()}
+  </div>`);
+  on('[data-settings]', () => go({ name: 'a_settings' }));
+  on('[data-daily]', () => go({ name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }));
+  on('[data-seedaily]', () => go({ name: 'a_result', res: { kind: 'daily', mode: 'mixed', tier: 5, seconds: today.seconds, slips: today.slips, solved: 10, dateKey: dayKey() } }));
+  on('[data-blitz]', () => go({ name: 'a_blitz' }));
+  on('[data-hive]', () => go({ name: 'a_levels', mode: 'hive' }));
+  on('[data-mode]', el => go({ name: 'a_levels', mode: el.dataset.mode }));
+  wireSwitch();
+}
+
+function a_levels(r) {
+  const m = MODES.find(x => x.id === r.mode);
+  h(`<div class="stack">${aTop(m.title)}<p class="mute" style="font-size:15px">${m.tagline}. Rounds of ${r.mode === 'hive' ? '3 hives' : '10 puzzles'}.</p>
+    <div class="lv-grid">${levelsFor(r.mode).map(l => {
+      const st = aStatus(r.mode, l.tier), s = P.stars[l.id] || 0;
+      return `<button class="lv ${st === 'open' ? '' : 'off'}" data-t="${l.tier}" data-st="${st}" aria-label="Level ${l.tier}, ${l.name}${st === 'paid' ? ', in the full version' : st === 'locked' ? ', locked' : `, ${s} stars`}">
+        <div class="n">${l.tier}</div><b style="font-size:18px">${l.name}</b><div class="mute" style="font-size:13px">${l.size} cells, ages ${l.ages}</div>
+        <div class="row" style="gap:6px;margin-top:8px;height:20px">${st === 'open' ? [1, 2, 3].map(n => hexSVG(16, n <= s ? '#FFB020' : 'var(--a-line)')).join('') : `${I.lock('#5B6474', 16)}<span class="mute" style="font-size:13px">${st === 'paid' ? 'Full version' : `Finish level ${l.tier - 1}`}</span>`}</div></button>`;
+    }).join('')}</div></div>`);
+  on('[data-back]', back);
+  on('[data-t]', el => { if (el.dataset.st === 'open') go({ name: 'a_game', mode: r.mode, tier: +el.dataset.t, kind: 'round' }); else if (el.dataset.st === 'paid') go({ name: 'a_settings' }); });
+}
+
+function a_blitz() {
+  h(`<div class="stack">${aTop('60-second blitz')}<p class="mute" style="font-size:15px;line-height:1.45">Solve as many as you can in a minute. A wrong tap costs 2 seconds. You play at your highest open level.</p>
+    <div class="list">${PRACTICE.map(([id, g, t]) => {
+      const tier = Math.max(1, ...levelsFor(id).map(l => l.tier).filter(x => aStatus(id, x) === 'open')), L = level(id, tier);
+      return `<button class="li" style="min-height:64px" data-m="${id}" data-t="${tier}">${hexIcon(34, '#2B50E8', g)}<span class="grow"><b style="font-weight:600;display:block">${t}</b><span class="mute" style="font-size:13px">${L.name}, level ${tier}</span></span><b style="font-weight:600">Best ${P.blitz[L.id] || 0}</b></button>`;
+    }).join('')}</div></div>`);
+  on('[data-back]', back);
+  on('[data-m]', el => go({ name: 'a_game', mode: el.dataset.m, tier: +el.dataset.t, kind: 'blitz' }));
+}
+
+function a_game(r) {
+  const L = level(r.mode, r.tier), blitz = r.kind === 'blitz';
+  const rng = r.kind === 'daily' ? dailyRng(dayKey(), 'pro') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
+  let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, slips = [], curSlips = 0, run = 0, marks = {}, eq = '', busy = false, done = false;
+  const startAt = Date.now(); let endAt = Date.now() + 60000;
+  const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
+  const clock = () => { const n = Date.now(); if (blitz) return `0:${String(Math.max(0, Math.ceil((endAt - n) / 1000))).padStart(2, '0')}`; return fmtTime(Math.floor((n - startAt) / 1000)); };
+  function draw() {
+    const p = cur(), W = Math.min(app.clientWidth, 460), left = Math.max(0, endAt - Date.now());
+    h(`<div class="stack">
+      <div class="row"><button class="icon-btn" aria-label="Quit" data-back>${I.close('#F2F4F8')}</button>
+        <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? 'solved' : r.kind === 'daily' ? 'Daily Pro' : `${L.name} ${L.tier}`}</div></div>
+        <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
+      ${blitz ? `<div class="timer"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
+      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute)">${item.kind === 'hive' ? (stage < 4 ? `Small comb ${stage + 1} of 4` : 'Final comb: your four answers') : `Find the ${p.op === 'add' ? 'sum' : 'product'}`}</span>
+        ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${run} in a row</span>` : ''}</div>
+      ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? fmt(v) : '?'}</div>`).join('')}</div>` : ''}
+      <div class="eqline" aria-live="polite">${eq}</div>
+      <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .4 : .48), 'adult')}</div>
+      ${blitz ? '<p style="text-align:center;font-size:14px;color:var(--night-mute)">A wrong tap costs 2 seconds</p>' : ''}
+    </div>`);
+    on('[data-back]', back); wireBoard(tap);
+  }
+  function tap(i) {
+    if (busy || done) return;
+    const p = cur();
+    if (i === p.answer) {
+      run = curSlips === 0 ? run + 1 : 1;
+      marks = { [p.pair[0]]: 'pair', [p.pair[1]]: 'pair', [i]: 'correct' }; eq = equation(p); busy = true; draw();
+      setTimeout(advance, blitz ? 320 : 600);
+    } else {
+      curSlips++; run = 0; if (blitz) endAt -= 2000;
+      marks = { [i]: 'wrong' }; draw();
+      setTimeout(() => { if (marks[i] === 'wrong' && !done) { delete marks[i]; draw(); } }, 400);
+    }
+  }
+  function advance() {
+    if (done) return;
+    busy = false; marks = {}; eq = '';
+    if (item.kind === 'hive' && stage < 4) { stage++; return draw(); }
+    solved++; slips.push(curSlips); curSlips = 0;
+    if (!blitz && solved >= L.roundLength) return finish();
+    item = generate(r.mode, r.tier, rng); stage = 0; draw();
+  }
+  function finish() {
+    if (done) return; done = true;
+    const seconds = Math.round((Date.now() - startAt) / 1000), mistakes = slips.reduce((a, b) => a + b, 0);
+    const st = blitz ? 0 : stars(L, seconds, mistakes, false), prevBest = P.blitz[L.id] || 0, today = dayKey();
+    if (r.kind === 'round') P.stars[L.id] = Math.max(P.stars[L.id] || 0, st);
+    if (r.kind === 'daily' && !P.daily[today]) P.daily[today] = { seconds, slips };
+    if (blitz) P.blitz[L.id] = Math.max(prevBest, solved);
+    aSave();
+    replace({ name: 'a_result', res: { kind: r.kind, mode: r.mode, tier: r.tier, seconds, slips, solved, mistakes, stars: st, best: Math.max(prevBest, solved), newBest: blitz && solved > prevBest, dateKey: today } });
+  }
+  const t = setInterval(() => {
+    if (done) return;
+    const c = document.getElementById('clock'); if (c) c.textContent = clock();
+    const b = document.getElementById('tbar'); if (b) b.style.width = `${Math.max(0, endAt - Date.now()) / 600}%`;
+    if (blitz && Date.now() >= endAt) finish();
+  }, 200);
+  cleanup = () => { clearInterval(t); done = true; };
+  draw();
+}
+
+function a_result(r) {
+  const x = r.res, L = level(x.mode, x.tier), isDaily = x.kind === 'daily', isBlitz = x.kind === 'blitz';
+  const no = dailyNo(new Date(x.dateKey + 'T12:00')), s = streak();
+  const maxT = MODES.find(m => m.id === x.mode).tiers, next = x.kind === 'round' && x.tier < maxT ? x.tier + 1 : null;
+  const prevKeys = Object.keys(P.daily).filter(k => k < x.dateKey).sort(), prev = prevKeys.length ? P.daily[prevKeys[prevKeys.length - 1]].seconds : null;
+  const slipC = n => n === 0 ? '#FFB020' : n === 1 ? '#FFE0A3' : '#C9CFD9', slipE = n => n === 0 ? '🟧' : n === 1 ? '🟨' : '⬜';
+  let label, head, sub;
+  if (isDaily) { label = 'Daily Pro complete'; head = fmtTime(x.seconds); sub = prev === null ? 'Your first daily hive. Come back tomorrow.' : x.seconds < prev ? `${prev - x.seconds} seconds faster than last time` : x.seconds > prev ? `${x.seconds - prev} seconds slower than last time` : 'Same time as last time'; }
+  else if (isBlitz) { label = `${L.name} blitz`; head = `${x.solved} solved`; sub = x.newBest ? 'New personal best' : `Your best is ${x.best}`; }
+  else { label = `${L.name} ${L.tier} complete`; head = fmtTime(x.seconds); sub = `${x.mistakes === 1 ? '1 slip' : `${x.mistakes} slips`}. ${x.stars < 3 ? `For 3 stars: under ${fmtTime(L.par)} with at most 1 slip.` : 'Full marks.'}`; }
+  const week = Array.from({ length: 7 }, (_, i) => addDays(new Date(), i - 6));
+  h(`<div class="stack">
+    <div class="row" style="justify-content:flex-end"><button class="icon-btn" aria-label="Close" data-back>${I.close('currentColor')}</button></div>
+    <div><div class="mute" style="font-size:15px">${label}</div><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
+    ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? `Beequation No. ${no}` : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
+      <div class="hexrow">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
+      <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px">${[['First try', '#FFB020'], ['1 slip', '#FFE0A3'], ['2 or more', '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
+    ${isDaily ? `<div class="card-a"><div class="row" style="justify-content:space-between"><b>${s}-day streak</b><span class="mute" style="font-size:13px">Last 7 days</span></div>
+      <div class="week">${week.map((d, i) => `<div>${hexSVG(30, P.daily[dayKey(d)] ? (i === 6 ? '#2B50E8' : 'var(--a-ink)') : 'var(--a-line)')}<div style="margin-top:6px">${WD.format(d)}</div></div>`).join('')}</div></div>` : ''}
+    <div style="margin-top:28px">
+      ${isDaily || isBlitz ? `<button class="btn b-cobalt" data-share>${I.share} Share result</button>` : ''}
+      ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" data-next>Next: ${level(x.mode, next).name} ${next}</button>` : ''}
+      ${next && aStatus(x.mode, next) === 'paid' ? '<button class="btn b-cobalt" data-unlock>Unlock the next levels</button>' : ''}
+      ${!isDaily ? '<button class="btn b-plain" style="margin-top:12px" data-again>Play again</button>' : '<button class="btn b-plain" style="margin-top:12px" data-toblitz>Play a 60s blitz</button>'}
+    </div></div>`);
+  on('[data-back]', back);
+  on('[data-share]', async () => {
+    const grid = [x.slips.slice(0, 5), x.slips.slice(5, 10)].filter(a => a.length).map(a => a.map(slipE).join('')).join('\n');
+    const text = isDaily ? `Beequation No. ${no}  ${fmtTime(x.seconds)}\n${grid}` : `Beequation blitz: ${x.solved} solved in 60s (${MODES.find(m => m.id === x.mode).title}, ${L.name})`;
+    try { if (navigator.share) await navigator.share({ text }); else { await navigator.clipboard.writeText(text); toast('Result copied'); } } catch (e) {}
+  });
+  on('[data-next]', () => replace({ name: 'a_game', mode: x.mode, tier: next, kind: 'round' }));
+  on('[data-unlock]', () => replace({ name: 'a_settings' }));
+  on('[data-again]', () => replace({ name: 'a_game', mode: x.mode, tier: x.tier, kind: x.kind }));
+  on('[data-toblitz]', () => replace({ name: 'a_blitz' }));
+}
+
+function a_settings() {
+  const total = MODES.reduce((n, m) => n + levelsFor(m.id).length, 0), free = MODES.reduce((n, m) => n + levelsFor(m.id).filter(l => l.free).length, 0);
+  h(`<div class="stack">${aTop('Settings')}
+    <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? 'Full version' : `All ${total} levels, one payment`}</h2>
+      <p style="font-size:16px;line-height:1.45">${P.full ? 'Thank you. Every level is open.' : `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to Queen, including Big Hive expert puzzles.`}</p>
+      <p class="mute">Pay once. No ads, no subscription.</p>
+      ${P.full ? '<button class="btn b-plain" style="background:var(--a-ground)" data-lock>Back to the free version (preview only)</button>' : '<button class="btn b-cobalt" data-buy>Unlock for $2.99</button>'}
+      <p class="mute" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
+    <div class="card-a"><b style="font-size:18px">How to play</b><p style="font-size:16px;line-height:1.45">Every comb hides one number made from two others, by adding or multiplying. Tap it. Rounds are 10 puzzles; Big Hive makes you solve four combs, then a comb of their answers.</p></div>
+  </div>`);
+  on('[data-back]', back);
+  on('[data-buy]', () => { P.full = true; aSave(); toast('Full version unlocked'); render(); });
+  on('[data-lock]', () => { P.full = false; aSave(); render(); });
+}
+
+// ================= chooser =================
+function choose() {
+  h(`<div class="stack choose" style="padding-top:20px">
+    <h1>Beequation</h1><p class="mute" style="font-size:16px;line-height:1.45">Two apps built on the same puzzle. Pick one to try. You can switch at any time.</p>
+    <button class="pick" style="background:#EAF6FF;color:#1C1A4A;font-family:Fredoka,ui-rounded,system-ui,sans-serif" data-kids>
+      <span style="display:flex;gap:6px">${hexSVG(34, '#FFD84D', '', '#E0B21A')}${hexSVG(34, '#7EE8C6', '', '#3FC497')}${hexSVG(34, '#FFA8D2', '', '#EB72AC')}</span>
+      <b>Beequation Kids</b><span>Ages 5 to 12. Candy-coloured worlds, Tally the bee, stickers and no clock.</span></button>
+    <button class="pick" style="background:#12161F;color:#F2F4F8" data-adult>
+      <span style="display:flex;gap:6px">${hexSVG(34, '#222938')}${hexSVG(34, '#FFB020')}${hexSVG(34, '#222938')}</span>
+      <b style="font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif">Beequation</b><span style="color:#CBD1DB">Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.</span></button>
+    <p class="preview-note">Progress is saved in this browser only.</p>
+  </div>`);
+  on('[data-kids]', () => { stack = [{ name: 'k_home' }]; render(); });
+  on('[data-adult]', () => { stack = [{ name: 'a_home' }]; render(); });
+}
+
+const SCREENS = { choose, k_home, k_world, k_game, k_win, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_settings };
+render();
+</script>
+</body>
+</html>

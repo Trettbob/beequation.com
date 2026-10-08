@@ -1,0 +1,8 @@
+/* Self-hosted fonts (SIL Open Font Licence: see OFL-*.txt). Served from beequation.com, so no request goes to Google. */
+@font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 500; font-display: swap; src: url('/assets/fonts/Fredoka_500Medium.ttf') format('truetype'); }
+@font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 600; font-display: swap; src: url('/assets/fonts/Fredoka_600SemiBold.ttf') format('truetype'); }
+@font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 700; font-display: swap; src: url('/assets/fonts/Fredoka_700Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/SpaceGrotesk_400Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: swap; src: url('/assets/fonts/SpaceGrotesk_500Medium.ttf') format('truetype'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: swap; src: url('/assets/fonts/SpaceGrotesk_600SemiBold.ttf') format('truetype'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap; src: url('/assets/fonts/SpaceGrotesk_700Bold.ttf') format('truetype'); }

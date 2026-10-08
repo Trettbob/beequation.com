@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beequation: find the number made by two others</title>
+<meta name="description" content="Beequation and Beequation Kids: quick mental-maths puzzles for every age. No ads, no tracking, pay once.">
+<meta property="og:title" content="Beequation: find the number made by two others">
+<meta property="og:description" content="Beequation and Beequation Kids: quick mental-maths puzzles for every age. No ads, no tracking, pay once.">
+<meta property="og:image" content="https://beequation.com/assets/beequation-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#12161F">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+:root {
+  --ground: #EEF1F5; --card: #FFFFFF; --ink: #12161F; --mute: #5B6474; --line: #E3E7EE;
+  --cobalt: #2B50E8; --honey: #FFB020; --honey-ink: #12161F;
+  --night: #12161F; --night-cell: #222938; --night-ink: #F2F4F8; --night-mute: #9AA3B2;
+  --sky: #EAF6FF; --grape: #6A4BF5; --grape-lip: #3B24A8; --kid-ink: #1C1A4A; --kid-soft: #5A5688;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #0F131A; --card: #1A2030; --ink: #F2F4F8; --mute: #9AA3B2; --line: #2A3142; --cobalt: #7D95FF; }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 18px/1.55 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; }
+a { color: var(--cobalt); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, .cell:focus-visible { outline: 3px solid var(--honey); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.top { display: flex; align-items: center; gap: 22px; padding: 18px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 21px; letter-spacing: -0.4px; color: inherit; text-decoration: none; flex: 1; }
+.hex { width: 24px; height: 28px; background: var(--honey); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); flex: none; }
+.top a:not(.brand) { color: inherit; text-decoration: none; font-weight: 500; }
+.top a:not(.brand):hover { color: var(--honey); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 16px; font-weight: 700; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; }
+.btn.honey { background: var(--honey); color: var(--honey-ink); }
+.btn.plain { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 2px var(--line); }
+.doc { max-width: 720px; padding: 40px 0 20px; }
+.doc h1 { font-size: clamp(38px, 6vw, 56px); line-height: 1.02; letter-spacing: -2px; margin: 0 0 18px; }
+.doc h2 { font-size: 21px; margin: 30px 0 6px; }
+.doc p { margin: 0 0 12px; }
+footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--line); font-size: 15px; color: var(--mute); }
+footer .cols { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-bottom: 14px; }
+footer a { color: var(--mute); }
+footer a:hover { color: var(--ink); }
+</style>
+<style>
+.hero { background: var(--night); color: var(--night-ink); border-radius: 32px; padding: 52px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; margin-top: 8px; }
+.hero h1 { font-size: clamp(42px, 6.2vw, 74px); line-height: 0.98; letter-spacing: -2.5px; margin: 0; }
+.hero .lede { font-size: 20px; color: #CBD1DB; margin: 22px 0 28px; max-width: 30ch; }
+.hero .soon { display: block; margin-top: 16px; font-size: 15px; color: var(--night-mute); }
+.play { background: #0A0D13; border-radius: 26px; padding: 22px; }
+.play-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 15px; color: var(--night-mute); }
+.play-top b { color: var(--night-ink); font-weight: 600; }
+#board { display: block; width: 100%; height: auto; max-height: 420px; margin: 8px auto; touch-action: manipulation; }
+#board .cell { cursor: pointer; }
+#board .cell polygon { transition: fill .15s; }
+#board .cell:hover polygon.face { fill: #2C3446; }
+#board text { pointer-events: none; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-weight: 600; }
+#board .shake { animation: shake .3s; transform-box: fill-box; transform-origin: center; }
+@keyframes shake { 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+@media (prefers-reduced-motion: reduce) { #board .shake { animation: none; } #board .cell polygon { transition: none; } }
+.status { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.status p { margin: 0; font-size: 17px; }
+.status .eq { color: var(--honey); font-weight: 700; font-size: 24px; }
+.status .btn { min-height: 44px; padding: 0 16px; font-size: 15px; }
+section { margin-top: 96px; scroll-margin-top: 20px; }
+.sec-h { font-size: clamp(34px, 4.6vw, 52px); line-height: 1.02; letter-spacing: -1.6px; margin: 0 0 12px; }
+.sec-lede { color: var(--mute); font-size: 19px; max-width: 46ch; margin: 0 0 32px; }
+.apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.app { border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+.app img { width: 88px; height: 88px; border-radius: 21px; }
+.app h3 { font-size: 34px; letter-spacing: -1px; margin: 4px 0 0; line-height: 1.05; }
+.app .who { font-size: 16px; margin: 0; }
+.app ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.app li { display: flex; gap: 12px; align-items: flex-start; }
+.app li::before { content: ""; width: 14px; height: 16px; margin-top: 5px; flex: none; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: currentColor; }
+.app .foot { margin-top: auto; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 15px; }
+.app-adult { background: var(--card); }
+.app-adult .who { color: var(--mute); }
+.app-adult li::before { background: var(--honey); }
+.app-kids { background: #EAF6FF; color: #1C1A4A; font-family: Fredoka, ui-rounded, 'SF Pro Rounded', system-ui, sans-serif; position: relative; overflow: hidden; }
+.app-kids h3 { font-weight: 700; letter-spacing: 0; }
+.app-kids .who { color: #5A5688; font-weight: 600; }
+.app-kids li { font-weight: 500; }
+.app-kids li:nth-child(4n+1)::before { background: #E0B21A; } .app-kids li:nth-child(4n+2)::before { background: #3FC497; }
+.app-kids li:nth-child(4n+3)::before { background: #EB72AC; } .app-kids li:nth-child(4n+4)::before { background: #4FAEE8; }
+.app-kids .tally { position: absolute; right: 18px; top: 22px; width: 120px; }
+.app-kids .btn { background: #6A4BF5; color: #fff; box-shadow: 0 5px 0 #3B24A8; font-family: inherit; min-height: 48px; }
+.app-kids a:not(.btn) { color: #4A30C9; }
+.soon-tag { display: inline-block; font-size: 14px; font-weight: 600; padding: 4px 12px; border-radius: 99px; background: var(--ground); color: var(--mute); }
+.app-kids .soon-tag { background: #fff; color: #5A5688; }
+.promise { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 2px solid var(--ink); padding-top: 26px; }
+.promise h3 { font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -1px; margin: 0 0 8px; line-height: 1; }
+.promise p { margin: 0; color: var(--mute); max-width: 30ch; }
+.teach { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; background: var(--card); border-radius: 28px; padding: 40px; }
+.teach .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.teach img { width: 100%; max-width: 340px; display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 0 0 1px var(--line); background: #fff; }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding: 30px 22px; border-radius: 26px; }
+  .apps, .teach { grid-template-columns: 1fr; }
+  .teach { padding: 28px 22px; }
+  .promise { grid-template-columns: 1fr; gap: 22px; }
+  .app { padding: 26px 22px; }
+  .app-kids .tally { width: 84px; right: 12px; top: 16px; }
+  .top a:not(.brand) { font-size: 16px; }
+  .top { gap: 14px; }
+}
+@media (max-width: 420px) { .top a[href="/#teachers"] { display: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><span class="hex" aria-hidden="true"></span>Beequation</a><a href="/#apps">Apps</a><a href="/#teachers">Teachers</a><a href="/support.html">Support</a></nav></div>
+<main class="wrap">
+<section class="hero" style="margin-top:8px" aria-labelledby="hero-h">
+  <div>
+    <h1 id="hero-h">Find the number made by two others.</h1>
+    <p class="lede">Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.</p>
+    <a class="btn honey" href="/play.html">Play free in your browser</a>
+    <span class="soon">Coming soon to iPhone and Android. Follow <a href="https://www.instagram.com/beequationapp" style="color:var(--honey)">@beequationapp</a> for launch day.</span>
+  </div>
+  <div class="play" aria-labelledby="try-h">
+    <div class="play-top"><b id="try-h">Try one now</b><span id="count">Puzzle 1 of 6</span></div>
+    <svg id="board" role="group" aria-label="Puzzle board"></svg>
+    <div class="status" aria-live="polite"><p id="msg">Tap the number that's the sum of two others.</p><button class="btn honey" id="next" hidden>Next puzzle</button></div>
+    <noscript><p>Turn on JavaScript to play, or <a href="/play.html">open the full game</a>.</p></noscript>
+  </div>
+</section>
+
+<section id="apps" aria-labelledby="apps-h">
+  <h2 class="sec-h" id="apps-h">Two apps, one honeycomb</h2>
+  <p class="sec-lede">The same puzzle, made just right for grown-ups and for children.</p>
+  <div class="apps">
+    <article class="app app-adult" aria-labelledby="adult-h">
+      <img src="/assets/beequation-icon.png" alt="Beequation app icon">
+      <h3 id="adult-h">Beequation</h3>
+      <p class="who">For teens and adults</p>
+      <ul>
+        <li>A new numbered Daily Pro every day, with streaks and a result you can share</li>
+        <li>60-second blitz: solve as many as you can</li>
+        <li>40 levels from Egg to Queen, across adding, times, negatives, fractions and mixed</li>
+        <li>Big Hive: solve four combs, then a comb made of their answers</li>
+      </ul>
+      <div class="foot"><span class="soon-tag">iPhone and Android: coming soon</span><a href="/play.html">Play online</a></div>
+    </article>
+    <article class="app app-kids" aria-labelledby="kids-h">
+      <svg class="tally" viewBox="0 0 160 140" role="img" aria-label="Tally the bee">
+        <ellipse cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(-20 62 38)"/><ellipse cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(18 96 34)"/>
+        <ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="#1C1A4A" stroke-width="4"/><path d="M60 46 Q55 84 62 122" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/><path d="M84 42 Q78 84 86 126" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
+        <path d="M101 78 Q108 70 115 78" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><path d="M98 94 Q112 112 126 92" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="124" cy="86" r="6" fill="#FFA8D2"/>
+        <path d="M112 46 Q118 22 132 16" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="134" cy="15" r="6" fill="#1C1A4A"/><path d="M28 88 L16 92 L28 96" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <img src="/assets/beequation-kids-icon.png" alt="Beequation Kids app icon">
+      <h3 id="kids-h">Beequation Kids</h3>
+      <p class="who">For ages 5 to 12</p>
+      <ul>
+        <li>Four worlds: Adding Meadow, Times Garden, Fraction Forest and Big Hive</li>
+        <li>Tally the bee cheers them on and gives a hint when they're stuck</li>
+        <li>Stars and stickers to collect, and no clock to beat</li>
+        <li>No ads and no data collected. Purchases sit behind a grown-up check</li>
+      </ul>
+      <div class="foot"><span class="soon-tag">iPhone and Android: coming soon</span><a class="btn" href="/play.html">Try it free</a></div>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="promise-h">
+  <h2 class="sec-h" id="promise-h" style="margin-bottom:28px">Made to be trusted</h2>
+  <div class="promise">
+    <div><h3>No ads</h3><p>Not now, not ever. Nothing interrupts the puzzle.</p></div>
+    <div><h3>No tracking</h3><p>We don't collect personal data. Progress stays on your device.</p></div>
+    <div><h3>Pay once</h3><p>Play free, then unlock every level with one payment. No subscription.</p></div>
+  </div>
+</section>
+
+<section id="teachers" aria-labelledby="teach-h">
+  <div class="teach">
+    <div>
+      <h2 class="sec-h" id="teach-h">Free puzzles for your class</h2>
+      <p class="sec-lede" style="margin-bottom:0">A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.</p>
+      <div class="btns"><a class="btn honey" href="/assets/beequation-puzzle-pack-a4.pdf" download>Download (A4)</a><a class="btn plain" href="/assets/beequation-puzzle-pack-letter.pdf" download>Download (US Letter)</a></div>
+    </div>
+    <img src="/assets/pack-preview.png" alt="First page of the printable puzzle pack: twelve honeycomb puzzles with spaces to write the number sentence">
+  </div>
+</section>
+</main>
+<script>
+(() => {
+  const P = [{"op": "add", "cells": [10, 20, 14, 1, 15], "answer": 4, "pair": [2, 3]}, {"op": "add", "cells": [5, 15, 25, 17, 3, 1, 24], "answer": 2, "pair": [5, 6]}, {"op": "mul", "cells": [9, 36, 4, 2, 3], "answer": 1, "pair": [0, 2]}, {"op": "add", "cells": [30, 3, 40, 46, 37, 10, 8], "answer": 2, "pair": [0, 5]}, {"op": "mul", "cells": [4, 20, 6, 12, 2, 50, 95], "answer": 3, "pair": [2, 4]}, {"op": "add", "cells": [79, 45, 43, 35, 71, 18, 47, 27, 48], "answer": 1, "pair": [5, 7]}];
+  const ROWS = { 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1] };
+  const SQ3 = Math.sqrt(3), R = 50, W = SQ3 * R;
+  const svg = document.getElementById('board'), msg = document.getElementById('msg'), next = document.getElementById('next'), count = document.getElementById('count');
+  const NS = 'http://www.w3.org/2000/svg';
+  let i = 0, done = false;
+  const pts = (cx, cy, r) => Array.from({ length: 6 }, (_, k) => { const a = Math.PI / 3 * k - Math.PI / 2; return (cx + r * Math.cos(a)).toFixed(1) + ',' + (cy + r * Math.sin(a)).toFixed(1); }).join(' ');
+  function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; }
+  function draw() {
+    const p = P[i], rows = ROWS[p.cells.length], widest = Math.max(...rows);
+    const Wd = widest * W, H = (rows.length - 1) * 1.5 * R + 2 * R;
+    svg.setAttribute('viewBox', `0 0 ${Wd} ${H}`);
+    svg.replaceChildren();
+    let n = 0;
+    rows.forEach((cnt, row) => { for (let c = 0; c < cnt; c++, n++) {
+      const x = Wd / 2 + (c - (cnt - 1) / 2) * W, y = R + row * 1.5 * R, idx = n, v = String(p.cells[idx]);
+      const g = el('g', { class: 'cell', role: 'button', tabindex: '0', 'aria-label': v }, svg);
+      el('polygon', { class: 'face', points: pts(x, y, R * 0.94), fill: '#222938' }, g);
+      const t = el('text', { x, y: y + 1, 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': v.length > 2 ? 30 : 36, fill: '#F2F4F8' }, g);
+      t.textContent = v;
+      g.addEventListener('click', () => tap(idx, g));
+      g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(idx, g); } });
+    } });
+    count.textContent = `Puzzle ${i + 1} of ${P.length}`;
+    msg.className = ''; msg.textContent = `Tap the number that's the ${p.op === 'add' ? 'sum' : 'product'} of two others.`;
+    next.hidden = true; done = false;
+  }
+  function tap(idx, g) {
+    if (done) return;
+    const p = P[i], cells = svg.querySelectorAll('.cell');
+    if (idx === p.answer) {
+      done = true;
+      cells.forEach((c, k) => { const f = c.querySelector('polygon'), t = c.querySelector('text');
+        if (k === p.answer) { f.setAttribute('fill', '#FFB020'); t.setAttribute('fill', '#12161F'); }
+        else if (p.pair.includes(k)) { f.setAttribute('fill', '#4A3A17'); t.setAttribute('fill', '#FFD27A'); } });
+      msg.className = 'eq';
+      msg.textContent = `${p.cells[p.pair[0]]} ${p.op === 'add' ? '+' : '×'} ${p.cells[p.pair[1]]} = ${p.cells[p.answer]}`;
+      next.textContent = i < P.length - 1 ? 'Next puzzle' : 'Play the full game';
+      next.hidden = false;
+    } else {
+      g.classList.remove('shake'); void g.getBBox(); g.classList.add('shake');
+      msg.className = ''; msg.textContent = 'Not that one. Try again.';
+    }
+  }
+  next.addEventListener('click', () => { if (i < P.length - 1) { i++; draw(); svg.querySelector('.cell').focus(); } else { location.href = '/play.html'; } });
+  draw();
+})();
+</script>
+<div class="wrap"><footer>
+  <div class="cols">
+    <a class="brand" href="/" style="flex:none;color:var(--ink)"><span class="hex" aria-hidden="true"></span>Beequation</a>
+    <a href="/play.html">Play online</a><a href="/support.html">Support</a><a href="/privacy.html">Privacy</a>
+    <a href="https://www.instagram.com/beequationapp">Instagram</a><a href="https://www.tiktok.com/@beequationapp">TikTok</a><a href="https://www.youtube.com/@beequationapp">YouTube</a><a href="https://x.com/beequationapp">X</a>
+  </div>
+  <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number [COMPANY NUMBER]. Registered office: [REGISTERED OFFICE ADDRESS]. Contact: <a href="mailto:hello@beequation.com">hello@beequation.com</a>. © 2026 Trett Labs Limited.</p>
+</footer></div>
+</body></html>
