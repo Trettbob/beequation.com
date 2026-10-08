@@ -126,7 +126,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   <div class="play" aria-labelledby="try-h">
     <div class="play-top"><b id="try-h">Try one now</b><span id="count">Puzzle 1 of 6</span></div>
     <svg id="board" role="group" aria-label="Puzzle board"></svg>
-    <div class="status" aria-live="polite"><p id="msg">Tap the number that's the sum of two others.</p><button class="btn honey" id="next" hidden>Next puzzle</button></div>
+    <div class="status" aria-live="polite"><p id="msg">Tap the number two others add up to.</p><button class="btn honey" id="next" hidden>Next puzzle</button></div>
     <noscript><p>Turn on JavaScript to play, or <a href="/play.html">open the full game</a>.</p></noscript>
   </div>
 </section>
@@ -214,7 +214,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(idx, g); } });
     } });
     count.textContent = `Puzzle ${i + 1} of ${P.length}`;
-    msg.className = ''; msg.textContent = `Tap the number that's the ${p.op === 'add' ? 'sum' : 'product'} of two others.`;
+    msg.className = ''; msg.textContent = `Tap the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to.`;
     next.hidden = true; done = false;
   }
   function tap(idx, g) {

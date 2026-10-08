@@ -359,8 +359,8 @@ function genHive(rng     , t          )             {
 }
 
 const MODES                                                                  = [
-  { id: 'add', title: 'Add', tagline: 'Find the number that is the sum of two others', tiers: ADD.length },
-  { id: 'mul', title: 'Times', tagline: 'Find the product of two others', tiers: MUL.length },
+  { id: 'add', title: 'Add', tagline: 'Find the number two others add up to', tiers: ADD.length },
+  { id: 'mul', title: 'Times', tagline: 'Find the number two others multiply to', tiers: MUL.length },
   { id: 'neg', title: 'Negatives', tagline: 'Sums with numbers below zero', tiers: NEG.length },
   { id: 'frac', title: 'Fractions', tagline: 'Add fractions in your head', tiers: FRAC.length },
   { id: 'mixed', title: 'Mixed', tagline: 'Plus or times — it changes every puzzle', tiers: 6 },
@@ -803,7 +803,7 @@ function a_game(r) {
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? 'solved' : r.kind === 'daily' ? 'Daily Pro' : `${L.name} ${L.tier}`}</div></div>
         <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
       ${blitz ? `<div class="timer"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
-      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute)">${item.kind === 'hive' ? (stage < 4 ? `Small comb ${stage + 1} of 4` : 'Final comb: your four answers') : `Find the ${p.op === 'add' ? 'sum' : 'product'}`}</span>
+      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? `Small comb ${stage + 1} of 4` : 'Final comb: your four answers') : `Find the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to`}</span>
         ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${run} in a row</span>` : ''}</div>
       ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? fmt(v) : '?'}</div>`).join('')}</div>` : ''}
       <div class="eqline" aria-live="polite">${eq}</div>
