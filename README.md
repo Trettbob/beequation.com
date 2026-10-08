@@ -12,7 +12,8 @@ The customer website for Beequation and Beequation Kids. Plain static files: no 
 Fonts (Fredoka and Space Grotesk, SIL Open Font Licence) are self-hosted in `assets/fonts/`, so the site makes no
 requests to Google or any other third party.
 
-Replace before going live: `[COMPANY NUMBER]` and `[REGISTERED OFFICE ADDRESS]` in the footer of each page, and `[DATE]` in privacy.html.
+Company details (number 17310137, registered office from Companies House) are filled in. Replace before going live:
+`[DATE]` in privacy.html.
 When the apps are live, swap the "coming soon" tags on the home page for App Store and Google Play links.
 
 ## Hosting on GitHub Pages (free)
