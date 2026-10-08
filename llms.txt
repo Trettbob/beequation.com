@@ -1,6 +1,6 @@
 # Beequation
 
-> Beequation is a mental maths puzzle game by Trett Labs Limited (UK). Each honeycomb of numbers hides exactly one number that two others add up to (or multiply to); the player finds and taps it. There are two apps: Beequation Kids (ages 5 to 12) and Beequation (teens and adults), plus a free browser version. No ads, no tracking, no personal data collected; free to try with a one-off payment to unlock every level.
+> Beequation is a mental maths puzzle game by Trett Labs Limited (UK). Each honeycomb of numbers hides exactly one number that two others add up to (or multiply to); the player finds and taps it. There are two apps: Beequation Kids (ages 5 to 12) and Beequation (teens and adults), plus a free browser version. No ads, no tracking, no personal data collected; free to try, with a monthly or yearly subscription (7-day free trial) or a one-off Lifetime purchase to unlock every level.
 
 - [Play free online](https://beequation.com/play.html): the browser game, with both the kids and adult versions
 - [How to play](https://beequation.com/how-to-play.html): rules, worked examples and tips

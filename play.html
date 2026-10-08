@@ -737,8 +737,8 @@ function k_grown() {
   const total = WORLDS.reduce((n, w) => n + w.tiers, 0), free = WORLDS.reduce((n, w) => n + w.free, 0);
   h(`<div class="stack">${kTop('For grown-ups')}
     <div class="card-k stack"><h2 style="font-size:22px">${K.full ? 'Full game unlocked' : `Unlock all ${total} levels`}</h2>
-      <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? 'Thank you! Every world and level is open.' : `The free game has ${free} levels and a daily puzzle. One payment opens every level in all four worlds: harder sums, times tables up to 15, fractions, and Big Hive.`}</p>
-      <p style="font-size:16px;font-weight:500">No ads. No subscription. No data collected.</p>
+      <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? 'Thank you! Every world and level is open.' : `The free game has ${free} levels and a daily puzzle. Subscribe, or buy Lifetime once, to open every level in all four worlds: harder sums, times tables up to 15, fractions, and Big Hive.`}</p>
+      <p style="font-size:16px;font-weight:500">From £2.99 a month, with 7 days free. No ads. No data collected. Cancel any time.</p>
       ${K.full ? '<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>Back to the free version (preview only)</button>' : '<button class="candy mid k-grape" data-buy>Unlock full game</button>'}
       <p class="soft" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
     <div class="card-k stack"><h2 style="font-size:22px">How it helps</h2><p style="font-size:16px;line-height:1.45;font-weight:500">Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Tally keep it calm, and stars count hints and slips gently, so there is no clock to beat.</p></div>
@@ -918,9 +918,9 @@ function a_result(r) {
 function a_settings() {
   const total = MODES.reduce((n, m) => n + levelsFor(m.id).length, 0), free = MODES.reduce((n, m) => n + levelsFor(m.id).filter(l => l.free).length, 0);
   h(`<div class="stack">${aTop('Settings')}
-    <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? 'Full version' : `All ${total} levels, one payment`}</h2>
+    <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? 'Full version' : `All ${total} levels`}</h2>
       <p style="font-size:16px;line-height:1.45">${P.full ? 'Thank you. Every level is open.' : `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to Queen, including Big Hive expert puzzles.`}</p>
-      <p class="mute">Pay once. No ads, no subscription.</p>
+      <p class="mute">From £2.99 a month or £29.99 a year, with 7 days free, or Lifetime. No ads. Cancel any time.</p>
       ${P.full ? '<button class="btn b-plain" style="background:var(--a-ground)" data-lock>Back to the free version (preview only)</button>' : '<button class="btn b-cobalt" data-buy>Unlock full version</button>'}
       <p class="mute" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
     <div class="card-a"><b style="font-size:18px">How to play</b><p style="font-size:16px;line-height:1.45">Every comb hides one number made from two others, by adding or multiplying. Tap it. Rounds are 10 puzzles; Big Hive makes you solve four combs, then a comb of their answers.</p></div>
