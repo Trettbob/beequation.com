@@ -545,12 +545,15 @@ const LET = [['B', '#6A4BF5'], ['e', '#F2545B'], ['e', '#1E8FE0'], ['q', '#E07A1
 const kTop = title => `<div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none" aria-label="Back" data-back>${I.back('#1C1A4A')}</button><h1 style="font-size:28px;flex:1">${title}</h1></div>`;
 
 function parentGate(onPass) {
+  // Same check as the apps: a four-digit number written in words, hard for 5-12 year olds to read.
   const ONES = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  const TEENS = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+  const words = n => { const r = n % 100, tail = r < 20 ? TEENS[r - 10] : TENS[Math.floor(r / 10)] + (r % 10 ? '-' + ONES[r % 10] : ''); return `${ONES[Math.floor(n / 1000)]} thousand, ${ONES[Math.floor(n / 100) % 10]} hundred and ${tail}`; };
   const el = document.createElement('div'); el.className = 'scrim';
   const ask = miss => {
-    const t = 2 + Math.floor(Math.random() * 8), o = 1 + Math.floor(Math.random() * 9), n = t * 10 + o;
+    const d = () => 1 + Math.floor(Math.random() * 9), n = d() * 1000 + d() * 100 + 10 + Math.floor(Math.random() * 90);
     el.innerHTML = `<div class="gate" role="dialog" aria-modal="true" aria-label="Grown-ups only"><h2 style="font-size:26px">Grown-ups only</h2><div style="font-size:17px">Type this number using digits:</div>
-      <div style="font-size:30px;font-weight:700;color:#6A4BF5">${TENS[t]}-${ONES[o]}</div><input inputmode="numeric" maxlength="2" aria-label="Answer" autocomplete="off">
+      <div style="font-size:24px;line-height:1.25;font-weight:700;color:#6A4BF5">${words(n)}</div><input inputmode="numeric" maxlength="4" aria-label="Answer in digits" autocomplete="off">
       ${miss ? '<div style="color:#F2545B;font-weight:600">That\'s not it. Try the new number.</div>' : ''}
       <button class="candy mid k-grape" data-ok>Continue</button><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-x>Cancel</button></div>`;
     const inp = el.querySelector('input'); inp.focus();
@@ -711,7 +714,7 @@ function k_grown() {
     <div class="card-k stack"><h2 style="font-size:22px">${K.full ? 'Full game unlocked' : `Unlock all ${total} levels`}</h2>
       <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? 'Thank you! Every world and level is open.' : `The free game has ${free} levels and a daily puzzle. One payment opens every level in all four worlds: harder sums, times tables up to 15, fractions, and Big Hive.`}</p>
       <p style="font-size:16px;font-weight:500">No ads. No subscription. No data collected.</p>
-      ${K.full ? '<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>Back to the free version (preview only)</button>' : '<button class="candy mid k-grape" data-buy>Unlock for $3.99</button>'}
+      ${K.full ? '<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>Back to the free version (preview only)</button>' : '<button class="candy mid k-grape" data-buy>Unlock full game</button>'}
       <p class="soft" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
     <div class="card-k stack"><h2 style="font-size:22px">How it helps</h2><p style="font-size:16px;line-height:1.45;font-weight:500">Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Tally keep it calm, and stars count hints and slips gently, so there is no clock to beat.</p></div>
     <div class="card-k stack"><h2 style="font-size:22px">Progress</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>Reset progress</button></div>
@@ -893,7 +896,7 @@ function a_settings() {
     <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? 'Full version' : `All ${total} levels, one payment`}</h2>
       <p style="font-size:16px;line-height:1.45">${P.full ? 'Thank you. Every level is open.' : `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to Queen, including Big Hive expert puzzles.`}</p>
       <p class="mute">Pay once. No ads, no subscription.</p>
-      ${P.full ? '<button class="btn b-plain" style="background:var(--a-ground)" data-lock>Back to the free version (preview only)</button>' : '<button class="btn b-cobalt" data-buy>Unlock for $2.99</button>'}
+      ${P.full ? '<button class="btn b-plain" style="background:var(--a-ground)" data-lock>Back to the free version (preview only)</button>' : '<button class="btn b-cobalt" data-buy>Unlock full version</button>'}
       <p class="mute" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
     <div class="card-a"><b style="font-size:18px">How to play</b><p style="font-size:16px;line-height:1.45">Every comb hides one number made from two others, by adding or multiplying. Tap it. Rounds are 10 puzzles; Big Hive makes you solve four combs, then a comb of their answers.</p></div>
   </div>`);
