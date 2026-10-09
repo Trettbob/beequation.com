@@ -93,9 +93,9 @@ footer a:hover { color: var(--ink); }
   <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a class="em" href="/support.html" data-e="bW9jLm5vaXRhdXFlZWJAb2xsZWg=">email address</a>. © 2026 Trett Labs Limited.</p>
 </footer></div>
 <!--nav--><style>
-html{scroll-padding-top:84px}
+html{scroll-padding-top:84px;overflow-x:clip}
 .bq-top{position:sticky;top:0;z-index:28;background:var(--ground,#EEF1F5)}
-.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:-100vw;right:-100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
+.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
 .bq-top.scrolled::before{box-shadow:0 10px 18px -14px rgba(0,0,0,.45)}
 .bq-top .top{padding:12px 0}
 .bq-links{display:flex;align-items:center;gap:22px}

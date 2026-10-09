@@ -159,9 +159,9 @@ footer a:hover { color: var(--ink); }
 </footer></div>
 <script>document.addEventListener('click',function(e){document.querySelectorAll('.learnnav details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});</script>
 <!--nav--><style>
-html{scroll-padding-top:84px}
+html{scroll-padding-top:84px;overflow-x:clip}
 .bq-top{position:sticky;top:0;z-index:28;background:var(--ground,#EEF1F5)}
-.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:-100vw;right:-100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
+.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
 .bq-top.scrolled::before{box-shadow:0 10px 18px -14px rgba(0,0,0,.45)}
 .bq-top .top{padding:12px 0}
 .bq-links{display:flex;align-items:center;gap:22px}
