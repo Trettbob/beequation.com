@@ -98,7 +98,7 @@ LEARN_CSS = """
 .doc ul, .doc ol { padding-left: 22px; margin: 0 0 14px; } .doc li { margin: 0 0 6px; }
 .doc h3 { font-size: 18px; margin: 22px 0 4px; }
 .doc dl { margin: 0 0 18px; } .doc dt { font-weight: 700; font-size: 18px; margin: 16px 0 2px; scroll-margin-top: 16px; } .doc dd { margin: 0; color: var(--ink); }
-.doc dt:target { color: var(--honey); }
+.doc dt:target { color: var(--cobalt); }
 .crumbs { font-size: 15px; color: var(--mute); margin: 0 0 14px; } .crumbs a { color: inherit; }
 .kicker { font: 600 14px/1.2 inherit; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); margin: 0 0 8px; }
 .learnnav { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 4px 0 10px; }
