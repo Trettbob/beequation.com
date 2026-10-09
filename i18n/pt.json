@@ -11,7 +11,7 @@
  "Mental maths puzzle game for kids and adults": "Jogo de cálculo mental para crianças e adultos",
  "Find the number made by two others.": "Ache o número formado por outros dois.",
  "Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.": "Cada favo esconde um número que é a soma (ou o produto) de outros dois. Ache rápido. Beequation é cálculo mental rápido para todas as idades, dos 5 anos aos especialistas.",
- "Tap the number two others add up to.": "Toque no número que é a soma de outros dois.",
+ "Tap the number two others <b class=\"act\">add up to</b>.": "Toque no número que é a <b class=\"act\">soma</b> de outros dois.",
  "Next puzzle": "Próximo desafio",
  "Turn on JavaScript to play, or <a href=\"/play.html\">open the full game</a>.": "Ative o JavaScript para jogar, ou <a href=\"/play.html\">abra o jogo completo</a>.",
  "Two apps, one honeycomb": "Dois apps, um só favo",
@@ -180,7 +180,7 @@
  "Language": "Idioma",
  "__js__": {
   "`Puzzle ${i + 1} of ${P.length}`": "`Desafio ${i + 1} de ${P.length}`",
-  "`Tap the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to.`": "(p.op === 'add' ? 'Toque no número que é a soma de outros dois.' : 'Toque no número que é o produto de outros dois.')",
+  "(p.op === 'add' ? 'Tap the number two others <b class=\"act\">add up to</b>.' : 'Tap the number two others <b class=\"act\">multiply to</b>.')": "(p.op === 'add' ? 'Toque no número que é a <b class=\"act\">soma</b> de outros dois.' : 'Toque no número que é o <b class=\"act\">produto</b> de outros dois.')",
   "'Next puzzle'": "'Próximo desafio'",
   "'Play the full game'": "'Jogar o jogo completo'",
   "'Not that one. Try again.'": "'Esse não. Tente de novo.'"

@@ -653,7 +653,7 @@ function k_game(r) {
     h(`<div class="stack">
       <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="Back" data-back>${I.back('#1C1A4A')}</button><div class="dots" aria-label="Puzzle ${solved + 1} of ${L.roundLength}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? "Today's puzzle" : `${w.title}, level ${r.tier}`}${item.kind === 'hive' ? (stage < 4 ? `, small comb ${stage + 1} of 4` : ', big comb!') : ''}</div>
-        <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? 'Now use your four answers!' : `Which number is two others ${p.op === 'add' ? 'added' : 'multiplied'} together?`}</div></div>
+        <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? 'Now use your four answers!' : `Which number is two others <span style="color:var(--grape);text-decoration:underline">${p.op === 'add' ? 'added' : 'multiplied'}</span> together?`}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? fmt(v) : '?'}</text>`)).join('')}</div>` : ''}
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
       <div class="row" style="align-items:flex-end;gap:8px">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px" aria-live="polite">${say}</div></div>
@@ -826,7 +826,7 @@ function a_game(r) {
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? 'solved' : r.kind === 'daily' ? 'Daily Pro' : `${L.name} ${L.tier}`}</div></div>
         <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
       ${blitz ? `<div class="timer"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
-      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? `Small comb ${stage + 1} of 4` : 'Final comb: your four answers') : `Find the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to`}</span>
+      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? `Small comb ${stage + 1} of 4` : 'Final comb: your four answers') : `Find the number two others <b style="color:var(--honey)">${p.op === 'add' ? 'add up to' : 'multiply to'}</b>`}</span>
         ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${run} in a row</span>` : ''}</div>
       ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? fmt(v) : '?'}</div>`).join('')}</div>` : ''}
       <div class="eqline" aria-live="polite">${eq}</div>

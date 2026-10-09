@@ -58,6 +58,7 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: cent
 footer a { color: var(--mute); }
 footer a:hover { color: var(--ink); }
 .lang { position: relative; } .lang summary { list-style: none; cursor: pointer; font-weight: 600; padding: 3px 10px; border-radius: 10px; box-shadow: inset 0 0 0 1.5px var(--line); } .lang summary::-webkit-details-marker { display: none; } .lang .langs { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 6px; display: grid; min-width: 150px; z-index: 20; } .lang .langs a { padding: 8px 12px; border-radius: 8px; } .lang .langs a:hover { background: var(--ground); } .lang .langs a[aria-current] { font-weight: 700; }
+.act { color: var(--honey); font-weight: 700; }
 </style>
 <style>
 .hero { background: var(--night); color: var(--night-ink); border-radius: 32px; padding: 52px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; margin-top: 8px; }
@@ -137,7 +138,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   <div class="play" aria-labelledby="try-h">
     <div class="play-top"><b id="try-h">Try one now</b><span id="count">Puzzle 1 of 6</span></div>
     <svg id="board" role="group" aria-label="Puzzle board"></svg>
-    <div class="status" aria-live="polite"><p id="msg">Tap the number two others add up to.</p><button class="btn honey" id="next" hidden>Next puzzle</button></div>
+    <div class="status" aria-live="polite"><p id="msg">Tap the number two others <b class="act">add up to</b>.</p><button class="btn honey" id="next" hidden>Next puzzle</button></div>
     <noscript><p>Turn on JavaScript to play, or <a href="/play.html">open the full game</a>.</p></noscript>
   </div>
 </section>
@@ -225,7 +226,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(idx, g); } });
     } });
     count.textContent = `Puzzle ${i + 1} of ${P.length}`;
-    msg.className = ''; msg.textContent = `Tap the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to.`;
+    msg.className = ''; msg.innerHTML = (p.op === 'add' ? 'Tap the number two others <b class="act">add up to</b>.' : 'Tap the number two others <b class="act">multiply to</b>.');
     next.hidden = true; done = false;
   }
   function tap(idx, g) {

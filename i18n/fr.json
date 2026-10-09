@@ -11,7 +11,7 @@
  "Mental maths puzzle game for kids and adults": "Jeu de calcul mental pour enfants et adultes",
  "Find the number made by two others.": "Trouvez le nombre formé par deux autres.",
  "Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.": "Dans chaque groupe d’alvéoles, un nombre est obtenu en additionnant (ou en multipliant) deux autres. Repérez-le vite. Beequation, c’est du calcul mental rapide pour tous les âges, de 5 ans aux experts.",
- "Tap the number two others add up to.": "Touchez le nombre obtenu en additionnant deux autres.",
+ "Tap the number two others <b class=\"act\">add up to</b>.": "Touchez le nombre obtenu en <b class=\"act\">additionnant</b> deux autres.",
  "Next puzzle": "Grille suivante",
  "Turn on JavaScript to play, or <a href=\"/play.html\">open the full game</a>.": "Activez JavaScript pour jouer, ou <a href=\"/play.html\">ouvrez le jeu complet</a>.",
  "Two apps, one honeycomb": "Deux apps, une même ruche",
@@ -180,7 +180,7 @@
  "Language": "Langue",
  "__js__": {
   "`Puzzle ${i + 1} of ${P.length}`": "`Grille ${i + 1} sur ${P.length}`",
-  "`Tap the number two others ${p.op === 'add' ? 'add up' : 'multiply'} to.`": "(p.op === 'add' ? 'Touchez le nombre obtenu en additionnant deux autres.' : 'Touchez le nombre obtenu en multipliant deux autres.')",
+  "(p.op === 'add' ? 'Tap the number two others <b class=\"act\">add up to</b>.' : 'Tap the number two others <b class=\"act\">multiply to</b>.')": "(p.op === 'add' ? 'Touchez le nombre obtenu en <b class=\"act\">additionnant</b> deux autres.' : 'Touchez le nombre obtenu en <b class=\"act\">multipliant</b> deux autres.')",
   "'Next puzzle'": "'Grille suivante'",
   "'Play the full game'": "'Jouer au jeu complet'",
   "'Not that one. Try again.'": "'Pas celui-là. Réessayez.'"
