@@ -19,7 +19,7 @@ HTML_LANG = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR'}
 MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). The English site only offers, links to and
 # switches to these; add a code here once its site loads over https, then rebuild and commit.
-LIVE = set()
+LIVE = {'fr', 'es', 'de', 'pt'}
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
 def url_path(page): return '/' if page == 'index.html' else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()

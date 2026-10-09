@@ -63,7 +63,7 @@ footer a:hover { color: var(--ink); }
 </head>
 <body>
 <!--skip--><a class="skip" href="#main">Skip to content</a><style>.skip{position:absolute;left:12px;top:-60px;z-index:50;background:#FFB020;color:#12161F;font-weight:700;padding:10px 16px;border-radius:12px;text-decoration:none}.skip:focus{top:12px}</style><!--/skip-->
-<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><img class="hex" src="/assets/hexabee.svg" width="32" height="32" alt="">Beequation</a><a href="/#apps">Apps</a><a href="/how-to-play.html">How to play</a><a href="/learn/">Learn</a><a href="/teachers.html">Teachers</a><a href="/support.html">Support</a></nav></div>
+<div class="wrap"><nav class="top" aria-label="Main"><a class="brand" href="/"><img class="hex" src="/assets/hexabee.svg" width="32" height="32" alt="">Beequation</a><a href="/#apps">Apps</a><a href="/how-to-play.html">How to play</a><a href="/learn/">Learn</a><a href="/teachers.html">Teachers</a><a href="/support.html">Support</a><!--lang-menu--><details class="lang"><summary aria-label="Language">EN</summary><div class="langs"><a href="https://beequation.com/" lang="en" hreflang="en" data-lang="en" aria-current="true">English</a><a href="https://fr.beequation.com/" lang="fr" hreflang="fr" data-lang="fr">Français</a><a href="https://es.beequation.com/" lang="es" hreflang="es" data-lang="es">Español</a><a href="https://de.beequation.com/" lang="de" hreflang="de" data-lang="de">Deutsch</a><a href="https://pt.beequation.com/" lang="pt" hreflang="pt" data-lang="pt">Português</a></div></details><!--/lang-menu--></nav></div>
 <main id="main" class="wrap"><div class="doc"><h1>Accessibility</h1>
 <p>We want everyone to be able to enjoy Beequation, including people who use a screen reader, larger text, switch or voice control, or who find bright colours, motion or reading hard. This statement covers the Beequation Pro and Beequation Kids apps and this website.</p>
 <h2>The standard we follow</h2>
@@ -245,4 +245,5 @@ function say(l){bub.textContent=l[Math.floor(Math.random()*l.length)];bub.classL
 var sy=scrollY;function moved(){if(Math.abs(scrollY-sy)>40)down();}addEventListener('scroll',moved,{passive:true});w.firstChild.addEventListener('pointerdown',function(){say(SAY.boo);clearTimeout(t2);t2=setTimeout(down,700);});
 setTimeout(function(){w.classList.add('up');t1=setTimeout(function(){say(SAY.peek);},450);t2=setTimeout(down,4300);},30);}
 later(12000+Math.random()*8000);peekLater(30000+Math.random()*20000);}catch(e){}})();</script><!--/bee-->
+<!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->
 </body></html>
