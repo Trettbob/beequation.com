@@ -1,0 +1,47 @@
+---
+title: Free maths worksheets with answers: Reception to Year 6
+description: Free printable primary maths worksheets with answer sheets: number bonds, times tables, column methods, fractions, time, money, shapes, graphs and more, sorted by topic and year group.
+h1: Free maths worksheets
+nav: Worksheets
+kicker: Print, practise, check
+indie: Every worksheet has an answer sheet on page 2, so grown-ups can check in seconds. Pick a year group to see the right ones, then print as many as you like!
+layout: hub
+updated: 2026-10-09
+---
+<p style="max-width:720px">Every sheet is a free A4 PDF with Beequation Kids branding, a tip from Indie, and the answers on the second page. They're free to copy for home and classroom use.</p>
+
+<p class="yearfilter" role="group" aria-label="Show worksheets for">
+<button type="button" data-y="" aria-pressed="true">All years</button><button type="button" data-y="reception" aria-pressed="false">Reception</button><button type="button" data-y="year-1" aria-pressed="false">Year 1</button><button type="button" data-y="year-2" aria-pressed="false">Year 2</button><button type="button" data-y="year-3" aria-pressed="false">Year 3</button><button type="button" data-y="year-4" aria-pressed="false">Year 4</button><button type="button" data-y="year-5" aria-pressed="false">Year 5</button><button type="button" data-y="year-6" aria-pressed="false">Year 6</button>
+</p>
+<style>
+.yearfilter { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+.yearfilter button { font: 600 15px/1 inherit; font-family: inherit; padding: 9px 14px; border-radius: 12px; border: 0; cursor: pointer; background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.yearfilter button[aria-pressed="true"] { background: var(--honey); color: var(--honey-ink); box-shadow: none; }
+.wsgroup[hidden] { display: none; }
+</style>
+
+<section class="wsgroup"><h2><a href="/learn/topics/counting-and-place-value.html">Counting and place value</a></h2><worksheets topic="counting-and-place-value"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/addition-and-subtraction.html">Addition and subtraction</a></h2><worksheets topic="addition-and-subtraction"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/multiplication-and-division.html">Multiplication and division</a></h2><worksheets topic="multiplication-and-division"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/fractions.html">Fractions</a></h2><worksheets topic="fractions"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/decimals-and-percentages.html">Decimals and percentages</a></h2><worksheets topic="decimals-and-percentages"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/telling-the-time.html">Telling the time</a></h2><worksheets topic="telling-the-time"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/money.html">Money</a></h2><worksheets topic="money"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/measurement.html">Measurement</a></h2><worksheets topic="measurement"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/shape-and-geometry.html">Shape and geometry</a></h2><worksheets topic="shape-and-geometry"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/data-and-graphs.html">Data and graphs</a></h2><worksheets topic="data-and-graphs"/></section>
+<section class="wsgroup"><h2><a href="/learn/topics/algebra-and-ratio.html">Algebra and ratio</a></h2><worksheets topic="algebra-and-ratio"/></section>
+
+<h2>Honeycomb puzzle pack</h2>
+<p>For a change from rows of sums, our free <a href="/teachers.html">Beequation Kids puzzle pack</a> has 24 honeycomb puzzles for sums to 20 and times tables, with an answer key. Children hunt for the number made from two others, which builds fluency without feeling like a test.</p>
+
+<tip>Don't mark every question red or green. Ask your child to check three answers themselves with the inverse (add back after a take-away, divide after a times). Spotting their own mistake teaches more than being told.</tip>
+
+<try/>
+
+<script>
+(function(){var bs=document.querySelectorAll('.yearfilter button');bs.forEach(function(b){b.addEventListener('click',function(){var y=b.dataset.y;
+bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+document.querySelectorAll('.sheet').forEach(function(s){s.hidden=!!y&&s.dataset.years.split(' ').indexOf(y)<0;});
+document.querySelectorAll('.wsgroup').forEach(function(g){g.hidden=!g.querySelector('.sheet:not([hidden])');});});});})();
+</script>

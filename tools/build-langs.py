@@ -58,10 +58,11 @@ if(pick)location.replace('https://'+pick+'.beequation.com'+location.pathname+loc
 REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->"""
 
 # Indie (the Hexabee) flies across the page now and then: first after 12-20 s, then every 1-2 minutes. Visitors can
-# catch Indie with the mouse or a finger (Indie wriggles and smiles); let go and Indie flies off the way it was flung.
+# catch Indie with the mouse or a finger (she wriggles and smiles); let go and she flies off the way she was flung.
+# She says things in a speech bubble (SAY, per language) while flying, when caught and when let go.
 # Decoration only: hidden from screen readers, off with Reduce Motion and while the tab is hidden.
 BEE = """<!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
+var SAY=__SAY__,k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
 +'<defs><clipPath id="bqhb"><path d="'+hx+'"/></clipPath></defs>'
 +'<ellipse class="w" cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="'+k+'" stroke-width="3" transform="rotate(-20 42 28)"/>'
 +'<ellipse class="w" cx="60" cy="26" rx="12" ry="9.5" fill="#DFF1FF" stroke="'+k+'" stroke-width="3" transform="rotate(18 60 26)"/>'
@@ -73,34 +74,51 @@ var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewB
 +'<circle cx="76" cy="61" r="3" fill="#FFA8D2"/><circle cx="77" cy="15.5" r="3.2" fill="'+k+'"/>'
 +'<path d="M18 57 L11 60 L18 63" fill="'+k+'" stroke="'+k+'" stroke-width="2" stroke-linejoin="round"/></svg>';
 var st=document.createElement('style');st.textContent='.bq-bee{position:fixed;left:0;top:0;z-index:30;padding:14px;margin:-14px;cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;will-change:transform}'
++'.bq-bee .b{transform-origin:50% 50%}.bq-bee .say{position:absolute;left:62px;bottom:72px;padding:6px 11px;border-radius:14px;background:#fff;color:#1C1A4A;font:700 14px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.18);opacity:0;transform:scale(.6);transform-origin:0 100%;transition:opacity .2s,transform .2s;pointer-events:none}'
++'.bq-bee .say:after{content:"";position:absolute;left:10px;bottom:-6px;border:7px solid transparent;border-bottom:0;border-top-color:#fff}.bq-bee .say.on{opacity:1;transform:scale(1)}'
 +'.bq-bee svg{display:block}.bq-bee .w{transform-box:fill-box;transform-origin:50% 100%;animation:bqflap .11s ease-in-out infinite alternate}@keyframes bqflap{to{transform:scaleY(.4)}}'
 +'@media (prefers-color-scheme:dark){.bq-bee svg{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff)}}'
 +'.bq-bee .eh{display:none}.bq-bee.held{cursor:grabbing}.bq-bee.held .eh{display:inline}.bq-bee.held .eo{display:none}'
-+'.bq-bee.held svg{animation:bqwig .09s ease-in-out infinite alternate}.bq-bee.held .w{animation-duration:.06s}@keyframes bqwig{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}';
++'.bq-bee.held .b svg{animation:bqwig .09s ease-in-out infinite alternate}.bq-bee.held .w{animation-duration:.06s}@keyframes bqwig{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}';
 document.head.appendChild(st);
 function later(ms){setTimeout(fly,ms!=null?ms:60000+Math.random()*60000);}
 function fly(){if(document.hidden){document.addEventListener('visibilitychange',function v(){if(!document.hidden){document.removeEventListener('visibilitychange',v);later(4000+Math.random()*6000);}});return;}
-var el=document.createElement('div');el.className='bq-bee';el.setAttribute('aria-hidden','true');el.innerHTML=svg;document.body.appendChild(el);
+var el=document.createElement('div');el.className='bq-bee';el.setAttribute('aria-hidden','true');el.innerHTML='<div class="b">'+svg+'</div><div class="say"></div>';document.body.appendChild(el);
+var body=el.firstChild,bub=el.lastChild,said=0;function say(list,ms){bub.textContent=list[Math.floor(Math.random()*list.length)];bub.classList.add('on');clearTimeout(said);if(ms)said=setTimeout(function(){bub.classList.remove('on');},ms);}
 var W=innerWidth,H=innerHeight,ltr=Math.random()<.5,y0=H*(.12+Math.random()*.55),amp=18+Math.random()*30,dur=6000+Math.random()*3000;
-var mode='cross',t0=0,last=0,x=ltr?-90:W+90,y=y0,face=ltr?1:-1,tilt=0,vx=0,vy=0,gx=0,gy=0,trail=[];
-function draw(){el.style.transform='translate('+x+'px,'+y+'px) rotate('+(face*tilt)+'deg) scaleX('+face+')';}
+var sp0=0,mode='cross',t0=0,last=0,x=ltr?-90:W+90,y=y0,face=ltr?1:-1,tilt=0,vx=0,vy=0,gx=0,gy=0,trail=[];
+function draw(){el.style.transform='translate('+x+'px,'+y+'px)';body.style.transform='rotate('+(face*tilt)+'deg) scaleX('+face+')';}
 function gone(){el.remove();later();}
 function step(t){if(mode==='held')return;if(!t0)t0=t;if(!last)last=t;var dt=Math.min(50,t-last);last=t;
-if(mode==='cross'){var p=(t-t0)/dur;if(p>=1)return gone();x=ltr?-90+(W+180)*p:W+90-(W+180)*p;y=y0+Math.sin(p*Math.PI*4)*amp;tilt=Math.cos(p*Math.PI*4)*8;}
+if(mode==='cross'){var p=(t-t0)/dur;if(p>=1)return gone();if(p>.12&&!sp0){sp0=1;say(SAY.fly,2600);}x=ltr?-90+(W+180)*p:W+90-(W+180)*p;y=y0+Math.sin(p*Math.PI*4)*amp;tilt=Math.cos(p*Math.PI*4)*8;}
 else{vx*=1.03;vy*=1.03;x+=vx*dt;y+=vy*dt+Math.sin(t/90)*1.5;tilt=Math.max(-25,Math.min(25,vy*-20));
 if(x<-140||x>innerWidth+140||y<-140||y>innerHeight+140)return gone();}
 draw();requestAnimationFrame(step);}
 el.addEventListener('pointerdown',function(e){if(mode==='away')return;e.preventDefault();mode='held';el.classList.add('held');try{el.setPointerCapture(e.pointerId);}catch(_){}
-gx=e.clientX-x;gy=e.clientY-y;tilt=0;trail=[[e.clientX,e.clientY,e.timeStamp]];draw();});
+gx=e.clientX-x;gy=e.clientY-y;tilt=0;trail=[[e.clientX,e.clientY,e.timeStamp]];say(SAY.held);draw();});
 el.addEventListener('pointermove',function(e){if(mode!=='held')return;var nx=e.clientX-gx;if(Math.abs(nx-x)>2)face=nx>x?1:-1;x=nx;y=e.clientY-gy;
 trail.push([e.clientX,e.clientY,e.timeStamp]);if(trail.length>6)trail.shift();draw();});
 function release(e){if(mode!=='held')return;el.classList.remove('held');mode='away';var a=trail[0],b=trail[trail.length-1],ms=Math.max(16,b[2]-a[2]);
 vx=(b[0]-a[0])/ms;vy=(b[1]-a[1])/ms;var sp=Math.sqrt(vx*vx+vy*vy);
 if(sp<.25||e.timeStamp-b[2]>120){vx=(Math.random()<.5?-1:1)*.35;vy=-.25;sp=.43;}
-if(sp>1.6){vx*=1.6/sp;vy*=1.6/sp;}face=vx>=0?1:-1;last=0;t0=1;requestAnimationFrame(step);}
+if(sp>1.6){vx*=1.6/sp;vy*=1.6/sp;}face=vx>=0?1:-1;say(SAY.free,1200);last=0;t0=1;requestAnimationFrame(step);}
 el.addEventListener('pointerup',release);el.addEventListener('pointercancel',release);
 draw();requestAnimationFrame(step);}
 later(12000+Math.random()*8000);}catch(e){}})();</script><!--/bee-->"""
+
+# What Indie says in her speech bubble: while flying, when caught, and when let go.
+SAY = {
+  'en': {'fly': ["Catch me if you can!", "Hi! I'm Indie!", "Buzz buzz!", "Wheee!", "Maths is sweet!", "Can you spot the sum?", "7 + 3 = 10!"],
+         'held': ["You caught me!", "Hee hee, that tickles!", "Good catch!", "Oh! Hello there!"], 'free': ["Bye!", "Wheee!", "See you soon!"]},
+  'fr': {'fly': ["Attrape-moi si tu peux !", "Salut ! Je suis Indie !", "Bzz bzz !", "Youpi !", "Les maths, c'est trop bon !", "Tu vois la somme ?", "7 + 3 = 10 !"],
+         'held': ["Tu m'as attrapée !", "Hi hi, ça chatouille !", "Bien joué !", "Oh ! Bonjour !"], 'free': ["Au revoir !", "Youpi !", "À bientôt !"]},
+  'es': {'fly': ["¡Atrápame si puedes!", "¡Hola! ¡Soy Indie!", "¡Bzz bzz!", "¡Yupiii!", "¡Las mates son dulces!", "¿Ves la suma?", "¡7 + 3 = 10!"],
+         'held': ["¡Me atrapaste!", "¡Ji, ji, me haces cosquillas!", "¡Buena captura!", "¡Oh! ¡Hola!"], 'free': ["¡Adiós!", "¡Yupiii!", "¡Hasta pronto!"]},
+  'de': {'fly': ["Fang mich doch!", "Hallo! Ich bin Indie!", "Summ summ!", "Juhuuu!", "Mathe ist süß!", "Siehst du die Summe?", "7 + 3 = 10!"],
+         'held': ["Du hast mich!", "Hihi, das kitzelt!", "Gut gefangen!", "Oh! Hallo!"], 'free': ["Tschüss!", "Juhuuu!", "Bis bald!"]},
+  'pt': {'fly': ["Me pegue se puder!", "Oi! Eu sou a Indie!", "Bzz bzz!", "Uhuuu!", "Matemática é doce!", "Você vê a soma?", "7 + 3 = 10!"],
+         'held': ["Você me pegou!", "Hihi, faz cócegas!", "Boa pegada!", "Oh! Olá!"], 'free': ["Tchau!", "Uhuuu!", "Até logo!"]},
+}
 
 def strip_markers(s):
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee'):
@@ -116,7 +134,7 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace('</nav>', menu(lang, page, label) + '</nav>', 1)
     if page in PAGES and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang == 'en'), 1)
-    s = s.replace('</body>', BEE + '\n</body>', 1)
+    s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(SAY[lang], ensure_ascii=False)) + '\n</body>', 1)
     if lang == 'en':
         if page in PAGES and LIVE:
             s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + REDIRECT.replace("var L=['fr','es','de','pt']", 'var L=' + json.dumps(sorted(LIVE))), 1)
@@ -124,7 +142,9 @@ def chrome(src, lang, page, label='Language'):
     return s
 
 def update_english():
-    pages = [p for p in os.listdir(ROOT) if p.endswith('.html')] + ['learn/' + p for p in os.listdir(os.path.join(ROOT, 'learn')) if p.endswith('.html')]
+    pages = [p for p in os.listdir(ROOT) if p.endswith('.html')]
+    for dp, _, fs in os.walk(os.path.join(ROOT, 'learn')):   # the Learn section has sub-folders
+        pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
     for p in pages:
         s = rd(p)
         if '<nav class="top"' not in s: continue

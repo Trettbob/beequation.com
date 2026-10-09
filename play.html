@@ -139,6 +139,9 @@ h1, h2, p { margin: 0; }
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #12161F; color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 15px; z-index: 6; }
 .preview-note { font-size: 13px; opacity: .75; text-align: center; }
 [hidden] { display: none !important; }
+/* Indie keeps a dark outline in every theme: give it a light edge on dark grounds. */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) svg.bee { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); } }
+:root[data-theme="dark"] svg.bee { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); }
 </style>
 </head>
 <body>
@@ -484,17 +487,12 @@ const I = {
   bulb: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>`,
   cal: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6A4BF5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>`,
 };
-const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .875).toFixed(0)}" viewBox="0 0 160 140" role="img" aria-label="Indie the bee">
-  <ellipse cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(-20 62 38)"/>
-  <ellipse cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(18 96 34)"/>
-  <ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="#1C1A4A" stroke-width="4"/>
-  <path d="M60 46 Q55 84 62 122" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
-  <path d="M84 42 Q78 84 86 126" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
-  ${happy ? '<path d="M101 78 Q108 70 115 78" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/>' : '<circle cx="108" cy="76" r="7" fill="#1C1A4A"/><circle cx="110" cy="74" r="2.2" fill="#fff"/>'}
-  <path d="${happy ? 'M98 94 Q112 112 126 92' : 'M100 96 Q112 106 124 94'}" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="124" cy="86" r="6" fill="#FFA8D2"/>
-  <path d="M112 46 Q118 22 132 16" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="134" cy="15" r="6" fill="#1C1A4A"/>
-  <path d="M28 88 L16 92 L28 96" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/></svg>`;
+const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .875).toFixed(0)}" class="bee" viewBox="1 9 91.4 80" role="img" aria-label="Indie the bee">
+  <ellipse cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="3" transform="rotate(-20 42 28)"/><ellipse cx="60" cy="26" rx="12" ry="9.5" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="3" transform="rotate(18 60 26)"/>
+  <path d="M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z" fill="#FFD84D"/><rect x="35" y="34" width="7" height="52" fill="#1C1A4A"/><rect x="50" y="34" width="7" height="52" fill="#1C1A4A"/><path d="M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z" fill="none" stroke="#1C1A4A" stroke-width="3.5" stroke-linejoin="round"/>
+  ${happy ? '<path d="M64.5 57 Q68 52 71.5 57" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/>' : '<circle cx="68" cy="56" r="3.6" fill="#1C1A4A"/><circle cx="69" cy="55" r="1.1" fill="#fff"/>'}
+  <path d="${happy ? 'M62 65 Q69 74 76 64' : 'M63 66 Q69 71 75 65'}" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="76" cy="61" r="3" fill="#FFA8D2"/>
+  <path d="M64 34 Q68 20 76 16" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="77" cy="15.5" r="3.2" fill="#1C1A4A"/><path d="M18 57 L11 60 L18 63" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round"/></svg>`;
 function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
 
 // ---------- boards ----------
