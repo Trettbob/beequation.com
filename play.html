@@ -147,7 +147,7 @@ h1, h2, p { margin: 0; }
   <div style="padding-top:20px;font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;line-height:1.5">
     <h1 style="font-size:32px;letter-spacing:-1px;margin-bottom:12px">Play Beequation free online</h1>
     <p style="margin-bottom:10px">Beequation is a mental maths puzzle game. Every honeycomb hides one number that two others add up to, or multiply to. Find it and tap it.</p>
-    <p style="margin-bottom:10px">Choose <b>Beequation Kids</b> (ages 5 to 12, with Tally the bee, stars and stickers and no clock) or <b>Beequation</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.</p>
+    <p style="margin-bottom:10px">Choose <b>Beequation Kids</b> (ages 5 to 12, with Indie the bee, stars and stickers and no clock) or <b>Beequation</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.</p>
     <p><a href="/how-to-play.html">How to play</a> · <a href="/teachers.html">Free puzzles for teachers</a> · <a href="/">Beequation home</a></p>
     <noscript><p><b>The game needs JavaScript.</b> Turn it on in your browser to play.</p></noscript>
   </div>
@@ -484,7 +484,7 @@ const I = {
   bulb: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>`,
   cal: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6A4BF5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>`,
 };
-const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .875).toFixed(0)}" viewBox="0 0 160 140" role="img" aria-label="Tally the bee">
+const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .875).toFixed(0)}" viewBox="0 0 160 140" role="img" aria-label="Indie the bee">
   <ellipse cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(-20 62 38)"/>
   <ellipse cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(18 96 34)"/>
   <ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="#1C1A4A" stroke-width="4"/>
@@ -596,7 +596,7 @@ function k_home() {
       <button class="candy k-white pill" data-stickers>${star(18)} ${K.stickers.length} stickers</button>
       <button class="candy k-white pill" data-grown aria-label="Grown-ups area">${I.lock('#1C1A4A')} Grown-ups</button>
     </div>
-    <div class="row" style="gap:0">${buzz(140)}<div class="bubble" style="border-radius:20px">Hi! I'm Tally.<br>Let's find some sums!</div></div>
+    <div class="row" style="gap:0">${buzz(140)}<div class="bubble" style="border-radius:20px">Hi! I'm Indie.<br>Let's find some sums!</div></div>
     <h1 class="logo-k" aria-label="Beequation">${LET.map(([c, col]) => `<span style="color:${col}">${c}</span>`).join('')}</h1>
     <button class="candy big k-grape" data-play>${I.play} Play</button>
     <div class="worlds">${WORLDS.map(w => {
@@ -741,7 +741,7 @@ function k_grown() {
       <p style="font-size:16px;font-weight:500">From £2.99 a month, with 7 days free. No ads. No data collected. Cancel any time.</p>
       ${K.full ? '<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>Back to the free version (preview only)</button>' : '<button class="candy mid k-grape" data-buy>Unlock full game</button>'}
       <p class="soft" style="font-size:13px">This preview simulates the purchase. In the app, this opens the App Store or Google Play.</p></div>
-    <div class="card-k stack"><h2 style="font-size:22px">How it helps</h2><p style="font-size:16px;line-height:1.45;font-weight:500">Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Tally keep it calm, and stars count hints and slips gently, so there is no clock to beat.</p></div>
+    <div class="card-k stack"><h2 style="font-size:22px">How it helps</h2><p style="font-size:16px;line-height:1.45;font-weight:500">Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Indie keep it calm, and stars count hints and slips gently, so there is no clock to beat.</p></div>
     <div class="card-k stack"><h2 style="font-size:22px">Progress</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>Reset progress</button></div>
   </div>`);
   on('[data-back]', back);
@@ -936,7 +936,7 @@ function choose() {
     <h1>Beequation</h1><p class="mute" style="font-size:16px;line-height:1.45">Two apps built on the same puzzle. Pick one to try. You can switch at any time.</p>
     <button class="pick" style="background:#EAF6FF;color:#1C1A4A;font-family:Fredoka,ui-rounded,system-ui,sans-serif" data-kids>
       <span style="display:flex;gap:6px">${hexSVG(34, '#FFD84D', '', '#E0B21A')}${hexSVG(34, '#7EE8C6', '', '#3FC497')}${hexSVG(34, '#FFA8D2', '', '#EB72AC')}</span>
-      <b>Beequation Kids</b><span>Ages 5 to 12. Candy-coloured worlds, Tally the bee, stickers and no clock.</span></button>
+      <b>Beequation Kids</b><span>Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.</span></button>
     <button class="pick" style="background:#12161F;color:#F2F4F8" data-adult>
       <span style="display:flex;gap:6px">${hexSVG(34, '#222938')}${hexSVG(34, '#FFB020')}${hexSVG(34, '#222938')}</span>
       <b style="font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif">Beequation</b><span style="color:#CBD1DB">Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.</span></button>

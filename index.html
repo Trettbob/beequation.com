@@ -57,6 +57,7 @@ footer { margin-top: 80px; padding: 32px 0 48px; border-top: 1px solid var(--lin
 footer .cols { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-bottom: 14px; }
 footer a { color: var(--mute); }
 footer a:hover { color: var(--ink); }
+.lang { position: relative; } .lang summary { list-style: none; cursor: pointer; font-weight: 600; padding: 3px 10px; border-radius: 10px; box-shadow: inset 0 0 0 1.5px var(--line); } .lang summary::-webkit-details-marker { display: none; } .lang .langs { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 6px; display: grid; min-width: 150px; z-index: 20; } .lang .langs a { padding: 8px 12px; border-radius: 8px; } .lang .langs a:hover { background: var(--ground); } .lang .langs a[aria-current] { font-weight: 700; }
 </style>
 <style>
 .hero { background: var(--night); color: var(--night-ink); border-radius: 32px; padding: 52px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; margin-top: 8px; }
@@ -99,7 +100,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
 .app-kids li { font-weight: 500; }
 .app-kids li:nth-child(4n+1)::before { background: #E0B21A; } .app-kids li:nth-child(4n+2)::before { background: #3FC497; }
 .app-kids li:nth-child(4n+3)::before { background: #EB72AC; } .app-kids li:nth-child(4n+4)::before { background: #4FAEE8; }
-.app-kids .tally { position: absolute; right: 18px; top: 22px; width: 120px; }
+.app-kids .indie { position: absolute; right: 18px; top: 22px; width: 120px; }
 .app-kids .btn { background: #6A4BF5; color: #fff; box-shadow: 0 5px 0 #3B24A8; font-family: inherit; min-height: 48px; }
 .app-kids a:not(.btn) { color: #4A30C9; }
 .soon-tag { display: inline-block; font-size: 14px; font-weight: 600; padding: 4px 12px; border-radius: 99px; background: var(--ground); color: var(--mute); }
@@ -116,7 +117,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   .teach { padding: 28px 22px; }
   .promise { grid-template-columns: 1fr; gap: 22px; }
   .app { padding: 26px 22px; }
-  .app-kids .tally { width: 84px; right: 12px; top: 16px; }
+  .app-kids .indie { width: 84px; right: 12px; top: 16px; }
   .top a:not(.brand) { font-size: 16px; }
   .top { gap: 14px; }
 }
@@ -161,7 +162,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       <div class="foot"><span class="soon-tag">iPhone and Android: coming soon</span><a href="/play.html">Play online</a></div>
     </article>
     <article class="app app-kids" aria-labelledby="kids-h">
-      <svg class="tally" viewBox="0 0 160 140" role="img" aria-label="Tally the bee">
+      <svg class="indie" viewBox="0 0 160 140" role="img" aria-label="Indie the bee">
         <ellipse cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(-20 62 38)"/><ellipse cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="4" transform="rotate(18 96 34)"/>
         <ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="#1C1A4A" stroke-width="4"/><path d="M60 46 Q55 84 62 122" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/><path d="M84 42 Q78 84 86 126" fill="none" stroke="#1C1A4A" stroke-width="10" stroke-linecap="round"/>
         <path d="M101 78 Q108 70 115 78" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><path d="M98 94 Q112 112 126 92" fill="none" stroke="#1C1A4A" stroke-width="4" stroke-linecap="round"/><circle cx="124" cy="86" r="6" fill="#FFA8D2"/>
@@ -172,7 +173,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       <p class="who">For ages 5 to 12</p>
       <ul>
         <li>Six worlds and 35 levels: Adding Meadow, Times Garden, Fraction Forest, Tens Town, Decimal Dunes and Big Hive</li>
-        <li>Tally the bee cheers them on and gives a hint when they're stuck</li>
+        <li>Indie the bee cheers them on and gives a hint when they're stuck</li>
         <li>Stars and stickers to collect, and no clock to beat</li>
         <li>No ads and no data collected. Purchases sit behind a grown-up check</li>
       </ul>
@@ -202,7 +203,7 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
       <p class="sec-lede" style="margin-bottom:0">A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.</p>
       <div class="btns"><a class="btn honey" href="/assets/beequation-puzzle-pack-a4.pdf" download>Download (A4)</a><a class="btn plain" href="/assets/beequation-puzzle-pack-letter.pdf" download>Download (US Letter)</a></div>
     </div>
-    <img src="/assets/pack-preview.webp" width="794" height="1123" loading="lazy" alt="First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Tally the bee and spaces to write the number sentence">
+    <img src="/assets/pack-preview.webp" width="794" height="1123" loading="lazy" alt="First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Indie the bee and spaces to write the number sentence">
   </div>
 </section>
 </main>
@@ -264,4 +265,25 @@ section { margin-top: 96px; scroll-margin-top: 20px; }
   </div>
   <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="mailto:hello@beequation.com">hello@beequation.com</a>. © 2026 Trett Labs Limited.</p>
 </footer></div>
+<!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var k='#1C1A4A',svg='<svg viewBox="0 0 160 140" width="76" height="66" aria-hidden="true" focusable="false">'
++'<ellipse class="w" cx="62" cy="38" rx="26" ry="20" fill="#DFF1FF" stroke="'+k+'" stroke-width="4" transform="rotate(-20 62 38)"/>'
++'<ellipse class="w" cx="96" cy="34" rx="24" ry="19" fill="#DFF1FF" stroke="'+k+'" stroke-width="4" transform="rotate(18 96 34)"/>'
++'<ellipse cx="80" cy="84" rx="52" ry="42" fill="#FFD84D" stroke="'+k+'" stroke-width="4"/>'
++'<path d="M60 46 Q55 84 62 122M84 42 Q78 84 86 126" fill="none" stroke="'+k+'" stroke-width="10" stroke-linecap="round"/>'
++'<circle cx="108" cy="76" r="7" fill="'+k+'"/><circle cx="110" cy="74" r="2.2" fill="#fff"/>'
++'<path d="M100 96 Q112 106 124 94M112 46 Q118 22 132 16" fill="none" stroke="'+k+'" stroke-width="4" stroke-linecap="round"/>'
++'<circle cx="124" cy="86" r="6" fill="#FFA8D2"/><circle cx="134" cy="15" r="6" fill="'+k+'"/>'
++'<path d="M28 88 L16 92 L28 96" fill="'+k+'" stroke="'+k+'" stroke-width="3" stroke-linejoin="round"/></svg>';
+var st=document.createElement('style');st.textContent='.bq-bee{position:fixed;left:0;top:0;z-index:30;pointer-events:none;will-change:transform}'
++'.bq-bee .w{transform-box:fill-box;transform-origin:50% 100%;animation:bqflap .11s ease-in-out infinite alternate}@keyframes bqflap{to{transform:scaleY(.4)}}';
+document.head.appendChild(st);
+function later(ms){setTimeout(fly,ms!=null?ms:60000+Math.random()*60000);}
+function fly(){if(document.hidden){document.addEventListener('visibilitychange',function v(){if(!document.hidden){document.removeEventListener('visibilitychange',v);later(4000+Math.random()*6000);}});return;}var el=document.createElement('div');el.className='bq-bee';el.setAttribute('aria-hidden','true');el.innerHTML=svg;document.body.appendChild(el);
+var W=innerWidth,H=innerHeight,ltr=Math.random()<.5,y0=H*(.12+Math.random()*.55),amp=18+Math.random()*30,dur=6000+Math.random()*3000,t0=0;
+function step(t){if(!t0)t0=t;var p=(t-t0)/dur;if(p>=1){el.remove();return later();}
+var x=ltr?-90+(W+180)*p:W+90-(W+180)*p,y=y0+Math.sin(p*Math.PI*4)*amp,a=Math.cos(p*Math.PI*4)*8;
+el.style.transform='translate('+x+'px,'+y+'px) rotate('+(ltr?a:-a)+'deg)'+(ltr?'':' scaleX(-1)');requestAnimationFrame(step);}
+requestAnimationFrame(step);}
+later(12000+Math.random()*8000);}catch(e){}})();</script><!--/bee-->
 </body></html>
