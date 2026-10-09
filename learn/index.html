@@ -184,6 +184,40 @@ footer a:hover { color: var(--ink); }
   <p style="margin:0">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a class="em" href="/support.html" data-e="bW9jLm5vaXRhdXFlZWJAb2xsZWg=">email address</a>. © 2026 Trett Labs Limited.</p>
 </footer></div>
 <script>document.addEventListener('click',function(e){document.querySelectorAll('.learnnav details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});</script>
+<!--nav--><style>
+html{scroll-padding-top:84px}
+.bq-top{position:sticky;top:0;z-index:28;background:var(--ground,#EEF1F5)}
+.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:-100vw;right:-100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
+.bq-top.scrolled::before{box-shadow:0 10px 18px -14px rgba(0,0,0,.45)}
+.bq-top .top{padding:12px 0}
+.bq-links{display:flex;align-items:center;gap:22px}
+.bq-hive{display:none;border:0;background:#FFF6D6;width:48px;height:48px;padding:0;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent;flex:none}
+.bq-hive:focus-visible{outline:3px solid var(--honey,#FFB020);outline-offset:2px}
+.bq-hive svg{display:block;margin:auto;transition:transform .25s}.bq-hive[aria-expanded="true"] svg{transform:rotate(-8deg) scale(1.06)}
+.bq-hive .bz{opacity:0;transition:opacity .2s,transform .3s;transform:translate(-4px,4px)}.bq-hive[aria-expanded="true"] .bz{opacity:1;transform:none}
+@media (max-width:640px){
+ .bq-top .top{flex-wrap:nowrap;gap:12px}.bq-top .top .brand{flex-basis:auto;margin:0}
+ .bq-hive{display:grid}
+ .bq-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:2px;padding:8px;background:var(--card,#fff);border-radius:0 0 18px 18px;box-shadow:0 18px 30px rgba(0,0,0,.25)}
+ .bq-top.open .bq-links{display:flex}
+ .bq-links>a{padding:12px 14px;border-radius:12px;font-size:18px!important}
+ .bq-links>a:hover,.bq-links>a:focus-visible{background:var(--ground,#EEF1F5)}
+ .bq-links .lang{padding:8px 14px}.bq-links .lang .langs{right:auto;left:0}
+}
+@media (prefers-reduced-motion:reduce){.bq-hive svg,.bq-hive .bz{transition:none}}
+</style><script>(function(){var n=document.querySelector('nav.top');if(!n)return;var w=n.parentElement;w.classList.add('bq-top');
+var b=n.querySelector('.brand'),box=document.createElement('div');box.className='bq-links';box.id='bq-menu';
+[].slice.call(n.children).forEach(function(c){if(c!==b)box.appendChild(c);});
+var h=document.createElement('button');h.type='button';h.className='bq-hive';h.setAttribute('aria-expanded','false');h.setAttribute('aria-controls','bq-menu');h.setAttribute('aria-label','Menu');
+h.innerHTML='<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false"><g stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round"><path d="M20 5c-4 0-6.5 2.4-7.4 5h14.8C26.5 7.4 24 5 20 5z" fill="#FFD84D"/><path d="M11.4 10h17.2c1.6 1.4 2.5 3.1 2.6 5H8.8c.1-1.9 1-3.6 2.6-5z" fill="#FFB020"/><path d="M8.8 15h22.4c.9 1.6 1.4 3.3 1.4 5H7.4c0-1.7.5-3.4 1.4-5z" fill="#FFD84D"/><path d="M7.4 20h25.2c.1 1.8-.2 3.5-.9 5H8.3c-.7-1.5-1-3.2-.9-5z" fill="#FFB020"/><path d="M8.3 25h23.4c-.6 1.9-1.6 3.6-2.9 5H11.2c-1.3-1.4-2.3-3.1-2.9-5z" fill="#FFD84D"/><path d="M6 33.5h28" fill="none" stroke-linecap="round"/></g><path d="M17.2 30v-2.6a2.8 2.8 0 0 1 5.6 0V30z" fill="#1C1A4A"/>'
++'<g class="bz"><ellipse cx="34" cy="8" rx="2.6" ry="2" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="1"/><path d="M33.5 9.5l3 1.7-1.7 3-3-1.7z" fill="#FFD84D" stroke="#1C1A4A" stroke-width="1" stroke-linejoin="round"/></g></svg>';
+n.appendChild(h);n.appendChild(box);
+function set(o){w.classList.toggle('open',o);h.setAttribute('aria-expanded',o?'true':'false');}
+h.addEventListener('click',function(e){e.stopPropagation();set(!w.classList.contains('open'));});
+box.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('click',function(e){if(!w.contains(e.target))set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&w.classList.contains('open')){set(false);h.focus();}});
+function sc(){w.classList.toggle('scrolled',scrollY>4);}addEventListener('scroll',sc,{passive:true});sc();})();</script><!--/nav-->
 <!--em--><script>document.querySelectorAll('a.em[data-e]').forEach(function(a){try{var e=atob(a.dataset.e).split('').reverse().join('');a.href='mailto:'+e;a.textContent=e;}catch(x){}});</script><!--/em-->
 <!--consent--><script>(function(){var T=["Indie's note about cookies", "Good news: this site doesn't use cookies, ads or tracking (the only cookies here are the ones I dream about). If you play the free game or pick a language, your browser can remember that on this device. Nothing is ever sent to us.", "Sounds good!", "Don't remember anything", "Privacy policy"],ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
@@ -254,9 +288,9 @@ var c=[].slice.call(document.querySelectorAll('.app,.card,.sheet,.trybox,.tip,.c
 if(!c.length)return peekLater(20000);var r=c[Math.floor(Math.random()*c.length)].getBoundingClientRect(),f=Math.random()<.5;busy=1;
 var w=document.createElement('div');w.className='bq-peek'+(f?' f':'');w.setAttribute('aria-hidden','true');w.style.left=(r.left+12+Math.random()*Math.max(0,r.width-96))+'px';w.style.top=(r.top-62)+'px';
 w.innerHTML='<div class="clip"><div class="b">'+svg+'</div></div><div class="say"></div>';document.body.appendChild(w);var bub=w.lastChild,t1,t2,done=0;
-function down(){if(done)return;done=1;clearTimeout(t1);clearTimeout(t2);bub.classList.remove('on');w.classList.remove('up');removeEventListener('scroll',down);setTimeout(function(){w.remove();busy=0;peekLater();},500);}
+function down(){if(done)return;done=1;clearTimeout(t1);clearTimeout(t2);bub.classList.remove('on');w.classList.remove('up');removeEventListener('scroll',moved);setTimeout(function(){w.remove();busy=0;peekLater();},500);}
 function say(l){bub.textContent=l[Math.floor(Math.random()*l.length)];bub.classList.add('on');}
-addEventListener('scroll',down,{passive:true});w.firstChild.addEventListener('pointerdown',function(){say(SAY.boo);clearTimeout(t2);t2=setTimeout(down,700);});
-setTimeout(function(){w.classList.add('up');t1=setTimeout(function(){say(SAY.peek);},450);t2=setTimeout(down,3200);},30);}
+var sy=scrollY;function moved(){if(Math.abs(scrollY-sy)>40)down();}addEventListener('scroll',moved,{passive:true});w.firstChild.addEventListener('pointerdown',function(){say(SAY.boo);clearTimeout(t2);t2=setTimeout(down,700);});
+setTimeout(function(){w.classList.add('up');t1=setTimeout(function(){say(SAY.peek);},450);t2=setTimeout(down,5200);},30);}
 later(12000+Math.random()*8000);peekLater(30000+Math.random()*20000);}catch(e){}})();</script><!--/bee-->
 </body></html>
