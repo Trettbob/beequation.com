@@ -150,7 +150,7 @@ h1, h2, p { margin: 0; }
   <div style="padding-top:20px;font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;line-height:1.5">
     <h1 style="font-size:32px;letter-spacing:-1px;margin-bottom:12px">Play Beequation free online</h1>
     <p style="margin-bottom:10px">Beequation is a mental maths puzzle game. Every honeycomb hides one number that two others add up to, or multiply to. Find it and tap it.</p>
-    <p style="margin-bottom:10px">Choose <b>Beequation Kids</b> (ages 5 to 12, with Indie the bee, stars and stickers and no clock) or <b>Beequation</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.</p>
+    <p style="margin-bottom:10px">Choose <b>Beequation Kids</b> (ages 5 to 12, with Indie the bee, stars and stickers and no clock) or <b>Beequation Pro</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.</p>
     <p><a href="/how-to-play.html">How to play</a> · <a href="/teachers.html">Free puzzles for teachers</a> · <a href="/">Beequation home</a></p>
     <noscript><p><b>The game needs JavaScript.</b> Turn it on in your browser to play.</p></noscript>
   </div>
@@ -465,7 +465,7 @@ function dailyRng(dateKey        , id        )      {
 // ---------- helpers ----------
 const app = document.getElementById('app');
 const load = (k, d) => { try { const r = localStorage.getItem(k); return r ? { ...d, ...JSON.parse(r) } : d; } catch (e) { return d; } };
-const store = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+const store = (k, v) => { try { if (localStorage.getItem('bq-consent') !== 'no') localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };   // not after "Don't remember anything"
 const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
 const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
@@ -937,7 +937,7 @@ function choose() {
       <b>Beequation Kids</b><span>Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.</span></button>
     <button class="pick" style="background:#12161F;color:#F2F4F8" data-adult>
       <span style="display:flex;gap:6px">${hexSVG(34, '#222938')}${hexSVG(34, '#FFB020')}${hexSVG(34, '#222938')}</span>
-      <b style="font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif">Beequation</b><span style="color:#CBD1DB">Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.</span></button>
+      <b style="font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif">Beequation Pro</b><span style="color:#CBD1DB">Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.</span></button>
     <p class="preview-note">Progress is saved in this browser only.</p>
   </div>`);
   on('[data-kids]', () => { stack = [{ name: 'k_home' }]; render(); });

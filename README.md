@@ -1,6 +1,6 @@
 # beequation.com
 
-The customer website for Beequation and Beequation Kids. Plain static files: no build step.
+The customer website for Beequation Pro and Beequation Kids. Plain static files: no build step.
 
 | Page | Use |
 | --- | --- |
@@ -25,4 +25,4 @@ When the apps are live, swap the "coming soon" tags on the home page for App Sto
 4. Back in GitHub Pages settings, confirm the custom domain beequation.com and tick "Enforce HTTPS" when it's offered (DNS can take up to a few hours).
 
 ## Email
-The site uses hello@beequation.com. Set up a mailbox or forwarding for it in 123-reg (Email settings for the domain), or change the address in the footer, support and privacy pages.
+The contact address is the "hello" mailbox at this domain. It never appears in the HTML: links have class="em" and a data-e attribute (the address reversed, then base64), and a small script added by tools/build-langs.py turns them into a mailto link in the browser, so spam bots that scrape pages can't read it. Set up the mailbox or forwarding in 123-reg (Email settings for the domain).
