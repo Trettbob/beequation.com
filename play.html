@@ -125,7 +125,14 @@ h1, h2, p { margin: 0; }
 .cell.correct { animation: pop .3s; transform-box: fill-box; transform-origin: center; }
 @keyframes shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
 @keyframes pop { 0% { transform: scale(.84); } 70% { transform: scale(1.06); } 100% { transform: scale(1); } }
-@media (prefers-reduced-motion: reduce) { .cell.wrong, .cell.correct { animation: none; } }
+/* Kids: a correct answer turns gold, bounces, flashes a glow ring twice and throws out sparkles (as in the app). */
+.kids .cell.correct { animation: kpop .6s cubic-bezier(.3,1.6,.5,1); }
+@keyframes kpop { 0% { transform: scale(.55); } 60% { transform: scale(1.2); } 80% { transform: scale(.92); } 100% { transform: scale(1); } }
+.cell .glow { opacity: 0; transform-box: fill-box; transform-origin: center; animation: kglow .95s ease-out 2; }
+@keyframes kglow { 0% { opacity: .95; transform: scale(.92); } 100% { opacity: 0; transform: scale(1.16); } }
+.cell .sp { fill: #FFC93C; stroke: #D99A00; stroke-width: 1; opacity: 0; transform-box: fill-box; transform-origin: center; animation: ksp .95s cubic-bezier(.2,.7,.4,1) forwards; }
+@keyframes ksp { 0% { opacity: 1; transform: translate(0, 0) scale(.4); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.1); } }
+@media (prefers-reduced-motion: reduce) { .cell.wrong, .cell.correct, .kids .cell.correct { animation: none; } .cell .glow { animation: none; opacity: .9; } .cell .sp { display: none; } }
 
 /* chooser */
 .choose h1 { font-size: 34px; letter-spacing: -1px; line-height: 1.05; }
@@ -507,8 +514,8 @@ function board(p, marks, W, maxH, skin, seed = 0) {
     const [x, y] = pos[i], m = marks[i] || '', label = fmt(v);
     let fill, lip = '', ink, ring = '';
     if (kids) {
-      [fill, lip] = m === 'correct' ? ['#6A4BF5', '#3B24A8'] : m === 'wrong' ? ['#F2545B', '#C23A41'] : CANDY[(i + seed) % CANDY.length];
-      ink = m === 'correct' || m === 'wrong' ? '#fff' : '#1C1A4A';
+      [fill, lip] = m === 'correct' ? ['#FFC93C', '#D99A00'] : m === 'wrong' ? ['#F2545B', '#C23A41'] : CANDY[(i + seed) % CANDY.length];
+      ink = m === 'wrong' ? '#fff' : '#1C1A4A';
       if (m === 'hint') ring = `<polygon points="${hexPts(x, y, r * 1.06)}" fill="none" stroke="#6A4BF5" stroke-width="4" stroke-dasharray="10 8" stroke-linejoin="round"/>`;
     } else {
       [fill, ink] = m === 'correct' ? ['#FFB020', '#12161F'] : m === 'pair' ? ['#4A3A17', '#FFD27A'] : m === 'wrong' ? ['#E5484D', '#fff'] : ['#222938', '#F2F4F8'];
@@ -522,7 +529,15 @@ function board(p, marks, W, maxH, skin, seed = 0) {
       const fs = r * (label.length <= 2 ? (kids ? .78 : .7) : label.length === 3 ? .58 : .48);
       txt = `<text x="${x}" y="${y + fs * .04}" font-size="${fs}" fill="${ink}">${label}</text>`;
     }
-    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${label.replace('/', ' over ')}">${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}</g>`;
+    let gold = '', tick = '';
+    if (kids && m === 'correct') {
+      gold = `<polygon class="glow" points="${hexPts(x, y, r * 1.08)}" fill="none" stroke="#FFE27A" stroke-width="8" stroke-linejoin="round"/>`;
+      tick = `<text x="${x}" y="${y - r * .55}" font-size="${r * .32}" fill="#1C1A4A">✓</text>` + Array.from({ length: 8 }, (_, k) => {
+        const a = k * Math.PI / 4, d = r * 1.25;
+        return `<text class="sp" x="${x}" y="${y}" font-size="${r * .36}" style="--dx:${(Math.cos(a) * d).toFixed(1)}px;--dy:${(Math.sin(a) * d).toFixed(1)}px">✦</text>`;
+      }).join('');
+    }
+    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${label.replace('/', ' over ')}">${gold}${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}${tick}</g>`;
   }).join('');
   return `<svg class="board" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${cells}</svg>`;
 }
@@ -653,7 +668,7 @@ function k_game(r) {
     h(`<div class="stack">
       <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="Back" data-back>${I.back('#1C1A4A')}</button><div class="dots" aria-label="Puzzle ${solved + 1} of ${L.roundLength}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? "Today's puzzle" : `${w.title}, level ${r.tier}`}${item.kind === 'hive' ? (stage < 4 ? `, small comb ${stage + 1} of 4` : ', big comb!') : ''}</div>
-        <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? 'Now use your four answers!' : `Which number is two others <span style="color:var(--grape);text-decoration:underline">${p.op === 'add' ? 'added' : 'multiplied'}</span> together?`}</div></div>
+        <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? 'Now use your four answers!' : `Which number is two others <span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? 'added' : 'multiplied'}</span> together?`}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? fmt(v) : '?'}</text>`)).join('')}</div>` : ''}
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
       <div class="row" style="align-items:flex-end;gap:8px">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px" aria-live="polite">${say}</div></div>
