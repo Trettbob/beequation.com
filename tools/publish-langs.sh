@@ -21,6 +21,9 @@ fi
 for L in $LIST; do
   D="$SITES/$L"
   [ -d "$D/.git" ] || git clone -q "https://github.com/Trettbob/$L.beequation.com.git" "$D"
+  # Commit as the same author as the main repo (not the machine's global git identity).
+  git -C "$D" config user.name "$(git -C "$HERE" config user.name)"; git -C "$D" config user.email "$(git -C "$HERE" config user.email)"
+  git -C "$D" pull -q --ff-only origin main 2>/dev/null || true   # pick up anything GitHub committed (e.g. a CNAME file)
   rsync -a --delete --exclude .git "$HERE/dist/$L/" "$D/"
   git -C "$D" add -A
   if git -C "$D" diff --cached --quiet; then echo "$L: no changes"; continue; fi

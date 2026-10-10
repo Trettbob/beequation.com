@@ -25,7 +25,7 @@ MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
 # these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
-LIVE = {'fr', 'es', 'de', 'pt'}
+LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
 def url_path(page): return '/' if page == 'index.html' else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()
