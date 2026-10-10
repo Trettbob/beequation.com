@@ -510,6 +510,30 @@ var inH=0;h.addEventListener('focusin',function(){inH=1;});h.addEventListener('f
 D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
 on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
 var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->
+<!--drip--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var st=document.createElement('style');st.textContent='.bq-drip{position:absolute;top:100%;width:0;height:0;pointer-events:none;animation:bqrun var(--run) ease-in-out forwards}'
++'.bq-drip i{position:absolute;left:-10px;top:-4px;width:20px;height:30px;transform-origin:50% 0;animation:bqdrop 2.6s var(--run) both}'
++'.bq-drip.s i{left:-6.5px;width:13px;height:20px}.bq-drip svg{display:block;width:100%;height:100%}'
++'.bq-trail{position:absolute;top:100%;height:3px;margin-top:-2px;border-radius:2px;background:#FFB020;pointer-events:none;transform:scaleX(0);animation:bqgrow var(--run) ease-in-out forwards,bqfade 1.2s var(--run) forwards}'
++'@keyframes bqrun{to{transform:translateX(var(--dx))}}@keyframes bqgrow{to{transform:scaleX(1)}}@keyframes bqfade{to{opacity:0}}'
++'@keyframes bqdrop{0%{transform:translateY(0) scale(.5,.4);opacity:1;animation-timing-function:ease-out}35%{transform:translateY(0) scale(.85,.8)}'
++'55%{transform:translateY(2px) scale(.8,1.25);animation-timing-function:cubic-bezier(.5,0,1,.6)}90%{opacity:1}100%{transform:translateY(190px) scale(.85,1.05);opacity:0}}';
+document.head.appendChild(st);
+var svg='<svg viewBox="0 0 16 24" aria-hidden="true" focusable="false"><path d="M8 0C8 6 15 11 15 16.5A7 7 0 0 1 1 16.5C1 11 8 6 8 0Z" fill="#FFB020" stroke="#C97F00" stroke-width="1"/><ellipse cx="5.2" cy="15.5" rx="1.6" ry="2.6" fill="#FFE7A8" opacity=".85"/></svg>';
+function later(ms){setTimeout(drip,ms!=null?ms:15000+Math.random()*20000);}
+function el(p,cls,x,css){var d=document.createElement('span');d.className=cls;d.setAttribute('aria-hidden','true');d.style.left=x+'px';for(var k in css)d.style.setProperty(k,css[k]);p.appendChild(d);return d;}
+function drop(p,x,dx,run,small){var d=el(p,'bq-drip'+(small?' s':''),x,{'--dx':dx+'px','--run':run+'ms'});d.innerHTML='<i>'+svg+'</i>';
+if(dx){var t=el(p,'bq-trail',dx>0?x:x+dx,{'width':Math.abs(dx)+'px','--run':run+'ms','transform-origin':dx>0?'0 50%':'100% 50%'});setTimeout(function(){t.remove();},run+1300);}
+setTimeout(function(){d.remove();},run+2800);}
+function drip(){var p=document.querySelector('.bqh-pill');
+if(!p||document.hidden||document.querySelector('.bqm-open,.bqh-panel:not([hidden])'))return later(6000);
+var w=p.clientWidth,r=Math.min(30,p.clientHeight/2)+12;if(w<2*r+60)return later();
+var x=r+Math.random()*(w-2*r),dist=40+Math.random()*90,dx=Math.random()<.5?-dist:dist;
+if(x+dx<r||x+dx>w-r)dx=-dx;if(x+dx<r||x+dx>w-r)dx=0;
+var run=900+Math.round(Math.abs(dx)*5);drop(p,x,dx,run,false);
+if(Math.random()<.25)setTimeout(function(){if(!document.hidden)drop(p,x+dx,0,0,true);},run+800);
+later();}
+later(8000+Math.random()*7000);}catch(e){}})();</script><!--/drip-->
 <!--consent--><script>(function(){var T=["Indie's note about cookies", "Good news: this site doesn't use cookies, ads or tracking (the only cookies here are the ones I dream about). If you play the free game or pick a language, your browser can remember that on this device. Nothing is ever sent to us.", "Sounds good!", "Don't remember anything", "Privacy policy"],ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'

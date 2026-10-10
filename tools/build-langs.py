@@ -645,12 +645,42 @@ def site_text(lang, key, table):
         _SITE[lang] = json.load(open(f, encoding='utf-8')).get('__site__', {}) if os.path.exists(f) else {}
     return _SITE[lang].get(key, table['en'])
 
+# Honey drips from the header: now and then a bead of honey appears somewhere random under the header pill, runs a
+# little way along its bottom edge (random direction, leaving a thin trail that fades), then swells, stretches, lets go
+# and falls. About 4 s in all, under WCAG's 5-second limit for moving content; now and then a smaller second drop
+# follows. Decorative: hidden from screen readers, never takes taps, off with Reduce Motion, and paused while the tab
+# is hidden or a menu is open.
+DRIP = """<!--drip--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var st=document.createElement('style');st.textContent='.bq-drip{position:absolute;top:100%;width:0;height:0;pointer-events:none;animation:bqrun var(--run) ease-in-out forwards}'
++'.bq-drip i{position:absolute;left:-10px;top:-4px;width:20px;height:30px;transform-origin:50% 0;animation:bqdrop 2.6s var(--run) both}'
++'.bq-drip.s i{left:-6.5px;width:13px;height:20px}.bq-drip svg{display:block;width:100%;height:100%}'
++'.bq-trail{position:absolute;top:100%;height:3px;margin-top:-2px;border-radius:2px;background:#FFB020;pointer-events:none;transform:scaleX(0);animation:bqgrow var(--run) ease-in-out forwards,bqfade 1.2s var(--run) forwards}'
++'@keyframes bqrun{to{transform:translateX(var(--dx))}}@keyframes bqgrow{to{transform:scaleX(1)}}@keyframes bqfade{to{opacity:0}}'
++'@keyframes bqdrop{0%{transform:translateY(0) scale(.5,.4);opacity:1;animation-timing-function:ease-out}35%{transform:translateY(0) scale(.85,.8)}'
++'55%{transform:translateY(2px) scale(.8,1.25);animation-timing-function:cubic-bezier(.5,0,1,.6)}90%{opacity:1}100%{transform:translateY(190px) scale(.85,1.05);opacity:0}}';
+document.head.appendChild(st);
+var svg='<svg viewBox="0 0 16 24" aria-hidden="true" focusable="false"><path d="M8 0C8 6 15 11 15 16.5A7 7 0 0 1 1 16.5C1 11 8 6 8 0Z" fill="#FFB020" stroke="#C97F00" stroke-width="1"/><ellipse cx="5.2" cy="15.5" rx="1.6" ry="2.6" fill="#FFE7A8" opacity=".85"/></svg>';
+function later(ms){setTimeout(drip,ms!=null?ms:15000+Math.random()*20000);}
+function el(p,cls,x,css){var d=document.createElement('span');d.className=cls;d.setAttribute('aria-hidden','true');d.style.left=x+'px';for(var k in css)d.style.setProperty(k,css[k]);p.appendChild(d);return d;}
+function drop(p,x,dx,run,small){var d=el(p,'bq-drip'+(small?' s':''),x,{'--dx':dx+'px','--run':run+'ms'});d.innerHTML='<i>'+svg+'</i>';
+if(dx){var t=el(p,'bq-trail',dx>0?x:x+dx,{'width':Math.abs(dx)+'px','--run':run+'ms','transform-origin':dx>0?'0 50%':'100% 50%'});setTimeout(function(){t.remove();},run+1300);}
+setTimeout(function(){d.remove();},run+2800);}
+function drip(){var p=document.querySelector('.bqh-pill');
+if(!p||document.hidden||document.querySelector('.bqm-open,.bqh-panel:not([hidden])'))return later(6000);
+var w=p.clientWidth,r=Math.min(30,p.clientHeight/2)+12;if(w<2*r+60)return later();
+var x=r+Math.random()*(w-2*r),dist=40+Math.random()*90,dx=Math.random()<.5?-dist:dist;
+if(x+dx<r||x+dx>w-r)dx=-dx;if(x+dx<r||x+dx>w-r)dx=0;
+var run=900+Math.round(Math.abs(dx)*5);drop(p,x,dx,run,false);
+if(Math.random()<.25)setTimeout(function(){if(!document.hidden)drop(p,x+dx,0,0,true);},run+800);
+later();}
+later(8000+Math.random()*7000);}catch(e){}})();</script><!--/drip-->"""
+
 def strip_markers(s):
     """Takes out everything chrome() adds. The header leaves HEADER_SLOT behind so it's rebuilt in the same place
     (pages from before the header had <div class="wrap"><nav class="top">…</nav></div> there instead)."""
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
-    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip'):
+    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip', 'drip'):
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     return s
 
@@ -673,6 +703,7 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace(HEADER_SLOT, '<!--header-->' + header(lang, page, label, offer) + '<!--/header-->', 1)
         s = s.replace('</head>', nav_head() + '\n</head>', 1)
         s = s.replace('</body>', NAV + '\n</body>', 1)
+        s = s.replace('</body>', DRIP + '\n</body>', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
     s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)) + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
