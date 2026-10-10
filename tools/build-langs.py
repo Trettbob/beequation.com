@@ -369,14 +369,17 @@ def header(lang, page, label, offer):
                    f'<div class="bqh-foot" style="grid-row:{n + 2}"><a class="bqh-home" href="/learn/"{here("/learn/")}><b>{LEARN_TEXT["home"]}</b><span>{LEARN_TEXT["home_desc"]}</span></a>'
                    f'<a class="bqh-cta" href="/learn/worksheets/">{LEARN_TEXT["worksheets"]}</a></div></div></div>')
     # On a page in the Learn section, its top item (and the phone menu's Learn row) says so: aria-current, underlined.
-    in_learn = ' aria-current="true"' if page.startswith('learn/') else ''
+    # Teachers is its own top item: the teacher hub (/learn/teachers/), its guides and the puzzle-pack page.
+    in_teach = page.startswith('learn/teachers/') or page == 'teachers.html'
+    in_learn = ' aria-current="true"' if page.startswith('learn/') and not in_teach else ''
+    teach_here = here('/learn/teachers/') or (' aria-current="true"' if in_teach else '')
     def trigger(key, text, href, panel, inside=''):   # a link without JavaScript, a button that opens the panel with it
         return (f'<li class="bqh-item" data-panel="bqh-p-{key}"><a class="bqh-link bqh-nojs" href="{href}"{here(href) or inside}>{esc(text)}</a>'
                 f'<button type="button" class="bqh-link bqh-btn" aria-expanded="false" aria-controls="bqh-p-{key}"{inside}>{esc(text)}{CHEV_D}</button>{panel}</li>')
     items = [trigger('apps', t['apps'], '/#apps', apps_panel)]
     if en:
         items.append(trigger('learn', LEARN_TEXT['learn'], '/learn/', learn_panel, in_learn))
-        items.append(f'<li class="bqh-item"><a class="bqh-link" href="/teachers.html"{here("/teachers.html")}>{LEARN_TEXT["teachers"]}</a></li>')
+        items.append(f'<li class="bqh-item"><a class="bqh-link" href="/learn/teachers/"{teach_here}>{LEARN_TEXT["teachers"]}</a></li>')
     items.append(f'<li class="bqh-item"><a class="bqh-link" href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
     links = ''.join(lang_links(lang, page)) if offer else ''
     chip = (f'<details class="lang"><summary><span class="bqh-vh">{esc(label)}: </span>{GLOBE}<span>{lang.upper()}</span>{CHEV_D}</summary>'
@@ -395,7 +398,7 @@ def header(lang, page, label, offer):
     screens = [screen('bqm-apps', 'bqm-root', t['browse'], t['apps'], rows([kids, pro, howto, online, extra]))]
     if en:
         big.append(f'<li><button type="button" data-to="bqm-learn"{in_learn}>{LEARN_TEXT["learn"]}{CHEV_R}</button></li>')
-        big.append(f'<li><a href="/teachers.html"{here("/teachers.html")}>{LEARN_TEXT["teachers"]}</a></li>')
+        big.append(f'<li><a href="/learn/teachers/"{teach_here}>{LEARN_TEXT["teachers"]}</a></li>')
         go = ''.join(f'<li><button type="button" class="bqh-row" data-to="bqm-l-{s["key"]}"><span class="bqh-tile">{s["icon"]}</span>'
                      f'<span class="bqh-txt"><b>{esc(s["label"])}</b></span>{CHEV_R}</button></li>' for s in secs)
         screens.append(screen('bqm-learn', 'bqm-root', t['browse'], LEARN_TEXT['learn'], f'<ul class="bqm-rows">{go}<li>{row(learn_home, True)}</li></ul>'))
