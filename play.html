@@ -52,7 +52,11 @@ body.night { background: var(--night); color: var(--night-ink); }
 body.grape { background: var(--grape); color: #fff; }
 #app { max-width: 460px; margin: 0 auto; padding: 18px 20px 28px; min-height: 100vh; position: relative; overflow-x: hidden; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; }
-button:focus-visible, .cell:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+button:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+/* Hexagon cells: no square focus box; keyboard focus outlines the hexagon itself. */
+.cell, .cell:focus { outline: none; }
+.cell:focus-visible .face { stroke: var(--cobalt); stroke-width: 5; stroke-linejoin: round; }
+.kids .cell:focus-visible .face { stroke: #1C1A4A; }
 h1, h2, p { margin: 0; }
 .stack > * + * { margin-top: 16px; }
 .row { display: flex; gap: 12px; align-items: center; }
@@ -540,7 +544,7 @@ function board(p, marks, W, maxH, skin, seed = 0) {
         return `<text class="sp" x="${x}" y="${y}" font-size="${r * .36}" style="--dx:${(Math.cos(a) * d).toFixed(1)}px;--dy:${(Math.sin(a) * d).toFixed(1)}px">✦</text>`;
       }).join('');
     }
-    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${label.replace('/', ' over ')}">${gold}${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}${tick}</g>`;
+    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${label.replace('/', ' over ')}">${gold}${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon class="face" points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}${tick}</g>`;
   }).join('');
   return `<svg class="board" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${cells}</svg>`;
 }
