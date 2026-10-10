@@ -1,0 +1,75 @@
+const T = {
+  locale: 'de',
+  indie: 'Indie, die Biene', back: 'Zurück', close: 'Schließen', quit: 'Beenden', settings: 'Einstellungen', frac: s => s.replace('/', ' durch '),
+  switchApp: 'App wechseln', siteAria: 'Beequation: zurück zu beequation.com',
+  tiers: ['Ei', 'Larve', 'Jungbiene', 'Arbeiterin', 'Sammlerin', 'Wächterin', 'Hofstaat', 'Königin'],
+  ages: ['5+', '6+', '7+', '8+', '10+', '12+', 'Teens & Erwachsene', 'Profis'],
+  modes: { add: ['Plus', 'Finde die Zahl, die zwei andere zusammen ergeben'], mul: ['Mal', 'Finde die Zahl, die zwei andere malgenommen ergeben'], neg: ['Negativ', 'Addieren mit Zahlen unter null'],
+    frac: ['Brüche', 'Brüche im Kopf addieren'], mixed: ['Gemischt', 'Plus oder mal – wechselt bei jedem Rätsel'], hive: ['Große Wabe', 'Erst vier Waben, dann eine aus ihren Ergebnissen'] },
+  dailyJunior: 'Rätsel des Tages', dailyPro: 'Tages-Wabe',
+  // Beequation Kids
+  worlds: {
+    add: ['Plus-Wiese', ['Plus-Pflänzchen', 'Plus-Freund', 'Summen-Superstar', 'Additions-Ass', 'Summen-Held', 'Wiesen-Meister']],
+    mul: ['Einmaleins-Garten', ['Einmaleins-Kaulquappe', 'Doppel-Blitz', 'Mal-Magie', 'Produkt-Profi', 'Garten-Genie', 'Einmaleins-Titan']],
+    frac: ['Bruch-Wald', ['Hälften-Held', 'Viertel-Königin', 'Stückchen-Star', 'Bruch-Champion']],
+    hive: ['Große Wabe', ['Fleißige Biene', 'Waben-Kapitän', 'Waben-Legende']],
+  },
+  gateTitle: 'Nur für Erwachsene', gatePrompt: 'Geben Sie diese Zahl in Ziffern ein:', gateAnswer: 'Antwort in Ziffern', gateMiss: 'Das stimmt nicht. Versuchen Sie es mit der neuen Zahl.',
+  gateOk: 'Weiter', gateCancel: 'Abbrechen',
+  // a four-digit number in words, for the grown-ups check (only [1-9][1-9][10-99] are asked); same text as the app
+  // (one word; a zero-width space after "tausend" and "hundert" lets it wrap)
+  gateWords: n => {
+    const ONES = ['', 'ein', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun'];
+    const TEENS = ['zehn', 'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn', 'sechzehn', 'siebzehn', 'achtzehn', 'neunzehn'];
+    const TENS = ['', '', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig', 'siebzig', 'achtzig', 'neunzig'];
+    const r = n % 100;
+    const rest = r < 20 ? TEENS[r - 10] : r % 10 === 0 ? TENS[Math.floor(r / 10)] : `${ONES[r % 10]}und${TENS[Math.floor(r / 10)]}`;
+    return `${ONES[Math.floor(n / 1000)]}tausend​${ONES[Math.floor(n / 100) % 10]}hundert​${rest}`;
+  },
+  stickersN: n => `${n} Sticker`, grownAria: 'Elternbereich', grown: 'Eltern', hello: 'Hallo! Ich bin Indie.<br>Komm, wir gehen auf Zahlensuche!', play: 'Spielen',
+  unlock: 'Freischalten', starsOf: (n, of) => `★ ${n} von ${of}`, today: 'Rätsel des Tages', doneTick: 'Fertig ✓', isNew: 'Neu!',
+  kLevelAria: (t, st, s) => `Level ${t}${st === 'paid' ? ', gesperrt' : st === 'locked' ? ', noch nicht offen' : `, ${s} ${s === 1 ? 'Stern' : 'Sterne'}`}`,
+  moreLevels: 'In der Vollversion warten noch mehr Level.', askGrown: 'Erwachsene fragen', paidNudge: 'Diese Level gibt es in der Vollversion. Frag einen Erwachsenen!',
+  finishFirst: t => `Schaff zuerst Level ${t}. Du kannst das!`,
+  cheer: ['Du schaffst das!', 'Lass dir Zeit.', 'Finde zwei, die eine dritte ergeben!', 'Schau dir jede Zahl an.'], yay: ['Ja!', 'Super!', 'Richtig!', 'Toll!', 'Wow!'],
+  puzzleOf: (n, of) => `Rätsel ${n} von ${of}`, worldLevel: (w, t) => `${w}, Level ${t}`, smallCombOf: n => `, kleine Wabe ${n} von 4`, bigComb: ', große Wabe!',
+  useAnswers: 'Jetzt sind deine vier Antworten dran!', kAsk: word => `Welche Zahl bekommst du, wenn du zwei andere ${word}?`, added: 'zusammenzählst', multiplied: 'malnimmst',
+  hint: 'Tipp', psst: x => `Psst! Fang mal mit ${x} an.`, oops: 'Hoppla! Probier eine andere.',
+  heads: ['', 'Gut gemacht!', 'Super gemacht!', 'Fantastisch!'], helpNone: 'und keinen einzigen Tipp gebraucht!', helpOne: 'und nur 1 Tipp gebraucht.', helpN: n => `und dabei ${n} Tipps gebraucht.`,
+  starsAria: n => `${n} von 3 Sternen`, solvedAll: n => `Du hast alle ${n} Rätsel gelöst`, comeBack: 'Komm morgen wieder, dann gibt es ein neues!', newSticker: 'Neuer Sticker!',
+  addedToBook: 'Jetzt in deinem Stickerheft', get3: 'Mit 3 Sternen gewinnst du den Sticker dieses Levels.', nextLevel: 'Nächstes Level', again: 'Noch mal spielen', home: 'Start', map: 'Karte',
+  myStickers: 'Meine Sticker', stickersHow: 'Mit 3 Sternen in einem Level gewinnst du seinen Sticker.', notWon: n => `${n}, noch nicht gewonnen`,
+  forGrown: 'Elternbereich', kFull: 'Vollversion freigeschaltet', kUnlockAll: n => `Alle ${n} Level freischalten`, kThanks: 'Danke! Alle Welten und Level sind offen.',
+  kFree: n => `Die kostenlose Version hat ${n} Level und das Rätsel des Tages. Mit einem Abo oder einem Einmalkauf öffnen sich alle Level in allen vier Welten: schwierigere Plusaufgaben, das Einmaleins bis zur 15er-Reihe, Brüche und die Große Wabe.`,
+  kPrice: 'Ab 4,99 £ im Monat, die ersten 7 Tage gratis. Keine Werbung. Keine Datenerfassung. Jederzeit kündbar.', backToFree: 'Zurück zur kostenlosen Version (nur in der Vorschau)',
+  kBuy: 'Vollversion freischalten', previewNote: 'Diese Vorschau simuliert den Kauf. In der App öffnet sich hier der App Store oder Google Play.', helpsTitle: 'Was Ihr Kind lernt',
+  helps: 'Bei jedem Rätsel sucht Ihr Kind eine Zahl, die aus zwei anderen entsteht. Das stärkt Zahlzerlegung, Einmaleins und schnelles Kopfrechnen. Indie hilft mit Tipps, ganz ohne Druck. Tipps und Fehler kosten nur wenige Sterne, und es läuft keine Uhr.',
+  progress: 'Fortschritt', reset: 'Fortschritt zurücksetzen', resetAsk: 'Sterne und Sticker auf diesem Gerät löschen?', resetDone: 'Fortschritt zurückgesetzt',
+  // Beequation Pro
+  streakAria: n => `${n} ${n === 1 ? 'Tag' : 'Tage'} in Folge`, dailyOn: d => `Tages-Wabe, ${d}`, hiveNo: n => `Wabe Nr. ${n}`, doneIn: t => `Geschafft in ${t}. Um Mitternacht gibt es eine neue Wabe.`,
+  tenMixed: 'Zehn gemischte Rätsel. Heute spielen alle dieselben.', seeResult: 'Dein Ergebnis ansehen', playToday: 'Heutige Wabe spielen', blitzTile: '60-Sekunden-Blitz',
+  best: n => `Rekord ${n}`, beatClock: 'Gegen die Uhr', hiveSub: 'Profi, 4 in 1', practice: 'Training', highest: 'Höchstes Level', notStarted: 'Noch nicht begonnen',
+  rounds: (tagline, hive) => `${tagline}. Runden mit ${hive ? '3 Waben' : '10 Rätseln'}.`,
+  aLevelAria: (t, name, st, s) => `Level ${t}, ${name}${st === 'paid' ? ', in der Vollversion' : st === 'locked' ? ', gesperrt' : `, ${s} ${s === 1 ? 'Stern' : 'Sterne'}`}`,
+  cellsAges: (n, a) => `${n} Felder, ${/^\d/.test(a) ? `Alter ${a}` : `für ${a}`}`, fullVersion: 'Vollversion', finishLevel: t => `Schaff erst Level ${t}`,
+  blitzTitle: '60-Sekunden-Blitz', blitzHow: 'Löse so viele Rätsel wie möglich in einer Minute. Jedes falsche Antippen kostet 2 Sekunden. Du spielst auf deinem höchsten freigeschalteten Level.',
+  nameLevel: (name, t) => `${name}, Level ${t}`, solvedWord: 'gelöst', smallComb: n => `Kleine Wabe ${n} von 4`, finalComb: 'Letzte Wabe: deine vier Ergebnisse',
+  aAsk: b => `Finde die Zahl, die zwei andere ${b} ergeben`, addUpTo: 'zusammen', multiplyTo: 'malgenommen', inARow: n => `${n} in Folge`, wrongCosts: 'Jedes falsche Antippen kostet 2 Sekunden',
+  dailyDone: 'Tages-Wabe geschafft', firstDaily: 'Deine erste Tages-Wabe. Komm morgen wieder.', faster: n => `${n} ${n === 1 ? 'Sekunde' : 'Sekunden'} schneller als beim letzten Mal`,
+  slower: n => `${n} ${n === 1 ? 'Sekunde' : 'Sekunden'} langsamer als beim letzten Mal`, sameTime: 'Gleiche Zeit wie beim letzten Mal', blitzOf: name => `Blitz: ${name}`, nSolved: n => `${n} gelöst`,
+  newBest: 'Neuer persönlicher Rekord', yourBest: n => `Dein Rekord: ${n}`, levelDone: (name, t) => `${name} ${t} geschafft`,
+  subJoin: (a, b) => `${a}. ${b}`,
+  slips: n => `${n} Fehler`, for3: par => `Für 3 Sterne: unter ${par} mit höchstens 1 Fehler.`, fullMarks: 'Volle Punktzahl.',
+  shareNo: n => `Beequation Nr. ${n}`, firstTry: 'Auf Anhieb', oneSlip: '1 Fehler', twoPlus: '2 oder mehr', streak: n => `${n} ${n === 1 ? 'Tag' : 'Tage'} in Folge`, last7: 'Letzte 7 Tage',
+  share: 'Ergebnis teilen', nextName: (name, t) => `Weiter: ${name} ${t}`, unlockNext: 'Nächste Level freischalten', playBlitz: '60-Sekunden-Blitz spielen',
+  shareBlitz: (n, mode, name) => `Beequation Blitz: ${n} in 60 s gelöst (${mode}, ${name})`, copied: 'Ergebnis kopiert',
+  aAll: n => `Alle ${n} Level`, aThanks: 'Danke! Alle Level sind offen.',
+  aFree: n => `Kostenlos sind ${n} Level, die Tages-Wabe und der Blitz. Die Vollversion öffnet alle Level bis „Königin“, darunter die Profi-Rätsel der Großen Wabe.`,
+  aPrice: 'Ab 2,99 £ im Monat oder 29,99 £ im Jahr, die ersten 7 Tage gratis, oder dauerhaft per Einmalkauf. Keine Werbung. Jederzeit kündbar.', aBuy: 'Vollversion freischalten',
+  howTitle: 'So wird gespielt', how: 'In jeder Wabe steckt eine Zahl, die durch Addieren oder Multiplizieren aus zwei anderen entsteht. Tippe sie an. Eine Runde hat 10 Rätsel; bei der Großen Wabe löst du vier Waben und dann eine Wabe aus ihren Ergebnissen.',
+  aFull: 'Vollversion freigeschaltet',
+  // the chooser
+  chooseIntro: 'Zwei Apps, ein Rätselprinzip. Einfach eine auswählen und ausprobieren. Wechseln geht jederzeit.',
+  kidsPick: 'Für Kinder von 5 bis 12. Bonbonbunte Welten, die Biene Indie, Sticker und keine Uhr.', proPick: 'Für Jugendliche und Erwachsene. Tages-Wabe mit Serien, 60-Sekunden-Blitz und Profi-Level.',
+  savedHere: 'Der Fortschritt wird nur in diesem Browser gespeichert.',
+};

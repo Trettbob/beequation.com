@@ -692,9 +692,9 @@ def english_only(s, lang=None):
     Learn section, teachers page and worksheets, once it has them)."""
     if lang and has_learn(lang):
         own = lambda f: os.path.exists(os.path.join(_learn().I18N, lang, f))   # its own pack, worksheets…
-        return re.sub(r'href="/(play\.html|accessibility\.html|assets/[^"]+\.pdf)"',
+        return re.sub(r'href="/(accessibility\.html|assets/[^"]+\.pdf)"',
                       lambda m: m.group(0) if m.group(1).startswith('assets/') and own(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
-    return re.sub(r'href="/(play\.html|teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
+    return re.sub(r'href="/(teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
 
 def chrome(src, lang, page, label='Language'):
     s = strip_markers(src)
@@ -703,6 +703,10 @@ def chrome(src, lang, page, label='Language'):
     offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
     if page in PAGES and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
+    if page == 'play.html':   # the game: no header, flying bee or cookie notice over it, on every site
+        if lang == 'en' and LIVE:
+            s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + REDIRECT.replace("var L=['fr','es','de','pt']", 'var L=' + json.dumps(sorted(LIVE))), 1)
+        return s
     if lang == 'en' and page == 'teachers.html':   # the teachers page on sites with their own Learn section
         s = re.sub(r'<!--learn-hreflang-->.*?<!--/learn-hreflang-->\n', '', s, flags=re.S)
         s = re.sub(r'(<link rel="canonical"[^>]*>\n)', lambda m: m.group(1) + _learn().alternates(_learn().PACK, _learn().EN), s, count=1)
@@ -729,7 +733,7 @@ def update_english():
         pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
     for p in pages:
         s = rd(p)
-        if '<!--header-->' not in s and '<nav class="top"' not in s: continue   # pages without the header (the game)
+        if '<!--header-->' not in s and '<nav class="top"' not in s and p != 'play.html': continue   # pages without the header
         new = chrome(s, 'en', p)
         if new != s: open(os.path.join(ROOT, p), 'w', encoding='utf-8').write(new)
 
@@ -742,7 +746,7 @@ def translate(src, lang, page, T):
         missing.append(k); return text
     head, body = strip_markers(src).split('</head>', 1)
     head = TITLE.sub(lambda m: f'<title>{tr(m.group(1))}</title>', head)
-    keepnum = lambda v: re.fullmatch(r'[\d,./ −-]+', v) or re.match(r'^(width=|initial-scale|#|summary_large_image|website|article|Beequation$|https?:|light dark|noindex|\d)', v)
+    keepnum = lambda v: re.fullmatch(r'[\d,./ −-]+', v) or re.match(r'^(width=|initial-scale|#|summary_large_image|website|article|Beequation$|https?:|light dark|noindex|\d|\$\{)', v)
     head = ATTR.sub(lambda m: m.group(0) if keepnum(m.group(2)) else f'{m.group(1)}="{tr(m.group(2))}"', head)
     parts = re.split(r'(<script.*?</script>|<svg.*?</svg>)', body, flags=re.S)
     out = []
@@ -766,6 +770,9 @@ def localise(s, lang, page):
     s = s.replace(f'<meta property="og:url" content="{MAIN}{p}">', f'<meta property="og:url" content="{site(lang)}{p}">')
     s = english_only(s, lang)                 # (the header, added later by chrome(), leaves out Learn and Teachers itself)
     s = re.sub(r'<script type="application/ld\+json">\{"@context":"https://schema.org","@type":"HowTo".*?</script>\n?', '', s, flags=re.S)
+    if page == 'play.html':   # the browser game: its structured data, and its own words (i18n/play/<lang>.js)
+        s = s.replace('"inLanguage":"en-GB"', f'"inLanguage":"{HTML_LANG[lang]}"').replace(f'"url":"{MAIN}/play.html"', f'"url":"{site(lang)}/play.html"')
+        s = re.sub(r'/\*T\*/.*?/\*/T\*/', lambda m: '/*T*/' + rd(os.path.join('i18n', 'play', f'{lang}.js')).strip() + '/*/T*/', s, count=1, flags=re.S)
     if page == 'support.html':
         qa = re.findall(r'<h2>(.*?)</h2><p>(.*?)</p>', s, re.S)
         strip = lambda x: H.unescape(re.sub(r'<[^>]+>', '', x)).strip()
@@ -786,7 +793,10 @@ def build(check_only=False):
         out = os.path.join(ROOT, 'dist', lang)
         if not check_only:
             shutil.rmtree(out, ignore_errors=True); os.makedirs(out)
+        if not os.path.exists(os.path.join(ROOT, 'i18n', 'play', f'{lang}.js')):
+            print(f'  {lang} play.html: no i18n/play/{lang}.js (the game\'s words)'); problems += 1
         for page in PAGES:
+            if page == 'play.html' and not os.path.exists(os.path.join(ROOT, 'i18n', 'play', f'{lang}.js')): continue
             html_out, missing = translate(rd(page), lang, page, T)
             for m in dict.fromkeys(missing): print(f'  {lang} {page}: no translation for: {m[:120]}'); problems += 1
             if check_only: continue

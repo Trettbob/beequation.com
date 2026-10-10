@@ -1,0 +1,76 @@
+const T = {
+  locale: 'es',
+  indie: 'La abeja Indie', back: 'Atrás', close: 'Cerrar', quit: 'Salir', settings: 'Ajustes', frac: s => s.replace('/', ' sobre '),
+  switchApp: 'Cambiar de app', siteAria: 'Beequation: volver a beequation.com',
+  tiers: ['Huevo', 'Larva', 'Zumbido', 'Obrera', 'Recolectora', 'Guardiana', 'Realeza', 'Reina'],
+  ages: ['5+', '6+', '7+', '8+', '10+', '12+', 'adolescentes y adultos', 'expertos'],
+  modes: { add: ['Sumas', 'Encuentra el resultado de sumar otros dos'], mul: ['Tablas', 'Encuentra el resultado de multiplicar otros dos'], neg: ['Negativos', 'Sumas con números menores que cero'],
+    frac: ['Fracciones', 'Suma fracciones de cabeza'], mixed: ['Mixto', 'Suma o multiplicación: cambia en cada reto'], hive: ['Gran Colmena', 'Resuelve cuatro y luego sus respuestas'] },
+  dailyJunior: 'Reto del día Junior', dailyPro: 'Reto del día',
+  // Beequation Kids
+  worlds: {
+    add: ['Pradera de Sumas', ['Brote Sumador', 'Amigo del Más', 'Superestrella de la Suma', 'As de la Suma', 'Héroe del Total', 'Maestro de la Pradera']],
+    mul: ['Jardín de Tablas', ['Renacuajo de las Tablas', 'Doble Deslumbrante', 'Magia Multiplicadora', 'Pro del Producto', 'Genio del Jardín', 'Titán de las Tablas']],
+    frac: ['Bosque de Fracciones', ['Héroe de la Mitad', 'Reina de los Cuartos', 'Estrella de las Porciones', 'Campeón de las Fracciones']],
+    hive: ['Gran Colmena', ['Abeja Atareada', 'Capitán del Panal', 'Leyenda de la Colmena']],
+  },
+  gateTitle: 'Solo para adultos', gatePrompt: 'Escribe este número con cifras:', gateAnswer: 'Respuesta en cifras', gateMiss: 'No es correcto. Prueba con el nuevo número.',
+  gateOk: 'Continuar', gateCancel: 'Cancelar',
+  // a four-digit number in words, for the grown-ups check (only [1-9][1-9][10-99] are asked); same text as the app
+  gateWords: n => {
+    const ONES = ['', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+    const TEENS = ['diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete', 'dieciocho', 'diecinueve'];
+    const TWENTIES = ['veinte', 'veintiuno', 'veintidós', 'veintitrés', 'veinticuatro', 'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 'veintinueve'];
+    const TENS = ['', '', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+    const HUNDREDS = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos', 'ochocientos', 'novecientos'];
+    const r = n % 100, th = Math.floor(n / 1000);
+    const rest = r < 20 ? TEENS[r - 10] : r < 30 ? TWENTIES[r - 20] : r % 10 === 0 ? TENS[Math.floor(r / 10)] : `${TENS[Math.floor(r / 10)]} y ${ONES[r % 10]}`;
+    return `${th === 1 ? 'mil' : `${ONES[th]} mil`} ${HUNDREDS[Math.floor(n / 100) % 10]} ${rest}`;
+  },
+  stickersN: n => n === 1 ? '1 pegatina' : `${n} pegatinas`, grownAria: 'Zona de adultos', grown: 'Adultos', hello: '¡Hola! Soy Indie.<br>¡Vamos a buscar sumas!', play: 'Jugar',
+  unlock: 'Desbloquear', starsOf: (n, of) => `★ ${n} de ${of}`, today: 'Reto del día', doneTick: 'Hecho ✓', isNew: '¡Nuevo!',
+  kLevelAria: (t, st, s) => `Nivel ${t}${st === 'paid' ? ', bloqueado' : st === 'locked' ? ', aún no disponible' : `, ${s} ${s === 1 ? 'estrella' : 'estrellas'}`}`,
+  moreLevels: 'Hay más niveles esperándote en el juego completo.', askGrown: 'Preguntar a un adulto', paidNudge: 'Estos niveles están en el juego completo. ¡Pregunta a un adulto!',
+  finishFirst: t => `Primero termina el nivel ${t}. ¡Tú puedes!`,
+  cheer: ['¡Tú puedes!', 'Tómate tu tiempo.', '¡Busca dos que formen otro!', 'Mira todos los números.'], yay: ['¡Sí!', '¡Genial!', '¡Lo has conseguido!', '¡Súper!', '¡Guau!'],
+  puzzleOf: (n, of) => `Reto ${n} de ${of}`, worldLevel: (w, t) => `${w}, nivel ${t}`, smallCombOf: n => `, panal pequeño ${n} de 4`, bigComb: ', ¡panal grande!',
+  useAnswers: '¡Ahora usa tus cuatro respuestas!', kAsk: word => `¿Qué número sale al ${word} otros dos?`, added: 'sumar', multiplied: 'multiplicar',
+  hint: 'Pista', psst: x => `¡Psst! Prueba a empezar por el ${x}.`, oops: '¡Uy! Prueba con otro.',
+  heads: ['', '¡Bien hecho!', '¡Buen trabajo!', '¡Increíble!'], helpNone: '¡y sin ninguna pista!', helpOne: 'y solo has necesitado 1 pista.', helpN: n => `con ${n} pistas.`,
+  starsAria: n => `${n} de 3 estrellas`, solvedAll: n => `Has resuelto los ${n} retos`, comeBack: '¡Vuelve mañana para jugar uno nuevo!', newSticker: '¡Pegatina nueva!',
+  addedToBook: 'Añadida a tu álbum', get3: 'Consigue 3 estrellas para ganar la pegatina de este nivel.', nextLevel: 'Siguiente nivel', again: 'Jugar otra vez', home: 'Inicio', map: 'Mapa',
+  myStickers: 'Mis pegatinas', stickersHow: 'Consigue 3 estrellas en un nivel para ganar su pegatina.', notWon: n => `${n}, aún sin ganar`,
+  forGrown: 'Para adultos', kFull: 'Juego completo desbloqueado', kUnlockAll: n => `Desbloquea los ${n} niveles`, kThanks: '¡Gracias! Todos los mundos y niveles están abiertos.',
+  kFree: n => `El juego gratuito tiene ${n} niveles y el Reto del día. Con una suscripción, o con el acceso de por vida (un solo pago), se abren todos los niveles de los cuatro mundos: sumas más difíciles, tablas de multiplicar hasta la del 15, fracciones y la Gran Colmena.`,
+  kPrice: 'Desde 4,99 £ al mes, con 7 días gratis. Sin anuncios. Sin recogida de datos. Cancela cuando quieras.', backToFree: 'Volver a la versión gratuita (solo en la vista previa)',
+  kBuy: 'Desbloquear el juego completo', previewNote: 'Esta vista previa simula la compra. En la app, se abre el App Store o Google Play.', helpsTitle: 'Cómo ayuda',
+  helps: 'Cada reto pide a tu hijo o hija que encuentre un número formado por otros dos. Así afianza las combinaciones numéricas básicas y gana agilidad en el cálculo mental. Las pistas de Indie ayudan a jugar con calma, las estrellas penalizan poco las pistas y los fallos, y no hay ningún reloj contra el que competir.',
+  progress: 'Progreso', reset: 'Reiniciar progreso', resetAsk: '¿Borrar las estrellas y las pegatinas de este dispositivo?', resetDone: 'Progreso reiniciado',
+  // Beequation Pro
+  streakAria: n => `Racha de ${n} ${n === 1 ? 'día' : 'días'}`, dailyOn: d => `Reto del día, ${d}`, hiveNo: n => `Colmena n.º ${n}`, doneIn: t => `Completado en ${t}. A medianoche se abre una colmena nueva.`,
+  tenMixed: 'Diez retos mixtos. Hoy todo el mundo juega los mismos.', seeResult: 'Ver tu resultado', playToday: 'Jugar la colmena de hoy', blitzTile: 'Blitz de 60 s',
+  best: n => `Récord: ${n}`, beatClock: 'Gánale al reloj', hiveSub: 'Experto, 4 en 1', practice: 'Práctica', highest: 'Nivel más alto alcanzado', notStarted: 'Sin empezar',
+  rounds: (tagline, hive) => `${tagline}. Rondas de ${hive ? '3 colmenas' : '10 retos'}.`,
+  aLevelAria: (t, name, st, s) => `Nivel ${t}, ${name}${st === 'paid' ? ', en la versión completa' : st === 'locked' ? ', bloqueado' : `, ${s} ${s === 1 ? 'estrella' : 'estrellas'}`}`,
+  cellsAges: (n, a) => `${n} casillas, edad: ${a}`, fullVersion: 'Versión completa', finishLevel: t => `Termina el nivel ${t}`,
+  blitzTitle: 'Blitz de 60 segundos', blitzHow: 'Resuelve todos los retos que puedas en un minuto. Un toque equivocado cuesta 2 segundos. Juegas en el nivel más alto que tengas abierto.',
+  nameLevel: (name, t) => `${name}, nivel ${t}`, solvedWord: 'resueltos', smallComb: n => `Panal pequeño ${n} de 4`, finalComb: 'Panal final: tus cuatro respuestas',
+  aAsk: b => `Encuentra el resultado de ${b} otros dos`, addUpTo: 'sumar', multiplyTo: 'multiplicar', inARow: n => `${n} seguidos`, wrongCosts: 'Un toque equivocado cuesta 2 segundos',
+  dailyDone: 'Reto del día completado', firstDaily: 'Tu primera colmena diaria. Vuelve mañana.', faster: n => `${n} ${n === 1 ? 'segundo' : 'segundos'} más rápido que la última vez`,
+  slower: n => `${n} ${n === 1 ? 'segundo' : 'segundos'} más lento que la última vez`, sameTime: 'El mismo tiempo que la última vez', blitzOf: name => `Blitz en ${name}`, nSolved: n => n === 1 ? '1 resuelto' : `${n} resueltos`,
+  newBest: '¡Nuevo récord personal!', yourBest: n => `Tu récord es ${n}`, levelDone: (name, t) => `Nivel ${name} ${t} completado`,
+  subJoin: (a, b) => `${a}. ${b}`,
+  slips: n => n === 1 ? '1 fallo' : `${n} fallos`, for3: par => `Para 3 estrellas: menos de ${par} con 1 fallo como máximo.`, fullMarks: 'Puntuación máxima.',
+  shareNo: n => `Beequation n.º ${n}`, firstTry: 'A la primera', oneSlip: '1 fallo', twoPlus: '2 o más', streak: n => `Racha de ${n} ${n === 1 ? 'día' : 'días'}`, last7: 'Últimos 7 días',
+  share: 'Compartir resultado', nextName: (name, t) => `Siguiente: ${name} ${t}`, unlockNext: 'Desbloquear los siguientes niveles', playBlitz: 'Jugar un blitz de 60 s',
+  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} ${n === 1 ? 'resuelto' : 'resueltos'} en 60 s (${mode}, ${name})`, copied: 'Resultado copiado',
+  aAll: n => `Los ${n} niveles`, aThanks: 'Gracias. Todos los niveles están abiertos.',
+  aFree: n => `La versión gratuita incluye ${n} niveles, el Reto del día y el blitz. La versión completa abre todos los niveles hasta Reina, incluidos los retos expertos de la Gran Colmena.`,
+  aPrice: 'Desde 2,99 £ al mes o 29,99 £ al año, con 7 días gratis, o acceso de por vida con un solo pago. Sin anuncios. Cancela cuando quieras.', aBuy: 'Desbloquear la versión completa',
+  howTitle: 'Cómo se juega', how: 'Cada panal esconde un número que sale de sumar o multiplicar otros dos. Tócalo. Las rondas son de 10 retos; en la Gran Colmena resuelves cuatro panales y luego un panal con sus respuestas.',
+  aFull: 'Versión completa desbloqueada',
+  // the chooser
+  chooseIntro: 'Dos apps, un mismo reto. Elige una para probarla. Puedes cambiar cuando quieras.',
+  kidsPick: 'De 5 a 12 años. Mundos llenos de color, la abeja Indie, pegatinas y sin reloj.', proPick: 'Adolescentes y adultos. Reto del día con rachas, blitz de 60 segundos y niveles expertos.',
+  savedHere: 'El progreso se guarda solo en este navegador.',
+};

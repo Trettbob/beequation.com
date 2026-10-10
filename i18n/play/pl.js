@@ -1,0 +1,79 @@
+const T = {
+  locale: 'pl',
+  indie: 'Pszczółka Indie', back: 'Wróć', close: 'Zamknij', quit: 'Zakończ', settings: 'Ustawienia', frac: s => s.replace('/', ' przez '),
+  switchApp: 'Zmień aplikację', siteAria: 'Beequation: wróć do beequation.com',
+  tiers: ['Jajo', 'Larwa', 'Pszczółka', 'Robotnica', 'Zbieraczka', 'Strażniczka', 'Księżniczka', 'Królowa'],
+  ages: ['5+', '6+', '7+', '8+', '10+', '12+', 'dla nastolatków i dorosłych', 'dla ekspertów'],
+  modes: { add: ['Dodawanie', 'Znajdź liczbę, która jest sumą dwóch innych'], mul: ['Mnożenie', 'Znajdź liczbę, która jest iloczynem dwóch innych'], neg: ['Liczby ujemne', 'Dodawanie z liczbami mniejszymi od zera'],
+    frac: ['Ułamki', 'Dodawaj ułamki w pamięci'], mixed: ['Mieszane', 'Plus albo razy – zmienia się w każdej łamigłówce'], hive: ['Wielki Ul', 'Rozwiąż cztery plastry, potem plaster z ich wyników'] },
+  dailyJunior: 'Zagadka dnia', dailyPro: 'Wyzwanie dnia',
+  // Beequation Kids (the child is addressed with lowercase "ty"; the grown-ups' area speaks to the parent)
+  worlds: {
+    add: ['Łąka Dodawania', ['Plusowy Kiełek', 'Kumpel Plusa', 'Supergwiazda Sumy', 'As Dodawania', 'Bohater Wyniku', 'Mistrz Łąki']],
+    mul: ['Ogród Mnożenia', ['Kijanka Tabliczki', 'Podwójny Błysk', 'Magia Mnożenia', 'Profesor Iloczynu', 'Geniusz Ogrodu', 'Tytan Mnożenia']],
+    frac: ['Las Ułamków', ['Bohater Połówek', 'Królowa Ćwiartek', 'Gwiazda Kawałków', 'Pogromca Ułamków']],
+    hive: ['Wielki Ul', ['Pracowita Pszczółka', 'Kapitan Plastra', 'Legenda Ula']],
+  },
+  gateTitle: 'Tylko dla rodziców', gatePrompt: 'Wpisz tę liczbę cyframi:', gateAnswer: 'Odpowiedź cyframi', gateMiss: 'To nie ta liczba. Spróbuj z nową.',
+  gateOk: 'Dalej', gateCancel: 'Anuluj',
+  // a four-digit number in words, for the grown-ups check (only [1-9][1-9][10-99] are asked); same text as the app
+  gateWords: n => {
+    const ONES = ['', 'jeden', 'dwa', 'trzy', 'cztery', 'pięć', 'sześć', 'siedem', 'osiem', 'dziewięć'];
+    const TEENS = ['dziesięć', 'jedenaście', 'dwanaście', 'trzynaście', 'czternaście', 'piętnaście', 'szesnaście', 'siedemnaście', 'osiemnaście', 'dziewiętnaście'];
+    const TENS = ['', '', 'dwadzieścia', 'trzydzieści', 'czterdzieści', 'pięćdziesiąt', 'sześćdziesiąt', 'siedemdziesiąt', 'osiemdziesiąt', 'dziewięćdziesiąt'];
+    const HUNDREDS = ['', 'sto', 'dwieście', 'trzysta', 'czterysta', 'pięćset', 'sześćset', 'siedemset', 'osiemset', 'dziewięćset'];
+    const th = Math.floor(n / 1000), h = Math.floor(n / 100) % 10, r = n % 100;
+    const thousands = th === 1 ? 'tysiąc' : `${ONES[th]} ${th >= 2 && th <= 4 ? 'tysiące' : 'tysięcy'}`;
+    const rest = r < 10 ? ONES[r] : r < 20 ? TEENS[r - 10] : r % 10 === 0 ? TENS[r / 10] : `${TENS[Math.floor(r / 10)]} ${ONES[r % 10]}`;
+    return [thousands, HUNDREDS[h], rest].filter(Boolean).join(' ');
+  },
+  // Polish plurals below: 1 / 2–4 (also 22–24 …, but not 12–14) / everything else
+  stickersN: n => `${n} ${n === 1 ? 'naklejka' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'naklejki' : 'naklejek'}`,
+  grownAria: 'Strefa rodzica', grown: 'Rodzice', hello: 'Cześć! Jestem Indie.<br>Poszukajmy liczb!', play: 'Graj',
+  unlock: 'Odblokuj', starsOf: (n, of) => `★ ${n} z ${of}`, today: 'Zagadka dnia', doneTick: 'Gotowe ✓', isNew: 'Nowa!',
+  kLevelAria: (t, st, s) => `Poziom ${t}${st === 'paid' ? ', zablokowany' : st === 'locked' ? ', jeszcze zamknięty' : `, ${s} ${s === 1 ? 'gwiazdka' : s % 10 >= 2 && s % 10 <= 4 && (s % 100 < 12 || s % 100 > 14) ? 'gwiazdki' : 'gwiazdek'}`}`,
+  moreLevels: 'W pełnej wersji czeka więcej poziomów.', askGrown: 'Zawołaj dorosłego', paidNudge: 'Te poziomy są w pełnej wersji. Poproś kogoś dorosłego!',
+  finishFirst: t => `Najpierw ukończ poziom ${t}. Dasz radę!`,
+  cheer: ['Dasz radę!', 'Nie spiesz się.', 'Znajdź dwie, które dają trzecią!', 'Przyjrzyj się każdej liczbie.'], yay: ['Tak!', 'Świetnie!', 'Brawo!', 'Super!', 'Hura!'],
+  puzzleOf: (n, of) => `Zagadka ${n} z ${of}`, worldLevel: (w, t) => `${w}, poziom ${t}`, smallCombOf: n => `, mały plaster ${n} z 4`, bigComb: ', wielki plaster!',
+  useAnswers: 'Teraz użyj swoich czterech odpowiedzi!', kAsk: word => `Która liczba powstanie, gdy ${word} dwie inne?`, added: 'dodasz', multiplied: 'pomnożysz',
+  hint: 'Podpowiedź', psst: x => `Psst! Zacznij od liczby ${x}.`, oops: 'Ojej! Spróbuj innej.',
+  heads: ['', 'Dobra robota!', 'Świetnie!', 'Niesamowite!'], helpNone: 'i to bez żadnej podpowiedzi!', helpOne: 'i to tylko z 1 podpowiedzią.', helpN: n => `z ${n} podpowiedziami.`,
+  starsAria: n => `${n} z 3 gwiazdek`, solvedAll: n => `Udało ci się rozwiązać ${n} ${n === 1 ? 'zagadkę' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'zagadki' : 'zagadek'}`, comeBack: 'Wróć jutro po nową zagadkę!', newSticker: 'Nowa naklejka!',
+  addedToBook: 'Już jest w twoim albumie', get3: 'Zdobądź 3 gwiazdki, a wygrasz naklejkę z tego poziomu.', nextLevel: 'Następny poziom', again: 'Zagraj jeszcze raz', home: 'Start', map: 'Mapa',
+  myStickers: 'Moje naklejki', stickersHow: 'Zdobądź 3 gwiazdki na poziomie, a wygrasz jego naklejkę.', notWon: n => `${n}, jeszcze do zdobycia`,
+  forGrown: 'Strefa rodzica', kFull: 'Pełna wersja odblokowana', kUnlockAll: n => `Odblokuj wszystkie ${n} ${n === 1 ? 'poziom' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'poziomy' : 'poziomów'}`, kThanks: 'Dziękujemy! Wszystkie światy i poziomy są otwarte.',
+  kFree: n => `Darmowa wersja ma ${n} ${n === 1 ? 'poziom' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'poziomy' : 'poziomów'} i zagadkę dnia. Wykup subskrypcję albo jednorazowo dostęp na zawsze, by otworzyć wszystkie poziomy w czterech światach: trudniejsze dodawanie, tabliczkę mnożenia aż do 15, ułamki oraz Wielki Ul.`,
+  kPrice: 'Już od 4,99 £ miesięcznie, z 7 dniami za darmo. Bez reklam. Bez zbierania danych. Możesz zrezygnować w każdej chwili.', backToFree: 'Wróć do darmowej wersji (tylko w podglądzie)',
+  kBuy: 'Odblokuj pełną wersję', previewNote: 'Ten podgląd tylko symuluje zakup. W aplikacji otworzy się App Store lub Google Play.', helpsTitle: 'Jak to pomaga',
+  helps: 'W każdej zagadce dziecko szuka liczby, która powstaje z dwóch innych. To utrwala rozkład liczb i ćwiczy szybkie liczenie w pamięci. Podpowiedzi Indie pomagają zachować spokój, a gwiazdki łagodnie uwzględniają podpowiedzi i pomyłki. Nie ma zegara, z którym trzeba się ścigać.',
+  progress: 'Postępy', reset: 'Zresetuj postępy', resetAsk: 'Usunąć gwiazdki i naklejki na tym urządzeniu?', resetDone: 'Postępy zresetowane',
+  // Beequation Pro (the player is addressed with "ty", Twój capitalised)
+  streakAria: n => `Seria: ${n} ${n === 1 ? 'dzień' : 'dni'}`, dailyOn: d => `Wyzwanie dnia, ${d}`, hiveNo: n => `Ul nr ${n}`, doneIn: t => `Ukończone w czasie ${t}. Nowy ul o północy.`,
+  tenMixed: 'Dziesięć mieszanych łamigłówek. Dziś wszyscy grają w te same.', seeResult: 'Zobacz swój wynik', playToday: 'Zagraj w dzisiejszy ul', blitzTile: 'Blitz 60 s',
+  best: n => `Rekord: ${n}`, beatClock: 'Wyścig z czasem', hiveSub: 'Dla ekspertów, 4 w 1', practice: 'Trening', highest: 'Najwyższy osiągnięty poziom', notStarted: 'Nie rozpoczęto',
+  rounds: (tagline, hive) => `${tagline}. Rundy po ${hive ? '3 ule' : '10 łamigłówek'}.`,
+  aLevelAria: (t, name, st, s) => `Poziom ${t}, ${name}${st === 'paid' ? ', w pełnej wersji' : st === 'locked' ? ', zablokowany' : `, ${s} ${s === 1 ? 'gwiazdka' : s % 10 >= 2 && s % 10 <= 4 && (s % 100 < 12 || s % 100 > 14) ? 'gwiazdki' : 'gwiazdek'}`}`,
+  cellsAges: (n, a) => `${n} ${n === 1 ? 'pole' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'pola' : 'pól'}, ${/^\d/.test(a) ? `wiek ${a}` : a}`, fullVersion: 'Pełna wersja', finishLevel: t => `Ukończ poziom ${t}`,
+  blitzTitle: 'Blitz 60 sekund', blitzHow: 'Rozwiąż jak najwięcej w minutę. Błędne dotknięcie kosztuje 2 sekundy. Grasz na swoim najwyższym odblokowanym poziomie.',
+  nameLevel: (name, t) => `${name}, poziom ${t}`, solvedWord: 'rozwiązane', smallComb: n => `Mały plaster ${n} z 4`, finalComb: 'Ostatni plaster: Twoje cztery wyniki',
+  aAsk: b => `Znajdź liczbę, która jest ${b} dwóch innych`, addUpTo: 'sumą', multiplyTo: 'iloczynem', inARow: n => `${n} z rzędu`, wrongCosts: 'Błędne dotknięcie kosztuje 2 sekundy',
+  dailyDone: 'Wyzwanie dnia ukończone', firstDaily: 'Twoje pierwsze Wyzwanie dnia. Wróć jutro.', faster: n => `O ${n} ${n === 1 ? 'sekundę' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'sekundy' : 'sekund'} szybciej niż ostatnio`,
+  slower: n => `O ${n} ${n === 1 ? 'sekundę' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'sekundy' : 'sekund'} wolniej niż ostatnio`, sameTime: 'Ten sam czas co ostatnio', blitzOf: name => `Blitz: ${name}`,
+  nSolved: n => `${n} ${n === 1 ? 'rozwiązana' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'rozwiązane' : 'rozwiązanych'}`,
+  newBest: 'Nowy rekord osobisty', yourBest: n => `Twój rekord: ${n}`, levelDone: (name, t) => `Ukończono: ${name} ${t}`,
+  subJoin: (a, b) => `${a}. ${b}`,
+  slips: n => `${n} ${n === 1 ? 'pomyłka' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'pomyłki' : 'pomyłek'}`, for3: par => `Na 3 gwiazdki: poniżej ${par} i najwyżej 1 pomyłka.`, fullMarks: 'Komplet punktów.',
+  shareNo: n => `Beequation nr ${n}`, firstTry: 'Za pierwszym razem', oneSlip: '1 pomyłka', twoPlus: '2 lub więcej', streak: n => `Seria: ${n} ${n === 1 ? 'dzień' : 'dni'}`, last7: 'Ostatnie 7 dni',
+  share: 'Udostępnij wynik', nextName: (name, t) => `Dalej: ${name} ${t}`, unlockNext: 'Odblokuj kolejne poziomy', playBlitz: 'Zagraj w blitz 60 s',
+  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} ${n === 1 ? 'rozwiązana' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'rozwiązane' : 'rozwiązanych'} w 60 s (${mode}, ${name})`, copied: 'Skopiowano wynik',
+  aAll: n => `Wszystkie ${n} ${n === 1 ? 'poziom' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'poziomy' : 'poziomów'}`, aThanks: 'Dziękujemy. Wszystkie poziomy są otwarte.',
+  aFree: n => `Za darmo: ${n} ${n === 1 ? 'poziom' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'poziomy' : 'poziomów'}, Wyzwanie dnia i blitz. Pełna wersja otwiera wszystkie poziomy aż do poziomu „Królowa”, w tym eksperckie łamigłówki Wielkiego Ula.`,
+  aPrice: 'Już od 2,99 £ miesięcznie lub 29,99 £ rocznie, z 7 dniami za darmo, albo jednorazowo dostęp na zawsze. Bez reklam. Możesz zrezygnować w każdej chwili.', aBuy: 'Odblokuj pełną wersję',
+  howTitle: 'Jak grać', how: 'W każdym plastrze kryje się jedna liczba, która powstaje z dwóch innych przez dodawanie lub mnożenie. Dotknij jej. Runda to 10 łamigłówek; w Wielkim Ulu rozwiązujesz cztery plastry, a potem plaster z ich wyników.',
+  aFull: 'Pełna wersja odblokowana',
+  // the chooser
+  chooseIntro: 'Dwie aplikacje oparte na tej samej łamigłówce. Wybierz jedną i wypróbuj. W każdej chwili możesz zmienić wybór.',
+  kidsPick: 'Od 5 do 12 lat. Kolorowe światy, pszczółka Indie, naklejki i żadnego zegara.', proPick: 'Nastolatki i dorośli. Wyzwanie dnia z seriami, blitz 60 sekund, poziomy dla ekspertów.',
+  savedHere: 'Postępy są zapisywane tylko w tej przeglądarce.',
+};

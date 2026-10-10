@@ -1,0 +1,75 @@
+const T = {
+  locale: 'ko',
+  // Fractions: the game reads "3/4" as label.replace('/', T.over), which keeps the numerator first. Korean reads the
+  // denominator first ("4분의 3"), which a plain replace can't produce, so "3 나누기 4" (3 ÷ 4, the same value) is read.
+  indie: '꿀벌 인디', back: '뒤로', close: '닫기', quit: '그만하기', settings: '설정', frac: s => { const [n, d] = s.split('/'); return d ? `${d}분의 ${n}` : s; },   // 3/4 → 4분의 3
+  switchApp: '앱 바꾸기', siteAria: 'Beequation: beequation.com으로 돌아가기',
+  tiers: ['알', '애벌레', '붕붕이', '일벌', '채집벌', '문지기벌', '로열젤리', '여왕벌'],
+  ages: ['5+', '6+', '7+', '8+', '10+', '12+', '청소년·성인', '전문가'],
+  modes: { add: ['덧셈', '두 수의 합이 되는 수를 찾아요'], mul: ['곱셈', '두 수의 곱이 되는 수를 찾아요'], neg: ['음수', '0보다 작은 수가 들어간 덧셈'],
+    frac: ['분수', '분수 덧셈을 암산으로'], mixed: ['혼합', '덧셈 또는 곱셈, 퍼즐마다 바뀌어요'], hive: ['대왕 벌집', '넷을 풀고, 그 답으로 하나 더 풀어요'] },
+  dailyJunior: '데일리 주니어', dailyPro: '데일리 프로',
+  // Beequation Kids
+  worlds: {
+    add: ['덧셈 들판', ['덧셈 새싹', '더하기 단짝', '덧셈 슈퍼스타', '덧셈 에이스', '더하기 영웅', '들판 마스터']],
+    mul: ['구구단 정원', ['구구단 올챙이', '두 배 반짝이', '곱셈 매직', '곱셈 프로', '정원 천재', '구구단 거인']],
+    frac: ['분수 숲', ['절반 영웅', '4분의 1 여왕', '조각 스타', '분수 챔피언']],
+    hive: ['대왕 벌집', ['부지런한 꿀벌', '벌집 대장', '벌집 전설']],
+  },
+  gateTitle: '보호자 전용', gatePrompt: '이 수를 숫자로 입력해 주세요:', gateAnswer: '숫자로 입력', gateMiss: '틀렸어요. 새로운 수로 다시 해 보세요.',
+  gateOk: '계속', gateCancel: '취소',
+  // a four-digit number in words, for the grown-ups check (only [1-9][1-9][10-99] are asked); same text as the app:
+  // Sino-Korean hangul in one word, a leading 1 dropped before 천, 백 and 십 (7342 → 칠천삼백사십이, 1110 → 천백십)
+  gateWords: n => {
+    const DIGITS = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+    const place = (d, unit) => (d === 0 ? '' : d === 1 ? unit : DIGITS[d] + unit);
+    return place(Math.floor(n / 1000), '천') + place(Math.floor(n / 100) % 10, '백') + place(Math.floor(n / 10) % 10, '십') + DIGITS[n % 10];
+  },
+  stickersN: n => `스티커 ${n}개`, grownAria: '보호자 메뉴', grown: '보호자', hello: '안녕! 나는 인디예요.<br>같이 숫자 퍼즐을 풀어 봐요!', play: '시작',
+  unlock: '잠금 해제', starsOf: (n, of) => `★ ${n} / ${of}`, today: '오늘의 퍼즐', doneTick: '완료 ✓', isNew: '새로 나왔어요!',
+  kLevelAria: (t, st, s) => `레벨 ${t}${st === 'paid' ? ', 잠김' : st === 'locked' ? ', 아직 안 열렸어요' : `, 별 ${s}개`}`,
+  moreLevels: '정식 버전에서 더 많은 레벨이 기다리고 있어요.', askGrown: '어른께 여쭤보기', paidNudge: '이 레벨들은 정식 버전에 있어요. 어른께 여쭤봐요!',
+  finishFirst: t => `레벨 ${t}까지 먼저 끝내요. 할 수 있어요!`,
+  cheer: ['할 수 있어요!', '천천히 해도 괜찮아요.', '두 수로 만든 수를 찾아봐요!', '숫자를 하나하나 살펴봐요.'], yay: ['맞아요!', '잘했어요!', '정답이에요!', '최고예요!', '우와!'],
+  puzzleOf: (n, of) => `${of}개 중 ${n}번째 퍼즐`, worldLevel: (w, t) => `${w}, 레벨 ${t}`, smallCombOf: n => `, 작은 벌집 4개 중 ${n}번째`, bigComb: ', 큰 벌집!',
+  useAnswers: '이제 찾은 답 네 개로 풀어 봐요!', kAsk: word => `다른 두 수를 ${word} 나오는 수는 어느 것일까요?`, added: '더해서', multiplied: '곱해서',
+  hint: '힌트', psst: x => `쉿! ${x}부터 시작해 봐요.`, oops: '앗! 다른 수를 골라 봐요.',
+  heads: ['', '잘했어요!', '아주 잘했어요!', '정말 대단해요!'], helpNone: '힌트도 하나도 안 썼어요!', helpOne: '힌트는 딱 1번 썼어요.', helpN: n => `힌트는 ${n}번 썼어요.`,
+  starsAria: n => `별 3개 중 ${n}개`, solvedAll: n => `퍼즐 ${n}개를 모두 풀었어요`, comeBack: '내일 또 새 퍼즐이 나와요!', newSticker: '새 스티커!',
+  addedToBook: '스티커북에 붙였어요', get3: '별 3개를 모으면 이 레벨의 스티커를 받아요.', nextLevel: '다음 레벨', again: '다시 하기', home: '처음으로', map: '지도',
+  myStickers: '내 스티커', stickersHow: '레벨에서 별 3개를 모으면 그 레벨의 스티커를 받아요.', notWon: n => `${n}, 아직 못 받았어요`,
+  forGrown: '보호자 메뉴', kFull: '정식 버전 이용 중', kUnlockAll: n => `레벨 ${n}개 모두 열기`, kThanks: '감사합니다! 모든 월드와 레벨이 열렸어요.',
+  kFree: n => `무료 버전에는 레벨 ${n}개와 오늘의 퍼즐이 있어요. 구독하거나 평생 이용권을 한 번 구매하면 네 월드의 모든 레벨이 열려요. 더 어려운 덧셈, 15단까지의 곱셈, 분수, 대왕 벌집까지 즐길 수 있어요.`,
+  kPrice: '월 £4.99부터 이용할 수 있고, 7일 무료 체험도 있어요. 광고 없음. 데이터 수집 없음. 언제든 해지 가능.', backToFree: '무료 버전으로 돌아가기(미리보기 전용)',
+  kBuy: '정식 버전 열기', previewNote: '이 미리보기에서는 실제로 결제되지 않아요. 앱에서는 여기서 App Store 또는 Google Play가 열려요.', helpsTitle: '이런 점이 좋아요',
+  helps: '퍼즐마다 아이는 다른 두 수로 만들어진 수를 찾아요. 이 과정에서 수 가르기와 모으기, 빠른 암산 실력이 자라요. 인디의 힌트 덕분에 차분하게 풀 수 있고, 별은 힌트와 실수를 너그럽게 반영해요. 시간제한도 없어요.',
+  progress: '진행 상황', reset: '진행 상황 초기화', resetAsk: '이 기기에 저장된 별과 스티커를 지울까요?', resetDone: '진행 상황을 초기화했어요',
+  // Beequation Pro
+  streakAria: n => `${n}일 연속`, dailyOn: d => `데일리 프로 · ${d}`, hiveNo: n => `${n}호 벌집`, doneIn: t => `${t} 만에 완료. 자정에 새 벌집이 열려요.`,
+  tenMixed: '혼합 퍼즐 10개. 오늘은 모두가 같은 퍼즐을 풀어요.', seeResult: '결과 보기', playToday: '오늘의 벌집 풀기', blitzTile: '60초 블리츠',
+  best: n => `최고 ${n}`, beatClock: '시간과의 승부', hiveSub: '전문가용, 넷에서 하나로', practice: '연습', highest: '최고 도달 레벨', notStarted: '시작 전',
+  rounds: (tagline, hive) => `${tagline}. 라운드당 ${hive ? '벌집 3개' : '퍼즐 10개'}.`,
+  aLevelAria: (t, name, st, s) => `레벨 ${t}, ${name}${st === 'paid' ? ', 정식 버전 전용' : st === 'locked' ? ', 잠김' : `, 별 ${s}개`}`,
+  // a is '5+' … '12+' or a word from `ages` above (as in the app: "10세 이상", "청소년·성인용")
+  cellsAges: (n, a) => `${n}칸, ${/^\d/.test(a) ? `${a.replace('+', '')}세 이상` : `${a}용`}`, fullVersion: '정식 버전', finishLevel: t => `레벨 ${t} 먼저 완료`,
+  blitzTitle: '60초 블리츠', blitzHow: '1분 동안 최대한 많이 푸세요. 잘못 탭하면 2초가 차감돼요. 열려 있는 가장 높은 레벨로 플레이해요.',
+  nameLevel: (name, t) => `${name}, 레벨 ${t}`, solvedWord: '해결', smallComb: n => `작은 벌집 4개 중 ${n}번째`, finalComb: '마지막 벌집: 네 개의 답',
+  aAsk: b => `다른 두 수를 ${b} 나오는 수를 찾으세요`, addUpTo: '더하면', multiplyTo: '곱하면', inARow: n => `${n}연속`, wrongCosts: '잘못 탭하면 2초 차감',
+  dailyDone: '데일리 프로 완료', firstDaily: '첫 데일리 프로를 마쳤어요. 내일 또 만나요.', faster: n => `지난번보다 ${n}초 빨라요`,
+  slower: n => `지난번보다 ${n}초 느려요`, sameTime: '지난번과 같은 기록이에요', blitzOf: name => `${name} 블리츠`, nSolved: n => `${n}개 해결`,
+  newBest: '개인 최고 기록 경신', yourBest: n => `최고 기록 ${n}`, levelDone: (name, t) => `${name} ${t} 완료`,
+  subJoin: (a, b) => `${a}. ${b}`,
+  slips: n => `실수 ${n}번`, for3: par => `별 3개 조건: ${par} 이내, 실수 최대 1번.`, fullMarks: '만점이에요.',
+  shareNo: n => `Beequation No. ${n}`, firstTry: '한 번에', oneSlip: '실수 1번', twoPlus: '2번 이상', streak: n => `${n}일 연속`, last7: '최근 7일',
+  share: '결과 공유', nextName: (name, t) => `다음: ${name} ${t}`, unlockNext: '다음 레벨 열기', playBlitz: '60초 블리츠 하기',
+  shareBlitz: (n, mode, name) => `Beequation 블리츠: 60초에 ${n}개 해결 (${mode}, ${name})`, copied: '결과를 복사했어요',
+  aAll: n => `레벨 ${n}개 전체`, aThanks: '감사합니다. 모든 레벨이 열렸어요.',
+  aFree: n => `무료로 레벨 ${n}개, 데일리 프로, 블리츠를 즐길 수 있어요. 정식 버전에서는 ‘여왕벌’까지 모든 레벨이 열리고, 대왕 벌집 전문가 퍼즐도 포함돼요.`,
+  aPrice: '월 £2.99 또는 연 £29.99부터 구독할 수 있고, 7일 무료 체험도 있어요. 한 번만 결제하는 평생 이용권도 있어요. 광고 없음. 언제든 해지 가능.', aBuy: '정식 버전 열기',
+  howTitle: '게임 방법', how: '모든 벌집에는 다른 두 수를 더하거나 곱해서 만든 수가 하나 숨어 있어요. 그 수를 탭하세요. 한 라운드는 퍼즐 10개예요. 대왕 벌집에서는 벌집 4개를 푼 다음 그 답으로 만든 벌집을 풀어요.',
+  aFull: '정식 버전 잠금 해제',
+  // the chooser
+  chooseIntro: '같은 퍼즐로 만든 두 가지 앱이에요. 하나를 골라 체험해 보세요. 언제든 바꿀 수 있어요.',
+  kidsPick: '5~12세. 알록달록한 월드, 꿀벌 인디, 스티커, 시간제한 없음.', proPick: '청소년·성인. 연속 기록이 쌓이는 데일리 프로, 60초 블리츠, 전문가 레벨.',
+  savedHere: '진행 상황은 이 브라우저에만 저장돼요.',
+};

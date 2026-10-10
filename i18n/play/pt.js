@@ -1,0 +1,75 @@
+const T = {
+  locale: 'pt-BR',
+  indie: 'A abelha Indie', back: 'Voltar', close: 'Fechar', quit: 'Sair', settings: 'Ajustes', frac: s => s.replace('/', ' sobre '),
+  switchApp: 'Trocar de app', siteAria: 'Beequation: voltar para beequation.com',
+  tiers: ['Ovo', 'Larva', 'Zumbido', 'Operária', 'Coletora', 'Guardiã', 'Realeza', 'Rainha'],
+  ages: ['5+', '6+', '7+', '8+', '10+', '12+', 'jovens e adultos', 'especialistas'],
+  modes: { add: ['Somas', 'Ache o resultado de somar outros dois'], mul: ['Tabuada', 'Ache o resultado de multiplicar outros dois'], neg: ['Negativos', 'Somas com números abaixo de zero'],
+    frac: ['Frações', 'Some frações de cabeça'], mixed: ['Misto', 'Mais ou vezes: muda a cada desafio'], hive: ['Grande Colmeia', 'Resolva quatro favos e depois as respostas deles'] },
+  dailyJunior: 'Desafio do dia Júnior', dailyPro: 'Diário Pro',
+  // Beequation Kids
+  worlds: {
+    add: ['Prado das Somas', ['Broto da Soma', 'Amigo do Mais', 'Superestrela da Soma', 'Ás da Adição', 'Herói do Total', 'Mestre do Prado']],
+    mul: ['Jardim da Tabuada', ['Girino da Tabuada', 'Dobro Brilhante', 'Magia da Multiplicação', 'Craque do Produto', 'Gênio do Jardim', 'Titã da Tabuada']],
+    frac: ['Floresta das Frações', ['Herói da Metade', 'Rainha da Quarta Parte', 'Estrela das Fatias', 'Campeão das Frações']],
+    hive: ['Grande Colmeia', ['Abelha Atarefada', 'Capitão do Favo', 'Lenda da Colmeia']],
+  },
+  gateTitle: 'Só para adultos', gatePrompt: 'Digite este número usando algarismos:', gateAnswer: 'Resposta em algarismos', gateMiss: 'Não é isso. Tente o novo número.',
+  gateOk: 'Continuar', gateCancel: 'Cancelar',
+  // a four-digit number in words, for the grown-ups check (only [1-9][1-9][10-99] are asked); same text as the app
+  gateWords: n => {
+    const ONES = ['', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
+    const TEENS = ['dez', 'onze', 'doze', 'treze', 'catorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+    const TENS = ['', '', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
+    const HUNDREDS = ['', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos', 'oitocentos', 'novecentos'];
+    const r = n % 100, th = Math.floor(n / 1000);
+    const rest = r < 20 ? TEENS[r - 10] : r % 10 === 0 ? TENS[Math.floor(r / 10)] : `${TENS[Math.floor(r / 10)]} e ${ONES[r % 10]}`;
+    return `${th === 1 ? 'mil' : `${ONES[th]} mil`} ${HUNDREDS[Math.floor(n / 100) % 10]} e ${rest}`;
+  },
+  stickersN: n => n === 1 ? '1 figurinha' : `${n} figurinhas`, grownAria: 'Área dos adultos', grown: 'Adultos', hello: 'Oi! Eu sou a Indie.<br>Vamos caçar umas contas!', play: 'Jogar',
+  unlock: 'Desbloquear', starsOf: (n, of) => `★ ${n} de ${of}`, today: 'Desafio do dia', doneTick: 'Feito ✓', isNew: 'Novo!',
+  kLevelAria: (t, st, s) => `Nível ${t}${st === 'paid' ? ', bloqueado' : st === 'locked' ? ', ainda fechado' : `, ${s} ${s === 1 ? 'estrela' : 'estrelas'}`}`,
+  moreLevels: 'Mais níveis esperam por você no jogo completo.', askGrown: 'Chamar um adulto', paidNudge: 'Esses níveis estão no jogo completo. Fale com um adulto!',
+  finishFirst: t => `Termine o nível ${t} primeiro. Você consegue!`,
+  cheer: ['Você consegue!', 'Sem pressa.', 'Ache dois que formem um terceiro!', 'Olhe todos os números.'], yay: ['Isso!', 'Ótimo!', 'Acertou!', 'Demais!', 'Uau!'],
+  puzzleOf: (n, of) => `Desafio ${n} de ${of}`, worldLevel: (w, t) => `${w}, nível ${t}`, smallCombOf: n => `, favo pequeno ${n} de 4`, bigComb: ', favo grande!',
+  useAnswers: 'Agora use suas quatro respostas!', kAsk: word => `Qual número é o resultado de ${word} outros dois?`, added: 'somar', multiplied: 'multiplicar',
+  hint: 'Dica', psst: x => `Psiu! Tente começar pelo ${x}.`, oops: 'Opa! Tente outro.',
+  heads: ['', 'Muito bem!', 'Ótimo trabalho!', 'Incrível!'], helpNone: 'sem precisar de nenhuma dica!', helpOne: 'e só precisou de 1 dica.', helpN: n => `com ${n} dicas.`,
+  starsAria: n => `${n} de 3 estrelas`, solvedAll: n => `Você resolveu os ${n} desafios`, comeBack: 'Volte amanhã para um desafio novo!', newSticker: 'Figurinha nova!',
+  addedToBook: 'Já está colada no seu álbum', get3: 'Consiga 3 estrelas para ganhar a figurinha deste nível.', nextLevel: 'Próximo nível', again: 'Jogar de novo', home: 'Início', map: 'Mapa',
+  myStickers: 'Minhas figurinhas', stickersHow: 'Consiga 3 estrelas em um nível para ganhar a figurinha dele.', notWon: n => `${n}, ainda não conquistada`,
+  forGrown: 'Para os adultos', kFull: 'Jogo completo desbloqueado', kUnlockAll: n => `Desbloqueie todos os ${n} níveis`, kThanks: 'Obrigado! Todos os mundos e níveis estão abertos.',
+  kFree: n => `O jogo grátis tem ${n} níveis e o desafio do dia. Assine, ou compre o Vitalício uma vez, para abrir todos os níveis dos quatro mundos: somas mais difíceis, tabuada até a do 15, frações e a Grande Colmeia.`,
+  kPrice: 'A partir de £ 4,99 por mês, com 7 dias grátis. Sem anúncios. Sem coleta de dados. Cancele quando quiser.', backToFree: 'Voltar à versão grátis (só na prévia)',
+  kBuy: 'Desbloquear o jogo completo', previewNote: 'Esta prévia simula a compra. No app, isso abre a App Store ou o Google Play.', helpsTitle: 'Como o jogo ajuda',
+  helps: 'Cada desafio pede que a criança encontre um número formado por outros dois. Isso fortalece os fatos básicos e a agilidade no cálculo mental. As dicas da Indie deixam tudo tranquilo, e as estrelas contam dicas e erros com leveza, sem relógio correndo.',
+  progress: 'Progresso', reset: 'Apagar progresso', resetAsk: 'Apagar as estrelas e figurinhas deste aparelho?', resetDone: 'Progresso apagado',
+  // Beequation Pro
+  streakAria: n => `Sequência de ${n} ${n === 1 ? 'dia' : 'dias'}`, dailyOn: d => `Diário Pro, ${d}`, hiveNo: n => `Colmeia nº ${n}`, doneIn: t => `Concluída em ${t}. Uma colmeia nova abre à meia-noite.`,
+  tenMixed: 'Dez desafios mistos. Hoje todo mundo joga os mesmos.', seeResult: 'Ver seu resultado', playToday: 'Jogar a colmeia de hoje', blitzTile: 'Blitz de 60 s',
+  best: n => `Recorde: ${n}`, beatClock: 'Corra contra o relógio', hiveSub: 'Especialista, 4 em 1', practice: 'Treino', highest: 'Nível mais alto', notStarted: 'Não iniciado',
+  rounds: (tagline, hive) => `${tagline}. Rodadas de ${hive ? '3 colmeias' : '10 desafios'}.`,
+  aLevelAria: (t, name, st, s) => `Nível ${t}, ${name}${st === 'paid' ? ', na versão completa' : st === 'locked' ? ', bloqueado' : `, ${s} ${s === 1 ? 'estrela' : 'estrelas'}`}`,
+  cellsAges: (n, a) => `${n} casas, idade: ${a}`, fullVersion: 'Versão completa', finishLevel: t => `Termine o nível ${t}`,
+  blitzTitle: 'Blitz de 60 segundos', blitzHow: 'Resolva o máximo que puder em um minuto. Um toque errado custa 2 segundos. Você joga no seu nível liberado mais alto.',
+  nameLevel: (name, t) => `${name}, nível ${t}`, solvedWord: 'resolvidos', smallComb: n => `Favo pequeno ${n} de 4`, finalComb: 'Favo final: suas quatro respostas',
+  aAsk: b => `Ache o resultado de ${b} outros dois`, addUpTo: 'somar', multiplyTo: 'multiplicar', inARow: n => `${n} seguidos`, wrongCosts: 'Um toque errado custa 2 segundos',
+  dailyDone: 'Diário Pro concluído', firstDaily: 'Sua primeira colmeia diária. Volte amanhã.', faster: n => `${n} ${n === 1 ? 'segundo' : 'segundos'} mais rápido que da última vez`,
+  slower: n => `${n} ${n === 1 ? 'segundo' : 'segundos'} mais devagar que da última vez`, sameTime: 'Mesmo tempo da última vez', blitzOf: name => `Blitz no nível ${name}`, nSolved: n => n === 1 ? '1 resolvido' : `${n} resolvidos`,
+  newBest: 'Novo recorde pessoal', yourBest: n => `Seu recorde é ${n}`, levelDone: (name, t) => `${name} ${t} concluído`,
+  subJoin: (a, b) => `${a}. ${b}`,
+  slips: n => n === 1 ? '1 erro' : `${n} erros`, for3: par => `Para 3 estrelas: menos de ${par} com no máximo 1 erro.`, fullMarks: 'Nota máxima.',
+  shareNo: n => `Beequation nº ${n}`, firstTry: 'De primeira', oneSlip: '1 erro', twoPlus: '2 ou mais', streak: n => `Sequência de ${n} ${n === 1 ? 'dia' : 'dias'}`, last7: 'Últimos 7 dias',
+  share: 'Compartilhar resultado', nextName: (name, t) => `Próximo: ${name} ${t}`, unlockNext: 'Desbloquear os próximos níveis', playBlitz: 'Jogar uma blitz de 60 s',
+  shareBlitz: (n, mode, name) => `Blitz Beequation: ${n} ${n === 1 ? 'resolvido' : 'resolvidos'} em 60 s (${mode}, ${name})`, copied: 'Resultado copiado',
+  aAll: n => `Todos os ${n} níveis`, aThanks: 'Obrigado. Todos os níveis estão abertos.',
+  aFree: n => `A versão grátis inclui ${n} níveis, o Diário Pro e a blitz. A versão completa abre todos os níveis até o nível Rainha, incluindo os desafios de nível especialista da Grande Colmeia.`,
+  aPrice: 'A partir de £ 2,99 por mês ou £ 29,99 por ano, com 7 dias grátis, ou o Vitalício, com pagamento único. Sem anúncios. Cancele quando quiser.', aBuy: 'Desbloquear a versão completa',
+  howTitle: 'Como jogar', how: 'Cada favo esconde um número formado por outros dois, somando ou multiplicando. Toque nele. As rodadas têm 10 desafios; na Grande Colmeia você resolve quatro favos e depois um favo com as respostas deles.',
+  aFull: 'Versão completa desbloqueada',
+  // the chooser
+  chooseIntro: 'Dois apps baseados no mesmo desafio. Escolha um para experimentar. Você pode trocar quando quiser.',
+  kidsPick: 'De 5 a 12 anos. Mundos coloridos, a abelha Indie, figurinhas e sem relógio.', proPick: 'Adolescentes e adultos. Diário Pro com sequências, blitz de 60 segundos e níveis de especialista.',
+  savedHere: 'O progresso fica salvo só neste navegador.',
+};

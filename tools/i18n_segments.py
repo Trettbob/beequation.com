@@ -2,14 +2,14 @@
 # text-only links, and the homepage demo's JavaScript strings. Shared by extract and build.
 import re, html
 
-PAGES = ['index.html', 'how-to-play.html', 'about.html', 'support.html', 'privacy.html', 'terms.html', '404.html']
+PAGES = ['index.html', 'how-to-play.html', 'about.html', 'support.html', 'privacy.html', 'terms.html', '404.html', 'play.html']
 BLOCK = re.compile(r'<(p|li|h1|h2|h3|figcaption|summary|button|dt|dd)(\s[^>]*)?>(.*?)</\1>', re.S)
 SPAN = re.compile(r'<(span|b) (class="(?:soon|soon-tag)"|id="(?:try-h|count)")>(.*?)</\1>', re.S)
 LINK = re.compile(r'<a ([^>]*)>([^<>]+)</a>')
 ATTR = re.compile(r'\b(content|alt|aria-label)="([^"]+)"')
 TITLE = re.compile(r'<title>(.*?)</title>', re.S)
 JS = ['Puzzle ${i + 1} of ${P.length}', "add up' : 'multiply", 'Tap the number two others ${', ' to.`', "'Next puzzle'", "'Play the full game'", "'Not that one. Try again.'"]
-SKIP_ATTR = re.compile(r'^(width=|initial-scale|#|summary_large_image|website|article|Beequation$|https?:|light dark|noindex|\d)')
+SKIP_ATTR = re.compile(r'^(width=|initial-scale|#|summary_large_image|website|article|Beequation$|https?:|light dark|noindex|\d|\$\{)')   # ${…}: the game's own text (i18n/play/)
 
 def norm(s): return re.sub(r'\s+', ' ', s).strip()
 
