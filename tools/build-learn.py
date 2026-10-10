@@ -290,7 +290,10 @@ def page(rel, meta, body, parts, names):
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 {lds}
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+<link rel="icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#12161F">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
