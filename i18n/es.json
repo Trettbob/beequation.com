@@ -187,5 +187,29 @@
  },
  "Download PDF": "Descargar PDF",
  "email address": "correo electrónico",
- "Accessibility": "Accesibilidad"
+ "Accessibility": "Accesibilidad",
+ "__site__": {
+  "nav": {
+   "main": "Menú principal",
+   "apps": "Apps",
+   "support": "Ayuda",
+   "play": "Juega gratis",
+   "close": "Cerrar el menú",
+   "back": "Volver",
+   "language": "Idioma",
+   "browse": "Explorar",
+   "choose": "Elige tu idioma",
+   "apps_kicker": "Nuestras apps",
+   "kids_desc": "De 5 a 12 años, con la abeja Indie",
+   "pro_desc": "Adolescentes y adultos, un reto al día",
+   "howto": "Cómo se juega",
+   "howto_desc": "Las reglas en un minuto",
+   "online": "Jugar en línea",
+   "online_desc": "Gratis en tu navegador",
+   "side_kicker": "Prueba gratis",
+   "side_text": "Juega en tu navegador, sin registro y sin anuncios.",
+   "about": "Sobre Beequation",
+   "about_desc": "Sin anuncios ni rastreo, hecho en el Reino Unido"
+  }
+ }
 }

@@ -243,6 +243,28 @@
    "Informativa sulla privacy"
   ],
   "menu": "Menu",
-  "skip": "Vai al contenuto"
+  "skip": "Vai al contenuto",
+  "nav": {
+   "main": "Menu principale",
+   "apps": "App",
+   "support": "Assistenza",
+   "play": "Gioca gratis",
+   "close": "Chiudi il menu",
+   "back": "Indietro",
+   "language": "Lingua",
+   "browse": "Esplora",
+   "choose": "Scegli la lingua",
+   "apps_kicker": "Le nostre app",
+   "kids_desc": "Dai 5 ai 12 anni, con l'ape Indie",
+   "pro_desc": "Ragazzi e adulti, una sfida al giorno",
+   "howto": "Come si gioca",
+   "howto_desc": "Le regole in un minuto",
+   "online": "Gioca online",
+   "online_desc": "Gratis nel browser",
+   "side_kicker": "Prova gratis",
+   "side_text": "Gioca nel browser, senza registrazione e senza pubblicità.",
+   "about": "Informazioni su Beequation",
+   "about_desc": "Niente pubblicità né tracciamento, fatto nel Regno Unito"
+  }
  }
 }

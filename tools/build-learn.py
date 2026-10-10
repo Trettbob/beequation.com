@@ -23,7 +23,8 @@ Shortcodes in the body (all plain HTML otherwise):
     <cards>…<card href="/x" title="T" glyph="½" colour="pink">text</card>…</cards>   link cards
     <try/>                                the "practise with Indie" app box
 
-Run from the repo root: python3 tools/build-learn.py   (then python3 tools/build-langs.py adds the flying bee).
+Run from the repo root: python3 tools/build-learn.py   (then python3 tools/build-langs.py adds the site header, the
+language menu and the flying bee; its Learn mega menu is built from TOPICS, YEARS and learn-src/ too).
 The four older hand-made articles in learn/ are kept; they just get the Learn menu added.
 """
 import html, json, os, re, sys
@@ -156,14 +157,14 @@ LEARN_CSS = """
 """
 
 # ---------- page chrome taken from an existing page, so Learn matches the rest of the site ----------
+# The site header is not copied: each page gets an empty <!--header--> slot that build-langs.py fills.
+HEADER_SLOT = '<!--header--><!--/header-->'
 def base_parts():
     s = rd(os.path.join(ROOT, 'about.html'))
     css = re.search(r'<style>(.*?)</style>', s, re.S).group(1)
-    css = re.sub(r'\n\.lang \{.*', '', css)                      # build-langs.py re-adds the language-menu styles
-    nav = re.search(r'<div class="wrap"><nav class="top".*?</nav></div>', s, re.S).group(0)
-    nav = re.sub(r'<!--lang-menu-->.*?<!--/lang-menu-->', '', nav, flags=re.S)
+    css = re.sub(r'\n\.lang \{.*', '', css)                      # (older pages: the language menu's styles)
     foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', s, re.S).group(0)
-    return css, nav, foot
+    return css, HEADER_SLOT, foot
 
 def learn_nav(current):
     """The Learn sub-menu. `current` is the page's path under learn/, e.g. 'topics/fractions.html'."""
@@ -314,7 +315,7 @@ def legacy(rel, nav_html):
     p = os.path.join(OUT, rel); s = rd(p)
     s = re.sub(r'\n?<!--learnnav-->.*?<!--/learnnav-->', '', s, flags=re.S)
     s = re.sub(r'\n?<script>document.addEventListener\(\'click\',function\(e\)\{document.querySelectorAll\(\'.learnnav.*?</script>', '', s, flags=re.S)
-    s = s.replace('</nav></div>\n<main', '</nav></div>\n<!--learnnav-->' + nav_html + '<!--/learnnav-->\n<main', 1)
+    s = s.replace('\n<main', '\n<!--learnnav-->' + nav_html + '<!--/learnnav-->\n<main', 1)   # just below the site header
     if '.learnnav {' not in s: s = s.replace('</style>', LEARN_CSS + '</style>', 1)
     s = s.replace('</footer></div>', '</footer></div>\n' + NAV_JS, 1)
     open(p, 'w', encoding='utf-8').write(s)

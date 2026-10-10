@@ -243,6 +243,28 @@
    "개인정보 처리방침"
   ],
   "menu": "메뉴",
-  "skip": "본문으로 건너뛰기"
+  "skip": "본문으로 건너뛰기",
+  "nav": {
+   "main": "메인 메뉴",
+   "apps": "앱",
+   "support": "지원",
+   "play": "무료로 플레이",
+   "close": "메뉴 닫기",
+   "back": "뒤로",
+   "language": "언어",
+   "browse": "둘러보기",
+   "choose": "언어 선택",
+   "apps_kicker": "우리 앱",
+   "kids_desc": "5~12세용, 꿀벌 인디와 함께",
+   "pro_desc": "청소년과 성인용, 매일 새 퍼즐",
+   "howto": "게임 방법",
+   "howto_desc": "1분 만에 배우는 규칙",
+   "online": "온라인 플레이",
+   "online_desc": "브라우저에서 무료",
+   "side_kicker": "무료 체험",
+   "side_text": "브라우저에서 바로 플레이하세요. 가입도 광고도 없어요.",
+   "about": "Beequation 소개",
+   "about_desc": "광고 없음, 추적 없음, 영국에서 만듦"
+  }
  }
 }

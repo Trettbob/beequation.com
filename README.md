@@ -51,7 +51,17 @@ translation yet. The Learn section, teachers page, accessibility page and the we
 `LIVE` in `tools/build-langs.py` lists the languages whose site works. Every site only offers, links to and
 redirects to those (a site that isn't live yet also lists itself), so a translated language stays invisible until
 its site is up. Indie's speech bubbles, the cookie note and the menu labels for the newer languages are in each
-`i18n/<code>.json` under `"__site__"`.
+`i18n/<code>.json` under `"__site__"`; the header's words for every language are under `"__site__"` → `"nav"`
+(English in `NAV_TEXT` in `tools/build-langs.py`; `--check` lists any that are missing).
+
+## The header
+
+`tools/build-langs.py` (`header()`) writes the same header into every page between `<!--header-->` markers, with its
+styles (`<!--nav-css-->`) and script (`<!--nav-->`): a floating pill with Apps and Learn mega menus, Teachers,
+Support, the language menu and "Play free" on wide screens, and the beehive button with a full-screen menu on
+phones and tablets. Learn's menu is built from the Learn data (`TOPICS` and `YEARS` in `tools/build-learn.py`, the
+`learn-src/` pages and `worksheets.json`), so run `python3 tools/build-learn.py` then `python3 tools/build-langs.py`
+after changing either. Learn and Teachers are left out on the language sites.
 
 ### Putting a new language live (owner, once per language)
 Replace `<code>` with the code above, e.g. `ja`.

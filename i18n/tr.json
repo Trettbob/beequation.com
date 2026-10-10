@@ -243,6 +243,28 @@
    "Gizlilik politikası"
   ],
   "menu": "Menü",
-  "skip": "İçeriğe geç"
+  "skip": "İçeriğe geç",
+  "nav": {
+   "main": "Ana menü",
+   "apps": "Uygulamalar",
+   "support": "Destek",
+   "play": "Ücretsiz oynayın",
+   "close": "Menüyü kapat",
+   "back": "Geri",
+   "language": "Dil",
+   "browse": "Göz atın",
+   "choose": "Dilinizi seçin",
+   "apps_kicker": "Uygulamalarımız",
+   "kids_desc": "5–12 yaş için, arı Indie ile",
+   "pro_desc": "Gençler ve yetişkinler, her gün yeni bir bulmaca",
+   "howto": "Nasıl oynanır",
+   "howto_desc": "Bir dakikada kurallar",
+   "online": "Çevrimiçi oynayın",
+   "online_desc": "Tarayıcınızda ücretsiz",
+   "side_kicker": "Ücretsiz deneyin",
+   "side_text": "Tarayıcınızda oynayın; kayıt yok, reklam yok.",
+   "about": "Beequation hakkında",
+   "about_desc": "Reklam yok, takip yok, Birleşik Krallık'ta yapıldı"
+  }
  }
 }

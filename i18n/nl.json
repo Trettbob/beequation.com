@@ -243,6 +243,28 @@
    "Privacybeleid"
   ],
   "menu": "Menu",
-  "skip": "Naar de inhoud"
+  "skip": "Naar de inhoud",
+  "nav": {
+   "main": "Hoofdmenu",
+   "apps": "Apps",
+   "support": "Hulp",
+   "play": "Gratis spelen",
+   "close": "Menu sluiten",
+   "back": "Terug",
+   "language": "Taal",
+   "browse": "Ontdek",
+   "choose": "Kies je taal",
+   "apps_kicker": "Onze apps",
+   "kids_desc": "Van 5 tot 12 jaar, met Indie de bij",
+   "pro_desc": "Tieners en volwassenen, elke dag een puzzel",
+   "howto": "Zo speel je",
+   "howto_desc": "De regels in één minuut",
+   "online": "Speel online",
+   "online_desc": "Gratis in je browser",
+   "side_kicker": "Gratis uitproberen",
+   "side_text": "Speel in je browser, zonder account en zonder advertenties.",
+   "about": "Over Beequation",
+   "about_desc": "Geen advertenties, geen tracking, gemaakt in het VK"
+  }
  }
 }

@@ -245,6 +245,28 @@
    "Integritetspolicy"
   ],
   "menu": "Meny",
-  "skip": "Hoppa till innehållet"
+  "skip": "Hoppa till innehållet",
+  "nav": {
+   "main": "Huvudmeny",
+   "apps": "Appar",
+   "support": "Hjälp",
+   "play": "Spela gratis",
+   "close": "Stäng menyn",
+   "back": "Tillbaka",
+   "language": "Språk",
+   "browse": "Utforska",
+   "choose": "Välj språk",
+   "apps_kicker": "Våra appar",
+   "kids_desc": "5–12 år, med biet Indie",
+   "pro_desc": "Tonåringar och vuxna, ett nytt pussel varje dag",
+   "howto": "Så spelar du",
+   "howto_desc": "Reglerna på en minut",
+   "online": "Spela online",
+   "online_desc": "Gratis i webbläsaren",
+   "side_kicker": "Gratis att prova",
+   "side_text": "Spela i webbläsaren, utan konto och utan reklam.",
+   "about": "Om Beequation",
+   "about_desc": "Ingen reklam, ingen spårning, skapat i Storbritannien"
+  }
  }
 }

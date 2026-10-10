@@ -187,5 +187,29 @@
  },
  "Download PDF": "PDF herunterladen",
  "email address": "E-Mail-Adresse",
- "Accessibility": "Barrierefreiheit"
+ "Accessibility": "Barrierefreiheit",
+ "__site__": {
+  "nav": {
+   "main": "Hauptmenü",
+   "apps": "Apps",
+   "support": "Hilfe",
+   "play": "Gratis spielen",
+   "close": "Menü schließen",
+   "back": "Zurück",
+   "language": "Sprache",
+   "browse": "Entdecken",
+   "choose": "Sprache wählen",
+   "apps_kicker": "Unsere Apps",
+   "kids_desc": "Für Kinder von 5 bis 12, mit der Biene Indie",
+   "pro_desc": "Jugendliche und Erwachsene, täglich ein Rätsel",
+   "howto": "So wird gespielt",
+   "howto_desc": "Die Regeln in einer Minute",
+   "online": "Online spielen",
+   "online_desc": "Kostenlos im Browser",
+   "side_kicker": "Kostenlos testen",
+   "side_text": "Rätsel im Browser spielen, ohne Anmeldung und ohne Werbung.",
+   "about": "Über Beequation",
+   "about_desc": "Keine Werbung, kein Tracking, aus Großbritannien"
+  }
+ }
 }

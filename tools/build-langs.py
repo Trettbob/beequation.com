@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Builds the translated sites (<lang>.beequation.com, one per i18n/<lang>.json) from the English pages.
 
-  python3 tools/build-langs.py            update the English pages' language menu, then build dist/<lang>/
-  python3 tools/build-langs.py --check    only report text that has no translation yet
+  python3 tools/build-langs.py            update the English pages' header and language menu, then build dist/<lang>/
+  python3 tools/build-langs.py --check    only report text (page text and the header's words) with no translation yet
   python3 tools/build-langs.py --lang ja  build only dist/ja/ (the English pages are still updated)
   python3 tools/build-langs.py --live     print the live language codes (LIVE below), for publish-langs.sh
 
@@ -11,7 +11,7 @@ pairs: the page title, meta/alt/aria text, the inner HTML of each text block, te
 demo's JavaScript strings. When English text changes, the build lists what needs translating and stops.
 Each dist/<lang>/ folder is published to its own repo (Trettbob/<lang>.beequation.com) by tools/publish-langs.sh.
 """
-import json, os, re, shutil, sys
+import html as H, importlib.util, json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
 
@@ -31,13 +31,19 @@ def url_path(page): return '/' if page == 'index.html' else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()
 
 # ---------- the language menu, language links for search engines, and the first-visit language switch ----------
-MENU_CSS = ('.lang { position: relative; } .lang summary { list-style: none; cursor: pointer; font-weight: 600; padding: 3px 10px; border-radius: 10px; '
+# The language menu's styles before the header had its own (chrome() takes them out of older pages).
+OLD_MENU_CSS = ('.lang { position: relative; } .lang summary { list-style: none; cursor: pointer; font-weight: 600; padding: 3px 10px; border-radius: 10px; '
             'box-shadow: inset 0 0 0 1.5px var(--line); } .lang summary::-webkit-details-marker { display: none; } '
-            '.lang .langs { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border-radius: 12px; '
-            'box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 6px; display: grid; min-width: 150px; z-index: 20; } '
-            '.lang .langs a { padding: 8px 12px; border-radius: 8px; } .lang .langs a:hover { background: var(--ground); } .lang .langs a[aria-current] { font-weight: 700; }')
+            '.lang .langs { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border-radius: 14px; '
+            'box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 8px; display: grid; grid-template-columns: repeat(3, max-content); gap: 2px; z-index: 20; } '
+            '.lang .langs a { padding: 8px 12px; border-radius: 8px; white-space: nowrap; } .lang .langs a:hover { background: var(--ground); } .lang .langs a[aria-current] { font-weight: 700; } '
+            '@media (max-width: 640px) { .bq-links .lang .langs { position: static; box-shadow: none; background: var(--ground); margin-top: 8px; '
+            'grid-template-columns: repeat(3, minmax(0, 1fr)); } .bq-links .lang .langs a { padding: 9px 8px; } }')
+OLDER_MENU_CSS = '.lang { position: relative; } .lang summary { list-style: none; cursor: pointer; font-weight: 600; padding: 3px 10px; border-radius: 10px; box-shadow: inset 0 0 0 1.5px var(--line); } .lang summary::-webkit-details-marker { display: none; } .lang .langs { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.18); padding: 6px; display: grid; min-width: 150px; z-index: 20; } .lang .langs a { padding: 8px 12px; border-radius: 8px; } .lang .langs a:hover { background: var(--ground); } .lang .langs a[aria-current] { font-weight: 700; }'
 
-def menu(lang, page, label):
+def lang_links(lang, page):
+    """One link per language (live ones, plus this site) for the header's language chip and the phone menu's language
+    screen: a grid of 3 columns, so 15 languages don't make a long list."""
     links = []
     for code, name in LANGS.items():
         if code != 'en' and code not in LIVE and code != lang: continue
@@ -45,8 +51,7 @@ def menu(lang, page, label):
         href = site(code) + path + ('?lang=en' if code == 'en' and lang != 'en' else '')
         cur = ' aria-current="true"' if code == lang else ''
         links.append(f'<a href="{href}" lang="{code}" hreflang="{code}" data-lang="{code}"{cur}>{name}</a>')
-    return (f'<!--lang-menu--><details class="lang"><summary aria-label="{label}">{lang.upper()}</summary>'
-            f'<div class="langs">{"".join(links)}</div></details><!--/lang-menu-->')
+    return links
 
 def alternates(page, lang='en'):
     p = url_path(page)
@@ -69,6 +74,8 @@ REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',func
 # half her flights she does a loop-the-loop partway across. About a third of flights are a pollen run instead: a
 # sunflower grows at one bottom corner and a hive at the other; she collects pollen and flies it home (about 4.5 s). Every minute or so she also pops up from behind something
 # on the page (a card, heading or button), says hello and ducks back down; only one Indie is on screen at a time.
+# She only peeks from things well below the sticky header (so she and her bubble stay clear of it), and not while
+# the phone menu or a header panel is open (NAV_CSS also hides a peek that's already up when one opens).
 # Decoration only: hidden from screen readers, off with Reduce Motion and while the tab is hidden.
 BEE = """<!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var SAY=__SAY__,k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
@@ -139,8 +146,8 @@ if(sp>1.6){vx*=1.6/sp;vy*=1.6/sp;}face=vx>=0?1:-1;say(SAY.free,1200);last=0;t0=1
 el.addEventListener('pointerup',release);el.addEventListener('pointercancel',release);
 draw();requestAnimationFrame(step);}
 function peekLater(ms){setTimeout(peek,ms!=null?ms:45000+Math.random()*45000);}
-function peek(){if(document.hidden||busy)return peekLater(15000);
-var c=[].slice.call(document.querySelectorAll('.app,.card,.sheet,.trybox,.tip,.challenge,figure,table,.btn,h2,footer')).filter(function(e){var r=e.getBoundingClientRect();return r.width>120&&r.top>100&&r.top<innerHeight-80&&r.left>=0&&r.right<=innerWidth;});
+function peek(){if(document.hidden||busy||document.querySelector('.bqm-open,.bqh-panel:not([hidden])'))return peekLater(15000);
+var c=[].slice.call(document.querySelectorAll('.app,.card,.sheet,.trybox,.tip,.challenge,figure,table,.btn,h2,footer')).filter(function(e){var r=e.getBoundingClientRect();return r.width>120&&r.top>170&&r.top<innerHeight-80&&r.left>=0&&r.right<=innerWidth;});
 if(!c.length)return peekLater(20000);var r=c[Math.floor(Math.random()*c.length)].getBoundingClientRect(),f=Math.random()<.5;busy=1;
 var w=document.createElement('div');w.className='bq-peek'+(f?' f':'');w.setAttribute('aria-hidden','true');w.style.left=(r.left+12+Math.random()*Math.max(0,r.width-96))+'px';w.style.top=(r.top-62)+'px';
 w.innerHTML='<div class="clip"><div class="b">'+svg+'</div></div><div class="say"></div>';document.body.appendChild(w);var bub=w.lastChild,t1,t2,done=0;
@@ -197,50 +204,441 @@ q('.y').addEventListener('click',function(){pick('yes');});q('.n').addEventListe
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
 if(!ls.getItem('bq-consent'))show();})();</script><!--/consent-->"""
 
-# The main menu stays at the top of the screen while scrolling. On phones the links fold into a menu opened by a
-# little beehive button (aria-expanded, closes on Escape, a tap outside or choosing a link). Without JavaScript the
-# links simply wrap as before.
+# ---------- the site header ----------
+# One floating "pill" header for every page (the English pages, every Learn page and each language site), made by
+# header() from one model, so a rebuild replaces it cleanly: <!--header--> in the page, <!--nav-css--> before </head>
+# and <!--nav--> before </body>. Wide screens (1000px and up): the logo; Apps and Learn, buttons that open a mega panel
+# (click, Enter or Space, or a mouse hover with a short delay); Teachers and Support; the language chip; "Play free".
+# Learn's panel has its own sub-menu: a rail of sections (topics, year groups, parents, teachers, worksheets, glossary)
+# that each show their pages. Narrower screens: the logo and the beehive button, which opens a full-screen menu whose
+# rows slide to sub-screens (Learn has two levels). Without JavaScript the top items are plain links (/#apps, /learn/)
+# that wrap onto a second row. Learn and the teachers page are English-only, so the language sites leave them out.
 MENU_LABEL = {'en': 'Menu', 'fr': 'Menu', 'es': 'Menú', 'de': 'Menü', 'pt': 'Menu'}
 SKIP_LABEL = {'en': 'Skip to content', 'fr': 'Aller au contenu', 'es': 'Saltar al contenido', 'de': 'Zum Inhalt springen', 'pt': 'Pular para o conteúdo'}
 SKIP = '<!--skip--><a class="skip" href="#main">__SKIP__</a><style>.skip{position:absolute;left:12px;top:-60px;z-index:50;background:#FFB020;color:#12161F;font-weight:700;padding:10px 16px;border-radius:12px;text-decoration:none}.skip:focus{top:12px}</style><!--/skip-->'
-NAV = """<!--nav--><style>
-html{scroll-padding-top:84px;overflow-x:clip}
-.bq-top{position:sticky;top:0;z-index:28;background:var(--ground,#EEF1F5)}
-.bq-top::before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:var(--ground,#EEF1F5);z-index:-1;transition:box-shadow .2s}
-.bq-top.scrolled::before{box-shadow:0 10px 18px -14px rgba(0,0,0,.45)}
-.bq-top .top{padding:12px 0}
-.bq-links{display:flex;align-items:center;gap:22px}
-.bq-hive{display:none;border:0;background:#FFF6D6;width:48px;height:48px;padding:0;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent;flex:none}
-.bq-hive:focus-visible{outline:3px solid var(--honey,#FFB020);outline-offset:2px}
-.bq-hive svg{display:block;margin:auto;transition:transform .25s}.bq-hive[aria-expanded="true"] svg{transform:rotate(-8deg) scale(1.06)}
-.bq-hive .bz{opacity:0;transition:opacity .2s,transform .3s;transform:translate(-4px,4px)}.bq-hive[aria-expanded="true"] .bz{opacity:1;transform:none}
-@media (max-width:640px){
- .bq-top .top{flex-wrap:nowrap;gap:12px}.bq-top .top .brand{flex-basis:auto;margin:0}
- .bq-hive{display:grid}
- .bq-links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:2px;padding:8px;background:var(--card,#fff);border-radius:0 0 18px 18px;box-shadow:0 18px 30px rgba(0,0,0,.25)}
- .bq-top.open .bq-links{display:flex}
- .bq-links>a{padding:12px 14px;border-radius:12px;font-size:18px!important}
- .bq-links>a:hover,.bq-links>a:focus-visible{background:var(--ground,#EEF1F5)}
- .bq-links .lang{padding:8px 14px}.bq-links .lang .langs{right:auto;left:0}
+HEADER_SLOT = '<!--header--><!--/header-->'   # where the header goes; strip_markers() leaves this behind
+
+# The header's words on every site. Other languages: i18n/<lang>.json "__site__" -> "nav" (--check lists gaps).
+NAV_TEXT = {'en': {
+    'main': 'Main', 'apps': 'Apps', 'support': 'Support', 'play': 'Play free', 'close': 'Close menu', 'back': 'Back',
+    'language': 'Language', 'browse': 'Browse', 'choose': 'Choose your language', 'apps_kicker': 'Our apps',
+    'kids_desc': 'Ages 5 to 12, with Indie the bee', 'pro_desc': 'Teens and adults, daily puzzle',
+    'howto': 'How to play', 'howto_desc': 'The rules in one minute', 'online': 'Play online', 'online_desc': 'Free in your browser',
+    'side_kicker': 'Free to try', 'side_text': 'Play puzzles in your browser. No sign-up and no ads.',
+    'about': 'About Beequation', 'about_desc': 'No ads, no tracking, made in the UK'}}
+# English only, like the Learn section and the teachers page they describe (section names come from learn_menu()).
+LEARN_TEXT = {'learn': 'Learn', 'teachers': 'Teachers', 'pack': 'Free puzzle pack for teachers', 'pack_desc': '24 honeycomb puzzles to print',
+              'home': 'Learn home', 'home_desc': 'Free maths help for home and school, Reception to Year 6',
+              'worksheets': 'Free worksheets', 'glossary': 'Primary maths words explained in plain English, each with an example and the year children usually meet it. Pick a letter:'}
+
+def esc(s): return H.escape(str(s), quote=True)
+
+_LEARN, _LM = None, None
+def _learn():
+    """tools/build-learn.py as a module: the Learn map (TOPICS, YEARS, colours, front matter) lives there."""
+    global _LEARN
+    if _LEARN is None:
+        spec = importlib.util.spec_from_file_location('build_learn', os.path.join(ROOT, 'tools', 'build-learn.py'))
+        _LEARN = importlib.util.module_from_spec(spec); spec.loader.exec_module(_LEARN)
+    return _LEARN
+
+def hexicon(g, colour='lemon'):
+    """A small candy hexagon with a glyph: the CSS version of build-learn.py's glyph(), in its colours (hex_css())."""
+    size = '' if len(g) <= 1 else ' l2' if len(g) == 2 else ' l3'
+    return f'<span class="bqh-hex {colour if colour in _learn().CANDY else "lemon"}{size}" aria-hidden="true">{esc(g)}</span>'
+
+def hex_css():
+    return ''.join(f'.bqh-hex.{name}{{--c:{fill};--k:{ink}}}' for name, (fill, ink) in _learn().CANDY.items())
+
+def learn_menu():
+    """The Learn panel's sections, built from the data the Learn pages are built from (build-learn.py's TOPICS and
+    YEARS, the learn-src/ front matter and hub cards, worksheets.json, the glossary's letters), so they stay in step."""
+    global _LM
+    if _LM is not None: return _LM
+    L = _learn()
+    src = lambda rel: rd(os.path.join('learn-src', rel))
+    def cards(rel):   # a hub page's <card> list: href -> (title, glyph, colour), in page order
+        return {h: (t, g, c) for h, t, g, c in re.findall(r'<card href="([^"]+)" title="([^"]*)"(?: glyph="([^"]*)")?(?: colour="([^"]*)")?>', src(rel))}
+    home = cards('index.html')
+    def ico(href, g, c):
+        _, hg, hc = home.get(href, ('', '', ''))
+        return hexicon(hg or g, hc or c)
+    def guides(folder):
+        hub = cards(f'{folder}/index.html'); order = list(hub); out = []
+        for f in os.listdir(os.path.join(L.SRC, folder)):
+            if not f.endswith('.html') or f == 'index.html': continue
+            meta, _ = L.front(src(f'{folder}/{f}')); href = f'/learn/{folder}/{f}'
+            _, g, c = hub.get(href, ('', '', ''))
+            out.append((order.index(href) if href in order else len(order), meta.get('nav', meta['h1']), href, g or '★', c or 'lemon'))
+        return [dict(href=h, label=n, icon=hexicon(g, c)) for _, n, h, g, c in sorted(out)]
+    teach = guides('teachers')
+    pack = cards('teachers/index.html').get('/teachers.html')
+    teach.append(dict(href='/teachers.html', label=pack[0] if pack else LEARN_TEXT['pack'], icon=hexicon((pack and pack[1]) or '⬡', (pack and pack[2]) or 'honey')))
+    sheets, wshub, ws = L.worksheets_manifest(), src('worksheets/index.html'), []
+    for slug, name, g, c in L.TOPICS:
+        k = sum(1 for w in sheets if w['topic'] == slug)
+        if k: ws.append(dict(href='/learn/worksheets/' + (f'#{slug}' if f'id="{slug}"' in wshub else ''), label=name,
+                             small=f'{k} worksheet' + ('' if k == 1 else 's'), icon=hexicon(g, c)))
+    _LM = [
+        dict(key='topics', label='Topics', icon=hexicon('+', 'mint'), kicker='Browse topics', all=('All topics', '/learn/topics/'),
+             items=[dict(href=f'/learn/topics/{s}.html', label=n, icon=hexicon(g, c)) for s, n, g, c in L.TOPICS]),
+        dict(key='years', label='Year groups', icon=hexicon('R–6', 'grape'), kicker='Browse year groups', all=('All year groups', '/learn/years/'),
+             items=[dict(href=f'/learn/years/{s}.html', label=n, small=f'Age {age} · US {us}', icon=hexicon('R' if s == 'reception' else n.split()[-1], 'grape'))
+                    for s, n, age, us in L.YEARS]),
+        dict(key='parents', label='For parents', icon=ico('/learn/parents/', '♥', 'honey'), kicker='Guides for parents', all=('All parent guides', '/learn/parents/'), items=guides('parents')),
+        dict(key='teachers', label='For teachers', icon=ico('/learn/teachers/', '✎', 'honey'), kicker='Resources for teachers', all=('All teacher resources', '/learn/teachers/'), items=teach),
+        dict(key='worksheets', label='Worksheets', icon=ico('/learn/worksheets/', '⎙', 'honey'), kicker='Free worksheets by topic', all=('All worksheets', '/learn/worksheets/'), items=ws),
+        dict(key='glossary', label='Maths glossary', icon=ico('/learn/glossary/', 'A–Z', 'honey'), kicker='Maths words from A to Z', all=('All glossary words', '/learn/glossary/'),
+             letters=set(re.findall(r'\bid="([a-z])"', src('glossary/index.html'))), blurb=LEARN_TEXT['glossary']),
+    ]
+    return _LM
+
+def nav_text(lang):
+    return {**NAV_TEXT['en'], **(site_text(lang, 'nav', NAV_TEXT) if lang != 'en' else {})}
+
+CHEV_D, CHEV_R, CHEV_L = '<i class="bqh-chev d"></i>', '<i class="bqh-chev r"></i>', '<i class="bqh-chev l"></i>'   # drawn in CSS
+CLOSE_X = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'
+GLOBE = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3z"/></g></svg>'
+HIVE = ('<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false"><g stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round">'
+        '<path d="M20 5c-4 0-6.5 2.4-7.4 5h14.8C26.5 7.4 24 5 20 5z" fill="#FFD84D"/><path d="M11.4 10h17.2c1.6 1.4 2.5 3.1 2.6 5H8.8c.1-1.9 1-3.6 2.6-5z" fill="#FFB020"/>'
+        '<path d="M8.8 15h22.4c.9 1.6 1.4 3.3 1.4 5H7.4c0-1.7.5-3.4 1.4-5z" fill="#FFD84D"/><path d="M7.4 20h25.2c.1 1.8-.2 3.5-.9 5H8.3c-.7-1.5-1-3.2-.9-5z" fill="#FFB020"/>'
+        '<path d="M8.3 25h23.4c-.6 1.9-1.6 3.6-2.9 5H11.2c-1.3-1.4-2.3-3.1-2.9-5z" fill="#FFD84D"/><path d="M6 33.5h28" fill="none" stroke-linecap="round"/></g>'
+        '<path d="M17.2 30v-2.6a2.8 2.8 0 0 1 5.6 0V30z" fill="#1C1A4A"/><g class="bz"><ellipse cx="34" cy="8" rx="2.6" ry="2" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="1"/>'
+        '<path d="M33.5 9.5l3 1.7-1.7 3-3-1.7z" fill="#FFD84D" stroke="#1C1A4A" stroke-width="1" stroke-linejoin="round"/></g></svg>')
+LOGO = '<a class="bqh-logo" href="/"><img src="/assets/hexabee.svg" width="34" height="34" alt="">Beequation</a>'
+
+def header(lang, page, label, offer):
+    """The header for one page: the pill (with its mega panels) and the phone menu, from one model."""
+    t, en = nav_text(lang), lang == 'en'
+    cur = '/' + (page[:-len('index.html')] if page.endswith('index.html') else page)
+    here = lambda href: ' aria-current="page"' if href == cur else ''
+    def row(it, phone=False):   # icon tile + label (+ small line) (+ chevron on phones)
+        small = f'<small>{esc(it["small"])}</small>' if it.get('small') else ''
+        return (f'<a class="bqh-row" href="{it["href"]}"{here(it["href"])}><span class="bqh-tile">{it["icon"]}</span>'
+                f'<span class="bqh-txt"><b>{esc(it["label"])}</b>{small}</span>{CHEV_R if phone else ""}</a>')
+    img = lambda f, n: f'<img src="/assets/{f}" width="{n}" height="{n}" alt="" loading="lazy">'
+    kids = dict(href='/#apps', label='Beequation Kids', small=t['kids_desc'], icon=img('beequation-kids-icon.webp', 44), f='beequation-kids-icon.webp')
+    pro = dict(href='/#apps', label='Beequation Pro', small=t['pro_desc'], icon=img('beequation-icon.webp', 44), f='beequation-icon.webp')
+    howto = dict(href='/how-to-play.html', label=t['howto'], small=t['howto_desc'], icon=hexicon('?', 'lilac'))
+    online = dict(href='/play.html', label=t['online'], small=t['online_desc'], icon=hexicon('▶', 'mint'))
+    extra = (dict(href='/teachers.html', label=LEARN_TEXT['pack'], small=LEARN_TEXT['pack_desc'], icon=hexicon('⬡', 'honey')) if en else
+             dict(href='/about.html', label=t['about'], small=t['about_desc'], icon=hexicon('i', 'sky')))
+    secs = learn_menu() if en else []
+    learn_home = dict(href='/learn/', label=LEARN_TEXT['home'], small=LEARN_TEXT['home_desc'], icon=hexicon('⬡', 'honey'))
+
+    def az(s):
+        return '<div class="bqh-az">' + ''.join(f'<a href="/learn/glossary/#{c}">{c.upper()}</a>' if c in s['letters'] else f'<span aria-hidden="true">{c.upper()}</span>'
+                                                for c in 'abcdefghijklmnopqrstuvwxyz') + '</div>'
+    # ----- wide screens: the pill and its panels
+    app_card = lambda it, cls: (f'<a class="bqh-app {cls}" href="{it["href"]}">{img(it["f"], 56)}<b>{esc(it["label"])}</b><small>{esc(it["small"])}</small></a>')
+    apps_panel = (f'<div class="bqh-panel" id="bqh-p-apps" hidden><div class="bqh-in bqh-apps"><div><p class="bqh-kicker">{esc(t["apps_kicker"])}</p>'
+                  f'<ul class="bqh-appgrid"><li>{app_card(kids, "bqh-kids")}</li><li>{app_card(pro, "bqh-pro")}</li><li class="bqh-stack">{row(howto)}{row(online)}</li></ul></div>'
+                  f'<div class="bqh-side"><p class="bqh-kicker">{esc(t["side_kicker"])}</p><p class="bqh-sidetext">{esc(t["side_text"])}</p>'
+                  f'<a class="bqh-cta" href="/play.html">{esc(t["play"])}</a>'
+                  f'<a class="bqh-mini" href="{extra["href"]}"><span class="bqh-tile">{extra["icon"]}</span><span>{esc(extra["label"])}</span>{CHEV_R}</a></div></div></div>')
+    n = len(secs)
+    rail = []
+    for i, s in enumerate(secs):
+        on = i == 0
+        body = (f'<p class="bqh-blurb">{esc(s["blurb"])}</p>{az(s)}' if s['key'] == 'glossary' else
+                '<ul class="bqh-grid">' + ''.join(f'<li>{row(it)}</li>' for it in s['items']) + '</ul>')
+        rail.append(f'<button type="button" class="bqh-tab" aria-expanded="{"true" if on else "false"}" aria-controls="bqh-s-{s["key"]}" style="grid-row:{i + 1}">'
+                    f'<span class="bqh-tile">{s["icon"]}</span>{esc(s["label"])}{CHEV_R}</button>'
+                    f'<div class="bqh-sec" id="bqh-s-{s["key"]}" style="grid-row:1/{n + 2}"{"" if on else " hidden"}><div class="bqh-sechead"><p class="bqh-kicker">{esc(s["kicker"])}</p>'
+                    f'<a class="bqh-all" href="{s["all"][1]}"{here(s["all"][1])}>{esc(s["all"][0])} <span aria-hidden="true">→</span></a></div>{body}</div>')
+    learn_panel = (f'<div class="bqh-panel" id="bqh-p-learn" hidden><div class="bqh-in bqh-learn" style="grid-template-rows:repeat({n},auto) 1fr auto">{"".join(rail)}'
+                   f'<div class="bqh-foot" style="grid-row:{n + 2}"><a class="bqh-home" href="/learn/"{here("/learn/")}><b>{LEARN_TEXT["home"]}</b><span>{LEARN_TEXT["home_desc"]}</span></a>'
+                   f'<a class="bqh-cta" href="/learn/worksheets/">{LEARN_TEXT["worksheets"]}</a></div></div></div>')
+    # On a page in the Learn section, its top item (and the phone menu's Learn row) says so: aria-current, underlined.
+    in_learn = ' aria-current="true"' if page.startswith('learn/') else ''
+    def trigger(key, text, href, panel, inside=''):   # a link without JavaScript, a button that opens the panel with it
+        return (f'<li class="bqh-item" data-panel="bqh-p-{key}"><a class="bqh-link bqh-nojs" href="{href}"{here(href) or inside}>{esc(text)}</a>'
+                f'<button type="button" class="bqh-link bqh-btn" aria-expanded="false" aria-controls="bqh-p-{key}"{inside}>{esc(text)}{CHEV_D}</button>{panel}</li>')
+    items = [trigger('apps', t['apps'], '/#apps', apps_panel)]
+    if en:
+        items.append(trigger('learn', LEARN_TEXT['learn'], '/learn/', learn_panel, in_learn))
+        items.append(f'<li class="bqh-item"><a class="bqh-link" href="/teachers.html"{here("/teachers.html")}>{LEARN_TEXT["teachers"]}</a></li>')
+    items.append(f'<li class="bqh-item"><a class="bqh-link" href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
+    links = ''.join(lang_links(lang, page)) if offer else ''
+    chip = (f'<details class="lang"><summary><span class="bqh-vh">{esc(label)}: </span>{GLOBE}<span>{lang.upper()}</span>{CHEV_D}</summary>'
+            f'<div class="langs">{links}</div></details>') if offer else ''
+    menu_label = site_text(lang, 'menu', MENU_LABEL)
+    pill = (f'<div class="bqh-pill">{LOGO}<nav class="bqh-nav" aria-label="{esc(t["main"])}"><ul class="bqh-items">{"".join(items)}</ul></nav>'
+            f'<div class="bqh-end">{chip}<a class="bqh-cta bqh-cta-top" href="/play.html">{esc(t["play"])}</a>'
+            f'<button type="button" class="bqh-hive" aria-expanded="false" aria-controls="bqm" aria-label="{esc(menu_label)}">{HIVE}</button></div></div>')
+
+    # ----- phones and tablets: the full-screen menu, one screen per level
+    def screen(id_, parent, kicker, title, body):
+        return (f'<div class="bqm-scr" id="{id_}" hidden><button type="button" class="bqm-back" data-to="{parent}">{CHEV_L}{esc(t["back"])}</button>'
+                f'<p class="bqh-kicker">{esc(kicker)}</p><h2 class="bqm-h" tabindex="-1">{esc(title)}</h2>{body}</div>')
+    rows = lambda its: '<ul class="bqm-rows">' + ''.join(f'<li>{row(it, True)}</li>' for it in its) + '</ul>'
+    big = [f'<li><button type="button" data-to="bqm-apps">{esc(t["apps"])}{CHEV_R}</button></li>']
+    screens = [screen('bqm-apps', 'bqm-root', t['browse'], t['apps'], rows([kids, pro, howto, online, extra]))]
+    if en:
+        big.append(f'<li><button type="button" data-to="bqm-learn"{in_learn}>{LEARN_TEXT["learn"]}{CHEV_R}</button></li>')
+        big.append(f'<li><a href="/teachers.html"{here("/teachers.html")}>{LEARN_TEXT["teachers"]}</a></li>')
+        go = ''.join(f'<li><button type="button" class="bqh-row" data-to="bqm-l-{s["key"]}"><span class="bqh-tile">{s["icon"]}</span>'
+                     f'<span class="bqh-txt"><b>{esc(s["label"])}</b></span>{CHEV_R}</button></li>' for s in secs)
+        screens.append(screen('bqm-learn', 'bqm-root', t['browse'], LEARN_TEXT['learn'], f'<ul class="bqm-rows">{go}<li>{row(learn_home, True)}</li></ul>'))
+        for s in secs:
+            every = dict(href=s['all'][1], label=s['all'][0], icon=s['icon'])
+            body = (f'<p class="bqh-blurb">{esc(s["blurb"])}</p>{az(s)}{rows([every])}' if s['key'] == 'glossary' else rows(s['items'] + [every]))
+            screens.append(screen(f'bqm-l-{s["key"]}', 'bqm-learn', LEARN_TEXT['learn'], s['label'], body))
+    big.append(f'<li><a href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
+    if offer:
+        big.append(f'<li><button type="button" class="bqm-small" data-to="bqm-lang">{GLOBE}<span>{esc(t["language"])}</span><span class="bqm-cur">{esc(LANGS[lang])}</span>{CHEV_R}</button></li>')
+        screens.append(screen('bqm-lang', 'bqm-root', t['language'], t['choose'], f'<div class="bqm-langs">{links}</div>'))
+    drawer = (f'<div class="bqm" id="bqm" role="dialog" aria-modal="true" aria-label="{esc(menu_label)}" hidden>'
+              f'<div class="bqm-bar">{LOGO}<button type="button" class="bqm-x" aria-label="{esc(t["close"])}">{CLOSE_X}</button></div>'
+              f'<div class="bqm-body"><div class="bqm-scr" id="bqm-root" hidden><ul class="bqm-big">{"".join(big)}</ul></div>{"".join(screens)}</div>'
+              f'<div class="bqm-foot"><a class="bqh-cta bqm-cta" href="/play.html">{esc(t["play"])}</a></div></div>')
+    out = f'<header class="bqh" id="bqh">{pill}{drawer}</header>'
+    return out if en else english_only(out)
+
+# The header's styles. Japanese and Korean wrap between words and phrases, not mid-word (keep-all; Japanese uses
+# auto-phrase where the browser has it), with overflow-wrap as the fallback for a run too long for its box.
+NAV_CSS = """
+html{scroll-padding-top:100px;overflow-x:clip}
+.bqh{--bqh-focus:#3B24A8;--bqh-soft:#FFF1CC;position:sticky;top:12px;z-index:28;margin:12px 0 6px;padding:0 16px;pointer-events:none;font:16px/1.3 'Space Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink)}
+@media (prefers-color-scheme:dark){.bqh{--bqh-focus:#FFB020;--bqh-soft:#3A3017}}
+.bqh *,.bqh *::before,.bqh *::after{box-sizing:border-box}
+.bqh [hidden]{display:none!important}
+:where(.bqh) ul{list-style:none;margin:0;padding:0}
+:where(.bqh) p{margin:0}
+.bqh button{font-family:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+.bqh a:focus-visible,.bqh button:focus-visible,.bqh summary:focus-visible{outline:3px solid var(--bqh-focus);outline-offset:2px}
+.bqh-vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.bqh-pill{pointer-events:auto;position:relative;max-width:1088px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;min-height:64px;padding:8px 8px 8px 18px;background:var(--card);border:1px solid transparent;border-radius:30px;box-shadow:0 12px 32px -16px rgba(18,22,31,.38),0 2px 6px rgba(18,22,31,.07)}
+.bqh-logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-right:auto;font-weight:700;font-size:21px;letter-spacing:-.4px;color:inherit;text-decoration:none;white-space:nowrap}
+.bqh-logo img{display:block;width:34px;height:34px;flex:none}
+.bqh-nav{order:3;flex:1 0 100%}
+.bqh-items{display:flex;flex-wrap:wrap;align-items:center;gap:2px}
+.bqh-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border:0;border-radius:999px;background:none;font-weight:600;font-size:16px;line-height:1;color:inherit;text-decoration:none;white-space:nowrap;cursor:pointer}
+.bqh-link:hover{background:var(--ground)}
+.bqh-link[aria-current]{text-decoration:underline;text-decoration-color:var(--honey);text-decoration-thickness:3px;text-underline-offset:7px}
+.bqh-link[aria-expanded="true"]{background:var(--bqh-soft)}
+.bqh-chev{display:inline-block;flex:none;width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transition:transform .2s}
+.bqh-chev.d{transform:translateY(-2px) rotate(45deg)}
+.bqh-chev.r{transform:rotate(-45deg);margin-right:3px}
+.bqh-chev.l{transform:rotate(135deg);margin-left:4px;width:9px;height:9px}
+.bqh-link[aria-expanded="true"] .bqh-chev.d,.bqh .lang[open] summary .bqh-chev.d{transform:translateY(2px) rotate(225deg)}
+.bqh-btn{display:none}
+.js-nav .bqh-btn{display:inline-flex}
+.js-nav .bqh-nojs{display:none}
+.bqh-end{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bqh-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:2px solid transparent;border-radius:999px;background:var(--honey);color:var(--honey-ink,#12161F);font-weight:700;font-size:16px;line-height:1.1;text-align:center;text-decoration:none;white-space:nowrap;cursor:pointer}
+.bqh-cta:hover{background:#FFC34D}
+.bqh-hive{display:none;place-items:center;flex:none;width:48px;height:48px;padding:0;border:2px solid transparent;border-radius:50%;background:#FFF6D6;cursor:pointer}
+.bqh-hive svg{display:block;transition:transform .25s}
+.bqh-hive:hover svg{transform:rotate(-8deg) scale(1.06)}
+.bqh-hive .bz{opacity:0;transform:translate(-4px,4px);transition:opacity .2s,transform .3s}
+.bqh-hive:hover .bz,.bqh-hive[aria-expanded="true"] .bz{opacity:1;transform:none}
+.bqh .lang{position:relative}
+.bqh .lang summary{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line);font-weight:700;font-size:15px;line-height:1;list-style:none;cursor:pointer;white-space:nowrap}
+.bqh .lang summary::-webkit-details-marker{display:none}
+.bqh .lang summary:hover{background:var(--ground)}
+.bqh .lang[open]{flex:1 0 100%}
+.bqh .lang[open] summary{background:var(--bqh-soft);box-shadow:none}
+.bqh .lang .langs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:8px;padding:8px;border-radius:18px;background:var(--ground)}
+.bqh .lang .langs a{display:flex;align-items:center;min-height:44px;padding:0 10px;border-radius:12px;color:var(--ink);font-weight:500;font-size:15px;text-decoration:none;white-space:nowrap}
+.bqh .lang .langs a:hover{background:var(--card)}
+.bqh .lang .langs a[aria-current]{background:var(--bqh-soft);font-weight:700}
+.bqh-panel{pointer-events:auto;position:absolute;left:0;right:0;top:100%;z-index:1;padding-top:10px}
+.bqh-in{max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow:auto;overscroll-behavior:contain;padding:22px;background:var(--card);color:var(--ink);border:1px solid transparent;border-radius:28px;box-shadow:0 30px 60px -24px rgba(18,22,31,.5),0 4px 14px rgba(18,22,31,.08);animation:bqhDrop .16s ease-out}
+@keyframes bqhDrop{from{opacity:0;transform:translateY(-6px)}}
+.bqh-kicker{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.bqh-row{display:flex;align-items:center;gap:12px;min-height:52px;padding:6px 10px 6px 6px;border-radius:16px;color:var(--ink);text-decoration:none;font-size:15.5px;line-height:1.25}
+.bqh-row:hover{background:var(--ground)}
+.bqh-row[aria-current="page"]{background:var(--bqh-soft)}
+.bqh-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bqh-txt b{font-weight:600}
+.bqh-txt small,.bqh-app small{font-size:13.5px;font-weight:500;line-height:1.3;color:var(--mute)}
+.bqh-tile{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:12px;background:var(--ground);overflow:hidden}
+.bqh-row:hover .bqh-tile{background:var(--card)}
+.bqh-tile img{display:block;width:100%;height:100%}
+.bqh-hex{display:grid;place-items:center;width:28px;height:32px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--c);color:var(--k);font:700 14px/1 Fredoka,'Space Grotesk',sans-serif;white-space:nowrap}
+.bqh-hex.l2{font-size:11.5px}.bqh-hex.l3{font-size:9px}
+.bqh-apps{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px}
+.bqh-appgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.bqh-app{display:flex;flex-direction:column;align-items:flex-start;gap:4px;height:100%;padding:18px;border:2px solid transparent;border-radius:22px;background:var(--ground);color:var(--ink);text-decoration:none}
+.bqh-app:hover{border-color:var(--honey)}
+.bqh-app img{display:block;width:56px;height:56px;border-radius:14px;margin-bottom:8px}
+.bqh-app b{font-size:19px;letter-spacing:-.3px;line-height:1.15}
+.bqh-kids{background:#EAF6FF;color:#1C1A4A;font-family:Fredoka,ui-rounded,system-ui,sans-serif}
+.bqh-kids b{font-weight:700;letter-spacing:0}
+.bqh-app.bqh-kids small{color:#5A5688;font-weight:600}
+.bqh-stack{display:flex;flex-direction:column;justify-content:center;gap:4px}
+.bqh-side{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:22px;background:var(--ground)}
+.bqh-side .bqh-kicker{margin:0}
+.bqh-sidetext{font-size:15px;line-height:1.4}
+.bqh-mini{display:flex;align-items:center;gap:10px;margin-top:auto;padding:8px 12px 8px 8px;border:2px solid transparent;border-radius:16px;background:var(--card);color:var(--ink);font-size:14.5px;font-weight:600;line-height:1.25;text-decoration:none}
+.bqh-mini:hover{border-color:var(--honey)}
+.bqh-mini .bqh-chev{margin-left:auto}
+.bqh-learn{display:grid;grid-template-columns:240px minmax(0,1fr);column-gap:20px;align-items:start}
+.bqh-tab{grid-column:1;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;padding:4px 10px 4px 4px;border:2px solid transparent;border-radius:16px;background:none;font-weight:600;font-size:16px;line-height:1.2;text-align:left;cursor:pointer}
+.bqh-tab .bqh-tile{width:36px;height:36px;border-radius:11px}
+.bqh-tab .bqh-chev{margin-left:auto;opacity:0}
+.bqh-tab:hover{background:var(--ground)}
+.bqh-tab[aria-expanded="true"]{background:var(--bqh-soft)}
+.bqh-tab[aria-expanded="true"] .bqh-chev{opacity:1}
+.bqh-tab[aria-expanded="true"] .bqh-tile{background:var(--card)}
+.bqh-sec{grid-column:2;align-self:stretch;padding-left:20px;border-left:1px solid var(--line)}
+.bqh .bqh-sec[hidden]{display:block!important;visibility:hidden}
+.bqh-sechead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 16px;margin:0 0 4px 6px}
+.bqh-sechead .bqh-kicker{margin:0}
+.bqh-all{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-right:-4px;padding:0 12px;border-radius:999px;font-weight:700;font-size:15px;color:var(--cobalt);text-decoration:none;white-space:nowrap}
+.bqh-all:hover{background:var(--ground);text-decoration:underline}
+.bqh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px 8px}
+.bqh-blurb{max-width:62ch;margin:0 0 12px 6px;font-size:15.5px;line-height:1.45}
+.bqh-az{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:6px;margin-left:6px}
+.bqh-az a,.bqh-az span{display:grid;place-items:center;min-height:44px;border-radius:12px;background:var(--ground);color:var(--ink);font:700 17px/1 Fredoka,'Space Grotesk',sans-serif;text-decoration:none}
+.bqh-az a:hover{background:var(--honey);color:var(--honey-ink,#12161F)}
+.bqh-az span{opacity:.35}
+.bqh-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:18px;padding:12px 12px 12px 20px;border-radius:20px;background:var(--ground)}
+.bqh-home{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:48px;color:var(--ink);text-decoration:none}
+.bqh-home b{font-size:16px}
+.bqh-home span{font-size:14px;color:var(--mute)}
+.bqh-home:hover b{text-decoration:underline;text-decoration-color:var(--honey);text-decoration-thickness:2px}
+.bqm{pointer-events:auto;position:fixed;inset:0;z-index:3;display:flex;flex-direction:column;background:var(--card);color:var(--ink);animation:bqmOpen .22s ease-out}
+@keyframes bqmOpen{from{opacity:0;transform:translateY(-10px)}}
+.bqm-bar{display:flex;flex:none;align-items:center;justify-content:space-between;gap:12px;padding:21px 25px 6px 35px}
+.bqm-x{display:grid;place-items:center;flex:none;width:48px;height:48px;padding:0;border:2px solid transparent;border-radius:50%;background:var(--ground);cursor:pointer}
+.bqm-x:hover{background:var(--bqh-soft)}
+.bqm-body{position:relative;flex:1;min-height:0;overflow:hidden}
+.bqm-scr{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:8px 24px 28px;background:var(--card)}
+.bqm-big>li>a,.bqm-big>li>button{display:flex;align-items:center;gap:12px;width:100%;min-height:68px;padding:10px 4px;border:0;border-bottom:1px solid var(--line);background:none;font-weight:700;font-size:28px;line-height:1.1;letter-spacing:-.8px;text-align:left;text-decoration:none;color:var(--ink);cursor:pointer}
+.bqm-big .bqh-chev{margin-left:auto;margin-right:8px;width:13px;height:13px;border-width:0 3px 3px 0}
+.bqm-big>li>[aria-current]{text-decoration:underline;text-decoration-color:var(--honey);text-decoration-thickness:3px;text-underline-offset:6px}
+.bqm-big>li>.bqm-small{min-height:60px;margin-top:16px;border:0;border-radius:16px;padding:8px 14px;background:var(--ground);font-size:17px;font-weight:600;letter-spacing:0}
+.bqm-big>li>.bqm-small .bqh-chev{width:9px;height:9px;border-width:0 2px 2px 0;margin-left:4px}
+.bqm-cur{margin-left:auto;font-weight:500;color:var(--mute)}
+.bqm-back{display:inline-flex;align-items:center;gap:4px;min-height:44px;margin:0 0 8px -6px;padding:0 14px 0 6px;border:0;border-radius:999px;background:none;font-weight:600;font-size:17px;cursor:pointer}
+.bqm-back:hover{background:var(--ground)}
+.bqm-h{margin:0 0 12px;font-size:32px;line-height:1.05;letter-spacing:-1px;font-weight:700}
+.bqm-h:focus{outline:none}
+.bqm .bqh-row{width:100%;min-height:64px;padding:8px 2px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;font-size:17px;text-align:left;cursor:pointer}
+.bqm .bqh-row:hover{background:none}
+.bqm .bqh-row:hover b{text-decoration:underline;text-decoration-color:var(--honey);text-decoration-thickness:2px}
+.bqm .bqh-row[aria-current="page"] b{text-decoration:underline;text-decoration-color:var(--honey);text-decoration-thickness:3px}
+.bqm .bqh-row>.bqh-chev{margin-left:auto;margin-right:8px;width:9px;height:9px;color:var(--mute)}
+.bqm .bqh-tile{width:44px;height:44px}
+.bqm .bqh-row:hover .bqh-tile{background:var(--ground)}
+.bqm .bqh-blurb{margin:0 0 14px}
+.bqm .bqh-az{margin:0 0 8px}
+.bqm-langs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:4px}
+.bqm-langs a{display:flex;align-items:center;justify-content:center;min-height:52px;padding:6px 4px;border:2px solid transparent;border-radius:14px;background:var(--ground);color:var(--ink);font-weight:600;font-size:15px;text-align:center;text-decoration:none}
+.bqm-langs a[aria-current]{background:var(--honey);color:var(--honey-ink,#12161F);font-weight:700}
+.bqm-foot{flex:none;padding:12px 24px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.bqm-cta{display:flex;width:100%;min-height:56px;font-size:18px}
+@keyframes bqmIn{from{transform:translateX(100%)}}
+@keyframes bqmOut{to{transform:translateX(-25%);opacity:0}}
+@keyframes bqmBackIn{from{transform:translateX(-25%);opacity:0}}
+@keyframes bqmBackOut{to{transform:translateX(100%)}}
+.bqm-scr.f-in{z-index:2;animation:bqmIn .3s cubic-bezier(.2,.8,.2,1) both}
+.bqm-scr.f-out{animation:bqmOut .3s ease both}
+.bqm-scr.b-in{animation:bqmBackIn .3s ease both}
+.bqm-scr.b-out{z-index:2;animation:bqmBackOut .3s cubic-bezier(.2,.8,.2,1) both}
+html.bqm-open,html.bqm-open body{overflow:hidden}
+html.bqm-open .bq-ok,html.bqm-open .bq-peek,html.bqm-open .bq-scene{display:none}
+html:has(.bqh-panel:not([hidden])) .bq-peek{visibility:hidden}
+@media (prefers-color-scheme:dark){.bqh-pill{border-color:var(--line);box-shadow:0 14px 34px -14px rgba(0,0,0,.8)}.bqh-in{border-color:var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.85)}}
+@media (min-width:1000px){
+.bqh-pill{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;padding:0 8px 0 22px;border-radius:999px}
+.bqh-logo{justify-self:start;margin:0}
+.bqh-nav{order:0;align-self:stretch}
+.bqh-items{flex-wrap:nowrap;height:100%}
+.bqh-item{display:flex;align-items:center;align-self:stretch}
+.bqh-end{justify-self:end;flex-wrap:nowrap}
+.bqh .lang[open]{flex:none}
+.bqh .lang .langs{position:absolute;right:0;top:calc(100% + 20px);z-index:2;grid-template-columns:repeat(3,max-content);margin:0;padding:10px;background:var(--card);border:1px solid transparent;border-radius:22px;box-shadow:0 24px 50px -20px rgba(18,22,31,.45),0 4px 12px rgba(18,22,31,.08);animation:bqhDrop .16s ease-out}
+.bqh .lang .langs a{padding:0 14px}
+.bqh .lang .langs a:hover{background:var(--ground)}
+.bqm{display:none!important}
 }
-@media (prefers-reduced-motion:reduce){.bq-hive svg,.bq-hive .bz{transition:none}}
-</style><script>(function(){var n=document.querySelector('nav.top');if(!n)return;var w=n.parentElement;w.classList.add('bq-top');
-var b=n.querySelector('.brand'),box=document.createElement('div');box.className='bq-links';box.id='bq-menu';
-[].slice.call(n.children).forEach(function(c){if(c!==b)box.appendChild(c);});
-var h=document.createElement('button');h.type='button';h.className='bq-hive';h.setAttribute('aria-expanded','false');h.setAttribute('aria-controls','bq-menu');h.setAttribute('aria-label','__MENU__');
-h.innerHTML='<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false"><g stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round"><path d="M20 5c-4 0-6.5 2.4-7.4 5h14.8C26.5 7.4 24 5 20 5z" fill="#FFD84D"/><path d="M11.4 10h17.2c1.6 1.4 2.5 3.1 2.6 5H8.8c.1-1.9 1-3.6 2.6-5z" fill="#FFB020"/><path d="M8.8 15h22.4c.9 1.6 1.4 3.3 1.4 5H7.4c0-1.7.5-3.4 1.4-5z" fill="#FFD84D"/><path d="M7.4 20h25.2c.1 1.8-.2 3.5-.9 5H8.3c-.7-1.5-1-3.2-.9-5z" fill="#FFB020"/><path d="M8.3 25h23.4c-.6 1.9-1.6 3.6-2.9 5H11.2c-1.3-1.4-2.3-3.1-2.9-5z" fill="#FFD84D"/><path d="M6 33.5h28" fill="none" stroke-linecap="round"/></g><path d="M17.2 30v-2.6a2.8 2.8 0 0 1 5.6 0V30z" fill="#1C1A4A"/>'
-+'<g class="bz"><ellipse cx="34" cy="8" rx="2.6" ry="2" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="1"/><path d="M33.5 9.5l3 1.7-1.7 3-3-1.7z" fill="#FFD84D" stroke="#1C1A4A" stroke-width="1" stroke-linejoin="round"/></g></svg>';
-n.appendChild(h);n.appendChild(box);
-function set(o){w.classList.toggle('open',o);h.setAttribute('aria-expanded',o?'true':'false');}
-h.addEventListener('click',function(e){e.stopPropagation();set(!w.classList.contains('open'));});
-box.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
-document.addEventListener('click',function(e){if(!w.contains(e.target))set(false);});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&w.classList.contains('open')){set(false);h.focus();}});
-function sc(){w.classList.toggle('scrolled',scrollY>4);}addEventListener('scroll',sc,{passive:true});sc();})();</script><!--/nav-->"""
+@media (min-width:1000px) and (prefers-color-scheme:dark){.bqh .lang .langs{border-color:var(--line);box-shadow:0 24px 50px -20px rgba(0,0,0,.85)}}
+@media (max-width:999.98px){
+.bqh-panel{display:none!important}
+:root:not(.js-nav) .bqh{position:relative;top:0}
+.js-nav .bqh-pill{flex-wrap:nowrap;border-radius:999px}
+.js-nav .bqh-nav,.js-nav .bqh-end .lang,.js-nav .bqh-cta-top{display:none}
+.js-nav .bqh-hive{display:grid}
+}
+@media (min-width:560px) and (max-width:999.98px){.js-nav .bqh-cta-top{display:inline-flex}}
+@media (max-width:420px){.bqm-scr{padding:6px 18px 24px}.bqm-big>li>a,.bqm-big>li>button{font-size:25px}.bqm-h{font-size:28px}.bqm-foot{padding-left:18px;padding-right:18px}}
+:lang(ja) body,:lang(ko) body{word-break:keep-all;overflow-wrap:break-word}
+:lang(ja) body{line-break:strict}
+@supports (word-break:auto-phrase){:lang(ja) body{word-break:auto-phrase}}
+/* Site-wide focus ring: honey is under 3:1 on white, so light mode uses deep purple (dark mode keeps honey). */
+:root a:focus-visible,:root button:focus-visible,:root summary:focus-visible{outline-color:#3B24A8}
+@media (prefers-color-scheme:dark){:root a:focus-visible,:root button:focus-visible,:root summary:focus-visible{outline-color:#FFB020}}
+@media (prefers-reduced-motion:reduce){.bqh,.bqh *{animation:none!important;transition:none!important}}
+@media (prefers-contrast:more){.bqh-pill,.bqh-in,.bqh .lang .langs{border-color:var(--ink)}.bqh-kicker,.bqh-txt small,.bqh-app small,.bqh-home span{color:var(--ink)!important}.bqh .lang summary{box-shadow:inset 0 0 0 2px var(--ink)}}
+@media (forced-colors:active){.bqh-link[aria-expanded="true"],.bqh-tab[aria-expanded="true"],.bqh .lang[open] summary,.bqh-row[aria-current="page"],.bqh .lang .langs a[aria-current],.bqm-langs a[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.bqh-hex,.bqh-hive{forced-color-adjust:none}.bqh .bqh-hive:focus-visible{outline-color:Highlight}}
+"""
+def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + '</style><!--/nav-css-->'
+
+# Opens and closes the panels and the phone menu. Hover only opens panels for a mouse on a wide screen, after 150 ms
+# (and closes 150 ms after leaving, so the pointer can travel into the panel); a click pins a hovered panel open.
+# While a panel is open, another item (or another section in Learn's rail) only takes over once the pointer rests on
+# it, so crossing Apps on the way down to Learn's panel, or crossing the rail on the way to a link, changes nothing.
+# Escape closes and returns focus; a click outside closes; only one panel (or the language list) is open at a time.
+# The phone menu is a modal dialog: it traps Tab, makes the page behind inert, locks scrolling, and closing it puts
+# focus back on the beehive button. Sub-screens slide in (no sliding with Reduce Motion). Focus is never left on
+# something that has just been hidden: tabbing into a hovered panel keeps it open, a panel that takes over from one
+# holding focus (or from the open language list) moves focus to its own button, hovering another Learn section moves
+# focus to that section's button, and resizing past 1000px moves it to the beehive or the Apps button.
+NAV ="""<!--nav--><script>(function(){var D=document,R=D.documentElement,h=D.getElementById('bqh');if(!h)return;R.classList.add('js-nav');
+function mq(q){return window.matchMedia?matchMedia(q):{matches:false};}function on(m,f){if(m.addEventListener)m.addEventListener('change',f);else if(m.addListener)m.addListener(f);}
+var wide=mq('(min-width: 1000px)'),fine=mq('(hover: hover) and (pointer: fine)'),calm=mq('(prefers-reduced-motion: reduce)');
+var pill=h.querySelector('.bqh-pill'),lang=pill.querySelector('.lang'),open=null,via='',tO=0,tC=0,tR=0;
+function show(li,hover){clearTimeout(tO);clearTimeout(tC);var a=D.activeElement,lost=0;if(open&&open!==li){lost=open.p.contains(a);hide(open);}
+if(lang&&lang.open){if(lang.querySelector('.langs').contains(a))lost=1;lang.open=false;}open=li;via=hover?'hover':'click';li.p.hidden=false;li.b.setAttribute('aria-expanded','true');if(lost)li.b.focus();}
+function hide(li,back){li.p.hidden=true;li.b.setAttribute('aria-expanded','false');if(open===li)open=null;if(back)li.b.focus();}
+function mouse(e){return e.pointerType==='mouse'&&fine.matches&&wide.matches;}
+function arm(li){clearTimeout(tO);tO=setTimeout(function(){show(li,1);},open?110:150);}
+[].forEach.call(h.querySelectorAll('.bqh-item[data-panel]'),function(li){li.b=li.querySelector('.bqh-btn');li.p=D.getElementById(li.getAttribute('data-panel'));if(!li.b||!li.p)return;
+li.b.addEventListener('click',function(){if(open!==li)show(li);else if(via==='hover')via='click';else hide(li);});
+li.b.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();show(li);var f=li.p.querySelector('a[href],button');if(f)f.focus();}});
+li.addEventListener('pointerenter',function(e){if(!mouse(e))return;clearTimeout(tC);if(open!==li)arm(li);});
+li.addEventListener('pointermove',function(e){if(open&&open!==li&&mouse(e))arm(li);});
+li.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;clearTimeout(tO);var o=open;if(!o||via!=='hover')return;tC=setTimeout(function(){if(open===o&&via==='hover')hide(o);},150);});
+li.addEventListener('focusout',function(e){var t=e.relatedTarget;if(open===li&&t&&!li.contains(t))hide(li);});
+li.p.addEventListener('click',function(e){if(e.target.closest('a[href]'))hide(li);});
+li.p.addEventListener('focusin',function(){if(open===li)via='click';});});
+var tabs=[].slice.call(h.querySelectorAll('.bqh-tab'));
+function pick(t,f){var a=D.activeElement,lost=0;tabs.forEach(function(x){var s=x===t,p=D.getElementById(x.getAttribute('aria-controls'));x.setAttribute('aria-expanded',s?'true':'false');if(p){if(!s&&a&&p.contains(a))lost=1;p.hidden=!s;}});if(f||lost)t.focus();}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(t);});t.addEventListener('focus',function(){pick(t);});
+t.addEventListener('keydown',function(e){var k=e.key,n=k==='ArrowDown'?i+1:k==='ArrowUp'?i-1:k==='Home'?0:k==='End'?tabs.length-1:null;
+if(k==='ArrowRight'){var a=D.getElementById(t.getAttribute('aria-controls')).querySelector('.bqh-grid a,.bqh-az a');if(a){e.preventDefault();a.focus();}return;}
+if(n===null)return;e.preventDefault();pick(tabs[(n+tabs.length)%tabs.length],1);});
+t.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse'||t.getAttribute('aria-expanded')==='true')return;clearTimeout(tR);tR=setTimeout(function(){pick(t);},90);});t.addEventListener('pointerleave',function(){clearTimeout(tR);});});
+if(lang){lang.addEventListener('toggle',function(){if(lang.open&&open)hide(open);});lang.addEventListener('focusout',function(e){var t=e.relatedTarget;if(lang.open&&t&&!lang.contains(t))lang.open=false;});}
+var hive=h.querySelector('.bqh-hive'),dr=D.getElementById('bqm'),cur=null;
+function inert(v){[].forEach.call(D.body.children,function(el){if(el!==h&&!/^(SCRIPT|STYLE)$/.test(el.tagName))el.inert=v;});pill.inert=v;}
+function go(to,dir,f){var from=cur;if(!to||from===to)return;to.hidden=false;to.scrollTop=0;cur=to;
+if(from){if(dir&&!calm.matches){var a=dir>0?'f':'b';to.classList.add(a+'-in');from.classList.add(a+'-out');setTimeout(function(){to.classList.remove(a+'-in');from.classList.remove(a+'-out');if(from!==cur)from.hidden=true;},320);}else from.hidden=true;}
+f=f||to.querySelector('.bqm-h')||to.querySelector('a[href],button');if(f){try{f.focus({preventScroll:true});}catch(x){f.focus();}}}
+function openDr(){if(open)hide(open);dr.hidden=false;R.classList.add('bqm-open');hive.setAttribute('aria-expanded','true');inert(true);cur=null;
+[].forEach.call(dr.querySelectorAll('.bqm-scr'),function(s){s.hidden=true;s.className='bqm-scr';});var r=D.getElementById('bqm-root');go(r,0,r.querySelector('a[href],button'));}
+function closeDr(back){if(!dr||dr.hidden)return;dr.hidden=true;R.classList.remove('bqm-open');hive.setAttribute('aria-expanded','false');inert(false);if(back)hive.focus();}
+if(hive&&dr){hive.addEventListener('click',openDr);dr.querySelector('.bqm-x').addEventListener('click',function(){closeDr(1);});
+dr.addEventListener('click',function(e){var b=e.target.closest('[data-to]');
+if(b){var back=b.classList.contains('bqm-back'),to=D.getElementById(b.getAttribute('data-to'));if(!back&&to)to.from=b;go(to,back?-1:1,back&&cur?cur.from:null);return;}
+if(e.target.closest('a[href]'))closeDr(0);});
+dr.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].filter.call(dr.querySelectorAll('a[href],button'),function(x){return x.getClientRects().length>0;});if(!f.length)return;
+var a=f[0],z=f[f.length-1],c=D.activeElement;if(e.shiftKey&&(c===a||!dr.contains(c))){e.preventDefault();z.focus();}else if(!e.shiftKey&&(c===z||!dr.contains(c))){e.preventDefault();a.focus();}});}
+D.addEventListener('keydown',function(e){if(e.key!=='Escape'&&e.key!=='Esc')return;
+if(dr&&!dr.hidden){e.preventDefault();closeDr(1);}else if(open){var li=open,a=D.activeElement;hide(li,!a||a===D.body||li.contains(a));}
+else if(lang&&lang.open){lang.open=false;lang.querySelector('summary').focus();}});
+D.addEventListener('click',function(e){var t=e.target;if(open&&!open.contains(t))hide(open);if(lang&&lang.open&&!lang.contains(t))lang.open=false;});
+var inH=0;h.addEventListener('focusin',function(){inH=1;});h.addEventListener('focusout',function(e){if(e.relatedTarget&&!h.contains(e.relatedTarget))inH=0;});
+D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
+on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
+var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->"""
 
 _SITE = {}
 def site_text(lang, key, table):
-    """A per-language snippet (say, consent, menu, skip): from the tables above, or i18n/<lang>.json \"__site__\"."""
+    """A per-language snippet (say, consent, menu, skip, nav): from the tables above, or i18n/<lang>.json \"__site__\"."""
     if lang in table: return table[lang]
     if lang not in _SITE:
         f = os.path.join(ROOT, 'i18n', f'{lang}.json')
@@ -248,24 +646,33 @@ def site_text(lang, key, table):
     return _SITE[lang].get(key, table['en'])
 
 def strip_markers(s):
-    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'skip'):
+    """Takes out everything chrome() adds. The header leaves HEADER_SLOT behind so it's rebuilt in the same place
+    (pages from before the header had <div class="wrap"><nav class="top">…</nav></div> there instead)."""
+    s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
+    s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
+    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip'):
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     return s
 
+def english_only(s):
+    """English-only pages and files live on beequation.com, so a language site links to them there."""
+    return re.sub(r'href="/(play\.html|teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
+
 def chrome(src, lang, page, label='Language'):
     s = strip_markers(src)
-    if '.lang summary' not in s:
-        s = s.replace('</style>', MENU_CSS + '\n</style>', 1)
-    offer = lang != 'en' or LIVE              # the English site shows languages only once one is live
-    if offer:
-        s = s.replace('</nav>', menu(lang, page, label) + '</nav>', 1)
+    for old in (OLD_MENU_CSS, OLDER_MENU_CSS):  # the language menu's styles now come with the header
+        s = s.replace(old + '\n', '').replace(old, '')
+    offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
     if page in PAGES and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
     if '<main' in s:
         s = re.sub(r'<main(?![^>]*\bid=)([^>]*)>', r'<main id="main"\1>', s, count=1)
         mid = re.search(r'<main[^>]*\bid="([^"]+)"', s).group(1)
         s = s.replace('<body>', '<body>\n' + SKIP.replace('__SKIP__', site_text(lang, 'skip', SKIP_LABEL)).replace('#main', '#' + mid), 1)
-    if '<nav class="top"' in s: s = s.replace('</body>', NAV.replace('__MENU__', site_text(lang, 'menu', MENU_LABEL)) + '\n</body>', 1)
+    if HEADER_SLOT in s:
+        s = s.replace(HEADER_SLOT, '<!--header-->' + header(lang, page, label, offer) + '<!--/header-->', 1)
+        s = s.replace('</head>', nav_head() + '\n</head>', 1)
+        s = s.replace('</body>', NAV + '\n</body>', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
     s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)) + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
@@ -281,7 +688,7 @@ def update_english():
         pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
     for p in pages:
         s = rd(p)
-        if '<nav class="top"' not in s: continue
+        if '<!--header-->' not in s and '<nav class="top"' not in s: continue   # pages without the header (the game)
         new = chrome(s, 'en', p)
         if new != s: open(os.path.join(ROOT, p), 'w', encoding='utf-8').write(new)
 
@@ -316,13 +723,9 @@ def localise(s, lang, page):
     p = url_path(page)
     s = s.replace(f'<link rel="canonical" href="{MAIN}{p}">', f'<link rel="canonical" href="{site(lang)}{p}">')
     s = s.replace(f'<meta property="og:url" content="{MAIN}{p}">', f'<meta property="og:url" content="{site(lang)}{p}">')
-    # English-only pages and files live on beequation.com
-    s = re.sub(r'href="/(play\.html|teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
-    s = re.sub(r'<a href="(?:https://beequation\.com)?/learn/">[^<]*</a>', '', s)   # Learn is English-only: not in the menu
-    s = re.sub(r'<a href="(?:https://beequation\.com)?/teachers\.html">[^<]*</a>(?=<a href="/support\.html">)', '', s)
+    s = english_only(s)                       # (the header, added later by chrome(), leaves out Learn and Teachers itself)
     s = re.sub(r'<script type="application/ld\+json">\{"@context":"https://schema.org","@type":"HowTo".*?</script>\n?', '', s, flags=re.S)
     if page == 'support.html':
-        import html as H
         qa = re.findall(r'<h2>(.*?)</h2><p>(.*?)</p>', s, re.S)
         strip = lambda x: H.unescape(re.sub(r'<[^>]+>', '', x)).strip()
         faq = json.dumps({'@context': 'https://schema.org', '@type': 'FAQPage', 'inLanguage': HTML_LANG[lang], 'mainEntity': [{'@type': 'Question', 'name': strip(q), 'acceptedAnswer': {'@type': 'Answer', 'text': strip(a)}} for q, a in qa]}, ensure_ascii=False, separators=(',', ':'))
@@ -336,6 +739,9 @@ def build(check_only=False):
         if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
             continue   # not translated yet
         T = json.load(open(os.path.join(ROOT, 'i18n', f'{lang}.json'), encoding='utf-8'))
+        nav = T.get('__site__', {}).get('nav', {})
+        for k, v in NAV_TEXT['en'].items():   # the header's words
+            if not nav.get(k): print(f'  {lang} header: no translation for "{k}": {v}'); problems += 1
         out = os.path.join(ROOT, 'dist', lang)
         if not check_only:
             shutil.rmtree(out, ignore_errors=True); os.makedirs(out)

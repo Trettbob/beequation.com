@@ -243,6 +243,28 @@
    "Personvernerklæring"
   ],
   "menu": "Meny",
-  "skip": "Hopp til innholdet"
+  "skip": "Hopp til innholdet",
+  "nav": {
+   "main": "Hovedmeny",
+   "apps": "Apper",
+   "support": "Hjelp",
+   "play": "Spill gratis",
+   "close": "Lukk menyen",
+   "back": "Tilbake",
+   "language": "Språk",
+   "browse": "Utforsk",
+   "choose": "Velg språk",
+   "apps_kicker": "Appene våre",
+   "kids_desc": "5–12 år, med bien Indie",
+   "pro_desc": "Ungdom og voksne, en ny oppgave hver dag",
+   "howto": "Slik spiller du",
+   "howto_desc": "Reglene på ett minutt",
+   "online": "Spill på nett",
+   "online_desc": "Gratis i nettleseren",
+   "side_kicker": "Gratis å prøve",
+   "side_text": "Spill i nettleseren, uten konto og uten reklame.",
+   "about": "Om Beequation",
+   "about_desc": "Ingen reklame, ingen sporing, laget i Storbritannia"
+  }
  }
 }
