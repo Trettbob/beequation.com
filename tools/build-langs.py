@@ -47,11 +47,19 @@ def lang_links(lang, page):
     links = []
     for code, name in LANGS.items():
         if code != 'en' and code not in LIVE and code != lang: continue
-        path = url_path(page) if page in PAGES else '/'
+        path = url_path(page) if page in PAGES else learn_path(page, code)
         href = site(code) + path + ('?lang=en' if code == 'en' and lang != 'en' else '')
         cur = ' aria-current="true"' if code == lang else ''
         links.append(f'<a href="{href}" lang="{code}" hreflang="{code}" data-lang="{code}"{cur}>{name}</a>')
     return links
+
+def learn_path(page, code):
+    """From a Learn page (or the teachers page), the same page on site `code` if it has one, else that site's home."""
+    if code != 'en' and not has_learn(code): return '/'
+    if page == 'teachers.html': return '/teachers.html'
+    if not page.startswith('learn/'): return '/'
+    rel = page[len('learn/'):]
+    return _learn().url_of(rel) if _learn().site_of(code).has(rel) or (code == 'en' and os.path.exists(os.path.join(ROOT, page))) else '/learn/'
 
 def alternates(page, lang='en'):
     p = url_path(page)
@@ -245,14 +253,15 @@ NAV_TEXT = {'en': {
     'howto': 'How to play', 'howto_desc': 'The rules in one minute', 'online': 'Play online', 'online_desc': 'Free in your browser',
     'side_kicker': 'Free to try', 'side_text': 'Play puzzles in your browser. No sign-up and no ads.',
     'about': 'About Beequation', 'about_desc': 'No ads, no tracking, made in the UK'}}
-# English only, like the Learn section and the teachers page they describe (section names come from learn_menu()).
-LEARN_TEXT = {'learn': 'Learn', 'teachers': 'Teachers', 'pack': 'Free puzzle pack for teachers', 'pack_desc': '24 honeycomb puzzles to print',
-              'home': 'Learn home', 'home_desc': 'Free maths help for home and school, Reception to Year 6',
-              'worksheets': 'Free worksheets', 'glossary': 'Primary maths words explained in plain English, each with an example and the year children usually meet it. Pick a letter:'}
+# The Learn section and the teachers page are on beequation.com, and on a language site once its own, written for that
+# country's schools, is ready (build-learn.py's LEARN_LIVE, or --learn <code> to preview one). Their words, topics and
+# school years come from build-learn.py (English) or learn-i18n/<code>/site.json.
+PREVIEW_LEARN = set(sys.argv[sys.argv.index('--learn') + 1].split(',')) if '--learn' in sys.argv else set()
+def has_learn(lang): return lang == 'en' or lang in _learn().LEARN_LIVE or lang in PREVIEW_LEARN
 
 def esc(s): return H.escape(str(s), quote=True)
 
-_LEARN, _LM = None, None
+_LEARN, _LM = None, {}
 def _learn():
     """tools/build-learn.py as a module: the Learn map (TOPICS, YEARS, colours, front matter) lives there."""
     global _LEARN
@@ -269,13 +278,13 @@ def hexicon(g, colour='lemon'):
 def hex_css():
     return ''.join(f'.bqh-hex.{name}{{--c:{fill};--k:{ink}}}' for name, (fill, ink) in _learn().CANDY.items())
 
-def learn_menu():
+def learn_menu(lang='en'):
     """The Learn panel's sections, built from the data the Learn pages are built from (build-learn.py's TOPICS and
-    YEARS, the learn-src/ front matter and hub cards, worksheets.json, the glossary's letters), so they stay in step."""
-    global _LM
-    if _LM is not None: return _LM
-    L = _learn()
-    src = lambda rel: rd(os.path.join('learn-src', rel))
+    YEARS, or a language's site.json; the sources' front matter and hub cards, worksheets.json, the glossary's
+    letters), so they stay in step."""
+    if lang in _LM: return _LM[lang]
+    L = _learn(); S = L.site_of(lang); w = S.w
+    src = lambda rel: rd(os.path.join(S.src, rel))
     def cards(rel):   # a hub page's <card> list: href -> (title, glyph, colour), in page order
         return {h: (t, g, c) for h, t, g, c in re.findall(r'<card href="([^"]+)" title="([^"]*)"(?: glyph="([^"]*)")?(?: colour="([^"]*)")?>', src(rel))}
     home = cards('index.html')
@@ -284,7 +293,7 @@ def learn_menu():
         return hexicon(hg or g, hc or c)
     def guides(folder):
         hub = cards(f'{folder}/index.html'); order = list(hub); out = []
-        for f in os.listdir(os.path.join(L.SRC, folder)):
+        for f in os.listdir(os.path.join(S.src, folder)):
             if not f.endswith('.html') or f == 'index.html': continue
             meta, _ = L.front(src(f'{folder}/{f}')); href = f'/learn/{folder}/{f}'
             _, g, c = hub.get(href, ('', '', ''))
@@ -292,25 +301,25 @@ def learn_menu():
         return [dict(href=h, label=n, icon=hexicon(g, c)) for _, n, h, g, c in sorted(out)]
     teach = guides('teachers')
     pack = cards('teachers/index.html').get('/teachers.html')
-    teach.append(dict(href='/teachers.html', label=pack[0] if pack else LEARN_TEXT['pack'], icon=hexicon((pack and pack[1]) or '⬡', (pack and pack[2]) or 'honey')))
-    sheets, wshub, ws = L.worksheets_manifest(), src('worksheets/index.html'), []
-    for slug, name, g, c in L.TOPICS:
-        k = sum(1 for w in sheets if w['topic'] == slug)
+    teach.append(dict(href='/teachers.html', label=pack[0] if pack else w['pack'], icon=hexicon((pack and pack[1]) or '⬡', (pack and pack[2]) or 'honey')))
+    sheets, wshub, ws = L.worksheets_manifest(S), src('worksheets/index.html'), []
+    for slug, name, g, c in S.topics:
+        k = sum(1 for x in sheets if x['topic'] == slug)
         if k: ws.append(dict(href='/learn/worksheets/' + (f'#{slug}' if f'id="{slug}"' in wshub else ''), label=name,
-                             small=f'{k} worksheet' + ('' if k == 1 else 's'), icon=hexicon(g, c)))
-    _LM = [
-        dict(key='topics', label='Topics', icon=hexicon('+', 'mint'), kicker='Browse topics', all=('All topics', '/learn/topics/'),
-             items=[dict(href=f'/learn/topics/{s}.html', label=n, icon=hexicon(g, c)) for s, n, g, c in L.TOPICS]),
-        dict(key='years', label='Year groups', icon=hexicon('R–6', 'grape'), kicker='Browse year groups', all=('All year groups', '/learn/years/'),
-             items=[dict(href=f'/learn/years/{s}.html', label=n, small=f'Age {age} · US {us}', icon=hexicon('R' if s == 'reception' else n.split()[-1], 'grape'))
-                    for s, n, age, us in L.YEARS]),
-        dict(key='parents', label='For parents', icon=ico('/learn/parents/', '♥', 'honey'), kicker='Guides for parents', all=('All parent guides', '/learn/parents/'), items=guides('parents')),
-        dict(key='teachers', label='For teachers', icon=ico('/learn/teachers/', '✎', 'honey'), kicker='Resources for teachers', all=('All teacher resources', '/learn/teachers/'), items=teach),
-        dict(key='worksheets', label='Worksheets', icon=ico('/learn/worksheets/', '⎙', 'honey'), kicker='Free worksheets by topic', all=('All worksheets', '/learn/worksheets/'), items=ws),
-        dict(key='glossary', label='Maths glossary', icon=ico('/learn/glossary/', 'A–Z', 'honey'), kicker='Maths words from A to Z', all=('All glossary words', '/learn/glossary/'),
-             letters=set(re.findall(r'\bid="([a-z])"', src('glossary/index.html'))), blurb=LEARN_TEXT['glossary']),
+                             small=w['m_sheet_n'][0 if k == 1 else 1].format(n=k), icon=hexicon(g, c)))
+    _LM[lang] = [
+        dict(key='topics', label=w['m_topics'], icon=hexicon('+', 'mint'), kicker=w['m_topics_k'], all=(w['m_topics_all'], '/learn/topics/'),
+             items=[dict(href=f'/learn/topics/{s}.html', label=n, icon=hexicon(g, c)) for s, n, g, c in S.topics]),
+        dict(key='years', label=w['m_years'], icon=hexicon(w['m_years_hex'], 'grape'), kicker=w['m_years_k'], all=(w['m_years_all'], '/learn/years/'),
+             items=[dict(href=f'/learn/years/{s}.html', label=n, small=w['m_year_small'].format(age=age, us=us), icon=hexicon(S.year_hex[s], 'grape'))
+                    for s, n, age, us in S.years]),
+        dict(key='parents', label=w['m_parents'], icon=ico('/learn/parents/', '♥', 'honey'), kicker=w['m_parents_k'], all=(w['m_parents_all'], '/learn/parents/'), items=guides('parents')),
+        dict(key='teachers', label=w['m_teachers'], icon=ico('/learn/teachers/', '✎', 'honey'), kicker=w['m_teachers_k'], all=(w['m_teachers_all'], '/learn/teachers/'), items=teach),
+        dict(key='worksheets', label=w['m_sheets'], icon=ico('/learn/worksheets/', '⎙', 'honey'), kicker=w['m_sheets_k'], all=(w['m_sheets_all'], '/learn/worksheets/'), items=ws),
+        dict(key='glossary', label=w['m_glossary'], icon=ico('/learn/glossary/', 'A–Z', 'honey'), kicker=w['m_glossary_k'], all=(w['m_glossary_all'], '/learn/glossary/'),
+             letters=set(c for c in re.findall(r'\bid="([^"])"', src('glossary/index.html')) if c in w['alphabet']), blurb=w['glossary_blurb']),
     ]
-    return _LM
+    return _LM[lang]
 
 def nav_text(lang):
     return {**NAV_TEXT['en'], **(site_text(lang, 'nav', NAV_TEXT) if lang != 'en' else {})}
@@ -328,7 +337,8 @@ LOGO = '<a class="bqh-logo" href="/"><img src="/assets/hexabee.svg" width="34" h
 
 def header(lang, page, label, offer):
     """The header for one page: the pill (with its mega panels) and the phone menu, from one model."""
-    t, en = nav_text(lang), lang == 'en'
+    t, en, learn = nav_text(lang), lang == 'en', has_learn(lang)
+    LT = _learn().site_of(lang).w if learn else {}
     cur = '/' + (page[:-len('index.html')] if page.endswith('index.html') else page)
     here = lambda href: ' aria-current="page"' if href == cur else ''
     def row(it, phone=False):   # icon tile + label (+ small line) (+ chevron on phones)
@@ -340,14 +350,14 @@ def header(lang, page, label, offer):
     pro = dict(href='/#apps', label='Beequation Pro', small=t['pro_desc'], icon=img('beequation-icon.webp', 44), f='beequation-icon.webp')
     howto = dict(href='/how-to-play.html', label=t['howto'], small=t['howto_desc'], icon=hexicon('?', 'lilac'))
     online = dict(href='/play.html', label=t['online'], small=t['online_desc'], icon=hexicon('▶', 'mint'))
-    extra = (dict(href='/teachers.html', label=LEARN_TEXT['pack'], small=LEARN_TEXT['pack_desc'], icon=hexicon('⬡', 'honey')) if en else
+    extra = (dict(href='/teachers.html', label=LT['pack'], small=LT['pack_desc'], icon=hexicon('⬡', 'honey')) if learn else
              dict(href='/about.html', label=t['about'], small=t['about_desc'], icon=hexicon('i', 'sky')))
-    secs = learn_menu() if en else []
-    learn_home = dict(href='/learn/', label=LEARN_TEXT['home'], small=LEARN_TEXT['home_desc'], icon=hexicon('⬡', 'honey'))
+    secs = learn_menu(lang) if learn else []
+    learn_home = dict(href='/learn/', label=LT['learn_home'], small=LT['home_desc'], icon=hexicon('⬡', 'honey')) if learn else None
 
     def az(s):
         return '<div class="bqh-az">' + ''.join(f'<a href="/learn/glossary/#{c}">{c.upper()}</a>' if c in s['letters'] else f'<span aria-hidden="true">{c.upper()}</span>'
-                                                for c in 'abcdefghijklmnopqrstuvwxyz') + '</div>'
+                                                for c in LT['alphabet']) + '</div>'
     # ----- wide screens: the pill and its panels
     app_card = lambda it, cls: (f'<a class="bqh-app {cls}" href="{it["href"]}">{img(it["f"], 56)}<b>{esc(it["label"])}</b><small>{esc(it["small"])}</small></a>')
     apps_panel = (f'<div class="bqh-panel" id="bqh-p-apps" hidden><div class="bqh-in bqh-apps"><div><p class="bqh-kicker">{esc(t["apps_kicker"])}</p>'
@@ -366,8 +376,8 @@ def header(lang, page, label, offer):
                     f'<div class="bqh-sec" id="bqh-s-{s["key"]}" style="grid-row:1/{n + 2}"{"" if on else " hidden"}><div class="bqh-sechead"><p class="bqh-kicker">{esc(s["kicker"])}</p>'
                     f'<a class="bqh-all" href="{s["all"][1]}"{here(s["all"][1])}>{esc(s["all"][0])} <span aria-hidden="true">→</span></a></div>{body}</div>')
     learn_panel = (f'<div class="bqh-panel" id="bqh-p-learn" hidden><div class="bqh-in bqh-learn" style="grid-template-rows:repeat({n},auto) 1fr auto">{"".join(rail)}'
-                   f'<div class="bqh-foot" style="grid-row:{n + 2}"><a class="bqh-home" href="/learn/"{here("/learn/")}><b>{LEARN_TEXT["home"]}</b><span>{LEARN_TEXT["home_desc"]}</span></a>'
-                   f'<a class="bqh-cta" href="/learn/worksheets/">{LEARN_TEXT["worksheets"]}</a></div></div></div>')
+                   f'<div class="bqh-foot" style="grid-row:{n + 2}"><a class="bqh-home" href="/learn/"{here("/learn/")}><b>{LT["learn_home"]}</b><span>{LT["home_desc"]}</span></a>'
+                   f'<a class="bqh-cta" href="/learn/worksheets/">{LT["worksheets"]}</a></div></div></div>') if learn else ''
     # On a page in the Learn section, its top item (and the phone menu's Learn row) says so: aria-current, underlined.
     # Teachers is its own top item: the teacher hub (/learn/teachers/), its guides and the puzzle-pack page.
     in_teach = page.startswith('learn/teachers/') or page == 'teachers.html'
@@ -377,9 +387,9 @@ def header(lang, page, label, offer):
         return (f'<li class="bqh-item" data-panel="bqh-p-{key}"><a class="bqh-link bqh-nojs" href="{href}"{here(href) or inside}>{esc(text)}</a>'
                 f'<button type="button" class="bqh-link bqh-btn" aria-expanded="false" aria-controls="bqh-p-{key}"{inside}>{esc(text)}{CHEV_D}</button>{panel}</li>')
     items = [trigger('apps', t['apps'], '/#apps', apps_panel)]
-    if en:
-        items.append(trigger('learn', LEARN_TEXT['learn'], '/learn/', learn_panel, in_learn))
-        items.append(f'<li class="bqh-item"><a class="bqh-link" href="/learn/teachers/"{teach_here}>{LEARN_TEXT["teachers"]}</a></li>')
+    if learn:
+        items.append(trigger('learn', LT['learn'], '/learn/', learn_panel, in_learn))
+        items.append(f'<li class="bqh-item"><a class="bqh-link" href="/learn/teachers/"{teach_here}>{LT["teachers"]}</a></li>')
     items.append(f'<li class="bqh-item"><a class="bqh-link" href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
     links = ''.join(lang_links(lang, page)) if offer else ''
     chip = (f'<details class="lang"><summary><span class="bqh-vh">{esc(label)}: </span>{GLOBE}<span>{lang.upper()}</span>{CHEV_D}</summary>'
@@ -396,16 +406,16 @@ def header(lang, page, label, offer):
     rows = lambda its: '<ul class="bqm-rows">' + ''.join(f'<li>{row(it, True)}</li>' for it in its) + '</ul>'
     big = [f'<li><button type="button" data-to="bqm-apps">{esc(t["apps"])}{CHEV_R}</button></li>']
     screens = [screen('bqm-apps', 'bqm-root', t['browse'], t['apps'], rows([kids, pro, howto, online, extra]))]
-    if en:
-        big.append(f'<li><button type="button" data-to="bqm-learn"{in_learn}>{LEARN_TEXT["learn"]}{CHEV_R}</button></li>')
-        big.append(f'<li><a href="/learn/teachers/"{teach_here}>{LEARN_TEXT["teachers"]}</a></li>')
+    if learn:
+        big.append(f'<li><button type="button" data-to="bqm-learn"{in_learn}>{LT["learn"]}{CHEV_R}</button></li>')
+        big.append(f'<li><a href="/learn/teachers/"{teach_here}>{LT["teachers"]}</a></li>')
         go = ''.join(f'<li><button type="button" class="bqh-row" data-to="bqm-l-{s["key"]}"><span class="bqh-tile">{s["icon"]}</span>'
                      f'<span class="bqh-txt"><b>{esc(s["label"])}</b></span>{CHEV_R}</button></li>' for s in secs)
-        screens.append(screen('bqm-learn', 'bqm-root', t['browse'], LEARN_TEXT['learn'], f'<ul class="bqm-rows">{go}<li>{row(learn_home, True)}</li></ul>'))
+        screens.append(screen('bqm-learn', 'bqm-root', t['browse'], LT['learn'], f'<ul class="bqm-rows">{go}<li>{row(learn_home, True)}</li></ul>'))
         for s in secs:
             every = dict(href=s['all'][1], label=s['all'][0], icon=s['icon'])
             body = (f'<p class="bqh-blurb">{esc(s["blurb"])}</p>{az(s)}{rows([every])}' if s['key'] == 'glossary' else rows(s['items'] + [every]))
-            screens.append(screen(f'bqm-l-{s["key"]}', 'bqm-learn', LEARN_TEXT['learn'], s['label'], body))
+            screens.append(screen(f'bqm-l-{s["key"]}', 'bqm-learn', LT['learn'], s['label'], body))
     big.append(f'<li><a href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
     if offer:
         big.append(f'<li><button type="button" class="bqm-small" data-to="bqm-lang">{GLOBE}<span>{esc(t["language"])}</span><span class="bqm-cur">{esc(LANGS[lang])}</span>{CHEV_R}</button></li>')
@@ -415,7 +425,7 @@ def header(lang, page, label, offer):
               f'<div class="bqm-body"><div class="bqm-scr" id="bqm-root" hidden><ul class="bqm-big">{"".join(big)}</ul></div>{"".join(screens)}</div>'
               f'<div class="bqm-foot"><a class="bqh-cta bqm-cta" href="/play.html">{esc(t["play"])}</a></div></div>')
     out = f'<header class="bqh" id="bqh">{pill}{drawer}</header>'
-    return out if en else english_only(out)
+    return out if en else english_only(out, lang)
 
 # The header's styles. Japanese and Korean wrap between words and phrases, not mid-word (keep-all; Japanese uses
 # auto-phrase where the browser has it), with overflow-wrap as the fallback for a run too long for its box.
@@ -677,8 +687,13 @@ def strip_markers(s):
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     return s
 
-def english_only(s):
-    """English-only pages and files live on beequation.com, so a language site links to them there."""
+def english_only(s, lang=None):
+    """English-only pages and files live on beequation.com, so a language site links to them there (except its own
+    Learn section, teachers page and worksheets, once it has them)."""
+    if lang and has_learn(lang):
+        own = lambda f: os.path.exists(os.path.join(_learn().I18N, lang, f))   # its own pack, worksheets…
+        return re.sub(r'href="/(play\.html|accessibility\.html|assets/[^"]+\.pdf)"',
+                      lambda m: m.group(0) if m.group(1).startswith('assets/') and own(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
     return re.sub(r'href="/(play\.html|teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
 
 def chrome(src, lang, page, label='Language'):
@@ -688,6 +703,9 @@ def chrome(src, lang, page, label='Language'):
     offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
     if page in PAGES and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
+    if lang == 'en' and page == 'teachers.html':   # the teachers page on sites with their own Learn section
+        s = re.sub(r'<!--learn-hreflang-->.*?<!--/learn-hreflang-->\n', '', s, flags=re.S)
+        s = re.sub(r'(<link rel="canonical"[^>]*>\n)', lambda m: m.group(1) + _learn().alternates(_learn().PACK, _learn().EN), s, count=1)
     if '<main' in s:
         s = re.sub(r'<main(?![^>]*\bid=)([^>]*)>', r'<main id="main"\1>', s, count=1)
         mid = re.search(r'<main[^>]*\bid="([^"]+)"', s).group(1)
@@ -746,7 +764,7 @@ def localise(s, lang, page):
     p = url_path(page)
     s = s.replace(f'<link rel="canonical" href="{MAIN}{p}">', f'<link rel="canonical" href="{site(lang)}{p}">')
     s = s.replace(f'<meta property="og:url" content="{MAIN}{p}">', f'<meta property="og:url" content="{site(lang)}{p}">')
-    s = english_only(s)                       # (the header, added later by chrome(), leaves out Learn and Teachers itself)
+    s = english_only(s, lang)                 # (the header, added later by chrome(), leaves out Learn and Teachers itself)
     s = re.sub(r'<script type="application/ld\+json">\{"@context":"https://schema.org","@type":"HowTo".*?</script>\n?', '', s, flags=re.S)
     if page == 'support.html':
         qa = re.findall(r'<h2>(.*?)</h2><p>(.*?)</p>', s, re.S)
@@ -776,10 +794,21 @@ def build(check_only=False):
             open(os.path.join(out, page), 'w', encoding='utf-8').write(html_out)
         if check_only: continue
         shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf'))
+        learn_urls = []
+        if has_learn(lang):   # that country's own Learn section, teachers page and worksheets
+            L = _learn()
+            built, learn_urls = L.build_lang(lang)
+            for page in built:
+                f = os.path.join(out, page)
+                html_out = chrome(english_only(open(f, encoding='utf-8').read(), lang), lang, page, T.get('Language', 'Language'))
+                open(f, 'w', encoding='utf-8').write(html_out)
+            own = os.path.join(L.I18N, lang, 'assets')
+            if os.path.isdir(own): shutil.copytree(own, os.path.join(out, 'assets'), dirs_exist_ok=True)
         shutil.copy(os.path.join(ROOT, 'favicon.ico'), out)
         open(os.path.join(out, 'CNAME'), 'w').write(f'{lang}.beequation.com\n')
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
         urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html')
+        urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls))
         open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
         open(os.path.join(out, 'README.md'), 'w').write(f'# {lang}.beequation.com\n\nBuilt from Trettbob/beequation.com by tools/build-langs.py. Do not edit here: change the English pages or i18n/{lang}.json there and rebuild.\n')
     return problems

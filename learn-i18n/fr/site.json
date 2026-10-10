@@ -1,0 +1,171 @@
+{
+ "words": {
+  "html_lang": "fr",
+  "home": "Accueil",
+  "learn": "Apprendre",
+  "learn_home": "Vue d’ensemble",
+  "sections": {
+   "topics": "Thèmes",
+   "years": "Classes",
+   "parents": "Parents",
+   "teachers": "Enseignants",
+   "worksheets": "Fiches d’exercices",
+   "glossary": "Lexique des maths"
+  },
+  "all_topics": "Tous les thèmes →",
+  "all_years": "Toutes les classes →",
+  "year_small": "{age} ans",
+  "tip": "L’astuce d’Indie",
+  "challenge": "Le défi d’Indie",
+  "show": "Voir la réponse",
+  "sheet_alt": "Aperçu de la fiche « {title} »",
+  "download": "Télécharger le PDF",
+  "try_title": "S’entraîner avec Indie",
+  "try_text": "Beequation Kids transforme les faits numériques en grilles en alvéoles, et Indie donne un indice quand votre enfant bloque. Sans pub et sans collecte de données.",
+  "try_play": "Jouer gratuitement dans le navigateur",
+  "try_sheets": "Fiches gratuites",
+  "teachers": "Enseignants",
+  "pack": "Pack de casse-têtes gratuit pour les enseignants",
+  "pack_desc": "24 grilles en alvéoles à imprimer",
+  "home_desc": "Aide gratuite en maths pour la maison et l’école, de la grande section au CM2",
+  "worksheets": "Fiches gratuites",
+  "glossary_blurb": "Les mots des maths de l’école primaire, expliqués simplement, chacun avec un exemple et la classe où on le rencontre. Choisissez une lettre :",
+  "m_topics": "Thèmes",
+  "m_topics_k": "Parcourir les thèmes",
+  "m_topics_all": "Tous les thèmes",
+  "m_years": "Classes",
+  "m_years_k": "Parcourir les classes",
+  "m_years_all": "Toutes les classes",
+  "m_years_hex": "GS+",
+  "m_year_small": "{age} ans",
+  "m_parents": "Pour les parents",
+  "m_parents_k": "Guides pour les parents",
+  "m_parents_all": "Tous les guides pour les parents",
+  "m_teachers": "Pour les enseignants",
+  "m_teachers_k": "Ressources pour les enseignants",
+  "m_teachers_all": "Toutes les ressources pour les enseignants",
+  "m_sheets": "Fiches d’exercices",
+  "m_sheets_k": "Fiches gratuites par thème",
+  "m_sheets_all": "Toutes les fiches",
+  "m_sheet_n": [
+   "{n} fiche",
+   "{n} fiches"
+  ],
+  "m_glossary": "Lexique des maths",
+  "m_glossary_k": "Les mots des maths de A à Z",
+  "m_glossary_all": "Tous les mots du lexique",
+  "alphabet": "abcdefghijklmnopqrstuvwxyz"
+ },
+ "topics": [
+  {
+   "slug": "counting-and-place-value",
+   "name": "Nombres et numération",
+   "glyph": "123",
+   "colour": "lemon"
+  },
+  {
+   "slug": "addition-and-subtraction",
+   "name": "Addition et soustraction",
+   "glyph": "+",
+   "colour": "mint"
+  },
+  {
+   "slug": "multiplication-and-division",
+   "name": "Multiplication et division",
+   "glyph": "×",
+   "colour": "sky"
+  },
+  {
+   "slug": "fractions",
+   "name": "Fractions",
+   "glyph": "½",
+   "colour": "pink"
+  },
+  {
+   "slug": "decimals-and-percentages",
+   "name": "Nombres décimaux et pourcentages",
+   "glyph": "0,5",
+   "colour": "lilac"
+  },
+  {
+   "slug": "telling-the-time",
+   "name": "Lire l’heure",
+   "glyph": "3:00",
+   "colour": "peach"
+  },
+  {
+   "slug": "money",
+   "name": "La monnaie",
+   "glyph": "€",
+   "colour": "lemon"
+  },
+  {
+   "slug": "measurement",
+   "name": "Grandeurs et mesures",
+   "glyph": "cm",
+   "colour": "mint"
+  },
+  {
+   "slug": "shape-and-geometry",
+   "name": "Géométrie et formes",
+   "glyph": "△",
+   "colour": "sky"
+  },
+  {
+   "slug": "data-and-graphs",
+   "name": "Tableaux et graphiques",
+   "glyph": "▥",
+   "colour": "pink"
+  },
+  {
+   "slug": "algebra-and-ratio",
+   "name": "Algèbre et proportionnalité",
+   "glyph": "x",
+   "colour": "lilac"
+  },
+  {
+   "slug": "mental-maths",
+   "name": "Calcul mental",
+   "glyph": "⚡",
+   "colour": "peach"
+  }
+ ],
+ "years": [
+  {
+   "slug": "grande-section",
+   "name": "Grande section",
+   "age": "5 à 6",
+   "short": "GS"
+  },
+  {
+   "slug": "cp",
+   "name": "CP",
+   "age": "6 à 7",
+   "short": "CP"
+  },
+  {
+   "slug": "ce1",
+   "name": "CE1",
+   "age": "7 à 8",
+   "short": "CE1"
+  },
+  {
+   "slug": "ce2",
+   "name": "CE2",
+   "age": "8 à 9",
+   "short": "CE2"
+  },
+  {
+   "slug": "cm1",
+   "name": "CM1",
+   "age": "9 à 10",
+   "short": "CM1"
+  },
+  {
+   "slug": "cm2",
+   "name": "CM2",
+   "age": "10 à 11",
+   "short": "CM2"
+  }
+ ]
+}

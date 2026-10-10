@@ -1,0 +1,336 @@
+{
+ "years": [
+  {
+   "slug": "vorschule",
+   "name": "Vorschule",
+   "age": "5 bis 6",
+   "english_equivalent": "Reception (by content); last Kita year before school"
+  },
+  {
+   "slug": "klasse-1",
+   "name": "1. Klasse",
+   "age": "6 bis 7",
+   "english_equivalent": "Year 1 by content (numbers to 20), Year 2 by age"
+  },
+  {
+   "slug": "klasse-2",
+   "name": "2. Klasse",
+   "age": "7 bis 8",
+   "english_equivalent": "Year 2 to Year 3 by content (to 100, times tables), Year 3 by age"
+  },
+  {
+   "slug": "klasse-3",
+   "name": "3. Klasse",
+   "age": "8 bis 9",
+   "english_equivalent": "Year 3 to Year 4 by content (to 1000, written add/subtract), Year 4 by age"
+  },
+  {
+   "slug": "klasse-4",
+   "name": "4. Klasse",
+   "age": "9 bis 10",
+   "english_equivalent": "Year 4 to Year 5 by content (to a million, written multiplication/division), Year 5 by age"
+  },
+  {
+   "slug": "klasse-5",
+   "name": "5. Klasse",
+   "age": "10 bis 11",
+   "english_equivalent": "Year 5 to Year 6 by content, Year 6 by age (still Grundschule in Berlin and Brandenburg)"
+  },
+  {
+   "slug": "klasse-6",
+   "name": "6. Klasse",
+   "age": "11 bis 12",
+   "english_equivalent": "Year 6 by content (fractions, decimals, percentages), Year 7 by age (still Grundschule in Berlin and Brandenburg)"
+  }
+ ],
+ "address": "Parents and teachers are addressed formally with \"Sie\" (Ihr Kind, Ihre Klasse), matching de.beequation.com (i18n/de.json) and the grown-up area of the Beequation Kids app (\"Lassen Sie die Option aus, wenn Ihr Kind...\"). Children are addressed with \"du\": Indie's front-matter lines, challenge questions spoken to the child, worksheet instructions, as in the app (\"Komm, wir gehen auf Zahlensuche!\"). The tone is warm, calm and factual, with no marketing exclamations. Avoid \"einfach\", \"kinderleicht\" and \"ganz leicht\". Use gender-fair wording without the Gendersternchen (\"Schülerinnen und Schüler\", \"Kinder\", \"Lehrkräfte\", as on the site). Indie is \"die Biene Indie\", she/her (sie).",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn hub. Intro for German parents and teachers (Sie). Cards for the 12 topics using site.json names and glyphs (Malnehmen und Teilen uses 1·1, Geld uses €). Year cards Vorschule to 6. Klasse with ages ('6 bis 7 Jahre') and a one-line summary from BRIEF (e.g. 1. Klasse: Zahlenraum bis 20, Einspluseins; 2. Klasse: bis 100, kleines Einmaleins; 3. Klasse: bis 1000, schriftliches Addieren und Subtrahieren; 4. Klasse: bis 1 Million, schriftliches Multiplizieren; 5./6. Klasse: Brüche, Kommazahlen). Grown-ups cards (Eltern, Lehrkräfte, Arbeitsblätter, Mathe-Lexikon). Popular guides: Zahlzerlegungen bis 20, Einmaleins üben, Kopfrechenstrategien, tägliches Rätsel für Erwachsene. Tip on 'jeden Tag ein bisschen'. <try/>."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "All 12 topics with German names and short descriptions. 'Where to start, by age' rewritten for Vorschule, Klasse 1-2, Klasse 3-4, Klasse 5-6. Note once that the Länder decide year placement and that primary covers fractions/decimals only in everyday measures, Bruchrechnung comes in Klasse 5/6."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Zahlenraum steps: 20 (Kl. 1), 100 (Kl. 2), 1000 (Kl. 3), 1 000 000 (Kl. 4), Milliarde/negative Zahlen (Kl. 5/6). Simultanerfassung, Zwanzigerfeld, Hundertertafel, Stellenwerttafel E Z H T ZT HT M, Stufenschrift (734 = 7H 3Z 4E), Zahlenstrahl, Nachbarzahlen, runden. Must explain Zahlendreher caused by German number words (einundzwanzig -> children write 12 for 21) and how to help. Thousands written with a space (10 000), never a point. Mistakes, home games (Hausnummern, Würfel, Adventskalender). Year table links to /learn/years/klasse-N.html."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Zahlzerlegungen, Zahlenhaus, verliebte Zahlen, Einspluseins bis 20, Zehnerübergang (8 + 5 = 8 + 2 + 3), Tausch- und Umkehraufgaben, Nachbaraufgaben, Verdoppeln; halbschriftlich to 100/1000 (schrittweise, stellenweise, Hilfsaufgabe) on the Rechenstrich; schriftliche Addition (Überträge small above the line) and schriftliche Subtraktion showing BOTH Abziehverfahren mit Entbündeln and Ergänzungsverfahren (Bayern prescribes Abziehen; others vary; ask the teacher). Use the worked examples in BRIEF section 4 (347 + 285 = 632; 532 − 178 = 354). Überschlag before calculating. Zahlenmauern and Rechendreiecke as German formats."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Malpunkt · and colon : throughout. Kleines Einmaleins to 10 · 10 (not 12), Kernaufgaben (1, 2, 5, 10, squares) then derived facts, Einmaleinsreihen in Kl. 2, automatised by Kl. 3 (varies by Land); Aufteilen and Verteilen; Division mit Rest (17 : 5 = 3 R 2); halbschriftlich (23 · 4 = 80 + 12 = 92), Malkreuz; schriftliche Multiplikation in one line with German layout (324 · 23 = 7452); schriftliche Division German layout (936 : 4 = 234), in most Länder Klasse 4, Niedersachsen moves it to Klasse 5 (halbschriftlich 168 : 6 = 28 in primary). No national tables test; mention informal Einmaleins-Führerschein. Remove all Multiplication Tables Check content."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Rewrite the year table: Kl. 1-2 'die Hälfte', 'ein Viertel' in everyday sharing; Kl. 3-4 ½, ¼, ¾ only with Größen (½ l, ¼ kg, ¾ h, Viertelstunde) per KMK; Kl. 5-6 Bruchrechnung: Zähler, Nenner, Erweitern und Kürzen, gleichwertige Brüche, comparing, adding/subtracting, multiplying/dividing (Bayern Gym M6), gemischte Zahlen. Keep the big ideas (equal parts, part of a shape vs. a set, bigger Nenner smaller pieces, equivalence, same denominators to add) with German SVG labels. Local examples: Geburtstagskuchen, Pizza, Brezel teilen. Challenge answer checked."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Title around 'Kommazahlen und Prozent'. Primary: comma only in Größen (3,45 €; 1,25 m; 2,5 km = 2500 m = 2 km 500 m, KMK example). Klasse 5/6: Dezimalzahlen as numbers, Zehntel and Hundertstel, Stellenwerttafel with z h, converting fractions, rounding. Prozent: basics in Klasse 6 (Bayern Gym), full Prozentrechnung often Klasse 7: say it varies. Decimal comma and '25 %' with space. Examples: Preise, Rabatt im Sportgeschäft, Pfand. No decimal points anywhere, including SVGs."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "German time phrases: halb vier = 3:30 (the classic confusion), Viertel nach drei / regional 'viertel vier', Viertel vor vier / regional 'dreiviertel vier', fünf vor halb vier, fünf nach halb vier. 24-hour time is everyday (15:30 Uhr, 'fünfzehn Uhr dreißig') and taught alongside the clock face, usually from Klasse 2. Sequence: volle Stunden (Kl. 1), halbe and Viertelstunden, Minuten, digital (Kl. 2), Sekunden and Zeitspannen '1 h 25 min' (Kl. 3), Fahrpläne (Kl. 3/4). No a.m./p.m.; use morgens/nachmittags/abends. Drop Roman numerals focus. Examples: Schulbeginn 8:00 Uhr, Busfahrplan, Sandmännchen/Abendessen."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Euro and Cent: coins 1, 2, 5, 10, 20, 50 ct, 1 €, 2 €; notes 5 to 200 €; 1 € = 100 ct. Notation 3,45 € (sign after amount, space) and '3 € 45 ct' in early years; Kommaschreibweise from Klasse 3. Wechselgeld by counting up (Ergänzen: 3,45 € to 5 € is 1,55 €). Examples: Bäckerei, Eisdiele, Kiosk, Taschengeld, Pfandflaschen (0,25 €), Flohmarkt. Year table Kl. 1 to Kl. 4 (+ Kl. 5/6 Dreisatz with prices). SVG coins with € labels."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Größen und Messen (KMK Leitidee): Länge (cm, m in Kl. 1-2; mm, km in Kl. 3-4), Gewicht/Masse (g, kg; Tonne uncertain), Hohlmaße (ml, l), Zeit; mixed notation 2 m 15 cm and comma 2,15 m; Stützpunktvorstellungen (Tür ca. 2 m, Schulstunde 45 min); Umfang and Flächeninhalt by counting squares in primary, formulas in Kl. 5/6; Rauminhalt with unit cubes, Quader volume Kl. 6; Maßstab. Metric only. Home ideas: Zollstock, Plätzchen backen (g, ml), Körpergröße am Türrahmen."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Raum und Form: ebene Figuren (Kreis, Dreieck, Viereck, Rechteck, Quadrat; Quadrat is a special Rechteck), Körper (Würfel, Quader, Kugel, Zylinder, Kegel, Pyramide), Ecken, Kanten, Flächen; Lagebeziehungen; Würfelnetze; Achsensymmetrie and Spiegelachse; rechter Winkel with the Geodreieck; Bandornamente, Parkette; vergrößern/verkleinern; Klasse 5/6: Koordinatensystem, parallel/senkrecht, Winkel messen, Kreis mit Zirkel. German shape names in SVGs."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Daten und Zufall: Strichliste, Tabelle, Bilddiagramm, Säulendiagramm (vertical) and Balkendiagramm, reading timetables and price lists; Zufall: sicher, möglich, unmöglich, wahrscheinlicher; Kombinatorik (Wie viele Möglichkeiten? Baumdiagramm); Klasse 6: relative Häufigkeit, Kreisdiagramm, Durchschnitt (arithmetisches Mittel). Examples: Lieblingseis in der Klasse, Wetterbeobachtung, Würfelexperiment, Bundesliga-Tabelle."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Germany has no 'algebra' in primary: frame it via the KMK Leitidee 'Muster, Strukturen und funktionaler Zusammenhang': Platzhalteraufgaben (3 + _ = 7), Zahlenfolgen, Muster fortsetzen, Zahlenmauern/Rechendreiecke, gleiche Terme (Zahlen durch verschiedene Terme ausdrücken), Menge-Preis tables (Proportionalität). Klasse 5/6: Terme with brackets, Punkt vor Strich, einfache Gleichungen (a + x = b, a · x = b), Dreisatz, Maßstab, Verhältnis. Use · and :."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Kopfrechnen is central in German schools: KMK says Einspluseins and Einmaleins must be known 'gedächtnismäßig' and transferred to bigger numbers (6 · 4 = 24 -> 60 · 4 = 240). Strategies with German names: Zehnerübergang/Zerlegen, Verdoppeln und Halbieren, Nachbaraufgaben, Hilfsaufgabe (Runden und Ausgleichen), Ergänzen, Tauschaufgaben, Umkehraufgabe. Blitzrechnen as daily drill. 'Facts to know by heart' table per Klasse (Zerlegungen bis 10 in Kl. 1, Einspluseins bis 20 by end of Kl. 1, kleines Einmaleins by Kl. 2/3, Einmaleins-Umkehrungen)."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Cards Vorschule to 6. Klasse. 'How the years fit together': Kita/Vorschuljahr, Schulpflicht from age 6 by the Land's Stichtag (30 June to 30 September), Grundschule Kl. 1-4 (Kl. 1-6 in Berlin and Brandenburg), flexible Schuleingangsphase, Übertritt after Kl. 4, Klasse 5/6 at weiterführende Schule (Erprobungs-/Orientierungsstufe). State that the KMK Bildungsstandards set outcomes at end of Kl. 4 and each Land's Lehrplan sets the year detail. Key tests table: VERA-3 (Kl. 3, spring), Kompass 4 (BW, Kl. 4, November), Grundschulempfehlung (Kl. 4). No US grades."
+  },
+  {
+   "rel": "years/vorschule.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "Last Kita year (Vorschulkinder), age 5 to 6; not compulsory, no school curriculum; Land Kita frameworks (Bildungspläne) include early maths through play. Content: counting and Abzählreime, Simultanerfassung (Würfelbilder), Mengen vergleichen, Ziffern erkennen, Zahlen bis 10 zerlegen, Formen, Lagebegriffe, Muster, vergleichen (länger, schwerer), Wochentage. Mention Hamburg's optional Vorschulklassen and the Schuleingangsuntersuchung (health check, not a maths test). 'Tests' section: none. 'Is my child ready for school?' qa (Schulreife is decided with Kita, Schulärztin and school; no need to teach sums early). Home help: Tisch decken, Treppenstufen zählen, Würfelspiele, Adventskalender. Link to klasse-1."
+  },
+  {
+   "rel": "years/klasse-1.html",
+   "sources": [
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Age 6 to 7. Einschulung (Schultüte, Ranzen), Schuleingangsphase. Zahlenraum bis 20: counting, Zwanzigerfeld, Zahlenstrahl, Zehner und Einer, <, >, =; Zahlzerlegungen (Zahlenhaus, verliebte Zahlen), Plus und Minus bis 20, Zehnerübergang, Tausch-/Umkehraufgaben, Verdoppeln/Halbieren, Platzhalteraufgaben; Geld (Münzen und Scheine); volle und halbe Stunden; Längen vergleichen; ebene Figuren, Lagebeziehungen, Muster; Strichlisten. No marks (Berichtszeugnis), no tests. Key vocabulary table with German school words. Previous: vorschule; next: klasse-2."
+  },
+  {
+   "rel": "years/klasse-2.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Age 7 to 8. Zahlenraum bis 100 (Hundertertafel, Hunderterfeld, Rechenstrich), Plus/Minus bis 100 halbschriftlich; introduction of Malnehmen and Teilen, kleines Einmaleins all Reihen starting with Kernaufgaben (Bayern: 1, 2, 5, 10, squares in 1/2; full automatising in 3/4; varies), Division mit Rest begins; Euro und Cent (1 € = 100 ct); m and cm, 2 m 15 cm; Uhr: Minuten, Viertelstunden, digital, 24 hours; Kalender; Achsensymmetrie, Körper; Tabellen, Schaubilder; sicher/möglich/unmöglich. Marks may start late in Kl. 2 in some Länder (uncertain). Challenge with Einmaleins. Prev klasse-1, next klasse-3."
+  },
+  {
+   "rel": "years/klasse-3.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Age 8 to 9. Zahlenraum bis 1000, Stellenwerttafel H Z E, Runden; Einmaleins automatised with inverses; halbschriftliche Multiplikation/Division; schriftliche Addition and Subtraktion (both subtraction methods, ask the teacher); Größen: km, m, cm, mm, kg, g, Sekunden, Zeitspannen (1 h 25 min), Kommaschreibweise for money (3,45 €), Viertelstunde = 15 min; rechter Winkel, Würfelnetze, Spiegeln; Säulendiagramme, Fahrpläne, Würfelexperimente, Kombinatorik. Tests: VERA-3 in the spring (Basismodul 40 min + Ergänzungsmodul 20 min, no mark, five Kompetenzstufen, results shared with parents, not for the Grundschulempfehlung); marks and Klassenarbeiten/Proben usually start. Prev klasse-2, next klasse-4."
+  },
+  {
+   "rel": "years/klasse-4.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Age 9 to 10. Zahlenraum bis 1 000 000 (T, ZT, HT, M), Runden, Überschlag; schriftliche Multiplikation (German one-line layout, 324 · 23 = 7452); schriftliche Division in most Länder (936 : 4 = 234; Bayern divisors to 10 with remainder; Niedersachsen halbschriftlich only from 2027/28); Hohlmaße l, ml; Maßstab; Umfang and Flächeninhalt by squares, Rauminhalt with cubes; Menge-Preis tables; Netze, vergrößern/verkleinern; Wahrscheinlichkeit, Baumdiagramm. Tests/transition: Grundschulempfehlung and Übertritt (rules per Land, Bayern Übertrittszeugnis), Kompass 4 in Baden-Württemberg (November, no effect on marks). Keep it calm. Prev klasse-3, next klasse-5."
+  },
+  {
+   "rel": "years/klasse-5.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Age 10 to 11. Most children change school (weiterführende Schule; still Grundschule in Berlin/Brandenburg). Say clearly that content depends on Land and school type. Typical (Bayern Gym M5 as reference): große Zahlen (Milliarde, Billion), negative Zahlen, Teilbarkeit/Primzahlen, Potenzen, all written methods incl. multi-digit division, Terme with brackets and Punkt vor Strich, einfache Gleichungen, Größen umrechnen, Dreisatz, Maßstab, Flächeninhalt Rechteck by formula, Koordinatensystem, parallel/senkrecht, Winkel with Geodreieck, Zählprinzip. Brüche start in Kl. 5 in some Länder (uncertain). Tests: none national; mention diagnostic tests in some Länder only as uncertain/general. Help with the transition (new teachers, Klassenarbeiten). Prev klasse-4, next klasse-6."
+  },
+  {
+   "rel": "years/klasse-6.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Age 11 to 12, last year of Grundschule in Berlin and Brandenburg, end of Erprobungs-/Orientierungsstufe elsewhere; content varies by Land and school type (Bayern Gym M6 reference): Brüche (Erweitern, Kürzen, vergleichen, all four operations), Dezimalzahlen (umwandeln, runden, rechnen), Prozent basics, Flächeninhalt Parallelogramm/Dreieck, Volumen Quader and units, relative Häufigkeit, Diagramme, Durchschnitt. No national tests. Prev klasse-5; next: link back to years index and topics (no klasse-7 page)."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub for Eltern: helping at home, how maths is taught now (halbschriftlich, schriftliche Verfahren, Zahlenhaus, Rechenstrich), tests in Germany (VERA-3, Noten, Grundschulempfehlung), Matheangst, everyday maths. Sie-form."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "38 (or similar count, keep it accurate) everyday activities grouped Vorschule/Kl. 1, Kl. 2-4, Kl. 5-6. German settings: Bäckerei, Wochenmarkt, Pfandautomat, Taschengeld, Fahrplan (24-hour), Plätzchen backen, Zollstock, Adventskalender, Laternenumzug, Bundesliga-Tabelle, Kniffel/Mensch ärgere Dich nicht, Urlaub (Kilometer, Fahrzeit). Euro prices realistic; decimal comma."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Same practical advice (little and often, good questions, praise effort, let the child explain, homework, unknown methods) adapted: Hausaufgaben culture in German Grundschule (often done alone, sometimes in the Hort/Ganztag/OGS), Hausaufgabenheft, asking at the Elternsprechtag or Elternabend; when the school method differs from what parents learned (e.g. Ergänzungs- vs Abziehverfahren, halbschriftlich) ask the Lehrkraft rather than teach your own. Avoid 'einfach'."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Replace English sections with German classroom tools: EIS-Prinzip (enaktiv, ikonisch, symbolisch) instead of CPA; Zwanzigerfeld/Zehnerfeld, Kraft der Fünf, Zahlenhaus, Rechenkette/Rechenrahmen, Hundertertafel, Rechenstrich vs Zahlenstrahl, Dienes-Material, Stellenwerttafel; halbschriftliches Rechnen (schrittweise, stellenweise, Hilfsaufgabe) and Malkreuz instead of grid method/chunking; schriftliche Verfahren with German layouts (addition with Überträge, both subtraction methods, one-line multiplication, division layout, no 'bus stop'); Sachaufgaben with Skizze/Tabelle instead of bar models; Zahlenmauern, Rechendreiecke, Rechenketten. Why schools teach this way (understanding before algorithm; KMK process skills). Worked examples from BRIEF section 4, arithmetic checked."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "Matheangst: signs, 'noch nicht' language, parents' own feelings ('Ich war auch schlecht in Mathe' avoided), low-stakes games, when to talk to the Lehrkraft. Add a short, careful note distinguishing Matheangst from Rechenschwäche/Dyskalkulie (persistent difficulty; school and Schulpsychologischer Dienst can advise; no statistics). Pressure points in Germany: Noten from Kl. 3, Übertritt in Kl. 4."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Fully rewritten for Germany: table by Klasse; no school-entry maths test (Schuleingangsuntersuchung is health); Kl. 1-2 Berichtszeugnisse, no marks in most Länder; VERA-3 in Klasse 3 spring (KMK-based, set by IQB, windows set by each Land, ~60 min: 40-min Basismodul all Leitideen + 20-min Ergänzungsmodul, often online, five Kompetenzstufen, no mark, results shared by school, not used for recommendation, nothing to prepare); Klassenarbeiten/Proben and Noten 1-6 from Kl. 3 (varies); Halbjahres- and Jahreszeugnis; Grundschulempfehlung/Übertrittszeugnis in Kl. 4 (rules differ: binding in some Länder; Bayern average of Deutsch, Mathe, HSU; BW partly binding again since 2025/26); Kompass 4 (BW only, November of Kl. 4, no effect on marks, part of recommendation); no national times-tables test. How to support without stress. Link official IQB/KMK pages. No SATs/MTC."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub for Lehrkräfte (Sie): Einstiege, Spiele, prozessbezogene Kompetenzen (Argumentieren, Problemlösen, Modellieren, Darstellen, Kommunizieren, mit Objekten und Werkzeugen arbeiten), Differenzierung, Arbeitsblätter, Rätselpaket (/teachers.html). No KS1/KS2; use Schuleingangsphase, Klasse 3/4, Klasse 5/6."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Differenzierung / Binnendifferenzierung: natürliche Differenzierung (one rich task, many levels), substantielle Lernumgebungen (German didactics term, Wittmann/Zahlenbuch tradition), EIS-Prinzip and Material (Zwanzigerfeld, Dienes), Scaffolds (Wortspeicher, Satzanfänge), Sternchenaufgaben/Forscheraufgaben for fast finishers, Lerntheke/Wochenplan, inclusion (gemeinsames Lernen). Wabenrätsel as early-finisher work."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "15 low-prep games for Grundschule and Klasse 5/6 classrooms: whole class (e.g. Einmaleins-Blitz, Zahlen raten mit Zahlenstrahl, Ich bin..., wer hat...?, Bingo), pairs (Würfel-Zahlenmauern, Zehnerfreunde-Memory, Stellenwert-Würfeln), groups. Each with rules, what it practises, how to adapt by Klasse. Use · and :, euro."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "25 Einstiege (Stundeneinstieg, 5-10 min) grouped Klasse 1-2 (Schuleingangsphase), Klasse 3-4, Klasse 5-6, replacing KS groupings. Blitzrechnen, Zahl des Tages, Zahlenmauer des Tages, Was passt nicht?, Schätzglas, Uhrzeit-Einstieg (halb vier), Rechengeschichten. Making starters work."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Tie to KMK process competencies (Mathematisch argumentieren, Probleme mathematisch lösen, Mathematisch kommunizieren, Mathematisch darstellen). Frageimpulse, Begründen ('Stimmt das immer?'), Wahr oder falsch?, Fehler finden (Fehleranalyse in schriftlichen Verfahren), offene Aufgaben, Forscheraufgaben, Rechenkonferenz/Mathekonferenz, Satzmuster/Wortspeicher; for word problems use Sachaufgaben with Skizze, Tabelle, Streifen sketch (not 'bar model' branding)."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Hub of German worksheets (from worksheets.json, built by make-worksheets with --lang de) by topic and Klasse. Only sheets that fit Germany: leave out multiplication-check-practice; times-table sheets and 12 × 12 grid need generator changes (kleines Einmaleins to 10 · 10) or leaving out; short-multiplication uses English layout (see BRIEF section 12). Honeycomb puzzle pack link to /teachers.html."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Mathe-Lexikon A to Z with German school terms (Achsensymmetrie, Bruch, Dezimalzahl, Differenz, Dividend, Einer, Einmaleins, Entbündeln, Ergänzen, Faktor, Flächeninhalt, Geodreieck, halbschriftlich, Hunderter, Kernaufgaben, Kopfrechnen, Malkreuz, Minuend, Nachbaraufgabe, Platzhalter, Produkt, Quotient, Rechenstrich, rechter Winkel, Runden, Sachaufgabe, Stellenwerttafel, Strichliste, Summe, Tauschaufgabe, Übertrag, Überschlag, Umfang, Umkehraufgabe, Verdoppeln, Zahlenhaus, Zahlenmauer, Zahlenstrahl, Zehnerübergang, Zerlegung...), each with an example and the Klasse children meet it. Alphabet a-z (umlauts sorted under a/o/u). Mark each letter's first entry id='<letter>'. Letters with no entries (e.g. c, j, x, y) may be skipped."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "German title around 'Zahlzerlegungen und Einspluseins bis 20'. When: Zerlegungen bis 10 in Vorschule/Kl. 1, Einspluseins bis 20 automatised in Kl. 1 (KMK: Grundaufgaben gedächtnismäßig). Zahlenhaus, verliebte Zahlen (Zehnerfreunde), Zwanzigerfeld, Zehnerübergang; how to practise; honeycomb game for Zerlegungen; qa. Same path as English."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "'Das kleine Einmaleins üben'. Which Reihen when (Kernaufgaben first, all Reihen in Kl. 2, automatised by Kl. 3, varies by Land), up to 10 · 10 only; no national check (replace MTC section with Einmaleins in der Schule: tests, informal Einmaleins-Führerschein, why automatising matters for schriftliche Multiplikation/Division). Practice ideas children enjoy (Einmaleins-Klatschen, Würfeln, Memory, Auto fahren), Einmaleins-Garten honeycomb. Use ·."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Kopfrechenstrategien with German names and examples: Zehnerübergang (über die Zehn), Zerlegen/stellenweise, Fast-Verdoppeln/Nachbaraufgaben, Hilfsaufgabe (runden und ausgleichen: 47 + 29 = 47 + 30 − 1 = 76), Ergänzen (Abziehen durch Ergänzen, also for Wechselgeld), Verdoppeln und Halbieren, 9er and 11er via 10er, checking with gerade/ungerade and Endziffern. Check every example."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "For adults (Sie): why a daily number puzzle (keep it modest, no invented studies), what makes a good one, how Beequation works, the Tages-Wabe (Daily Pro) as named in de.json ('Jeden Tag eine neue, nummerierte Tages-Wabe'), Blitz (60-Sekunden-Blitz), levels (Ei bis Schwarmgeist), Trio, Große Wabe; use the German app/site names from i18n/de.json."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes de.beequation.com/teachers.html. 'Kostenlose Rätsel für Ihre Klasse': 24 Wabenrätsel (Plusaufgaben bis 20 and Einmaleins) with Lösungen; uses: zweiminütiger Einstieg, Wochenplan, Vertretungsstunde, Freiarbeit; where it fits (Kl. 1-4: Einspluseins, Einmaleins). Must state honestly if the PDF itself is still in English (de.json says 'Paket auf Englisch') unless a German pack exists. Links to /learn/teachers/, /play.html."
+  }
+ ]
+}

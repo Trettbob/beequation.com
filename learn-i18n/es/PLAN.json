@@ -1,0 +1,337 @@
+{
+ "years": [
+  {
+   "slug": "infantil-5-anos",
+   "name": "Infantil 5 años",
+   "age": "5 a 6",
+   "english_equivalent": "Reception (by age it overlaps Reception and Year 1; the last, non-compulsory pre-school year)"
+  },
+  {
+   "slug": "1-primaria",
+   "name": "1.º de Primaria",
+   "age": "6 a 7",
+   "english_equivalent": "Year 1 / Year 2 (content close to Year 1–2)"
+  },
+  {
+   "slug": "2-primaria",
+   "name": "2.º de Primaria",
+   "age": "7 a 8",
+   "english_equivalent": "Year 2 / Year 3"
+  },
+  {
+   "slug": "3-primaria",
+   "name": "3.º de Primaria",
+   "age": "8 a 9",
+   "english_equivalent": "Year 3 / Year 4"
+  },
+  {
+   "slug": "4-primaria",
+   "name": "4.º de Primaria",
+   "age": "9 a 10",
+   "english_equivalent": "Year 4 / Year 5"
+  },
+  {
+   "slug": "5-primaria",
+   "name": "5.º de Primaria",
+   "age": "10 a 11",
+   "english_equivalent": "Year 5 / Year 6"
+  },
+  {
+   "slug": "6-primaria",
+   "name": "6.º de Primaria",
+   "age": "11 a 12",
+   "english_equivalent": "Year 6 / Year 7 (end of Primaria)"
+  }
+ ],
+ "address": "Tú (informal singular), matching the Spanish apps (apps/kids/src/i18n/es.ts: 'tu hijo o hija'), the store listings and i18n/es.json ('juega gratis en tu navegador'). Never usted. Avoid vosotros forms, as the store copy does (it is shared with Latin American readers): write 'puedes jugar con tu hijo' / 'jugar en familia' instead of 'podéis'. Parents are 'las familias' (the usual school word: 'Para familias'); use 'tu hijo o hija' now and then, otherwise generic 'tu hijo', 'los niños', with no heavy los/las doubling. Teachers are also addressed with tú ('tu clase', 'tus alumnos', 'el alumnado'). The tone is warm and plain, like a maestra talking to a parent at the school gate. 'Mates' is fine as an informal word for maths. No 'simplemente' or 'fácil', and no emoji.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Spanish names and glyphs from site.json (money glyph €), the 7 Spanish years (Infantil 5 años, 1.º–6.º de Primaria, ages from site.json, glyphs I5, 1–6), Familias / Docentes / Fichas / Glosario, and popular guides (the four older articles). Intro: 'de Infantil 5 años a 6.º de Primaria', written for Spain's LOMLOE curriculum; tú form. Example blurbs must use Spanish content (e.g. 1.º: números hasta el 99 y amigos del 10; 2.º: hasta el 999, sumas y restas llevando; 3.º: las tablas y la división en casita; 4.º: decimales, fracciones y la evaluación de diagnóstico; 5.º: divisibilidad, fracciones y porcentajes; 6.º: proporcionalidad, m.c.m. y m.c.d., paso a la ESO). No SATs."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub with the 12 Spanish topic names. 'Where to start, by age' becomes 'Por dónde empezar según el curso', using Infantil 5 años and the three ciclos (primer ciclo 1.º–2.º, segundo 3.º–4.º, tercer 5.º–6.º). Mention the six 'sentidos' of the curriculum (numérico, medida, espacial, algebraico, estocástico, socioafectivo) briefly as how Spanish teachers group topics."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Números y valor posicional. Year table per BRIEF: Infantil counting/grafía of 0–9, 1.º to 99, 2.º to 999, 3.º to 9.999, 4.º to 99.999, 5.º–6.º millions, decimals to milésimas, integers/negatives in 6.º. Use U, D, C, UM, DM, CM charts, 'cifra' vs 'número', anterior/posterior, pares e impares, ordinals (1.º, décimo, trigésimo), Roman numerals in 3.º–4.º (siglos, reyes, relojes), rounding ('redondear', 'aproximar'). Thousands separator point (1.000, 25.000); warn that 'un billón' = 10¹². Materials: ábaco, bloques multibase, regletas, tabla del 100, recta numérica, palillos/pajitas in decenas (ABN)."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Sumas y restas. 'Amigos del 10', doubles, sums to 20, then vertical algorithm 'llevando' (me llevo una) in 1.º–2.º and up to bigger numbers. Explain both subtraction methods: traditional equal-additions ('de 8 a 12 van 4 y me llevo una') and 'desagrupar/pedir prestado', plus ABN (grid, escalera). Use the worked examples in BRIEF (347 + 285 = 632; 532 − 178 = 354) and 'la prueba de la resta'. Terms sumandos, minuendo, sustraendo, diferencia. Advise parents to ask which method the school uses. No 'exchange' column jargon from England."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Multiplicación y división. Tablas del 1 al 10 (not to 12), usually started in 2.º and secured in 3.º (national text: built in segundo ciclo; phrase loosely). Repeated addition, 'disposición en cuadrícula' (arrays), doble/triple/mitad, reparto. Vertical multiplication with partial products (234 × 23 = 5382), 'la división en casita' with remainders only (857 : 4 = 214, resto 1) and 'la prueba de la división' (dividendo = divisor × cociente + resto); exact vs entera. Terms factores, producto, dividendo, divisor, cociente, resto. Divisibility, múltiplos y divisores, primos, m.c.m./m.c.d. in 5.º–6.º. Division sign ':' in line. No bus stop, grid method, chunking or MTC."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Fracciones. Spain's sequence: everyday medio/cuarto in primer ciclo; fractions as such in segundo ciclo ('fracciones propias con denominador hasta 12', Madrid puts them in 4.º); equivalence, simplifying, amplificar in 5.º; reducing to common denominator and all operations in 6.º; fraction–decimal–percentage links in tercer ciclo. Reading: un medio, un tercio, un cuarto… un décimo, onceavos, doceavos; números mixtos, fracción propia/impropia. Contexts: tortilla de patatas, pizza, una barra de pan, the class sharing chuches. Keep SVGs, captions in Spanish."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Decimales y porcentajes. Decimal comma everywhere (2,5 'dos coma cinco'; décimas, centésimas, milésimas; parte entera y parte decimal). Decimals start in 4.º (Madrid) linked to euros and céntimos, to milésimas in tercer ciclo; percentages in 5.º–6.º with 'rebajas', 'IVA'-free simple discounts, interest, '25 %' with a space. Proportionality and 'regla de tres' cross-link to algebra-and-ratio. Measurement link: the metric system as a decimal system."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Aprender la hora. Spanish phrases: en punto, y cuarto, y media, menos cuarto, y diez, menos veinticinco; 'es la una' vs 'son las dos'; de la mañana/tarde/noche, mediodía, medianoche. 24-hour time is everyday (trains, TV, school timetables), written 15:30; reloj analógico y digital named in segundo ciclo, commonly taught 2.º–3.º. Curriculum time units per ciclo (año, mes, semana, día, hora → minutos → segundos, durations). Calendar with weeks starting on Monday, dates 10/10/2026. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "El dinero. Euro coins 1, 2, 5, 10, 20, 50 céntimos, 1 € and 2 €; notes 5–200 € (omit 500). Primer ciclo official: coins of 1 and 2 € and notes 5–100 €, value and equivalence; segundo ciclo euros y céntimos, ingresos, gastos y ahorro, compra responsable; tercer ciclo valor/precio, calidad/precio, mejor precio, intereses y rebajas ('educación financiera'). Format '3,45 €'. Contexts: la paga, la hucha, el quiosco, la panadería, el mercado, change ('la vuelta', 'el cambio'). No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Medidas. Non-standard units (palmos, pies, pasos) and metro, kilo, litro in primer ciclo; km, m, cm, mm, kg, g, l, ml and converting in segundo ciclo; the full 'escalera' km–hm–dam–m–dm–cm–mm and t, kg…mg, kl…ml (Madrid 3.º–4.º); Sistema Métrico Decimal for capacity, mass, volume and area in tercer ciclo; perimeter (segundo ciclo), area (tercer ciclo), volume (6.º). Instruments: regla, cinta métrica, balanza, transportador. Temperatures in °C. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometría y figuras. Figuras planas vs cuerpos geométricos; polígonos (triángulos equilátero/isósceles/escaleno, cuadriláteros: cuadrado, rectángulo, rombo, romboide, trapecio), circunferencia y círculo (π in 6.º), prismas, pirámides, cilindro, cono, esfera; position words (primer ciclo), paralelo/perpendicular/oblicuo, regla y escuadra, traslaciones y simetrías (segundo ciclo); compás y transportador, ángulos en grados, coordinates in the first quadrant, planos y mapas con escalas y puntos cardinales, giros, semejanza (tercer ciclo). Indie's hexagon is a natural hook (celdillas hexagonales)."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Datos y gráficos (sentido estocástico). Pictogramas y diagramas de barras in primer ciclo; histograms, frecuencia absoluta, la moda, suceso seguro/posible/imposible in segundo ciclo; tablas de frecuencias absolutas y relativas, gráfico de sectores, media, moda, rango, hoja de cálculo, regla de Laplace in tercer ciclo. Mediana only as optional (regional). Contexts: favourite fruit at merienda, weather, football league table without real club names, class survey."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Álgebra y proporcionalidad (sentido algebraico + razonamiento proporcional). Series/patterns from Infantil; '=' and '≠' and a missing number shown by a symbol (4 + ■ = 10) in primer ciclo; '<' '>' in segundo ciclo; unknowns as a letter in tercer ciclo; proportional vs non-proportional situations, 'reducción a la unidad', 'regla de tres', escalas, porcentajes in 6.º. Also pensamiento computacional (algorithms, block programming) which is part of this sentido in Spain. Keep algebra informal; no formal equations beyond Primaria."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Cálculo mental: named in every ciclo of RD 157/2022 (to 999, then naturals and fractions, then decimals). Mention that some regions ask for daily practice (Comunidad de Madrid's Plan de Rescate: 5 to 10 minutes a day) as an example, not a national rule. Strategies with Spanish names: amigos del 10, pasar por la decena, dobles y casi dobles, descomponer, redondear y compensar, contar hacia delante para restar, multiplicar por 10/100/1.000, mitades y dobles. ABN is strongly mental-calculation based. Link the older strategies article."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Cursos hub: 'Las matemáticas curso a curso: de Infantil 5 años a 6.º de Primaria'. Explain Infantil (non-compulsory, free, 3–6), Primaria 6 cursos in three ciclos, compulsory from 1.º (año natural en que cumplen seis años, cut-off 31 December), then ESO. Table of years with ages. 'Key tests by year' becomes 'Evaluaciones': evaluación de diagnóstico in 4.º (all schools), national sample and some regional tests in 6.º, grades IN/SU/BI/NT/SB, promotion at the end of each ciclo. Say that each comunidad autónoma completes the curriculum and that books vary."
+  },
+  {
+   "rel": "years/infantil-5-anos.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "Infantil 5 años (5 a 6). Last year of segundo ciclo de Infantil (also '3.º de Infantil', 'P5'); not compulsory but almost universal. Maths sits in the area 'Descubrimiento y Exploración del Entorno' (RD 95/2022): cuantificadores (muchos, pocos, más que, tantos como), funcionalidad de los números, series, clasificación, medir, nociones espaciales, tiempo (día-noche, estaciones, calendario), simple programming sequences. Usual practice (say 'suele'): counting to 10 and beyond, writing 0–9, adding/taking away with objects, basic shapes. No tests; descriptive report. Getting ready for 1.º. Challenge at that level (counting/sharing). Worksheets year='infantil-5-anos'. Next: 1.º."
+  },
+  {
+   "rel": "years/1-primaria.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "1.º de Primaria (6 a 7), first year of compulsory school and of primer ciclo. National primer ciclo content (to 999 across the ciclo, sums and subtractions with sense, coins 1–2 € and notes 5–100 €, metro/kilo/litro, time in hours/days, pictograms, = and ≠) with the 1.º split: numbers to 99, decenas y unidades, amigos del 10, sums to 20, vertical sums (llevando often late in the year), subtraction without llevadas, en punto / y media, pares e impares. No tests (grades IN–SB by trimestre). Checklist, vocabulary table (sumando, decena, anterior/posterior…). Prev: Infantil 5 años; next: 2.º."
+  },
+  {
+   "rel": "years/2-primaria.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "2.º de Primaria (7 a 8), end of primer ciclo (promotion decision at the end of this year). Numbers to 999 (C D U), sums and subtractions llevando (explain both subtraction methods briefly), ordinals to décimo, = ≠ < >, euros, metro/kilo/litro, hora, minuto, segundo; usually the first tablas de multiplicar and multiplication as suma repetida, doble/mitad, reparto, y cuarto / menos cuarto. Phrase the tables timing as common practice, not national rule. Prev 1.º, next 3.º."
+  },
+  {
+   "rel": "years/3-primaria.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "3.º de Primaria (8 a 9), start of segundo ciclo. Numbers to 9.999, multiples of 5, 25 and 50, Roman numerals, all four operations (tablas secured, multiplying by one/two digits, division in casita by one digit), metric ladder with abbreviations, durations, first fractions (proper fractions to 12ths are segundo ciclo), perimeter, parallel/perpendicular/oblicuo, symmetry, charts and la moda. Mention that next year brings the evaluación de diagnóstico (no test this year). Prev 2.º, next 4.º."
+  },
+  {
+   "rel": "years/4-primaria.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "4.º de Primaria (9 a 10), end of segundo ciclo. Numbers to 99.999, ordinals to trigésimo, decimals (décimas, centésimas) with euros and céntimos, fracciones propias hasta doceavos (comparing, equivalence), division by two digits (common practice), time to seconds and durations, metric conversions, perimeter and area by squares, probability words. A full section on the evaluación de diagnóstico de 4.º (all schools, censal, set by the region, usually spring, maths competence, informative, no effect on grades, cannot rank schools; RD 157/2022 art. 22, LOE art. 21/144). Prev 3.º, next 5.º."
+  },
+  {
+   "rel": "years/5-primaria.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "5.º de Primaria (10 a 11), start of tercer ciclo. Numbers to millions (and 'un billón' warning), decimals to milésimas and their operations, primes/composites, divisibility rules for 2, 5 and 10, powers of 10, squares and cubes, fractions (equivalence, simplifying, amplificar, adding), first percentages, consumer problems, Sistema Métrico Decimal incl. area and volume units, degrees and protractor, area and perimeter, plans and maps, coordinates, pie charts, histograms, media y moda. No national test this year. Prev 4.º, next 6.º."
+  },
+  {
+   "rel": "years/6-primaria.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "6.º de Primaria (11 a 12), last year of Primaria and of tercer ciclo; next is 1.º de ESO at the instituto (no entrance exam). Integers, powers, divisibility for 2, 3, 5, 10, m.c.m. and m.c.d., fractions to common denominator and all operations, fraction–decimal–percentage, proportionality (regla de tres, reducción a la unidad), escalas, interés y rebajas, π, circle, areas and volumes, letters for unknowns, range, Laplace. Tests: national sample evaluation (some schools, some years) and regional end-of-stage tests in some regions (Madrid, Catalonia as examples); end-of-stage report ('informe'). Replace SATs-preparation advice with calm advice on the move to ESO. Prev 5.º; last card to years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Ayuda con las matemáticas para familias'. Cards for the five Spanish guides; 'More help' links to cursos, fichas, glosario, the older articles. Use 'familias' and tú."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matemáticas en el día a día: sections by age become by Spanish years (Infantil 5 años y 1.º; 2.º a 4.º; 5.º y 6.º). Spanish situations: el mercado and la frutería (weighing in kg), la panadería, la paga y la hucha, horarios de tren/autobús in 24h, recetas (tortilla, bizcocho in g and ml), the football league table, temperatures, rebajas, la vuelta al cole, viaje al pueblo (km and hours), Reyes. Keep the total activity count accurate if the title states a number."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Cómo ayudar con las matemáticas en casa (sin peleas). 'Helping with homework' becomes 'los deberes', 'When you don't know the method' must cover the Spanish case: algoritmo tradicional vs ABN vs 'desagrupar' in subtraction; ask the tutor/tutora (tutoría) which one, and don't teach the other method at home. Mention the cuaderno and fichas, little and often, praise effort, 'todavía'."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Cómo se enseñan hoy las matemáticas en Primaria. Rebuild for Spain: LOMLOE approach (competencias, situaciones de aprendizaje, problem solving, 'con flexibilidad y sentido'); manipulative → pictorial → abstract with Spanish materials (regletas, ábaco, bloques multibase, recta numérica, tabla del 100); amigos del 10 and descomposiciones; algoritmos tradicionales laid out exactly as in BRIEF (suma llevando, resta llevando both methods, multiplicación con productos parciales, división en casita with only remainders, la prueba); método ABN explained with a correct example; método Singapur/modelo de barras as used in some schools. Remove ten-frame emphasis, grid method, short division bus stop, chunking."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Se me dan mal las mates': ansiedad matemática. Can stay close to English in content. Tie to the curriculum's 'sentido socioafectivo' (gestión emocional, tolerancia a la frustración: it is in RD 157/2022), 'todavía' language, avoid 'a mí también se me daban fatal'. When to talk to the tutor/tutora; mention refuerzo educativo and the school's orientación team (EOEP/orientador) without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Spain's assessments, not England's: evaluación continua and grades IN/SU/BI/NT/SB each trimestre (RD 157/2022 art. 26); promotion at the end of each ciclo and end-of-ciclo reports (art. 15); evaluación de diagnóstico in 4.º (art. 22; LOE art. 21 and 144: censal, all schools, maths and language at least, informative, cannot rank schools, organised by the comunidad autónoma, usually spring); evaluación general del sistema in 6.º (LOE art. 143.2, sample-based and multi-year); regional end-of-primary tests in some regions (Madrid 'fin de etapa' 6.º, Catalonia 'proves de competències bàsiques de 6è') as examples; TIMSS optional mention. Say clearly there is no national tables test, no test in Infantil, no entrance exam to ESO. Table of year/assessment/when. Calm-support advice. Link official BOE texts."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Recursos de matemáticas gratis para docentes'. Cards for the four Spanish teacher guides, fichas, the puzzle pack (/teachers.html), glossary. Mention LOMLOE terms teachers use (saberes básicos, situaciones de aprendizaje) lightly."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Atención a la diversidad en matemáticas: use RD 157/2022 wording (art. 16 'atención a las diferencias individuales', DUA principles linked to situaciones de aprendizaje), refuerzo and enriquecimiento (art. 14.3 plans), support from PT/AL teachers where relevant. Materials: regletas, multibase, ábaco. Low threshold–high ceiling tasks, retos for early finishers (link pack)."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Juegos de matemáticas para el aula: low-prep games with Spanish names and materials (dados, barajas españolas of 40 cards are common in Spain, fichas, tabla del 100, bingo matemático, cadenas numéricas, el número misterioso, 'carrera de sumas'). Mention that problem-solving leagues are used (Madrid's 'Liga Matemática' example) without overclaiming. Keep games correct and age-tagged by curso/ciclo."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Rutinas de cálculo mental para empezar la clase: sections by ciclo (primer ciclo 1.º–2.º, segundo 3.º–4.º, tercer 5.º–6.º) instead of KS1/KS2. Note some regions ask for daily cálculo mental (Madrid 5–10 min). Starters with Spanish notation (decimal comma, ':' for division, 1.000), amigos del 10, tablas, dobles y mitades, número del día, estimación."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Razonamiento y resolución de problemas: problem solving is the first axis of the LOMLOE maths curriculum; razonamiento y prueba, comunicación y representación. Spanish problem layout (datos, pregunta, operación, solución), question stems in Spanish ('¿Cómo lo sabes?', '¿Siempre, a veces o nunca?', 'Encuentra el error'), modelo de barras for word problems, frase de respuesta completa. Examples in euros and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Fichas de matemáticas gratis con soluciones, de Infantil 5 años a 6.º de Primaria. Uses the worksheets shortcodes with Spanish year slugs; list only sheets that fit Spain (leave out England's multiplication-check-practice; tables sheets reworded as 'tablas del 2, 5 y 10' etc.; money sheets in euros). Each sheet has 'soluciones' on page two. Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Glosario de matemáticas de la A a la Z with Spanish headwords in Spanish alphabetical order (a–z incl. ñ; no maths term starts with ñ, so that letter will have no entry), each with an example (decimal comma, point thousands) and the curso it usually appears. Include Spanish-specific entries: amigos del 10, llevadas, casita (división), cociente, resto, minuendo, sustraendo, décima, centésima, milésima, m.c.m., m.c.d., regla de tres, numeración romana, recta numérica, regletas, ABN, prueba, unidad de millar, sistema métrico decimal, frecuencia, moda, regla de Laplace. Mark each letter's first entry with id=\"<letter>\"."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Los amigos del 10 y del 20 (number bonds) for Spain: when learnt (Infantil 5 años descomposiciones with objects; 1.º sums to 10 and 20; used for 'pasar por la decena'), how to practise (dedos, regletas, tarjetas, juego de cartas), honeycomb game with Beequation (Pradera de Sumas). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Cómo practicar las tablas de multiplicar: tables 1 to 10, when (usually begun in 2.º, secured in 3.º; national: built in segundo ciclo; say 'suele'), 'cantar las tablas' vs understanding (suma repetida, cuadrículas, patterns: la del 5 acaba en 0 o 5, la del 9 with fingers, la del 4 = doble de la del 2), games. Replace the 'Year 4 multiplication tables check' section with 'No hay un examen nacional de tablas' plus how they matter for division in casita and fractions. Jardín de Tablas mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Estrategias de cálculo mental que funcionan: same eight strategies with Spanish names (pasar por la decena, descomponer, casi dobles, redondear y compensar, contar hacia delante para restar, dobles y mitades, el truco del 9 y del 11, comprobar con pares/impares y la última cifra) and examples in Spanish notation; tie to cálculo mental in every ciclo of RD 157/2022. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Un reto de matemáticas diario para adultos: about Beequation Pro and the 'Reto del día' (Daily Pro), Blitz de 60 segundos, niveles de Huevo a Mente Colmena, modo difícil, Trío. Use the exact Spanish feature names from i18n/es.json and the store listings. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes es /teachers.html: 'Retos de matemáticas gratis para docentes'. Reuse wording already in i18n/es.json ('Un pack imprimible de 24 panales, con sumas hasta el 20 y tablas de multiplicar, y su solucionario', 'Retos gratis para tu clase'). 'Where it fits' must map to Spain: amigos del 10 and sums to 20 in primer ciclo, tablas in 2.º–3.º and as review in segundo ciclo, cálculo mental routines; no MTC. Ways to use: rutina de cálculo mental, reto semanal, early finishers. The PDF link (/assets/beequation-puzzle-pack.pdf) is English (numbers only); flag if a Spanish PDF is wanted."
+  }
+ ]
+}

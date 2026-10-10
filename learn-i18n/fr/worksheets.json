@@ -1,0 +1,267 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Suites de nombres jusqu’à 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "cp",
+   "ce1"
+  ],
+  "desc": "Compter de 1 en 1, de 2 en 2, de 5 en 5 et de 10 en 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Dizaines et unités",
+  "topic": "counting-and-place-value",
+  "years": [
+   "cp"
+  ],
+  "desc": "Décomposer les nombres à deux chiffres"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Centaines, dizaines et unités",
+  "topic": "counting-and-place-value",
+  "years": [
+   "ce1"
+  ],
+  "desc": "La numération jusqu’à 1 000"
+ },
+ {
+  "id": "rounding",
+  "title": "Arrondir les nombres",
+  "topic": "counting-and-place-value",
+  "years": [
+   "cm1",
+   "cm2"
+  ],
+  "desc": "À la dizaine, à la centaine et au millier près"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Compléments à 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "grande-section",
+   "cp"
+  ],
+  "desc": "Les paires de nombres qui font 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Compléments à 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "cp",
+   "ce1"
+  ],
+  "desc": "Les paires de nombres qui font 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Additions et soustractions jusqu’à 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "cp",
+   "ce1"
+  ],
+  "desc": "Calculs mélangés jusqu’à 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Additions posées",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Nombres à trois chiffres, avec retenues"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Soustractions posées",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Nombres à trois chiffres, par cassage ou par compensation"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Tables de 2, de 5 et de 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "ce1"
+  ],
+  "desc": "Calculs mélangés"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Tables de 3, de 4 et de 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Calculs mélangés"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "La table de Pythagore",
+  "topic": "multiplication-and-division",
+  "years": [
+   "ce2",
+   "cm1"
+  ],
+  "desc": "Remplir la grille des tables de multiplication"
+ },
+ {
+  "id": "division-facts",
+  "title": "Diviser avec les tables",
+  "topic": "multiplication-and-division",
+  "years": [
+   "ce2",
+   "cm1"
+  ],
+  "desc": "Se servir des tables de multiplication pour diviser"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Multiplications posées",
+  "topic": "multiplication-and-division",
+  "years": [
+   "ce2",
+   "cm1"
+  ],
+  "desc": "Un nombre à trois chiffres par un nombre à un chiffre"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Quelle fraction est coloriée ?",
+  "topic": "fractions",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Demis, tiers, quarts et plus"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Fraction d’une quantité",
+  "topic": "fractions",
+  "years": [
+   "cm2"
+  ],
+  "desc": "Comme ½ de 12 ou ¾ de 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Fractions égales",
+  "topic": "fractions",
+  "years": [
+   "cm1",
+   "cm2"
+  ],
+  "desc": "Trouver le nombre qui manque"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Dixièmes et centièmes",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "cm1",
+   "cm2"
+  ],
+  "desc": "Des fractions décimales aux nombres à virgule"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Heures justes et demi-heures",
+  "topic": "telling-the-time",
+  "years": [
+   "ce1"
+  ],
+  "desc": "Lire l’heure sur une horloge à aiguilles"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Et quart, moins le quart",
+  "topic": "telling-the-time",
+  "years": [
+   "ce1"
+  ],
+  "desc": "Lire l’heure sur une horloge à aiguilles"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "L’heure de 5 en 5 minutes",
+  "topic": "telling-the-time",
+  "years": [
+   "ce2"
+  ],
+  "desc": "Lire l’heure sur une horloge à aiguilles"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Compter les pièces",
+  "topic": "money",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Additionner des pièces en euros et en centimes"
+ },
+ {
+  "id": "giving-change",
+  "title": "Rendre la monnaie",
+  "topic": "money",
+  "years": [
+   "ce1",
+   "ce2"
+  ],
+  "desc": "La monnaie sur 1 €, 2 € et 5 €"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Périmètre et aire",
+  "topic": "measurement",
+  "years": [
+   "cm1",
+   "cm2"
+  ],
+  "desc": "Des rectangles sur un quadrillage en centimètres"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Les figures planes",
+  "topic": "shape-and-geometry",
+  "years": [
+   "cm1",
+   "cm2"
+  ],
+  "desc": "Noms, côtés et sommets"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Lire un diagramme en barres",
+  "topic": "data-and-graphs",
+  "years": [
+   "cp",
+   "ce1",
+   "ce2"
+  ],
+  "desc": "Le sondage des fruits préférés"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Égalités à trous",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "ce2",
+   "cm1",
+   "cm2"
+  ],
+  "desc": "Trouver le nombre qui manque"
+ }
+]

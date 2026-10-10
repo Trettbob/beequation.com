@@ -1,0 +1,325 @@
+{
+ "years": [
+  {
+   "slug": "grande-section",
+   "name": "Grande section",
+   "age": "5 à 6",
+   "english_equivalent": "Year 1 by age (5 to 6); content closest to Reception (last year of école maternelle, cycle 1)"
+  },
+  {
+   "slug": "cp",
+   "name": "CP",
+   "age": "6 à 7",
+   "english_equivalent": "Year 2 by age; content close to Year 1 (numbers to 100, column addition late in the year)"
+  },
+  {
+   "slug": "ce1",
+   "name": "CE1",
+   "age": "7 à 8",
+   "english_equivalent": "Year 3 by age; content between Year 2 and Year 3 (numbers to 1 000, all tables 0–10, first fractions, written subtraction)"
+  },
+  {
+   "slug": "ce2",
+   "name": "CE2",
+   "age": "8 à 9",
+   "english_equivalent": "Year 4 by age; content close to Year 3/4 (numbers to 10 000, written multiplication, ÷ sign, fractions on a number line)"
+  },
+  {
+   "slug": "cm1",
+   "name": "CM1",
+   "age": "9 à 10",
+   "english_equivalent": "Year 5 by age; content close to Year 5 (decimals to hundredths, written division with one-digit divisor, area, probability)"
+  },
+  {
+   "slug": "cm2",
+   "name": "CM2",
+   "age": "10 à 11",
+   "english_equivalent": "Year 6 (last year of primary; thousandths, decimal division, area of rectangles, pie charts)"
+  }
+ ],
+ "address": "« vous » for parents and teachers, matching beequation.com/i18n/fr.json, the marketing listings (\"Children are addressed with tu, parents with vous\") and the parent area of apps/kids/src/i18n/fr.ts (« Ce que votre enfant y gagne », « Vérifiez votre connexion »). The apps use « tu » only when talking to children; the Learn pages are for adults, so « vous » and « votre enfant ». Indie’s lines are in the first person and avoid addressing the reader directly, or use « on »; challenges stay in the third person. Tone: warm, plain and reassuring, with no « il suffit de », « c’est facile » or « tout simplement ». Typography as on the site: a non-breaking space before : ; ! ? and inside « », the curly apostrophe ’, and traditional spelling (connaître, maîtrise, boîte), as in the apps.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home (hub). Cards for the 12 topics with the French names from site.json, the six classes GS to CM2, parent/teacher guides, the four older articles. Intro: free maths help « de la grande section au CM2 », following the 2024/2025 programmes. Indie line in first person (« on » rather than tu/vous)."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "All 12 topics, plus « Par où commencer, selon l’âge » organised by GS / CP–CE2 (cycle 2) / CM1–CM2 (cycle 3), linking to years/*.html. Mention the official domains (Nombres, calcul et résolution de problèmes; Grandeurs et mesures; Espace et géométrie; Organisation et gestion de données)."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "« Nombres et numération ». Year table: GS count to 30, quantities to 10; CP to 100; CE1 to 1 000; CE2 to 10 000; CM1 to 999 999; CM2 to 999 999 999. Big ideas: grouping in tens (bûchettes, matériel multibase), « unités de numération », chiffre vs nombre and « chiffre des dizaines » vs « nombre de dizaines », the irregular French names soixante-dix/quatre-vingts/quatre-vingt-dix, demi-droite graduée, comparing with < >, multiples and divisibility by 2, 5, 10 (CM). Space as thousands separator. Worksheets topic=counting-and-place-value."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Year table GS–CM2 from the brief: decompositions to 10 and counting on (GS), tables d’addition and column addition from period 4–5 (CP), written subtraction by period 3 (CE1, cassage OR compensation, one method per school CE1–CM2), to 10 000 and money decimals (CE2), decimals (CM). Show both subtraction layouts in SVG with correct arithmetic; « retenue »; calcul en ligne with jumps; inverse operation; « = » only between equal things. Fluency targets 8/12/15 facts a minute."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "CP: « fois » as repeated addition, sharing/grouping; CE1: × sign, commutativity, all tables 0–10 over the year (8 facts/min); CE2: tables fluent (12/min), « facteur, produit, multiple », written multiplication by period 4 (smaller number on second line), ÷ sign and inverse; CM1: written division « en potence » with one-digit divisor; CM2: decimal division with one-digit divisor. Tables stop at 10 × 10. SVG of a potence layout (check numbers). No grid method or bus stop. Table de Pythagore."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "CE1 (from period 2): fractions of a whole ≤ 1, denominators 2,3,4,5,6,8,10, moitié/demi/quart, compare simple cases; CE2: fraction equalities (5/10 = 1/2), fractions on a « bande-unité graduée », compare, add/subtract same denominator, denominators ≤ 12; CM1: fractions > 1 as integer + fraction, number line, fraction of a quantity for unit fractions, denominators ≤ 20; CM2: integer × fraction, fractions of quantities, denominators ≤ 60. Reading names (un tiers, cinq huitièmes). Galette des rois sharing as everyday hook."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Mainly decimals: comma for euros in CE1 (2,05 € vs 2,50 €) and CE2 (column + and − with money); CM1 decimals introduced as decimal fractions then the comma (35,78 = 35 + 7/10 + 8/100), tenths and hundredths, number line, rounding to the whole; CM2 thousandths, × and ÷ by 10/100/1 000. Percentages are NOT primary in France: explain they come in 6e, with everyday « −50 % » only as a curiosity. Decimal comma and space separators throughout."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "CP whole hours only; CE1 half and quarter hours, hours after twelve (24-hour), digital 14:15, h and min, 1 h = 60 min, simple durations; CE2 to the minute analogue and digital, time line problems; CM1 hour/minute problems; CM2 seconds. French phrases: et quart, et demie, moins le quart, moins vingt, midi et demi; « du matin / de l’après-midi / du soir ». Written 15 h 30. Clock SVGs with French labels (grande aiguille, petite aiguille)."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Euro coins 1c–2 € and notes 5–200 €; CP whole euros up to 100 €, fewest coins, rendre la monnaie; CE1 centimes, 1 € = 100 centimes, comma from period 3 (2,17 €; 2,05 € vs 2,50 €; 0,85 €); CE2 column + and − with prices, change by counting up (5 € − 3,68 €); CM money as context for decimals. Boulangerie/marché examples with plausible round prices, argent de poche, jouer à la marchande. Price format 2,50 €."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "« Grandeurs et mesures ». GS/CP compare lengths and masses (bande témoin, balance Roberval); CE1 m, cm, km; CE2 mm–km, g/kg/t, L/dL/cL, perimeter (no formula); CM1 mg–t, mL–hL, area introduced (cm², count squares), angles compared; CM2 cm²/dm²/m², area of square and rectangle, right angle = 90°, no protractor until collège. Conversions by known relations, NOT conversion tables (official). « masse » not « poids ». Time and money link to their own pages."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "« Géométrie et formes ». GS solids and 2D names, ruler; CP carré/rectangle/triangle/disque, sommet/côté, squared paper, coded movements; CE1 face/sommet/arête, triangle rectangle, équerre and compas, right-angle code; CE2 losange, cube net, lines of symmetry; CM1 perpendicular/parallel, triangle isocèle/équilatéral, prisme droit, symmetric figure on grid; CM2 trapèze, pentagone, hexagone (Indie!), programme de construction, pavé net. Instruments: règle, équerre, compas. No translations, no protractor."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "« Tableaux et graphiques » (official: Organisation et gestion de données). CP tables and bar charts, double-entry table; CE1 make/read bar charts; CE2 tables with totals; CM1 line graphs (courbes), points in a grid, real data (climate, biodiversity); CM2 pie charts to read. MUST add probability (CM1: impossible/possible/certain/probable/peu probable/une chance sur deux; CM2: « a chances sur b », independence, tree or table). No mean."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "« Algèbre et proportionnalité ». GS repeating/growing patterns (motifs organisés), CP ordinal sequences, cycle 2 égalités à trou; CM1–CM2 official « Algèbre » strand: missing numbers (178 − … = 6 × 8), symbol or letter for unknowns, bar models, « programme de calcul », sequences and growing patterns ((N × 12) + 5); « proportionnalité » in CM1–CM2 solved by reasoning only (no coefficient, no produit en croix). No ratio notation."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Daily calcul mental is official in cycle 2, with timed fluency tests. Facts by heart table per year (CP addition facts and doubles/halves; CE1 tables de multiplication, doubles to 15 and of 25…500; CE2 doubles to 20 etc.; CM decimal facts, × ÷ 10/100/1 000). Fluency targets (8/12/15 a minute; 9/12/15 in 3 minutes). Procedures from the programme: passer par la dizaine, +9 = +10 −1, half by splitting, ×4 as double the double, ×5 as ×10 then half, ±19/29/99. Mention the official concern about stress and girls’ confidence: keep practice calm. Le compte est bon as a game."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Choose a class GS to CM2 with ages (calendar-year entry). How the years fit together: maternelle/élémentaire/collège, cycles 1–3, school compulsory from 3, cycle 3 continues into 6e. Table of national assessments by class (Repères CP Sept + Jan, CE1–CM2 Sept, 6e Sept; none in GS). Note that all classes now follow the 2024/2025 programmes (CM2 since rentrée 2026)."
+  },
+  {
+   "rel": "years/grande-section.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Last year of maternelle, cycle 1, age 5 to 6. Programme « acquisition des premiers outils mathématiques » ‘à partir de 5 ans’: quantities to 10 « voire au-delà », comptine to 30, backwards from 10, in twos to 20, write numerals 1–10, compose/decompose to 10 (fingers, doubles), surcompter, bande numérique to 10, ordinal rank, part-whole/adding/removing/sharing problems, solids and flat shapes, comparing lengths and masses, patterns. Tests: no national test; synthèse des acquis and carnet de suivi. Preparing for CP calmly. Challenge on topic; worksheets year=grande-section; links to CP only (no previous year page)."
+  },
+  {
+   "rel": "years/cp.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "Age 6 to 7, first year of élémentaire and cycle 2. Numbers to 100 (59 by period 2, 100 by period 3), write in letters to 50, tens and ones, demi-droite graduée; tables d’addition (8/min), doubles/halves, procedures (passer la dizaine, +9); column addition only from period 4–5; « fois » meaning; sharing problems; money whole euros ≤ 100 €; time o’clock; compare lengths/masses; shapes; tables and bar charts. Repères CP in September and the January point d’étape. Links: grande-section and ce1."
+  },
+  {
+   "rel": "years/ce1.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Age 7 to 8. Numbers to 1 000 (hundreds from period 1); first fractions (period 2, denominators 2–10); written subtraction by period 3 (cassage or compensation); × sign; all tables 0–10 over the year (8/min); centimes and comma for money from period 3; time: half/quarter hours, 24-hour, h and min, durations; m, cm, km; right angle, équerre, compas; bar models in problems; bar charts. Repères CE1 in September. Links: cp and ce2."
+  },
+  {
+   "rel": "years/ce2.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Age 8 to 9, last year of cycle 2. Numbers to 10 000; fractions on a graduated strip, + and − same denominator; written + and − to 10 000 and with money decimals; written multiplication by period 4; ÷ sign; tables fluent (12/min); time to the minute; mm–km, g/kg/t, L/dL/cL, perimeter; losange, cube net, symmetry; tables with totals. No calculator in cycle 2. Repères CE2 in September. Replace English Year 4 MTC section with the class fluency tests. Links: ce1 and cm1."
+  },
+  {
+   "rel": "years/cm1.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Age 9 to 10, cycle 3. Numbers to 999 999 (4 digits first two periods); fractions > 1, fraction of a quantity; decimals via decimal fractions then comma (tenths, hundredths); written division en potence (one-digit divisor), multiplication of two whole numbers; 10 problems a week; algebra strand; proportionality by reasoning; area in cm², angles; ⊥ and ∥, triangles, prisme droit; line graphs; first probability. Repères CM1 in September. Links: ce2 and cm2."
+  },
+  {
+   "rel": "years/cm2.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Age 10 to 11, last year of primary (new programme from rentrée 2026). Numbers to 999 999 999; divisors and common multiples; fractions ≤ 60, integer × fraction; thousandths; decimal division (one-digit divisor); programme de calcul; proportionality; m², area of square/rectangle; right angle = 90°, seconds; trapèze, hexagone, programme de construction; pie charts; « a chances sur b ». Replace the KS2 SATs section: Repères CM2 in September, then the move to 6e (liaison CM2-6e, 6e assessment in September), no end-of-primary exam. Links: cm1 only (no next page)."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub of parent guides in French with vous; cards for the five guides plus number bonds, times tables, mental maths strategies articles, worksheets and glossary."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Regroup by French classes: 5–6 ans (GS–CP), 7–9 ans (CE1–CE2), 10–11 ans (CM1–CM2). French everyday situations: boulangerie, marché by the kilo, cantine menu, goûter, train timetables in 24-hour time, recipes in g and mL, galette des rois, Mille Bornes, jeu de l’oie, petits chevaux, Yam’s, la bataille, argent de poche, euros. Keep the count of activities accurate in the title."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Little and often, talking maths, praise effort; homework section adapted: leçons and some exercises, the cahier de liaison, the ardoise; ‘when you don’t know the method’: ask whether the school uses soustraction par cassage or par compensation, and the potence; don’t state homework rules (UNCERTAIN). Mercredi as a calm time for games."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Rewrite for France: manipuler-représenter-abstraire with verbalisation; matériel multibase, bûchettes, fingers; bande numérique and demi-droite graduée; calcul en ligne and the ardoise; addition posée with retenue; subtraction par cassage vs par compensation (both laid out, school keeps one CE1–CM2); multiplication posée (CE2); division en potence (CM1–CM2); schéma en barre and parties-tout problems; four-phase problem solving (Comprendre, Modéliser, Calculer, Répondre); daily calcul mental with fluency tests; no calculator in cycle 2; méthode de Singapour in some schools. Remove grid method, bus stop, chunking."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "Same job: signs, « pas encore », parents’ own feelings, low-stakes practice. Can paraphrase the programme’s own statement that timed fluency tests caused stress and a girls/boys gap in Repères CM1 2023, and that practice should become calm routine. When to talk to the maîtresse/maître; APC mentioned lightly. No invented statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Explain France’s assessments: no national test in GS (synthèse des acquis, carnet de suivi); Repères CP in September and point d’étape in January; Repères CE1, CE2, CM1, CM2 in September (start-of-year diagnostic, on paper, teacher enters results, nothing to revise, no pass/fail, no effect on moving up); 6e assessment in September at collège; class fluency tests in cycle 2 (targets); LSU periodic reports. How to support calmly. Link education.gouv.fr/eduscol if needed. Mark-loose wording for result format (UNCERTAIN)."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub for « professeurs des écoles »: the four guides, the puzzle pack (/teachers.html), worksheets, glossary; framed by cycle 2 and cycle 3 and the 2024/2025 programmes."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "« Différenciation pédagogique »: keeping the class together (programme: start year-level notions early, revise only with pupils who need it), manipulation only for those who need it (programme), low-threshold high-ceiling tasks, scaffolds (schéma en barre, matériel), classes à double niveau, APC, puzzles for early finishers. Cite programme principles accurately."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Low-prep games for French classes: Le compte est bon, jeu du furet (counting round the class), la bataille des nombres, jeu de l’oie on the bande numérique, loto des tables, Mille Bornes sums, procédé La Martinière with the ardoise, Yam’s. Whole class / pairs / small groups. Link to cycle 2 fluency targets."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Recast as « rituels » (e.g. « 25 rituels de calcul mental »), grouped cycle 2 (CP–CE2) and cycle 3 (CM1–CM2) instead of Key Stages: nombre du jour, furet, égalités à trou, doubles/moitiés, compléments, problems on the ardoise (programme: 10 problems a week in CM, some oral), timed fluency rounds. Making rituals work calmly."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Built on the official four-phase model (Comprendre, Modéliser, Calculer, Répondre + régulation/plausibility), named problem types (parties-tout, comparaison, multiplicative, two/three-step, dénombrement, optimisation), schéma en barre examples (correct numbers), avoiding keyword tricks (the programme warns about « plus » meaning subtraction), at least 10 problems a week in CM, sentence starters in French, vrai ou faux, trouve l’erreur."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Hub of free « fiches d’exercices » with answers, grouped by the 12 French topic names (shortcode worksheets topic=...), plus the puzzle pack link. Note decimal comma, euros, 24-hour times on sheets. Depends on worksheets.mjs/worksheets.json for this language (built separately)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "« Lexique des maths » A to Z in French (alphabetical by French word, accented letters filed under the base letter, id per first entry of each letter). Each entry: plain definition, example with French notation, and the class where met (GS–CM2) per the brief. Include French-specific words: chiffre/nombre, dizaine, retenue, potence, quotient, reste, demi-droite graduée, schéma en barre, égalité à trou, programme de calcul, périmètre, aire, contenance, losange, trapèze, patron, équerre, compas, probabilité, proportionnalité, fluence. Intro paragraph: words may differ from what parents learnt (cassage vs compensation)."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "French framing: « compléments à 10 et tables d’addition jusqu’à 20 ». When learnt: decompositions to 10 in GS, tables d’addition (A + B, A and B 0–10) in CP and onward; fluency targets 8 (CP), 12 (CE1), 15 (CE2) a minute; maisons des nombres, doubles and near doubles, passer par la dizaine; practice games; honeycomb game linking to Beequation Kids."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "« Tables de multiplication »: learnt over the whole CE1 year (0–10), consolidated in CE2; targets 8 a minute (CE1), 12 a minute (CE2); up to 10 × 10; no national times-tables test (replace the Year 4 MTC section with class fluency tests and Repères); table de Pythagore, tricks (×5, ×9 on fingers, ×4 double du double), enjoyable practice, honeycomb puzzles."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Strategies matching the French programme’s named procedures: passer par la dizaine (47 + 8), décomposer (47 + 28), presque doubles, arrondir et compenser (+9, +19, +99), compter en avant pour soustraire / complément, doubles et moitiés (half of 46), ×10/×100 as place-value shifts (no « add a zero » for decimals), ×4, ×5, ×50, distributivity. Examples with French notation and numbers checked."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "For French adults: why a daily number puzzle, nod to « Le compte est bon » (Des chiffres et des lettres) as a familiar tradition, what makes a good daily puzzle, how Beequation works, Beequation Pro’s « Défi du jour » numbered daily puzzle, Blitz, levels « d’Œuf à Esprit de ruche », hard mode, as named in i18n/fr.json. No school-curriculum content needed."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes /teachers.html on fr.beequation.com: free printable pack of 24 honeycomb puzzles (additions jusqu’à 20 et tables de multiplication) with answers. Where it fits in the French programme: tables d’addition (CP–CE2), tables de multiplication (CE1–CE2), daily calcul mental rituals and fluency work, APC, early finishers, projecting one for a whole-class rituel. Ways to use; play in class (/play.html). Use the site’s existing French wording for the pack."
+  }
+ ]
+}

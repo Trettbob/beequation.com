@@ -26,6 +26,11 @@ Shortcodes in the body (all plain HTML otherwise):
 Run from the repo root: python3 tools/build-learn.py   (then python3 tools/build-langs.py adds the site header, the
 language menu and the flying bee; its Learn mega menu is built from TOPICS, YEARS and learn-src/ too).
 The four older hand-made articles in learn/ are kept; they just get the Learn menu added.
+
+Other languages: learn-i18n/<code>/ holds that country's own Learn pages (same front matter and shortcodes), a
+site.json (the template's words, the topic names, that country's school years) and its worksheets.json. They are
+written for that country's school system, not translated word for word: see learn-i18n/README.md. build-langs.py
+builds them into dist/<code>/learn/ (plus dist/<code>/teachers.html from pack.html) for the codes in LEARN_LIVE.
 """
 import html, json, os, re, sys
 
@@ -66,6 +71,55 @@ SECTIONS = {'topics': 'Topics', 'years': 'Year groups', 'parents': 'Parents', 't
 
 def esc(s): return html.escape(s, quote=True)
 def rd(p): return open(p, encoding='utf-8').read()
+
+# ---------- languages ----------
+I18N = os.path.join(ROOT, 'learn-i18n')
+# Languages whose own Learn section is built into their site and linked from its header. Add a code once every page
+# in learn-i18n/<code>/ is written and checked (build-langs.py --learn <code> builds one that isn't, to preview it).
+LEARN_LIVE = {'es', 'fr', 'de'}
+# Every word the Learn templates and the header's Learn menu use. learn-i18n/<code>/site.json "words" overrides them.
+WORDS = {
+    'html_lang': 'en-GB', 'home': 'Home', 'learn': 'Learn', 'learn_home': 'Learn home', 'sections': SECTIONS,
+    'all_topics': 'All topics →', 'all_years': 'All year groups →', 'year_small': 'age {age} · US {us}',
+    'tip': "Indie's tip", 'challenge': "Indie's challenge", 'show': 'Show the answer',
+    'sheet_alt': 'Preview of the {title} worksheet', 'download': 'Download PDF',
+    'try_title': 'Practise with Indie', 'try_text': 'Beequation Kids turns number facts into honeycomb puzzles, with Indie giving a hint when a child is stuck. No ads and no data collected.',
+    'try_play': 'Play free in your browser', 'try_sheets': 'Free worksheets',
+    # the header's Learn menu (build-langs.py)
+    'teachers': 'Teachers', 'pack': 'Free puzzle pack for teachers', 'pack_desc': '24 honeycomb puzzles to print',
+    'home_desc': 'Free maths help for home and school, Reception to Year 6', 'worksheets': 'Free worksheets',
+    'glossary_blurb': 'Primary maths words explained in plain English, each with an example and the year children usually meet it. Pick a letter:',
+    'm_topics': 'Topics', 'm_topics_k': 'Browse topics', 'm_topics_all': 'All topics',
+    'm_years': 'Year groups', 'm_years_k': 'Browse year groups', 'm_years_all': 'All year groups', 'm_years_hex': 'R–6', 'm_year_small': 'Age {age} · US {us}',
+    'm_parents': 'For parents', 'm_parents_k': 'Guides for parents', 'm_parents_all': 'All parent guides',
+    'm_teachers': 'For teachers', 'm_teachers_k': 'Resources for teachers', 'm_teachers_all': 'All teacher resources',
+    'm_sheets': 'Worksheets', 'm_sheets_k': 'Free worksheets by topic', 'm_sheets_all': 'All worksheets', 'm_sheet_n': ['{n} worksheet', '{n} worksheets'],
+    'm_glossary': 'Maths glossary', 'm_glossary_k': 'Maths words from A to Z', 'm_glossary_all': 'All glossary words',
+    'alphabet': 'abcdefghijklmnopqrstuvwxyz',
+}
+
+class Site:
+    """One language's Learn section: where its sources are, where it's built to, its words, topics and school years."""
+    def __init__(self, lang='en'):
+        self.lang, self.en = lang, lang == 'en'
+        self.src = SRC if self.en else os.path.join(I18N, lang)
+        self.out = OUT if self.en else os.path.join(ROOT, 'dist', lang, 'learn')
+        self.main = MAIN if self.en else f'https://{lang}.beequation.com'
+        cfg = {} if self.en else json.load(open(os.path.join(self.src, 'site.json'), encoding='utf-8'))
+        self.w = {**WORDS, **cfg.get('words', {})}
+        self.w['sections'] = {**SECTIONS, **self.w['sections']}
+        self.topics = TOPICS if self.en else [(t['slug'], t['name'], t['glyph'], t['colour']) for t in cfg['topics']]
+        # school years: slug, name, age, US grade (English only), and the short label for the menu's hexagons
+        self.years = YEARS if self.en else [(y['slug'], y['name'], y['age'], y.get('us', '')) for y in cfg['years']]
+        self.year_hex = ({s: 'R' if s == 'reception' else n.split()[-1] for s, n, *_ in YEARS} if self.en else
+                         {y['slug']: y['short'] for y in cfg['years']})
+    def has(self, rel): return os.path.exists(os.path.join(self.src, rel))
+
+_SITES = {}
+def site_of(lang='en'):
+    if lang not in _SITES: _SITES[lang] = Site(lang)
+    return _SITES[lang]
+EN = site_of('en')
 
 # ---------- Indie ----------
 HEX = 'M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z'
@@ -166,21 +220,23 @@ def base_parts():
     foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', s, re.S).group(0)
     return css, HEADER_SLOT, foot
 
-def learn_nav(current):
+def learn_nav(current, S=None):
     """The Learn sub-menu. `current` is the page's path under learn/, e.g. 'topics/fractions.html'."""
+    S = S or EN; w = S.w
     def a(href, label, extra=''):
         cur = ' aria-current="page"' if href == '/learn/' + current or (href.endswith('/') and href == '/learn/' + current.replace('index.html', '')) else ''
         return f'<a href="{href}"{cur}>{extra}{esc(label)}</a>'
     sec = current.split('/')[0] if '/' in current else ''
-    topics = ''.join(a(f'/learn/topics/{s}.html', n, glyph(g, c, 26)) for s, n, g, c in TOPICS)
-    years = ''.join(a(f'/learn/years/{s}.html', n, '') .replace('</a>', f' <small>age {age} · US {us}</small></a>') for s, n, age, us in YEARS)
+    topics = ''.join(a(f'/learn/topics/{s}.html', n, glyph(g, c, 26)) for s, n, g, c in S.topics)
+    years = ''.join(a(f'/learn/years/{s}.html', n, '') .replace('</a>', f' <small>{esc(w["year_small"].format(age=age, us=us))}</small></a>') for s, n, age, us in S.years)
     det = lambda key, label, items, allhref, alllabel: (
         f'<details{" class=\"here\"" if sec == key else ""}><summary>{label}</summary><div class="drop">{items}'
         f'<a href="{allhref}"><b>{alllabel}</b></a></div></details>')
-    return ('<div class="wrap"><nav class="learnnav" aria-label="Learn">' + a('/learn/', 'Learn home') +
-            det('topics', 'Topics', topics, '/learn/topics/', 'All topics →') +
-            det('years', 'Year groups', years, '/learn/years/', 'All year groups →') +
-            ''.join(a(f'/learn/{k}/', SECTIONS[k]) for k in ('parents', 'teachers', 'worksheets', 'glossary')) +
+    sec_name = w['sections']
+    return (f'<div class="wrap"><nav class="learnnav" aria-label="{esc(w["learn"])}">' + a('/learn/', w['learn_home']) +
+            det('topics', esc(sec_name['topics']), topics, '/learn/topics/', esc(w['all_topics'])) +
+            det('years', esc(sec_name['years']), years, '/learn/years/', esc(w['all_years'])) +
+            ''.join(a(f'/learn/{k}/', sec_name[k]) for k in ('parents', 'teachers', 'worksheets', 'glossary')) +
             '</nav></div>')
 
 # close the other dropdowns when one opens, and when tapping outside (works without it too)
@@ -188,43 +244,44 @@ NAV_JS = ("<script>document.addEventListener('click',function(e){document.queryS
           "if(!d.contains(e.target))d.removeAttribute('open');});});</script>")
 
 # ---------- shortcodes ----------
-def worksheets_manifest():
-    p = os.path.join(SRC, 'worksheets.json')
+def worksheets_manifest(S=None):
+    p = os.path.join((S or EN).src, 'worksheets.json')
     return json.load(open(p, encoding='utf-8')) if os.path.exists(p) else []
 
-def sheet_card(w):
-    yrs = ', '.join(n for s, n, *_ in YEARS if s in w['years'])
+def sheet_card(w, S=None):
+    S = S or EN
+    yrs = ', '.join(n for s, n, *_ in S.years if s in w['years'])
     return (f'<div class="sheet" data-years="{" ".join(w["years"])}"><img src="/assets/worksheets/{w["id"]}.webp" width="420" height="594" loading="lazy" '
-            f'alt="Preview of the {esc(w["title"])} worksheet"><b>{esc(w["title"])}</b><small>{esc(yrs)} · {esc(w["desc"])}</small>'
-            f'<a class="dl" href="/assets/worksheets/{w["id"]}.pdf" download>Download PDF</a></div>')
+            f'alt="{esc(S.w["sheet_alt"].format(title=w["title"]))}"><b>{esc(w["title"])}</b><small>{esc(yrs)} · {esc(w["desc"])}</small>'
+            f'<a class="dl" href="/assets/worksheets/{w["id"]}.pdf" download>{esc(S.w["download"])}</a></div>')
 
-def shortcodes(body, faq):
-    body = re.sub(r'<tip>(.*?)</tip>', lambda m: f'<div class="tip">{indie(56)}<div><b class="t">Indie\'s tip</b>{para(m.group(1))}</div></div>', body, flags=re.S)
+def shortcodes(body, faq, S=None):
+    S = S or EN; w = S.w
+    body = re.sub(r'<tip>(.*?)</tip>', lambda m: f'<div class="tip">{indie(56)}<div><b class="t">{w["tip"]}</b>{para(m.group(1))}</div></div>', body, flags=re.S)
     body = re.sub(r'<indie>(.*?)</indie>', lambda m: f'<div class="say">{indie(92)}<div class="bubble">{m.group(1).strip()}</div></div>', body, flags=re.S)
     body = re.sub(r'<challenge q="(.*?)">(.*?)</challenge>', lambda m: (
-        f'<details class="challenge"><summary>{indie(56, False)}<span class="q"><b>Indie\'s challenge</b>{m.group(1)} '
-        f'<span class="show">Show the answer</span></span></summary><div class="ans">{para(m.group(2))}</div></details>'), body, flags=re.S)
+        f'<details class="challenge"><summary>{indie(56, False)}<span class="q"><b>{w["challenge"]}</b>{m.group(1)} '
+        f'<span class="show">{w["show"]}</span></span></summary><div class="ans">{para(m.group(2))}</div></details>'), body, flags=re.S)
     def qa(m):
         faq.append((m.group(1), m.group(2).strip()))
         return f'<div class="qa"><b>{m.group(1)}</b>{para(m.group(2))}</div>'
     body = re.sub(r'<qa q="(.*?)">(.*?)</qa>', qa, body, flags=re.S)
     def sheets(m):
         attrs = dict(re.findall(r'(\w+)="([^"]*)"', m.group(1)))
-        ws = worksheets_manifest()
+        ws = worksheets_manifest(S)
         if 'ids' in attrs: ids = attrs['ids'].split(','); ws = sorted([w for w in ws if w['id'] in ids], key=lambda w: ids.index(w['id']))
         if 'topic' in attrs: ws = [w for w in ws if w['topic'] == attrs['topic']]
         if 'year' in attrs: ws = [w for w in ws if attrs['year'] in w['years']]
-        return '<div class="sheets">' + ''.join(sheet_card(w) for w in ws) + '</div>' if ws else ''
+        return '<div class="sheets">' + ''.join(sheet_card(x, S) for x in ws) + '</div>' if ws else ''
     body = re.sub(r'<worksheets([^>]*)/>', sheets, body)
     body = re.sub(r'<card href="(.*?)" title="(.*?)"(?: glyph="(.*?)")?(?: colour="(.*?)")?>(.*?)</card>', lambda m: (
         f'<a class="card" href="{m.group(1)}">{glyph(m.group(3), m.group(4) or "lemon") if m.group(3) else ""}'
         f'<div><b>{m.group(2)}</b><span>{m.group(5).strip()}</span></div></a>'), body, flags=re.S)
     body = body.replace('<cards>', '<div class="cards">').replace('</cards>', '</div>')
     body = body.replace('<try/>', (
-        f'<div class="trybox">{indie(96)}<div style="flex:1;min-width:220px"><p class="t">Practise with Indie</p>'
-        '<p>Beequation Kids turns number facts into honeycomb puzzles, with Indie giving a hint when a child is stuck. '
-        'No ads and no data collected.</p><div class="go"><a class="btn honey" href="/play.html">Play free in your browser</a>'
-        '<a class="btn plain" href="/learn/worksheets/">Free worksheets</a></div></div></div>'))
+        f'<div class="trybox">{indie(96)}<div style="flex:1;min-width:220px"><p class="t">{w["try_title"]}</p>'
+        f'<p>{w["try_text"]}</p><div class="go"><a class="btn honey" href="/play.html">{w["try_play"]}</a>'
+        f'<a class="btn plain" href="/learn/worksheets/">{w["try_sheets"]}</a></div></div></div>'))
     return body
 
 def para(s):
@@ -238,31 +295,46 @@ def front(src):
     meta = dict(l.split(': ', 1) for l in m.group(1).splitlines() if ': ' in l)
     return meta, src[m.end():]
 
-def url_of(rel): return '/learn/' + (rel[:-len('index.html')] if rel.endswith('index.html') else rel)
+PACK = 'pack.html'   # in learn-i18n/<code>/: that site's teachers.html (the puzzle pack), a Teachers page
+def url_of(rel):
+    if rel == PACK: return '/teachers.html'
+    return '/learn/' + (rel[:-len('index.html')] if rel.endswith('index.html') else rel)
 
-def crumbs_for(rel, meta, names):
-    trail = [('Home', '/'), ('Learn', '/learn/')]
-    parts = rel.split('/')
+def crumbs_for(rel, meta, names, S=None):
+    S = S or EN
+    trail = [(S.w['home'], '/'), (S.w['learn'], '/learn/')]
+    parts = ['teachers', PACK] if rel == PACK else rel.split('/')
     if len(parts) > 1 and parts[-1] != 'index.html':
-        trail.append((names.get(parts[0] + '/index.html', SECTIONS.get(parts[0], parts[0])), f'/learn/{parts[0]}/'))
+        trail.append((names.get(parts[0] + '/index.html', S.w['sections'].get(parts[0], parts[0])), f'/learn/{parts[0]}/'))
     if rel != 'index.html': trail.append((meta.get('nav', meta['h1']), url_of(rel)))
     return trail
 
-def page(rel, meta, body, parts, names):
+def alternates(rel, S):
+    """hreflang links to the same page on the other sites: English, plus every live language that has a page at the
+    same path (topics, guides and hubs share paths; school-year pages are each country's own, so they have none)."""
+    sites = [EN] + [site_of(c) for c in sorted(LEARN_LIVE | ({S.lang} - {'en'}))]
+    have = [x for x in sites if x.has(rel) or (x.en and rel == PACK)]   # (English's teachers.html is a root page)
+    if len(have) < 2: return ''
+    tag = lambda x: f'<link rel="alternate" hreflang="{x.w["html_lang"]}" href="{x.main}{url_of(rel)}">'
+    return ('<!--learn-hreflang-->\n' + '\n'.join(tag(x) for x in have) +
+            f'\n<link rel="alternate" hreflang="x-default" href="{MAIN}{url_of(rel)}">\n<!--/learn-hreflang-->\n')
+
+def page(rel, meta, body, parts, names, S=None):
+    S = S or EN
     css, nav, foot = parts
-    url = MAIN + url_of(rel)
+    url = S.main + url_of(rel)
     faq = []
-    body = shortcodes(body, faq)
-    trail = crumbs_for(rel, meta, names)
+    body = shortcodes(body, faq, S)
+    trail = crumbs_for(rel, meta, names, S)
     crumbs = ' › '.join(f'<a href="{h}">{esc(n)}</a>' for n, h in trail[1:-1]) + (f' › {esc(trail[-1][0])}' if len(trail) > 2 else '')
     ld = [{'@context': 'https://schema.org', '@type': 'CollectionPage' if meta.get('layout') == 'hub' else 'Article',
            **({'headline': meta['h1']} if meta.get('layout') != 'hub' else {'name': meta['h1']}),
-           'description': meta['description'], 'url': url, 'inLanguage': 'en-GB',
+           'description': meta['description'], 'url': url, 'inLanguage': S.w['html_lang'],
            **({'mainEntityOfPage': url, 'dateModified': meta.get('updated', '2026-10-09'),
                'author': {'@type': 'Organization', 'name': 'Beequation', 'url': MAIN + '/'},
                'publisher': {'@id': MAIN + '/#org'}, 'image': MAIN + '/assets/og-image.png'} if meta.get('layout') != 'hub' else {})},
           {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
-              {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': MAIN + h} for i, (n, h) in enumerate(trail)]}]
+              {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': S.main + h} for i, (n, h) in enumerate(trail)]}]
     if faq:
         strip = lambda x: html.unescape(re.sub(r'<[^>]+>', '', x)).strip()
         ld.append({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
@@ -274,14 +346,14 @@ def page(rel, meta, body, parts, names):
     kicker = f'<p class="kicker">{esc(meta["kicker"])}</p>' if meta.get('kicker') else ''
     t, d = esc(meta['title']), esc(meta['description'])
     return f'''<!doctype html>
-<html lang="en-GB">
+<html lang="{S.w['html_lang']}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{t}</title>
 <meta name="description" content="{d}">
 <link rel="canonical" href="{url}">
-<meta property="og:type" content="{'website' if meta.get('layout') == 'hub' else 'article'}">
+{alternates(rel, S)}<meta property="og:type" content="{'website' if meta.get('layout') == 'hub' else 'article'}">
 <meta property="og:site_name" content="Beequation">
 <meta property="og:title" content="{t}">
 <meta property="og:description" content="{d}">
@@ -302,7 +374,7 @@ def page(rel, meta, body, parts, names):
 </head>
 <body>
 {nav}
-<!--learnnav-->{learn_nav(rel)}<!--/learnnav-->
+<!--learnnav-->{learn_nav(rel, S)}<!--/learnnav-->
 <main class="wrap"><article class="doc{' hub' if meta.get('layout') == 'hub' else ''}">{f'<p class="crumbs">{crumbs}</p>' if crumbs else ''}{kicker}<h1>{esc(meta['h1'])}</h1>
 {hero}{body.strip()}
 </article></main>{foot}
@@ -334,13 +406,41 @@ def llms(entries):
     s += ''.join(f'- [{t}]({MAIN}{u}): {d}\n' for u, t, d in entries)
     open(p, 'w', encoding='utf-8').write(s)
 
+def sources(S):
+    out = []
+    for dp, _, fs in os.walk(S.src):
+        for f in fs:
+            if f.endswith('.html'): out.append(os.path.relpath(os.path.join(dp, f), S.src))
+    return {rel: front(rd(os.path.join(S.src, rel))) for rel in sorted(out)}
+
+def missing_links(S, metas, extra=()):
+    have = {url_of(r) for r in metas} | set(extra)
+    missing = set()
+    for rel in metas:
+        p = os.path.join(S.out, rel) if rel != PACK else os.path.join(os.path.dirname(S.out), 'teachers.html')
+        for h in re.findall(r'href="(/learn/[^"#]*)"', rd(p)):
+            if h not in have: missing.add(h)
+    return missing
+
+def build_lang(lang):
+    """Builds learn-i18n/<lang>/ into dist/<lang>/learn/ (and its pack page into dist/<lang>/teachers.html), without
+    the site header: build-langs.py adds that. Returns the pages' paths under dist/<lang>/ and the sitemap entries."""
+    S = site_of(lang)
+    parts = base_parts()
+    metas = sources(S)
+    names = {rel: m.get('nav', m['h1']) for rel, (m, _) in metas.items()}
+    built, urls = [], []
+    for rel, (meta, body) in metas.items():
+        page_rel = 'teachers.html' if rel == PACK else 'learn/' + rel
+        out = os.path.join(os.path.dirname(S.out), page_rel); os.makedirs(os.path.dirname(out), exist_ok=True)
+        open(out, 'w', encoding='utf-8').write(page(rel, meta, body, parts, names, S))
+        built.append(page_rel); urls.append((url_of(rel), meta.get('updated', '2026-10-09')))
+    for h in sorted(missing_links(S, metas)): print(f'  {lang} learn: link to a page not written yet: {h}')
+    return built, urls
+
 def main():
     parts = base_parts()
-    sources = []
-    for dp, _, fs in os.walk(SRC):
-        for f in fs:
-            if f.endswith('.html'): sources.append(os.path.relpath(os.path.join(dp, f), SRC))
-    metas = {rel: front(rd(os.path.join(SRC, rel))) for rel in sorted(sources)}
+    metas = sources(EN)
     names = {rel: m.get('nav', m['h1']) for rel, (m, _) in metas.items()}
     urls = []
     for rel, (meta, body) in metas.items():
@@ -352,12 +452,7 @@ def main():
         legacy(f, learn_nav(f)); urls.append((url_of(f), '2026-10-08'))
     sitemap(sorted(urls))
     llms([(url_of(rel), m['h1'], m['description']) for rel, (m, _) in sorted(metas.items(), key=lambda x: (x[0].count('/'), x[0] != 'index.html', x[0]))])
-    # links to Learn pages that don't exist yet
-    have = {url_of(r) for r in metas} | {url_of(f) for f in old}
-    missing = set()
-    for rel in metas:
-        for h in re.findall(r'href="(/learn/[^"#]*)"', rd(os.path.join(OUT, rel))):
-            if h not in have: missing.add(h)
+    missing = missing_links(EN, metas, {url_of(f) for f in old})   # links to Learn pages that don't exist yet
     print(f'{len(metas)} pages built, {len(old)} older articles given the menu')
     for h in sorted(missing): print('  not written yet:', h)
 

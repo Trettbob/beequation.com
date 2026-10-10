@@ -2,20 +2,27 @@
 // Beequation Kids branding and Indie, a WebP preview of each first page, and learn-src/worksheets.json (read by
 // tools/build-learn.py to show the worksheet cards). Questions come from fixed seeds, so a rebuild gives the same
 // sheets. Uses the Google Chrome already on the Mac via puppeteer-core, and cwebp for the previews.
-// Usage (from the repo root): node tools/make-worksheets.mjs <puppeteer-core dir> [id ...]
+// Usage (from the repo root): node tools/make-worksheets.mjs <puppeteer-core dir> [--lang <code>] [--html-only] [id ...]
+// Other languages: learn-i18n/<code>/worksheets.mjs gives that country's words, money, clock phrases and which sheets
+// it uses (with its own titles, instructions and school years); the PDFs and previews go to
+// learn-i18n/<code>/assets/worksheets/ and the manifest to learn-i18n/<code>/worksheets.json. See learn-i18n/README.md.
 import { createRequire } from 'node:module';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const [, , PUP, ...ONLY] = process.argv;
-if (!PUP) throw new Error('usage: make-worksheets.mjs <puppeteer-core dir> [id ...]');
+const [, , PUP, ...REST] = process.argv;
+if (!PUP) throw new Error('usage: make-worksheets.mjs <puppeteer-core dir> [--lang <code>] [--html-only] [id ...]');
+const LANG = REST.includes('--lang') ? REST[REST.indexOf('--lang') + 1] : 'en';
+const HTML_ONLY = REST.includes('--html-only');
+const ONLY = REST.filter((a, i) => !a.startsWith('--') && REST[i - 1] !== '--lang');
 const require = createRequire(path.join(PUP, 'package.json'));
 const puppeteer = require('puppeteer-core');
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = path.join(ROOT, 'assets', 'worksheets');
+const OUT = LANG === 'en' ? path.join(ROOT, 'assets', 'worksheets') : path.join(ROOT, 'learn-i18n', LANG, 'assets', 'worksheets');
+const MANIFEST = LANG === 'en' ? path.join(ROOT, 'learn-src', 'worksheets.json') : path.join(ROOT, 'learn-i18n', LANG, 'worksheets.json');
 const b64 = f => fs.readFileSync(path.join(ROOT, f)).toString('base64');
 const font = w => `data:font/ttf;base64,${b64(`assets/fonts/Fredoka_${w}.ttf`)}`;
 const ICON = `data:image/png;base64,${b64('assets/beequation-kids-icon.png')}`;
@@ -44,6 +51,42 @@ function unique(n, make, key = x => JSON.stringify(x)) {
 const box = '<span class="bx"></span>';
 const fr = (n, d) => `<span class="fr"><b>${n}</b><i>${d}</i></span>`;
 const pounds = p => p >= 100 ? `£${(p / 100).toFixed(2)}` : `${p}p`;
+
+// Everything on a sheet that depends on the language or country. A language's worksheets.mjs exports an object with
+// any of these (plus `sheets`: { id: { title, desc, how, tip, years } } for the sheets it uses; others are left out).
+const EN = {
+  htmlLang: 'en-GB',
+  num: n => n.toLocaleString('en-GB'),                 // whole numbers (thousands separator)
+  dec: (x, places) => x.toFixed(places),               // decimals
+  mul: '×', div: '÷',
+  tensOnes: b => `${b} tens and ${b} ones`, tensOnesA: (t, o) => `${t} tens, ${o} ones`,
+  roundQ: (n, to, b) => `<b class="n">${n}</b> to the nearest ${to} → ${b}`,
+  of: (f, x) => `${f} of ${x}`, pctOf: (p, x) => `${p}% of ${x}`,
+  timeWords: (h, m) => timeWords(h, m), digital: (h, m) => digital(h, m),
+  money: p => pounds(p),                               // an amount in the smallest unit (pence, cents)
+  coinValues: [1, 2, 5, 10, 20, 50],                   // coins used on the counting sheet
+  coinLabel: v => v >= 100 ? `£${v / 100}` : `${v}p`,
+  coins: null,                                         // { value: [fill, diameter in mm, 'circle' | sides] }; null = UK
+  coinInner: null,                                     // value => inner ring colour (two-colour coins), or null = UK
+  paid: [100, 200, 500],
+  shopItems: ['a pencil', 'an apple', 'a comic', 'a juice', 'a notebook', 'some stickers', 'a toy car', 'a cake'],
+  changeQ: (item, cost, paid, b) => `You buy ${item} for ${cost} and pay with ${paid}. Change: ${b}`,
+  perimQ: b => `<div class="ansline">Perimeter ${b} cm</div><div class="ansline">Area ${b} cm²</div>`,
+  perimA: (p, a) => `Perimeter ${p} cm, area ${a} cm²`,
+  shapes: { 3: 'triangle', 4: 'square', rect: 'rectangle', 5: 'pentagon', 6: 'hexagon', 8: 'octagon', 0: 'circle', 7: 'heptagon', 10: 'decagon' },
+  shapeQ: b => `<div class="ansline wide">Name:</div><div class="ansline">Sides ${b} Vertices ${b}</div>`,
+  shapeA: (name, n) => n === 0 ? 'circle: 1 curved side, 0 vertices' : `${name}: ${n} sides, ${n} vertices`,
+  fruits: ['Apples', 'Bananas', 'Grapes', 'Oranges', 'Pears'],
+  chartQs: (f, v, mx, mn) => [[`How many children chose ${f[1].toLowerCase()}?`, v[1]], [`Which fruit was the most popular?`, f[mx]], [`Which fruit was the least popular?`, f[mn]],
+    [`How many more children chose ${f[mx].toLowerCase()} than ${f[mn].toLowerCase()}?`, v[mx] - v[mn]], [`How many children voted altogether?`, v.reduce((a, b) => a + b, 0)]],
+  years: { reception: 'Reception', 'year-1': 'Year 1', 'year-2': 'Year 2', 'year-3': 'Year 3', 'year-4': 'Year 4', 'year-5': 'Year 5', 'year-6': 'Year 6' },
+  yearsLabel: (ys, n) => ys.length > 2 ? `${n[ys[0]]} to ${n[ys[ys.length - 1]]}` : ys.map(y => n[y]).join(' and '),
+  name: 'Name', date: 'Date', tip: "Indie's tip:", answers: 'Answers', titleTag: t => `${t} worksheet: Beequation Kids`,
+  footer: 'Free to copy for home and classroom use. More worksheets at <b>beequation.com/learn</b>',
+  promo: '<b>Practise with Indie.</b> Play free honeycomb number puzzles at beequation.com, or look for Beequation Kids on your phone or tablet: no ads, no tracking, no timers.',
+};
+const LOC = LANG === 'en' ? {} : (await import(path.join(ROOT, 'learn-i18n', LANG, 'worksheets.mjs'))).default;
+const L = { ...EN, ...LOC };
 
 // Indie the Hexabee (apps/kids/src/components/Indie.tsx)
 const HEXP = 'M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z';
@@ -101,11 +144,13 @@ function fractionShape(kind, n, k, size = 26) {
 const COINS = { 1: ['#D9895B', 20.3, 'circle'], 2: ['#D9895B', 25.9, 'circle'], 5: ['#D7DCE3', 18, 'circle'], 10: ['#D7DCE3', 24.5, 'circle'],
   20: ['#D7DCE3', 21.4, 7], 50: ['#D7DCE3', 27.3, 7], 100: ['#F2C14E', 23.4, 12], 200: ['#F2C14E', 28.4, 'circle'] };
 function coin(v) {
-  const [fill, d, shape] = COINS[v], r = d / 2;
-  const label = v >= 100 ? `£${v / 100}` : `${v}p`;
+  const [fill, d, shape] = (L.coins || COINS)[v], r = d / 2;
+  const label = L.coinLabel(v);
   const outline = shape === 'circle' ? `<circle cx="${r}" cy="${r}" r="${r - 0.6}" fill="${fill}" stroke="${INK}" stroke-width="0.8"/>`
     : `<polygon points="${Array.from({ length: shape }, (_, i) => { const a = (i / shape) * 2 * Math.PI - Math.PI / 2; return `${r + (r - 0.6) * Math.cos(a)},${r + (r - 0.6) * Math.sin(a)}`; }).join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="0.8" stroke-linejoin="round"/>`;
-  const inner = v === 200 ? `<circle cx="${r}" cy="${r}" r="${r * 0.66}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : v === 100 ? `<circle cx="${r}" cy="${r}" r="${r * 0.64}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : '';
+  const ring = L.coinInner ? L.coinInner(v) : null;
+  const inner = L.coinInner ? (ring ? `<circle cx="${r}" cy="${r}" r="${r * 0.66}" fill="${ring}" stroke="${INK}" stroke-width="0.4"/>` : '')
+    : v === 200 ? `<circle cx="${r}" cy="${r}" r="${r * 0.66}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : v === 100 ? `<circle cx="${r}" cy="${r}" r="${r * 0.64}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : '';
   return `<svg viewBox="0 0 ${d} ${d}" style="width:${d * 0.5}mm;height:${d * 0.5}mm">${outline}${inner}<text x="${r}" y="${r + 2.6}" text-anchor="middle" font-size="${label.length > 2 ? 6.4 : 7.4}" font-weight="700">${label}</text></svg>`;
 }
 
@@ -133,14 +178,14 @@ const SHEETS = [
       .map(({ seq, gaps }) => ({ q: seq.map((n, i) => gaps.includes(i) ? box : `<b class="n">${n}</b>`).join('<span class="sep">,</span>'), a: gaps.sort((x, y) => x - y).map(i => seq[i]).join(', ') })) }) },
   { id: 'tens-and-ones', title: 'Tens and ones', topic: 'counting-and-place-value', years: ['year-1', 'year-2'],
     desc: 'Partition two-digit numbers', how: 'Split each number into tens and ones.', tip: 'The digit on the left tells you how many tens. 47 is 4 tens and 7 ones.', cols: 2,
-    make: r => ({ kind: 'list', items: unique(20, () => r.int(11, 99), x => x).map(n => ({ q: `<b class="n">${n}</b> = ${box} tens and ${box} ones`, a: `${Math.floor(n / 10)} tens, ${n % 10} ones` })) }) },
+    make: r => ({ kind: 'list', items: unique(20, () => r.int(11, 99), x => x).map(n => ({ q: `<b class="n">${n}</b> = ${L.tensOnes(box)}`, a: L.tensOnesA(Math.floor(n / 10), n % 10) })) }) },
   { id: 'hundreds-tens-ones', title: 'Hundreds, tens and ones', topic: 'counting-and-place-value', years: ['year-2', 'year-3'],
     desc: 'Place value to 1,000', how: 'Write each number as hundreds + tens + ones.', tip: 'A zero is a placeholder. In 405 there are no tens, but the 0 keeps the 4 in the hundreds place.', cols: 1,
     make: r => ({ kind: 'list', items: unique(14, () => r.int(101, 999), x => x).map(n => ({ q: `<b class="n">${n}</b> = ${box} + ${box} + ${box}`, a: `${Math.floor(n / 100) * 100} + ${Math.floor(n / 10) % 10 * 10} + ${n % 10}` })) }) },
   { id: 'rounding', title: 'Rounding numbers', topic: 'counting-and-place-value', years: ['year-4', 'year-5'],
     desc: 'Round to the nearest 10, 100 and 1,000', how: 'Round each number as shown.', tip: 'Look at the digit to the right of the place you are rounding to. 5 or more rounds up.', cols: 2,
     make: r => ({ kind: 'list', items: unique(24, () => { const to = r.pick([10, 100, 1000]); return { n: r.int(to === 10 ? 11 : to === 100 ? 101 : 1001, 9999), to }; }, x => x.n + '/' + x.to)
-      .map(({ n, to }) => ({ q: `<b class="n">${n.toLocaleString('en-GB')}</b> to the nearest ${to.toLocaleString('en-GB')} → ${box}`, a: (Math.round(n / to) * to).toLocaleString('en-GB') })) }) },
+      .map(({ n, to }) => ({ q: L.roundQ(L.num(n), L.num(to), box), a: L.num(Math.round(n / to) * to) })) }) },
   // addition and subtraction
   { id: 'number-bonds-to-10', title: 'Number bonds to 10', topic: 'addition-and-subtraction', years: ['reception', 'year-1'],
     desc: 'Pairs that make 10', how: 'Write the missing number to make 10.', tip: 'Use your fingers! Hold up 7 fingers. How many are still down? That makes 10.', cols: 3,
@@ -160,75 +205,74 @@ const SHEETS = [
   // multiplication and division
   { id: 'times-tables-2-5-10', title: '2, 5 and 10 times tables', topic: 'multiplication-and-division', years: ['year-2'],
     desc: 'Mixed questions', how: 'Work out each answer.', tip: 'Every answer in the 10 times table ends in 0, and every answer in the 5 times table ends in 0 or 5.', cols: 3,
-    make: r => ({ kind: 'list', items: unique(30, () => [r.pick([2, 5, 10]), r.int(1, 12), r.next() < 0.5]).map(([t, n, s]) => ({ q: s ? `${n} × ${t} = ${box}` : `${t} × ${n} = ${box}`, a: String(t * n) })) }) },
+    make: r => ({ kind: 'list', items: unique(30, () => [r.pick([2, 5, 10]), r.int(1, 12), r.next() < 0.5]).map(([t, n, s]) => ({ q: s ? `${n} ${L.mul} ${t} = ${box}` : `${t} ${L.mul} ${n} = ${box}`, a: String(t * n) })) }) },
   { id: 'times-tables-3-4-8', title: '3, 4 and 8 times tables', topic: 'multiplication-and-division', years: ['year-3'],
     desc: 'Mixed questions', how: 'Work out each answer.', tip: 'The 8 times table is the 4 times table doubled. If 4 × 6 = 24, then 8 × 6 = 48.', cols: 3,
-    make: r => ({ kind: 'list', items: unique(30, () => [r.pick([3, 4, 8]), r.int(1, 12), r.next() < 0.5]).map(([t, n, s]) => ({ q: s ? `${n} × ${t} = ${box}` : `${t} × ${n} = ${box}`, a: String(t * n) })) }) },
+    make: r => ({ kind: 'list', items: unique(30, () => [r.pick([3, 4, 8]), r.int(1, 12), r.next() < 0.5]).map(([t, n, s]) => ({ q: s ? `${n} ${L.mul} ${t} = ${box}` : `${t} ${L.mul} ${n} = ${box}`, a: String(t * n) })) }) },
   { id: 'multiplication-check-practice', title: 'Multiplication check practice', topic: 'multiplication-and-division', years: ['year-4'],
     desc: '25 questions up to 12 × 12', how: 'Like the real check, try to answer each one in about 6 seconds. Skip and come back if you need to.', tip: 'The trickiest facts are usually 6 × 7, 6 × 8, 7 × 8, 8 × 9 and 12 × 7. Practise those a little extra!', cols: 3,
-    make: r => ({ kind: 'list', items: unique(25, () => [r.int(2, 12), r.int(2, 12)], ([a, b]) => Math.min(a, b) + 'x' + Math.max(a, b)).map(([a, b]) => ({ q: `${a} × ${b} = ${box}`, a: String(a * b) })) }) },
+    make: r => ({ kind: 'list', items: unique(25, () => [r.int(2, 12), r.int(2, 12)], ([a, b]) => Math.min(a, b) + 'x' + Math.max(a, b)).map(([a, b]) => ({ q: `${a} ${L.mul} ${b} = ${box}`, a: String(a * b) })) }) },
   { id: 'multiplication-grid', title: 'Multiplication grid', topic: 'multiplication-and-division', years: ['year-3', 'year-4', 'year-5', 'year-6'],
     desc: 'Fill in the 12 × 12 grid', how: 'Multiply the number at the start of each row by the number at the top of each column.', tip: 'Fill in the easy rows first (1, 2, 5, 10, 11). Then use the grid\'s pattern: 3 × 7 is the same as 7 × 3.', cols: 1,
-    make: () => { const g = full => `<table class="grid12"><tr><th>×</th>${Array.from({ length: 12 }, (_, i) => `<th>${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th>${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : ''}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
+    make: () => { const g = full => `<table class="grid12"><tr><th>${L.mul}</th>${Array.from({ length: 12 }, (_, i) => `<th>${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th>${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : ''}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
   { id: 'division-facts', title: 'Division facts', topic: 'multiplication-and-division', years: ['year-3', 'year-4'],
     desc: 'Using times tables to divide', how: 'Work out each answer.', tip: 'Division is the inverse of multiplication. For 42 ÷ 6, ask: 6 times what makes 42?', cols: 3,
-    make: r => ({ kind: 'list', items: unique(30, () => [r.int(2, 12), r.int(2, 12)]).map(([a, b]) => ({ q: `${a * b} ÷ ${a} = ${box}`, a: String(b) })) }) },
+    make: r => ({ kind: 'list', items: unique(30, () => [r.int(2, 12), r.int(2, 12)]).map(([a, b]) => ({ q: `${a * b} ${L.div} ${a} = ${box}`, a: String(b) })) }) },
   { id: 'short-multiplication', title: 'Short multiplication', topic: 'multiplication-and-division', years: ['year-4', 'year-5'],
     desc: 'Three-digit by one-digit numbers', how: 'Multiply using the column method.', tip: 'Start with the ones. Carry any tens into the next column and add them after you multiply.', cols: 4,
-    make: r => ({ kind: 'cards', items: unique(12, () => [r.int(112, 498), r.int(3, 9)]).map(([a, b]) => ({ q: column(a, b, '×'), a: String(a * b) })) }) },
+    make: r => ({ kind: 'cards', items: unique(12, () => [r.int(112, 498), r.int(3, 9)]).map(([a, b]) => ({ q: column(a, b, L.mul), a: String(a * b) })) }) },
   // fractions
   { id: 'what-fraction-is-shaded', title: 'What fraction is shaded?', topic: 'fractions', years: ['year-1', 'year-2', 'year-3'],
     desc: 'Halves, thirds, quarters and more', how: 'Write the fraction of each shape that is shaded.', tip: 'Count all the equal parts first: that is the bottom number. Then count the shaded parts: that is the top.', cols: 3,
     make: r => ({ kind: 'cards', items: unique(12, () => { const kind = r.pick(['bar', 'circle', 'grid']); const n = r.pick(kind === 'grid' ? [4, 6, 8, 9] : [2, 3, 4, 5, 6, 8]); return [kind, n, r.int(1, n - 1)]; }, x => x.join()).map(([kind, n, k]) => ({ q: `${fractionShape(kind, n, k)}<div class="ansline">${box}</div>`, a: fr(k, n) })) }) },
   { id: 'fractions-of-amounts', title: 'Fractions of amounts', topic: 'fractions', years: ['year-3', 'year-4'],
     desc: 'Like ½ of 12 and ¾ of 20', how: 'Work out each answer.', tip: 'Divide by the bottom number, then multiply by the top. For ¾ of 20: 20 ÷ 4 = 5, then 5 × 3 = 15.', cols: 3,
-    make: r => ({ kind: 'list', items: unique(24, () => { const d = r.pick([2, 3, 4, 5, 10]), n = r.int(1, d - 1), m = r.int(2, 10); return [n, d, d * m]; }).map(([n, d, x]) => ({ q: `${fr(n, d)} of ${x} = ${box}`, a: String(x / d * n) })) }) },
+    make: r => ({ kind: 'list', items: unique(24, () => { const d = r.pick([2, 3, 4, 5, 10]), n = r.int(1, d - 1), m = r.int(2, 10); return [n, d, d * m]; }).map(([n, d, x]) => ({ q: `${L.of(fr(n, d), x)} = ${box}`, a: String(x / d * n) })) }) },
   { id: 'equivalent-fractions', title: 'Equivalent fractions', topic: 'fractions', years: ['year-4', 'year-5'],
     desc: 'Find the missing number', how: 'Write the missing number so the fractions are equal.', tip: 'Whatever you do to the bottom, do the same to the top. ½ = ⁴⁄₈ because both numbers were multiplied by 4.', cols: 3,
     make: r => ({ kind: 'list', items: unique(24, () => { const d = r.pick([2, 3, 4, 5, 6, 10]), n = r.int(1, d - 1), k = r.int(2, 6), top = r.next() < 0.5; return [n, d, k, top]; }, x => x.slice(0, 3).join()).map(([n, d, k, top]) => ({ q: top ? `${fr(n, d)} = ${fr(box, d * k)}` : `${fr(n, d)} = ${fr(n * k, box)}`, a: String(top ? n * k : d * k) })) }) },
   // decimals and percentages
   { id: 'tenths-and-hundredths', title: 'Tenths and hundredths', topic: 'decimals-and-percentages', years: ['year-4', 'year-5'],
     desc: 'Fractions as decimals', how: 'Write each fraction as a decimal.', tip: 'Tenths go in the first place after the decimal point, hundredths in the second. ⁷⁄₁₀₀ is 0.07.', cols: 3,
-    make: r => ({ kind: 'list', items: unique(24, () => { const d = r.pick([10, 100]); return [r.int(1, d === 10 ? 9 : 99), d]; }, x => x.join('/')).map(([n, d]) => ({ q: `${fr(n, d)} = ${box}`, a: (n / d).toFixed(d === 10 ? 1 : 2) })) }) },
+    make: r => ({ kind: 'list', items: unique(24, () => { const d = r.pick([10, 100]); return [r.int(1, d === 10 ? 9 : 99), d]; }, x => x.join('/')).map(([n, d]) => ({ q: `${fr(n, d)} = ${box}`, a: L.dec(n / d, d === 10 ? 1 : 2) })) }) },
   { id: 'percentages-of-amounts', title: 'Percentages of amounts', topic: 'decimals-and-percentages', years: ['year-5', 'year-6'],
     desc: '10%, 25%, 50% and more', how: 'Work out each answer.', tip: 'Find 10% by dividing by 10. Then build up: 30% is three lots of 10%, and 5% is half of 10%.', cols: 2,
-    make: r => ({ kind: 'list', items: unique(20, () => { const p = r.pick([10, 20, 25, 50, 75, 5, 30, 40]); const base = p === 25 || p === 75 ? 4 * r.int(2, 30) : p === 5 ? 20 * r.int(1, 15) : 10 * r.int(2, 30); return [p, base]; }, x => x.join()).map(([p, x]) => ({ q: `${p}% of ${x} = ${box}`, a: String(x * p / 100) })) }) },
+    make: r => ({ kind: 'list', items: unique(20, () => { const p = r.pick([10, 20, 25, 50, 75, 5, 30, 40]); const base = p === 25 || p === 75 ? 4 * r.int(2, 30) : p === 5 ? 20 * r.int(1, 15) : 10 * r.int(2, 30); return [p, base]; }, x => x.join()).map(([p, x]) => ({ q: `${L.pctOf(p, x)} = ${box}`, a: String(x * p / 100) })) }) },
   // time
   { id: 'time-oclock-and-half-past', title: "O'clock and half past", topic: 'telling-the-time', years: ['year-1'],
     desc: 'Read the clocks', how: 'Write the time shown on each clock.', tip: 'The short hand shows the hour. The long hand shows the minutes: pointing at 12 means o\'clock, at 6 means half past.', cols: 3,
-    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), r.pick([0, 30])], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div>`, a: timeWords(h, m) })) }) },
+    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), r.pick([0, 30])], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div>`, a: L.timeWords(h, m) })) }) },
   { id: 'time-quarter-past-and-to', title: 'Quarter past and quarter to', topic: 'telling-the-time', years: ['year-2'],
     desc: 'Read the clocks', how: 'Write the time shown on each clock in words.', tip: 'Quarter past: the long hand points at 3. Quarter to: it points at 9, and the short hand is nearly at the next hour.', cols: 3,
-    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), r.pick([0, 15, 30, 45])], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div>`, a: timeWords(h, m) })) }) },
+    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), r.pick([0, 15, 30, 45])], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div>`, a: L.timeWords(h, m) })) }) },
   { id: 'time-to-5-minutes', title: 'Time to 5 minutes', topic: 'telling-the-time', years: ['year-2', 'year-3'],
     desc: 'Read the clocks', how: 'Write each time in words and as a digital time.', tip: 'Count in 5s as the long hand goes round: each number on the clock is 5 more minutes.', cols: 3,
-    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), 5 * r.int(1, 11)], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div><div class="ansline wide"></div>`, a: `${timeWords(h, m)} (${digital(h, m)})` })) }) },
+    make: r => ({ kind: 'cards', items: unique(9, () => [r.int(1, 12), 5 * r.int(1, 11)], x => x.join()).map(([h, m]) => ({ q: `${clock(h, m)}<div class="ansline wide"></div><div class="ansline wide"></div>`, a: `${L.timeWords(h, m)} (${L.digital(h, m)})` })) }) },
   // money
   { id: 'counting-coins', title: 'Counting coins', topic: 'money', years: ['year-1', 'year-2'],
     desc: 'Add up UK coins', how: 'How much money is in each purse? Write the total.', tip: 'Start with the coin worth the most, then count on. 20p, 30p, 35p, 36p…', cols: 3,
-    make: r => ({ kind: 'cards', items: unique(9, () => { const n = r.int(3, 5); return Array.from({ length: n }, () => r.pick([1, 2, 5, 10, 20, 50])).sort((a, b) => b - a); }, x => x.join()).map(cs => ({ q: `<div class="coins">${cs.map(coin).join('')}</div><div class="ansline">${box}</div>`, a: pounds(cs.reduce((s, c) => s + c, 0)) })) }) },
+    make: r => ({ kind: 'cards', items: unique(9, () => { const n = r.int(3, 5); return Array.from({ length: n }, () => r.pick(L.coinValues)).sort((a, b) => b - a); }, x => x.join()).map(cs => ({ q: `<div class="coins">${cs.map(coin).join('')}</div><div class="ansline">${box}</div>`, a: L.money(cs.reduce((s, c) => s + c, 0)) })) }) },
   { id: 'giving-change', title: 'Giving change', topic: 'money', years: ['year-3'],
     desc: 'Change from £1, £2 and £5', how: 'Work out the change for each shopping trip.', tip: 'Count up from the price to the money you paid. From 65p to £1: 5p makes 70p, then 30p makes £1. Change is 35p.', cols: 2,
-    make: r => ({ kind: 'list', items: unique(16, () => { const paid = r.pick([100, 200, 500]); const cost = 5 * r.int(2, paid / 5 - 1); return [r.pick(['a pencil', 'an apple', 'a comic', 'a juice', 'a notebook', 'some stickers', 'a toy car', 'a cake']), cost, paid]; }, x => x.slice(1).join()).map(([item, cost, paid]) => ({ q: `You buy ${item} for ${pounds(cost)} and pay with ${pounds(paid)}. Change: ${box}`, a: pounds(paid - cost) })) }) },
+    make: r => ({ kind: 'list', items: unique(16, () => { const paid = r.pick(L.paid); const cost = 5 * r.int(2, paid / 5 - 1); return [r.pick(L.shopItems), cost, paid]; }, x => x.slice(1).join()).map(([item, cost, paid]) => ({ q: L.changeQ(item, L.money(cost), L.money(paid), box), a: L.money(paid - cost) })) }) },
   // measurement
   { id: 'perimeter-and-area', title: 'Perimeter and area', topic: 'measurement', years: ['year-4', 'year-5'],
     desc: 'Rectangles on a centimetre grid', how: 'Each square is 1 cm by 1 cm. Find the perimeter and area of each rectangle.', tip: 'Perimeter is the distance all the way round (add the sides). Area is the number of squares inside.', cols: 2,
-    make: r => ({ kind: 'cards', items: unique(6, () => [r.int(2, 8), r.int(2, 5)], x => x.join()).map(([w, h]) => { const s = 4.2; const cells = Array.from({ length: w * h }, (_, i) => `<rect x="${(i % w) * s}" y="${Math.floor(i / w) * s}" width="${s}" height="${s}" fill="#D2F7EA" stroke="${INK}" stroke-width="0.25"/>`).join(''); return { q: `<svg viewBox="-1 -1 ${w * s + 2} ${h * s + 2}" style="width:${w * s}mm;height:${h * s}mm">${cells}<rect x="0" y="0" width="${w * s}" height="${h * s}" fill="none" stroke="${INK}" stroke-width="0.7"/></svg><div class="ansline">Perimeter ${box} cm</div><div class="ansline">Area ${box} cm²</div>`, a: `Perimeter ${2 * (w + h)} cm, area ${w * h} cm²` }; }) }) },
+    make: r => ({ kind: 'cards', items: unique(6, () => [r.int(2, 8), r.int(2, 5)], x => x.join()).map(([w, h]) => { const s = 4.2; const cells = Array.from({ length: w * h }, (_, i) => `<rect x="${(i % w) * s}" y="${Math.floor(i / w) * s}" width="${s}" height="${s}" fill="#D2F7EA" stroke="${INK}" stroke-width="0.25"/>`).join(''); return { q: `<svg viewBox="-1 -1 ${w * s + 2} ${h * s + 2}" style="width:${w * s}mm;height:${h * s}mm">${cells}<rect x="0" y="0" width="${w * s}" height="${h * s}" fill="none" stroke="${INK}" stroke-width="0.7"/></svg>${L.perimQ(box)}`, a: L.perimA(2 * (w + h), w * h) }; }) }) },
   // shape
   { id: '2d-shapes', title: '2D shapes', topic: 'shape-and-geometry', years: ['year-1', 'year-2'],
     desc: 'Names, sides and vertices', how: 'Name each shape and count its sides and vertices (corners).', tip: 'Put a dot on each corner as you count, so you don\'t count one twice.', cols: 3,
-    make: () => ({ kind: 'cards', items: [[3, 'triangle'], [4, 'square'], [4, 'rectangle', true], [5, 'pentagon'], [6, 'hexagon'], [8, 'octagon'], [0, 'circle'], [7, 'heptagon'], [10, 'decagon']].map(([n, name, rect], i) => ({ q: `${poly(n, 22, CANDY[i % 6], rect)}<div class="ansline wide">Name:</div><div class="ansline">Sides ${box} Vertices ${box}</div>`, a: n === 0 ? 'circle: 1 curved side, 0 vertices' : `${name}: ${n} sides, ${n} vertices` })) }) },
+    make: () => ({ kind: 'cards', items: [[3, L.shapes[3]], [4, L.shapes[4]], [4, L.shapes.rect, true], [5, L.shapes[5]], [6, L.shapes[6]], [8, L.shapes[8]], [0, L.shapes[0]], [7, L.shapes[7]], [10, L.shapes[10]]].map(([n, name, rect], i) => ({ q: `${poly(n, 22, CANDY[i % 6], rect)}${L.shapeQ(box)}`, a: L.shapeA(name, n) })) }) },
   // data
   { id: 'reading-bar-charts', title: 'Reading a bar chart', topic: 'data-and-graphs', years: ['year-2', 'year-3'],
     desc: 'Favourite fruit survey', how: 'Class 3 voted for their favourite fruit. Use the bar chart to answer the questions.', tip: 'Run your finger from the top of the bar across to the numbers on the side to read its value.', cols: 1,
-    make: r => { const fruits = ['Apples', 'Bananas', 'Grapes', 'Oranges', 'Pears'], vals = []; while (vals.length < 5) { const v = r.int(2, 10); if (!vals.includes(v)) vals.push(v); }
+    make: r => { const fruits = L.fruits, vals = []; while (vals.length < 5) { const v = r.int(2, 10); if (!vals.includes(v)) vals.push(v); }
       const bw = 14, gap = 8, H = 60, sc = H / 10;
       const bars = vals.map((v, i) => `<rect x="${14 + i * (bw + gap)}" y="${H - v * sc + 4}" width="${bw}" height="${v * sc}" fill="${CANDY[i]}" stroke="${INK}" stroke-width="0.5"/><text x="${14 + i * (bw + gap) + bw / 2}" y="${H + 10}" text-anchor="middle" font-size="4.2">${fruits[i]}</text>`).join('');
       const grid = Array.from({ length: 11 }, (_, i) => `<line x1="10" x2="${14 + 5 * (bw + gap)}" y1="${H - i * sc + 4}" y2="${H - i * sc + 4}" stroke="#C7DDF0" stroke-width="0.3"/><text x="8" y="${H - i * sc + 5.4}" text-anchor="end" font-size="3.8">${i}</text>`).join('');
       const chart = `<svg viewBox="0 0 130 78" style="width:150mm;height:90mm">${grid}${bars}<line x1="10" x2="10" y1="4" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/><line x1="10" x2="${14 + 5 * (bw + gap)}" y1="${H + 4}" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/></svg>`;
       const mx = vals.indexOf(Math.max(...vals)), mn = vals.indexOf(Math.min(...vals));
-      const qs = [[`How many children chose ${fruits[1].toLowerCase()}?`, vals[1]], [`Which fruit was the most popular?`, fruits[mx]], [`Which fruit was the least popular?`, fruits[mn]],
-        [`How many more children chose ${fruits[mx].toLowerCase()} than ${fruits[mn].toLowerCase()}?`, vals[mx] - vals[mn]], [`How many children voted altogether?`, vals.reduce((a, b) => a + b, 0)]];
+      const qs = L.chartQs(fruits, vals, mx, mn);
       return { kind: 'chart', chart, items: qs.map(([q, a]) => ({ q: `${q} <span class="line"></span>`, a: String(a) })) }; } },
   // algebra
   { id: 'missing-number-problems', title: 'Missing number problems', topic: 'algebra-and-ratio', years: ['year-3', 'year-4', 'year-5', 'year-6'],
@@ -236,14 +280,14 @@ const SHEETS = [
     make: r => ({ kind: 'list', items: unique(24, () => { const t = r.int(0, 3); const a = r.int(2, 12), b = r.int(2, 12); return [t, a, b]; }, x => x.join()).map(([t, a, b]) => {
       if (t === 0) return { q: `${box} + ${a} = ${a + b + 10}`, a: String(b + 10) };
       if (t === 1) return { q: `${a + b + 10} − ${box} = ${a}`, a: String(b + 10) };
-      if (t === 2) return { q: `${a} × ${box} = ${a * b}`, a: String(b) };
-      return { q: `${box} ÷ ${a} = ${b}`, a: String(a * b) }; }) }) },
+      if (t === 2) return { q: `${a} ${L.mul} ${box} = ${a * b}`, a: String(b) };
+      return { q: `${box} ${L.div} ${a} = ${b}`, a: String(a * b) }; }) }) },
 ];
 
 // ---------- page layout ----------
-const yearsLabel = ys => { const n = { reception: 'Reception', 'year-1': 'Year 1', 'year-2': 'Year 2', 'year-3': 'Year 3', 'year-4': 'Year 4', 'year-5': 'Year 5', 'year-6': 'Year 6' }; return ys.length > 2 ? `${n[ys[0]]} to ${n[ys[ys.length - 1]]}` : ys.map(y => n[y]).join(' and '); };
+const yearsLabel = ys => L.yearsLabel(ys, L.years);
 const header = (title, sub, happy) => `<header><img class="icon" src="${ICON}" alt=""><div class="brand"><div class="name">Beequation <span>Kids</span></div><h1>${title}</h1></div><div class="sub">${sub}</div>${indie('indie', happy)}</header>`;
-const footer = `<footer><span class="dots"><i></i><i></i><i></i></span><span>Free to copy for home and classroom use. More worksheets at <b>beequation.com/learn</b></span><span class="c">© ${YEAR} Trett Labs Limited</span></footer>`;
+const footer = `<footer><span class="dots"><i></i><i></i><i></i></span><span>${L.footer}</span><span class="c">© ${YEAR} Trett Labs Limited</span></footer>`;
 
 function render(s) {
   const r = rng('ws-' + s.id), { kind, items, chart } = s.make(r), sub = yearsLabel(s.years);
@@ -253,10 +297,10 @@ function render(s) {
   const as = kind === 'whole' ? `<div class="whole">${items[0].a}</div>`
     : `<ol class="alist" style="columns:${kind === 'cards' && items[0].a.length > 14 ? 2 : 3}">${items.map(it => `<li>${it.a}</li>`).join('')}</ol>`;
   return `<section class="page">${header(s.title, sub, false)}<p class="how">${s.how}</p>
-    <div class="fields"><span>Name</span><span>Date</span></div>${qs}
-    <div class="tipbar">${indie('mini')}<p><b>Indie's tip:</b> ${s.tip}</p></div>${footer}</section>
-    <section class="page">${header('Answers', s.title, true)}<div class="answers">${as}</div>
-    <div class="promo"><img class="icon" src="${ICON}" alt=""><p><b>Practise with Indie.</b> Play free honeycomb number puzzles at beequation.com, or look for Beequation Kids on your phone or tablet: no ads, no tracking, no timers.</p></div>${footer}</section>`;
+    <div class="fields"><span>${L.name}</span><span>${L.date}</span></div>${qs}
+    <div class="tipbar">${indie('mini')}<p><b>${L.tip}</b> ${s.tip}</p></div>${footer}</section>
+    <section class="page">${header(L.answers, s.title, true)}<div class="answers">${as}</div>
+    <div class="promo"><img class="icon" src="${ICON}" alt=""><p>${L.promo}</p></div>${footer}</section>`;
 }
 
 const css = `
@@ -316,13 +360,16 @@ const css = `
 `;
 
 // ---------- build ----------
+// a language uses the sheets its worksheets.mjs lists, with its own words (and its school years)
+const USED = LANG === 'en' ? SHEETS : SHEETS.filter(s => LOC.sheets && LOC.sheets[s.id]).map(s => ({ ...s, ...LOC.sheets[s.id] }));
 fs.mkdirSync(OUT, { recursive: true });
-const browser = await puppeteer.launch({ executablePath: CHROME, headless: true });
-const page = await browser.newPage();
-const todo = SHEETS.filter(s => !ONLY.length || ONLY.includes(s.id));
+const browser = HTML_ONLY ? null : await puppeteer.launch({ executablePath: CHROME, headless: true });
+const page = HTML_ONLY ? null : await browser.newPage();
+const todo = USED.filter(s => !ONLY.length || ONLY.includes(s.id));
 for (const s of todo) {
-  const html = `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>${s.title} worksheet: Beequation Kids</title><style>${css}</style></head><body>${render(s)}</body></html>`;
+  const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${L.titleTag(s.title)}</title><style>${css}</style></head><body>${render(s)}</body></html>`;
   if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}.html`), html);   // for checking the answer pages
+  if (HTML_ONLY) { console.log(s.id); continue; }
   await page.setContent(html, { waitUntil: 'load' });
   await page.evaluateHandle('document.fonts.ready');
   await page.pdf({ path: path.join(OUT, `${s.id}.pdf`), format: 'A4', printBackground: true, margin: { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
@@ -336,7 +383,7 @@ for (const s of todo) {
   fs.unlinkSync(png);
   console.log(s.id);
 }
-await browser.close();
-const manifest = SHEETS.map(({ id, title, topic, years, desc }) => ({ id, title, topic, years, desc }));
-fs.writeFileSync(path.join(ROOT, 'learn-src', 'worksheets.json'), JSON.stringify(manifest, null, 1) + '\n');
+if (browser) await browser.close();
+const manifest = USED.map(({ id, title, topic, years, desc }) => ({ id, title, topic, years, desc }));
+if (!HTML_ONLY) fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1) + '\n');
 console.log(`${todo.length} worksheets, manifest has ${manifest.length}`);

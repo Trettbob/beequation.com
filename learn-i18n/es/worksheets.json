@@ -1,0 +1,271 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Series hasta el 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-primaria",
+   "2-primaria"
+  ],
+  "desc": "Cuenta de 1 en 1, de 2 en 2, de 5 en 5 y de 10 en 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Decenas y unidades",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-primaria",
+   "2-primaria"
+  ],
+  "desc": "Descompón números de dos cifras"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Centenas, decenas y unidades",
+  "topic": "counting-and-place-value",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Valor posicional hasta el 999"
+ },
+ {
+  "id": "rounding",
+  "title": "Redondear números",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-primaria",
+   "4-primaria"
+  ],
+  "desc": "A la decena, a la centena y al millar"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Los amigos del 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "infantil-5-anos",
+   "1-primaria"
+  ],
+  "desc": "Parejas de números que suman 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Los amigos del 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-primaria",
+   "2-primaria"
+  ],
+  "desc": "Parejas de números que suman 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Sumas y restas hasta el 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-primaria",
+   "2-primaria"
+  ],
+  "desc": "Sumas y restas mezcladas hasta el 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Sumas llevando",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Números de tres cifras, en vertical"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Restas llevando",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Números de tres cifras, en vertical"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Tablas del 2, del 5 y del 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Multiplicaciones salteadas"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Tablas del 3, del 4 y del 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Multiplicaciones salteadas"
+ },
+ {
+  "id": "division-facts",
+  "title": "Divisiones con las tablas",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-primaria",
+   "4-primaria"
+  ],
+  "desc": "Usa las tablas para dividir"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Multiplicar por una cifra",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-primaria",
+   "4-primaria"
+  ],
+  "desc": "Números de tres cifras, en vertical"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "¿Qué fracción está coloreada?",
+  "topic": "fractions",
+  "years": [
+   "3-primaria",
+   "4-primaria"
+  ],
+  "desc": "Medios, tercios, cuartos y más"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Fracción de una cantidad",
+  "topic": "fractions",
+  "years": [
+   "4-primaria",
+   "5-primaria"
+  ],
+  "desc": "Como ½ de 12 o ¾ de 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Fracciones equivalentes",
+  "topic": "fractions",
+  "years": [
+   "4-primaria",
+   "5-primaria"
+  ],
+  "desc": "Encuentra el número que falta"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Décimas y centésimas",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "4-primaria",
+   "5-primaria"
+  ],
+  "desc": "De fracción a número decimal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Porcentaje de una cantidad",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-primaria",
+   "6-primaria"
+  ],
+  "desc": "10 %, 25 %, 50 % y más"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "La hora en punto y la hora y media",
+  "topic": "telling-the-time",
+  "years": [
+   "1-primaria"
+  ],
+  "desc": "Lee los relojes"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Y cuarto y menos cuarto",
+  "topic": "telling-the-time",
+  "years": [
+   "2-primaria"
+  ],
+  "desc": "Lee los relojes"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "La hora de 5 en 5 minutos",
+  "topic": "telling-the-time",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Lee los relojes"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Contar monedas",
+  "topic": "money",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Suma monedas de céntimo"
+ },
+ {
+  "id": "giving-change",
+  "title": "¿Cuánto te devuelven?",
+  "topic": "money",
+  "years": [
+   "3-primaria",
+   "4-primaria"
+  ],
+  "desc": "Pagando con 1 €, 2 € y 5 €"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Perímetro y área",
+  "topic": "measurement",
+  "years": [
+   "4-primaria",
+   "5-primaria"
+  ],
+  "desc": "Rectángulos en una cuadrícula de centímetros"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Figuras planas",
+  "topic": "shape-and-geometry",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Nombres, lados y vértices"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Leer un diagrama de barras",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-primaria",
+   "3-primaria"
+  ],
+  "desc": "Encuesta de la fruta favorita"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "El número que falta",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "4-primaria",
+   "5-primaria",
+   "6-primaria"
+  ],
+  "desc": "Descubre el número del recuadro"
+ }
+]

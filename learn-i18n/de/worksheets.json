@@ -1,0 +1,253 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Zahlenfolgen bis 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasse-2"
+  ],
+  "desc": "In Einer-, Zweier-, Fünfer- und Zehnerschritten"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Zehner und Einer",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasse-2"
+  ],
+  "desc": "Zweistellige Zahlen zerlegen"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Hunderter, Zehner und Einer",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasse-3"
+  ],
+  "desc": "Stellenwerte bis 1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Runden",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasse-4",
+   "klasse-5"
+  ],
+  "desc": "Auf Zehner, Hunderter und Tausender runden"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Zerlegungen der 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "vorschule",
+   "klasse-1"
+  ],
+  "desc": "Verliebte Zahlen: Welche zwei Zahlen ergeben 10?"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Zerlegungen der 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasse-1"
+  ],
+  "desc": "Welche zwei Zahlen ergeben 20?"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Plus und Minus bis 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasse-1"
+  ],
+  "desc": "Gemischte Aufgaben im Zahlenraum bis 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Schriftlich addieren",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasse-3",
+   "klasse-4"
+  ],
+  "desc": "Dreistellige Zahlen, mit Übertrag"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Schriftlich subtrahieren",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasse-3",
+   "klasse-4"
+  ],
+  "desc": "Dreistellige Zahlen untereinander"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Zweier-, Fünfer- und Zehnerreihe",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasse-2",
+   "klasse-3"
+  ],
+  "desc": "Gemischte Malaufgaben, mit Extra-Aufgaben bis 12"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Dreier-, Vierer- und Achterreihe",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasse-2",
+   "klasse-3"
+  ],
+  "desc": "Gemischte Malaufgaben, mit Extra-Aufgaben bis 12"
+ },
+ {
+  "id": "division-facts",
+  "title": "Geteiltaufgaben",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasse-3",
+   "klasse-4"
+  ],
+  "desc": "Mit dem Einmaleins teilen, dazu Extra-Aufgaben bis 144 : 12"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Welcher Bruchteil ist gefärbt?",
+  "topic": "fractions",
+  "years": [
+   "klasse-5",
+   "klasse-6"
+  ],
+  "desc": "Hälften, Drittel, Viertel und mehr"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Bruchteile von Zahlen",
+  "topic": "fractions",
+  "years": [
+   "klasse-5",
+   "klasse-6"
+  ],
+  "desc": "Zum Beispiel ½ von 12 und ¾ von 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Brüche erweitern",
+  "topic": "fractions",
+  "years": [
+   "klasse-5",
+   "klasse-6"
+  ],
+  "desc": "Gleichwertige Brüche: Finde die fehlende Zahl"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Zehntel und Hundertstel",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "klasse-6"
+  ],
+  "desc": "Brüche als Dezimalzahlen schreiben"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Prozent von Zahlen",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "klasse-6"
+  ],
+  "desc": "10 %, 25 %, 50 % und mehr"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Volle und halbe Stunden",
+  "topic": "telling-the-time",
+  "years": [
+   "klasse-1"
+  ],
+  "desc": "Die Uhr lesen"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Viertel nach und Viertel vor",
+  "topic": "telling-the-time",
+  "years": [
+   "klasse-2"
+  ],
+  "desc": "Die Uhr lesen"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Uhrzeit auf 5 Minuten genau",
+  "topic": "telling-the-time",
+  "years": [
+   "klasse-2",
+   "klasse-3"
+  ],
+  "desc": "Die Uhr lesen"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Münzen zählen",
+  "topic": "money",
+  "years": [
+   "klasse-2",
+   "klasse-3"
+  ],
+  "desc": "Euro-Münzen zusammenzählen"
+ },
+ {
+  "id": "giving-change",
+  "title": "Rückgeld berechnen",
+  "topic": "money",
+  "years": [
+   "klasse-3"
+  ],
+  "desc": "Rückgeld von 1 €, 2 € und 5 €"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Umfang und Flächeninhalt",
+  "topic": "measurement",
+  "years": [
+   "klasse-4",
+   "klasse-5"
+  ],
+  "desc": "Rechtecke im Kästchenraster"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Formen erkennen",
+  "topic": "shape-and-geometry",
+  "years": [
+   "klasse-1",
+   "klasse-2"
+  ],
+  "desc": "Namen, Seiten und Ecken"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Ein Säulendiagramm lesen",
+  "topic": "data-and-graphs",
+  "years": [
+   "klasse-2",
+   "klasse-3"
+  ],
+  "desc": "Umfrage: Lieblingsobst"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Platzhalteraufgaben",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "klasse-3",
+   "klasse-4",
+   "klasse-5"
+  ],
+  "desc": "Finde die Zahl im Kästchen"
+ }
+]
