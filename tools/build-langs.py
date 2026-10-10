@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Builds the French, Spanish, German and Portuguese sites (fr./es./de./pt.beequation.com) from the English pages.
+"""Builds the translated sites (<lang>.beequation.com, one per i18n/<lang>.json) from the English pages.
 
   python3 tools/build-langs.py            update the English pages' language menu, then build dist/<lang>/
   python3 tools/build-langs.py --check    only report text that has no translation yet
+  python3 tools/build-langs.py --lang ja  build only dist/ja/ (the English pages are still updated)
+  python3 tools/build-langs.py --live     print the live language codes (LIVE below), for publish-langs.sh
 
 The English pages in this repo are the source. Translations live in i18n/<lang>.json as English -> translation
 pairs: the page title, meta/alt/aria text, the inner HTML of each text block, text-only links and the homepage
@@ -14,11 +16,15 @@ sys.path.insert(0, os.path.dirname(__file__))
 from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português'}
-HTML_LANG = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR'}
+LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
+         'it': 'Italiano', 'nl': 'Nederlands', 'pl': 'Polski', 'sv': 'Svenska', 'da': 'Dansk', 'no': 'Norsk', 'fi': 'Suomi',
+         'tr': 'Türkçe', 'ja': '日本語', 'ko': '한국어'}
+HTML_LANG = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR', 'it': 'it', 'nl': 'nl', 'pl': 'pl', 'sv': 'sv',
+             'da': 'da', 'no': 'nb', 'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko'}   # the subdomain is the key; 'no' is Norwegian Bokmål
 MAIN = 'https://beequation.com'
-# Languages whose subdomain is live (DNS added and HTTPS working). The English site only offers, links to and
-# switches to these; add a code here once its site loads over https, then rebuild and commit.
+# Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
+# these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
+# A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
 LIVE = {'fr', 'es', 'de', 'pt'}
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
 def url_path(page): return '/' if page == 'index.html' else '/' + page
@@ -34,7 +40,7 @@ MENU_CSS = ('.lang { position: relative; } .lang summary { list-style: none; cur
 def menu(lang, page, label):
     links = []
     for code, name in LANGS.items():
-        if lang == 'en' and code not in LIVE and code != 'en': continue
+        if code != 'en' and code not in LIVE and code != lang: continue
         path = url_path(page) if page in PAGES else '/'
         href = site(code) + path + ('?lang=en' if code == 'en' and lang != 'en' else '')
         cur = ' aria-current="true"' if code == lang else ''
@@ -42,18 +48,18 @@ def menu(lang, page, label):
     return (f'<!--lang-menu--><details class="lang"><summary aria-label="{label}">{lang.upper()}</summary>'
             f'<div class="langs">{"".join(links)}</div></details><!--/lang-menu-->')
 
-def alternates(page, live_only=False):
+def alternates(page, lang='en'):
     p = url_path(page)
-    tags = [f'<link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}{p}">' for c in LANGS if not live_only or c == 'en' or c in LIVE]
+    tags = [f'<link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}{p}">' for c in LANGS if c == 'en' or c in LIVE or c == lang]
     tags.append(f'<link rel="alternate" hreflang="x-default" href="{MAIN}{p}">')
     return '<!--hreflang-->\n' + '\n'.join(tags) + '\n<!--/hreflang-->'
 
 # English pages only: on a first visit, follow the browser's language if it's one of ours. A choice made in the
 # menu is remembered in this browser (localStorage, never sent anywhere). Search engines get English plus the
-# alternate links above, so nothing is hidden from them.
+# alternate links above, so nothing is hidden from them. Norwegian browsers say nb or nn; that site is no.
 REDIRECT = """<!--lang-redirect--><script>(function(){try{var L=['fr','es','de','pt'],k='bq-lang',q=new URLSearchParams(location.search).get('lang');
 if(q){if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem(k,q);return;}var s=localStorage.getItem(k);if(s==='en')return;var pick=L.indexOf(s)>=0?s:null;
-if(!pick){var ls=navigator.languages||[navigator.language||''];for(var i=0;i<ls.length;i++){var c=String(ls[i]).slice(0,2).toLowerCase();if(c==='en')return;if(L.indexOf(c)>=0){pick=c;break;}}}
+if(!pick){var ls=navigator.languages||[navigator.language||''];for(var i=0;i<ls.length;i++){var c=String(ls[i]).slice(0,2).toLowerCase();if(c==='nb'||c==='nn')c='no';if(c==='en')return;if(L.indexOf(c)>=0){pick=c;break;}}}
 if(pick)location.replace('https://'+pick+'.beequation.com'+location.pathname+location.hash);}catch(e){}})();</script><!--/lang-redirect-->"""
 REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->"""
 
@@ -148,8 +154,8 @@ later(12000+Math.random()*8000);peekLater(30000+Math.random()*20000);}catch(e){}
 SAY = {
   'en': {'fly': ["Catch me if you can!", "Hi! I'm Indie!", "Buzz buzz!", "Wheee!", "Maths is sweet!", "Can you spot the sum?", "7 + 3 = 10!"],
          'held': ["You caught me!", "Hee hee, that tickles!", "Good catch!", "Oh! Hello there!"], 'flip': ["Wheee!", "Loop the loop!", "Woo-hoo!"], 'peek': ["Peekaboo!", "Psst! Over here!", "Hello down there!", "Spot the sum!"], 'boo': ["Boo!", "Eek! Found me!"], 'pollen': ["Mmm, pollen!", "Sunflower snack!", "Yum!"], 'home': ["Home sweet hive!", "Honey time!"], 'free': ["Bye!", "Wheee!", "See you soon!"]},
-  'fr': {'fly': ["Attrape-moi si tu peux !", "Salut ! Je suis Indie !", "Bzz bzz !", "Youpi !", "Les maths, c'est trop bon !", "Tu vois la somme ?", "7 + 3 = 10 !"],
-         'held': ["Tu m'as attrapée !", "Hi hi, ça chatouille !", "Bien joué !", "Oh ! Bonjour !"], 'flip': ["Youpi !", "Looping !", "Hourra !"], 'peek': ["Coucou !", "Psst ! Par ici !", "Bonjour là-dessous !", "Trouve la somme !"], 'boo': ["Bouh !", "Oh ! Trouvée !"], 'pollen': ["Miam, du pollen !", "Un tournesol !", "Miam !"], 'home': ["Ma ruche !", "L’heure du miel !"], 'free': ["Au revoir !", "Youpi !", "À bientôt !"]},
+  'fr': {'fly': ["Attrape-moi si tu peux !", "Salut ! Je suis Indie !", "Bzz bzz !", "Youpi !", "Les maths, c'est trop bon !", "Tu vois la somme ?", "7 + 3 = 10 !"],
+         'held': ["Tu m'as attrapée !", "Hi hi, ça chatouille !", "Bien joué !", "Oh ! Bonjour !"], 'flip': ["Youpi !", "Looping !", "Hourra !"], 'peek': ["Coucou !", "Psst ! Par ici !", "Bonjour là-dessous !", "Trouve la somme !"], 'boo': ["Bouh !", "Oh ! Trouvée !"], 'pollen': ["Miam, du pollen !", "Un tournesol !", "Miam !"], 'home': ["Ma ruche !", "L’heure du miel !"], 'free': ["Au revoir !", "Youpi !", "À bientôt !"]},
   'es': {'fly': ["¡Atrápame si puedes!", "¡Hola! ¡Soy Indie!", "¡Bzz bzz!", "¡Yupiii!", "¡Las mates son dulces!", "¿Ves la suma?", "¡7 + 3 = 10!"],
          'held': ["¡Me atrapaste!", "¡Ji, ji, me haces cosquillas!", "¡Buena captura!", "¡Oh! ¡Hola!"], 'flip': ["¡Yupiii!", "¡Una voltereta!", "¡Hurra!"], 'peek': ["¡Cucú!", "¡Psst! ¡Aquí!", "¡Hola ahí abajo!", "¡Busca la suma!"], 'boo': ["¡Bu!", "¡Ay! ¡Me encontraste!"], 'pollen': ["¡Mmm, polen!", "¡Un girasol!", "¡Ñam!"], 'home': ["¡Hogar, dulce colmena!", "¡Hora de la miel!"], 'free': ["¡Adiós!", "¡Yupiii!", "¡Hasta pronto!"]},
   'de': {'fly': ["Fang mich doch!", "Hallo! Ich bin Indie!", "Summ summ!", "Juhuuu!", "Mathe ist süß!", "Siehst du die Summe?", "7 + 3 = 10!"],
@@ -169,7 +175,7 @@ EMAIL = """<!--em--><script>document.querySelectorAll('a.em[data-e]').forEach(fu
 # the language scripts check bq-consent). The privacy page has a button (data-bq-consent) to show the notice again.
 CONSENT_TEXT = {
   'en': ["Indie's note about cookies", "Good news: this site doesn't use cookies, ads or tracking (the only cookies here are the ones I dream about). If you play the free game or pick a language, your browser can remember that on this device. Nothing is ever sent to us.", "Sounds good!", "Don't remember anything", "Privacy policy"],
-  'fr': ["Le petit mot d'Indie sur les cookies", "Bonne nouvelle : ce site n'utilise ni cookies, ni publicité, ni pistage (les seuls cookies ici sont ceux dont je rêve). Si vous jouez au jeu gratuit ou choisissez une langue, votre navigateur peut s'en souvenir sur cet appareil. Rien ne nous est jamais envoyé.", "Très bien !", "Ne rien mémoriser", "Politique de confidentialité"],
+  'fr': ["Le petit mot d'Indie sur les cookies", "Bonne nouvelle : ce site n'utilise ni cookies, ni publicité, ni pistage (les seuls cookies ici sont ceux dont je rêve). Si vous jouez au jeu gratuit ou choisissez une langue, votre navigateur peut s'en souvenir sur cet appareil. Rien ne nous est jamais envoyé.", "Très bien !", "Ne rien mémoriser", "Politique de confidentialité"],
   'es': ["La nota de Indie sobre las cookies", "Buenas noticias: este sitio no usa cookies, anuncios ni rastreo (las únicas galletas aquí son las que yo sueño). Si juegas al juego gratis o eliges un idioma, tu navegador puede recordarlo en este dispositivo. Nunca se nos envía nada.", "¡Perfecto!", "No recordar nada", "Política de privacidad"],
   'de': ["Indies Hinweis zu Cookies", "Gute Nachricht: Diese Website verwendet keine Cookies, keine Werbung und kein Tracking (die einzigen Kekse hier sind die, von denen ich träume). Wenn Sie das kostenlose Spiel spielen oder eine Sprache wählen, kann sich Ihr Browser das auf diesem Gerät merken. Es wird nie etwas an uns gesendet.", "Alles klar!", "Nichts speichern", "Datenschutzerklärung"],
   'pt': ["O recado da Indie sobre cookies", "Boa notícia: este site não usa cookies, anúncios nem rastreamento (os únicos biscoitos aqui são os dos meus sonhos). Se você jogar o jogo grátis ou escolher um idioma, seu navegador pode lembrar disso neste aparelho. Nada é enviado para nós.", "Tudo bem!", "Não lembrar nada", "Política de privacidade"],
@@ -232,6 +238,15 @@ document.addEventListener('click',function(e){if(!w.contains(e.target))set(false
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&w.classList.contains('open')){set(false);h.focus();}});
 function sc(){w.classList.toggle('scrolled',scrollY>4);}addEventListener('scroll',sc,{passive:true});sc();})();</script><!--/nav-->"""
 
+_SITE = {}
+def site_text(lang, key, table):
+    """A per-language snippet (say, consent, menu, skip): from the tables above, or i18n/<lang>.json \"__site__\"."""
+    if lang in table: return table[lang]
+    if lang not in _SITE:
+        f = os.path.join(ROOT, 'i18n', f'{lang}.json')
+        _SITE[lang] = json.load(open(f, encoding='utf-8')).get('__site__', {}) if os.path.exists(f) else {}
+    return _SITE[lang].get(key, table['en'])
+
 def strip_markers(s):
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'skip'):
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
@@ -245,15 +260,15 @@ def chrome(src, lang, page, label='Language'):
     if offer:
         s = s.replace('</nav>', menu(lang, page, label) + '</nav>', 1)
     if page in PAGES and offer:
-        s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang == 'en'), 1)
+        s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
     if '<main' in s:
         s = re.sub(r'<main(?![^>]*\bid=)([^>]*)>', r'<main id="main"\1>', s, count=1)
         mid = re.search(r'<main[^>]*\bid="([^"]+)"', s).group(1)
-        s = s.replace('<body>', '<body>\n' + SKIP.replace('__SKIP__', SKIP_LABEL[lang]).replace('#main', '#' + mid), 1)
-    if '<nav class="top"' in s: s = s.replace('</body>', NAV.replace('__MENU__', MENU_LABEL[lang]) + '\n</body>', 1)
+        s = s.replace('<body>', '<body>\n' + SKIP.replace('__SKIP__', site_text(lang, 'skip', SKIP_LABEL)).replace('#main', '#' + mid), 1)
+    if '<nav class="top"' in s: s = s.replace('</body>', NAV.replace('__MENU__', site_text(lang, 'menu', MENU_LABEL)) + '\n</body>', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
-    s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(CONSENT_TEXT[lang], ensure_ascii=False)) + '\n</body>', 1)
-    s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(SAY[lang], ensure_ascii=False)) + '\n</body>', 1)
+    s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)) + '\n</body>', 1)
+    s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
     if lang == 'en':
         if page in PAGES and LIVE:
             s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + REDIRECT.replace("var L=['fr','es','de','pt']", 'var L=' + json.dumps(sorted(LIVE))), 1)
@@ -316,7 +331,10 @@ def localise(s, lang, page):
 
 def build(check_only=False):
     problems = 0
-    for lang in [l for l in LANGS if l != 'en']:
+    only = sys.argv[sys.argv.index('--lang') + 1] if '--lang' in sys.argv else None
+    for lang in [l for l in LANGS if l != 'en' and (only is None or l == only)]:
+        if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
+            continue   # not translated yet
         T = json.load(open(os.path.join(ROOT, 'i18n', f'{lang}.json'), encoding='utf-8'))
         out = os.path.join(ROOT, 'dist', lang)
         if not check_only:
@@ -338,6 +356,8 @@ def build(check_only=False):
     return problems
 
 if __name__ == '__main__':
+    if '--live' in sys.argv:
+        print(' '.join(sorted(LIVE))); sys.exit(0)
     check = '--check' in sys.argv
     if not check: update_english()
     n = build(check)
