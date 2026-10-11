@@ -1,0 +1,338 @@
+{
+ "years": [
+  {
+   "slug": "nencho",
+   "name": "年長",
+   "age": "5〜6",
+   "english_equivalent": "Reception (by age it matches Year 1; the last, non-compulsory pre-school year at 幼稚園・保育所・認定こども園, with no formal maths)"
+  },
+  {
+   "slug": "1-nensei",
+   "name": "小学1年生",
+   "age": "6〜7",
+   "english_equivalent": "Year 1 / Year 2 (Year 2 by age; content close to Year 1–2)"
+  },
+  {
+   "slug": "2-nensei",
+   "name": "小学2年生",
+   "age": "7〜8",
+   "english_equivalent": "Year 2 / Year 3 (Year 3 by age; 九九 covers the Year 2–4 tables)"
+  },
+  {
+   "slug": "3-nensei",
+   "name": "小学3年生",
+   "age": "8〜9",
+   "english_equivalent": "Year 3 / Year 4"
+  },
+  {
+   "slug": "4-nensei",
+   "name": "小学4年生",
+   "age": "9〜10",
+   "english_equivalent": "Year 4 / Year 5"
+  },
+  {
+   "slug": "5-nensei",
+   "name": "小学5年生",
+   "age": "10〜11",
+   "english_equivalent": "Year 5 / Year 6"
+  },
+  {
+   "slug": "6-nensei",
+   "name": "小学6年生",
+   "age": "11〜12",
+   "english_equivalent": "Year 6 / Year 7 (end of 小学校)"
+  }
+ ],
+ "address": "Polite です・ます throughout, matching our site (i18n/ja.json), the Japanese store listings and the grown-up parts of the apps (apps/kids/src/i18n/ja.ts: 'おうちのかたへ', 'お子さま'). Parents are '保護者の方' in headings and formal mentions and 'おうちの方' when warm; the child is 'お子さま', children in general '子ども' / '子どもたち'. Never 'あなた': leave the subject out ('〜してみてください', '〜するとよいでしょう'). Teachers are '先生方', pupils '児童' / '子どもたち'. Indie (インディ, 'ミツバチのインディ') speaks casually and warmly as in the app ('〜だよ', '〜してね', '〜かな？') but with normal kanji; <tip> boxes use the plain polite adult voice. Tone: a 担任の先生 talking to a parent at 個人面談; no '簡単', 'すぐ', 'だけ'; praise effort and use 'まだ' (not yet). Full-width 、。「」（）, half-width digits, spaces around + − × ÷ = in sums, no emoji. Operation names as in textbooks: たし算, ひき算, かけ算, わり算.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Japanese names and glyphs from site.json (money glyph ¥), the 7 years (年長, 小学1年生–6年生, ages from site.json, short 年長 and 1–6), 保護者の方へ / 先生向け / プリント / 算数用語集, and popular guides (the four older articles). Intro: '年長から小学6年生まで', written for Japan's 学習指導要領 (2017告示, 2020年度から全面実施); です・ます. Example blurbs with Japanese content: 年長: かずあそび・いくつといくつ; 1年: 100までの数とくり上がりのあるたし算; 2年: 筆算と九九; 3年: わり算・小数・分数のはじまり; 4年: わり算の筆算・億と兆・面積; 5年: 割合・百分率・小数のかけ算わり算; 6年: 分数のかけ算わり算・比・全国学力・学習状況調査. No SATs, no England."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub (単元) with the 12 Japanese topic names. 'Where to start, by age' becomes '学年別のはじめどころ' using 年長, 低学年 (1–2年), 中学年 (3–4年), 高学年 (5–6年). Explain briefly that the 学習指導要領 groups 算数 into four 領域: A 数と計算, B 図形, C 測定 (1–3年) / C 変化と関係 (4–6年), D データの活用, and that our 12 topics map onto them. Note that money is a context in 算数 and a 家庭科 topic in 5–6年."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "数と位取り. Year table per BRIEF: 年長 counting in play and digits; 1年 to 100 (and about 120), 十のまとまり, 一の位・十の位, 数直線; 2年 4位数 and 1万 (十進位取り記数法); 3年 万の単位 and 1億, 10倍・100倍・1/10; 4年 億・兆, 概数・四捨五入, 以上・以下・未満; 5年 偶数・奇数, 約数・倍数 (cross-link multiplication page). Explain the four-digit grouping 万・億・兆 vs the three-digit comma (4年 内容の取扱い), 12,345,678 = 1234万5678, '10億' for a billion. Materials: 算数セットのブロック, 数え棒 in bundles of 10, 位取り表, 100玉そろばん, そろばん (3–4年), お金 as a model. Notation: no separator up to 9999. No negative numbers (中1), no Roman numerals."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "たし算とひき算. 1年: いくつといくつ (number bonds to 10), あといくつで10, 1位数+1位数 and inverse (sums to 18), くり上がり with さくらんぼ計算 (8 + 5: 加数分解) and くり下がり with 減加法 (13 − 9) and 減減法; 3つの数の計算; 文章題 (ふえると・のこりは・ちがいは). 2年: 筆算 of 2-digit numbers, simple 3-digit; 交換法則・結合法則; ( ) and □. 3年: 3–4-digit 筆算 and 暗算. 4年+: decimals; 5年: 異分母の分数. Use the BRIEF worked examples (347 + 285 = 632 with くり上がり; 532 − 178 = 354 with くり下がり, small digits above; 304 − 127 = 177 as the zero trap) and たしかめ算. Terms: たされる数・たす数・和, ひかれる数・ひく数・差. テープ図 for word problems. Advice: say the steps aloud the way the class does. No 'exchange' jargon from England."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "かけ算とわり算. 2年: meaning of かけ算 (1つ分の数 × いくつ分), 九九 1 × 1 to 9 × 9 (no 10–12 tables), 段 by 段, the reciting forms (ににんがし, さざんがく, しちしちしじゅうく), 九九表 patterns (the answer grows by the 段 number; 交換法則), 九九カード, 暗唱チェック in class (not a national test). Mention gently that many classes teach the order 1つ分 × いくつ分 in 文章題 and parents should ask the teacher before 'correcting'. 3年: かけ算の筆算 (234 × 23 = 5382, partial product shifted without writing 0), わり算 (等分除・包含除), あまりのあるわり算 (23 ÷ 4 = 5 あまり 3), ×0. 4年: わり算の筆算 with 1- and 2-digit divisors, quotient on top, 'たてる・かける・ひく・おろす' (857 ÷ 4 = 214 あまり 1; check 4 × 214 + 1 = 857), 仮の商. 5年: 小数のかけ算・わり算, 約数・倍数, 最大公約数・最小公倍数 (no primes: 中1). 6年: 分数 × ÷ (link fractions). Signs × and ÷. No bus stop, grid method, chunking or MTC."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "分数. Japan's sequence: 2年 simple fractions by folding ('½や⅓、¼などの簡単な分数'; the 学習指導要領 names ½ and ⅓); 3年 分数 with 分母・分子, 単位分数の幾つ分, same-denominator ± (⅖ + ⅕ = ⅗), 0.1 = ⅒ on a 数直線; 4年 真分数・仮分数・帯分数, 大きさの等しい分数, same-denominator ± incl. 帯分数; 5年 約分・通分, 異分母 ±, a division as a fraction (2 ÷ 3 = ⅔), fractions ↔ decimals; 6年 分数のかけ算・わり算, 逆数. Reading: denominator first ('3分の2'); first mention as '3分の2（⅔）'; never write 2/3 in running text (date). Contexts: ホールケーキ, ピザ, カステラ, のり巻き, 折り紙 folding, テープ. Keep SVG captions in Japanese."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "小数と割合. Decimal point '.' (2.5 'にてんご'). 3年 小数 and the 1/10の位 (0.1の位), ± to tenths, linked to dL and cm/mm (1.5 L = 15 dL); 4年 1/100 and 1/1000 positions, ±, × and ÷ by whole numbers, integer ÷ integer with a decimal quotient, simple 割合 (何倍); 5年 小数 × ÷ 小数, moving the decimal point (×10, ×100, 1/10), 割合 (くらべる量 ÷ もとにする量), 百分率 (%) and 歩合 (割・分・厘), 単位量あたり; 6年 比 cross-link. Contexts: '3割引', '20%オフ', 消費税 10% (5–6年 only), 果汁100%, 降水確率. Mention that 割合 is a well-known hard unit and that classes use テープ図 / 数直線 / 'く・も・わ' diagrams differently (ask the teacher). '25%' without a space."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "時計の読み方 (時刻と時間). 1年 '日常生活の中で時刻を読むこと' (textbooks: なんじ, なんじはん, then なんじなんぷん); 2年 日・時・分 and their relations (1日 = 24時間, 1時間 = 60分), 午前・午後, 正午; 3年 秒, finding times and durations ('9時40分から30分後は10時10分'); 5年 速さ (link algebra-and-ratio). Japanese phrasing: 3時, 3時15分, 3時半 / 3時30分, 3時45分 (also 4時15分前), minutes counted, no 'quarter past'. The ふん/ぷん readings and 4時 'よじ', 9時 'くじ'. 24-hour time in timetables and digital clocks ('15:30 は 午後3時30分'), 正午 and 夜の12時 confusion. School-day contexts (登校 8:15, 給食 12:20, 下校 15:10). Calendars that start on Sunday."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "お金の計算. Say clearly that money is not a separate 算数 unit: coins are used as models and contexts in 算数 (big numbers, 文章題, 割合), and shopping and money management are in 家庭科 5–6年 ('物や金銭の使い方と買物'). Coins 1, 5, 10, 50, 100, 500円 (5円 and 50円 have holes; 5円 shows its value only in kanji 五円) and notes 1000, 5000, 10000円 (2024 designs; leave out 2000円). Activities: counting coins, making 300円 different ways, おつり (500円 − 380円 = 120円, counting up), 遠足のおやつは300円まで, おこづかい and おこづかい帳, お年玉, 駄菓子屋, comparing prices and 'どちらがお得？' (単位量あたり, 5年), 割引 and 消費税 in 5–6年. Format '120円', '1,280円'; ¥ only as the glyph. No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "長さ・かさ・重さ. 1年 direct and indirect comparison and non-standard units (えんぴつ何本分, ます目いくつ分); 2年 mm, cm, m and mL, dL, L (1 L = 10 dL, 1 dL = 100 mL: the dL is very Japanese; 牛乳パック 1 L, 給食の牛乳 200 mL); 3年 km, g, kg, touching t and the prefixes キロ・ミリ, 台ばかり; 4年 面積 (cm², m², km², a, ha; 長方形 = たて × 横) and 角度 (度, 分度器); 5年 体積 (cm³, m³, 1 L = 1000 cm³) and the area formulas of triangles, parallelograms, rhombuses, trapeziums; 6年 円の面積 (半径 × 半径 × 3.14) and volume of prisms and cylinders. Litre written L (capital). Contexts: 身長・体重, 50 m走, ペットボトル, お米 5 kg. Temperatures in °C. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "図形. 1年 かたち (はこ・つつ・ボールのかたち; さんかく・しかく・まる), 色板 shapes, position words 前後・左右・上下; 2年 三角形・四角形, 正方形・長方形・直角三角形, 直線・直角・頂点・辺・面, boxes; 3年 二等辺三角形・正三角形, 角, 円 (中心・半径・直径) and 球, compass; 4年 平行・垂直, 平行四辺形・ひし形・台形, 対角線, 立方体・直方体, 見取図・展開図, position with numbers, 角度 with 分度器; 5年 合同, 多角形 and 正多角形 (with programming), 三角形 angle sum 180°, 四角形 360°, 円周率 3.14, 角柱・円柱; 6年 拡大図・縮図, 線対称・点対称, およその面積, 円の面積. Indie's hexagon: honeycomb cells are 正六角形 (tiling without gaps), a natural hook. Tools: 三角定規, コンパス, 分度器, ます目ノート."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "表とグラフ (データの活用). 1年 絵グラフ (簡単な絵や図); 2年 簡単な表とグラフ (○ graphs); 3年 表 and 棒グラフ (scales of 2, 5, 20, 50; combined bar graphs); 4年 二次元の表 (two criteria), 折れ線グラフ (気温), no omissions or double counting; 5年 円グラフ・帯グラフ, 平均, statistical problem-solving cycle; 6年 代表値 (平均値・中央値・最頻値), ドットプロット, 度数分布表, 柱状グラフ, 起こり得る場合 (並べ方・組み合わせ). Tally with 正の字 (very Japanese). Contexts: 好きな給食アンケート, 図書室の本, 気温と降水量, 50 m走 times, けがの記録 (保健室: a classic 4年 二次元表 example)."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "式・比・比例 (式 + C 変化と関係). 1年 writing number sentences; 2年 ( ) and □; 3年 □ for unknowns (□ + 15 = 40); 4年 四則混合 and the order of operations, ( ), 公式, □ and △, two quantities that change together (表 and 式), simple 割合; 5年 簡単な比例, 単位量あたりの大きさ, 速さ (時速・分速・秒速), 割合 and 百分率; 6年 a and x (x × 4 = 60), 比 (2：3, 比の値, 等しい比), 比例 and 反比例 (表・式・グラフ). Keep to primary level: no equations with x on both sides, no negative numbers. Contexts: ドレッシングの酢と油の比, 本のページ数, 歩く速さ, 水そうに水を入れる時間."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "暗算. Official: 3年 and 4年 内容の取扱い ask that simple calculations can be done mentally ('簡単な計算は暗算でできるよう配慮する') and that 暗算 supports 筆算 and estimation (見積もり). Strategies with Japanese names: いくつといくつ, 10をつくる (さくらんぼ計算), 減加法・減減法, 何十・何百のまとまり (40 + 30 = 70 as 4 + 3), 分けて計算 (36 + 47), きりのいい数にして調整 (99 + 45), ×10・×100, 九九の活用, 2倍と半分. Japanese habits: 計算カード (1–2年 homework), 百ます計算 (some schools: phrase loosely), そろばん / 100玉そろばん. Link the older strategies article."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "学年 hub: '学年別の算数：年長から小学6年生まで'. Explain 幼稚園・保育所・認定こども園 (not compulsory, free for 3–5 since 2019), 小学校 6 years (低・中・高学年), compulsory from 1年 (born 2 April – 1 April; school year starts 1 April), 9 years of 義務教育 with 中学校. Table of years with ages. 'Key tests by year' becomes 'テストと評価': 単元テスト and 通知表 every year (観点別評価; 評定 from 3年), 九九の暗唱 in 2年 (class practice), 全国学力・学習状況調査 in 6年 (April), optional 中学受験. One national curriculum and approved textbooks (order varies by textbook)."
+  },
+  {
+   "rel": "years/nencho.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "年長 (5〜6歳). Last pre-school year (年少・年中・年長; 5歳児クラス in 保育所). Not compulsory but almost universal; no maths subject, textbook or test. Official: 幼稚園教育要領 「環境」 '日常生活の中で数量や図形などに関心をもつ', learning through play and the child's own need, and the end-of-pre-school picture '数量や図形，標識や文字などへの関心・感覚'. Usual practice (say 'よく'): counting objects to 10 and reciting further (おふろで100まで), digits 0–9, いくつといくつ with fingers, sharing おやつ equally, comparing, まる・さんかく・しかく, 何時 on the clock, 曜日 and calendars, おみせやさんごっこ. Getting ready for 1年: 就学時健康診断, 算数セット and 名前つけ, 幼保小の架け橋プログラム; don't push drills. Challenge at that level (counting/sharing). Worksheets year='nencho'. Next: 1年."
+  },
+  {
+   "rel": "years/1-nensei.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "小学1年生 (6〜7歳), first year of 小学校 and 義務教育; 算数 about 4 lessons a week (136 hours). Official 1年 content per BRIEF: 2-digit numbers (and simple 3-digit), 十のまとまり, 数直線, 1位数 + 1位数 and the inverse subtraction 'reliably' (くり上がり・くり下がり), simple 2-digit cases, かたち and position words, comparing length/area/capacity directly and with non-standard units, reading the clock, 絵グラフ; 〔用語・記号〕 一の位 十の位 + − =. Usual practice: いくつといくつ, さくらんぼ計算, 減加法, 計算カード homework, 100 and 120, なんじ・なんじはん・なんじなんぷん, 3つの数の計算, 文章題 with 'しき' and 'こたえ'. No 筆算 yet. No tests besides 単元テスト; 通知表 観点 only. Checklist, vocabulary table. Prev: 年長; next: 2年."
+  },
+  {
+   "rel": "years/2-nensei.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "小学2年生 (7〜8歳). 4位数 and 1万, 十や百を単位, たし算・ひき算の筆算 (2-digit, simple 3-digit), 交換・結合法則, ( ) and □; かけ算 and 九九 (all of 1 × 1 to 9 × 9, usually 2学期, 段 by 段, 暗唱チェック), simple 2-digit × 1-digit; simple fractions (½, ⅓, ¼ by folding paper or tape); 三角形・四角形, 正方形・長方形・直角三角形, boxes; mm, cm, m and mL, dL, L; 日・時・分, 午前・午後, 1日 = 24時間; 簡単な表とグラフ; 〔用語・記号〕 直線 直角 頂点 辺 面 単位 × > <. A full section on how to support 九九 at home (listening to the recital, 九九カード, patterns, not only speed). No division yet. Prev 1年, next 3年."
+  },
+  {
+   "rel": "years/3-nensei.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "小学3年生 (8〜9歳), start of 中学年. 万の単位 and 1億; 3–4-digit 筆算 and 暗算; かけ算の筆算 (2–3-digit × 1–2-digit), ×0; わり算 (meaning, あまり, one 九九 fact; simple 2-digit quotients); 小数 to the 1/10の位 and ±; 分数 (分母・分子, 単位分数, simple same-denominator ±); □ for unknowns; そろばん; 二等辺三角形・正三角形, 角, 円と球 (中心・半径・直径), compass; km, g, kg (t), prefixes k and m; 秒 and finding times and durations; 表 and 棒グラフ; 〔用語・記号〕 等号 不等号 小数点 数直線 分母 分子 ÷. No national test. Prev 2年, next 4年."
+  },
+  {
+   "rel": "years/4-nensei.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "小学4年生 (9〜10歳). 億・兆 (and the three-digit comma), 概数・四捨五入・見積もり, わり算の筆算 with 1- and 2-digit divisors (たてる・かける・ひく・おろす; 仮の商; 被除数 = 除数 × 商 + あまり), decimals (1/100 and beyond, ±, × ÷ whole numbers), 真分数・仮分数・帯分数, 大きさの等しい分数, same-denominator ±, 四則混合 and ( ), 公式, □△, そろばん; 平行・垂直, 平行四辺形・ひし形・台形, 対角線, 立方体・直方体, 展開図, position; 面積 (cm², m², km², a, ha), 角度 (分度器); 変化と関係 with 折れ線グラフ, simple 割合; 二次元の表; 〔用語〕 和 差 積 商 以上 以下 未満. Tip on the わり算の筆算 being the big hurdle of the year. No national test. Prev 3年, next 5年."
+  },
+  {
+   "rel": "years/5-nensei.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "小学5年生 (10〜11歳), start of 高学年. 偶数・奇数, 約数・倍数 (最大公約数・最小公倍数 in context), moving the decimal point, 小数 × ÷ 小数 (and the remainder), fractions ↔ decimals, division as a fraction, 約分・通分, 異分母 ±; 合同, 多角形 and 正多角形 (programming), angle sums, 円周率 3.14, 角柱・円柱; area of triangles, parallelograms, rhombuses, trapeziums; 体積 (cm³, m³); 簡単な比例, 単位量あたりの大きさ and 速さ, 割合・百分率・歩合; 円グラフ・帯グラフ, 平均; 〔用語・記号〕 最大公約数 最小公倍数 通分 約分 底面 側面 比例 %. Warm advice on 割合. Mention that next April brings the 全国学力・学習状況調査 (no test this year). Prev 4年, next 6年."
+  },
+  {
+   "rel": "years/6-nensei.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "小学6年生 (11〜12歳), last year of 小学校; next is 中学校 (most children go to the local 公立中学校 with no exam; some take 中学受験 in January–February). 分数 × ÷ (逆数), a and x, 拡大図・縮図, 線対称・点対称, およその面積, 円の面積, 角柱・円柱の体積, 比 (：), 比例・反比例, 代表値 (平均値・中央値・最頻値), ドットプロット, 度数分布表・柱状グラフ, 並べ方と組み合わせ. A section on the 全国学力・学習状況調査 (all 6年, April; 国語・算数, 理科 some years; paper in 2026, CBT planned from 2027; results to schools and children in summer; no effect on grades or 中学校). Calm, neutral note on 中学受験 (optional; papers go beyond the curriculum). Replace SATs-prep advice with advice on the move to 中学校 (算数 becomes 数学: 負の数, 文字式, 方程式). Prev 5年; last card to the years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub '保護者の方へ：おうちでできる算数のサポート'. Cards for the five guides; 'More help' links to 学年, プリント, 用語集 and the older articles. です・ます, 'お子さま'."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "暮らしの中の算数: sections by age become 年長・低学年 (1–2年), 中学年 (3–4年), 高学年 (5–6年). Japanese situations: スーパーで100 gあたりのねだん, おつりの計算, 遠足のおやつ300円, おこづかい帳, お年玉, 電車の時刻表 (24時間表示), 料理 (計量カップ 200 mL, 大さじ, 小さじ, お米の合), 節分の豆, お月見団子, カレンダーと曜日, 天気予報の気温・降水確率, セール '3割引', 運動会の記録, 旅行の距離 (km) と時間. Keep the total activity count accurate if the title states a number."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "おうちで算数をサポートするには (けんかにならないために). Homework: 宿題 (計算ドリル, プリント, 計算カード, 九九の暗唱 listening, 音読 as the parallel), 家庭学習 habits, 丸つけ by parents (common in Japan: how to do it kindly), 連絡帳. 'When you don't know the method': explain that Japanese schools all use the same 筆算, but steps are said in set words (くり上がり, くり下がり, たてる・かける・ひく・おろす) and some classes expect 1つ分 × いくつ分 order or テープ図; ask the 担任の先生 (連絡帳 or 個人面談) rather than teaching a different shortcut (e.g. 'は・じ・き' or 中学受験 tricks). Little and often, praise effort, 'まだ' language, no comparison with siblings."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "いまの小学校の算数の教え方. Rebuild for Japan: 学習指導要領 2017 (数学的な見方・考え方, 数学的活動, 主体的・対話的で深い学び); the typical 問題解決型 lesson (めあて → 自力解決 → 話し合い (考えを説明する) → まとめ → 練習); concrete → pictures → numbers with 算数セット (ブロック, 数え棒, おはじき), 位取り表, 数直線, テープ図, そろばん; 1年 いくつといくつ and さくらんぼ計算; 筆算 laid out exactly as in BRIEF (たし算 with くり上がり, ひき算 with くり下がり, かけ算 with the shifted partial product and no 0, わり算 with quotient on top and full steps); 1人1台端末 (GIGAスクール). Remove ten-frame emphasis, grid method, bus stop, chunking, mastery jargon."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'算数がにがて'：算数への不安. Content can stay close to English: what it looks like, how parents' words matter (avoid 'お母さんも算数ダメだったから'), 'まだ' language, mistakes as part of learning, short calm practice, not timing everything (百ます計算 times can stress some children). Japan-specific pressure points: 九九の暗唱 in front of the class, 単元テスト scores, comparison with 塾/中学受験 classmates. When to talk to the 担任の先生; mention スクールカウンセラー, 通級指導教室 and 特別支援教育コーディネーター gently without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Japan's assessments, not England's: 単元テスト and 小テスト all year (what the scores mean and don't), 通知表 each 学期 with 観点別評価 (知識・技能 / 思考・判断・表現 / 主体的に学習に取り組む態度) and 評定 3・2・1 from 3年 (wording varies by school); 九九の暗唱チェック in 2年 (class practice, not national); 全国学力・学習状況調査 (all 6年 and 中3, April; 2026: 23 April; 国語・算数, 理科 some years; question style with written explanations; paper in 2026, CBT from 2027 per MEXT plan; results in summer; no effect on grades or 中学校 entry; link MEXT page); prefecture tests in some areas (no dates); optional 中学受験 and 算数検定 mentioned neutrally. Say clearly: no test in 年長, no national test in 1–5年, no entrance exam for 公立中学校. Table of year / assessment / when. Calm-support advice."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub '先生向けの無料算数教材'. Cards for the four teacher guides, プリント, the puzzle pack (/teachers.html; English PDF, numbers only), 用語集. Mention 学習指導要領 terms teachers use (数学的活動, 数学的な見方・考え方, 個別最適な学びと協働的な学び) lightly."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "個に応じた指導 (個別最適な学び): 習熟度別指導 and 少人数指導 where schools use them, TT (ティーム・ティーチング), 1人1台端末 for practice at each child's pace, low floor–high ceiling tasks (オープンエンドの問題), 発展問題 for early finishers (link pack), support with concrete materials (ブロック, 位取り表, テープ図), ヒントカード, 特別支援学級 / 通級 children in the regular class (UDL-type ideas: 'ユニバーサルデザインの授業'). Use 学習指導要領 wording sparingly ('障害のある児童などについては…指導内容や指導方法の工夫'). No invented procedures."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "授業で使える算数ゲーム: low-prep games with Japanese materials and names: トランプ (10をつくる 'ペア探し' / 神経衰弱, たし算・かけ算スピード), サイコロ, 計算カードリレー, 九九ビンゴ, 九九じゃんけん (two children show fingers and multiply), フラッシュカード, 数当てゲーム ('いくつかな？'), 24ゲーム-type 'メイク10' with 4 digits (e.g. 切符の4桁: a well-known Japanese pastime), 形あて (色板, タングラム), すごろく. Age-tagged by 学年. Keep every game correct."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "授業の導入に使える5分間の活動: sections by 低学年 (1–2年), 中学年 (3–4年), 高学年 (5–6年) instead of KS1/KS2. Ideas: 今日の数 (number of the day), フラッシュカード (いくつといくつ, 九九), 九九の唱え方 (forwards, backwards, 'ばらばら'), 何十・何百の暗算, 見積もり (およそいくつ), 'どこがちがう？' (find the error in a 筆算), 1分間の計算 (with care), 'きまり発見' in a 九九表, 割合 quick questions. Japanese notation (., 1,000/1万, ×, ÷, 3分の2). Note that 3–4年 内容の取扱い ask for simple 暗算."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "考える力を育てる問題解決の授業: 数学的活動 and 数学的な見方・考え方 (official), the 問題解決型 lesson flow (めあて, 見通し, 自力解決, 練り上げ / 話し合い, まとめ, 振り返り), ノート指導 (式・図・言葉で説明), テープ図 and 数直線 for 文章題 and 割合, question stems in Japanese ('どうしてそう考えたの？', 'いつでも言えるかな？', '似ているところは？', 'まちがいを見つけよう'), 全国学力・学習状況調査-style items that ask children to explain in words (no copied questions). Examples in yen and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "無料の算数プリント（答えつき）、年長から小学6年生まで. Uses the worksheets shortcodes with the Japanese year slugs; list only sheets that fit Japan (leave out England's multiplication-check-practice; tables sheets reworded as '九九（2の段・5の段）' etc. and limited to 9 × 9; money sheets in 円 with the six coins; clocks with 時・分). Each sheet has the answers (答え) on page two. Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "算数用語集, entries sorted by gojūon reading and filed under the row heads あ か さ た な は ま や ら わ (alphabet in site.json); mark each row's first entry with id=\"<row head>\" (e.g. id=\"あ\"), and show the reading in hiragana with each headword. Each entry: a plain explanation, an example in Japanese notation and the 学年 it usually appears. Include Japan-specific entries: いくつといくつ, 位取り, 一の位, 円周率, おつり, 概数, 角, 仮分数, くり上がり, くり下がり, 九九, 公倍数, さくらんぼ計算, 四捨五入, 商, 小数, 真分数, 数直線, 筆算 (ひっさん), そろばん, 帯分数, 体積, たしかめ算, 単位分数, 単位量あたり, テープ図, 通分, 等号・不等号, 二等辺三角形, 倍数, 速さ, 比, 比例, 百分率, 分数, 平均, 平行, 面積, 約数, 約分, 余り (あまり goes under あ), 立方体, 割合, わり算, 和. File by the reading's first kana under its row head, with voiced and half-voiced kana under the plain row (が→か, ざ→さ, だ→た, ば・ぱ→は) and number-led terms by their reading (10の補数 = じゅう → さ). Make sure the な, や, ら and わ rows each have at least one entry (な: 長さ, 二等辺三角形; や: 約数・約分; ら: 立方体（りっぽうたい）・立体・両替（りょうがえ）; わ: 和・割合・わり算)."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "いくつといくつ (10の合成・分解) と20までのたし算・ひき算: when learnt (年長 in play; 1年 'いくつといくつ' then くり上がり・くり下がり, i.e. sums to 18), how it powers さくらんぼ計算 and 減加法, how to practise (指, ブロック, おはじき, 計算カード, トランプで10をつくる, おふろで), honeycomb game with Beequation Kids ('たしざんのはらっぱ'). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "九九のおぼえ方・練習のしかた: 九九 1 × 1 to 9 × 9 in 2年 (usually 2学期), 段 by 段, the reciting forms (ににんがし…) and why recitation works, understanding first (1つ分の数 × いくつ分, arrays of ブロック), patterns (5の段 ends in 0 or 5, 9の段 digits add to 9, 4の段 = 2の段の2倍, 交換法則 halves the work), 上り・下り・ばらばら, 九九カード, listening at home, tricky ones (しちし 28, しちく 63, はっく 72, ろくしち 42). Replace the 'Year 4 multiplication tables check' section with '九九は学校でどう確かめるの？' (暗唱チェック in class; no national test) and how 九九 is used for わり算 (3年) and the 筆算. Mention 'かけざんのおにわ'. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "暗算のコツ: same eight strategies with Japanese names (10をつくる, 分けて計算, 何十のまとまり, きりのいい数にして調整, 数えたしでひき算, 2倍と半分, ×9 and ×11 tricks, 偶数・奇数と一の位でたしかめる) with examples in Japanese notation; tie to the 3–4年 内容の取扱い on 暗算 and to 見積もり. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "大人のための毎日の算数パズル: about Beequation Pro and the 'デイリーチャレンジ', '60秒アタック', 64 levels from 'タマゴ' to '集合知', 'ハードモード', 'トリオ', using the exact Japanese feature names from i18n/ja.json and the store listings. 脳トレ framing is natural in Japan but make no health or brain claims. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes ja /teachers.html: '先生向けの無料算数パズル'. Reuse wording already in i18n/ja.json ('授業で使える無料パズル', '20までのたし算とかけ算のハニカムパズル24問を収録した、解答つきの印刷用パックです…（パックは英語版です。）'). 'Where it fits' maps to Japan: いくつといくつ and 20までのたし算 (1年), 九九 (2年, and review in 3年 before わり算), 暗算 in the 導入; no MTC. Ways to use: 授業の導入 (2分), 早く終わった子の発展問題, 朝学習 / すきま時間, 宿題. The PDF (/assets/beequation-puzzle-pack.pdf) is English (numbers only): say so, and flag if a Japanese PDF is wanted."
+  }
+ ]
+}

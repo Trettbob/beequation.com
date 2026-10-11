@@ -1,0 +1,270 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Talfølger op til 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-klasse",
+   "2-klasse"
+  ],
+  "desc": "Tæl i spring på 1, 2, 5 og 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Tiere og enere",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-klasse",
+   "2-klasse"
+  ],
+  "desc": "Del tocifrede tal op i tiere og enere"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Hundreder, tiere og enere",
+  "topic": "counting-and-place-value",
+  "years": [
+   "2-klasse",
+   "3-klasse"
+  ],
+  "desc": "Positionssystemet op til 1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Afrunding",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Afrund til nærmeste tier, hundrede og tusind"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Tiervenner",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "0-klasse",
+   "1-klasse"
+  ],
+  "desc": "To tal, der giver 10 tilsammen"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Venner til 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-klasse",
+   "2-klasse"
+  ],
+  "desc": "To tal, der giver 20 tilsammen"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Plus og minus til 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-klasse",
+   "2-klasse"
+  ],
+  "desc": "Blandede regnestykker op til 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Plus med opstilling",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Trecifrede tal med 1 i mente"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Minus med opstilling",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Trecifrede tal under hinanden"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "2-, 5- og 10-tabellen",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-klasse",
+   "3-klasse"
+  ],
+  "desc": "Blandede gangestykker med ekstraopgaver til 12"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "3-, 4- og 8-tabellen",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Blandede gangestykker med ekstraopgaver til 12"
+ },
+ {
+  "id": "division-facts",
+  "title": "Division med tabellerne",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Brug den lille tabel til at dividere"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Gange med opstilling",
+  "topic": "multiplication-and-division",
+  "years": [
+   "4-klasse",
+   "5-klasse"
+  ],
+  "desc": "Trecifrede tal gange etcifrede tal"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Hvor stor en del er farvet?",
+  "topic": "fractions",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Halve, tredjedele, fjerdedele og flere"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Brøkdele af et tal",
+  "topic": "fractions",
+  "years": [
+   "4-klasse",
+   "5-klasse"
+  ],
+  "desc": "For eksempel ½ af 12 og ¾ af 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Brøker med samme værdi",
+  "topic": "fractions",
+  "years": [
+   "5-klasse",
+   "6-klasse"
+  ],
+  "desc": "Forlæng brøken, og find tallet, der mangler"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Tiendedele og hundrededele",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "4-klasse",
+   "5-klasse"
+  ],
+  "desc": "Skriv brøker som decimaltal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Procent af et tal",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "6-klasse"
+  ],
+  "desc": "10 %, 25 %, 50 % og flere"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Hele og halve timer",
+  "topic": "telling-the-time",
+  "years": [
+   "1-klasse"
+  ],
+  "desc": "Aflæs urene"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Kvart over og kvart i",
+  "topic": "telling-the-time",
+  "years": [
+   "2-klasse"
+  ],
+  "desc": "Aflæs urene"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Klokken på 5 minutter",
+  "topic": "telling-the-time",
+  "years": [
+   "2-klasse",
+   "3-klasse"
+  ],
+  "desc": "Aflæs urene"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Tæl mønterne",
+  "topic": "money",
+  "years": [
+   "2-klasse",
+   "3-klasse"
+  ],
+  "desc": "Læg danske mønter sammen"
+ },
+ {
+  "id": "giving-change",
+  "title": "Byttepenge",
+  "topic": "money",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Byttepenge fra 20, 50 og 100 kr."
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Omkreds og areal",
+  "topic": "measurement",
+  "years": [
+   "3-klasse",
+   "4-klasse"
+  ],
+  "desc": "Rektangler på ternet papir"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Plane figurer",
+  "topic": "shape-and-geometry",
+  "years": [
+   "1-klasse",
+   "2-klasse"
+  ],
+  "desc": "Navne, sider og hjørner"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Aflæs et søjlediagram",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-klasse",
+   "3-klasse"
+  ],
+  "desc": "Undersøgelse: yndlingsfrugt"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Find det skjulte tal",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "4-klasse",
+   "5-klasse",
+   "6-klasse"
+  ],
+  "desc": "Hvilket tal står i boksen?"
+ }
+]

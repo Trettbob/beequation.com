@@ -1,0 +1,276 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "100’e kadar ritmik sayma",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-sinif",
+   "2-sinif"
+  ],
+  "desc": "Birer, ikişer, beşer ve onar say"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Onluklar ve birlikler",
+  "topic": "counting-and-place-value",
+  "years": [
+   "2-sinif"
+  ],
+  "desc": "İki basamaklı sayıları ayır"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Yüzler, onlar, birler",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-sinif"
+  ],
+  "desc": "1000’e kadar basamak değeri"
+ },
+ {
+  "id": "rounding",
+  "title": "Sayıları yuvarlama",
+  "topic": "counting-and-place-value",
+  "years": [
+   "4-sinif"
+  ],
+  "desc": "En yakın onluğa, yüzlüğe ve binliğe"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "10’a tamamlama",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "anasinifi",
+   "1-sinif"
+  ],
+  "desc": "Toplamı 10 eden sayı ikilileri"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "20’ye tamamlama",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-sinif",
+   "2-sinif"
+  ],
+  "desc": "Toplamı 20 eden sayı ikilileri"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "20’ye kadar toplama ve çıkarma",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-sinif",
+   "2-sinif"
+  ],
+  "desc": "Karışık toplama ve çıkarma işlemleri"
+ },
+ {
+  "id": "column-addition",
+  "title": "Eldeli toplama",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Üç basamaklı sayılar, alt alta"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Onluk bozarak çıkarma",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Üç basamaklı sayılar, alt alta"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "2’ler, 5’ler ve 10’lar çarpım tablosu",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-sinif",
+   "3-sinif"
+  ],
+  "desc": "Karışık çarpma işlemleri"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "3’ler, 4’ler ve 8’ler çarpım tablosu",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Karışık çarpma işlemleri"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "Çarpım tablosunu doldur",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "10 × 10’luk tablo ve 11, 12 ek satırları"
+ },
+ {
+  "id": "division-facts",
+  "title": "Çarpım tablosuyla bölme",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Kalansız bölme işlemleri"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Alt alta çarpma",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Üç basamaklı sayıyı bir basamaklı sayıyla çarp"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Boyalı kısım hangi kesir?",
+  "topic": "fractions",
+  "years": [
+   "3-sinif",
+   "4-sinif"
+  ],
+  "desc": "Şekillerden kesir oku"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Bir çokluğun kesir kadarı",
+  "topic": "fractions",
+  "years": [
+   "4-sinif",
+   "5-sinif"
+  ],
+  "desc": "20’nin ¾’ü gibi işlemler"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Denk kesirler",
+  "topic": "fractions",
+  "years": [
+   "5-sinif",
+   "6-sinif"
+  ],
+  "desc": "Eksik pay ya da paydayı bul"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Onda birler ve yüzde birler",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-sinif",
+   "6-sinif"
+  ],
+  "desc": "Kesirleri ondalık gösterimle yaz"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Bir çokluğun yüzdesi",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-sinif",
+   "6-sinif"
+  ],
+  "desc": "%10, %25, %50 ve daha fazlası"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Tam ve yarım saatler",
+  "topic": "telling-the-time",
+  "years": [
+   "2-sinif"
+  ],
+  "desc": "Saatleri oku"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Çeyrek geçiyor, çeyrek var",
+  "topic": "telling-the-time",
+  "years": [
+   "2-sinif"
+  ],
+  "desc": "Saatleri oku"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Beşer dakikalarla saat okuma",
+  "topic": "telling-the-time",
+  "years": [
+   "3-sinif"
+  ],
+  "desc": "Analog ve dijital saat"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Paraları sayalım",
+  "topic": "money",
+  "years": [
+   "2-sinif",
+   "3-sinif"
+  ],
+  "desc": "Madenî paraları topla"
+ },
+ {
+  "id": "giving-change",
+  "title": "Para üstü",
+  "topic": "money",
+  "years": [
+   "2-sinif",
+   "3-sinif"
+  ],
+  "desc": "20 TL, 50 TL ve 100 TL ile ödeme"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Çevre uzunluğu ve alan",
+  "topic": "measurement",
+  "years": [
+   "4-sinif",
+   "5-sinif"
+  ],
+  "desc": "Kareli zeminde dikdörtgenler"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Geometrik şekiller",
+  "topic": "shape-and-geometry",
+  "years": [
+   "3-sinif"
+  ],
+  "desc": "Adları, kenarları ve köşeleri"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Sütun grafiği okuma",
+  "topic": "data-and-graphs",
+  "years": [
+   "4-sinif",
+   "5-sinif"
+  ],
+  "desc": "En sevilen meyve anketi"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Eksik sayıyı bul",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "3-sinif",
+   "4-sinif",
+   "5-sinif"
+  ],
+  "desc": "Kutudaki sayı kaç?"
+ }
+]

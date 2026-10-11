@@ -82,7 +82,9 @@ back up a fact; nothing else external.
 `words.html_lang` is the page language (`es`, `fr`, `de`). `year_small` / `m_year_small` show a year's age
 (`"{age} años"`). `m_years_hex` is the year-groups icon text (3 characters at most, e.g. `1–6`); each year's
 `short` is its icon text (1 to 3 characters). `m_sheet_n` is `["{n} ficha", "{n} fichas"]`. `alphabet` lists the
-glossary's letters in order (the glossary marks each letter's first entry with `id="<letter>"`).
+glossary's letters in order (the glossary marks each letter's first entry with `id="<letter>"`, one character):
+include the language's own letters (å ä ö, æ ø, ą ł ś, ç ğ ı ş…). Japanese uses the gojūon row heads
+(あかさたなはまやらわ) and Korean the initial consonants (ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ), each entry filed under its row.
 
 ## worksheets.mjs
 
@@ -90,4 +92,12 @@ glossary's letters in order (the glossary marks each letter's first entry with `
 and ÷ signs, clock phrases, coins, shop items, shape names, chart questions, the sheet's labels and footer), plus
 `sheets: { '<id>': { title, desc, how, tip, years: [local year slugs] } }` for the sheets this country uses (leave
 out ones that don't fit, like England's multiplication check). The questions themselves are generated, the same for
-every language; only the words, formats and pictures change.
+every language; only the words, formats and pictures change. Money is in the currency's smallest unit (cents,
+öre, grosze, kuruş; yen and won have none): set `coinValues`, `coins` (real colours and diameters), `coinLabel`,
+`money`, `paid` and `costStep` (prices go up in steps of this, e.g. 10 for yen or won).
+
+## pack.json
+
+The words of the teachers' puzzle pack (any keys of `W` in the apps repo's `tools/puzzle-pack/make-pack.mts`,
+e.g. `learn-i18n/es/pack.json`): titles, instructions, labels, tips, promo and footer in the language, `mul` for
+the multiplication sign used in that country's schools, `lang` for the page language.

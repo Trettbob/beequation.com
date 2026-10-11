@@ -76,7 +76,7 @@ def rd(p): return open(p, encoding='utf-8').read()
 I18N = os.path.join(ROOT, 'learn-i18n')
 # Languages whose own Learn section is built into their site and linked from its header. Add a code once every page
 # in learn-i18n/<code>/ is written and checked (build-langs.py --learn <code> builds one that isn't, to preview it).
-LEARN_LIVE = {'es', 'fr', 'de'}
+LEARN_LIVE = {'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
 # Every word the Learn templates and the header's Learn menu use. learn-i18n/<code>/site.json "words" overrides them.
 WORDS = {
     'html_lang': 'en-GB', 'home': 'Home', 'learn': 'Learn', 'learn_home': 'Learn home', 'sections': SECTIONS,

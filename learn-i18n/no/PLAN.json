@@ -1,0 +1,345 @@
+{
+ "years": [
+  {
+   "slug": "barnehage",
+   "name": "Siste år i barnehagen",
+   "age": "5 til 6",
+   "english_equivalent": "Reception / Year 1 by age (the oldest group in barnehage, the 'skolestartere'; not compulsory, no curriculum by year); English source: Reception"
+  },
+  {
+   "slug": "1-trinn",
+   "name": "1. trinn",
+   "age": "6 til 7",
+   "english_equivalent": "Year 1 / Year 2 by age (children start in August of the calendar year they turn 6, so they are about 8 months older than English Year 1); content close to Year 1"
+  },
+  {
+   "slug": "2-trinn",
+   "name": "2. trinn",
+   "age": "7 til 8",
+   "english_equivalent": "Year 2 / Year 3 by age; content between Year 1 and Year 2 (numbers to 100, no times tables yet)"
+  },
+  {
+   "slug": "3-trinn",
+   "name": "3. trinn",
+   "age": "8 til 9",
+   "english_equivalent": "Year 3 / Year 4 by age; content Year 2 to Year 3 (multiplication starts, written methods)"
+  },
+  {
+   "slug": "4-trinn",
+   "name": "4. trinn",
+   "age": "9 til 10",
+   "english_equivalent": "Year 4 / Year 5 by age; content Year 3 to Year 4 (division, tables to 10 · 10)"
+  },
+  {
+   "slug": "5-trinn",
+   "name": "5. trinn",
+   "age": "10 til 11",
+   "english_equivalent": "Year 5 / Year 6 by age; content Year 4 to Year 5 (fractions as numbers, national test in regning)"
+  },
+  {
+   "slug": "6-trinn",
+   "name": "6. trinn",
+   "age": "11 til 12",
+   "english_equivalent": "Year 6 / Year 7 by age; content Year 5 to Year 6 (decimals, circle and pi)"
+  },
+  {
+   "slug": "7-trinn",
+   "name": "7. trinn",
+   "age": "12 til 13",
+   "english_equivalent": "Year 7 / Year 8 by age, last year of Norwegian primary (barneskole); content Year 6 (percent, negative numbers, equations, averages)"
+  }
+ ],
+ "address": "Du (informal singular) to parents and teachers alike, as in the Norwegian apps (apps/kids/src/i18n/nb.ts), the store listings ('Children and parents are both addressed with «du»') and i18n/no.json ('Trenger du hjelp?'). Never 'De'; avoid plural 'dere'. The child is 'barnet ditt' (gender-neutral, as the app's 'barnet står fast'), otherwise 'barna', 'elevene'. Parents are 'foreldre' ('foreldre og foresatte' once on hubs if natural); teachers 'klassen din', 'elevene dine'. Indie is 'bien Indie', she/her (hun), and talks to children with du. Tone: warm, calm and practical, like a kontaktlærer at the utviklingssamtale; 'matte' is fine for maths. Avoid 'bare', 'enkelt', 'lett' (just/simply/easy), marketing exclamations and emoji. Norwegian quotation marks «…».",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Norwegian names and glyphs from site.json (money glyph 'kr'), the 8 years (Siste år i barnehagen, 1.–7. trinn; ages from site.json; hex B, 1–7), Foreldre / Lærere / Oppgaveark / Ordliste, and popular guides (the four older articles). Intro: 'fra siste år i barnehagen til 7. trinn', written for Norway's curriculum (Læreplan i matematikk 1.–10. trinn, revised from August 2026); du form. Year blurbs with Norwegian content, e.g. barnehage: telling og former i lek; 1.: tallene til 20 og tiervenner; 2.: tallene til 100 og tierovergang; 3.: gangestykker begynner, oppstilling; 4.: deling og den lille gangetabellen; 5.: brøk og nasjonal prøve i regning; 6.: desimaltall, sirkel og pi; 7.: prosent, negative tall, likninger, gjennomsnitt. No SATs, no grades."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Emner hub with the 12 Norwegian topic names. 'Where to start, by age' becomes 'Hvor du kan begynne, trinn for trinn', using barnehage, småskoletrinnet (1.–4.) and mellomtrinnet (5.–7.), which match the curriculum's bands for regning. Mention briefly that the curriculum groups maths in kunnskapsområder (tall og tallforståelse, algebra, funksjoner, geometri, statistikk og sannsynlighet) and that hoderegning and skriftlig regning run through everything."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Tall og plassverdi. Official aims after 2. trinn: count forwards and backwards with different start points and steps, partall og oddetall, represent posisjonssystemet with tallsymboler, tallord, tegning og konkreter, tallinjen; 6. trinn decimals as part of the place value system; 7. trinn negative numbers. Number ranges are NOT in the curriculum: give the usual sequence loosely (0–20 in 1., 0–100 in 2., 0–1000 in 3., then 10 000 and a million) with 'vanligvis'. Use enere, tiere, hundrere, tusenere; enerplass, tierplass; 'siffer' vs 'tall'; omgruppering (10 enere = 1 tier); nabotall; avrunding. Thousands with a space (10 000, no space in 1000); 'milliard' = 10⁹, 'billion' = 10¹². Materials from the official explanatory texts: tierstaver, pinner, perlesnor, centikuber; money only alongside base-ten material (20- and 50-kroner are not base ten). No Roman numerals section (not in the Norwegian curriculum)."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Pluss og minus. Tiervenner and tallvenner (official explanatory text: 'tallvenner, særlig tiervenner', butikklek), tierovergang (official example 8 + 6 = 8 + 2 + 4), doubles, the empty number line, links between + and − (3. trinn), then oppstilling: addition with minnetall (347 + 285 = 632) and subtraction with veksling/låning (532 − 178 = 354, check 354 + 178 = 532), laid out as in BRIEF section 4 (draw them as SVG). Basic skill 1.–4.: 'automatisering av addisjon og subtraksjon i lave tallområder'. The equals sign means 'samme verdi' (3 + 4 = 2 + 5). Advise parents to check the book or ask the kontaktlærer which layout the class uses. No English 'exchange' jargon."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Gange og dele. Multiplication officially starts in 3. trinn ('ved telling og gruppering'), with dobling og halvering and the commutative, associative and distributive properties; division in 4. trinn as målingsdivisjon and delingsdivisjon (official examples: a 12 m rope, 12 : 4 = 3 and 12 : 3 = 4) and different divisjonsstrategier. Den lille gangetabellen (1–10, not to 12), usually built in 3.–4. and automatised by the end of 4. trinn (say 'vanligvis'; the 1.–4. basic skill asks for gradual 'automatisering av multiplikasjon', 5.–7. for multiplication and division). Signs: raised dot '·' (3 · 4 = 12) and ':' (12 : 3 = 4); say once that × means the same; never ÷. Written methods per BRIEF: 234 · 23 = 5382 on one line with partial products; division 857 : 4 = 214 rest 1 with working under the dividend, check 4 · 214 + 1 = 857. Words: 5-gangen, 7-gangen, ganger, delt på, rest, går opp, faktor, produkt. No bus stop, grid method, chunking or tables test."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Brøk. Norway's sequence: everyday halv, kvart and halvparten in 1.–3. (usual practice), halving official in 3.; fractions proper in 5. trinn (official: brøk 'som del av en hel, som del av en mengde, som en divisjon og som tall på tallinjen', problems with brøk, probability linked to brøk, ½ = 0,5 = 50 %); 6. problems with brøk, desimaltall og prosent; 7. strategies and converting fraction–decimal–percent. Words: teller, nevner, brøkstrek, stambrøk, blandet tall, uekte brøk, likeverdige brøker, utvide og forkorte, fellesnevner; read 'en tredel, tre firedeler' (pick firedel or fjerdedel per page). Contexts: pizza, kanelbolle, bursdagskake, a chocolate bar, sharing lørdagsgodt. SVG captions in Norwegian."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Desimaltall og prosent. Decimal comma everywhere (2,5 'to komma fem'; tideler, hundredeler, tusendeler; desimalkomma). Official: 5. trinn links between brøk, desimaltall og prosent; 6. trinn decimals on the number line and in the place value system, strategies compared with whole numbers, problems with decimals, fractions and percent; 7. trinn percent represented and converted. Money with øre and measures (1,5 l, 2,3 km) as everyday decimals. Percent '25 %' with a space; salg and rabatt contexts, 'hvor mye er 25 % av 80?'. Link to algebra-and-ratio only lightly (proportional reasoning is not named in barneskole aims)."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Lære klokka. Official: 'beskrive tid ved hjelp av kalender og analog og digital klokke' (after 2. trinn) and 'lage og løse oppgaver som handler om tid' (5. trinn; explanatory text: both analogue and digital). Phrases from BRIEF section 7 with a clear warning that 'halv fire' = 3:30 (a classic mix-up), kvart over / kvart på, fem på halv, ti over halv; klokka/klokken. 24-hour time is everyday (bus and ferry timetables): write 'kl. 15.30' in prose, a colon only on digital displays. Usual sequence: whole hours (1.), half and quarter hours (2.), five minutes and digital (3.), durations and 24 h (4.–5.). Calendar: week starts Monday, week numbers ('uke 41'), dates 10.10.2026, døgn, kvarter. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Penger. Coins 1, 5, 10 and 20 kroner (1 and 5 silver with a hole; 10 and 20 gold; the 10-krone is smaller than the 5-krone); notes 50, 100, 200, 500 and 1000 kr; 100 øre = 1 krone but no øre coins since the 50-øre coin went on 1 May 2012 (prices like 19,90 kr; cash totals rounded to the nearest krone). The curriculum names money only as butikklek and concrete material in the early years (explanatory texts) and personal finance in a spreadsheet (5.) and economy estimates (7.); present coin counting and change as usual practice. Format '25 kr' in text, 'kr 25,-' on labels; words femmer, tier, tjuekroning, hundrelapp, tusenlapp, veksle, få igjen, lommepenger/ukepenger, sparegris. Contexts: loppemarked, bakeri, kiosk, lørdagsgodt per hekto, 17. mai is, dugnad; card and Vipps are normal too. No pounds/pence; don't name shop chains."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Måling. Official sequence (MAT01-06): length and mass with non-standard then standard units (after 2. trinn), area (3.), volume (4.), area and volume with suitable units, perimeter and the circle (radius, diameter, omkrets, pi) in 6. Units m, cm, mm, km; kg, g, hg ('per hekto'); l, dl (recipes!), cl, ml; °C; the everyday 'mil' = 10 km (note it as everyday, not official). Instruments: linjal, målebånd, vekt, litermål, gradskive. Explanatory texts: measure with fotsteg, pinner, steiner first, so children see why standard units are needed. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometri og figurer. Official: shapes from the local area and sorting them by properties (after 2.); the koordinatsystem with step-by-step rules (3.); 2D and 3D shapes with vinkler, kanter, hjørner og flater (4.); properties and minimumsdefinisjoner, symmetri, kongruensavbildninger (speiling, rotasjon, parallellforskyvning) with and without coordinates, circle and pi (6.). Words: trekant, firkant, kvadrat, rektangel, rombe, parallellogram, trapes, sekskant, sirkel; terning/kube, prisme, pyramide, sylinder, kjegle, kule; rett, spiss, stump vinkel; gradskive. Indie's hexagon (sekskant) and honeycomb tiling are a natural hook."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Statistikk og diagrammer. Be accurate: the official aims name probability in 5. trinn ('tilfeldighet og sannsynlighet … knytte det til brøk') and data in 7. trinn (sentralmål 'gjennomsnitt, typetall og median'; log, sort, read and present data in tabeller og diagrammer and explain the choice; programming with datasets). Tellestreker, tabeller and søylediagram from 1.–3. are usual practice. Words: søylediagram, linjediagram, sektordiagram/kakediagram, variasjonsbredde, sikkert/mulig/umulig. Contexts: favourite pålegg, weather and snow depth, ski-race times, a class survey, a football table without real club names."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Algebra og likninger (use 'likning' throughout, per BRIEF). Norway's barneskole algebra: patterns and repeating units (2.), the equals sign as 'samme verdi' (2.), = < > and likevekt/balance (3.), regneuttrykk for practical situations and patterns (4.), likninger solved with tall, tekst, tegning og konkreter and tested (5., balance scales), likninger and ulikheter with strategies, regnerekkefølge and sammensatte regneuttrykk (7.). Algorithmic thinking and programming (variabler, løkker, vilkår) run through 2.–7. in the aims. Ratio/proportion is not named in barneskole aims: keep it to everyday 'dobbelt så mye', recipes and målestokk on maps, loosely. Keep formal algebra light."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Hoderegning: named next to skriftlig regning in the aims from 2. trinn, and the revised curriculum (from August 2026) stresses regneflyt and automatisering (addition and subtraction in low number ranges in 1.–4., multiplication gradually, multiplication and division in 5.–7.). Strategies with Norwegian names: tiervenner, tierovergang, dobling og halvering (official in 3.), nesten dobling, oppdeling, runde av og justere, telle videre / telle opp for å trekke fra, gange og dele med 10, 100 og 1000, overslag. Mention that the curriculum wants children to explain strategies, not only answers. Link the older strategies article."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Trinn hub: 'Matematikk trinn for trinn: fra siste år i barnehagen til 7. trinn'. Explain barnehage (not compulsory, Rammeplan 'Antall, rom og form'), barneskole 1.–7. trinn (småskoletrinnet 1.–4., mellomtrinnet 5.–7.), compulsory from August of the year the child turns six (opplæringslova § 2-1, § 2-2; cut-off 31 December), then ungdomsskole 8.–10. Table of years with ages. 'Key tests by year' becomes 'Prøver': kartleggingsprøve i regning in 1. trinn (voluntary; the school decides which pupils take it, in spring of 1. or autumn of 2.) and 3. trinn (mandatory, autumn), nasjonal prøve i regning at the start of 5. trinn; no grades on 1.–7. trinn (§ 2-3); utviklingssamtale. Say that the aims come after each year from 2. trinn and that number ranges and textbooks vary by school; mention the revised curriculum from August 2026."
+  },
+  {
+   "rel": "years/barnehage.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "Siste år i barnehagen (5 til 6). The skolestartere / førskolebarn group; barnehage is not compulsory but almost universal. Maths sits in the Rammeplan fagområde 'Antall, rom og form': wondering about mathematical connections, basic concepts, experimenting with numbers and quantities, sense of space through body and senses, enjoying problem solving, through play, books, songs, games and nature. Transition: 'De eldste barna skal få mulighet til å glede seg til å begynne på skolen'. Usual practice (say 'ofte'): counting to 10 and beyond, recognising numerals, shapes, sizes, sorting, patterns, days of the week. No tests, no school curriculum: don't push written sums. How to help at home: counting on walks, sharing out, cooking, board games (terningspill). Challenge at counting/sharing level. Worksheets year='barnehage'. Next: 1. trinn."
+  },
+  {
+   "rel": "years/1-trinn.html",
+   "sources": [
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "1. trinn (6 til 7; add '(1. klasse)' once), first year of school, children start in August of the year they turn six. No aims for 1. trinn alone: the aims 'etter 2. trinn' cover 1. and 2. together (quote a few: counting forwards and backwards, partall og oddetall, tallinjen, addition and subtraction from play and everyday life, the equals sign, patterns, shapes from the local area, length and mass, calendar and clock, step-by-step rules in games). Usual 1. trinn practice (say 'vanligvis'): numbers 0–20 read, written and split, counting to 100, tiervenner automatised, plus and minus within 20, doubles, whole hours, coins and butikklek, tallies. Lots of play-based learning. Tests: voluntary kartleggingsprøve in regning in spring of 1. trinn (or autumn of 2.); the school decides which pupils take it (Udir: 'Skolen vurderer kva elevar som skal gjennomføra prøvene'), it is made to find pupils who need extra follow-up, and parents of those pupils get feedback; no grades. Checklist, vocabulary (tiervenner, tallinje, partall, oddetall, pluss, minus, er lik). Prev: Siste år i barnehagen; next: 2. trinn."
+  },
+  {
+   "rel": "years/2-trinn.html",
+   "sources": [
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "2. trinn (7 til 8; '(2. klasse)' once). The year the aims 'etter 2. trinn' must be reached: list them fully (BRIEF section 2). Usual practice: numbers to 100, tiere og enere, plus and minus to 100 with tierovergang on the empty number line, counting in 2s, 5s and 10s, half and quarter hours ('halv', 'kvart over', 'kvart på' with the halv fire warning), analogue and digital clock and calendar (official), 50- and 100-lapper and change, cm, m and kg (official: length and mass), simple tables and søylediagram. Times tables usually wait for 3. trinn. Mention that the voluntary kartleggingsprøve may come in autumn of 2. trinn (31 August–6 November in 2026) for pupils the school picks who did not take it in spring of 1. Prev 1., next 3."
+  },
+  {
+   "rel": "years/3-trinn.html",
+   "sources": [
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "3. trinn (8 til 9). Official aims after 3. trinn in full: strategies for + and −, links between + and − in hoderegning and skriftlig regning, multiplication through counting and grouping (starts here), dobling og halvering, × and ÷ in problems from play and everyday life, representing multiplication, commutative/associative/distributive properties, = < >, likevekt, area with non-standard and standard units, the koordinatsystem. Usual practice: numbers to 1000, oppstilling with minnetall and veksling, the first tables (2, 5, 10, then 3, 4), division as the reverse (12 : 3 = 4), the clock to five minutes, prices in kroner. Full section on the mandatory kartleggingsprøve i regning in the autumn of 3. trinn (weeks 37–42 in 2026): finds pupils who need extra follow-up, results stay at school, nothing to prepare. Prev 2., next 4."
+  },
+  {
+   "rel": "years/4-trinn.html",
+   "sources": [
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "4. trinn (9 til 10), last year of småskoletrinnet. Official aims after 4. trinn in full: målings- og delingsdivisjon (rope example), division strategies, the four operations together in hoderegning og skriftlig regning, estimating (overslag) and judging models, regneuttrykk for practical situations, 2D/3D shapes with vinkler, kanter, hjørner og flater, volume, patterns in games, algorithms with variabler, vilkår og løkker. Usual practice: den lille gangetabellen automatised by the end of the year, numbers to 10 000 and beyond, written multiplication by one digit, first written division, tenths through money and measures, durations and 24 h. No national test this year, but next autumn's nasjonal prøve in 5. trinn builds on the aims up to 4. trinn (calm note, no drilling). Prev 3., next 5."
+  },
+  {
+   "rel": "years/5-trinn.html",
+   "sources": [
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "5. trinn (10 til 11), start of mellomtrinnet. Official aims after 5. trinn in full: links between brøk, desimaltall og prosent (½ = 0,5 = 50 %), brøk as part of a whole, part of a set, a division and a number on the line, strategies for positive numbers and fractions, problems with fractions, chance and probability linked to fractions, likninger with concretes, spreadsheets for personal finance, problems about time, programming. Usual practice: numbers to a million, written division, two-digit multiplication, tenths and hundredths. Full section on the nasjonal prøve i regning at the start of 5. trinn (autumn: 31 August–25 September in 2026; digital; up to 90 minutes; mandatory for almost all (pupils with spesialundervisning or særskilt norskopplæring can be exempted); measures regning as a basic skill built on aims up to 4. trinn, with tasks on tall, måling og geometri and statistikk; three mestringsnivåer; results through the school; new læringsstøttende prøver are planned to replace it, no date). Prev 4., next 6."
+  },
+  {
+   "rel": "years/6-trinn.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "6. trinn (11 til 12). Official aims after 6. trinn in full: decimals on the number line and in the place value system, decimal strategies compared with whole numbers, problems with decimals, fractions and percent, properties of 2D/3D shapes, symmetry in patterns, kongruensavbildninger, radius, diameter, omkrets and pi, area and volume with suitable units, area by splitting (distributivity), area and perimeter strategies, programming geometric shapes. Usual practice: decimals to thousandths, ×/÷ by 10, 100, 1000, likeverdige brøker and fellesnevner, 25 % av 80, gradskive, cm²/m²/cm³. No national test. Prev 5., next 7."
+  },
+  {
+   "rel": "years/7-trinn.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "7. trinn (12 til 13), last year of barneskole. Official aims after 7. trinn in full: percent and converting brøk–desimaltall–prosent, strategies with fractions, decimals and percent, negative numbers 'praktisk og teoretisk' (temperatures, number line), regnerekkefølge and sammensatte regneuttrykk, likninger and ulikheter, sentralmål (gjennomsnitt, typetall, median), data in tables and diagrams, economy modelling with estimates, programming with datasets. No national test in 7. (next ones in 8. and 9.), no exam, no grades yet. Replace SATs-preparation advice with calm advice on starting ungdomsskolen in 8. trinn, where grades start; keep up hoderegning and tables. Prev 6.; last card to the years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Mattehjelp for foreldre'. Cards for the five Norwegian guides; 'Mer hjelp' links to trinn, oppgaveark, ordliste and the older articles. Use du and 'barnet ditt'."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matte i hverdagen: sections by Norwegian stages (barnehage og 1. trinn; 2.–4. trinn; 5.–7. trinn). Norwegian situations: matpakke and middag (dl and g in recipes, vafler, pannekaker), the bus or ferry timetable in 24 h, hytta and the drive ('3 mil'), skitur and temperatures below zero, lørdagsgodt per hekto, loppemarked and change, 17. mai (barnetog times, is and pølser), adventskalender countdown, week numbers on the ukeplan, a football cup table, salg in percent. Keep the activity count exact if the title states one."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Slik hjelper du med matte hjemme (uten krangel). 'Helping with homework' becomes 'lekser' (and 'hvis skolen gir lekser', since some schools give few or none on the lowest trinn) and the ukeplan. 'When you don't know the method' covers Norway: strategies first (tiervenner, tierovergang, tom tallinje), then oppstilling with minnetall and veksling; the class may set work out differently from how parents learnt it (and grandparents say 'mente'); look in the book or ask the kontaktlærer, e.g. at the utviklingssamtale. The 1.–4. curriculum warns that digital devices must not dominate: short, calm practice, praise effort, 'ennå ikke' (not yet)."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Slik lærer barna matte på skolen i dag. Rebuild for Norway: the curriculum's core elements (utforsking og problemløsing with 'mer vekt på strategiene og framgangsmåtene enn på løsningene', representasjon og kommunikasjon), the revised plan from August 2026 putting more weight on regning and automatisering; concrete → drawing → symbols with Norwegian materials named in the explanatory texts (tierstaver, perlesnor, Cuisenairestaver, brikker, eggekartonger), the empty number line, tiervenner and tierovergang, dobling og halvering; then the written methods exactly as in BRIEF section 4 (addition with minnetall, subtraction with veksling, multiplication on one line with partial products, division with working under the dividend), drawn as SVG. Signs · and :. Remove ten frames as a heading (mention 'tierramme' only briefly, explained), grid method, bus stop, chunking; bar models only briefly ('strimmelmodell', explained, used in some classes)."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Jeg er ikke noe god i matte': matteangst. Can stay close to the English content. Link to the curriculum's own wording that pupils should get to 'prøve og feile' and that the teacher should 'stimulere til lærelyst' (from the underveisvurdering text), 'ennå ikke' language, avoid 'jeg var også dårlig i matte'. When to talk to the kontaktlærer; mention tilpasset opplæring and, for 1.–4., that schools must give extra intensive help in maths to pupils who fall behind (intensiv opplæring; describe without paragraph numbers), and the PP-tjenesten without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Norway's tests, not England's: no grades on 1.–7. trinn ('individuell vurdering utan karakterar', opplæringslova § 2-3) and ongoing feedback, utviklingssamtale; kartleggingsprøve i regning in 1. trinn (voluntary: the school decides which pupils take it; from 2026 spring of 1. trinn or autumn of 2. trinn, each pupil once; schools must inform parents, and parents of pupils who need extra follow-up get feedback on the results) and 3. trinn (mandatory, autumn; made to find pupils who need extra follow-up; results not reported to Udir, not for comparing schools); nasjonal prøve i regning at the start of 5. trinn (autumn, digital, up to 90 min, mandatory with possible exemption for pupils with spesialundervisning or særskilt norskopplæring, three mestringsnivåer, measures regning as a basic skill built on aims up to 4. trinn: tall, måling og geometri, statistikk); 8. and 9. trinn mentioned only as 'later'. Say clearly: no tables test, no exam, no entrance test to ungdomsskolen. Note that Udir is developing new læringsstøttende prøver to replace the nasjonale prøver (no date). Table of year / test / when. Calm-support advice. Link Udir pages for kartleggingsprøver and nasjonale prøver."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Gratis matteressurser for lærere'. Cards for the four teacher guides, oppgaveark, the puzzle pack (/teachers.html), ordliste. Mention the revised maths curriculum (MAT01-06, from 1.8.2026) and its explanatory texts lightly, with a link to udir.no/lk20/mat01-06."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Tilpasset opplæring i matematikk: use the Norwegian frame (tilpasset opplæring for all pupils; intensiv opplæring in maths on 1.–4. trinn for pupils who fall behind; spesialundervisning via PP-tjenesten as a separate track; describe without paragraph numbers). Concrete materials from the explanatory texts; low threshold, high ceiling tasks; 'rike oppgaver'; the curriculum's emphasis on explaining strategies; puzzles for fast finishers (link pack). Teachers addressed with du ('elevene dine')."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Mattespill i klasserommet: low-prep games with Norwegian materials and names: terninger, a standard kortstokk (games like tiervenn-memory, krig with plus or gange, Vri åtter adapted), Yatzy for adding, bingo with gangestykker, 'Hvilket tall tenker jeg på?', butikklek (official explanatory text), koordinatsystem games like Battleship ('senke slagskip'; matches the 3. trinn coordinate aim), step-by-step rule games for early programming (official 2.–3.). Tag each by trinn (1.–2., 3.–4., 5.–7.). Keep rules and arithmetic correct."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Oppvarming i matte (5-minute starters): sections by småskoletrinnet 1.–2., 3.–4. and mellomtrinnet 5.–7. instead of Key Stages. Link to the revised curriculum's regneflyt and automatisering. Starters in Norwegian notation (decimal comma, · and :, 10 000 with a space): dagens tall, tiervenner, tierovergang, dobling og halvering, gangetabellen, count forwards and backwards with different steps (official 2. trinn), overslag, 'hvilken passer ikke?'."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Resonnering og problemløsing: two of the six core elements (utforsking og problemløsing; resonnering og argumentasjon), with the curriculum line 'mer vekt på strategiene og framgangsmåtene enn på løsningene'; modelling (official explanatory text: going back and forth between reality and maths, estimating for reasonableness). Question stems in Norwegian ('Hvordan vet du det?', 'Stemmer det alltid, noen ganger eller aldri?', 'Finn feilen', 'Kan du løse den på en annen måte?'), tekstoppgaver with a drawing or strimmelmodell (explained), a full answer sentence. Examples in kroner and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Gratis oppgaveark i matte med fasit, fra siste år i barnehagen til 7. trinn. Uses the worksheets shortcodes with Norwegian year slugs (barnehage, 1-trinn … 7-trinn); list only sheets that fit Norway (leave out England's multiplication-check-practice and the 12 × 12 grid; tables sheets as 2-, 5- og 10-gangen with '·'; money sheets in kroner with coins 1, 5, 10, 20 kr; no Roman numerals). Each sheet has 'fasit' on page two. Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Ordliste i matematikk fra A til Å with Norwegian headwords in Norwegian alphabetical order (a–z, then æ, ø, å; few or no entries for c, q, w, x, z, æ: those letters may have none), each with an example (decimal comma, space thousands, · and :) and the trinn where children usually meet it. Include Norway-specific entries: tiervenner, tallvenner, tierovergang, minnetall, veksling, oppstilling, hoderegning, skriftlig regning, gangetabellen (den lille), plassverdi, posisjonssystemet, enere/tiere/hundrere, tallinje, tom tallinje, partall, oddetall, dobling, halvering, målingsdivisjon, delingsdivisjon, rest, overslag, likhetstegn, likevekt, regneuttrykk, regnerekkefølge, likning, ulikhet, teller, nevner, stambrøk, likeverdige brøker, fellesnevner, desimaltall, tideler, prosent, omkrets, areal, volum, koordinatsystem, kongruensavbildning, sentralmål, gjennomsnitt, typetall, median, søylediagram, sannsynlighet, mil, hekto, døgn, kvarter. Mark each letter's first entry with id=\"<letter>\" (id=\"æ\", id=\"ø\", id=\"å\" for those)."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Tiervenner og tallvenner til 20 (number bonds) for Norway: the official explanatory text names 'tallvenner, særlig tiervenner' with butikklek; when (barnehage: splitting small quantities in play; 1. trinn: tiervenner automatised and sums within 20; 2. trinn: used for tierovergang to 100), how to practise (fingers, Cuisenairestaver, cards, tiervenn-memory, terningspill), honeycomb game with Beequation (Pluss-engen). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Slik øver barnet ditt på gangetabellen: tables 1 to 10 (den lille gangetabellen), multiplication officially from 3. trinn, usually tables built in 3.–4. and automatised by the end of 4. (say 'vanligvis'; the revised curriculum asks for 'automatisering av multiplikasjon'), understanding before chanting (like grupper, counting in steps, rutenett/arrays, dobling: 4-gangen is double the 2-gangen, 8-gangen double the 4-gangen; 5-gangen ends in 0 or 5; 9-gangen on the fingers), the '·' sign, games. Replace the 'Year 4 multiplication tables check' section with 'Det finnes ingen nasjonal gangetabellprøve' plus why tables matter for deling, brøk and the nasjonal prøve on 5. trinn (no drilling for it). Gangehagen mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Hoderegningsstrategier som virker: the same eight strategies with Norwegian names (tierovergang, oppdeling, nesten dobling, runde av og justere, telle opp for å trekke fra, dobling og halvering, triks for 9 og 11, sjekk med partall/oddetall og siste siffer), examples in Norwegian notation; tie to 'hoderegning og skriftlig regning' in the aims and to regneflyt and automatisering in the revised curriculum. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "En daglig mattenøtt for voksne: about Beequation Pro and 'Dagens kube' (the numbered daily puzzle with a streak to keep, 'rekke'), 'Blitz på 60 sekunder', levels from Egg to Kubehjerne, 'Vanskelig modus', Trio and Storkuben. Use the exact Norwegian feature names from apps/adult/src/i18n/nb.ts and i18n/no.json. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes no /teachers.html: 'Gratis matteoppgaver for lærere'. Reuse wording already in i18n/no.json ('Gratis oppgaver til klassen din', 'En utskrivbar pakke med 24 bikakeoppgaver, pluss opp til 20 og gangetabellen, med fasit', 'Vis én på tavla som oppvarming på to minutter'). 'Where it fits' maps to Norway: tiervenner and pluss within 20 on 1.–2. trinn, gangetabellen on 3.–4. and as repetition on mellomtrinnet, regneflyt and automatisering in the revised curriculum, oppvarming routines; no tables test. Ways to use: oppvarming, ukens nøtt, for those who finish early. The PDF link (/assets/beequation-puzzle-pack.pdf) is English (numbers only; the pack prints × where Norwegian classes write ·): say so as no.json does ('Pakken er på engelsk') and flag if a Norwegian PDF is wanted."
+  }
+ ]
+}

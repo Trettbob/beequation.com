@@ -1,0 +1,270 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Numerazioni fino a 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "classe-seconda"
+  ],
+  "desc": "Conta di 1 in 1, di 2 in 2, di 5 in 5 e di 10 in 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Decine e unità",
+  "topic": "counting-and-place-value",
+  "years": [
+   "classe-prima",
+   "classe-seconda"
+  ],
+  "desc": "Scomponi i numeri di due cifre"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Centinaia, decine e unità",
+  "topic": "counting-and-place-value",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Il valore posizionale fino a 999"
+ },
+ {
+  "id": "rounding",
+  "title": "Arrotondare i numeri",
+  "topic": "counting-and-place-value",
+  "years": [
+   "classe-quarta",
+   "classe-quinta"
+  ],
+  "desc": "Alle decine, alle centinaia e alle migliaia"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Gli amici del 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "infanzia-5-anni",
+   "classe-prima"
+  ],
+  "desc": "Le coppie di numeri che fanno 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Gli amici del 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "classe-prima",
+   "classe-seconda"
+  ],
+  "desc": "Le coppie di numeri che fanno 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Addizioni e sottrazioni entro il 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "classe-prima",
+   "classe-seconda"
+  ],
+  "desc": "Operazioni miste entro il 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Addizioni in colonna",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Numeri di tre cifre, con il riporto"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Sottrazioni in colonna",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Numeri di tre cifre, con il prestito"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Le tabelline del 2, del 5 e del 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Moltiplicazioni in ordine sparso"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Le tabelline del 3, del 4 e dell'8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Moltiplicazioni in ordine sparso"
+ },
+ {
+  "id": "division-facts",
+  "title": "Divisioni con le tabelline",
+  "topic": "multiplication-and-division",
+  "years": [
+   "classe-terza",
+   "classe-quarta"
+  ],
+  "desc": "Usa le tabelline per dividere"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Moltiplicazioni in colonna",
+  "topic": "multiplication-and-division",
+  "years": [
+   "classe-terza",
+   "classe-quarta"
+  ],
+  "desc": "Numeri di tre cifre per una cifra"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Quale frazione è colorata?",
+  "topic": "fractions",
+  "years": [
+   "classe-terza",
+   "classe-quarta"
+  ],
+  "desc": "Mezzi, terzi, quarti e altre frazioni"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "La frazione di un numero",
+  "topic": "fractions",
+  "years": [
+   "classe-terza",
+   "classe-quarta"
+  ],
+  "desc": "Come ½ di 12 o ¾ di 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Frazioni equivalenti",
+  "topic": "fractions",
+  "years": [
+   "classe-quarta",
+   "classe-quinta"
+  ],
+  "desc": "Trova il numero che manca"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Decimi e centesimi",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "classe-quarta",
+   "classe-quinta"
+  ],
+  "desc": "Dalle frazioni decimali ai numeri decimali"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "La percentuale di un numero",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "classe-quinta"
+  ],
+  "desc": "10%, 25%, 50% e altre percentuali"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Le ore in punto e le mezz'ore",
+  "topic": "telling-the-time",
+  "years": [
+   "classe-prima",
+   "classe-seconda"
+  ],
+  "desc": "Leggi l'orologio"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "I quarti d'ora",
+  "topic": "telling-the-time",
+  "years": [
+   "classe-seconda"
+  ],
+  "desc": "Leggi l'orologio"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "L'ora di 5 in 5 minuti",
+  "topic": "telling-the-time",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Leggi l'orologio"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Contare le monete",
+  "topic": "money",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Somma le monete in centesimi"
+ },
+ {
+  "id": "giving-change",
+  "title": "Quanto resto ricevi?",
+  "topic": "money",
+  "years": [
+   "classe-terza",
+   "classe-quarta"
+  ],
+  "desc": "Pagando con 1 €, 2 € e 5 €"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Perimetro e area",
+  "topic": "measurement",
+  "years": [
+   "classe-quarta",
+   "classe-quinta"
+  ],
+  "desc": "Rettangoli sulla carta a quadretti"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Le figure piane",
+  "topic": "shape-and-geometry",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Nomi, lati e vertici"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Leggere un istogramma",
+  "topic": "data-and-graphs",
+  "years": [
+   "classe-seconda",
+   "classe-terza"
+  ],
+  "desc": "Indagine sulla frutta preferita"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Il numero che manca",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "classe-terza",
+   "classe-quarta",
+   "classe-quinta"
+  ],
+  "desc": "Trova il numero nel quadratino"
+ }
+]

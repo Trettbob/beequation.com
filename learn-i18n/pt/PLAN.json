@@ -1,0 +1,325 @@
+{
+ "years": [
+  {
+   "slug": "pre-escola",
+   "name": "Pré-escola",
+   "age": "4 e 5",
+   "english_equivalent": "Reception and Year 1 (by age: the two compulsory pre-school years, 4 to 5y11m; one page because the BNCC has one set of objectives for 'crianças pequenas')"
+  },
+  {
+   "slug": "1-ano",
+   "name": "1º ano",
+   "age": "6 a 7",
+   "english_equivalent": "Year 2 by age (content close to Year 1)"
+  },
+  {
+   "slug": "2-ano",
+   "name": "2º ano",
+   "age": "7 a 8",
+   "english_equivalent": "Year 3 by age (content close to Year 2)"
+  },
+  {
+   "slug": "3-ano",
+   "name": "3º ano",
+   "age": "8 a 9",
+   "english_equivalent": "Year 4 by age (content close to Year 3)"
+  },
+  {
+   "slug": "4-ano",
+   "name": "4º ano",
+   "age": "9 a 10",
+   "english_equivalent": "Year 5 by age (content close to Year 4)"
+  },
+  {
+   "slug": "5-ano",
+   "name": "5º ano",
+   "age": "10 a 11",
+   "english_equivalent": "Year 6 by age (content close to Year 5/6; end of the anos iniciais, Brazil's primary)"
+  }
+ ],
+ "address": "Você (Brazilian Portuguese, never tu/teu, never o senhor/a senhora), matching apps/kids/src/i18n/pt.ts ('Você consegue!', 'não coleta nada sobre seu filho'), the pt-BR store listings ('você' throughout) and i18n/pt.json ('Jogue grátis no navegador'). Imperatives in the você form (jogue, experimente, conte, pergunte). Parents: 'seu filho', now and then 'seu filho ou sua filha', otherwise 'a criança' / 'as crianças'; the section is 'Famílias' ('Para as famílias'). Teachers are also 'você' ('sua turma', 'seus alunos', 'os estudantes'); section 'Professores'. Tone: warm and plain, like a professora talking to a parent at the school gate or at reunião de pais. Brazilian (not European) Portuguese vocabulary and spelling (ônibus, celular, figurinha, quilômetro). No 'simplesmente', 'é fácil', no emoji. Quotes “…”. Decimal comma, R$ 3,45, 15h30, 1.000.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub), 'Aprenda matemática com a Indie'. Cards for the 12 topics with the names and glyphs from site.json (money glyph R$), the 6 Brazilian years (Pré-escola, 1º–5º ano; ages from site.json; glyphs Pré, 1–5), Famílias / Professores / Atividades / Glossário, and popular guides (the four older articles). Intro: 'da pré-escola ao 5º ano', written for the BNCC; você form. Year blurbs with Brazilian content (pré-escola: contar, comparar, sequências; 1º: números até 100, fatos básicos da adição, moedas e cédulas; 2º: até 1000, multiplicação por 2, 3, 4 e 5, dobro e metade; 3º: até 9999, tabuada, divisão com resto, relógio analógico; 4º: decimais com dinheiro, frações unitárias, área na malha; 5º: frações equivalentes, porcentagem, plano cartesiano, Saeb). No SATs, no English years."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub with the 12 Brazilian topic names. Explain that the BNCC groups maths in five 'unidades temáticas' (Números, Álgebra, Geometria, Grandezas e medidas, Probabilidade e estatística) and map our 12 topics onto them. 'Where to start, by age' becomes 'Por onde começar, ano a ano': pré-escola, 1º–2º (alfabetização years, fatos básicos), 3º–4º (tabuada, conta armada, chave), 5º (frações, decimais, porcentagem)."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Números e valor posicional. Year table per BRIEF: pré-escola counting and numerais 0–9 (usual), 1º to 100 (EF01MA04), 2º to 1000 (EF02MA01–02), 3º to unidade de milhar 9999 (EF03MA01), 4º to dezenas de milhar (EF04MA01), 5º to centenas de milhar plus decimals (EF05MA01–02). Use 'algarismo' vs 'número', U D C UM DM CM, 'ordens e classes' (classe das unidades simples, classe dos milhares), quadro de ordens / QVL, material dourado (cubinho, barra, placa, cubo), palitos bundled in tens, ábaco, reta numérica, antecessor e sucessor, par e ímpar, ordinal numbers, arredondar. Thousands with a point (1.000, 25.000), decimal comma; 'bilhão' = 10⁹. Roman numerals only as 'muitos livros trazem' (not BNCC anos iniciais)."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Adição e subtração. Fatos básicos da adição (EF01MA06) and of subtraction (EF02MA05), pares que formam 10, dobros, passing through 10; the meanings juntar, acrescentar, separar, retirar (1º–2º), comparar e completar (3º); personal and mental strategies first, then the conta armada: 'vai um' (347 + 285 = 632) and 'empresta um' / reagrupamento (532 − 178 = 354) laid out exactly as BRIEF section 4, with the prova real. Terms parcelas, soma, minuendo, subtraendo, resto/diferença. Decimals in 5º (EF05MA07). Tell parents to ask the professora how the class does it; caderno quadriculado. Do not show England's 'exchange' jargon or the old compensation method."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Multiplicação e divisão. BNCC sequence: 2º ano × by 2, 3, 4 and 5 as adição de parcelas iguais and dobro, metade, triplo, terça parte (EF02MA07–08); 3º ano fatos básicos da multiplicação, × by 2, 3, 4, 5 and 10, disposição retangular, division by up to 10 with and without remainder as repartição and medida (EF03MA03, 07–09); 4º ano general multiplication incl. proportionality, division with divisor of up to two digits, inverse operations, counting problems (EF04MA04–08, 13); 5º ano with decimals (EF05MA08). Tabuada 1 to 10 (not 12), usually completed between 3º and 4º (say 'costuma'). Conta armada multiplication with partial products (234 × 23 = 5382) and division 'na chave', processo longo and breve (857 ÷ 4 = 214, resto 1), prova real (dividendo = divisor × quociente + resto). Terms fatores, produto, dividendo, divisor, quociente, resto; divisão exata / não exata. Signs × and ÷. No bus stop, grid method or MTC."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Frações. Brazil's sequence: metade and terça parte (2º, EF02MA08); metade, terça, quarta, quinta e décima partes as division results (3º, EF03MA09); unit fractions 1/2, 1/3, 1/4, 1/5, 1/10, 1/100 on the reta numérica (4º, EF04MA09); fractions smaller and bigger than 1, as division and part of a whole, frações equivalentes, comparing fractions and decimals (5º, EF05MA03–05). Say clearly that adding and multiplying fractions come in 6º ano (some books start same-denominator sums in 5º: 'alguns livros'). Reading: um meio, um terço, um quarto… um décimo, onze avos, doze avos; numerador, denominador. Contexts: pizza cut in 8 slices, a barra de chocolate, a melancia, brigadeiros shared at a party. SVGs with Portuguese captions."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Números decimais e porcentagem. Decimals start in 4º ano with décimos and centésimos linked to money (R$ 2,50; EF04MA10); 5º ano reading, ordering, number line, + and −, × and ÷ by a natural number (EF05MA02, 07, 08). Decimal comma always ('dois vírgula cinco', 'dois inteiros e cinco décimos'); décimos, centésimos, milésimos (masculine). Percentages 10%, 25%, 50%, 75%, 100% as décima parte, quarta parte, metade, três quartos, inteiro (EF05MA06), in educação financeira contexts (desconto at the papelaria, 'leve 3 pague 2' only if correct); '25%' with no space. Cross-link money and algebra-and-ratio (proporcionalidade direta)."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Ver as horas. BNCC: parts of the day, days of the week, months, calendar, dates (1º, EF01MA16–18); calendar intervals and duration with a relógio digital (2º, EF02MA18–19); analogue and digital clocks, start, end, duration, hour–minutes and minute–seconds (3º, EF03MA22–23); h, min, s and durations (4º, EF04MA22); conversions (5º, EF05MA19). Phrases: três horas / em ponto, três e quinze, três e meia, quinze para as quatro, vinte para as quatro, meio-dia (e meia), meia-noite, da manhã/da tarde/da noite. Written 15h30 (digital display 15:30); speech 'três da tarde'. Brazilian calendars start on domingo; dates 10/10/2026. School turnos (manhã/tarde) and recreio as examples. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Dinheiro. Coins 5, 10, 25, 50 centavos and R$ 1 (1 centavo rarely seen); notes R$ 2, 5, 10, 20, 50, 100, 200 with their animals (tartaruga, garça, arara, mico-leão-dourado, onça-pintada, garoupa, lobo-guará). BNCC: recognise and relate coins and notes (1º, EF01MA19), equivalences (2º, EF02MA20), comparing and exchanging in buying and selling (3º, EF03MA24), troco, desconto, formas de pagamento and consumo consciente (4º, EF04MA25), décimos and centésimos via money (4º, EF04MA10), percentages in educação financeira (5º). Format R$ 3,45, read 'três reais e quarenta e cinco centavos'. Contexts: mesada, cofrinho, padaria, feira, cantina, festa junina fichas, figurinhas, Pix as a payment form (not named in the BNCC). No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Medidas (Grandezas e medidas). Comparing with words (1º, EF01MA15); metro, centímetro, milímetro and litro, mililitro, grama, quilograma with non-standard units first (palmo, passo, pé) (2º, EF02MA16–17); the measure depends on the unit, choosing instruments, mg, labels and packaging, area by superposition (3º, EF03MA17–21); perímetro, área on malha quadriculada, temperatura in °C comparing regions, max/min graph (4º, EF04MA20–24); conversions, same perimeter different area, volume with stacked cubes (5º, EF05MA19–21). Symbols m, cm, mm, km, kg, g, mg, L, mL, °C; spell quilômetro. Instruments: régua, fita métrica, trena, balança, copo medidor, termômetro. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometria e figuras. Use 'formas geométricas' (the parents' search phrase) in the text alongside the BNCC's 'figuras geométricas'. Position and direction words (1º–2º, EF01MA11–12, EF02MA12–13); figuras planas círculo, quadrado, retângulo, triângulo (1º–2º), trapézio and paralelogramo by sides and vertices (3º, EF03MA15); figuras espaciais cubo, bloco retangular, pirâmide, cone, cilindro, esfera (1º–3º) and planificações (3º–5º); congruent figures on grids (3º); paralelas, perpendiculares, planta baixa, croquis (4º, EF04MA16); ângulos retos with folding or esquadro (EF04MA18); simetria de reflexão (EF04MA19); plano cartesiano 1º quadrante (5º, EF05MA14–15); polygons by sides, vertices, angles (EF05MA17); ampliação e redução (EF05MA18). Indie's hexagon and the favo's hexagonal cells as a hook; 'paralelepípedo' = bloco retangular."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Gráficos e tabelas (Probabilidade e estatística). Chance words acontecerá com certeza / talvez aconteça / é impossível (1º, EF01MA20), muito/pouco prováveis, improváveis, impossíveis (2º), all possible outcomes (3º), more likely without fractions (4º), probability with equally likely outcomes (5º, EF05MA22–23). Tables and gráficos de colunas simples (1º), tabelas de dupla entrada and gráficos de barras (2º–3º), gráficos pictóricos and grouped columns (4º), gráficos de linhas (5º); class surveys up to 30 then 50 items. Explain colunas (vertical) vs barras (horizontal). Contexts: favourite fruit at the merenda, weather and temperatures, the class's birthdays by month, football scores without real clubs. Mean/median not in anos iniciais BNCC: leave out or mention as 6º ano onward."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Álgebra e proporcionalidade. Explain why the BNCC has 'Álgebra' from 1º ano: sorting and patterns (EF01MA09–10), sequences by a rule (EF02MA09–11), sequences adding the same number and the idea of equality (EF03MA10–11), multiples, remainders, inverse operations, equality kept true on both sides and the unknown number (4º, EF04MA11–15: 3 × ▢ = 24), equivalence with the four operations, problems with one unknown term, direct proportion (price × quantity, doubling a brigadeiro recipe, map scales) and unequal sharing (one part double the other) (5º, EF05MA10–13). No letters as variables in anos iniciais (6º–7º ano); no 'regra de três' as a method. Can mention 'pensamento computacional' (BNCC Computação, 2022) briefly, UNCERTAIN detail: keep general."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Cálculo mental: named across the BNCC (EF02MA05 'cálculo mental ou escrito', EF03MA03, EF03MA05, EF04MA03, EF05MA06–08). Strategies with Brazilian names: pares que formam 10, dobros e quase dobros, completar a dezena, decompor (347 = 300 + 40 + 7), arredondar e compensar (+ 9 = + 10 − 1), contar para frente na subtração, multiplicar por 10, 100 e 1.000, dobro e metade, estimativa. Mention the national 'Compromisso Nacional Toda Matemática' (2025) only as context if at all, no claims about daily minutes. Link the older strategies article."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Anos escolares hub: 'A matemática ano a ano: da pré-escola ao 5º ano'. Explain the structure: Educação Infantil (creche 0–3; pré-escola 4 and 5, compulsory from 4, LDB art. 4 and 6), Ensino Fundamental of nine years from 6 (anos iniciais 1º–5º, also called Fundamental I; anos finais 6º–9º), cut-off 31 March (Resolução CNE/CEB 2/2018). Table of years with ages. BNCC sets habilidades year by year; states and municipalities build their curricula on it. 'Key tests' becomes 'Avaliações': none in pré-escola; Saeb in 2º (sample) and 5º ano (census in public schools), every two years; state assessments; boletim with notas or parecer descritivo (varies by network); OBMEP Mirim optional."
+  },
+  {
+   "rel": "years/pre-escola.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Pré-escola (4 e 5 anos). Compulsory from 4 (LDB art. 4 I, art. 6); local names Pré I/Pré II, Infantil 4/5 (vary). BNCC campos de experiências; maths in 'Espaços, tempos, quantidades, relações e transformações': EI03ET01 compare objects, EI03ET05 classify, EI03ET07 relate numbers to quantities and before/after/between, EI03ET08 express measures with simple graphs; learning through interações e brincadeiras. Sections 'Aos 4 anos' and 'Aos 5 anos' as usual practice ('costuma'): counting to 10 then 20, numerais 0–9, more/less/same, adding and taking away with objects, shapes, sequences, calendário and chamadinha routines. No marks, no retention (LDB art. 31); síntese das aprendizagens for 1º ano. Getting ready for 1º ano (alfabetização focus). Challenge at that level (counting bees or sharing flowers). Worksheets year='pre-escola'. Next: 1º ano."
+  },
+  {
+   "rel": "years/1-ano.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "1º ano (6 a 7), first year of Ensino Fundamental; alfabetização is the year's big focus. BNCC EF01MA01–22 grouped by topic: counting collections to 100, comparing two-digit numbers on the reta numérica, fatos básicos da adição, + and − problems to two digits (juntar, acrescentar, separar, retirar), sorting and patterns, position words, círculo/quadrado/retângulo/triângulo and solids in objects, comparing lengths and masses, days, months and the calendar, coins and notes (EF01MA19), certo/talvez/impossível, simple column graphs. Usual practice: pares que formam 10, dezena e unidade with material dourado, antecessor/sucessor, par/ímpar. No national test; boletim often a parecer descritivo (varies). Checklist and vocabulary (parcela, dezena, antecessor, sucessor…). Prev: Pré-escola; next: 2º ano."
+  },
+  {
+   "rel": "years/2-ano.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "2º ano (7 a 8). Numbers to 1000 (C D U), fatos básicos da adição e subtração, + and − to three orders, × by 2, 3, 4, 5 as adição de parcelas iguais, dobro, metade, triplo, terça parte (EF02MA01–08); sequences by a rule; solids and plane shapes, routes; m, cm, mm, L, mL, g, kg; calendar intervals, duration on a relógio digital; equivalence of coins and notes; tabelas de dupla entrada and gráficos de colunas/barras. Usual: conta armada with vai um / empresta may start; first tabuadas. Section on the Saeb do 2º ano: national, every two years (odd years, October/November), only a sample of schools, Portuguese and maths, checks the system not the child. End of the alfabetização period. Prev 1º, next 3º."
+  },
+  {
+   "rel": "years/3-ano.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "3º ano (8 a 9). Numbers to 9999 (unidade de milhar), fatos básicos da adição e da multiplicação, reta numérica, + and − meanings incl. comparar and completar, × by 2, 3, 4, 5, 10 with disposição retangular, division up to 10 with and without remainder, metade/terça/quarta/quinta/décima parte (EF03MA01–09); sequences and equality; trapézio and paralelogramo, nets, congruence; m, cm, mm, L, mL, kg, g, mg, area by superposition; analogue and digital clocks, durations; money in buying and selling; outcomes and frequency; surveys up to 50. Usual: conta armada secured, division na chave by one digit, tabuada to 10 under way. No national test this year (some state tests: 'depende do estado'). Prev 2º, next 4º."
+  },
+  {
+   "rel": "years/4-ano.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "4º ano (9 a 10). Numbers to 99 999, decomposition with powers of ten, algorithms and estimation, properties and inverse operations, multiplication incl. proportionality, division by up to two digits, counting problems, unit fractions 1/2…1/100 on the number line, décimos and centésimos with money (EF04MA01–10); multiples, equality on both sides, unknown number (EF04MA11–15); maps and planta baixa, paralelas/perpendiculares, right angles, reflection symmetry; perimeter, area on malha quadriculada, temperature in °C and a max/min graph, troco/desconto/formas de pagamento; more likely events, pictographic and grouped column graphs. Usual: whole tabuada by heart by the end of the year. Next year: Saeb. Prev 3º, next 5º."
+  },
+  {
+   "rel": "years/5-ano.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "5º ano (10 a 11), last year of the anos iniciais; next is 6º ano (anos finais, one teacher per subject, often a new school). Numbers to centenas de milhar, decimals, fractions >1, frações equivalentes, comparing fractions/decimals, 10%–100% (EF05MA01–06), + − × ÷ with decimals (multiplier and divisor natural), multiplicative principle; equivalence, unknown term, direct proportion, unequal sharing; plano cartesiano 1º quadrante, polygons, enlargement; conversions, perimeter vs area, volume with cubes; probability, line graphs. Full section on the Saeb do 5º ano (Inep, every two years in odd years, Oct/Nov, census in public schools, Portuguese and maths, feeds the Ideb, no effect on the child's marks; old name Prova Brasil) and state assessments as examples; OBMEP Mirim (Mirim 2) optional. 'O que vem no 6º ano' (fraction operations, negatives, primes, MMC/MDC) with calm transition advice instead of SATs preparation. Prev 4º; last card to years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Ajuda com matemática para as famílias'. Cards for the five Brazilian guides; 'Mais ajuda' links to anos escolares, atividades, glossário and the older articles. Você form, 'seu filho'."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matemática no dia a dia: sections by Brazilian years (pré-escola e 1º ano; 2º e 3º; 4º e 5º). Brazilian situations: padaria (pão francês, troco), feira (dúzia, kg), mesada e cofrinho, Pix with a grown-up, receita de brigadeiro or bolo (g, mL, xícara: explain xícara is not a metric unit), festa junina fichas, figurinhas album (how many missing, swaps), football table, bus timetables in 15h30, temperatures across regions, viagem de férias (km and hours), Dia das Crianças. Keep the activity count accurate if the title states a number."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Como ajudar seu filho com matemática em casa. 'Homework' becomes 'lição de casa / tarefa'. 'When you don't know the method' covers the Brazilian case: schools may ask for estratégias pessoais and decomposição before the conta armada; vai um / empresta and the chave as laid out in BRIEF; ask the professora (bilhete na agenda, reunião de pais) rather than teaching 'o jeito antigo'. Caderno quadriculado, material dourado at home with palitos and tampinhas, little and often, praise effort, 'ainda' language, reforço when needed."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Como a matemática é ensinada hoje nos anos iniciais. Rebuild for Brazil: the BNCC (2017) and letramento matemático, resolver e elaborar problemas, five unidades temáticas, habilidades year by year; concrete → pictures → symbols with Brazilian materials (material dourado, ábaco, palitos, tampinhas, reta numérica, quadro numérico, malha quadriculada); fatos básicos and estratégias pessoais before algorithms; the conta armada (vai um, empresta, multiplication with partial products, divisão na chave longo and breve, prova real) laid out exactly as BRIEF section 4; why 'Álgebra' appears in 1º ano; jogos and brincadeiras. Remove ten frames emphasis, grid method, bus stop, chunking (at most mention 'processo por estimativas' as used by some books)."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Eu sou ruim em matemática': ajudando a criança com medo da matemática. Content can stay close to English. Avoid 'eu também nunca fui boa em matemática', use 'ainda', praise strategies; link to the BNCC competência about persistence and self-confidence only if phrased loosely. When to talk to the professora and the coordenação pedagógica; reforço escolar; AEE only for special needs, without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Brazil's assessments, not England's: no marks in pré-escola (LDB art. 31); school assessment by bimestre/trimestre with boletim (notas 0–10, conceitos or parecer descritivo: varies by network, say so), recuperação; Saeb (Inep) in 2º ano (sample) and 5º ano (census in public schools), every two years in odd years, October/November, Portuguese and maths, results published the next year, Ideb for schools, no effect on the child; state assessments as examples (SARESP, SPAECE, SAEPE, Proeb, Paebes) without dates; OBMEP Mirim (optional olympiad, Mirim 1: 2º–3º, Mirim 2: 4º–5º). Say clearly: no national tables test, no entrance exam to 6º ano in public schools. Table of year/assessment/when. Calm-support advice. Link Inep's Saeb page and the BNCC site."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Recursos de matemática grátis para professores'. Cards for the four teacher guides, atividades, the pacote de desafios (/teachers.html), glossário. Mention BNCC habilidade codes (EF03MA07…) as teachers use them, lightly."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Diferenciação em matemática na sala de aula (atender a turma heterogênea): low threshold–high ceiling tasks, the same problem with different numbers, concrete materials (material dourado, ábaco, tampinhas), agrupamentos produtivos (pairs/small groups, a common Brazilian term: UNCERTAIN spread), desafios for those who finish early (link pack), support for students with gaps (reforço), inclusion with AEE where relevant without inventing rules. Multisseriadas classes exist in rural schools: a short mention is fine. Examples per year from the BRIEF."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Jogos matemáticos para a sala de aula: low-prep games with Brazilian names and materials: bingo da tabuada, boliche das somas (plastic bottles), jogo do nunca dez (material dourado), stop da tabuada, dominó de frações, batalha naval (coordinates, 5º), trilha with dice, cubra a diferença, baralho games (cards common). Tag each by ano and BNCC habilidade where it fits. Keep rules and maths correct."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Aquecimentos de cálculo mental para começar a aula: sections by 1º–2º, 3º–4º, 5º ano instead of KS1/KS2. Starters with Brazilian notation (decimal comma, ÷, 1.000, R$), número do dia, pares que formam 10, tabuada relâmpago, dobro e metade, estimativa, 'qual não pertence?', reta numérica, horas (15h30). Keep the count in the title accurate."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Raciocínio e resolução de problemas: the BNCC asks students to 'resolver e elaborar problemas' (they also write their own problems) and to argue; letramento matemático. Problem routine (ler, entender a pergunta, separar os dados, planejar, resolver, conferir, responder com frase completa), question stems in Portuguese ('Como você sabe?', 'Sempre, às vezes ou nunca?', 'Encontre o erro', 'E se…?'), modelo de barras for word problems (as used in some schools), examples in reais and metric units, OBMEP Mirim-style problems (no copied questions)."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Atividades de matemática grátis para imprimir, com respostas, da pré-escola ao 5º ano. Uses the worksheets shortcodes with Brazilian year slugs (pre-escola, 1-ano…5-ano); list only sheets that fit Brazil (leave out England's multiplication-check practice; tables sheets as 'tabuada do 2, 5 e 10' etc.; money sheets in reais with 5c–R$ 1 coins and R$ 2–R$ 200 notes). Each sheet has 'respostas' on page two. Section for the pacote de desafios linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Glossário de matemática de A a Z with Portuguese headwords in Portuguese alphabetical order (accented initials filed under the base letter: 'área' under a; letters k, w, y may have no entry), each with an example (decimal comma, point thousands) and the ano it usually appears. Include Brazilian entries: algarismo, antecessor/sucessor, chave (divisão), conta armada, dezena, dobro/metade/triplo/terça parte, empresta, fatos básicos, material dourado, ordens e classes, parcela, planificação, prova real, quadro de ordens/QVL, quociente, resto, reta numérica, tabuada, vai um, décimo/centésimo, gráfico de colunas/barras, malha quadriculada, plano cartesiano, porcentagem, situação-problema. Mark each letter's first entry with id=\"<letter>\"."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Os pares que formam 10 e 20 (fatos básicos da adição) for Brazil: when learnt (pré-escola decomposing small quantities with objects; 1º ano fatos básicos, EF01MA06; 2º ano with subtraction, EF02MA05); explain the terms parents meet (fatos básicos, amigos do 10, complemento de 10); practice with dedos, tampinhas, cartas, quadro de dez if used; using them to 'completar a dezena'; Beequation honeycomb game (Prado das Somas). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Como aprender a tabuada (de verdade): tabuada 1 to 10; BNCC timing (× by 2, 3, 4, 5 in 2º, + 10 in 3º, general in 4º; full tabuada usually completed between 3º and 4º: 'costuma'); 'decorar' vs understanding (parcelas iguais, disposição retangular, patterns: a do 5 termina em 0 ou 5, a do 9 nos dedos, a do 4 é o dobro da do 2, a do 10 acrescenta um zero), games (bingo, stop da tabuada). Replace the Year 4 check section with 'Não existe uma prova nacional de tabuada' plus why it matters for the chave and for frações. Jardim da Tabuada mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Estratégias de cálculo mental que funcionam: the same eight strategies with Brazilian names (completar a dezena, decompor, quase dobros, arredondar e compensar, contar para frente na subtração, dobro e metade, o truque do 9 e do 11, conferir com par/ímpar e o último algarismo) and examples in Brazilian notation; tie to cálculo mental across the BNCC habilidades. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Um desafio de matemática por dia para adultos: about Beequation Pro and the 'Diário Pro', Blitz de 60 segundos, 64 níveis de Ovo a Mente da Colmeia, Trio, Grande Colmeia. Use the exact feature names from i18n/pt.json, i18n/play/pt.js and the pt-BR store listings. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes pt /teachers.html: 'Desafios de matemática grátis para professores' (wording from i18n/pt.json: 'Desafios grátis para professores', 'pacote de desafios'). 'Where it fits' maps to Brazil: fatos básicos da adição and sums to 20 in 1º–2º ano, tabuada in 2º–4º (EF02MA07, EF03MA03, EF03MA07), cálculo mental routines; no MTC. Ways to use: aquecimento, desafio da semana, early finishers, lição de casa. The PDF link (/assets/beequation-puzzle-pack.pdf) is English (numbers only); flag if a Portuguese PDF is wanted."
+  }
+ ]
+}

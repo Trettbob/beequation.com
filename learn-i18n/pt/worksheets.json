@@ -1,0 +1,271 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Sequências até 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-ano",
+   "2-ano"
+  ],
+  "desc": "Contando de 1 em 1, de 2 em 2, de 5 em 5 e de 10 em 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Dezenas e unidades",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-ano",
+   "2-ano"
+  ],
+  "desc": "Decomponha números de dois algarismos"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Centenas, dezenas e unidades",
+  "topic": "counting-and-place-value",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Valor posicional até 999"
+ },
+ {
+  "id": "rounding",
+  "title": "Arredondar números",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Para a dezena, a centena e o milhar mais próximos"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Pares que formam 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "pre-escola",
+   "1-ano"
+  ],
+  "desc": "Os fatos básicos do 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Pares que formam 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-ano",
+   "2-ano"
+  ],
+  "desc": "Os fatos básicos do 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Adição e subtração até 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-ano",
+   "2-ano"
+  ],
+  "desc": "Contas misturadas até 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Conta armada de adição",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Números de três algarismos, com “vai um”"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Conta armada de subtração",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Números de três algarismos, com “empresta um”"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Tabuada do 2, do 5 e do 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Contas salteadas"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Tabuada do 3, do 4 e do 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Contas salteadas"
+ },
+ {
+  "id": "division-facts",
+  "title": "Divisões com a tabuada",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Use a tabuada para dividir"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Conta armada de multiplicação",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Números de três algarismos vezes um algarismo"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Que fração está pintada?",
+  "topic": "fractions",
+  "years": [
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Meios, terços, quartos e mais"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Fração de uma quantidade",
+  "topic": "fractions",
+  "years": [
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Como ½ de 12 ou ¾ de 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Frações equivalentes",
+  "topic": "fractions",
+  "years": [
+   "5-ano"
+  ],
+  "desc": "Descubra o número que falta"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Décimos e centésimos",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Da fração ao número decimal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Porcentagem de uma quantidade",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-ano"
+  ],
+  "desc": "10%, 25%, 50%, 75% e mais"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Horas exatas e meia hora",
+  "topic": "telling-the-time",
+  "years": [
+   "1-ano",
+   "2-ano"
+  ],
+  "desc": "Leia os relógios de ponteiros"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "E quinze, e meia e quinze para",
+  "topic": "telling-the-time",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Leia os relógios de ponteiros"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "As horas de 5 em 5 minutos",
+  "topic": "telling-the-time",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Leia os relógios de ponteiros"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Contar moedas",
+  "topic": "money",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Somando as moedas do real"
+ },
+ {
+  "id": "giving-change",
+  "title": "Quanto é o troco?",
+  "topic": "money",
+  "years": [
+   "3-ano",
+   "4-ano"
+  ],
+  "desc": "Pagando com R$ 2, R$ 5 e R$ 10"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Perímetro e área",
+  "topic": "measurement",
+  "years": [
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Retângulos na malha quadriculada"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Figuras planas",
+  "topic": "shape-and-geometry",
+  "years": [
+   "3-ano",
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Nomes, lados e vértices"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Ler um gráfico de colunas",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-ano",
+   "3-ano"
+  ],
+  "desc": "Pesquisa da fruta preferida"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Descubra o número que falta",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "4-ano",
+   "5-ano"
+  ],
+  "desc": "Qual número está escondido no quadradinho?"
+ }
+]

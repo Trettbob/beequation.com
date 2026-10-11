@@ -1,0 +1,338 @@
+{
+ "years": [
+  {
+   "slug": "groep-1-2",
+   "name": "Groep 1 en 2",
+   "age": "4 tot 6",
+   "english_equivalent": "Reception (by age groep 1 ≈ Reception, groep 2 ≈ Year 1; the two kleuter years, usually one mixed class; school from age 4, leerplicht from 5)"
+  },
+  {
+   "slug": "groep-3",
+   "name": "Groep 3",
+   "age": "6 tot 7",
+   "english_equivalent": "Year 2 by age (content close to Year 1–2: numbers to 100, sums to 20)"
+  },
+  {
+   "slug": "groep-4",
+   "name": "Groep 4",
+   "age": "7 tot 8",
+   "english_equivalent": "Year 3 by age (content close to Year 2–3)"
+  },
+  {
+   "slug": "groep-5",
+   "name": "Groep 5",
+   "age": "8 tot 9",
+   "english_equivalent": "Year 4"
+  },
+  {
+   "slug": "groep-6",
+   "name": "Groep 6",
+   "age": "9 tot 10",
+   "english_equivalent": "Year 5"
+  },
+  {
+   "slug": "groep-7",
+   "name": "Groep 7",
+   "age": "10 tot 11",
+   "english_equivalent": "Year 6"
+  },
+  {
+   "slug": "groep-8",
+   "name": "Groep 8",
+   "age": "11 tot 12",
+   "english_equivalent": "Year 7 by age (last year of the basisschool)"
+  }
+ ],
+ "address": "Je/jij (informal), for parents and teachers alike, matching the Dutch apps (apps/kids/src/i18n/nl.ts: 'Indie de bij moedigt je kind aan'), the store copy (marketing/locales/nl: 'Children and parents are both addressed with je/jij') and i18n/nl.json ('Speel gratis in je browser', 'Gratis puzzels voor je klas'). Never 'u'. Parents: 'je kind' (gender-neutral), 'ouders' (and 'ouders en verzorgers' once on hubs). Teachers: 'leerkrachten', 'je klas', 'je leerlingen', 'de groep'. Children call teachers 'juf' and 'meester'. The subject is 'rekenen' (not 'wiskunde'). Tone: warm, plain and matter-of-fact, like a juf talking to a parent on the schoolplein; no hype, no 'simpel', 'makkelijk' or 'gewoon even', no emoji. Use the words children hear in class (rijgen, splitsen, tafeltjes, kommagetallen) and explain them.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 Dutch topic names and glyphs from site.json (money glyph €, ratio glyph 1:2), the 7 year pages (Groep 1 en 2, groep 3 to 8, ages from site.json, hex labels 1–2 and 3–8), Ouders / Leerkrachten / Werkbladen / Rekenwoordenlijst, and popular guides (the four older articles). Intro: 'van groep 1 tot en met groep 8', written for the Dutch basisschool (kerndoelen, referentieniveaus, SLO-tussendoelen); je-form. Example blurbs with Dutch content: groep 1 en 2: tellen tot 20 en patronen; groep 3: splitsen tot 10 en sommen tot 20; groep 4: tot 100, rijgen en splitsen, de tafels van 1 t/m 5 en 10; groep 5: tot 1000, alle tafels, kolomsgewijs en cijferen, klokkijken op de minuut; groep 6: kommagetallen, breuken, de staartdeling of hapmethode; groep 7: procenten, schaal, vereenvoudigen; groep 8: de doorstroomtoets en het schooladvies. No SATs, no English years."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub with the 12 Dutch topic names. 'Where to start, by age' becomes 'Waar begin je? Per groep', using groep 1 en 2 (kleuters), groep 3–4, groep 5–6, groep 7–8 (or onderbouw/middenbouw/bovenbouw, noting boundaries vary). Mention briefly that Dutch teachers group rekenen in the four domains of the referentieniveaus (Getallen, Verhoudingen, Meten en meetkunde, Verbanden) and that the topic pages follow the SLO goals per groep."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Tellen en getalbegrip. Year table per BRIEF section 2: groep 1–2 counting to 20, symbols 0–10, recognising amounts to 6 without counting (dobbelsteen, vingers); groep 3 counting to 100, placing numbers to 20 on the getallenlijn; groep 4 to 100 (tientallen en eenheden, positiewaarde, even/oneven, sprongen van 2, 5, 10); groep 5 to 1000, rounding to hundreds; groep 6 to 100.000; groep 7 to 1 miljoen ('een ton'); groep 8 miljoen and miljard. Dutch materials: rekenrek, kralenketting, honderdveld, lege getallenlijn, MAB-materiaal; place-value chart D H T E (letters vary by method: say so). A key Dutch big idea: number words say units first (eenentwintig, zevenenveertig), so children swap digits (12 for 21): give it a tip. Thousands: no separator in 4-digit numbers, point from 10.000. Biljoen = 10^12 warning only if large numbers appear. No Roman numerals section (not in SLO goals)."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Optellen en aftrekken. Splitsen and 'de splitsingen tot en met 10 uit het hoofd' (groep 3), 'verliefde harten' (pairs to 10, name UNCERTAIN as universal: 'op veel scholen'), sums to 20 'via de 10' / 'over het tiental' and 'bijna dubbel', sums to 20 by heart by end of groep 4; to 100 with rijgen (64 − 27 = 64 − 20 − 7 = 37) and splitsen (34 + 27 = 50 + 11 = 61), compenseren (67 − 19), aanvullen (50 − 48); to 1000 in groep 5 with kolomsgewijs rekenen and cijferen. Show both written layouts exactly as in BRIEF section 4 (456 + 378 = 834 kolomsgewijs and cijferend with '1 onthouden'; 834 − 548 = 286 kolomsgewijs with −10 and −4, and cijferend with lenen/inwisselen), sign on the right. Tell parents to ask the juf or meester which way the class works. Rekenrek and getallenlijn pictures in SVG with Dutch labels. No English 'exchange' jargon."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Tafels, keer- en deelsommen. SLO timeline: meaning of keer and the sign × ('keer', 'maal') in groep 4, tafels van 1, 2, 3, 4, 5 en 10 by heart by end of groep 4; all tafels to 10 by end of groep 5 (tables 1–10, not 12); the ':' sign, 'rest', deeltafels in groep 5 and by heart in groep 6. Strategies: herhaald optellen, verwisselen, één keer meer/minder (9 × 4 = 10 × 4 − 4), verdubbelen/halveren, verdeelstrategie (8 × 36 = 240 + 48 = 288). Written: kolomsgewijs vermenigvuldigen (48 × 36 = 1200 + 240 + 240 + 48 = 1728) and cijferend; delen with the hapmethode (875 : 7 = 125 in the '7 / 875 \\' frame with happen 100×, 20×, 5×) and the staartdeling (135 : 11 = 12 rest 3), laid out exactly as in BRIEF section 4; groep 6 ÷ by one digit, groep 7 ÷ by two digits (183 : 58). Division sign ':' only, never ÷. 'Trakteren' (sharing treats among a class) as a division context. No bus stop, grid method, chunking or MTC."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Breuken. Dutch sequence (SLO): 'de helft' (groep 4), 'een kwart' (groep 5); in groep 6 fractions as numbers: teller, noemer, breukstreep, horizontal or slash notation, stambreuken, samengestelde breuken (2 1/3), comparing (3/4 liter > 1/2 liter), on a number line or measuring jug, making up to 1, fraction of an amount (1/5 van € 60 = € 12); groep 7 vereenvoudigen, helen eruit halen (17/3 = 5 2/3), gelijkwaardige breuken (2/5 = 4/10 = 8/20), adding/subtracting gelijknamige breuken (2/7 + 6/7 = 1 1/7), fraction ↔ kommagetal (1/5 = 0,2); groep 8 gelijknamig maken, × and ÷ with fractions (3/4 × 5/8; 1 1/2 : 1/4 = 6). Reading: een half, een derde, een kwart / een vierde, drie kwart, twee derde, een achtste; anderhalf. Contexts: pizza, pannenkoeken, a chocolate letter at Sinterklaas, a stroopwafel, a bottle of limonade. SVG captions in Dutch."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Kommagetallen en procenten. Decimal comma everywhere; 'kommagetallen' (school word, also in our app world 'Kommaduinen'), 'tienden, honderdsten, duizendsten', 'cijfers achter de komma'. SLO: money with two decimals in groep 5 (€ 7,05 > € 6,95); one and two decimals in groep 6 (3,25 = 3 + 0,2 + 0,05; 2,37 m = 2 m 37 cm); three decimals, why 4,3 > 4,25, adding/subtracting decimals with commas under each other in groep 7; × and ÷ with decimals in groep 8. Percentages from groep 7 (to 100%, 25% korting on € 80 = € 60, procentenstrook, cirkeldiagram, links 1/4 = 25% = 0,25), above 100%, btw, rente and calculating a discount % in groep 8 (€ 150 → € 105 is 30%). Write '25%' without space. Cross-link the verhoudingstabel on algebra-and-ratio and measurement (metric system is decimal)."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Klokkijken. Dutch phrases: drie uur, kwart over drie, half vier (= 3:30, 'half' points to the next hour: the classic trap), kwart voor vier, tien voor half vier (3:20), vijf over half vier (3:35), tien over half vier (3:40); 's ochtends/'s middags/'s avonds. SLO timeline: whole hours on analogue and digital clocks in groep 3; half hours and quarters in groep 4 ('kwart over 3' = 15.15); to the minute, etmaal = 24 uur and durations in groep 5; seconds, kwartaal, eeuw in groep 6; dates dd-mm-jjjj and days between dates in groep 7; time zones and zomertijd in groep 8. Write times '15.15 uur' in text (a digital display SVG may show 15:15). Calendar weeks start on maandag. Contexts: zwemles, school start 8.30, NS train times, the Sinterklaasjournaal on TV. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Rekenen met geld. Coins 1, 2, 5, 10, 20, 50 cent, € 1, € 2; notes € 5 to € 200. Key Dutch fact: cash totals are rounded to 0 or 5 cent (Rijksoverheid; € 23,37 → € 23,35), 1 and 2 cent coins are hardly used, and most payments are 'pinnen'. SLO timeline: groep 1–2 paying with € 1 coins under € 10; groep 3 € 1, € 2, € 5, € 10 and amounts to € 20; groep 4 all coins and notes, amounts to € 100, changing money; groep 5 writing € 4,95 and change from a note to € 100; groep 6 amounts to € 5000 with as few notes/coins as possible; groep 7 korting; groep 8 wisselkoersen. Format '€ 4,95', '€ 80,-'. Contexts: zakgeld, spaarpot, de bakker, de markt, de ijssalon, the Koningsdag vrijmarkt, statiegeld (avoid exact amounts). No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Meten en wegen. SLO timeline: comparing and natural measures (hands, feet, cups, balance) in groep 1–3; m, cm (1 m = 100 cm) and kg in groep 4; mm, dm, km, l, ml, g, perimeter and area by counting squares in groep 5; hm, m²/dm²/cm², area = l × b, perimeter 2 × (l + b), dl and cl, decimal measures (2,37 m) and the thermometer in groep 6; dam, the prefixes milli- to kilo-, km², ha, are, m³, dm³ = 1 liter, 'kuub', volume = l × b × h, ton, temperature below zero in groep 7; the whole metric system in groep 8 (kg, hg, dag, g, dg, cg, mg). Instruments: liniaal, rolmaat, meetlint, maatbeker, weegschaal, geodriehoek, thermometer. Contexts: Avondvierdaagse (5 km a night), cycling to school, a pak melk of 1 liter, baking pannenkoeken. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Meetkunde en vormen. SLO: position words (voor, achter, naast, links, rechts, tegenover, tussen), cirkel, driehoek, vierkant, rechthoek, patterns on the kralenplank (groep 1–2); views and nets ('uitslagen') in groep 3; kubus, balk, bol, cilinder and mirror images in groep 4; symmetrie and spiegelas, tangram, bouwplaat of a dice in groep 5; grid references (vak C5), windrichtingen, scale drawings, vlakvulling, regular polygons including the zeshoek in groep 6; horizontaal/verticaal/diagonaal, perspective, kijklijnen in groep 7; windroos (N, NO … NW), shadows, maquette in groep 8. Angles: rechte, scherpe, stompe hoek, the geodriehoek. Indie's hexagon and the honingraat as a tiling ('vlakvulling') hook. Ruimtelijke figuren vs vlakke figuren."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Tabellen en grafieken (the 'Verbanden' domain). SLO: objects in rows as a first beelddiagram (groep 1–2); reading beelddiagram and staafdiagram, colouring squares (groep 3); tables and turven (groep 4); legenda, number patterns (groep 5); cirkeldiagram and lijngrafiek, one picture = 100 (groep 6); axes words (horizontale/verticale as, stijgen, dalen), drawing a line graph, coordinates, filling in a pie chart in tenths, gemiddelde (groep 6–7); choosing the right chart and reading graphs critically (groep 8). Contexts: favourite fruit in the kleine pauze, rain and temperature (°C), a class survey, traffic counting by the school (turven), a football table without real clubs. No mode/median/range as curriculum facts (not in SLO list; only gemiddelde)."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Verhoudingen en patronen (Dutch domains Verhoudingen + Verbanden/patterns; there is no formal algebra in the basisschool, so keep it informal). Patterns from the kleuters (kralen, mozaïek) to number sequences (100 − 93 − 86 − 79) and growing patterns; missing-number sums (… + 7 = 15); volgorde van bewerkingen with haakjes in groep 8 (4 + 5 × 6 = 34). Ratio: the verhoudingstabel (central Dutch model, from groep 4–5: recipes, price per kg), 'zoveel op de zoveel' (1 op de 3), ratio ↔ fraction ↔ percentage, scale 1 : 100 (groep 7) and 1 : 50.000 on a map (groep 8), enlarging photos, speed in km per uur. Explain the glyph '1:2' is ratio notation. Correct worked examples only."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Hoofdrekenen (our apps' own word). Kerndoel 27 (2006): basic operations to 100 quick 'uit het hoofd', sums to 20 and the tafels 'van buiten'. Automatiseren vs memoriseren; strategies with Dutch names: splitsen, via het tiental, (bijna) dubbel, rijgen, splitsen, compenseren, aanvullen, verwisselen, verdubbelen en halveren, analogie (8 − 3 → 80 − 30), schattend rekenen, × and ÷ with round numbers (600 × 7 = 4200). Flitsen (flash cards) as a Dutch classroom habit. Link the older strategies article. Examples in Dutch notation."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Groepen hub: 'Rekenen per groep: van groep 1 tot en met groep 8'. Explain the basisschool: start the day after the 4th birthday (any time of year), leerplicht from the first day of the month after the 5th birthday, groep 1 en 2 kleuters (often one class), groep 3 to 8, then the middelbare school (brugklas; vmbo, havo, vwo). Table of groups with ages. 'Key tests by year' becomes 'Toetsen per groep': LVS tests (midden/eind) in groep 3–8 with erkende toetsen for taal and rekenen, methodetoetsen, the doorstroomtoets in groep 8 (Jan/Feb) and the schooladvies (voorlopig in January, definitief by 24 March). Say that kerndoelen and referentieniveaus are national, but each school chooses its rekenmethode, so the timing per groep can differ."
+  },
+  {
+   "rel": "years/groep-1-2.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Groep 1 en 2 (4 tot 6), the kleuters. School from 4 (not yet leerplichtig), leerplicht from the month after the 5th birthday; usually a mixed class 1/2; moving to groep 3 depends on development (no fixed birthday rule: say 'meestal'). Learning through play (hoeken, kring, buiten). SLO goals for eind groep 2: counting to 20, counting on/back, ordinal words to 10, amounts to 12, recognising to 6 without counting, symbols 0–10, adding/taking away and sharing with objects to 12, comparing length/size/volume/weight, measuring with hands and feet, time words and order, paying with € 1 coins under € 10, position words, cirkel/driehoek/vierkant/rechthoek, patterns, objects in rows. No test: schools choose how they follow kleuters (observation). Challenge at kleuter level (counting/sharing honey drops). Worksheets year='groep-1-2'. Next: groep 3."
+  },
+  {
+   "rel": "years/groep-3.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "Groep 3 (6 tot 7): learning to read and write, and formal rekenen begins (+, −, =). SLO eind groep 3: counting to 100, reading numbers to 100, number line to 20, splitsingen to 10 by heart, sums to 20 with strategies (via de 10, bijna dubbel, via de 5), informal multiplying by counting groups and sharing under 20, whole hours on analogue and digital clocks, days of the week, € 1, € 2, € 5, € 10 and amounts to € 20, beeld- and staafdiagram, nets and views. Materials: rekenrek, splitshuisjes, getallenlijn. Tests: first LVS tests (midden around Jan/Feb, eind around June: usual practice) and methodetoetsen; not pass/fail. Checklist, vocabulary table (splitsen, erbij, eraf, tiental, getallenlijn, rekenrek). Prev: groep 1 en 2; next: groep 4."
+  },
+  {
+   "rel": "years/groep-4.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Groep 4 (7 tot 8). Numbers to 100 (tientallen, eenheden, positiewaarde, even/oneven), sums to 20 by heart, + and − to 100 with rijgen and splitsen (worked examples from BRIEF), compenseren, schatten; multiplication introduced (× sign, 'keer'), tafels van 1, 2, 3, 4, 5 en 10 by heart by the end of the year; de helft; verhoudingstabel; m, cm, kg; half hours and quarters on analogue and digital clocks (kwart over drie = 15.15); all coins and notes, amounts to € 100; kubus, balk, bol, cilinder; tables and turven. LVS tests as in groep 3. Prev groep 3, next groep 5."
+  },
+  {
+   "rel": "years/groep-5.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Groep 5 (8 tot 9). Numbers to 1000, rounding to hundreds; + and − to 1000 with kolomsgewijs rekenen and cijferen (show one short example, link the topic page); all tafels to 10 by heart, ':' and rest, deeltafels, × and ÷ with multiples of 10, verdeelstrategie (8 × 36); een kwart; mm, dm, km, l, ml, g; perimeter and area by squares; the clock to the minute, 24-hour etmaal, durations (15.15 to 17.00 is 1 uur 45 minuten); writing € 4,95 and giving change; symmetrie and spiegelas; legenda and patterns. No national tables test (say it plainly). Prev groep 4, next groep 6."
+  },
+  {
+   "rel": "years/groep-6.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Groep 6 (9 tot 10). Numbers to 100.000 (point or space as separator); kommagetallen with one and two decimals; breuken as numbers (teller, noemer, stambreuken, samengestelde breuken, fraction of an amount: 3/4 van 120 liter = 90 liter); deeltafels by heart; written × (one digit × two/three digits) and ÷ by one digit with rest (hapmethode or staartdeling depending on the school, BRIEF layouts); gemiddelde; verhoudingen 1 op de 3, price per kg; hm, m², area = l × b, perimeter 2 × (l + b), dl and cl, thermometer; seconds, eeuw; money to € 5000; grid references and windrichtingen; cirkeldiagram and lijngrafiek. Prev groep 5, next groep 7."
+  },
+  {
+   "rel": "years/groep-7.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Groep 7 (10 tot 11). Numbers to 1 miljoen ('een ton'); kommagetallen to three decimals and + − with them; breuken: vereenvoudigen, helen eruit halen, gelijkwaardige breuken, + − gelijknamige breuken, breuk ↔ kommagetal; × two digits × two digits (35 × 67 = 2345), ÷ three digits by two digits; rekenmachine; percentages to 100% and korting (25% van € 80); schaal 1 : 100; km², ha, m³, liter = dm³, volume l × b × h, temperatures below zero; dates dd-mm-jjjj; coordinates and axes. Many schools give a first indication of the schooladvies at the end of groep 7 (UNCERTAIN: 'op veel scholen'); explain calmly. Prev groep 6, next groep 8."
+  },
+  {
+   "rel": "years/groep-8.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Groep 8 (11 tot 12), the last year of the basisschool; next is the brugklas at the middelbare school. Content: miljoen and miljard, deelbaarheid, volgorde van bewerkingen with haakjes, × and ÷ with kommagetallen, gelijknamig maken and × ÷ with breuken, percentages above 100% (btw, rente, winst), discount %, schaal 1 : 50.000, whole metric system, time zones, wisselkoersen, choosing graphs. A full section on the doorstroomtoets (compulsory; rekenen, lezen, taalverzorging; digital between 25 January and 12 February 2027, paper 26–27 January; toetsadvies; referentieniveaus 'op weg naar 1F', 1F, 1S for rekenen) and the schooladvies timeline (voorlopig 10–31 January, definitief by 24 March, enrolment 25–31 March; a higher toetsadvies normally raises the advice, a lower one never lowers it). Calm, non-cramming advice; the kamp and musical as colour. Prev groep 7; last card to the Groepen hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Hulp bij rekenen voor ouders'. Cards for the five Dutch guides; 'Meer hulp' links to Groepen, Werkbladen, Rekenwoordenlijst and the older articles. Je-form, 'je kind'."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Rekenen in het dagelijks leven: sections by groep (groep 1–3; groep 4–6; groep 7–8). Dutch situations: de bakker and de markt (weighing kaas in grammen), zakgeld and the spaarpot, cash rounding to 5 cent, pinnen at the supermarket, cycling distances and km/u, NS timetables in 24-hour time, baking pannenkoeken (g and ml), trakteren for the class (dividing), Sinterklaas surprises and pepernoten counting, the Koningsdag vrijmarkt (pricing and change), the weather in °C and rain, Avondvierdaagse kilometres, the holiday trip (km and hours). Keep the activity count accurate if the title states a number."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Helpen met rekenen thuis (zonder ruzie). Homework is light in the basisschool (often from groep 6–7: UNCERTAIN, say 'op veel scholen'); weekly practice of tafeltjes and sums to 20. 'When you don't know the method' must cover the Dutch case: kolomsgewijs vs cijferen, hapmethode vs staartdeling, rijgen vs splitsen; parents learned it differently; ask the juf or meester (oudergesprek) and don't teach 'your' way without checking. Little and often, praise effort, 'nog niet' language, games, reading the rapport and LVS results calmly."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Zo leert je kind rekenen op de basisschool. Rebuild for the Netherlands: realistisch rekenen (contexts first, models like the getallenlijn, rekenrek and verhoudingstabel, own strategies first), the handelingsmodel (doing with objects → drawing/models → formal sums), automatiseren of splitsingen and tafels, mental strategies (rijgen, splitsen, compenseren), then written methods laid out exactly as in BRIEF section 4: kolomsgewijs and cijferend optellen/aftrekken (sign on the right, '1 onthouden', lenen/inwisselen), kolomsgewijs vermenigvuldigen, hapmethode and staartdeling ('7 / 875 \\ 125'). The school's rekenmethode decides the order; kerndoelen and referentieniveaus 1F/1S are national. Mention the strokenmodel and verhoudingstabel. Remove ten-frame emphasis, grid method, bus stop and chunking."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Ik kan niet rekenen': rekenangst bij kinderen (and parents). Can stay close to the English content. Link to the new kerndoel 17 ('De leerling ontwikkelt een wiskundige attitude') only lightly. 'Nog niet' language, avoid 'ik was ook slecht in rekenen'; no clocks for anxious children (our app has no timer). When to talk to the juf/meester and the intern begeleider; mention dyscalculie and that schools follow a protocol for serious maths difficulties, without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Dutch assessments, not England's: groep 1–2 no test (observation); methodetoetsen after each blok; LVS tests in groep 3–8 (compulsory LVS with erkende toetsen for taal and rekenen, the school chooses; usually midden and eind; parents call them 'Cito-toetsen' even when the provider is IEP or DIA; scores show growth, not pass/fail); the doorstroomtoets in groep 8 (replaced the eindtoets from 2023-24; Jan/Feb; rekenen, lezen, taalverzorging; toetsadvies; referentieniveaus 1F/1S for rekenen, 1F/2F for taal; approved providers chosen by the school, a single test planned in future); the schooladvies timeline (voorlopig 10–31 January, results by 15 March, definitief by 24 March, aanmelding 25–31 March) and the rule that a higher toetsadvies normally raises the advice. Say clearly there is no national tables test. Table groep / toets / wanneer. Calm-support advice (sleep, breakfast, no cramming). Link Rijksoverheid pages."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Gratis rekenmateriaal voor leerkrachten'. Cards for the four teacher guides, werkbladen, the puzzelpakket (/teachers.html), the woordenlijst. Mention lightly the words teachers use: kerndoelen (new set since 1 August 2026, old ones allowed until 2031), referentieniveaus 1F/1S, SLO-tussendoelen, LVS."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Differentiëren bij rekenen: instruction levels (verlengde, basis, verkorte instructie), the IGDI-model, convergent differentiation, groepsplan/groepsoverzicht, passend onderwijs, support from the intern begeleider, plusklas and verrijking for quick learners; working towards 1F for everyone and 1S for many (referentieniveaus); concrete materials (rekenrek, MAB, kralenketting, breukenstroken). Low threshold, high ceiling tasks; honeycomb puzzles for early finishers (link pack). No invented regulations."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Rekenspelletjes voor in de klas: low-prep games with Dutch names and materials: dobbelstenen, speelkaarten (e.g. 'pesten' variants for sums), kwartet with tafels, bingo, zeeslag for coordinates (groep 6–7), 'Wie ben ik?' number guessing, getallenlijn-race, tafelestafette, flitsen. Mention De Grote Rekendag (annual, Freudenthal Instituut, Universiteit Utrecht) as an idea without dates. Tag each game by groep. Keep all games correct."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Rekenstart: warming-ups voor de rekenles, by groep (groep 3–4, groep 5–6, groep 7–8) instead of KS1/KS2. Flitsen (flash cards), het getal van de dag, splitsen with the rekenrek, tafeldictee, 'hoeveel ongeveer?' (schatten), verhoudingstabel puzzles, kommagetallen on a getallenlijn, klokkijken in Dutch phrases. Dutch notation (decimal comma, ':' for division, 10.000 with a point, × for keer)."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Redeneren en probleemoplossen: tie to the new kerndoelen 15 ('wiskundige denk-werkwijzen'), 16 (wiskundetaal en gereedschap) and 18 (toepassen in bekende en nieuwe situaties), and to the SLO goals' recurring 'kan kritisch denken en redeneren' lines (use their style of question, e.g. 'Zijn twee muntjes altijd meer waard dan één muntje?'). Contextsommen with the strokenmodel and verhoudingstabel, question stems in Dutch ('Hoe weet je dat?', 'Klopt dit altijd?', 'Zoek de fout'), 'uitleggen hoe je het hebt aangepakt'. Examples in euros (cash ending in 0 or 5 cent) and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Gratis rekenwerkbladen met antwoorden, van groep 1 tot en met groep 8. Uses the worksheets shortcodes with the Dutch year slugs (groep-1-2 … groep-8); only sheets that fit the Netherlands (leave out England's multiplication-check practice; tables sheets as 'de tafels van 2, 5 en 10'; money sheets in euros with coins from 5 cent and totals rounded to 5 cent where cash; clocks in Dutch phrases such as 'kwart over drie' and 'half vier'). Each sheet has the answers on page two. Puzzelpakket section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Rekenwoordenlijst van A tot Z with Dutch headwords in Dutch alphabetical order (a–z; 'ij' sorted as i + j, as in dictionaries; letters with no entry, such as q, x, y, can be left without an entry), each with an example (decimal comma, point thousands from 10.000, ':' for division) and the groep it usually appears (from SLO). Include Dutch-specific entries: aanvullen, cijferen, compenseren, deeltafel, gelijknamig maken, hapmethode, helen eruit halen, honderdveld, kolomsgewijs rekenen, kommagetal, lenen/inwisselen, onthouden, positiewaarde, rekenrek, rijgen, samengestelde breuk, splitsen, staartdeling, stambreuk, strokenmodel, tafels, teller/noemer, turven, verhoudingstabel, verliefde harten, referentieniveau. Mark each letter's first entry with id='<letter>'."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Splitsen en sommen tot 20 (the Dutch take on number bonds): what splitsen is (7 = 5 + 2 = 4 + 3 …), splitshuisjes, verliefde harten (pairs to 10), the SLO timing (splitsingen tot en met 10 by heart in groep 3, sums to 20 by heart by end of groep 4), using them to go 'over het tiental' (8 + 5 = 8 + 2 + 3), practising with fingers, the rekenrek, dice and cards; the honeycomb game in Beequation Kids (Optelweide). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Tafels oefenen: zo leert je kind de tafeltjes. Tables 1 to 10 (not 12); SLO timing: tafels van 1, 2, 3, 4, 5 en 10 by end of groep 4, all to 10 by end of groep 5, deeltafels by heart in groep 6. Understanding first (groups, rows, herhaald optellen), then automatiseren: patterns (de tafel van 5 eindigt op 0 of 5, de tafel van 4 is het dubbele van de tafel van 2, de tafel van 9 = 10 keer min 1 keer), tafelkaart, flitsen, games, little and often. Replace the 'Year 4 multiplication tables check' section with 'Er is geen landelijke tafeltoets' plus why tables matter for deelsommen, breuken and the doorstroomtoets. Tafeltuin mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Slimme strategieën voor hoofdrekenen: the same eight strategies with Dutch names (via het tiental, splitsen, bijna dubbel, rijgen, compenseren, aanvullen, verdubbelen en halveren, het trucje van 9 en 11, controleren met even/oneven and the last digit) and examples in Dutch notation; tie to kerndoel 27 and the SLO strategies per groep. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Een dagelijkse rekenpuzzel voor volwassenen: about Beequation Pro and the Dagpuzzel (Daily Pro, numbered 'Korf nr.'), the 60-secondenblitz, 64 levels from Ei to Korfgeest, moeilijke modus, Trio, Grote Korf. Use the exact Dutch feature names from apps/adult/src/i18n/nl.ts, i18n/nl.json and the nl store listings ('hoofdrekenen', 'breintraining' are natural words). Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes nl /teachers.html: 'Gratis rekenpuzzels voor je klas'. Reuse wording already in i18n/nl.json ('Een printbaar pakket met 24 honingraatpuzzels, sommen tot 20 en de tafels, met antwoordenblad', 'Projecteer er een als opwarmertje van twee minuten…', 'Gratis puzzels voor leerkrachten'). 'Where it fits' must map to the Netherlands: splitsen and sums to 20 in groep 3–4, de tafels in groep 4–5 and as onderhoud in groep 6–8, rekenstart/flitsen routines; no MTC. Ways to use: warming-up, weekly challenge, early finishers, plusklas. The PDF (/assets/beequation-puzzle-pack.pdf) is English (numbers only): say '(pakket in het Engels)' as nl.json does, and flag if a Dutch PDF is wanted."
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "years": [
+  {
+   "slug": "zerowka",
+   "name": "Zerówka",
+   "age": "6–7",
+   "english_equivalent": "Reception (by content; by age it overlaps Year 1–2). The compulsory pre-school year, 'roczne przygotowanie przedszkolne', in a przedszkole or a school's oddział przedszkolny"
+  },
+  {
+   "slug": "klasa-1",
+   "name": "Klasa 1",
+   "age": "7–8",
+   "english_equivalent": "Year 1 / Year 2 by content (Year 2–3 by age); first year of compulsory school and of edukacja wczesnoszkolna"
+  },
+  {
+   "slug": "klasa-2",
+   "name": "Klasa 2",
+   "age": "8–9",
+   "english_equivalent": "Year 2 / Year 3 by content (Year 3–4 by age)"
+  },
+  {
+   "slug": "klasa-3",
+   "name": "Klasa 3",
+   "age": "9–10",
+   "english_equivalent": "Year 3 / Year 4 by content (Year 4–5 by age); end of edukacja wczesnoszkolna"
+  },
+  {
+   "slug": "klasa-4",
+   "name": "Klasa 4",
+   "age": "10–11",
+   "english_equivalent": "Year 4 / Year 5 by content (Year 5–6 by age); first year of maths as a subject"
+  },
+  {
+   "slug": "klasa-5",
+   "name": "Klasa 5",
+   "age": "11–12",
+   "english_equivalent": "Year 5 / Year 6 by content (Year 6–7 by age)"
+  },
+  {
+   "slug": "klasa-6",
+   "name": "Klasa 6",
+   "age": "12–13",
+   "english_equivalent": "Year 6 by content, plus some early KS3 (integers, simple equations); end of the podstawa's 'Klasy IV–VI' block"
+  }
+ ],
+ "address": "Informal singular 'ty', as our Polish apps, store listings and i18n/pl.json do, with the reader's possessives and pronouns capitalised in parent- and teacher-facing text ('Twoje dziecko', 'w Twojej klasie', 'możesz', 'Potrzebujesz pomocy?'); never Pan/Pani/Państwo. Indie's lines and anything spoken to children use lowercase ty forms, as the children's game does ('spróbuj', 'twoja kolej'). Parents are 'rodzice' ('Dla rodziców'), the child is 'Twoje dziecko' (neuter, so no gender doubling); teachers are 'nauczyciele' ('Dla nauczycieli', as the site menu), also addressed with ty ('Twoi uczniowie'). Indie is 'pszczółka Indie', grammatically feminine ('Indie zebrała'), name not declined ('z Indie'). Tone: warm, plain and direct, like a 'pani od matematyki' talking to a parent at the school gate; 'matma' is fine now and then. No 'po prostu', 'łatwe', 'banalne', and no emoji. Polish quotes „…”, spaced en dash ' – '.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Intro: free maths help 'od zerówki do 6. klasy', written for Poland's podstawa programowa (mention once that a new podstawa is being introduced year by year from 2026/27). Cards for the 12 topics with Polish names and glyphs from site.json (money glyph 'zł', multiplication '2·3'), the 7 years (Zerówka 6–7 lat, Klasa 1–6, glyphs 0–6), Dla rodziców / Dla nauczycieli / Karty pracy / Słowniczek, and popular guides (the four older articles). Example blurbs with Polish content: zerówka: liczenie, monety i figury; klasa 1: liczby do 20 i rozkład liczby; klasa 2: do 100 i początek tabliczki mnożenia; klasa 3: tabliczka mnożenia na pamięć, liczby do 1000; klasa 4: pierwszy rok matematyki z nauczycielem, działania pisemne, ułamki; klasa 5: ułamki zwykłe i dziesiętne, cechy podzielności; klasa 6: liczby całkowite, równania, procenty. No SATs, no 'Key Stage'."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub with the 12 Polish topic names. 'Where to start, by age' becomes 'Od czego zacząć – według klasy', grouped as zerówka, klasy 1–3 (edukacja wczesnoszkolna: one teacher, 'edukacja matematyczna' inside integrated teaching, requirements set for the end of klasa 3) and klasy 4–6 (matematyka as a subject; the podstawa lists one block 'Klasy IV–VI', split by the textbook). Mention how the new podstawa groups maths in klasy 1–3 (liczby, miary, figury, dane, myślenie matematyczne) and in 4–6 (Liczby, Miary, Algebra, Figury, Dane, Myślenie matematyczne) as the way Polish teachers think about topics."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Liczenie i system dziesiątkowy. Year table per BRIEF: zerówka 'liczy w możliwym dla siebie zakresie', digits seen around (prices, house numbers, calendar); klasa 1 to 20 (tens to 100), klasa 2 to 100, klasa 3 to 1000 (old podstawa: 'od zera do tysiąca oraz wybrane liczby do miliona'; new: 'co najmniej do 10 000' by the end of klasa 3), klasy 4–6 big numbers, rounding ('zaokrąglanie'), Roman numerals to XII (klasy 1–3) and to 3000/MMM (4–6), integers on the number line (new podstawa: counting back past 0 already in klasy 1–3, negative temperatures). Vocabulary: cyfra vs liczba, jedności/dziesiątki/setki/tysiące, 'wartość cyfry zależy od jej miejsca', parzyste/nieparzyste, liczebniki porządkowe. Thousands separator a space from five digits (10 000, 25 000); warn that 'miliard' = 10⁹ and 'bilion' = 10¹². Materials: liczmany, patyczki in bundles of ten, liczydło, oś liczbowa, chodniczek liczbowy, a table of numbers 1–100, a ruler and a thermometer as number lines (the podstawa's own examples)."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Dodawanie i odejmowanie. Klasy 1–3 work in the head with written part results ('zapis wyników cząstkowych'): rozkład liczby and dopełnianie do 10, 'przekraczanie progu dziesiątkowego' (8 + 5 = 8 + 2 + 3), within 20 in klasa 1 and 100 in klasa 2, two- and three-digit numbers by the end of klasa 3 (new podstawa); 'okienko' equations (7 + ▢ = 19). Written methods ('dodawanie i odejmowanie pisemne', 'słupki') from klasa 4, laid out exactly as in BRIEF (347 + 285 = 632 with '1 przenoszę'; 532 − 178 = 354 with 'pożyczam', crossed-out digits, 'sprawdzenie' 354 + 178 = 532). Say that the 2026 podstawa no longer requires the traditional algorithm (writing intermediate steps is equally valid) but most klasa 4 textbooks still teach it; follow the teacher's way. Terms: składniki, suma, odjemna, odjemnik, różnica; 'o ile więcej / o ile mniej'. Decimals added in columns 'przecinek pod przecinkiem' (klasa 4–5). No 'exchange' jargon, no English column phrases."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Mnożenie i dzielenie. Use '·' and ':' throughout (3 · 4 = 12; 12 : 3 = 4), with one line explaining that this is how Polish schools write it. Tabliczka mnożenia 'w zakresie 100' (to 10 · 10, not 12 · 12), usually begun in klasa 2 and known by heart ('na pamięć') by the end of klasa 3 (podstawa: 'mnoży i dzieli liczby naturalne w zakresie tabliczki mnożenia'); 'duża tabliczka' (11–20) only as an extra. Division as 'podział i mieszczenie' (sharing and grouping, the podstawa's words), division with remainder written '17 : 5 = 3 r. 2', 'o ile' vs 'ile razy więcej'. Written multiplication with partial products (234 · 23 = 5382; zeros at the end trick) and the Polish long-division layout with the quotient above the line (857 : 4 = 214 r. 1, check 214 · 4 + 1 = 857), both from klasa 4 and optional in the new podstawa. Terms: czynniki, iloczyn, dzielna, dzielnik, iloraz, reszta. Klasy 4–6: cechy podzielności (2, 3, 4, 5, 9, 10), liczby pierwsze i złożone, rozkład na czynniki pierwsze, NWD and NWW, powers (squares and cubes), order of operations. No bus stop, grid method, chunking or tables check."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Ułamki zwykłe. Polish sequence: halves and quarters in everyday use in klasy 1–3 ('połowa, ćwierć, dwa i pół'; new podstawa: reading and writing ½, ⅓, ¼, ⅕, ⅛ by the end of klasa 3); klasa 4: part of a whole, licznik and mianownik, liczby mieszane, ułamki niewłaściwe, comparing, adding and subtracting with the same denominator; klasy 5–6: 'skracanie i rozszerzanie', 'sprowadzanie do wspólnego mianownika', all four operations, a fraction of an amount, fraction as a quotient (split varies by textbook: say 'zwykle'). Reading: jedna druga, jedna trzecia, trzy czwarte, dwie piąte, pięć szóstych, siedem ósmych. Explain 'ułamki równe' via skracanie/rozszerzanie (equivalent fractions). Contexts: pizza, tort, szarlotka, a chocolate bar ('tabliczka czekolady': mind the pun with tabliczka mnożenia), pierogi on a plate, sharing at Wigilia. SVG captions in Polish."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Ułamki dziesiętne i procenty. Decimal comma everywhere (2,5 read 'dwa i pięć dziesiątych' / 'dwa przecinek pięć'); części dziesiąte, setne, tysięczne. Start from money and measures: prices in zł and gr ('4,99 zł'), 'wyrażenia dwumianowane' (3 zł 45 gr = 3,45 zł; 2 m 15 cm = 2,15 m), which the podstawa names in both stages. Klasa 4: notation, comparing, adding and subtracting; klasa 5: all operations (new podstawa: at most three decimal places, division reducing to a natural divisor), rounding; percentages: the new podstawa's '100% całość, 50% połowa, 25% jedna czwarta, 10% jedna dziesiąta, 1% jedna setna', a percentage of an amount, unit price and comparing offers ('rabat, promocja, zakup w pakiecie': moduł ekonomiczno-finansowy); percentages often only in klasa 6 or 7 depending on textbook (UNCERTAIN, phrase loosely). Write '25%' without a space. Cross-link money and algebra-and-ratio."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Zegar i kalendarz. Polish phrases: trzecia / punkt trzecia, kwadrans po trzeciej, wpół do czwartej (names the NEXT hour: give it its own section with an SVG clock at 3:30), za kwadrans czwarta, dziesięć po, za dwadzieścia; hours are ordinal and feminine ('o trzeciej'). 24-hour time is everyday (rozkład jazdy, plan lekcji, TV): 15:30 'piętnasta trzydzieści'; the old podstawa expects analogue and 24-hour digital by the end of klasa 3. Units 'doba, godzina, minuta, sekunda', kwadrans = 15 min; converting h↔min, min↔s (new podstawa klasy 1–3); clock and calendar sums in klasy 4–6. Calendar: week starts on Monday, days and months lowercase, dates 10.10.2026, Roman numerals for months ('10 X 2026') and on clock faces (to XII). Zerówka: wczoraj/dzisiaj/jutro, pory roku, dni tygodnia, miesiące. Write clock readings as 15:30. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Pieniądze. Coins 1, 2, 5, 10, 20, 50 gr, 1, 2, 5 zł; notes 10, 20, 50, 100, 200 zł (leave 500 zł out of children's examples). Zerówka: 'rozpoznaje monety i banknoty, wykonuje proste obliczenia'; klasy 1–3: złoty and grosz, 'zamienia złote na grosze i odwrotnie', shopping, saving, reading decimal prices (new podstawa, moduł ekonomiczno-finansowy, and play shop, planning a trip budget); klasy 4–6: unit price, comparing offers and discounts, budget, saving, currency exchange (new podstawa). Point out that size does not show value (10 gr is smaller than 5 gr; 2 zł smaller than 1 zł). Format '3,45 zł', '3 zł 45 gr'; mind the plurals (złoty/złote/złotych, grosz/grosze/groszy). Contexts: kieszonkowe, skarbonka, sklepik szkolny, piekarnia, wydawanie reszty, paying by card or phone (money you can't see). Realistic 2026 prices per BRIEF. No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Miary i jednostki. Zerówka: weighing and measuring with own and standard tools ('waży i mierzy'), longer/shorter, heavier/lighter. Klasy 1–3: km, m, cm, mm, t, kg, dag, g, l, ml, doba/godzina/minuta/sekunda, złoty/grosz; temperature incl. negative and differences through 0 °C (new podstawa); converting in simple practical cases; wyrażenia dwumianowane; measuring out food with a jug and kitchen scales; perimeter of triangles and rectangles. Klasy 4–6: measuring to 1 mm, mm–dm–km conversions, angles in degrees, area units mm², cm², dm², m², km², ar, hektar, volume cm³, dm³, m³, l, ml; scale; speed, distance and time (km/h, m/s). Polish touches: 'dekagram' and the shop word 'deko' ('10 deko sera'), 'pół litra', 'ćwierć litra', the działka for area, winter thermometers. Metric only."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Figury i geometria. Zerówka: koło, trójkąt, kwadrat, prostokąt and some solids, patterns and symmetry in nature. Klasy 1–3: triangles, quadrilaterals, rectangles incl. squares, circles, cuboid/cube/sphere/cylinder; drawing with a ruler on squared paper ('sieć kwadratowa', 'zeszyt w kratkę'); perimeter; symmetry (also in folk patterns, e.g. wycinanki); left/right; 'pion, poziom, skos', parallel and perpendicular. Klasy 4–6: point, line, ray, segment ('punkt, prosta, półprosta, odcinek'), kinds of angles and the protractor ('kątomierz'), triangles by sides and angles, angle sums 180° and 360°, square, rectangle, romb, równoległobok, trapez, koło vs okrąg (disc vs circle line: a key Polish distinction), środek, promień, średnica, cięciwa, areas of the main polygons, coordinates (new podstawa), prisms, pyramids, nets, surface area and volume of a cuboid. Indie's hexagon ('sześciokąt', plaster miodu) is the natural hook."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Dane i diagramy. Zerówka: sorting by two features ('klasyfikuje obiekty według co najmniej dwóch cech'); klasy 1–3: simple tables and bar charts ('diagramy słupkowe'), finding information in timetables, calendars and price lists, presenting data (also digitally); klasy 4–6: tables, bar charts, line graphs, prices on receipts ('paragony'), simple surveys, and in the new podstawa the mean ('średnia arytmetyczna', also average spending); the old podstawa (klasy 5–6 in 2026/27) has no mean in IV–VI. Mention critical reading of data (the new podstawa's aim for klasy IV–VI is 'odczytywanie i krytyczne interpretowanie podanych informacji'; spotting 'nieuprawnione wnioski' is the klasy VII–VIII aim, so don't attribute it to 4–6) and real data (the maths method notes recommend data on 'zmiana klimatu, zużycie energii' and similar). Contexts: favourite fruit, weather and temperatures, class trip votes, a football league table without real club names."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Wyrażenia i równania (patterns, missing numbers, simple algebra and proportional reasoning; topic name changed by the fact-checker from 'Równania i proporcje', because formal 'proporcje' are klasa 7–8 and the page does not teach them). Zerówka: 'szeregi oraz powtarzalne wzory'; klasy 1–3: rytmy i regularności, 'okienko' equations for all four operations ('7 + ▢ = 19, ▢ + 8 = 21'); klasy 4–6: letters in simple formulas (perimeter of a rectangle), algebraic expressions from practical situations, writing and solving 'proste równania pierwszego stopnia z jedną niewiadomą występującą po jednej stronie równania' (by guessing, filling in or inverse operation), scale, speed–distance–time, unit price and proportional reasoning ('rozumowanie proporcjonalne', also as a way to multiply and divide: new podstawa). Use '·' and ':' (and fraction bars), 'x' as the unknown. Keep it informal; 'proporcja' and the rule of three belong to klasy 7–8, so present proportional thinking without formal ratio notation."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Liczenie w pamięci (our apps' term; teachers also say 'rachunek pamięciowy', 'obliczenia pamięciowe'). Central in both podstawy: klasy 1–3 calculate 'w pamięci lub stosując zapisy wyników cząstkowych'; the new podstawa for klasy 4–6 says calculating in the head or with intermediate steps is 'ważnym elementem wykształcenia matematycznego' and drops the requirement of written algorithms; 'tworzy i stosuje własne strategie obliczeń'. Strategies with Polish names: dopełnianie do 10 and rozkład liczby, przekraczanie progu dziesiątkowego, podwajanie i połowienie, liczby prawie podwójne, rozkładanie na dziesiątki i jedności, zaokrąglanie i poprawianie (49 + 26 = 50 + 26 − 1), odliczanie w górę przy odejmowaniu, mnożenie przez 10/100/1000, rozdzielność (16 · 5 = 10 · 5 + 6 · 5), szacowanie. Link the older strategies article. Use '·' and ':'."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Klasy hub: 'Matematyka klasa po klasie: od zerówki do 6. klasy'. Explain: przedszkole from 3 (right to a place for 3–5-year-olds), the compulsory zerówka at 6 ('roczne przygotowanie przedszkolne', in a przedszkole or a school), school compulsory from the calendar year the child turns 7 (optional at 6, postponement possible; Prawo oświatowe art. 31, 35, 36), szkoła podstawowa of 8 classes: klasy 1–3 edukacja wczesnoszkolna with one teacher, klasy 4–8 subjects; our section covers zerówka to klasa 6. Table of years with ages from site.json. The 2026 changeover table (new podstawa in klasa 1 and 4 in 2026/27, then year by year; BRIEF section 1). 'Key tests by year' becomes 'Oceny i egzaminy': diagnoza dojrzałości szkolnej in zerówka, ocena opisowa in klasy 1–3, grades 1–6 from klasa 4, no national test until the egzamin ósmoklasisty in klasa 8 (the sprawdzian szóstoklasisty no longer exists). Say that the year split comes from the teacher's programme and textbook."
+  },
+  {
+   "rel": "years/zerowka.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Zerówka (6–7 lat): the compulsory year before school ('roczne przygotowanie przedszkolne'), in a przedszkole or an 'oddział przedszkolny' at a school; follows the new podstawa from 2026/27. Maths is the 'obszar matematyczny: odkrywanie matematyki wokół siebie' (quote items from BRIEF: liczy w możliwym dla siebie zakresie; adds and subtracts with fingers or objects; compares, classifies by two features, measures and weighs, reads numbers seen around, directions, wczoraj/dzisiaj/jutro, seasons, days and months, koło/trójkąt/kwadrat/prostokąt, patterns and symmetry, coins and notes). Learning through play and real objects. Usual practice ('zwykle'): counting to 10 and beyond, digits 0–9, 'więcej, mniej, tyle samo'. No tests or grades; the diagnoza dojrzałości szkolnej in spring; getting ready for klasa 1 (and the option of starting school at 6). Challenge at that level (counting or sharing with Indie). Worksheets year='zerowka'. Next: Klasa 1."
+  },
+  {
+   "rel": "years/klasa-1.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "Klasa 1 (7–8 lat): first year of compulsory school and of edukacja wczesnoszkolna; one teacher, integrated teaching; from 2026/27 the first class under the new podstawa (new textbooks). Present the podstawa's end-of-klasa-3 aims as where the three years lead, then the usual klasa 1 content ('zwykle'): numbers to 20 (tens to 100), rozkład liczby, dopełnianie do 10, dodawanie i odejmowanie within 10 then 20, przekraczanie progu dziesiątkowego, '<, >, =', okienko, word problems told aloud, coins and notes, full hours, days and months, cm, halves, patterns; calculating and talking about it before children can read and write (podstawa). No homework rule (no compulsory written homework in klasy 1–3 since April 2024): home practice as play. Ocena opisowa, no tests. Checklist, vocabulary table (dodać, odjąć, suma, różnica, więcej o, mniej o, parzyste…). Prev: Zerówka; next: Klasa 2."
+  },
+  {
+   "rel": "years/klasa-2.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Klasa 2 (8–9 lat). In 2026/27 still on the old podstawa (new from 2027/28): say what is common. Usual content ('zwykle'): numbers to 100, dziesiątki i jedności, adding and subtracting within 100 in the head with written part results, multiplication and division introduced (repeated addition, sharing and grouping) and the tabliczka mnożenia begun (first to 30 or 50 in some books; phrase as usual practice), '·' and ':' signs, okienko; clock to the quarter hour ('kwadrans po', 'wpół do', 'za kwadrans'), złoty i grosz, cm and m, kg and dag, litre, calendar and dates, Roman numerals to XII, ½ and ¼, simple bar charts. Ocena opisowa, no tests, no compulsory homework. Prev: Klasa 1; next: Klasa 3."
+  },
+  {
+   "rel": "years/klasa-3.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Klasa 3 (9–10 lat), end of edukacja wczesnoszkolna. In 2026/27 on the old podstawa: end-of-klasa-3 aims (numbers to 1000 and selected numbers to a million, tabliczka mnożenia in the head, okienko, perimeter, money, analogue and 24-hour clock, doba, Roman numerals to XII, kg/dag/g/t, litr/pół litra/ćwierć litra, thermometer); add a box on what the new podstawa asks of children who reach klasa 3 from 2028/29 (numbers to at least 10 000, negative numbers and temperatures, ½ ⅓ ¼ ⅕ ⅛, two- and three-digit addition, multiplying two-digit numbers by 2, 3, 5, 10). Key message: the whole tabliczka mnożenia to 100 by heart by the end of the year, ready for klasa 4. A section 'Przed klasą 4': new maths teacher, grades 1–6, more written work, written methods coming. Ocena opisowa, no tests. Prev: Klasa 2; next: Klasa 4."
+  },
+  {
+   "rel": "years/klasa-4.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Klasa 4 (10–11 lat): first year of 'matematyka' as a subject with its own teacher, grades 1–6 (explain the scale and sprawdzian/kartkówka), more lessons in the week; from 2026/27 on the new podstawa (Klasy IV–VI block). Use the textbook split in BRIEF as 'w wielu podręcznikach' (mental arithmetic, 'o ile / ile razy', division with remainder, squares and cubes, order of operations, number line; decimal system and big numbers, Roman numerals, calendar and clocks, units; działania pisemne (all four; optional in the new podstawa but taught in most books); lines and angles, polygons, scale; ułamki zwykłe (part of a whole, mixed numbers, same-denominator +/−); ułamki dziesiętne (notation, wyrażenia dwumianowane, +/−); area; cuboid, nets, volume, litres). Homework voluntary and not graded, but the teacher checks every written homework and gives feedback; no practical-technical homework; regular homework may raise the annual grade only if the school statute says so (2026 rules, confirmed: Dz.U. 2026 poz. 1122). Calm advice on the step up from klasa 3. Prev: Klasa 3; next: Klasa 5."
+  },
+  {
+   "rel": "years/klasa-5.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Klasa 5 (11–12 lat). In 2026/27 on the old podstawa (written methods required), new podstawa from 2027/28. Usual content ('zwykle', varies by textbook): written multiplication and division by multi-digit numbers, cechy podzielności (2, 3, 4, 5, 9, 10, 100 in the old text), liczby pierwsze i złożone, factorising; all operations on fractions (skracanie, rozszerzanie, common denominator, multiplying and dividing, mixed numbers) and on decimals; angles, triangles and quadrilaterals with angle sums; areas of parallelogram, rhombus, triangle, trapezium; ar and hektar; first integers; prisms. No national test. Decimal comma and '·' ':' everywhere. Prev: Klasa 4; next: Klasa 6."
+  },
+  {
+   "rel": "years/klasa-6.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Klasa 6 (12–13 lat), last year of the podstawa's 'Klasy IV–VI' block (old podstawa in 2026/27 and 2027/28, new from 2028/29); next come klasy 7–8 and the egzamin ósmoklasisty. Usual content ('zwykle'): NWD and NWW, mixed calculations with fractions and decimals and order of operations, integers and operations on them, algebraic expressions and simple equations, percentages (in klasa 6 or 7 depending on textbook: phrase loosely; podstawa: 100%, 50%, 25%, 10%, 1% and a percentage of an amount), circle and disc, solids, nets, volume and surface area, scale, speed–distance–time, charts (and the mean in the new podstawa). Say clearly there is no test at the end of klasa 6 any more (the sprawdzian szóstoklasisty ended in 2016); replace SATs-preparation advice with calm advice on klasy 7–8 (gaps to close now: tabliczka mnożenia, fractions, decimals). Prev: Klasa 5; last card to the years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Matematyka w domu: poradniki dla rodziców'. Cards for the five Polish guides; 'More help' links to klasy, karty pracy, słowniczek and the older articles. Address with capitalised Ty forms ('Twoje dziecko')."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matematyka na co dzień: sections by Polish years (zerówka i klasa 1; klasy 2–3; klasy 4–6). Polish situations: zakupy w piekarni i na targu (weighing in kg and 'deko'), kieszonkowe i skarbonka, paying and change, rozkład jazdy and plan lekcji in 24-hour time, cooking (naleśniki, szarlotka, in g, ml and 'szklanka'), the działka (measuring a bed, area), grzybobranie (counting, weighing), the thermometer in winter (below zero), Wigilia (12 dishes, setting the table), pisanki patterns at Easter, wakacje nad morzem / w górach (km and hours, a map scale), rabaty and promocje for older children, board and card games (the podstawa itself recommends 'gry planszowe, kościane, karciane'). Keep any activity count in the title accurate."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Jak pomóc dziecku w matematyce w domu (bez kłótni). Polish homework reality: no compulsory written homework in klasy 1–3 (since April 2024), voluntary and ungraded homework in klasy 4–8 (checked with feedback from 2026): so home help is short, regular and playful, not homework policing. 'When you don't know the method': written methods are taught from klasa 4 (Polish layouts per BRIEF), and the new podstawa lets the teacher accept other methods or intermediate steps; ask the teacher (konsultacje, zebranie, the e-register messages) and use the way the child writes it in the zeszyt. Little and often, praise effort, 'jeszcze nie' language, talk about how they think (the podstawa values explaining), use zeszyt ćwiczeń and karty pracy, tabliczka mnożenia a few minutes a day."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Jak dziś uczy się matematyki w szkole podstawowej. Rebuild for Poland from the podstawa's own method notes: klasy 1–3 integrated teaching with liczmany, klocki, patyczki, palce, calculating and reasoning before reading and writing, talking about calculations, the right to make mistakes, games and play shop; klasy 4–6 'od konkretu, przez zapis ikoniczny do abstrakcji', spiral teaching, understanding as well as procedures, reasoning and argument from the start, real-life and financial contexts, calculators only sparingly. Then the Polish tools: rozkład liczby and dopełnianie do 10, przekraczanie progu dziesiątkowego, okienko, zapis obliczeń pośrednich, and the written methods from klasa 4 laid out exactly as in BRIEF (dodawanie with '1 przenoszę', odejmowanie with 'pożyczam', mnożenie with partial products, Polish long division with the quotient above, sprawdzenie), noting that the 2026 podstawa makes the traditional algorithms optional. Squared exercise books. Remove ten frames, grid method, bus stop and chunking."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Nie jestem dobra/dobry z matmy': lęk przed matematyką. Can stay close to the English content. Tie to the new podstawa, which names 'lęk przed matematyką' as a serious obstacle and recommends treating mistakes as 'okazja do zrozumienia i rozwoju' (quote it). 'Jeszcze nie' language; avoid 'ja też nigdy nie umiałam matmy'; don't use grades or the e-register as a threat. When to talk to the wychowawca or the maths teacher; the school's pedagog/psycholog and the poradnia psychologiczno-pedagogiczna, dyskalkulia only carefully, without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Poland's assessment, not England's: diagnoza dojrzałości szkolnej at the end of pre-school (descriptive); klasy 1–3 ocena opisowa śródroczna and roczna (ustawa o systemie oświaty art. 44i), day-to-day marks per the school statute; from klasa 4 grades 1–6 (celujący … niedostateczny; rozporządzenie MEN z 22 lutego 2019 r. w sprawie oceniania, § 7: not the 2017 one), sprawdziany, klasówki, kartkówki, PZO and the statut, świadectwo z wyróżnieniem (from klasa 4: average of at least 4,75 and at least 'bardzo dobre' behaviour, § 18, confirmed), homework not graded (since 2026 it can raise the annual grade if the school statute provides for it, confirmed); promotion in klasy 1–3 automatic, repeating only in exceptional cases (art. 44o); no national test in klasy 1–6, the sprawdzian szóstoklasisty abolished (last 2016); the egzamin ósmoklasisty in klasa 8 (May; 2027 maths on 11 May, CKE) as the horizon; Kangur Matematyczny as an optional competition, not a test (don't state which classes each category covers: UNCERTAIN). Table year / what / when. Calm-support advice. Link the podstawa on ISAP and cke.gov.pl."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Darmowe materiały do matematyki dla nauczycieli'. Cards for the four guides, karty pracy, the puzzle pack (/teachers.html), słowniczek. Mention lightly the new podstawa's terms teachers meet in 2026/27 (myślenie matematyczne, moduł ekonomiczno-finansowy, informacja zwrotna) and that edukacja wczesnoszkolna and klasy 4–6 teachers are both welcome."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Indywidualizacja na lekcjach matematyki. Use the podstawa's wording: klasy 1–3 'dostosowanie procesu uczenia się do indywidualnych potrzeb i tempa rozwoju każdego dziecka' and support for pupils who need 'więcej czasu i wsparcia w przechodzeniu od manipulacji do myślenia abstrakcyjnego'; klasy 4–6 'zadania wykraczające poza zwykłe zastosowania znanych schematów'. Forms of support by name only (pomoc psychologiczno-pedagogiczna, zajęcia dydaktyczno-wyrównawcze, zajęcia rozwijające uzdolnienia, the poradnia's opinions and 'dostosowanie wymagań'), no invented procedures. Materials: liczmany, klocki, liczydło, liczby w kolorach. Low-threshold, high-ceiling tasks, extra puzzles for fast finishers (link the pack), konkursy (Kangur) for keen pupils."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Gry matematyczne na lekcje: low-prep games with Polish names and materials: kostki do gry, karty (the standard 52-card pack 'talia kart'), domino, liczmany, plansza, 'Bingo z tabliczką mnożenia', 'Kto pierwszy do 100', 'Zgadnij, jaką liczbę mam na myśli', 'Sklepik' with play złoty and grosze, 'Wojna' with cards (compare, add or multiply the cards). The new podstawa (klasy 1–3, 'myślenie matematyczne') asks pupils to use strategic thinking 'także podczas gier planszowych, kościanych, karcianych': cite it. Draughts and chess ('warcaby, szachy') were named only in the old podstawa (still used in klasy 2–3 in 2026/27), so attribute them to that or leave them out. Keep every game correct and tagged by klasa (1–3 / 4–6)."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Rozgrzewki matematyczne na początek lekcji: sections by stage (klasy 1–3, klasy 4–6) instead of KS1/KS2. Five-minute starters with Polish notation ('·', ':', decimal comma, 10 000, '17 : 5 = 3 r. 2'): liczba dnia, dopełnianie do 10/100, tabliczka mnożenia ping-pong, 'o ile / ile razy', szacowanie, okienko, which one doesn't belong, a clock time in words ('wpół do czwartej'), a Roman numeral, a price question in zł and gr, a honeycomb puzzle projected on the board (link the pack). Tie to the podstawa's emphasis on talking about calculations and explaining strategies."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Rozumowanie i rozwiązywanie zadań. In the new podstawa 'Myślenie matematyczne' is its own dział in both stages (quote: drawing the relations in a problem, splitting into stages, checking sense by estimating, explaining and justifying, examples and non-examples, 'metoda prób i poprawek', all cases, proportional reasoning; klasy 1–3: own strategies, explaining to others, verifying solutions). Polish word-problem layout: 'Dane / Szukane / Rozwiązanie / Odpowiedź' and a full-sentence 'Odp.'; 'o ile / ile razy' traps; question stems in Polish ('Skąd wiesz?', 'Zawsze, czasem czy nigdy?', 'Znajdź błąd', 'Jak inaczej?'); drawings with bars/odcinki as a helper (rysunek pomocniczy). Examples in złoty and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Darmowe karty pracy z matematyki z odpowiedziami, od zerówki do 6. klasy. Uses the worksheets shortcodes with the Polish year slugs (zerowka, klasa-1 … klasa-6); list only sheets that fit Poland (leave out England's multiplication-check practice; tables sheets worded as 'tabliczka mnożenia' / 'mnożenie przez 2, 5 i 10' with '·'; money sheets in złoty and grosze with real coin colours and sizes from BRIEF; clocks with 'kwadrans po', 'wpół do'). Answers on page two ('odpowiedzi'). Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Słowniczek matematyczny od A do Ż with Polish headwords in Polish alphabetical order, the 32-letter Polish alphabet of site.json 'alphabet' (a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż; no q, v, x). Every letter shows in the A–Ż bar; letters with no entry are shown greyed out, not linked (likely ą, ę, ń, ź, ż; ó only if an entry like 'ósemka' is used; keep ó words under ó, not o). Mark each letter's first entry with id=\"<letter>\" (one character, Polish letters included, e.g. id=\"ł\" for 'łamana', id=\"ś\" for 'średnia', id=\"ć\" for 'ćwierć'). Each entry: a plain definition, an example in Polish notation (decimal comma, '·', ':', space thousands) and the klasa where it usually appears. Include Polish-specific entries: cyfra, dekagram, doba, dopełnianie, dzielna, dzielnik, iloraz, iloczyn, kwadrans, koło i okrąg, liczba mieszana, liczmany, mianownik, licznik, NWD, NWW, odjemna, odjemnik, okienko, oś liczbowa, próg dziesiątkowy, reszta, rozkład liczby, składnik, skracanie i rozszerzanie, tabliczka mnożenia, wyrażenie dwumianowane, wpół do, działania pisemne, cechy podzielności, średnia, ar, hektar, liczby rzymskie, liczby całkowite."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Rozkład liczb do 10 i do 20 (number bonds) for Poland: there is no single fixed term, so use 'rozkład liczby' and 'dopełnianie do 10' in the title and explain 'pary liczb, które dają 10'. When: zerówka with objects and fingers, klasa 1 within 10 and then 20, the basis for 'przekraczanie progu dziesiątkowego' (8 + 5 = 8 + 2 + 3). How to practise: fingers, liczmany, egg boxes, cards, dominoes, the honeycomb game (Łąka Dodawania). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Jak ćwiczyć tabliczkę mnożenia: 'tabliczka mnożenia w zakresie 100' (to 10 · 10; 'duża tabliczka' to 20 as an optional extra, which Ogród Mnożenia in our Kids app goes up to), usually begun in klasa 2 and known by heart by the end of klasa 3 (podstawa: 'mnoży i dzieli liczby naturalne w zakresie tabliczki mnożenia'); understanding first (repeated addition, arrays, 'podział i mieszczenie'), then patterns (×5 ends in 0 or 5, ×9 with fingers, ×4 is double ×2, commutativity halves the work), then short daily practice and games. Write '·' (3 · 4 = 12). Replace the 'Year 4 multiplication tables check' section with 'Nie ma ogólnopolskiego sprawdzianu z tabliczki' plus why it matters in klasa 4 (written methods, fractions, division with remainder). Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Sposoby na liczenie w pamięci: the same eight strategies with Polish names (dopełnianie do 10 / przekraczanie progu dziesiątkowego, rozkładanie na dziesiątki i jedności, liczby prawie podwójne, zaokrąglanie i poprawianie, odliczanie w górę przy odejmowaniu, podwajanie i połowienie, triki z 9 i 11, sprawdzanie parzystości i ostatniej cyfry) with examples in Polish notation; tie to the podstawa ('w pamięci lub z zapisem obliczeń pośrednich', 'tworzy i stosuje własne strategie obliczeń'). Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Codzienna łamigłówka matematyczna dla dorosłych: about Beequation Pro and the 'Wyzwanie dnia' (numbered, with streaks and a shareable result), 'Blitz 60 sekund', 64 poziomy 'od Jaja po Umysł roju', 'Tryb trudny', 'Trio', 'Wielki Ul'. Use the exact Polish feature names from apps/adult/src/i18n/pl.ts and i18n/pl.json. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes pl /teachers.html: 'Darmowe łamigłówki z matematyki dla nauczycieli'. Reuse wording already in i18n/pl.json ('Zestaw 24 łamigłówek do wydruku – dodawanie w zakresie 20 i tabliczka mnożenia – z odpowiedziami', 'Darmowe łamigłówki dla Twojej klasy', 'dwuminutowa rozgrzewka'). 'Where it fits' maps to Poland: dodawanie w zakresie 20 and przekraczanie progu dziesiątkowego in klasa 1–2, tabliczka mnożenia in klasa 2–3 and as revision in klasa 4, liczenie w pamięci in every class (the new podstawa's emphasis); no tables check. Ways to use: rozgrzewka, weekly challenge, for fast finishers, a board game corner. The PDF (/assets/beequation-puzzle-pack.pdf) is English with '×' (numbers only); flag if a Polish PDF with '·' is wanted."
+  }
+ ]
+}

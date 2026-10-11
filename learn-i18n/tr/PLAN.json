@@ -1,0 +1,337 @@
+{
+  "years": [
+    {
+      "slug": "anasinifi",
+      "name": "Anasınıfı",
+      "age": "5–6",
+      "english_equivalent": "Reception (by age it overlaps Reception and Year 1; the optional pre-school year for 5-year-olds, 57-68 months at the end of September)"
+    },
+    {
+      "slug": "1-sinif",
+      "name": "1. sınıf",
+      "age": "6–7",
+      "english_equivalent": "Year 2 by age (content close to Year 1: numbers to 20, sums to 20)"
+    },
+    {
+      "slug": "2-sinif",
+      "name": "2. sınıf",
+      "age": "7–8",
+      "english_equivalent": "Year 3 by age (content close to Year 2: numbers to 100, first tables to 5)"
+    },
+    {
+      "slug": "3-sinif",
+      "name": "3. sınıf",
+      "age": "8–9",
+      "english_equivalent": "Year 4 by age (content close to Year 3: numbers to 1000, tables to 10 × 10)"
+    },
+    {
+      "slug": "4-sinif",
+      "name": "4. sınıf",
+      "age": "9–10",
+      "english_equivalent": "Year 5 by age (content close to Year 4; last year of ilkokul)"
+    },
+    {
+      "slug": "5-sinif",
+      "name": "5. sınıf",
+      "age": "10–11",
+      "english_equivalent": "Year 6 by age (first year of ortaokul; content close to Years 5–6)"
+    },
+    {
+      "slug": "6-sinif",
+      "name": "6. sınıf",
+      "age": "11–12",
+      "english_equivalent": "Year 7 by age (second year of ortaokul)"
+    }
+  ],
+  "address": "Siz (formal plural) for parents and teachers, as on the Turkish site and the apps' grown-up screens (i18n/tr.json: 'Tarayıcınızda ücretsiz oynayın', 'Sınıfınız için ücretsiz bulmacalar'; apps/kids/src/i18n/tr.ts: 'Çocuğunuz…', 'Abone olun'): imperatives in -(y)in ('deneyin', 'sorun'), 'çocuğunuz', 'sınıfınız', 'öğrencileriniz'. Children are addressed with sen, as in Beequation Kids ('Sen yaparsın!'), only where a line clearly speaks to the child (a challenge read aloud, Indie talking to a child). Parents are 'veliler' in school contexts ('Veliler için'), 'aileler' when warm; the app's word is 'ebeveyn'. Tone: warm and plain, like a sınıf öğretmeni talking to a parent at pick-up time; no 'Sayın veli' formality, no dismissive 'çok basit/kolayca/sadece', no emoji. Indie is 'Arı Indie' (suffixes Indie’nin, Indie’ye). Turkish letters and TDK circumflexes (kâğıt, madenî, imkânsız, dâhil), typographic apostrophe before suffixes, suffixes on numerals following the spoken number (20’ye, 100’e, 3’ü; table in BRIEF 5).",
+  "pages": [
+    {
+      "rel": "index.html",
+      "sources": [
+        "learn-src/index.html"
+      ],
+      "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Turkish names and glyphs from site.json (money glyph ₺), the 7 years (Anasınıfı, 1.–6. sınıf, ages '5–6 yaş'…, glyphs A, 1–6), Veliler / Öğretmenler / Çalışma kâğıtları / Matematik sözlüğü, and popular guides (the four older articles). Intro: free help 'anasınıfından 6. sınıfa', written for MEB's Türkiye Yüzyılı Maarif Modeli programmes; siz form. Year blurbs with Turkish content: Anasınıfı 20’ye kadar ritmik sayma, şekiller; 1. sınıf 20’ye kadar sayılar, 10’a tamamlama; 2. sınıf 100’e kadar, eldeli toplama, onluk bozma, ilk çarpım tablosu; 3. sınıf 1000’e kadar, 10 × 10 çarpım tablosu, kalanlı bölme, saat; 4. sınıf altı basamaklı sayılar, kesir çeşitleri, açılar; 5. sınıf ortaokula geçiş, kesir-ondalık-yüzde, işlem önceliği; 6. sınıf çarpanlar ve katlar, ondalık işlemler, cebirsel ifadeler. No SATs, no LGS emphasis."
+    },
+    {
+      "rel": "topics/index.html",
+      "sources": [
+        "learn-src/topics/index.html"
+      ],
+      "notes": "Topics hub with the 12 Turkish topic names. 'Where to start, by age' becomes 'Sınıfa göre nereden başlamalı': anasınıfı, ilkokul 1–2, ilkokul 3–4, ortaokul 5–6. Mention briefly that MEB groups primary maths into the themes 'Sayılar ve Nicelikler', 'İşlemlerden Cebirsel Düşünmeye', 'Nesnelerin Geometrisi', 'Veriye Dayalı Araştırma', and that measurement, time and money sit inside 'Sayılar ve Nicelikler'."
+    },
+    {
+      "rel": "topics/counting-and-place-value.html",
+      "sources": [
+        "learn-src/topics/counting-and-place-value.html"
+      ],
+      "notes": "Sayılar ve basamak değeri. Year table per BRIEF 2: anasınıfı 1–20 ritmik sayma, 5’e kadar bir bakışta, önceki/sonraki; 1. sınıf 20’ye kadar, onluk-birlik, ritmik sayma 100’e kadar (birer, beşer, onar) and back from 20; 2. sınıf 100’e kadar, basamak değeri, sayı doğrusu, en yakın onluğa yuvarlama; 3. sınıf 1000’e kadar, tek-çift, Romen rakamları 1–24 (clock context); 4. sınıf 6 basamak, bölük, onluğa/yüzlüğe yuvarlama; 5. sınıf beyond six digits; 6. sınıf çarpanlar ve katlar, asal sayılar. Explain 'rakam' vs 'sayı' and 'sayı değeri' vs 'basamak değeri' (352: 3’ün basamak değeri 300). Materials: onluk taban blokları, abaküs, yüzlük tablo, sayı doğrusu, deste/düzine. Big numbers: milyon, milyar (=10⁹). Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/addition-and-subtraction.html",
+      "sources": [
+        "learn-src/topics/addition-and-subtraction.html",
+        "learn/number-bonds-to-20.html"
+      ],
+      "notes": "Toplama ve çıkarma. 1. sınıf: eldesiz toplama to 20 written alt alta and yan yana, 10’a tamamlama, büyük sayıya ekleme, geriye sayma, sıfırın etkisi, '=' as a balance (tahterevalli), toplanan/toplam/eksilen/çıkan/fark; 2. sınıf: eldeli toplama and onluk bozarak çıkarma to 100, two-step problems; 3. sınıf: to 1000, brackets with three addends; 4. sınıf: four digits; problems with 'verilenler / istenen'. Use the worked examples in BRIEF 4 exactly (347 + 285 = 632 with elde; 532 − 178 = 354 with onluk bozma; sağlama 354 + 178 = 532). Turkey uses decomposition ('bir onluk bozulur'), not equal additions. Say understanding the models (onluk taban blokları, basamak tablosu) comes first. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/multiplication-and-division.html",
+      "sources": [
+        "learn-src/topics/multiplication-and-division.html",
+        "learn/times-tables-practice.html"
+      ],
+      "notes": "Çarpma ve bölme. 2. sınıf: çarpma as tekrarlı toplama and ritmik sayma, ×1–5 with numbers to 10, çarpım tablosu built to 5, ÷ as ardışık çıkarma / paylaştırma, kalansız bölme of numbers to 20 by 2, 3, 4, 5; 3. sınıf: çarpım tablosu to 10 × 10 (not 12), 2-digit × 1–2 digits, 3-digit × 1 digit, ×10, ×100, ÷ of numbers to 100 by one digit kalanlı ve kalansız, sağlama; 4. sınıf (2018): 3-digit × 2-digit, 3-digit ÷ 2-digit, 4-digit ÷ 1-digit, shortcuts ×5, ×25, ×50 and ×/÷ 10, 100, 1000; 5. sınıf: 3-digit × 3-digit, 4-digit ÷ 2-digit, işlem önceliği; 6. sınıf: çarpanlar ve katlar, bölünebilme kuralları 2, 3, 4, 5, 6, 9, 10, asal çarpanlar, ortak kat and ortak bölen in problems (NOT EBOB/EKOK: the TYMM 6. sınıf notes say \"EBOB ve EKOK kavramlarına değinilmez\"; at most one line saying parents may know these names and they come later). Show alt alta çarpma 234 × 23 = 5382 and the Turkish long-division layout with written subtractions, 857 ÷ 4 = 214, kalan 1, check bölünen = bölen × bölüm + kalan (BRIEF 4). Terms çarpan, çarpım, bölünen, bölen, bölüm, kalan; note that 'bölüm' is the quotient. ÷ sign in line. No bus stop, grid method, chunking or tables test. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/fractions.html",
+      "sources": [
+        "learn-src/topics/fractions.html"
+      ],
+      "notes": "Kesirler. Turkey's sequence: anasınıfı 'yarım-tam'; 2. sınıf bütün, yarım, çeyrek without notation (linked to 25 kuruş and 50 kuruş, half and quarter hours); 3. sınıf ½ and ¼ notation, birim kesir, pay ve payda; 4. sınıf basit, bileşik, tam sayılı kesir, comparing unit fractions (denominators to 20), fraction of an amount, comparing and adding/subtracting with equal denominators (2018; TYMM adds denk kesirler); 5. sınıf denk kesirler by sadeleştirme/genişletme, fractions as decimals and percentages; 6. sınıf four operations in problems with fractions. Reading: ikide bir, üçte bir, dörtte üç, 'iki tam ikide bir'; mention that apps read '3 bölü 4'. Contexts: pide, lahmacun, baklava tray, simit halves, karpuz, kek. Models: kesir şeritleri, sayı doğrusu, alan modeli. SVG labels in Turkish. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/decimals-and-percentages.html",
+      "sources": [
+        "learn-src/topics/decimals-and-percentages.html"
+      ],
+      "notes": "Ondalık sayılar ve yüzdeler. Be clear that in Turkey decimals and percentages come late: none in ilkokul (only money in TL and kuruş as an everyday link); 5. sınıf: decimal and percent notation as other ways of writing fractions, starting from denominators 10 and 100, models yüzlük kart and sayı doğrusu, contexts receipts and KDV; 6. sınıf: place value of decimals via fractions, fraction = division, four operations with fractions, decimals and percentages in problems. Notation: decimal comma, 'iki tam onda beş' (school) / 'iki virgül beş' (everyday), onda bir, yüzde bir, binde bir; percent sign before the number: %25, 'yüzde yirmi beş'. Contexts: indirim (%20 indirim), KDV, a bottle's 0,5 L, market fişi. Cross-link fractions and money. Keep the year table honest: '–' for anasınıfı to 4. sınıf. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/telling-the-time.html",
+      "sources": [
+        "learn-src/topics/telling-the-time.html"
+      ],
+      "notes": "Saat okuma. Turkish phrases (BRIEF 7): saat üç, üçü çeyrek geçiyor, üç buçuk, dörde çeyrek var, üçü on geçiyor, dörde on var, saat yarım (12.30); 'at' forms çeyrek geçe, buçukta, çeyrek kala; the accusative/dative of each hour (üçü / dörde) checked one by one. Akrep and yelkovan. Curriculum: anasınıfı 'günün zamanı' (sabah, öğle, akşam); no clock outcome in TYMM 1. sınıf; 2. sınıf tam, yarım, çeyrek saatler, dijital saat, takvim, gün-hafta-ay-mevsim-yıl; 3. sınıf analog and digital to the minute, saniye, öğleden önce/sonra and the 24-hour day, Romen rakamları 1–24 on clock faces, estimating durations; 4. sınıf (2018) conversions and problems, sa./dk./sn., artık yıl. 24-hour times written 15.30 in text (TDK), 15:30 only inside a drawn digital clock. No a.m./p.m. Contexts: okul servisi, teneffüs, vapur/otobüs saatleri, çizgi film saati. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/money.html",
+      "sources": [
+        "learn-src/topics/money.html"
+      ],
+      "notes": "Paralarımız. Coins 5, 10, 25, 50 kuruş, 1 TL, 5 TL (1 kuruş exists but is rarely used); notes 5, 10, 20, 50, 100, 200 TL (no 500). Curriculum: 1. sınıf recognises 1 TL and the notes 5–200 TL, orders them (200 TL only shown), ₺ and TL; 2. sınıf kuruş as the sub-unit, TL–kuruş conversions, 2 × 25 kuruş = 50 kuruş, 4 × 25 kuruş = 1 TL (linked to yarım and çeyrek); 3. sınıf coins ↔ notes ('beş tane 1 TL = 5 TL'), amounts to 200 TL and beyond; 5. sınıf receipts and KDV; 6. sınıf percentage problems. Format '12,50 TL', '50 kuruş'. Be honest that shop prices are now mostly whole liras (inflation) and keep prices round and plausible, never stating real prices as fact. Contexts: harçlık, kumbara, bayram harçlığı, bakkal, pazar, kırtasiye, kantin, para üstü, indirim. Values: tasarruf, bilinçli tüketici (lightly). No pounds/pence. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/measurement.html",
+      "sources": [
+        "learn-src/topics/measurement.html"
+      ],
+      "notes": "Ölçme. 1. sınıf non-standard units (karış, adım, ataş) for length and mass, estimate then measure; 2. sınıf metre, santimetre, kilogram, gram, liquid with non-standard containers; 3. sınıf mm, cm, m, km and g, kg, ton with conversions (not km or ton), litre, çevre uzunluğu; 4. sınıf (2018) millimetre, conversions, perimeter of square and rectangle, area as birimkare count, yarım/çeyrek kilo in grams, ton and miligram, litre and mililitre; 5. sınıf perimeter and area of a rectangle; 6. sınıf area units, area of parallelogram and triangle, circumference and π. Instruments: cetvel, şerit metre, terazi, baskül, ölçü kabı. Kitchen measures su bardağı, çay kaşığı as non-standard units. °C for temperature. Metric only. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/shape-and-geometry.html",
+      "sources": [
+        "learn-src/topics/shape-and-geometry.html"
+      ],
+      "notes": "Geometrik şekiller. Anasınıfı naming shapes by sides and corners; 1. sınıf yuvarlak/köşeli objects, üçgen, kare, dikdörtgen, çember (explain çember vs daire), yer-yön-konum, following directions; 2. sınıf geometrik cisimler, building models, shapes unchanged when turned, symmetric shapes; 3. sınıf yüz, ayrıt, köşe, polygons by number of sides (üçgen, dörtgen, beşgen, altıgen, sekizgen), drawing with tools, lines of symmetry, completing symmetric shapes, coding; 4. sınıf (2018) triangle types by sides, cube net, mirror symmetry, angles dar/dik/geniş/doğru with açıölçer; 5. sınıf constructions with pergel, cetvel, gönye, measuring angles, polygons, circles, triangle construction; 6. sınıf parallel lines and a transversal, quadrilaterals (yamuk, paralelkenar, eşkenar dörtgen). Indie’s altıgen honeycomb cells as the hook (petek gözleri). Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/data-and-graphs.html",
+      "sources": [
+        "learn-src/topics/data-and-graphs.html"
+      ],
+      "notes": "Veri ve grafikler. 1. sınıf sorting, çetele, sıklık tablosu, nesne grafiği; 2. sınıf two categorical data groups; 3. sınıf şekil grafiği, one data group incl. counted data; 4. sınıf (2018) sütun grafiği (TYMM 4. sınıf adds probability words imkânsız, olabilir, kesin); 5. sınıf frequency tables, nokta grafiği → sütun grafiği, daire grafiği, misleading graphs, probability 0–1; 6. sınıf discrete numerical data, kök-yaprak gösterimi, aritmetik ortalama, ortanca, tepe değer, experimental probability. Contexts: favourite fruit in beslenme, weather in °C, class votes for the 23 Nisan show, a league table without real club names. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/algebra-and-ratio.html",
+      "sources": [
+        "learn-src/topics/algebra-and-ratio.html"
+      ],
+      "notes": "Örüntüler ve cebir (the slug stays; ratio is NOT in our years: oran-orantı and integers are 7. sınıf in TYMM; say so in one line and don't teach ratio). Patterns from anasınıfı (örüntü, önceki/sonraki); 1. sınıf growing/shrinking patterns, '=' as balance and missing terms; 2.–3. sınıf '=' in all four operations, missing numbers (□), brackets, following instructions; 4. sınıf (2018) missing values in equalities like 8 + □ = 15 − 3 and '≠'; 5. sınıf eşitliğin korunumu, işlem özellikleri, işlem önceliği, rules of patterns, algorithms in pseudocode and flowcharts; 6. sınıf cebirsel ifadeler from real situations (3 + k, d − 4), 'aklından bir sayı tut' games. The 'algoritma' strand is part of algebraic thinking in Turkey; keep algebra informal. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "topics/mental-maths.html",
+      "sources": [
+        "learn-src/topics/mental-maths.html",
+        "learn/mental-maths-strategies.html"
+      ],
+      "notes": "Zihinden işlem: named in the programme at every grade ('tahminde bulunarak ve zihinden işlem yaparak muhakeme edebilme'); 1. sınıf strategies büyük sayıya ekleme, 10’a tamamlama, geriye sayma, parçalara ayırarak çıkarma; later decomposing by place value, rounding to tens/hundreds, ×/÷ by 10, 100, 1000, ×5, ×25, ×50 shortcuts (4. sınıf), estimating results ('tahmin') before calculating. Ritmik sayma as a mental foundation. Link the older strategies article. No speed-test framing; the programme moved emphasis from procedure to reasoning. Year table columns: Anasınıfı, 1.–6. sınıf (links to /learn/years/<slug>.html); state 4. sınıf content from the 2018 programme (current in 2026-27) and keep table cells true for both where possible. Notation per BRIEF 5 (decimal comma, space thousands from five digits, ÷ for division, %25). Worksheets shortcode topic=<slug>. No England references."
+    },
+    {
+      "rel": "years/index.html",
+      "sources": [
+        "learn-src/years/index.html"
+      ],
+      "notes": "Sınıflar hub: 'Sınıf sınıf matematik: anasınıfından 6. sınıfa'. Explain 4+4+4: 12 years compulsory, okul öncesi optional (anasınıfı for 5-year-olds), ilkokul 1–4 with one sınıf öğretmeni, ortaokul from 5. sınıf with a matematik öğretmeni; starting age 69 months by the end of September (66–68 months on parent request). Table of years with ages from site.json. 'Key tests by year' becomes 'Sınavlar ve değerlendirme': none in ilkokul (çok iyi/iyi/yeterli/geliştirilmeli; Gelişim Raporu phasing in), BİLSEM tanılama for nominated children in 1.–3. (optional), 6. sınıf ülke geneli ortak yazılı in maths, LGS only in 8. sınıf. Say the curriculum is national (MEB), new Maarif Modeli programmes in 1., 2., 3., 5., 6. sınıf this year and 4. sınıf still on the 2018 programme."
+    },
+    {
+      "rel": "years/anasinifi.html",
+      "sources": [
+        "learn-src/years/reception.html"
+      ],
+      "notes": "Anasınıfı (5–6 yaş). Optional pre-school year (ana sınıfı in a primary school or anaokulu), 57-68 months at the end of September; uyum haftası in September. Official TYMM 60-72 ay maths outcomes (BRIEF 2): 1–20 ileriye ritmik sayma, 10’dan 1’e geriye, 1–5 bir bakışta, önceki/sonraki to 10, ordering numbers, showing 1–10 with objects/drawings/digits, naming shapes by sides and corners, günün zamanı, possible/impossible, comparing objects by several properties, sıra sayıları, yarım-tam, az-çok, sağ-sol. Usual practice phrased loosely. No tests, no written sums. Getting ready for 1. sınıf (don't push writing sums early). Challenge at counting/sharing level. Worksheets year='anasinifi'. Next: 1. sınıf."
+    },
+    {
+      "rel": "years/1-sinif.html",
+      "sources": [
+        "learn-src/years/year-1.html",
+        "learn-src/years/year-2.html"
+      ],
+      "notes": "1. sınıf (6–7 yaş), first year of compulsory school (TYMM). Numbers to 20, onluk-birlik, ritmik sayma to 100 (1s, 5s, 10s) and back from 20, patterns, estimating to 20; eldesiz toplama to 20 alt alta and yan yana, çıkarma without onluk bozma, 10’a tamamlama, '=' as balance, toplanan/toplam/eksilen/çıkan/fark; non-standard measuring; money 1 TL coin and 5–200 TL notes; üçgen, kare, dikdörtgen, çember; directions; çetele, sıklık tablosu, nesne grafiği. No clock outcome this year (it comes in 2. sınıf). Assessment: no marks; Gelişim Raporu (not a karne). Checklist, vocabulary (rakam, sayı, toplam, fark, örüntü…). Prev: Anasınıfı; next: 2. sınıf."
+    },
+    {
+      "rel": "years/2-sinif.html",
+      "sources": [
+        "learn-src/years/year-2.html",
+        "learn-src/years/year-3.html"
+      ],
+      "notes": "2. sınıf (7–8 yaş), TYMM. Numbers to 100, basamak değeri, sayı doğrusu, rounding to the nearest ten, ritmik sayma on the yüzlük tablo; bütün, yarım, çeyrek; eldeli toplama and onluk bozarak çıkarma to 100, two-step problems, deste and düzine; first çarpma (×1–5, çarpım tablosu to 5, × by 0 and 1) and bölme (exact division of numbers to 20 by 2–5), × and ÷ signs; kuruş and TL–kuruş conversions (25 kr, 50 kr, 1 TL); clock: tam, yarım, çeyrek, digital time, calendar; m, cm, kg, g; 3D shapes, symmetry; two data groups. Prev 1. sınıf, next 3. sınıf."
+    },
+    {
+      "rel": "years/3-sinif.html",
+      "sources": [
+        "learn-src/years/year-3.html",
+        "learn-src/years/year-4.html"
+      ],
+      "notes": "3. sınıf (8–9 yaş), TYMM. Numbers to 1000, tek-çift and sums of odd/even numbers, patterns; ½ and ¼ notation, birim kesir, pay/payda; + and − to 1000 with elde and onluk bozma; the çarpım tablosu to 10 × 10 (the big one this year), 2-digit × 1–2 digit, 3-digit × 1 digit, ×10, ×100, ÷ of numbers to 100 by one digit with and without remainder, sağlama; clock to the minute, saniye, öğleden önce/sonra, Romen rakamları 1–24; mm–km, g–ton, litre, çevre uzunluğu; coins ↔ notes; faces/edges/corners, polygon names (altıgen!), lines of symmetry, coding; şekil grafiği. BİLSEM tanılama last possible year for nominated children (optional). Prev 2. sınıf, next 4. sınıf."
+    },
+    {
+      "rel": "years/4-sinif.html",
+      "sources": [
+        "learn-src/years/year-4.html",
+        "learn-src/years/year-5.html"
+      ],
+      "notes": "4. sınıf (9–10 yaş), last year of ilkokul. In 2026-27 it still follows the 2018 programme (say in one line that the new Maarif Modeli programme reaches 4. sınıf next, UNCERTAIN date). Content (BRIEF 2): 4–6-digit numbers, bölük, rounding to 10/100; + and − to four digits; 3-digit × 2-digit, 3-digit ÷ 2-digit, 4-digit ÷ 1-digit, ×/÷ 10, 100, 1000, ×5, ×25, ×50 shortcuts; missing values and ≠; basit, bileşik, tam sayılı kesirler, unit fractions to 20ths, fraction of an amount, equal-denominator compare/add/subtract; triangles by sides, cube net, symmetry, angles dar/dik/geniş/doğru with açıölçer; mm, perimeter, area in birimkare; time conversions (sa., dk., sn., artık yıl); ton, mg, litre, mL; sütun grafiği. Tests: none nationally; ABİDE/TIMSS only for sampled schools, in passing. Getting ready for ortaokul (new building, subject teachers). Prev 3. sınıf, next 5. sınıf."
+    },
+    {
+      "rel": "years/5-sinif.html",
+      "sources": [
+        "learn-src/years/year-5.html",
+        "learn-src/years/year-6.html"
+      ],
+      "notes": "5. sınıf (10–11 yaş), first year of ortaokul (TYMM): a matematik öğretmeni, 5 lessons a week, written exams ('yazılı') scored out of 100, Gelişim Raporu with the karne; settling in matters. Content: numbers beyond six digits, four-operation problems (3-digit × 3-digit, 4-digit ÷ 2-digit), fractions in different forms (bileşik, tam sayılı, ondalık, yüzde) with denk kesirler, comparing fractions; eşitliğin korunumu, işlem önceliği, patterns, algorithms; constructions with pergel/cetvel/gönye, measuring angles, polygons, circles; perimeter and area of rectangles; dot plot, sütun grafiği, daire grafiği; probability 0–1. No national exam this year. Prev 4. sınıf, next 6. sınıf."
+    },
+    {
+      "rel": "years/6-sinif.html",
+      "sources": [
+        "learn-src/years/year-6.html"
+      ],
+      "notes": "6. sınıf (11–12 yaş), TYMM. Çarpanlar ve katlar, divisibility rules 2, 3, 4, 5, 6, 9, 10, primes and prime factors, ortak kat / ortak bölen in problems (not EBOB/EKOK, which TYMM leaves out of 6. sınıf; one line for parents who know those names at most); decimals (place value via fractions), fraction = division, four operations with fractions, decimals and percentages in problems; length units; cebirsel ifadeler, patterns, algorithms; parallel lines and transversal angles, quadrilaterals; area units, parallelogram and triangle area, circumference and π; stem-and-leaf, mean/median/mode, experimental probability. A full section on the 'ülke geneli ortak yazılı sınav' in maths (same exam nationwide, open-ended questions, held as the first term's first yazılı: 11 Kasım 2026 in 2026-27, per MEB's calendar of 10.09.2026; 6. sınıf also has a Türkçe ortak yazılı in June 2027; no lists or school comparisons are published; don't state the duration or how much it weighs in the term mark, both unconfirmed for 2026-27). Link the MEB news page. Calm advice; LGS is two years away and not a reason for test drills now. Integers and ratio are next year (7. sınıf). Prev 5. sınıf; last card to the years hub."
+    },
+    {
+      "rel": "parents/index.html",
+      "sources": [
+        "learn-src/parents/index.html"
+      ],
+      "notes": "Hub 'Veliler için matematik rehberleri'. Cards for the five guides; 'More help' links to sınıflar, çalışma kâğıtları, sözlük, the older articles. Use siz and 'veliler/aileler'."
+    },
+    {
+      "rel": "parents/everyday-maths.html",
+      "sources": [
+        "learn-src/parents/everyday-maths.html"
+      ],
+      "notes": "Günlük hayatta matematik: sections by Turkish years (anasınıfı ve 1. sınıf; 2.–4. sınıf; 5. ve 6. sınıf). Turkish situations: pazar (weighing yarım kilo domates), bakkal and para üstü, harçlık and kumbara, bayram harçlığı, recipes in su bardağı and grams (kek, börek), çay bardakları for capacity, servis and vapur times in 24-hour form, the calendar and 23 Nisan / 29 Ekim countdowns, temperatures across Turkey, indirim percentages (5.–6.), sharing pide or baklava as fractions, seksek and tavla for counting. Keep the activity count accurate if the title states a number."
+    },
+    {
+      "rel": "parents/helping-at-home.html",
+      "sources": [
+        "learn-src/parents/helping-at-home.html"
+      ],
+      "notes": "Evde matematiğe nasıl yardım edilir (kavga etmeden). 'Ödev' help: little and often, praise effort and strategy, 'henüz' language. 'When you don't know the method': the school's methods are elde, onluk bozma and the Turkish division layout; ask the sınıf öğretmeni at veli toplantısı or on the school's messaging; don't teach shortcuts the class hasn't met. Gentle note on test-book culture: in ilkokul understanding first, a few problems talked through beat pages of tests (no statistics). Mention EBA content and the free MEB books."
+    },
+    {
+      "rel": "parents/how-maths-is-taught.html",
+      "sources": [
+        "learn-src/parents/how-maths-is-taught.html"
+      ],
+      "notes": "Bugün okulda matematik nasıl öğretiliyor? Rebuild for Turkey: the Türkiye Yüzyılı Maarif Modeli (2024) is skill-based ('beceri temelli'), names five maths skills (matematiksel muhakeme, problem çözme, temsil, veri ile çalışma, araç ve teknoloji ile çalışma), starts from everyday situations, games ('eğitsel oyunlar') and models (onluk taban blokları, yüzlük tablo, sayı doğrusu, kesir şeritleri, abaküs), and puts estimation and zihinden işlem beside written methods. Show the written methods exactly as in BRIEF 4 (eldeli toplama, onluk bozarak çıkarma, alt alta çarpma, the division layout with written subtractions and sağlama). Explain 'farklılaştırma' (zenginleştirme/destekleme) and that 4. sınıf still uses the 2018 programme this year. No ten-frame emphasis, grid method, bus stop or chunking."
+    },
+    {
+      "rel": "parents/maths-anxiety.html",
+      "sources": [
+        "learn-src/parents/maths-anxiety.html"
+      ],
+      "notes": "'Matematikten korkuyor': matematik kaygısı. Can stay close to English in content. Avoid 'ben de matematikte hep kötüydüm'; use 'henüz' language; the programme itself values sosyal-duygusal öğrenme and says there is 'yarışılacak bir saat yok' in our app (only if natural). Address the Turkish test pressure gently (early deneme sınavları, comparisons with cousins). When to talk to the sınıf öğretmeni or the okul rehber öğretmeni / psikolojik danışman; RAM only for formal assessment, without inventing procedures. No statistics."
+    },
+    {
+      "rel": "parents/maths-tests-explained.html",
+      "sources": [
+        "learn-src/parents/maths-tests-explained.html"
+      ],
+      "notes": "Must explain Turkey's assessment, not England's: no tests in anasınıfı; ilkokul assessed by observation and activities, report words çok iyi/iyi/yeterli/geliştirilmeli, Gelişim Raporu replacing the karne from 1. sınıf upwards (phased from 2024-25), sınıf tekrarı only at the parent's request (Yönetmelik art. 20, 31); e-Okul; BİLSEM tanılama in 1.–3. sınıf (teacher nomination, tablet group screening, then individual assessment; optional); ABİDE and TIMSS samples (no result for the child); ortaokul yazılı exams scored out of 100 (50 = pass); the 6. sınıf ülke geneli ortak yazılı in maths (open-ended questions, 11 Kasım 2026 in 2026-27 as the first term's first yazılı; no published lists or school comparisons; 6. sınıf Türkçe also has one, in June); LGS at the end of 8. sınıf, only for selective high schools. Say clearly: no national test in ilkokul, no times-tables test, no exam to enter ortaokul. Table of year / assessment / when. Calm-support advice. Link the official regulation (mevzuat.gov.tr) and the MEB news page on the 2026-27 ortak yazılı timetable (https://www.meb.gov.tr/ulke-geneli-ortak-yazili-sinav-takvimi-belli-oldu/haber/41874/tr)."
+    },
+    {
+      "rel": "teachers/index.html",
+      "sources": [
+        "learn-src/teachers/index.html"
+      ],
+      "notes": "Hub 'Öğretmenler için ücretsiz matematik kaynakları'. Cards for the four guides, çalışma kâğıtları, the puzzle pack (/teachers.html), sözlük. Mention TYMM terms lightly (öğrenme çıktıları, farklılaştırma, performans görevi) for sınıf öğretmenleri (1–4) and matematik öğretmenleri (5–6)."
+    },
+    {
+      "rel": "teachers/differentiation-in-maths.html",
+      "sources": [
+        "learn-src/teachers/differentiation-in-maths.html"
+      ],
+      "notes": "Matematikte farklılaştırma: use the TYMM wording (every theme has 'Farklılaştırma' with 'Zenginleştirme' and 'Destekleme'; destekleme = more concrete examples, everyday contexts, materials and visuals, peer learning). Low threshold–high ceiling tasks; 'problem kurma' (pupils write problems) as zenginleştirme; kaynaştırma/bütünleştirme students with a BEP; destek eğitim odası; BİLSEM-nominated or quick finishers with petek bulmacaları (link the pack). Materials: onluk taban blokları, abaküs, yüzlük tablo, kesir şeritleri."
+    },
+    {
+      "rel": "teachers/maths-games-for-the-classroom.html",
+      "sources": [
+        "learn-src/teachers/maths-games-for-the-classroom.html"
+      ],
+      "notes": "Sınıf için matematik oyunları: low-prep games, the programme explicitly asks for 'eğitsel oyunlar'. Turkish games and materials: sayı tombalası, zar oyunları, kartlarla 10’a tamamlama, ritmik sayma çemberi, seksek on the playground, mangala (counting and strategy), tavla dice sums, 'aklından bir sayı tut', a class alışveriş istasyonu with toy TL and kuruş (named in the programme), 'Dönüştürme Kutusu' for m–cm and kg–g (an example in the 3. sınıf programme). Tag each game by sınıf; keep every rule and example correct."
+    },
+    {
+      "rel": "teachers/maths-starters.html",
+      "sources": [
+        "learn-src/teachers/maths-starters.html"
+      ],
+      "notes": "Derse giriş için zihinden işlem etkinlikleri (ısınma): sections by ilkokul 1–2, ilkokul 3–4, ortaokul 5–6 instead of KS1/KS2. Starters in Turkish notation (decimal comma, ÷, %25, space thousands): günün sayısı, ritmik sayma zinciri, 10’a ve 100’e tamamlama, çarpım tablosu ping-pong, tahmin et-kontrol et, 'hangisi farklı?', saat okuma flash, işlem önceliği puzzles (5.), bölünebilme (6.). Two-minute petek bulmacası on the board (the site's own wording: 'iki dakikalık bir ısınma etkinliği')."
+    },
+    {
+      "rel": "teachers/reasoning-and-problem-solving.html",
+      "sources": [
+        "learn-src/teachers/reasoning-and-problem-solving.html"
+      ],
+      "notes": "Muhakeme ve problem çözme: matematiksel muhakeme and problem çözme are two of the five TYMM maths skills; problem çözme steps 'çözümleme, yorumlama, matematiksel çözümler geliştirme, yansıtma'; problem kurma. Turkish problem layout 'Verilenler / İstenen / Çözüm / Sağlama'; step limits per grade from the programme (2. sınıf at most two-step + and −, one-step × and ÷; 3. sınıf three-step ±, two-step ×÷; 4. sınıf more). Question stems in Turkish ('Nasıl buldun?', 'Her zaman mı, bazen mi, hiçbir zaman mı?', 'Hatayı bul', 'Başka bir yolu var mı?'). Drawing a picture or diagram ('şekil/şema çizme') rather than claiming 'bar model' as standard. Examples in TL and metric units."
+    },
+    {
+      "rel": "worksheets/index.html",
+      "sources": [
+        "learn-src/worksheets/index.html"
+      ],
+      "notes": "Ücretsiz matematik çalışma kâğıtları (cevap anahtarlı), anasınıfından 6. sınıfa. Uses the worksheets shortcodes with Turkish year slugs; list only sheets that fit Turkey: leave out multiplication-check-practice; times-tables-2-5-10 fits 2.–3. sınıf (tables to 5 in 2., all to 10 in 3.), times-tables-3-4-8 and multiplication-grid fit 3.–4.; decimal and percentage sheets only for 5.–6.; time sheets in Turkish phrases (o'clock/half past for 2., quarter for 2., 5 minutes for 3.); money sheets in TL and kuruş; number-bonds sheets called '10’a / 20’ye tamamlama'. Each sheet has the answers on page two ('cevap anahtarı'). Puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+    },
+    {
+      "rel": "glossary/index.html",
+      "sources": [
+        "learn-src/glossary/index.html"
+      ],
+      "notes": "Matematik sözlüğü A’dan Z’ye with Turkish headwords in Turkish alphabetical order (a b c ç d e f g ğ h ı i j k l m n o ö p r s ş t u ü v y z; no maths word starts with ğ, and probably none with ı or j, so those letters may have no entry; the i section's anchor is the capital İ: <h2 id=\"İ\">İ</h2>, to match site.json's alphabet, see BRIEF 9), each with an example (decimal comma, space thousands, %25) and the sınıf it usually appears. Mark each letter's first entry with id=\"<letter>\" (ç, ö, ş, ü are their own letters: 'çarpım' files under ç). Include Turkish-specific entries: açıölçer, akrep/yelkovan, basamak değeri, sayı değeri, bölük, bölüm, bölünen, bölen, kalan, çetele, deste, düzine, elde, eldeli toplama, onluk bozma, eksilen, çıkan, fark, ortak bölen, ortak kat (mention that the older names EBOB/EKOK come in later grades; no separate EBOB/EKOK entries teaching them as primary content), ritmik sayma, rakam, sağlama, sıklık tablosu, şekil grafiği, sütun grafiği, tam sayılı kesir, birim kesir, denk kesir, tek/çift, tahmin, yuvarlama, zihinden işlem, örüntü, kat, çarpan, birimkare, çevre uzunluğu, çember/daire, yüzlük tablo, sayı doğrusu."
+    },
+    {
+      "rel": "number-bonds-to-20.html",
+      "sources": [
+        "learn/number-bonds-to-20.html"
+      ],
+      "notes": "10’a ve 20’ye tamamlama: toplamı 10 ve 20 eden sayılar (number bonds) for Turkey. There is no fixed Turkish school term: use '10’a tamamlama' (named in the 1. sınıf programme as a strategy), 'sayıları ayırma ve birleştirme', 'toplamı 10 eden sayı ikilileri'. When: anasınıfı showing 1–10 in different ways and 1–5 at a glance; 1. sınıf sums to 20 and 10’a tamamlama; used again for eldeli toplama in 2. sınıf. How to practise: fingers, onluk taban blokları, cards, dominoes, a bead string, petek bulmacaları (Toplama Çayırı). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+    },
+    {
+      "rel": "times-tables-practice.html",
+      "sources": [
+        "learn/times-tables-practice.html"
+      ],
+      "notes": "Çarpım tablosu nasıl çalışılır? Tables to 10 × 10 (not 12): started in 2. sınıf up to 5 (×1–5 with numbers to 10, built from tekrarlı toplama and ritmik sayma), completed to 10 × 10 in 3. sınıf ('10’a kadar (10 dâhil) çarpım tablosu oluşturulur'), used for division with remainders and later bölünebilme. Understanding before ezber: yüzlük tablo patterns, the 5s end in 0 or 5, 9s finger trick, 4s = double the 2s, commutativity halves the work. Replace the 'Year 4 multiplication tables check' section with 'Türkiye’de çarpım tablosu sınavı yok' plus why fluency still matters (bölme, kesirler, 5. sınıf işlemler). Çarpım Bahçesi mention (the app goes to 20 in places; don't confuse with the school's 10 × 10). Convert to fragment."
+    },
+    {
+      "rel": "mental-maths-strategies.html",
+      "sources": [
+        "learn/mental-maths-strategies.html"
+      ],
+      "notes": "İşe yarayan zihinden işlem stratejileri: the same eight strategies with Turkish names (10’a tamamlama / onluğa tamamlama, basamaklarına ayırma, çiftleri ve neredeyse çiftleri kullanma, yuvarlayıp düzeltme, ileri sayarak çıkarma, ikiye katlama ve yarılama, 9 ve 11 ile kısa yol, tek/çift ve son basamakla kontrol) with examples in Turkish notation; tie to 'tahminde bulunarak ve zihinden işlem yaparak muhakeme' in every grade of the programme. Convert to fragment."
+    },
+    {
+      "rel": "daily-maths-puzzle-for-adults.html",
+      "sources": [
+        "learn/daily-maths-puzzle-for-adults.html"
+      ],
+      "notes": "Yetişkinler için günlük matematik bulmacası: about Beequation Pro and 'Günün Kovanı' (Daily Pro), '60 saniyelik Blitz', levels 'Yumurta’dan Kovan Aklı’na 64 seviye', 'Üçlü', 'Büyük Kovan', using the exact Turkish feature names from i18n/tr.json, apps/adult/src/i18n/tr.ts and marketing/locales/tr. Not curriculum-specific; siz form. Convert to fragment."
+    },
+    {
+      "rel": "pack.html",
+      "sources": [
+        "teachers.html"
+      ],
+      "notes": "Becomes tr /teachers.html: 'Öğretmenler için ücretsiz matematik bulmacaları'. Reuse wording already in i18n/tr.json ('20’ye kadar toplama ve çarpım tablosu içeren, cevap anahtarlı ve yazdırılabilir 24 petek bulmacası', 'Sınıfınız için ücretsiz bulmacalar', 'iki dakikalık bir ısınma etkinliği', '(Paket İngilizcedir.)'). 'Where it fits' maps to Turkey: 10’a tamamlama and sums to 20 in 1. sınıf, eldeli toplama in 2., çarpım tablosu to 5 in 2. and to 10 × 10 in 3., review in 4.; as a derse giriş/ısınma etkinliği, a weekly challenge, or zenginleştirme for quick finishers. No tables test. The PDF (/assets/beequation-puzzle-pack.pdf) is English (numbers only): say so, and flag if a Turkish PDF is wanted."
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+ "years": [
+  {
+   "slug": "infanzia-5-anni",
+   "name": "Infanzia, 5 anni",
+   "age": "5–6",
+   "english_equivalent": "Reception / Year 1 (the last, non-compulsory year of the scuola dell'infanzia, 'i grandi')"
+  },
+  {
+   "slug": "classe-prima",
+   "name": "Classe prima",
+   "age": "6–7",
+   "english_equivalent": "Year 1 / Year 2 (first compulsory year; on the Nuove Indicazioni 2025 from 2026/27)"
+  },
+  {
+   "slug": "classe-seconda",
+   "name": "Classe seconda",
+   "age": "7–8",
+   "english_equivalent": "Year 2 / Year 3 (INVALSI in May)"
+  },
+  {
+   "slug": "classe-terza",
+   "name": "Classe terza",
+   "age": "8–9",
+   "english_equivalent": "Year 3 / Year 4 (first official checkpoint of the Indicazioni)"
+  },
+  {
+   "slug": "classe-quarta",
+   "name": "Classe quarta",
+   "age": "9–10",
+   "english_equivalent": "Year 4 / Year 5"
+  },
+  {
+   "slug": "classe-quinta",
+   "name": "Classe quinta",
+   "age": "10–11",
+   "english_equivalent": "Year 5 / Year 6 (end of primaria; INVALSI in May; certificazione delle competenze)"
+  }
+ ],
+ "address": "Tu (informal singular) for parents and teachers, matching the Italian apps (apps/kids/src/i18n/it.ts: 'nessun dato raccolto su tuo figlio'; the file header says children and grown-ups are both addressed with 'tu'), the store listings (marketing/locales/it/) and i18n/it.json ('gioca gratis nel browser', 'Scopri come si gioca'). Never 'Lei', no 'voi' to the reader. Parents are 'i genitori' (section 'Genitori', menu 'Per i genitori', as the app's 'Area genitori'); 'le famiglie' only in school contexts. The child is 'tuo figlio', with 'tuo figlio o tua figlia' once per page or section, otherwise 'il bambino', 'i bambini' (no 'figlio/a'). Teachers are 'insegnanti' (site wording), addressed with tu: 'la tua classe', 'i tuoi alunni', 'gli alunni'. Lines spoken to a child (Indie's challenges) stay gender-neutral, as in the app (no 'bravo/brava'). Tone: warm and plain, like a maestra talking to a parent at the school gate; use the words children hear in class ('il riporto', 'gli amici del 10', 'le tabelline') and explain them. No 'semplicemente' or 'facile', no emoji; quotation marks «…»; Indie is 'l'ape Indie', she (lei).",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Intro: free maths help for parents and teachers 'dall'ultimo anno della scuola dell'infanzia alla classe quinta della primaria (le elementari)', written for Italy's Indicazioni nazionali; tu form. Cards: the 12 topics with Italian names and glyphs from site.json (money glyph €); the 6 Italian years (Infanzia 5 anni, Classe prima–quinta, ages from site.json, glyphs I5, 1–5); Genitori / Insegnanti / Schede / Glossario; popular guides (the four older articles). Year blurbs with Italian content: infanzia: contare, raggruppare, forme e percorsi; prima: i numeri fino a 20 e gli amici del 10; seconda: entro il 100, il riporto e il prestito, le tabelline, prima prova INVALSI; terza: entro il 1000, le quattro operazioni in colonna, tabelline sicure, primi decimali; quarta: le migliaia, frazioni, le equivalenze, compravendita; quinta: milioni, percentuali, aree, INVALSI e il passaggio alle medie. No SATs, no Key Stages. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub with the 12 Italian topic names. 'Where to start, by age' becomes 'Da dove cominciare, classe per classe': infanzia, prima–seconda, terza (first official checkpoint of the Indicazioni), quarta–quinta. Mention briefly that the Indicazioni group maths into three nuclei, 'Numeri', 'Spazio e figure', 'Relazioni, dati e previsioni' (plus 'Informatica' in the 2025 text), and that our 12 topics map onto them. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Numeri e valore posizionale. Table 'Classe per classe' (say it follows usual textbook practice, as the Indicazioni only set goals for the end of terza and quinta): infanzia counting and quantities ('tanti quanti', 'di più, di meno'); prima to 20 (some to 100), precedente/successivo, > < =, pari e dispari, la decina; seconda to 100 (da u); terza to 1000, often 9999, 'h da u' and 'uk'; quarta the 'classe delle migliaia' to 999.999; quinta millions and miliardi, numeri relativi (official: 'Interpretare i numeri interi negativi in contesti concreti'). Official end of terza: count 'in senso progressivo e regressivo e per salti di due, tre', 'notazione posizionale', order on the 'retta'. Big ideas: cifra vs numero, the 'h da u' chart and the 'classi' of three digits (unità semplici, migliaia, milioni), composing and decomposing (352 = 3 h + 5 da + 2 u = 300 + 50 + 2), the number line ('linea dei numeri'), rounding ('arrotondare': link to cash rounding to 5 cents), Roman numerals as 'sistemi di notazione' (official end of quinta; Colosseo, monuments). Materials: abaco, BAM, regoli, cannucce in mazzetti da dieci, tabella del 100. 'Un miliardo' = 10⁹. Glyphs/SVG: an abaco with h, da, u spikes. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Addizioni e sottrazioni. 'Gli amici del 10' and of 20/100, doubles, 'passare per il 10', addition and subtraction within 20 in prima, 'in colonna' with 'il riporto' and 'il prestito' (or 'il cambio') usually in seconda, bigger numbers and decimals (official end of terza: 'algoritmi scritti usuali' and simple additions and subtractions with decimals 'anche con riferimento alle monete'). Worked examples exactly as BRIEF section 4: 347 + 285 = 632 said aloud ('scrivo 2 e riporto 1'); 532 − 178 = 354 with the prestito/cambio ('chiedo in prestito una decina'), and 'la prova' (354 + 178 = 532). Terms addendi, somma; minuendo, sottraendo, differenza. Properties: commutativa and associativa for addition, invariantiva for subtraction (e.g. 52 − 18 = 54 − 20 = 34). Tell parents the Italian method is the same in almost all schools, and to use the same words as the maestra ('prestito' or 'cambio'). No England 'exchange' jargon, no equal-additions method. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Moltiplicazioni e divisioni. Tabelline from 1 to 10 (not 12): usually learnt in seconda, and the Indicazioni ask to know them 'con sicurezza' by the end of terza (2012: 'Conoscere con sicurezza le tabelline della moltiplicazione dei numeri fino a 10'; 2025: '... fino a dieci'). The tavola pitagorica; addizione ripetuta, schieramenti, incroci; doppio, triplo, metà; division as 'ripartizione' and 'contenenza'. Column multiplication with the partial product shifted one place (234 × 23 = 5382; 'si lascia un posto con un trattino o uno zero'); 'la divisione in colonna' with the quotient under the divisor, full layout first, then the short one (857 : 4 = 214 resto 1; 'il 4 nell'8 ci sta 2 volte', 'abbasso il 5'); la prova: quoziente × divisore + resto = dividendo. ×10/100/1000 and :10/100/1000 (terza). Terms fattori, prodotto; dividendo, divisore, quoziente, resto; esatta / con resto. Quinta: multipli e divisori, numeri primi, criteri di divisibilità (official end of quinta: 'divisione con resto', 'multipli e divisori'). Division sign ':' only. No bus stop, grid method, chunking or MTC. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Frazioni. Italy's sequence (usual practice): 'la metà' in everyday contexts in prima–seconda; 'l'unità frazionaria', numeratore and denominatore and 'la frazione di un numero' (¼ di 12 = 3) in terza; frazioni proprie, improprie, apparenti, equivalenti, complementari, decimali and finding the whole ('risalire all'intero') in quarta; operating with fractions, equivalence and the link to decimals and percentages in quinta (official end of quinta: 'Operare con le frazioni e riconoscere frazioni equivalenti'; 'Utilizzare numeri decimali, frazioni e percentuali per descrivere situazioni quotidiane'). Reading: un mezzo, un terzo, un quarto ... un decimo, un undicesimo, un dodicesimo; due terzi, tre quarti. Contexts: la pizza, il panettone, la torta della nonna, la tavoletta di cioccolato, le figurine shared out. Keep SVGs with Italian captions. Don't overdo mixed numbers (less used in primaria). Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Numeri decimali e percentuali. Decimal comma everywhere (2,5 'due virgola cinque'; decimi, centesimi, millesimi; 'parte intera e parte decimale'; headings 'u , d c m'). Official: decimals already by the end of terza (read, write, compare, simple additions and subtractions 'anche con riferimento alle monete'); quarta to millesimi and the four operations (usual practice); quinta percentages in daily life and 'lo sconto' (e.g. 20% di 50 € = 10 €), 'ordine di grandezza' in the 2025 text. Link to euro and centesimi, to 'le equivalenze' (the metric system is decimal), ×10 and :10 moving the comma ('spostare la virgola'). Percent written '25%'. No VAT. Cross-link algebra-and-ratio for scale and money. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Leggere l'orologio. Italian phrases: 'sono le tre', 'le tre e un quarto', 'le tre e mezza', 'le quattro meno un quarto' (also 'le tre e tre quarti'), 'le tre e dieci', 'le quattro meno venticinque'; 'è l'una' vs 'sono le due'; mezzogiorno, mezzanotte; di mattina, del pomeriggio, di sera. 24-hour time is everyday Italian (trains, TV, school notices, written 16:30). Sequence (usual practice): days, weeks, months, seasons in infanzia and prima (2025 infanzia: 'tempo della giornata, della settimana e dell'anno'); hours and half hours in prima–seconda, quarters in seconda, minutes and digital/24-hour in terza (official end of terza: measuring 'lunghezze, tempo' with 'orologio'); durations and the 'sistema sessagesimale' in quarta–quinta ('intervalli temporali', official end of quinta). Calendar weeks start on lunedì; dates 10/10/2026. Daily-life examples: entrata alle 8:30, ricreazione, mensa, uscita alle 16:30, treno. No a.m./p.m. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "L'euro e i soldi. Coins 1, 2, 5, 10, 20, 50 centesimi, 1 € and 2 €; notes 5–200 € (omit 500). Explain that Italy stopped minting 1 and 2 cent coins in 2018 and cash totals are rounded to the nearest 5 cents (20,99 € → 21,00 €; 3,42 € → 3,40 €; 3,43 € → 3,45 €), card payments not. The 10 cent coin is smaller than the 5 cent coin. Curriculum: decimals with coins by the end of terza (official), conversions 'anche nel contesto del sistema monetario' by the end of quinta (official), the 2025 text's emphasis on educazione finanziaria (risparmio, consumo consapevole). Usual practice: coins in prima, small sums and change in seconda, euro and centesimi with decimals in terza, 'compravendita' (spesa, ricavo, guadagno, perdita; costo unitario/totale) in quarta, sconto and percentuali in quinta. Contexts: la paghetta, il salvadanaio, il resto, lo scontrino, il forno, il bar, la gelateria, l'edicola (figurine), il mercato. Format '3,45 €'. No pounds/pence. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Le misure. Infanzia: comparing (lungo/corto, pesante/leggero), 'misurare' in the 2025 text; prima–seconda 'misure arbitrarie' (spanne, passi, matite); terza metro, litro, chilogrammo with multipli e sottomultipli (official end of terza: 'unità arbitrarie sia unità e strumenti convenzionali'); quarta 'le equivalenze' on the 'tabella delle misure' (km hm dam m dm cm mm; kg hg dag g dg cg mg plus quintale and tonnellata; hl dal l dl cl ml), 'peso lordo, peso netto, tara'; quinta areas and volumes/capacità and converting 'limitatamente alle unità di uso più comune' (official). Worked equivalenze (3,5 m = 350 cm; 2 kg = 20 hg; 750 ml = 0,75 l). Perimeter and area cross-link to shape. Instruments: righello, metro da sarta, metro a nastro, bilancia, caraffa graduata, termometro (°C). No imperial units. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometria e figure. Infanzia: position words (sopra/sotto, avanti/dietro, destra/sinistra, dentro/fuori) and simple shapes (2025 text); prima–seconda: regione interna/esterna/confine, linee aperte/chiuse, curve/spezzate/miste, percorsi on the squared notebook, symmetry by folding; terza: punto, retta, semiretta, segmento, rette parallele/perpendicolari/incidenti, angoli (retto, acuto, ottuso), poligoni, perimetro; quarta: goniometro, triangoli (equilatero, isoscele, scaleno), quadrilateri (quadrato, rettangolo, rombo, parallelogramma, trapezio), area; quinta (official): piano cartesiano, figure ruotate/traslate/riflesse, angles measured, parallelismo and perpendicolarità, scale drawings, perimeter and area formulas, views of solids; circle (raggio, diametro, π ≈ 3,14) as usual practice. Solids: cubo, parallelepipedo, prisma, piramide, cilindro, cono, sfera. Indie's hexagon (esagono) and the honeycomb as a hook (esagoni regolari che tassellano il piano). Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Dati e grafici ('Relazioni, dati e previsioni'). Classification with diagrammi di Venn, di Carroll, ad albero and tabelle a doppia entrata (prima–seconda); 'indagini' with tally marks, ideogrammi and istogrammi (seconda–terza; official end of terza: 'Leggere e rappresentare relazioni e dati con diagrammi, schemi e tabelle'); areogramma / grafico a torta, line graphs; moda and media in quarta–quinta; quinta official 2012: 'frequenza, moda e media aritmetica' (mediana added in the 2025 text). Probability: certo, possibile, impossibile; più/meno/ugualmente probabile (official end of quinta), first quantification as 'casi favorevoli su casi possibili'. INVALSI loves reading charts: mention that past papers have chart questions. Contexts: merenda preferita, il meteo, la classifica del campionato without real club names, a class survey. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Relazioni e proporzionalità (not 'proporzioni': a : b = c : d is a medie topic, so don't teach proportions in that sense). Italian primaria has no algebra subject: build the page on regularities and relations (official end of quinta: 'Riconoscere e descrivere regolarità in una sequenza di numeri o di figure'). Sequence: 'ritmi' in infanzia and prima; 'l'operatore' and the 'macchina dei numeri' (+3, ×2) and the inverse operator in seconda–terza; missing numbers in equalities (7 + __ = 12; the 'bilancia'); the 'proprietà delle operazioni' as general rules; 'espressioni' with brackets in quinta; proportional reasoning in quinta (scala di riduzione: official 'Riprodurre in scala una figura assegnata'; 'quanto costano 3 quaderni se 1 costa 1,80 €'; percentuali), plus the 2025 text's emphasis on 'ragionare in modo proporzionale' within educazione finanziaria. Also informatica/coding (algorithms as precise sequences of steps, simple programs) which the 2025 text puts in maths. Keep it informal; no letters for unknowns beyond a simple box or symbol. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Calcolo mentale. Official: end of terza 'Eseguire mentalmente semplici operazioni con i numeri naturali e verbalizzare le procedure di calcolo'; end of primaria 'si muove con sicurezza nel calcolo scritto e mentale' and chooses between calcolo mentale, scritto or calcolatrice. Strategies with Italian names: gli amici del 10, passare per il 10, doppi e quasi doppi, scomporre, arrotondare e compensare (+9 = +10 − 1), contare in avanti per sottrarre, proprietà invariantiva (52 − 18 = 54 − 20), ×10/×100, doppio e metà, the tabelline. Mention Bortolato's metodo analogico (linea del 20, fingers) as one approach some schools use, without overclaiming. Link the older strategies article. No national rule on minutes per day. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Classi hub: 'La matematica classe per classe: dall'infanzia alla quinta primaria'. Explain: scuola dell'infanzia 3–6 (not compulsory, free in state schools, three years: piccoli, mezzani, grandi); scuola primaria five classes, compulsory from classe prima (children who turn 6 by 31 December; early entry possible for those turning 6 by 30 April); obbligo di istruzione 6–16; then the medie. Table of the 6 years with ages from site.json. Curriculum: Indicazioni nazionali with goals for the end of terza and the end of quinta only, so each school and textbook spreads content over the years; since 2026/27 the Nuove Indicazioni (DM 221/2025) apply to infanzia and to classe prima, the other classes keep the 2012 text until they finish. 'Key tests by year' becomes 'Valutazione e prove': giudizi sintetici (ottimo … non sufficiente) on the documento di valutazione each quadrimestre; prove INVALSI in seconda and quinta (early May, paper, no effect on marks); certificazione delle competenze at the end of quinta; no exam. Link the official GU texts. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/infanzia-5-anni.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "Infanzia, 5 anni (5–6): the last year of the scuola dell'infanzia ('i grandi'), not compulsory but almost universal. Maths sits in the campo di esperienza 'La conoscenza del mondo' (Nuove Indicazioni 2025, in force for all infanzia sections from 2026/27): quantità, numero, classificazione, misure; 'Raggruppare, contare, ordinare, misurare e quantificare oggetti'; position words; simple shapes in space and on the plane; days of the week, seasons; simple operations in real contexts with symbols. Usual practice (say 'di solito'): counting to 10 and beyond, recognising digits, 'tanti quanti', ritmi, insiemi, coding games. No tests or marks. 'Pronti per la prima': what helps (counting real things, sharing, talking about position and time), and that writing numbers neatly is taught in prima. Challenge at that level (counting or sharing honey drops among bees). Worksheets year='infanzia-5-anni'. Next: classe prima. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/classe-prima.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "Classe prima (6–7): first compulsory year; children born in 2020 in 2026/27 (plus anticipatari). Say clearly that from 2026/27 classe prima follows the Nuove Indicazioni nazionali (DM 221/2025) and has new textbooks; the national goals are for the end of terza, so the year content is usual practice: numbers to 20 (sometimes to 100), digits, precedente/successivo, > < =, pari e dispari, la decina, addizioni e sottrazioni entro il 20, gli amici del 10, doubles, first problems drawn and told, linea dei numeri, regioni/linee/percorsi, insiemi and classifications, ritmi, coins, days and months, pictograms, first coding activities. No tests this year (giudizi sintetici per quadrimestre). Checklist, vocabulary table (decina, unità, maggiore, minore, precedente, successivo, pari, dispari, addendo…). Tip on the quaderno a quadretti and finger counting being fine. Prev: infanzia 5 anni; next: seconda. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/classe-seconda.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Classe seconda (7–8). 2012 Indicazioni apply this year (goals for the end of terza). Usual practice: numbers to 100 (da u, sometimes h), addizioni e sottrazioni in colonna con il riporto e il prestito (or cambio), moltiplicazione as addizione ripetuta, schieramenti and incroci, the tabelline (usually all 2–10 this year, consolidated in terza), tavola pitagorica, doppio/metà, division as ripartizione and contenenza, the clock (ore, mezz'ore, quarti), euro coins and notes, misure arbitrarie, linee, simmetria, ideogrammi and istogrammi, certo/possibile/impossibile. A full section on the prova INVALSI di matematica di seconda: all pupils, early May, on paper, 45 minutes, same day and time across Italy, checks the school system, no effect on the giudizi, no pass mark, nothing to 'prepare' beyond normal school work; past papers on invalsi.it. Prev: prima; next: terza. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/classe-terza.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Classe terza (8–9): the first official checkpoint. Quote the 2012 objectives for the end of terza (in force for this class): counting forwards and backwards and in jumps, notazione posizionale, numbers on the retta, mental calculation explained aloud, 'Conoscere con sicurezza le tabelline della moltiplicazione dei numeri fino a 10', 'Eseguire le operazioni con i numeri naturali con gli algoritmi scritti usuali', decimals with coins and measures, shapes named and described, classifying, diagrams and tables, measuring with standard units. Usual practice: numbers to 1000 (often 9999), all four operations in colonna (× by two digits, : by one digit), ×/: by 10, 100, 1000, proprietà delle operazioni, unità frazionaria and frazione di un numero, decimi e centesimi with euro, metro/litro/chilogrammo and first equivalenze, clock to the minute and 24-hour time, rette/semirette/segmenti, angles, polygons, perimeter. The 'sussidiario' arrives this year. No INVALSI this year. Prev: seconda; next: quarta. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/classe-quarta.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Classe quarta (9–10). Usual practice (no national goals for quarta itself; it works towards the end-of-quinta objectives): numbers to 999.999 (classe delle migliaia), decimals to millesimi and operations with decimals, division with two-digit divisors, fractions (proprie, improprie, apparenti, equivalenti, complementari, decimali; risalire all'intero), le equivalenze, peso lordo/netto/tara, compravendita (spesa, ricavo, guadagno, perdita), angles with the goniometro, triangles and quadrilaterals, perimeter and first areas, media e moda, Roman numerals with Roman history. Problems with the 'domanda nascosta'. No national test this year. Tips on equivalenze (the tabella delle misure). Prev: terza; next: quinta. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "years/classe-quinta.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Classe quinta (10–11): last year of primaria. Quote the 2012 objectives for the end of quinta (in force for this class): four operations 'con sicurezza' choosing mental, written or calculator; divisione con resto, multipli e divisori; frazioni equivalenti; decimals, fractions and percentages in daily life; numeri interi negativi; number systems of other times and cultures; piano cartesiano; rotations, translations, reflections; scale drawings; perimeter and area of rectangles and triangles; frequency, mode and mean; converting units 'anche nel contesto del sistema monetario'; probability between two events; regularities. Usual practice: millions and miliardi, potenze, criteri di divisibilità and numeri primi, espressioni with brackets, sconto, circle and π ≈ 3,14, media/moda/mediana. Assessments: prove INVALSI di matematica (75 minutes), italiano and inglese in early May; certificazione delle competenze; no exam; giudizi sintetici. Replace SATs-preparation advice with calm advice on INVALSI and the move to the medie (enrolment in January, the open days, what changes in maths: voti in decimi, a maths-and-science teacher). Prev: quarta; last card to the years hub. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Matematica a casa: guide per i genitori'. Cards for the five Italian guides; 'Altro aiuto' links to classi, schede, glossario and the older articles. Use 'genitori' and tu. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "La matematica di tutti i giorni: sections by age become Italian classes (infanzia e prima; seconda–terza; quarta e quinta). Italian situations: la spesa al mercato and the fruttivendolo (kg, 'al chilo'), il forno, il bar (resto e scontrino), la paghetta e il salvadanaio, cash rounding to 5 cents, orari del treno in 24h, ricette (torta della nonna, pizza fatta in casa in g and ml), la tombola di Natale (numbers 1–90), carte napoletane and scopa (sums), figurine (counting doubles, completing the album), la classifica del campionato, temperatures, i saldi (percentages), il viaggio in autostrada (km and hours), compiti delle vacanze made playful. If the title states a number of activities, keep the count exact. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Come aiutare tuo figlio in matematica a casa (senza litigare). 'Helping with homework' becomes 'i compiti': little and often, let the child explain, praise effort, 'non ancora'. 'When you don't know the method' covers the Italian case: the column methods are the same almost everywhere, but use the maestra's words (riporto, prestito or cambio; the full or short division layout; dash or zero in multiplication) and ask at the colloqui; some classes use the metodo analogico or the metodo Singapore. Mention the quaderno a quadretti, the diario and the registro elettronico, the compiti delle vacanze. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Come si insegna oggi la matematica alla primaria. Rebuild for Italy: the Indicazioni nazionali (goals for the end of terza and quinta, problem solving, explaining reasoning, the three nuclei; 2025 adds informatica and educazione finanziaria; gradual introduction from classe prima in 2026/27); from concrete to abstract with Italian materials (abaco, BAM, regoli, linea dei numeri, tabella del 100, quaderno a quadretti); gli amici del 10; the column methods laid out exactly as in BRIEF section 4 (riporto, prestito/cambio, multiplication with the shifted partial product, divisione in colonna with quotient under the divisor, la prova); ripartizione vs contenenza; the proprietà delle operazioni; problems with dati, domanda, operazione, risposta; metodo analogico and metodo Singapore (modello a barre) as approaches some schools use. Remove ten-frame emphasis, grid method, bus stop, chunking. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Non sono portato per la matematica': l'ansia da matematica. Content can stay close to English. Tie to the 2025 Indicazioni text, which says many pupils, especially girls, find maths 'poco interessante, se non ostico' and calls on school to counter stereotypes (paraphrase, do not invent statistics); 'non ancora' language; avoid 'anch'io ero negato'. When to talk to the maestra; mention that persistent difficulties can be discussed with the school and, if needed, a specialist (discalculia is a DSA under L. 170/2010; diagnosis usually not before the end of terza: phrase loosely, no procedures invented). No statistics. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Valutazione e prove INVALSI alla primaria, spiegate. Must explain Italy's assessment, not England's: verifiche in class and the giudizi sintetici on the documento di valutazione each quadrimestre (ottimo, distinto, buono, discreto, sufficiente, non sufficiente, with a description; L. 150/2024 and OM 3/2025; before 2025 the four descriptive levels); colloqui and registro elettronico; repeating only in exceptional cases (D.Lgs. 62/2017); prove INVALSI in seconda (italiano, matematica) and quinta (italiano, matematica, inglese), early May, on paper, same day and time nationwide, maths 45 and 75 minutes, check the system, results to the school, not counted in the giudizi, no pass mark, past papers online; certificazione delle competenze at the end of quinta; no exam at the end of primaria, no test in infanzia, no national times-tables test. Table classe / prova / quando. Calm-support advice. Link the official GU texts and invalsi.it. Don't give 2027 dates. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Risorse di matematica gratuite per insegnanti'. Cards for the four Italian teacher guides, schede, the puzzle pack (/teachers.html), glossary. Mention lightly the curricolo d'istituto and the Nuove Indicazioni starting with classe prima in 2026/27. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Didattica inclusiva in matematica: personalizzazione and individualizzazione, recupero e potenziamento, apprendimento cooperativo and tutoraggio tra pari, classi aperte; BES and DSA (PDP; discalculia under L. 170/2010; strumenti compensativi such as the tavola pitagorica and the calcolatrice), the insegnante di sostegno and the PEI where relevant, without inventing procedures. Materials: abaco, BAM, regoli, linea del 20. Low threshold–high ceiling tasks, rompicapi for early finishers (link pack). Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Giochi di matematica per la classe: low-prep games with Italian materials: dadi, carte napoletane/piacentine (40 cards, 1–7 plus figure: scopa-style 'fare 10' or 'fare 15' sums), tombola 1–90 for place value and tables, the tabella del 100, 'il numero misterioso', 'tris delle tabelline', 'la battaglia navale' on the piano cartesiano (quinta), 'stima e verifica', domino delle frazioni. Keep games correct and tagged by classe. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Attività di avvio: calcolo mentale per cominciare la lezione. Sections by class (prima–seconda, terza, quarta–quinta) instead of KS1/KS2. Starters with Italian notation (decimal comma, ':' for division, 10.000), gli amici del 10 and del 100, tabelline, doppio e metà, il numero del giorno (scomposto in h da u, pari o dispari, il precedente e il successivo), stime, equivalenze lampo (quarta), 'quale non c'entra?'. No national rule on daily minutes. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Ragionare e risolvere problemi: problem solving and argumentation run through the Indicazioni (traguardi: 'Riesce a risolvere facili problemi in tutti gli ambiti di contenuto', explaining the method; 2025: 'utilizzando strategie personali, confrontandole e discutendole con i compagni') and INVALSI items that ask to 'argomentare'. Italian problem layout (dati, domanda, operazione, risposta), diagramma a blocchi, problems with dati inutili/mancanti and domanda nascosta; question stems ('Come lo sai?', 'Sempre, qualche volta o mai?', 'Trova l'errore', 'Inventa tu il testo del problema'); modello a barre for word problems; complete answer sentences. Examples in euro and metric units. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Schede di matematica gratuite da stampare, con soluzioni, dall'infanzia alla quinta primaria. Uses the worksheets shortcodes with Italian year slugs; list only sheets that fit Italy (leave out England's multiplication-check-practice; tables sheets worded as 'le tabelline del 2, del 5 e del 10' etc.; money sheets in euro, keeping 1 and 2 cent coins but realistic totals; time sheets with Italian phrases). Each sheet has 'soluzioni' on page two. Section on the rompicapi a favo pack linking /teachers.html. Depends on worksheets.mjs (not part of this task). Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Glossario di matematica dalla A alla Z with Italian headwords in Italian alphabetical order; each with an example (decimal comma, point thousands from 10.000) and the classe it usually appears. Italian-specific entries: abaco, addendo, amici del 10, areogramma, BAM, cambio, classe (delle migliaia), compravendita, contenenza, criteri di divisibilità, decina, decimo/centesimo/millesimo, differenza, dividendo, divisore, equivalenze, espressione, frazione apparente, frazione complementare, frazione decimale, goniometro, h da u, ideogramma, istogramma, linea dei numeri, media, mediana, minuendo, moda, numeri relativi, operatore, peso lordo/netto/tara, poligono, prestito, prova, proprietà (commutativa…), quoziente, regoli, resto, riporto, ripartizione, schieramento, sottraendo, tabelline, tavola pitagorica, unità frazionaria, valore posizionale. Mark each letter's first entry with id=\"<letter>\". The alphabet in site.json has all 26 letters; j, k, w, x, y are foreign letters in Italian and may have no entry (fine), or use x for 'x (per)' only if natural. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Gli amici del 10 e del 20 (number bonds) for Italy: when learnt (infanzia scomposizioni with objects; prima sums within 10 and 20; used to 'passare per il 10'; then amici del 100), how to practise (dita, regoli, carte napoletane 'fare 10', tombola, linea del 20), honeycomb game with Beequation (Prato delle Addizioni). Convert from the old hand-made full HTML to a front-matter fragment. Same path. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Come imparare le tabelline: tables 1 to 10 and the tavola pitagorica; when (usually seconda; 'con sicurezza' by the end of terza per the Indicazioni); understanding before reciting (addizione ripetuta, schieramenti, patterns: la tabellina del 5 finisce con 0 o 5, quella del 9 with fingers, quella del 4 is the double of the 2, commutativa halves the work), games and songs, little and often. Replace the 'Year 4 multiplication tables check' section with 'Non c'è un esame nazionale delle tabelline', and why they matter (divisione in colonna, frazioni, equivalenze, INVALSI). Giardino delle Tabelline mention. Convert to fragment. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Strategie di calcolo mentale che funzionano: the same eight strategies with Italian names (passare per il 10, scomporre, quasi doppi, arrotondare e compensare, contare in avanti per sottrarre, doppio e metà, il trucco del 9 e dell'11, controllare con pari/dispari e l'ultima cifra) and examples in Italian notation; tie to the Indicazioni's 'calcolo mentale' and 'verbalizzare le procedure di calcolo'. Convert to fragment. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Un rompicapo di matematica al giorno per adulti: about Beequation Pro and the 'Sfida del giorno' (numbered, with serie di giorni and a shareable result), 'Blitz di 60 secondi', 64 livelli 'da Uovo a Mente Alveare', 'modalità difficile', 'Trio', 'Grande Alveare'. Use the exact Italian feature names from i18n/it.json, i18n/play/it.js and apps/adult/src/i18n/it.ts. Not curriculum-specific. Convert to fragment. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes it /teachers.html: 'Rompicapi di matematica gratuiti per insegnanti'. Reuse wording already in i18n/it.json ('Un pacchetto stampabile di 24 rompicapi a favo, con addizioni entro il 20 e tabelline, e le soluzioni', 'Rompicapi gratuiti per insegnanti'). 'Where it fits' maps to Italy: amici del 10 and addizioni entro il 20 in prima–seconda, tabelline in seconda–terza and as review in quarta–quinta, calcolo mentale at the start of lessons; no MTC. Ways to use: attività di avvio, sfida della settimana, early finishers, recupero e potenziamento. The PDF (/assets/beequation-puzzle-pack.pdf) is in English (numbers only): say so, as i18n/it.json does ('Pacchetto in inglese'); flag if an Italian PDF is wanted. Follow BRIEF.md: tu form, decimal comma, point thousands from 10.000 (none for four digits), × for multiplication and : for division, 24-hour times with a colon, '3,45 €', «…» quotes, Indie (l'ape Indie, lei), at least one <tip>, one <try/>."
+  }
+ ]
+}

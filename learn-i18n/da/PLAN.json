@@ -1,0 +1,337 @@
+{
+ "years": [
+  {
+   "slug": "0-klasse",
+   "name": "0. klasse",
+   "age": "5–6",
+   "english_equivalent": "Reception (by age it overlaps Reception and Year 1; 'børnehaveklassen', compulsory since 2009, play-based)"
+  },
+  {
+   "slug": "1-klasse",
+   "name": "1. klasse",
+   "age": "6–7",
+   "english_equivalent": "Year 1 / Year 2 (content close to Year 1)"
+  },
+  {
+   "slug": "2-klasse",
+   "name": "2. klasse",
+   "age": "7–8",
+   "english_equivalent": "Year 2 / Year 3"
+  },
+  {
+   "slug": "3-klasse",
+   "name": "3. klasse",
+   "age": "8–9",
+   "english_equivalent": "Year 3 / Year 4 (end of indskolingen)"
+  },
+  {
+   "slug": "4-klasse",
+   "name": "4. klasse",
+   "age": "9–10",
+   "english_equivalent": "Year 4 / Year 5 (start of mellemtrinnet)"
+  },
+  {
+   "slug": "5-klasse",
+   "name": "5. klasse",
+   "age": "10–11",
+   "english_equivalent": "Year 5 / Year 6"
+  },
+  {
+   "slug": "6-klasse",
+   "name": "6. klasse",
+   "age": "11–12",
+   "english_equivalent": "Year 6 / Year 7 (end of mellemtrinnet; udskolingen follows, usually at the same school)"
+  }
+ ],
+ "address": "Du (informal singular) to parents and teachers alike, matching the Danish apps (apps/kids/src/i18n/da.ts: 'Children and parents are both addressed with \"du\", as is normal in Danish'; 'når dit barn sidder fast'), the store listings and i18n/da.json ('i din browser', 'Se, hvordan du spiller'). Never De. Parents: 'dit barn', 'børn'; use plural 'I' only when addressing a whole family or class ('I kan spille det i bilen'), sparingly. Teachers: 'dine elever', 'klassen'. Tone: warm, plain and low-key, like a Danish teacher at the skole-hjem-samtale; no 'nemt', 'bare', 'simpelthen' or superlatives, no emoji. 'Matte' is fine as the everyday word for maths. Quotation marks »…«; comma before subordinate clauses as in da.json.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Danish names and glyphs from site.json (money glyph 'kr'), the 7 Danish years (0. klasse to 6. klasse, ages from site.json, hexes 0–6), Forældre / Lærere / Opgaveark / Matematikordbog, and popular guides (the four older articles). Intro: 'fra 0. til 6. klasse', written for Fælles Mål and the Danish folkeskole; du form. Year blurbs with Danish content: 0. klasse: talsymbolerne og tælle i leg; 1.: tal til 100, tiervenner, tierovergang; 2.: tal til 1.000, halvt og dobbelt, de første gangestykker, nationale færdighedstest; 3.: gange og division, de første brøker; 4.: den lille tabel, decimaltal, færdighedstest; 5.: negative tal, brøker, vinkler; 6.: procent, π, ligninger, færdighedstest. No SATs, no Key Stages."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Emner hub with the 12 Danish topic names. 'Where to start, by age' becomes 'Hvor skal I starte?' by indskolingen (0.–3.) and mellemtrinnet (4.–6.). Mention briefly how Fælles Mål groups maths (Tal og algebra, Geometri og måling, Statistik og sandsynlighed, Matematiske kompetencer) and that new fagplaner come in 2027/28."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Tal og positionssystemet. Year table per BRIEF: 0. klasse talsymbolerne 0–9 (binding opmærksomhedspunkt: genkende og ordne talsymbolerne og bruge dem til antal); 1. 0–99, enere og tiere, positionsplade; 2. to 1.000; 3. trecifrede tal (binding after 3.), often to 10.000; 4. to 100.000+; 5. millions and negative numbers; 6. rational numbers. Must include the Danish number-word difficulty: ones before tens ('femogtyve', children writing 52 for 25) and the base-20 tens (halvtreds, tres, halvfjerds, firs, halvfems) as a big idea with a tip. Thousands separator full stop (10.000), milliard = 10⁹. Materials: centicubes, kuglerammer, hundredtavle, tallinje, positionstavle. Afrunding/overslag."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Plus og minus. Tiervenner, dobbelt og næsten dobbelt, tierovergang (8 + 5 = 8 + 2 + 3), tom tallinje, opdeling i tiere og enere, then opstilling with '1 i mente' and subtraction with 'låne' / 'veksle' (worked examples from BRIEF: 347 + 285 = 632; 52 − 18 = 34; 532 − 178 = 354 with prøven). Counting up as an alternative. Binding after 3.: addere og subtrahere enkle naturlige tal med hovedregning og lommeregner (the calculator is part of Danish maths: say so calmly). Tell parents column methods arrive after strategies and to ask the teacher which method the class uses. Terms: sum, differens."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Gange og division. 'Den lille tabel' (1–10, not to 12), typically started in 2. klasse (2-, 5-, 10-tabellen) and secured in 3.–4. (UNCERTAIN: phrase as 'på mange skoler'); Fælles Mål: multiplication and division strategies in fase 3 of indskolingen; the 4. klasse færdighedstest includes ×. Notation: '·' read 'gange' (say once it is also written ×) and ':' read 'delt med'; never ÷ (Danes read it as minus). Repeated addition, arrays, area model, opstillet multiplikation (234 · 23 = 5382), division with ':' in a line worked underneath (857 : 4 = 214 rest 1, check 4 · 214 + 1 = 857), 'går op', 'rest'. Terms faktor, produkt, dividend, divisor, kvotient. No bus stop, no MTC."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Brøker. Danish sequence: halvt og dobbelt in 2.; first fractions in 3. ('genkende enkle decimaltal og brøker i hverdagssituationer', fase 3; halv, kvart, tredjedel, tæller og nævner); brøkbegrebet and fractions of amounts in 4.; adding/subtracting, 'forlænge og forkorte' in 5.; 6. klasse færdighedstest covers 'positive ægte brøker' and operations in everyday contexts; link to decimals and procent in 6. Reading: en halv, en tredjedel, en fjerdedel/en kvart, tre fjerdedele, en femtedel… en tiendedel, en tolvtedel; ægte/uægte brøk, blandet tal. Contexts: rugbrød in the madpakke, kagemand at a birthday, pizza, a chocolate bar. SVG captions in Danish."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Decimaltal og procent. Decimal comma everywhere (2,5 'to komma fem'); tiendedele, hundrededele, tusindedele; 'kommatal' as the informal word; money as the first context (12,50 kr.) in 3.–4.; operations with decimals in 5. (fase 2); procent, potenser and π in 6. (fase 3); '25 %' with a space. Percent contexts: rabat in an udsalg, battery level, 'halvdelen = 50 %'. Measurement link: 1,5 m = 150 cm, 2,5 dl. Avoid proportional reasoning beyond simple cases (forhold is 7.–9. in the new fagplan)."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Klokken og tid. Danish phrases: klokken er tre, kvart over tre, halv fire (= 3:30, explain clearly), kvart i fire, fem minutter i halv fire (3:25), fem minutter over halv fire (3:35), tyve minutter i fire; 'over' and 'i'; et kvarter, en halv time, halvanden time. No a.m./p.m.: om formiddagen/eftermiddagen/aftenen. 24-hour time standard in writing (kl. 15.30 with a full stop in text; digital displays 15:30): skemaet, train/bus times, TV. Usual order (UNCERTAIN): hel og halv in 1., kvarter in 2., minutter and digital in 2.–3., durations and timetables 3.–4. Binding after 3.: anslå og måle tid i enkle hverdagssammenhænge. Calendar: weeks start on Monday, week numbers ('uge 42'), dates 10.10.2026."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Penge. Kroner and øre: coins 50 øre, 1, 2, 5, 10 and 20 kr. (1, 2 and 5 kr. have a hole; 10 kr. is smaller than 2 and 5 kr.: size doesn't show value), notes 50, 100, 200 and 500 kr. (1000-kr. note no longer valid). Cash totals are rounded to the nearest 50 øre. Format '12,50 kr.'. Fælles Mål: 'hverdagsøkonomi' in 4.–6. fase 1; budgets and best buy, rabat with procent in 6. Contexts: lommepenge, sparegris, fredagsslik by weight, bageren, loppemarked, giving change ('byttepenge'). Note that children often see card/phone payments: suggest letting them handle cash or count up change. No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Måling. Comparing (længere/kortere, tungere/lettere) in 0.; meter and centimeter in 1.; binding after 3.: anslå og måle længde, tid og vægt; areal and omkreds compared in 2.–3. (fase 3), calculated in 4.; rumfang (cm³, ml, liter) from 3.–5.; vinkler in grader in 5.; circle with π in 6. Units m, dm, cm, mm, km; kg, g; l, dl, cl, ml (dl everyday in Danish recipes); °C with negatives. Instruments: lineal, målebånd, køkkenvægt, målebæger, vinkelmåler. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometri og figurer. Plane og rumlige figurer (trekant, firkant, kvadrat, rektangel, rombe, parallelogram, trapez, femkant, sekskant, cirkel; terning, kasse, prisme, pyramide, cylinder, kegle, kugle); polygons named by sides in 1.; spejling (spejlingssymmetri) from 1.–2.; gitternet and koordinatsæt in 3.; ret/spids/stump vinkel in 3.; polygons by sides and angles and 1st quadrant in 4.; vinkelmåler, degrees and the whole coordinate system in 5.; spejling, parallelforskydning og drejning patterns, solids and the circle in 6. GeoGebra ('dynamisk geometriprogram') is named in Fælles Mål: mention for teachers. Indie's hexagon (sekskant) is the natural hook: bikagens celler."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Statistik og diagrammer (Statistik og sandsynlighed). Tables of counts and simple diagrams in 1.; optælling med streger, søjlediagram, regneark in 3.; chance in words (umulig, lille, lige, stor, sikker chance) in indskolingen with dice and coins; graphs in 4.; own investigations and simulation with digital tools in 5.; hyppighed, frekvens and middeltal, median, typetal, variationsbredde in 6.; sandsynlighed as frekvens. Binding after 3.: enkle statistiske undersøgelser og intuitive chancestørrelser; after 6.: egne statistiske undersøgelser og statistiske sandsynligheder. Contexts: favourite fruit in the frugtordning, weather, skolernes motionsløb laps, class survey."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Mønstre og ligninger (topic name changed in the fact check: 'forhold' is mostly 7.–9. content and reads as 'relationship' to parents). Figur- og talmønstre from 0.–2.; the equals sign as 'samme værdi' and missing numbers (4 + __ = 10) in indskolingen; regneregler and links between the four operations (fase 3); enkle ligninger with informal methods in 4.; formler and variable (A = l · b) in 5.; variable describing relationships, ligninger and 'funktionel tænkning' (in the 6. klasse færdighedstest); simple percentages and målestoksforhold in 6. Keep ratio light: 'forhold' and 'forholdsregning' are 7.–9. content (new fagplan, 7. klasse test). Regnearternes hierarki and parenteser."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Hovedregning: named in the binding opmærksomhedspunkt after 3. klasse ('hovedregning og lommeregner') and in every fase; overslag (estimating) is equally Danish. Strategies with Danish names: tiervenner, tierovergang, dobbelt og næsten dobbelt, opdeling i tiere og enere, afrunde og justere ('+ 9 = + 10 − 1'), tælle op for at trække fra, gange med 10 og 100, halvere og fordoble. Danish number words make mental maths with two-digit numbers harder (ones said first): tip to say numbers as 'fire tiere og syv' while learning. Link the older strategies article."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Klassetrin hub: 'Matematik klasse for klasse: fra 0. til 6. klasse'. Explain the folkeskole: undervisningspligt from 1 August of the year the child turns 6, 0. klasse (børnehaveklassen) compulsory, indskolingen 0.–3., mellemtrinnet 4.–6., udskolingen 7.–9. at usually the same school; Fælles Mål sets binding goals after 3. and 6. klasse (the rest is guidance), schools and textbooks plan the years; new fagplaner from 2027/28. Table of years with ages. 'Key tests by year' becomes the færdighedstest in maths at the start of 2., 4. and 6. klasse (sprogvurdering only in 0.; 3. klasse has a reading test but no maths test); marks: compulsory from 8. klasse, and since 1 August 2025 a school may choose to give marks in 6. and 7. klasse too (say 'de fleste børn får ikke karakterer før 8. klasse')."
+  },
+  {
+   "rel": "years/0-klasse.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "0. klasse (5–6 år), 'børnehaveklassen'. Compulsory first school year; play central by law; børnehaveklasseleder and SFO. Binding: 'Matematisk opmærksomhed: Eleven kan anvende tal og geometrisk sprog i hverdagssituationer' and the opmærksomhedspunkt on talsymbolerne. Usual practice ('ofte'): counting to 20 and beyond, writing 0–9, flere/færre/lige mange, small sums with fingers and objects, first tiervenner, shapes and position words, patterns, sorting, days of the week. Only test: sprogvurdering (language). Help at home: dice games, counting stairs, laying the table. Challenge at counting/sharing level. Worksheets year='0-klasse'. Next: 1. klasse."
+  },
+  {
+   "rel": "years/1-klasse.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "1. klasse (6–7 år), indskolingen. Fase 1–2 content as usual practice: numbers 0–99/100, enere og tiere, positionsplade, addition and subtraction with tierovergang and veksling on a tallinje, tiervenner, dobbelt, polygons and circles, spejling, tables of counts, meter and centimeter, mønstre, hele og halve timer (UNCERTAIN). Danish number words (femogtyve) as a key tip. No test this year; mention the færdighedstest at the start of 2. klasse covers numbers 0–120 and + and −. Checklist and vocabulary (tier, ener, plus, minus, er lig med, tiervenner, tierovergang). Prev: 0. klasse; next: 2. klasse."
+  },
+  {
+   "rel": "years/2-klasse.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "2. klasse (7–8 år). Full section on the færdighedstest in maths at the start of 2. klasse (uge 38–39, 30 minutes, digital, linear, task text can be read aloud; whole numbers 0–120, place value, + and − in everyday and symbolic form, equality and unknowns, patterns; results used to plan teaching; no need to drill). Year content (usual practice): numbers to 1.000, afrunding og overslag, plus og minus with bigger numbers and several addends, halvt og dobbelt, first gangestykker (2-, 5-, 10-tabellen, 'på mange skoler'), areal og omkreds compared, 3D shapes, kvarter and minutes on the clock, kroner. Prev 1., next 3."
+  },
+  {
+   "rel": "years/3-klasse.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "3. klasse (8–9 år), last year of indskolingen: the binding kompetencemål and the three opmærksomhedspunkter after 3. klassetrin (trecifrede tal; + and − with hovedregning og lommeregner; anslå og måle længde, tid og vægt) are the core of the page. Usual practice: gange og division with rest, part of den lille tabel, regnehistorier, first brøker (halv, kvart, tredjedel; tæller og nævner) and simple decimals in money, rumfang by counting cubes, gitternet/koordinater, ret/spids/stump vinkel, chance experiments, søjlediagram and regneark. No maths test this year (reading test only); the next maths test is at the start of 4. Prev 2., next 4."
+  },
+  {
+   "rel": "years/4-klasse.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "4. klasse (9–10 år), first year of mellemtrinnet. Section on the færdighedstest in maths at the start of 4. klasse (45 minutes; whole numbers 0–1.200, place value, +, − and × in everyday and symbolic form, division in everyday situations, properties and notation, equality, patterns). Year content (fase 1, usual practice): den lille tabel secure, written multiplication, division with rest, larger numbers, decimals as tiendedele and hundrededele and in kroner og øre, brøker of a whole and of an amount, hverdagsøkonomi, polygons by sides and angles, first quadrant, omkreds og areal of rectangles, graphs, enkle ligninger with informal methods. Prev 3., next 5."
+  },
+  {
+   "rel": "years/5-klasse.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "5. klasse (10–11 år). Fase 2 content as usual practice: negative hele tal (temperatures, the whole coordinate system), calculations with decimals, enkle brøker (adding, forlænge og forkorte) and negative numbers, formler and variable (A = l · b), regnearternes hierarki, vinkelmåler and grader, rumfang of boxes, own statistical investigations with digital tools, simulation, middeltal and median. No national test this year; mention that the 6. klasse test at the start of next year looks back at this content (decimals, positive ægte brøker, negatives, equations). Prev 4., next 6."
+  },
+  {
+   "rel": "years/6-klasse.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "6. klasse (11–12 år), last year of mellemtrinnet; binding kompetencemål and opmærksomhedspunkter after 6. klassetrin (uddrage oplysninger i enkle matematikholdige tekster; vælge regningsart og opstille et simpelt regneudtryk; alle fire regningsarter med overslag og lommeregner). Færdighedstest at the start of 6. klasse (45 minutes; hele tal, decimaltal, positive ægte brøker, four operations, negatives, equations, functional thinking). Fase 3 content: procent, potenser, π and the circle, spejling/parallelforskydning/drejning, solids, middeltal/median/typetal/variationsbredde, frekvens and sandsynlighed, variable. Replace SATs/secondary-transfer advice with calm notes on moving to udskolingen in 7. klasse (usually the same school; compulsory marks from 8. klasse, but some schools have chosen to give marks already in 6. and 7. klasse since 2025: tell parents to check what their school does). Prev 5.; last card to the years hub."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Hjælp til matematik for forældre'. Cards for the five Danish guides; 'More help' links to klassetrin, opgaveark, matematikordbog and the older articles. Du form."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matematik i hverdagen: sections by Danish stages (0.–1. klasse; 2.–4. klasse; 5.–6. klasse) instead of ages. Danish situations: bageren on Sunday (rundstykker × price), fredagsslik weighed in grams, lommepenge and sparegris, cykelturen (km and minutes), train/bus times in 24-hour, recipes in dl and g (boller, pandekager), madpakken cut into fractions, julekalender countdown, uge numbers on the calendar, temperatures below 0 °C, loppemarked prices and change, board games and card games. Keep any count in the title accurate."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Sådan hjælper du med matematik derhjemme. 'Homework' becomes 'lektier' (and lektiecafé, 'hvis skolen har en': since 2025/26 schools no longer have to offer lektiehjælp); 'When you don't know the method' must cover the Danish case: strategies first (tallinje, opdeling, tiervenner), then opstilling with 1 i mente and låne/veksle; ask the matematiklærer (Aula or skole-hjem-samtalen) which method the class uses and don't teach 'your' algorithm first. Calculators are allowed in Danish maths: explain why (overslag + lommeregner). Little and often, praise effort, 'endnu ikke'. Talk numbers out loud with Danish number words (fire tiere og syv)."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Sådan undervises der i matematik i dag. Rebuild for Denmark: Fælles Mål (binding kompetencemål after 3. and 6., the four kompetenceområder, matematiske kompetencer like problembehandling and ræsonnement), the new fagplaner from 2027/28 (open problems with 'lav indgangstærskel og højt til loftet', fælles faglige drøftelser); concrete → drawings → symbols with Danish materials (centicubes, positionsplade, kuglerammer, hundredtavle, tallinje, geobrikker, GeoGebra); regnestrategier and children's own methods, hovedregning, overslag and lommeregner side by side; opstilling laid out exactly as in BRIEF (1 i mente, låne/veksle, opstillet multiplikation, division with ':' in a line); notation · and :, never ÷. Remove England's grid method, bus stop, chunking and ten-frame emphasis; mention textbook systems only generically ('bogsystemet')."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Jeg var selv dårlig til matte': matematikangst. Can stay close to the English content. Danish touches: avoid saying 'jeg var også dårlig til matematik' in front of the child, 'endnu ikke' language, most children get no marks before 8. klasse, so there is room to learn without grades (some schools have chosen marks in 6.–7. since 2025: don't say 'no marks' as an absolute), the færdighedstest is a tool for the teacher, not a verdict. When to talk to the klasselærer / matematiklærer; mention støtte, PPR and specialundervisning only in general terms without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Denmark's tests, not England's: Folkeskolens Nationale Færdighedstest (from 2026/27; replaced 'de nationale test' and the Overgangstest 2022/23–2025/26): maths at the start of 2., 4. and 6. klasse (and 7., 8.), uge 38–39, digital, self-marking, linear (same questions for the whole year group), 30 min in 2., 45 min in 4. and 6., only 'tal, regnestrategier og algebra', content per grade from BRIEF; results 'kan ikke stå alene', used to plan teaching; paper and pencil are the only aids (no calculator); in 2. and 4. klasse the child can have the task text read aloud; parents must get a written tilbagemelding on the result (often a digital page opened with MitID) and can talk it over at the skole-hjem-samtale; don't describe a score scale. Also: sprogvurdering in 0. klasse (not maths), reading tests (læsning) in 2., 3., 4., 6. and 8. klasse in uge 36–37 (so 3. klasse has reading but no maths), marks compulsory from 8. klasse and optional in 6.–7. if the school has chosen them (since 2025), FP9 exams in 9. klasse, no times-tables test, no entrance test. Table of year/test/when. Calm-support advice (no drilling; sleep, breakfast). Link uvm.dk."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Gratis matematikmaterialer til lærere'. Cards for the four Danish teacher guides, opgaveark, the puzzle pack (/teachers.html) and the glossary. Mention Fælles Mål (binding kompetencemål and opmærksomhedspunkter; faser vejledende since 2025) and the 2027/28 fagplaner lightly."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Undervisningsdifferentiering i matematik: folkeskoleloven § 18 makes it a duty; 'lav indgangstærskel og højt til loftet' (the new fagplan's wording) for open tasks; concrete materials (centicubes, positionsplade, kuglerammer), varied representations, støtte and matematikvejleder, faglig fordybelse for strong pupils, early finishers with bikageopgaver (link pack). Use the færdighedstest results at the start of the year as one input for planning (they 'kan ikke stå alene'). No invented procedures."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Matematikspil i klassen: low-prep games with Danish materials (terninger, kortspil with a normal 52-card deck, centicubes, hundredtavle, tallinje on the floor, regnestafet in the schoolyard, 'Hvem har…? Jeg har…' chains, tiervenner-memory, tabelbingo, kims leg with shapes). Tag each game by indskolingen/mellemtrinnet or klassetrin. Keep every game correct; Danish notation (· and :, decimal comma)."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Opvarmning i matematiktimen: sections by indskolingen (1.–3.) and mellemtrinnet (4.–6.) instead of KS1/KS2. Starters: dagens tal, tiervenner-lynrunde, tierovergang, dobbelt og halvt, tabelremser and 'uordnede' tabelstykker, overslag ('cirka hvor meget?'), hvad passer ikke ind, klokken i dag (halv fire, kvart i), uge-tal på kalenderen. Danish notation (decimal comma, 10.000, · and :)."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Ræsonnement og problemløsning: problembehandling and ræsonnement og tankegang are matematiske kompetencer in Fælles Mål; the new fagplan's 'Matematiske tænke- og handlemåder' (problemløsning, modellering, ræsonnement) and 'åbne problemstillinger'. Regnehistorier (children write their own), tekstopgaver, question stems in Danish ('Hvordan ved du det?', 'Altid, nogle gange eller aldrig?', 'Find fejlen', 'Kan man gøre det på en anden måde?'), drawings with bjælker/strimler for word problems (no fixed Danish term for bar model: describe it), full answer sentences. Binding after 6.: 'uddrage relevante oplysninger i enkle matematikholdige tekster' and 'opstille et simpelt regneudtryk'. Examples in kroner and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Gratis opgaveark i matematik med facit, fra 0. til 6. klasse. Uses the worksheets shortcodes with Danish year slugs; list only sheets that fit Denmark (leave out England's multiplication-check practice; tables sheets as 'den lille tabel' / '2-, 5- og 10-tabellen'; money sheets in kroner and øre with real coin colours and sizes; clocks with Danish phrases). Each sheet has 'facit' on page two. Bikageopgaver section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Matematikordbog fra A til Å with Danish headwords in Danish alphabetical order (a–z then æ, ø, å; mark each letter's first entry with id=\"<letter>\"). Each entry with an example (decimal comma, full-stop thousands, · and :) and the klassetrin it usually appears. Include Danish-specific entries: tiervenner, tierovergang, 1 i mente, låne, veksle, opstilling, den lille tabel, positionssystem, ener/tier/hundreder, hundredtavle, tallinje, overslag, lommeregner, regnehistorie, kvotient, rest, går op, tæller, nævner, forlænge, forkorte, ægte brøk (Æ), decimaltal, procent, omkreds, areal, rumfang, spejling, parallelforskydning, drejning, koordinatsæt, søjlediagram, middeltal, median, typetal, variationsbredde, sandsynlighed, x-akse (X), øre (Ø), år (Å). Letters q, w, z (and possibly others) may have no entry."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Tiervenner og tal op til 20 (number bonds) for Denmark: when learnt (0. klasse with fingers and objects; 1. klasse tiervenner, dobbelt and tierovergang to 20, then used for plus og minus to 100), how to practise (fingers, two hands = 10, centicubes, tiervenner-memory with cards, the tallinje), and the honeycomb game in Beequation Kids (Plus-engen). Explain 'tierovergang' via tiervenner (8 + 5 = 8 + 2 + 3). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Sådan øver I den lille tabel: tables 1 to 10, usually begun in 2. klasse (2-, 5-, 10-tabellen) and secured in 3.–4. (say 'på mange skoler'); understanding first (gentagen addition, rækker og søjler, patterns: 5-tabellen ends in 0 or 5, 4-tabellen = dobbelt 2-tabel, 9-tabellen on the fingers), then tabelremser and 'uordnede' tabelstykker, games. Notation 3 · 4 (also written 3 × 4). Replace the 'Year 4 multiplication tables check' section with 'Der er ingen national tabeltest' plus how tables feed division with ':' and fractions; the 4. klasse færdighedstest includes multiplication. Tabelhaven mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Strategier til hovedregning, der virker: the same eight strategies with Danish names (tierovergang via tiervenner, opdeling i tiere og enere, næsten dobbelt, afrunde og justere, tælle op for at trække fra, dobbelt og halvt, tricket med 9 og 11, tjek med lige/ulige og sidste ciffer), examples in Danish notation; tie to the binding opmærksomhedspunkt (hovedregning og lommeregner) and overslag; tip on Danish number words. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "En daglig matematikopgave for voksne: about Beequation Pro and 'Dagens bikube' (the numbered daily puzzle with stimer and a shareable result), 'Blitz på 60 sekunder', 64 baner from Æg to Kubehjerne, 'Svær tilstand', Trio and Kæmpebikuben. Use the exact Danish feature names from apps/adult/src/i18n/da.ts and i18n/da.json. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes da /teachers.html: 'Gratis bikageopgaver til din klasse'. Reuse wording already in i18n/da.json ('Et opgavehæfte til print med 24 bikageopgaver, plus op til 20 og tabeller, med facitliste', 'Gratis opgaver til din klasse', 'Vis en på tavlen som to minutters opvarmning'). 'Where it fits' must map to Denmark: tiervenner and plus op til 20 in indskolingen (fase 1–2), den lille tabel in 2.–4. and as review on mellemtrinnet, hovedregning; no MTC. Ways to use: opvarmning, ugens udfordring, for elever der bliver hurtigt færdige. The PDF (/assets/beequation-puzzle-pack.pdf) is English (numbers only); say so as da.json does ('Hæftet er på engelsk')."
+  }
+ ]
+}

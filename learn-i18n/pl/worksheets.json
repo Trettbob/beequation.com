@@ -1,0 +1,262 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Brakujące liczby do 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasa-1",
+   "klasa-2"
+  ],
+  "desc": "Liczenie co 1, co 2, co 5 i co 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Dziesiątki i jedności",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasa-2"
+  ],
+  "desc": "Rozkład liczb dwucyfrowych"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Setki, dziesiątki i jedności",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasa-3"
+  ],
+  "desc": "System dziesiątkowy do 1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Zaokrąglanie liczb",
+  "topic": "counting-and-place-value",
+  "years": [
+   "klasa-4",
+   "klasa-5"
+  ],
+  "desc": "Do dziesiątek, setek i tysięcy"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Rozkład liczby 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "zerowka",
+   "klasa-1"
+  ],
+  "desc": "Pary liczb, które razem dają 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Rozkład liczby 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasa-1"
+  ],
+  "desc": "Pary liczb, które razem dają 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Dodawanie i odejmowanie w zakresie 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasa-1"
+  ],
+  "desc": "Działania na przemian do 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Dodawanie pisemne",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasa-4"
+  ],
+  "desc": "Liczby trzycyfrowe, z przenoszeniem"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Odejmowanie pisemne",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "klasa-4"
+  ],
+  "desc": "Liczby trzycyfrowe, z pożyczaniem"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Mnożenie przez 2, 5 i 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasa-2",
+   "klasa-3"
+  ],
+  "desc": "Tabliczka mnożenia na wyrywki"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Mnożenie przez 3, 4 i 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasa-3"
+  ],
+  "desc": "Tabliczka mnożenia na wyrywki"
+ },
+ {
+  "id": "division-facts",
+  "title": "Dzielenie w zakresie tabliczki mnożenia",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasa-3",
+   "klasa-4"
+  ],
+  "desc": "Dzielimy z pomocą tabliczki mnożenia"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Mnożenie pisemne",
+  "topic": "multiplication-and-division",
+  "years": [
+   "klasa-4"
+  ],
+  "desc": "Liczby trzycyfrowe przez jednocyfrowe"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Jaka część jest zamalowana?",
+  "topic": "fractions",
+  "years": [
+   "klasa-4"
+  ],
+  "desc": "Połowy, trzecie, czwarte części i inne"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Ułamek liczby",
+  "topic": "fractions",
+  "years": [
+   "klasa-4",
+   "klasa-5"
+  ],
+  "desc": "Na przykład ½ liczby 12 i ¾ liczby 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Rozszerzanie ułamków",
+  "topic": "fractions",
+  "years": [
+   "klasa-5",
+   "klasa-6"
+  ],
+  "desc": "Ułamki równe: znajdź brakującą liczbę"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Części dziesiąte i setne",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "klasa-4",
+   "klasa-5"
+  ],
+  "desc": "Ułamki zwykłe jako ułamki dziesiętne"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Procent liczby",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "klasa-6"
+  ],
+  "desc": "10%, 25%, 50% i inne"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Pełne godziny i „wpół do”",
+  "topic": "telling-the-time",
+  "years": [
+   "klasa-1",
+   "klasa-2"
+  ],
+  "desc": "Odczytaj godzinę z zegara"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Kwadrans po i za kwadrans",
+  "topic": "telling-the-time",
+  "years": [
+   "klasa-2"
+  ],
+  "desc": "Odczytaj godzinę z zegara"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Godziny co 5 minut",
+  "topic": "telling-the-time",
+  "years": [
+   "klasa-2",
+   "klasa-3"
+  ],
+  "desc": "Odczytaj godzinę z zegara"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Liczymy monety",
+  "topic": "money",
+  "years": [
+   "klasa-2",
+   "klasa-3"
+  ],
+  "desc": "Dodawanie groszy"
+ },
+ {
+  "id": "giving-change",
+  "title": "Wydawanie reszty",
+  "topic": "money",
+  "years": [
+   "klasa-3",
+   "klasa-4"
+  ],
+  "desc": "Reszta z 1 zł, 2 zł, 5 zł i 10 zł"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Obwód i pole",
+  "topic": "measurement",
+  "years": [
+   "klasa-4",
+   "klasa-5"
+  ],
+  "desc": "Prostokąty na kratkach"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Figury płaskie",
+  "topic": "shape-and-geometry",
+  "years": [
+   "klasa-2",
+   "klasa-3"
+  ],
+  "desc": "Nazwy, boki i wierzchołki"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Odczytujemy diagram słupkowy",
+  "topic": "data-and-graphs",
+  "years": [
+   "klasa-2",
+   "klasa-3"
+  ],
+  "desc": "Ankieta: ulubione owoce"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Działania z okienkiem",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "klasa-3",
+   "klasa-4",
+   "klasa-5"
+  ],
+  "desc": "Jaka liczba kryje się w okienku?"
+ }
+]

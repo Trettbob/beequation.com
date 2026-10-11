@@ -1,0 +1,271 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Talföljder upp till 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Räkna med steg på 1, 2, 5 och 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Tiotal och ental",
+  "topic": "counting-and-place-value",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Dela upp tvåsiffriga tal"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Hundratal, tiotal och ental",
+  "topic": "counting-and-place-value",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Positionssystemet upp till 1 000"
+ },
+ {
+  "id": "rounding",
+  "title": "Avrunda tal",
+  "topic": "counting-and-place-value",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Till närmaste tiotal, hundratal och tusental"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Tiokamrater",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "forskoleklass",
+   "arskurs-1"
+  ],
+  "desc": "Två tal som tillsammans blir 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Talkamrater till 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Två tal som tillsammans blir 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Plus och minus upp till 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Blandade uppgifter med tal upp till 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Addition med uppställning",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Tresiffriga tal, med minnessiffra"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Subtraktion med uppställning",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Tresiffriga tal, med växling"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "2:ans, 5:ans och 10:ans tabell",
+  "topic": "multiplication-and-division",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Blandade uppgifter, med extrautmaningar upp till 12"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "3:ans, 4:ans och 8:ans tabell",
+  "topic": "multiplication-and-division",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Blandade uppgifter, med extrautmaningar upp till 12"
+ },
+ {
+  "id": "division-facts",
+  "title": "Division med tabellerna",
+  "topic": "multiplication-and-division",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Använd multiplikationstabellen när du dividerar"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Multiplikation med uppställning",
+  "topic": "multiplication-and-division",
+  "years": [
+   "arskurs-4",
+   "arskurs-5"
+  ],
+  "desc": "Tresiffriga tal gånger ensiffriga"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Hur stor del är färgad?",
+  "topic": "fractions",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Halvor, tredjedelar, fjärdedelar och fler"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Bråkdel av ett antal",
+  "topic": "fractions",
+  "years": [
+   "arskurs-3",
+   "arskurs-4"
+  ],
+  "desc": "Till exempel ½ av 12 och ¾ av 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Förlänga bråk",
+  "topic": "fractions",
+  "years": [
+   "arskurs-5",
+   "arskurs-6"
+  ],
+  "desc": "Likvärdiga bråk: hitta talet som fattas"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Tiondelar och hundradelar",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "arskurs-4",
+   "arskurs-5"
+  ],
+  "desc": "Skriv bråk som decimaltal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Procent av ett tal",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "arskurs-5",
+   "arskurs-6"
+  ],
+  "desc": "10 %, 25 %, 50 % och fler"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Hel och halv timme",
+  "topic": "telling-the-time",
+  "years": [
+   "arskurs-1"
+  ],
+  "desc": "Läs av klockorna"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Kvart över och kvart i",
+  "topic": "telling-the-time",
+  "years": [
+   "arskurs-2"
+  ],
+  "desc": "Läs av klockorna"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Klockan på 5 minuter när",
+  "topic": "telling-the-time",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Läs av klockorna"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Räkna mynt",
+  "topic": "money",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Lägg ihop svenska mynt"
+ },
+ {
+  "id": "giving-change",
+  "title": "Hur mycket får du tillbaka?",
+  "topic": "money",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Betala med 20 kr, 50 kr och 100 kr"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Omkrets och area",
+  "topic": "measurement",
+  "years": [
+   "arskurs-4",
+   "arskurs-5"
+  ],
+  "desc": "Rektanglar på rutat papper"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Former",
+  "topic": "shape-and-geometry",
+  "years": [
+   "arskurs-1",
+   "arskurs-2"
+  ],
+  "desc": "Namn, sidor och hörn"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Läsa av ett stapeldiagram",
+  "topic": "data-and-graphs",
+  "years": [
+   "arskurs-2",
+   "arskurs-3"
+  ],
+  "desc": "Undersökning: favoritfrukt"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Vilket tal fattas?",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "arskurs-3",
+   "arskurs-4",
+   "arskurs-5"
+  ],
+  "desc": "Hitta talet i rutan"
+ }
+]

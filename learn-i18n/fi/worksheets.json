@@ -1,0 +1,268 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Lukujonot 100:aan asti",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-luokka",
+   "2-luokka"
+  ],
+  "desc": "Yhden, kahden, viiden ja kymmenen välein"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Kymmenet ja ykköset",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-luokka",
+   "2-luokka"
+  ],
+  "desc": "Kaksinumeroiset luvut osiin"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Sadat, kymmenet ja ykköset",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-luokka"
+  ],
+  "desc": "Kymmenjärjestelmä lukualueella 0–1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Pyöristäminen",
+  "topic": "counting-and-place-value",
+  "years": [
+   "4-luokka",
+   "5-luokka"
+  ],
+  "desc": "Kymmeniin, satoihin ja tuhansiin"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Kymppiparit",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "esiopetus",
+   "1-luokka"
+  ],
+  "desc": "Mitkä kaksi lukua tekevät yhdessä 10?"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Luvun 20 hajotelmat",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-luokka"
+  ],
+  "desc": "Lukuparit, joiden summa on 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Plus- ja miinuslaskut 20:een asti",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-luokka",
+   "2-luokka"
+  ],
+  "desc": "Sekaisin yhteen- ja vähennyslaskuja lukualueella 0–20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Yhteenlasku allekkain",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Kolminumeroiset luvut, muistinumeron kanssa"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Vähennyslasku allekkain",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Kolminumeroiset luvut, lainaamisen kanssa"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Kertotaulut 2, 5 ja 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-luokka"
+  ],
+  "desc": "Kertolaskuja sekaisin"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Kertotaulut 3, 4 ja 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-luokka",
+   "3-luokka"
+  ],
+  "desc": "Kertolaskuja sekaisin"
+ },
+ {
+  "id": "division-facts",
+  "title": "Jakolaskut kertotauluilla",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Jaa kertotaulujen avulla"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Kertolasku allekkain",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Kolminumeroinen luku kerrotaan yksinumeroisella"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Mikä osa on väritetty?",
+  "topic": "fractions",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Puolikkaat, kolmasosat, neljäsosat ja muut"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Murtoluku luvusta",
+  "topic": "fractions",
+  "years": [
+   "4-luokka",
+   "5-luokka"
+  ],
+  "desc": "Esimerkiksi ½ luvusta 12 ja ¾ luvusta 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Murtolukujen laventaminen",
+  "topic": "fractions",
+  "years": [
+   "4-luokka",
+   "5-luokka"
+  ],
+  "desc": "Samanarvoiset murtoluvut: etsi puuttuva luku"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Kymmenesosat ja sadasosat",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Murtoluvut desimaalilukuina"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Prosentti luvusta",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-luokka",
+   "6-luokka"
+  ],
+  "desc": "10 %, 25 %, 50 % ja muita"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Tasan ja puoli",
+  "topic": "telling-the-time",
+  "years": [
+   "1-luokka"
+  ],
+  "desc": "Lue kellonajat"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Varttia yli ja varttia vaille",
+  "topic": "telling-the-time",
+  "years": [
+   "2-luokka"
+  ],
+  "desc": "Lue kellonajat"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Kellonajat viiden minuutin välein",
+  "topic": "telling-the-time",
+  "years": [
+   "2-luokka",
+   "3-luokka"
+  ],
+  "desc": "Lue kellonajat"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Kolikoiden laskeminen",
+  "topic": "money",
+  "years": [
+   "2-luokka",
+   "3-luokka"
+  ],
+  "desc": "Laske euro- ja senttikolikot yhteen"
+ },
+ {
+  "id": "giving-change",
+  "title": "Paljonko saat takaisin?",
+  "topic": "money",
+  "years": [
+   "3-luokka",
+   "4-luokka"
+  ],
+  "desc": "Vaihtoraha, kun maksat 1, 2 tai 5 euroa"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Piiri ja pinta-ala",
+  "topic": "measurement",
+  "years": [
+   "4-luokka",
+   "5-luokka"
+  ],
+  "desc": "Suorakulmiot senttiruudukossa"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Tasokuviot",
+  "topic": "shape-and-geometry",
+  "years": [
+   "1-luokka",
+   "2-luokka"
+  ],
+  "desc": "Nimet, sivut ja kärjet"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Pylväsdiagrammin lukeminen",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-luokka",
+   "3-luokka"
+  ],
+  "desc": "Kysely lempihedelmistä"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Puuttuva luku",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "4-luokka",
+   "5-luokka",
+   "6-luokka"
+  ],
+  "desc": "Mikä luku tulee ruutuun?"
+ }
+]

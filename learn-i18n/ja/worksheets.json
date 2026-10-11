@@ -1,0 +1,271 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "100までの数のならび",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-nensei",
+   "2-nensei"
+  ],
+  "desc": "1ずつ、2ずつ、5ずつ、10ずつ数える"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "10がいくつと1がいくつ",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-nensei"
+  ],
+  "desc": "2けたの数を、10のまとまりとばらに分ける"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "百の位・十の位・一の位",
+  "topic": "counting-and-place-value",
+  "years": [
+   "2-nensei"
+  ],
+  "desc": "3けたの数を、位ごとの数に分ける"
+ },
+ {
+  "id": "rounding",
+  "title": "がい数（四捨五入）",
+  "topic": "counting-and-place-value",
+  "years": [
+   "4-nensei"
+  ],
+  "desc": "四捨五入して、十・百・千の位までのがい数にする"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "あといくつで10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "nencho",
+   "1-nensei"
+  ],
+  "desc": "いくつといくつ：あわせて10になる2つの数"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "20をつくろう",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-nensei",
+   "2-nensei"
+  ],
+  "desc": "あわせて20になる2つの数"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "20までのたし算とひき算",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-nensei"
+  ],
+  "desc": "くり上がり・くり下がりのある計算もまぜて"
+ },
+ {
+  "id": "column-addition",
+  "title": "たし算の筆算（3けた）",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-nensei"
+  ],
+  "desc": "3けた + 3けた、くり上がりあり"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "ひき算の筆算（3けた）",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-nensei"
+  ],
+  "desc": "3けた − 3けた、くり下がりあり"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "九九：2の段・5の段と10のかけ算",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "九九のまぜ問題と、九九をこえるチャレンジ問題"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "九九：3の段・4の段・8の段",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "九九のまぜ問題と、九九をこえるチャレンジ問題"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "九九表を広げよう",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "12 × 12までのかけ算表をうめる"
+ },
+ {
+  "id": "division-facts",
+  "title": "わり算：九九で答えを見つけよう",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-nensei",
+   "4-nensei"
+  ],
+  "desc": "九九を使うわり算と、チャレンジ問題"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "かけ算の筆算（3けた × 1けた）",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-nensei"
+  ],
+  "desc": "3けたの数に1けたの数をかける筆算"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "色をぬったのは何分の何？",
+  "topic": "fractions",
+  "years": [
+   "3-nensei"
+  ],
+  "desc": "½、⅓、¼などを図で見る"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "ある数の何分の何",
+  "topic": "fractions",
+  "years": [
+   "5-nensei",
+   "6-nensei"
+  ],
+  "desc": "20の¾のように、ある数の½や¾にあたる大きさを求める"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "大きさの等しい分数",
+  "topic": "fractions",
+  "years": [
+   "4-nensei",
+   "5-nensei"
+  ],
+  "desc": "□にあてはまる数を見つける"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "分数を小数で表そう",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "4-nensei",
+   "5-nensei"
+  ],
+  "desc": "10分のいくつ、100分のいくつを小数に"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "百分率（%）の計算",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-nensei",
+   "6-nensei"
+  ],
+  "desc": "10%、25%、50%などにあたる大きさを求める"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "なんじ・なんじはん",
+  "topic": "telling-the-time",
+  "years": [
+   "1-nensei"
+  ],
+  "desc": "時計を読む（ちょうどと半）"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "なんじなんぷん（15分ごと）",
+  "topic": "telling-the-time",
+  "years": [
+   "1-nensei"
+  ],
+  "desc": "長いはりが12・3・6・9をさす時計を読む"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "何時何分（5分ごと）",
+  "topic": "telling-the-time",
+  "years": [
+   "1-nensei",
+   "2-nensei"
+  ],
+  "desc": "時計を読んで、デジタル時計の書き方でも書く"
+ },
+ {
+  "id": "counting-coins",
+  "title": "お金をかぞえよう",
+  "topic": "money",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "1円玉から500円玉までの合計"
+ },
+ {
+  "id": "giving-change",
+  "title": "おつりはいくら？",
+  "topic": "money",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "100円玉、500円玉、1000円札ではらったときのおつり"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "まわりの長さと面積",
+  "topic": "measurement",
+  "years": [
+   "4-nensei"
+  ],
+  "desc": "1cmのます目にかいた長方形"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "図形の名前と辺・頂点",
+  "topic": "shape-and-geometry",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "三角形、四角形、六角形などの名前と、辺と頂点の数"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "棒グラフを読もう",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-nensei",
+   "3-nensei"
+  ],
+  "desc": "すきなくだものしらべ"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "□にあてはまる数",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "3-nensei",
+   "4-nensei"
+  ],
+  "desc": "□を使った式で、わからない数を求める"
+ }
+]

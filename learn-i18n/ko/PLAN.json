@@ -1,0 +1,214 @@
+{
+  "years": [
+    { "slug": "yuchiwon-5se", "name": "유치원 만 5세반", "age": "5~6", "english_equivalent": "Reception in content; Year 1 by age (the last, non-compulsory pre-school year; also 어린이집 5세반, same 누리과정)" },
+    { "slug": "chodeung-1", "name": "초등 1학년", "age": "6~7", "english_equivalent": "Year 1 in content (numbers to 100, sums to 20); Year 2 by age" },
+    { "slug": "chodeung-2", "name": "초등 2학년", "age": "7~8", "english_equivalent": "Year 2 in content (four-digit numbers, tables 2 to 9); Year 3 by age" },
+    { "slug": "chodeung-3", "name": "초등 3학년", "age": "8~9", "english_equivalent": "Year 3 / Year 4 (division, first fractions and decimals); Year 4 by age" },
+    { "slug": "chodeung-4", "name": "초등 4학년", "age": "9~10", "english_equivalent": "Year 4 / Year 5 (큰 수, angles, decimals to thousandths); Year 5 by age" },
+    { "slug": "chodeung-5", "name": "초등 5학년", "age": "10~11", "english_equivalent": "Year 5 / Year 6 (factors and multiples, fractions with different denominators, area); Year 6 by age" },
+    { "slug": "chodeung-6", "name": "초등 6학년", "age": "11~12", "english_equivalent": "Year 6 and beyond (fraction and decimal division, ratio and percentages, circles, volume); Year 7 by age (end of 초등학교)" }
+  ],
+  "address": "Polite 해요체 throughout, matching the Korean apps (apps/kids/src/i18n/ko.ts, apps/adult/src/i18n/ko.ts), the store listings (marketing/locales/ko) and i18n/ko.json ('무료로 체험할 수 있어요', '브라우저에서 무료로 플레이하기'); instructions as '~해 보세요' / '~하세요'. No 합쇼체 except formal legal phrases, never 반말 to adults, never '당신': Korean leaves 'you' out. Parents are addressed as '부모님' now and then (section label '부모님께'; '보호자' only in formal or app contexts, '학부모' for school contexts); the child is '아이' ('자녀' in formal sentences, '우리 아이' sparingly). Teachers are '선생님', also in 해요체 ('우리 반', '학생들'). Indie (꿀벌 인디) speaks friendly 해요체 with '나' ('나는 인디예요', '같이 풀어 봐요!'), as in the Kids app. Tone: a warm 담임 선생님 at a parent meeting; plain words, the textbook term first and then its meaning ('교과서에서는 받아올림이라고 해요'). No '쉬워요', '간단해요', '그냥', no pressure about 선행학습 or falling behind, no emoji. Ages always in 만 나이 ('만 6~7세'), never the old Korean age.",
+  "pages": [
+    {
+      "rel": "index.html",
+      "sources": ["learn-src/index.html"],
+      "notes": "배우기 home hub (layout: hub). Cards for the 12 topics with the Korean names and glyphs from site.json (money glyph ₩; 규칙과 비율 glyph □, because Korean primary uses boxes, not letters), the 7 Korean years (유치원 만 5세반, 초등 1~6학년, ages '만 5~6세'… from site.json, short labels 5세, 1–6), 부모님께 / 선생님께 / 학습지 / 수학 용어 사전, and popular guides (the four older articles). Intro: '유치원 만 5세반부터 초등 6학년까지', written for Korea's 2022 개정 수학과 교육과정 (now in every primary year) and the 누리과정; 해요체. Year blurbs must use Korean content: 만 5세반: 수 세기와 규칙, 놀이로 배우는 수학; 1학년: 100까지의 수, 가르기와 모으기, 10 만들기; 2학년: 네 자리 수와 곱셈구구; 3학년: 나눗셈, 분수와 소수의 시작; 4학년: 큰 수(만·억·조), 각도, 소수의 덧셈과 뺄셈; 5학년: 약수와 배수, 약분과 통분, 둘레와 넓이; 6학년: 비와 비율, 원의 넓이, 중학교 준비. No SATs, no national exam."
+    },
+    {
+      "rel": "topics/index.html",
+      "sources": ["learn-src/topics/index.html"],
+      "notes": "Topics hub with the 12 Korean topic names. 'Where to start, by age' becomes '학년별로 어디서부터 시작할까요?', using 만 5세반 and the three 학년군 (1~2, 3~4, 5~6). Mention briefly the four 영역 of the curriculum (수와 연산, 변화와 관계, 도형과 측정, 자료와 가능성) as how Korean teachers and textbooks group topics, and map our 12 topics onto them (e.g. 규칙과 비율 = 변화와 관계). Say that money (돈 계산) is not a curriculum unit in Korea but a useful everyday context."
+    },
+    {
+      "rel": "topics/counting-and-place-value.html",
+      "sources": ["learn-src/topics/counting-and-place-value.html"],
+      "notes": "수 세기와 자릿값. Year table per BRIEF: 만 5세반 counting objects (하나, 둘… and 일, 이…), digits 0–9; 1학년 9까지, 50까지, 100까지의 수, '10개씩 묶음과 낱개', 짝수와 홀수 (within 20), 첫째·둘째; 2학년 세 자리 수, 네 자리 수, 뛰어 세기 by 10, 100, 1000; 4학년 큰 수 만, 십만, 백만, 천만, 억, 조; 5학년 이상·이하·초과·미만 and 올림·버림·반올림 (rounding is 5학년 in Korea). Big ideas: 자릿값 with 수 모형 (일·십·백·천 모형) and 화폐 모형; the 0 as a placeholder (3052); Korean numbers read in groups of four (12,345,678 = 1234만 5678; 'a million' = 백만), commas every three digits in writing; native vs Sino-Korean counting words (counting things vs reading numbers), and the curriculum note that 1~2학년 children should not be made to write numbers in Hangul words. Materials: 수 배열표, 수직선, 바둑돌, 연결 큐브. No negative numbers, no Roman numerals (not taught in Korea)."
+    },
+    {
+      "rel": "topics/addition-and-subtraction.html",
+      "sources": ["learn-src/topics/addition-and-subtraction.html", "learn/number-bonds-to-20.html"],
+      "notes": "덧셈과 뺄셈. 가르기와 모으기 (within 10, then 20), 10 만들기 and 10에서 빼기 (1학년 2학기), 받아올림 있는 (몇)+(몇) such as 8 + 5 = 8 + 2 + 3, 받아내림 있는 (십몇)−(몇), then two-digit 세로셈 with 받아올림·받아내림 (2학년 1학기), three-digit (3학년 1학기, sum may have four digits), and decimals (4학년). Show the Korean column layouts exactly as in BRIEF section 4 (347 + 285 = 632 with small 받아올림 marks; 532 − 178 = 354 by 받아내림, crossing out and writing 10 above), plus 가로셈. Terms 합, 차, 더하는 수, 빼는 수, 검산. □ in equations (2학년), three-number sums making 10 first (the curriculum's example of the associative law), the relation between addition and subtraction. Tip: ask the 담임 선생님 how the class writes 받아내림 marks; practise with 수 모형 before the short form."
+    },
+    {
+      "rel": "topics/multiplication-and-division.html",
+      "sources": ["learn-src/topics/multiplication-and-division.html", "learn/times-tables-practice.html"],
+      "notes": "곱셈과 나눗셈. 2학년: multiplication as 묶어 세기, '몇의 몇 배' and repeated addition, then 곱셈구구 2단 to 9단 (in 2학년 2학기, typically 2·5단, 3·6단, 4·8단, 7·9단, then 1단과 0의 곱 and the 곱셈표 9 × 9); tables are recited in Sino-Korean ('칠 팔 오십육'). 3학년: 나눗셈 begins (똑같이 나누기, 곱셈과 나눗셈의 관계, 곱셈구구로 몫 구하기), (두·세 자리)×(한 자리), (두 자리)×(두 자리), division with 몫 and 나머지 (17 ÷ 5 = 3 … 2). 4학년: (세 자리)×(두 자리), division by two-digit numbers, 어림셈. 5학년 혼합 계산. Show the 세로셈 for 234 × 23 = 5382 and the long-division layout for 857 ÷ 4 = 214 … 1 with 검산 4 × 214 + 1 = 857 (BRIEF section 4). No 10단, 11단, 12단 in school (mention that the Kids app's 구구단 정원 goes further as a challenge); no grid method, chunking or bus stop."
+    },
+    {
+      "rel": "topics/fractions.html",
+      "sources": ["learn-src/topics/fractions.html"],
+      "notes": "분수. Key fact: fractions start in 3학년 in Korea (nothing in 1~2학년 beyond everyday '반'). Read denominator first: ¾ = '4분의 3', 1¾ = '1과 4분의 3'. Year table: 3학년 양의 등분할, 분모·분자, 부분과 전체, 단위분수, 진분수·가분수·대분수, comparing same-denominator and unit fractions; 4학년 adding and subtracting fractions with the same denominator (incl. 대분수, 3 − ⅖); 5학년 크기가 같은 분수, 약분·통분·기약분수, different denominators, multiplying fractions; 6학년 dividing fractions ((분수)÷(자연수), (자연수)÷(분수), (분수)÷(분수)) and 3 ÷ 4 = ¾. Korean contexts: 김밥 slices, 피자, 색종이 folding, 떡. Keep the equal-parts idea and the bar SVG (labels in Korean). Common mistakes: adding numerators and denominators, thinking ⅕ > ⅓ because 5 > 3. Worksheets topic='fractions'."
+    },
+    {
+      "rel": "topics/decimals-and-percentages.html",
+      "sources": ["learn-src/topics/decimals-and-percentages.html"],
+      "notes": "소수와 백분율. Warn that '소수' in primary means decimal (小數), not prime. Year table: 3학년 소수 한 자리 수 from tenths (0.1 = 1/10, '영 점 일'), 1보다 큰 소수 한 자리; 4학년 소수 두 자리 수, 세 자리 수 (to thousandths), comparing, adding and subtracting to hundredths; 5학년 소수의 곱셈 and 분수와 소수의 관계; 6학년 소수의 나눗셈, 비율 as fraction, decimal and 백분율 (%), percentages in 할인 (20% 할인). Decimal point notation (2.5), percent without a space (25%). Since won has no smaller unit, use cm/mm, kg, L/mL, 기록 in 달리기 (seconds), 키 (m) for decimal contexts, not money. Calculators allowed for complex decimal calculations (curriculum)."
+    },
+    {
+      "rel": "topics/telling-the-time.html",
+      "sources": ["learn-src/topics/telling-the-time.html"],
+      "notes": "시계 보기. Teach 시각 (point in time) vs 시간 (duration), a distinction Korean textbooks make. Hours in native Korean (세 시), minutes in Sino-Korean (십오 분). Year table: 만 5세반 하루의 흐름, 요일; 1학년 2학기 몇 시, 몇 시 30분 (3시 반); 2학년 2학기 몇 시 몇 분 (5분, 1분 단위), 몇 시 몇 분 전 (simple: 5분 전, 10분 전), 1시간 = 60분, 걸린 시간, 1일 = 24시간, 오전·오후, 달력 (1주일 = 7일, 1년 = 12개월); 3학년 1분 = 60초, 초 단위 시각, 시간의 덧셈과 뺄셈. Phrases: 3:15 '3시 15분', 3:30 '3시 30분 / 3시 반', 3:45 '3시 45분' or '4시 15분 전'. No quarter past/to. 24-hour times (15:00 = 오후 3시) on KTX and bus timetables, as everyday reading, not a curriculum point. Clock SVGs with Korean labels. Contexts: 학교 시간표 (40분 수업, 쉬는 시간 10분), 급식 시간, 학원 가는 시간."
+    },
+    {
+      "rel": "topics/money.html",
+      "sources": ["learn-src/topics/money.html"],
+      "notes": "돈 계산. Be honest that money is not a unit of the Korean maths curriculum: it is everyday maths that supports school topics (자릿값 with 화폐 모형 in 2학년 세 자리·네 자리 수 and 4학년 큰 수; 덧셈·뺄셈 and 거스름돈 word problems; 6학년 할인 and 백분율). So the 'year by year' table describes what money practice fits each year rather than a curriculum list. Coins 10원 (small, copper), 50원, 100원, 500원 (silver); notes 1,000원 (blue), 5,000원 (red-orange), 10,000원 (green), 50,000원 (yellow); use real sizes/colours from BRIEF section 6 in SVGs. No decimals in money; prices written '1,500원'. Activities: 용돈 and 저금통, 문구점 shopping with round prices (연필 500원, 공책 1,000원), counting coins in a 저금통 by grouping (10원 열 개 = 100원), 거스름돈 from 1,000원 and 5,000원 by counting up, comparing prices at 마트, 세뱃돈 planning. Card and phone payments (교통카드) as a reason to talk about money aloud. No brand names."
+    },
+    {
+      "rel": "topics/measurement.html",
+      "sources": ["learn-src/topics/measurement.html"],
+      "notes": "측정과 단위 (measurement: 길이, 들이, 무게, 시간 단위 links, 각도, 둘레·넓이, 부피; the name covers all of them, unlike '길이·들이·무게 재기'). Year table: 만 5세반 길다/짧다, 무겁다/가볍다; 1학년 비교하기 (길이, 무게, 넓이, 들이: 길다·짧다, 무겁다·가볍다, 넓다·좁다, 많다·적다); 2학년 1 cm and 자 (2학년 1학기), 1 m = 100 cm, 'm cm' (2학기), 어림 with '약'; 3학년 mm, km, 들이 L and mL, 무게 g, kg, t ('몇 kg 몇 g', '몇 L 몇 mL', 1 t = 1000 kg); 4학년 각도 (°, 각도기) (also on the shape page); 5학년 둘레 and 넓이 (cm², m², km²) of rectangles, parallelograms, triangles, trapezia, rhombi; 6학년 원주율 3.14, 원주, 원의 넓이, 직육면체의 겉넓이와 부피 (cm³, m³). Note that area and perimeter come later than in many countries (5학년). Use '들이' for capacity, '무게' (the curriculum does not separate weight and mass in primary). Contexts: 키 재기, 우유갑 (200 mL, 1 L), 마트 저울, 택배 상자 무게, 운동장 둘레, 아파트 평면도 (넓이 in m², not 평)."
+    },
+    {
+      "rel": "topics/shape-and-geometry.html",
+      "sources": ["learn-src/topics/shape-and-geometry.html"],
+      "notes": "도형. Year table: 만 5세반 위치와 방향, 모양; 1학년 상자·둥근기둥·공 모양 (입체), then △ □ ○ 모양; 2학년 삼각형, 사각형, 원, 오각형, 육각형 (꼭짓점, 변), 칠교판, 쌓기나무 with position words ('~의 앞', '~의 오른쪽', '2층'); 3학년 선분, 반직선, 직선, 각, 직각, 직사각형, 정사각형, 원 (중심, 반지름, 지름, 컴퍼스); 4학년 예각·둔각, 각도, 삼각형 (이등변, 정, 직각, 예각, 둔각삼각형), 수직과 평행, 사다리꼴·평행사변형·마름모, 다각형·정다각형·대각선, 평면도형의 이동 (밀기, 뒤집기, 돌리기) and moving a point on a grid; 5학년 합동, 선대칭도형·점대칭도형, 직육면체·정육면체 (겨냥도, 전개도); 6학년 각기둥, 각뿔, 원기둥, 원뿔, 구, 쌓기나무 views. The hexagon (육각형) and bee honeycomb as Indie's hook. No coordinates (중학교). SVG labels in Korean."
+    },
+    {
+      "rel": "topics/data-and-graphs.html",
+      "sources": ["learn-src/topics/data-and-graphs.html"],
+      "notes": "표와 그래프. Year table: 만 5세반 분류하기 by a rule; 1학년 sorting; 2학년 분류하기, 표 (항목, 합계), graphs with ○, ×, /; 3학년 그림그래프; 4학년 막대그래프, 꺾은선그래프 (when each is the right choice; digital tools allowed); 5학년 평균, 가능성 in words (확실하다, ~일 것 같다, 반반이다, ~아닐 것 같다, 불가능하다) and as 0, ½, 1; 6학년 띠그래프, 원그래프, choosing a graph for your own question. No mode or median in Korean primary (only 평균). The 2022 curriculum stresses children collecting their own data (설문조사, 실험, 공공 자료) and reading graphs critically. Contexts: 급식 메뉴 투표, 좋아하는 과일, 장마철 강수량, 키 변화 (꺾은선), 운동회 점수, 윷놀이 결과 for 가능성."
+    },
+    {
+      "rel": "topics/algebra-and-ratio.html",
+      "sources": ["learn-src/topics/algebra-and-ratio.html"],
+      "notes": "규칙과 비율 (the curriculum's 변화와 관계 영역). Year table: 만 5세반 반복되는 규칙; 1학년 규칙 찾기 (무늬, 수 배열표); 2학년 □가 사용된 덧셈식·뺄셈식, 덧셈표와 곱셈표의 규칙, 규칙 찾기; 3~4학년 규칙을 수나 식으로 나타내기, 계산식의 배열에서 규칙 찾기, 등호의 의미 (8 + 5 = 10 + 3 is true: equivalence, a new 2022 standard); 5학년 대응 관계 written with □ and △ (△ = □ × 4, e.g. 꿀벌 다리 수 or 육각형 둘레); 6학년 비 ('3 : 2', 기준량, 비교하는 양), 비율, 백분율, 비례식 and its property, 비례배분 (sharing 12,000원 in 1 : 2). Korean primary uses boxes and shapes, not letters: no x, no equations with letters (중1 문자와 식). Keep every example correct; recipes (떡볶이 for 4명 → 6명) for proportion."
+    },
+    {
+      "rel": "topics/mental-maths.html",
+      "sources": ["learn-src/topics/mental-maths.html", "learn/mental-maths-strategies.html"],
+      "notes": "암산. Strategies with Korean examples: 10 만들기 (8 + 5 = 8 + 2 + 3), 가르기 (47 + 38 = 47 + 3 + 35), 같은 수 더하기 (doubles, 6 + 7 = 6 + 6 + 1), 몇십으로 바꾸어 계산하기 (49 + 26 = 50 + 26 − 1), 거꾸로 세기·이어 세기 for subtraction (거스름돈 counting up), 곱셈구구 facts and the 곱셈표 patterns (9단 digits add to 9), ×10, ×100, halving and doubling, 어림셈 (an official curriculum point in 3~4학년: estimate before calculating and check if the answer makes sense). By 학년: 1~2학년 within 20 and 100, 2학년 곱셈구구, 3~4학년 어림셈 and three-digit numbers, 5~6학년 혼합 계산 order, fractions and decimals. Mention 연산 문제집 and 학원 drills gently: understanding first, then speed; no stopwatch pressure."
+    },
+    {
+      "rel": "years/index.html",
+      "sources": ["learn-src/years/index.html"],
+      "notes": "학년 hub: '학년별 수학: 유치원 만 5세반부터 초등 6학년까지'. Explain the system: 유치원/어린이집 (만 3~5세, free, 누리과정), 초등학교 6년 (compulsory), entry in the March after the child turns 6 (calendar-year cohort, 초·중등교육법 제13조), school year from 1 March, two 학기, then 중학교. Ages in 만 나이 (note that people still say '여덟 살' for 1학년, but the official age since 2023 is 만 나이). Table of years with ages and one-line content. The curriculum is national (2022 개정, by 학년군), textbooks per semester (1-1 … 6-2), 《수학》 and 《수학 익힘》. 'Key tests by year' becomes '평가는 어떻게 하나요?': no national exam in primary; 기초학력진단검사 at the start of the year (school-level), 맞춤형 학업성취도 자율평가 (voluntary, 3학년+), 단원평가·수행평가, 통지표 in sentences. Link parents/maths-tests-explained.html."
+    },
+    {
+      "rel": "years/yuchiwon-5se.html",
+      "sources": ["learn-src/years/reception.html", "learn-src/years/year-1.html"],
+      "notes": "유치원 만 5세반 (만 5~6세): the year before 초등학교 (also 어린이집 만 5세반: same 누리과정). Not compulsory, free. Maths sits in the 누리과정 area 자연탐구 ('생활 속에서 탐구하기'): counting objects to know how many (물체를 세어 수량을 알아본다), position, direction and shape, comparing length and weight, finding repeating patterns (주변에서 반복되는 규칙을 찾는다), sorting collected things by a rule. Stress 놀이 중심: no worksheets or written sums required, and schools do not expect children to arrive already doing 받아올림 (avoid pressure about 선행). Usual practice (say '보통', '많은 아이들이'): counting to 10 and beyond in 하나·둘 and 일·이, digits 0–9, 가르기와 모으기 with objects, 세모·네모·동그라미, days of the week. No tests; descriptive 생활기록부. Getting ready for 1학년 (입학 준비): counting games, 시계 놀이, 문구점 pretend shop. Challenge at that level (counting/sharing honey drops). Worksheets year='yuchiwon-5se'. Next: 초등 1학년."
+    },
+    {
+      "rel": "years/chodeung-1.html",
+      "sources": ["learn-src/years/year-1.html", "learn-src/years/year-2.html"],
+      "notes": "초등 1학년 (만 6~7세), the first compulsory year, 1~2학년군 (국정 textbook). Units (from BRIEF, say '보통 이런 순서로'): 1-1 9까지의 수, 여러 가지 모양, 덧셈과 뺄셈 (가르기와 모으기), 비교하기, 50까지의 수; 1-2 100까지의 수 (짝수와 홀수), 덧셈과 뺄셈(1)(2)(3) (두 자리 수, 세 수, 10 만들기, 10에서 빼기, 받아올림 있는 (몇)+(몇), 받아내림 있는 (십몇)−(몇)), 여러 가지 모양 (△ □ ○), 시계 보기와 규칙 찾기 (몇 시, 몇 시 30분). Symbols +, −, =, >, <. No multiplication yet, no fractions, no money unit. March 입학 초기 적응 (gentle start). No tests beyond classroom 단원평가/관찰; 기초학력진단검사 may include a 셈하기 check in 1학년 (school-level, UNCERTAIN detail: phrase loosely). Checklist ('1학년을 마칠 때쯤 많은 아이들이…'), vocabulary table (가르기, 모으기, 합, 차, 짝수, 홀수, 10개씩 묶음, 낱개, 몇 시 30분). The curriculum says 1~2학년 children should not be made to write numbers or ordinals in Hangul ('여덟', '마흔아홉', '첫째'): they say them, but write digits. Prev: 유치원 만 5세반; next: 2학년. Worksheets year='chodeung-1'."
+    },
+    {
+      "rel": "years/chodeung-2.html",
+      "sources": ["learn-src/years/year-2.html", "learn-src/years/year-3.html"],
+      "notes": "초등 2학년 (만 7~8세), second year of 1~2학년군. Units: 2-1 세 자리 수, 여러 가지 도형 (삼각형, 사각형, 원, 오각형, 육각형, 칠교판, 쌓기나무), 덧셈과 뺄셈 (two-digit 세로셈 with 받아올림·받아내림, □), 길이 재기 (1 cm, 자), 분류하기, 곱셈 (묶어 세기, 몇의 몇 배); 2-2 네 자리 수, 곱셈구구 (2단~9단, 1단과 0의 곱, 곱셈표), 길이 재기 (1 m = 100 cm), 시각과 시간 (몇 시 몇 분, 몇 분 전, 1시간 = 60분, 오전·오후, 1일 = 24시간, 달력), 표와 그래프 (○ graphs), 규칙 찾기. This is the 구구단 year: give calm advice on learning tables (understand first with 묶음 pictures, then recite '이 일은 이…', little and often), and say there is no tables test. Division waits until 3학년. Checklist, vocabulary (받아올림, 받아내림, 곱셈구구, 몇의 몇 배, 시각, 시간, 오전, 오후). Prev: 1학년; next: 3학년."
+    },
+    {
+      "rel": "years/chodeung-3.html",
+      "sources": ["learn-src/years/year-3.html", "learn-src/years/year-4.html"],
+      "notes": "초등 3학년 (만 8~9세), start of 3~4학년군 (검정 textbooks: unit order varies by publisher; use the 비상 order from BRIEF as 'one example'). 3-1: 세 자리 수의 덧셈과 뺄셈, 평면도형 (선분, 반직선, 직선, 각, 직각, 직사각형, 정사각형), 나눗셈 (first time: 똑같이 나누기, 곱셈구구로 몫 구하기, the ÷ sign), 곱셈 ((두 자리)×(한 자리)), 길이와 시간 (mm, km, 초, 시간 계산), 분수와 소수 (분수, 단위분수, 소수 한 자리); 3-2: 곱셈 ((세 자리)×(한 자리), (두 자리)×(두 자리)), 나눗셈 (나머지), 원 (컴퍼스), 분수와 소수 (진분수·가분수·대분수), 들이와 무게 (L, mL, g, kg, t), 그림그래프. A big year: three new ideas (division, fractions, decimals). Mention the 맞춤형 학업성취도 자율평가 (3학년 is the year 교육부 recommends; voluntary, 문해력·수리력, no effect on reports) and the start-of-year 기초학력진단검사. Prev: 2학년; next: 4학년."
+    },
+    {
+      "rel": "years/chodeung-4.html",
+      "sources": ["learn-src/years/year-4.html", "learn-src/years/year-5.html"],
+      "notes": "초등 4학년 (만 9~10세), second year of 3~4학년군. 4-1: 큰 수 (만, 십만, 백만, 천만, 억, 조; reading in groups of four), 각도 (1°, 각도기, 삼각형 세 각의 합 180°, 사각형 360°), 곱셈과 나눗셈 ((세 자리)×(두 자리), ÷(두 자리)), 삼각형 (이등변, 정, 예각, 둔각삼각형), 막대그래프, 관계와 규칙 (계산식의 배열, 등호); 4-2: 분수의 덧셈과 뺄셈 (same denominators, 대분수), 사각형 (수직, 평행, 사다리꼴, 평행사변형, 마름모), 소수의 덧셈과 뺄셈 (소수 두·세 자리 수), 다각형, 꺾은선그래프, 평면도형의 이동 (밀기, 뒤집기, 돌리기). Order varies by publisher. Contexts: 인구, 거리 (km), 기온 변화 (꺾은선). Voluntary 자율평가 may be taken; no national test. Prev: 3학년; next: 5학년."
+    },
+    {
+      "rel": "years/chodeung-5.html",
+      "sources": ["learn-src/years/year-5.html", "learn-src/years/year-6.html"],
+      "notes": "초등 5학년 (만 10~11세), start of 5~6학년군 (2022 curriculum since March 2026; 검정 textbooks, order UNCERTAIN). Typical: 5-1 자연수의 혼합 계산 (order of operations), 약수와 배수 (최대공약수, 최소공배수 by listing), 규칙과 대응 (□, △), 약분과 통분, 분수의 덧셈과 뺄셈 (different denominators), 다각형의 둘레와 넓이 (cm², m², km²); 5-2 수의 범위와 어림하기 (이상, 이하, 초과, 미만; 올림, 버림, 반올림), 분수의 곱셈, 합동과 대칭, 소수의 곱셈, 직육면체, 평균과 가능성. Phrase the semester split loosely ('교과서에 따라 순서가 달라요'). Prime numbers are not taught (and 소수 means decimal). Prev: 4학년; next: 6학년."
+    },
+    {
+      "rel": "years/chodeung-6.html",
+      "sources": ["learn-src/years/year-6.html"],
+      "notes": "초등 6학년 (만 11~12세), last year of 초등학교. Typical (UNCERTAIN order): 6-1 분수의 나눗셈, 각기둥과 각뿔, 소수의 나눗셈, 비와 비율 (백분율), 여러 가지 그래프 (띠그래프, 원그래프), 직육면체의 부피와 겉넓이 (cm³, m³); 6-2 분수의 나눗셈, 소수의 나눗셈, 공간과 입체 (쌓기나무), 비례식과 비례배분, 원의 넓이 (원주율 3.14), 원기둥·원뿔·구. No exam to enter 중학교 (배정): a calm '중학교로 넘어가기 전에' section: what 중1 adds (음수, 소수(素數), 문자와 식, 좌표) so parents see why 분수·소수·비율 matter now, without pushing 선행학습. Prev: 5학년; next: none (link back to the years hub)."
+    },
+    {
+      "rel": "parents/index.html",
+      "sources": ["learn-src/parents/index.html"],
+      "notes": "Hub '부모님을 위한 수학 안내'. Cards for the five Korean guides; 'More help' links to 학년, 학습지, 수학 용어 사전, the older articles. 해요체, '부모님'."
+    },
+    {
+      "rel": "parents/everyday-maths.html",
+      "sources": ["learn-src/parents/everyday-maths.html"],
+      "notes": "생활 속 수학: sections by Korean years (만 5세반과 1학년; 2~4학년; 5~6학년). Korean situations: 아파트 엘리베이터 floor numbers and 동·호수, 마트와 전통시장 (무게 in g and kg, 가격 비교), 문구점 with 용돈, 편의점 거스름돈, 저금통 counting, 김밥·피자 for fractions, 요리 (떡볶이, 팬케이크 in g and mL), 지하철·버스 노선도와 시간표 (오전·오후, 24-hour on KTX), 달력 and 방학 countdown, 키 재기, 날씨 앱 기온과 강수 확률 (가능성), 운동회 점수, 설날 세뱃돈 계획, 윷놀이 (counting and chance). Keep the total activity count accurate if the title states a number. No brand names."
+    },
+    {
+      "rel": "parents/helping-at-home.html",
+      "sources": ["learn-src/parents/helping-at-home.html"],
+      "notes": "집에서 수학 도와주기 (싸우지 않고). Homework becomes 숙제 and 《수학 익힘》 pages; mention 문제집 and 학습지 subscriptions without brands: little and often, understanding before speed, praise effort ('아직'의 힘), let the child explain. 'When you don't know the method': Korean schools use one standard method (세로셈 with 받아올림·받아내림, long division with the quotient on top), but textbooks first teach the meaning with 수 모형 and pictures; look at the 교과서 page, ask the 담임 선생님 at 학부모 상담, don't jump to shortcuts. A gentle word on 선행학습: school does not expect children to know next year's content; secure the current 학기 first. Screen time and apps in moderation (one <try/> box only)."
+    },
+    {
+      "rel": "parents/how-maths-is-taught.html",
+      "sources": ["learn-src/parents/how-maths-is-taught.html"],
+      "notes": "요즘 초등학교 수학은 이렇게 배워요. Rebuild for Korea: the 2022 개정 교육과정 (four 영역, five 교과 역량: 문제해결, 추론, 의사소통, 연결, 정보처리; explaining your thinking; 놀이 in 1~2학년; calculators allowed when calculation is not the aim; collecting real data). Concrete → pictures → symbols with Korean materials (바둑돌, 연결 큐브, 수 모형, 쌓기나무, 칠교판, 모형 시계, 화폐 모형, 수직선, 수 배열표). 가르기와 모으기 and 10 만들기 as the base of 받아올림. Written methods exactly as in BRIEF section 4 (받아올림 있는 덧셈 347 + 285, 받아내림 있는 뺄셈 532 − 178, 곱셈 세로셈 234 × 23, long division 857 ÷ 4 = 214 … 1 with 검산). Textbooks per semester: 《수학》 and 《수학 익힘》, 국정 in 1~2학년, 검정 in 3~6학년. Remove England-only things (ten-frame emphasis, grid method, bus stop, chunking, Singapore bar model as a national method)."
+    },
+    {
+      "rel": "parents/maths-anxiety.html",
+      "sources": ["learn-src/parents/maths-anxiety.html"],
+      "notes": "'수학이 싫어요': 수학 불안. Content can stay close to English, adapted: the word '수포자' (students who give up on maths) as something parents fear; avoid saying '엄마(아빠)도 수학 못했어'; growth language ('아직 못 하는 거야'); pressure from 학원 schedules, 선행학습, comparing with other children (엄친아) and timed 연산 drills; the curriculum's own 가치·태도 goals (흥미, 자신감, 끈기). When to talk to the 담임 선생님; school 학습지원 (기초학력 보장법: 학습지원대상학생, 학습지원 담당교원) and Wee클래스 counselling, without inventing procedures. No statistics."
+    },
+    {
+      "rel": "parents/maths-tests-explained.html",
+      "sources": ["learn-src/parents/maths-tests-explained.html"],
+      "notes": "Must explain Korea's assessments, not England's: there is no national exam in 초등학교 and no exam for 중학교; classroom 단원평가 and 수행평가; the semester 통지표 written in sentences (many schools add levels like 매우잘함·잘함·보통·노력 요함; formats vary: say so); the start-of-year 기초학력진단검사 (기초학력 보장법 제7조: the 학교장 may run it, by 지필평가, 관찰, 면담, tells families the subjects and dates in advance, tells parents the result (a March 2026 amendment makes telling the 보호자 compulsory whenever the test is run; its start date is UNCERTAIN, so write '결과는 보호자에게 알려 줘요' without a date); 학습지원대상학생 chosen within two months, then extra support; 1~2학년 often 읽기·쓰기·셈하기); the 맞춤형 학업성취도 자율평가 (KICE; voluntary for schools; computer-based, 3학년 may also sit it on paper; every year from 3학년 up since 2025; held in March and April; 교육부 recommends it for all 3학년; gives a profile of strengths, no ranking, no effect on reports); TIMSS optional mention. Table of year/assessment/when. Calm-support advice (단원평가 is feedback; look at 오답 together). Link law.go.kr texts and the KICE/교육부 pages only as official sources; no dates for 2027."
+    },
+    {
+      "rel": "teachers/index.html",
+      "sources": ["learn-src/teachers/index.html"],
+      "notes": "Hub '선생님을 위한 무료 수학 자료'. Cards for the four Korean teacher guides, 학습지, the puzzle pack (/teachers.html), glossary. Mention 2022 개정 terms teachers use (성취기준, 교과 역량, 학생 맞춤형 교육) lightly."
+    },
+    {
+      "rel": "teachers/differentiation-in-maths.html",
+      "sources": ["learn-src/teachers/differentiation-in-maths.html"],
+      "notes": "수준별 수업과 학생 맞춤형 지도: use the 2022 curriculum's '학생 맞춤형 교육' wording; 기초학력 보장 (학습지원대상학생, 학습지원 담당교원, 협력 수업 and 보조인력 under 기초학력 보장법 제8조·제9조); low threshold, high ceiling tasks; 수 모형, 쌓기나무, 칠교판 for support; 심화 challenges for fast finishers (link the pack); digital tools where the curriculum allows (graphs, calculators). Avoid fixed ability labels; flexible groups. Korean classroom realities: one 담임 for most subjects, 40-minute lessons, 25명 내외 classes (UNCERTAIN number: don't state it)."
+    },
+    {
+      "rel": "teachers/maths-games-for-the-classroom.html",
+      "sources": ["learn-src/teachers/maths-games-for-the-classroom.html"],
+      "notes": "교실 수학 놀이: low-prep games with Korean materials and names: 주사위 덧셈 놀이, 10 만들기 카드 놀이, 구구단 빙고, 곱셈구구 369-style counting game (UNCERTAIN name; describe it), 수 배열표 숨은 수 찾기, 칠교판 모양 만들기, 쌓기나무 똑같이 쌓기, 윷놀이 (counting moves, 가능성 in 5~6학년), 바둑돌 가르기 놀이, 모형 시계 맞히기, 시장 놀이 with 화폐 모형. Age-tag each by 학년(군). 2022 총론 emphasises 놀이 in 1~2학년. Keep rules short and correct."
+    },
+    {
+      "rel": "teachers/maths-starters.html",
+      "sources": ["learn-src/teachers/maths-starters.html"],
+      "notes": "수업 도입 5분 활동: sections by 학년군 (1~2, 3~4, 5~6) instead of KS1/KS2. Starters with Korean notation (decimal point, comma thousands, ÷, remainders as 3 … 2, fractions read '4분의 3'): 오늘의 수 (자릿값, 가르기), 10 만들기 빠른 퀴즈, 곱셈구구 릴레이, 어림하기 (어림셈 is official), 무엇이 다를까요?, 참일까 거짓일까 (등호: 8 + 5 = 10 + 3), 그래프 한 장 읽기, 큰 수 읽기 (만·억), one Beequation honeycomb on the board. No timed tables test."
+    },
+    {
+      "rel": "teachers/reasoning-and-problem-solving.html",
+      "sources": ["learn-src/teachers/reasoning-and-problem-solving.html"],
+      "notes": "추론과 문제 해결: 문제해결 and 추론 are two of the five 교과 역량 in the 2022 curriculum; the 5~6학년 standards name strategies (comparing strategies, finding unnecessary or missing information, changing conditions to make new problems, checking the process). Korean 문장제 and 서술형 문제 (writing the 식 and 답 and explaining: '식: … 답: …' layout), question stems in Korean ('어떻게 알았나요?', '항상 그럴까요, 가끔 그럴까요?', '잘못된 곳을 찾아보세요', '다른 방법은 없을까요?'), drawing a picture or a tape-style 그림 for word problems (no fixed Korean name for the bar model: explain it), answering in a full sentence. Examples in won and metric units, all checked."
+    },
+    {
+      "rel": "worksheets/index.html",
+      "sources": ["learn-src/worksheets/index.html"],
+      "notes": "무료 수학 학습지 (정답 포함), 유치원 만 5세반부터 초등 6학년까지. Uses the worksheets shortcodes with Korean year slugs; list only sheets that fit Korea per BRIEF section 12 (leave out multiplication-check-practice and the 12 × 12 multiplication-grid; tables sheets titled by 단, e.g. '2단과 5단'; time sheets as '몇 시 30분', '몇 시 15분, 몇 시 45분'; money sheets in won with 10/50/100/500원 coins). Each sheet has 정답 on page two. Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+    },
+    {
+      "rel": "glossary/index.html",
+      "sources": ["learn-src/glossary/index.html"],
+      "notes": "수학 용어 사전 ㄱ부터 ㅎ까지, Korean headwords filed under their initial consonant (ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ; words starting with a double consonant go under the plain one: 꺾은선그래프 under ㄱ, 뺄셈 under ㅂ, 쌓기나무 under ㅅ, 짝수 under ㅈ; words starting with a vowel go under ㅇ). Each entry: a plain definition, an example (decimal point, comma thousands, fractions read denominator first) and the 학년 it usually appears. Include Korea-specific entries: 가르기와 모으기, 가분수, 각도기, 검산, 곱셈구구, 기약분수, 꺾은선그래프, 나머지, 대분수, 대응 관계, 들이, 띠그래프, 막대그래프, 몫, 반올림, 받아내림, 받아올림, 백분율, 비례배분, 비례식, 비율, 세로셈, 수 모형, 수직선, 쌓기나무, 약분, 약수, 어림셈, 원주율, 이상·이하·초과·미만, 자릿값, 짝수·홀수, 진분수, 최대공약수, 최소공배수, 칠교판, 통분, 평균, 평행, 합동, 혼합 계산. Some letters may have few entries (ㅋ: 컴퍼스, 크기가 같은 분수; ㅌ: 통분; ㅍ: 평균, 평행사변형; ㅎ: 합, 합동, 혼합 계산, 홀수). Mark each letter's first entry with id='<consonant>' (one character, e.g. id='ㄱ')."
+    },
+    {
+      "rel": "number-bonds-to-20.html",
+      "sources": ["learn/number-bonds-to-20.html"],
+      "notes": "가르기와 모으기, 10 만들기 (number bonds to 10 and 20) for Korea: what they are (curriculum: 분해와 합성 within 20), when (만 5세반 with objects, 1학년 1학기 가르기와 모으기 within 9, 1학년 2학기 10 만들기, 10에서 빼기, 받아올림 있는 (몇)+(몇) such as 8 + 5 = 8 + 2 + 3 = 13, and 받아내림 13 − 5 = 13 − 3 − 2 = 8), how to practise (fingers, 바둑돌, 연결 큐브, 10칸 그림, card games, dice), and the honeycomb game with Beequation Kids (덧셈 들판). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+    },
+    {
+      "rel": "times-tables-practice.html",
+      "sources": ["learn/times-tables-practice.html"],
+      "notes": "구구단 연습하는 법: the tables are 곱셈구구 2단 to 9단 (plus 1단과 0의 곱), taught in 2학년 2학기 after multiplication as '몇의 몇 배' in 2학년 1학기; recited in Sino-Korean ('이 일은 이, 이 이 사 … 구 구 팔십일'). Order often 2·5단, 3·6단, 4·8단, 7·9단; patterns in the 곱셈표 (5단 ends in 0 or 5, 9단 digit sums, 3 × 7 = 7 × 3 so only half to learn). Reciting is fine, but with meaning (묶음 pictures, skip counting). Replace the 'Year 4 multiplication tables check' section with '구구단 시험은 따로 없어요' and why tables matter for 3학년 나눗셈 and 5학년 약수와 배수. Note that 19단 and beyond are extras, not school content. 구구단 정원 mention. Convert to fragment."
+    },
+    {
+      "rel": "mental-maths-strategies.html",
+      "sources": ["learn/mental-maths-strategies.html"],
+      "notes": "효과 있는 암산 전략: the same eight strategies with Korean names (10 만들기, 가르기, 같은 수 더하기 (doubles), 몇십으로 바꾸어 계산하고 고치기, 이어 세기로 빼기, 두 배와 절반, 9와 11 더하기 요령, 짝수·홀수와 일의 자리로 답 확인하기) and examples in Korean notation; tie to 어림셈 in 3~4학년 and to the curriculum's call to calculate 'in several ways' (여러 가지 방법으로 계산하기). Convert to fragment."
+    },
+    {
+      "rel": "daily-maths-puzzle-for-adults.html",
+      "sources": ["learn/daily-maths-puzzle-for-adults.html"],
+      "notes": "어른을 위한 매일 수학 퍼즐: about Beequation Pro and the 데일리 프로, 60초 블리츠, 64 levels '알부터 벌집의 신까지' (덧셈, 곱셈, 음수, 분수, 소수, 혼합), 트리오. Use the exact Korean feature names from i18n/ko.json and the store listings (marketing/locales/ko). Not curriculum-specific (negative numbers are fine here: it is for adults). Convert to fragment."
+    },
+    {
+      "rel": "pack.html",
+      "sources": ["teachers.html"],
+      "notes": "Becomes ko /teachers.html: '선생님을 위한 무료 퍼즐'. Reuse wording already in i18n/ko.json ('수업에 쓰는 무료 퍼즐', '20까지의 덧셈과 구구단으로 된 벌집 퍼즐 24개를 정답지와 함께 인쇄해서 쓸 수 있어요', the 2-minute warm-up idea). 'Where it fits' must map to Korea: 가르기와 모으기 and 받아올림 있는 덧셈 within 20 in 1학년, 곱셈구구 in 2학년 2학기 and as review in 3학년 (before 나눗셈), 암산 warm-ups; no tables test. Ways to use: 수업 도입 5분 활동, 주간 도전 과제, 빨리 끝낸 학생용. The PDF link (/assets/beequation-puzzle-pack.pdf) is English (numbers only); flag if a Korean PDF is wanted (pack.json words are a later task)."
+    }
+  ]
+}

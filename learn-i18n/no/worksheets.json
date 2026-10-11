@@ -1,0 +1,274 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Tallrekker til 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Tell med 1, 2, 5 og 10 om gangen"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Tiere og enere",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Del opp tosifrede tall"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Hundrere, tiere og enere",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-trinn"
+  ],
+  "desc": "Plassverdi opp til 1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Avrunding",
+  "topic": "counting-and-place-value",
+  "years": [
+   "4-trinn",
+   "5-trinn"
+  ],
+  "desc": "Rund av til nærmeste tier, hundrer og tusen"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Tiervenner",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "barnehage",
+   "1-trinn"
+  ],
+  "desc": "Tallpar som blir 10 til sammen"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Tallvenner til 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Tallpar som blir 20 til sammen"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Pluss og minus til 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Blandede stykker opp til 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Pluss med oppstilling",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-trinn",
+   "4-trinn"
+  ],
+  "desc": "Tresifrede tall, med minnetall"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Minus med oppstilling",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-trinn",
+   "4-trinn"
+  ],
+  "desc": "Tresifrede tall, med veksling"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "2-, 5- og 10-gangen",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-trinn",
+   "4-trinn"
+  ],
+  "desc": "Blandede gangestykker, med ekstranøtter til 12"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "3-, 4- og 8-gangen",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-trinn",
+   "4-trinn"
+  ],
+  "desc": "Blandede gangestykker, med ekstranøtter til 12"
+ },
+ {
+  "id": "division-facts",
+  "title": "Delestykker",
+  "topic": "multiplication-and-division",
+  "years": [
+   "4-trinn",
+   "5-trinn"
+  ],
+  "desc": "Bruk gangetabellen til å dele, med ekstranøtter til 144 : 12"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Gange med oppstilling",
+  "topic": "multiplication-and-division",
+  "years": [
+   "4-trinn",
+   "5-trinn"
+  ],
+  "desc": "Tresifrede tall ganger ensifrede tall"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Hvor stor del er farget?",
+  "topic": "fractions",
+  "years": [
+   "3-trinn",
+   "4-trinn",
+   "5-trinn"
+  ],
+  "desc": "Halvdeler, tredeler, firedeler og flere"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Brøkdel av et antall",
+  "topic": "fractions",
+  "years": [
+   "5-trinn",
+   "6-trinn"
+  ],
+  "desc": "For eksempel ½ av 12 og ¾ av 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Likeverdige brøker",
+  "topic": "fractions",
+  "years": [
+   "6-trinn",
+   "7-trinn"
+  ],
+  "desc": "Utvid brøken og finn tallet som mangler"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Tideler og hundredeler",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-trinn",
+   "6-trinn"
+  ],
+  "desc": "Skriv brøker som desimaltall"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Prosent av et tall",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "6-trinn",
+   "7-trinn"
+  ],
+  "desc": "10 %, 25 %, 50 % og flere"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Hel og halv time",
+  "topic": "telling-the-time",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Les av klokka"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Kvart over og kvart på",
+  "topic": "telling-the-time",
+  "years": [
+   "2-trinn"
+  ],
+  "desc": "Les av klokka"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Klokka på fem minutter nær",
+  "topic": "telling-the-time",
+  "years": [
+   "3-trinn",
+   "4-trinn"
+  ],
+  "desc": "Les av klokka, med ord og digitalt"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Tell myntene",
+  "topic": "money",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Legg sammen norske mynter"
+ },
+ {
+  "id": "giving-change",
+  "title": "Hvor mye får du igjen?",
+  "topic": "money",
+  "years": [
+   "2-trinn",
+   "3-trinn"
+  ],
+  "desc": "Betal med 20, 50 og 100 kr"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Omkrets og areal",
+  "topic": "measurement",
+  "years": [
+   "4-trinn",
+   "5-trinn",
+   "6-trinn"
+  ],
+  "desc": "Rektangler på rutenett"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Geometriske figurer",
+  "topic": "shape-and-geometry",
+  "years": [
+   "1-trinn",
+   "2-trinn"
+  ],
+  "desc": "Navn, sider og hjørner"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Les et søylediagram",
+  "topic": "data-and-graphs",
+  "years": [
+   "2-trinn",
+   "3-trinn"
+  ],
+  "desc": "Undersøkelse: favorittfrukt"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Finn tallet som mangler",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "4-trinn",
+   "5-trinn",
+   "6-trinn",
+   "7-trinn"
+  ],
+  "desc": "Hvilket tall står i ruta?"
+ }
+]

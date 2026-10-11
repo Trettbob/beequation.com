@@ -1,0 +1,337 @@
+{
+ "years": [
+  {
+   "slug": "esiopetus",
+   "name": "Esiopetus",
+   "age": "6–7",
+   "english_equivalent": "Reception by content (the compulsory pre-primary year, the year the child turns 6; by age it matches Year 2)"
+  },
+  {
+   "slug": "1-luokka",
+   "name": "1. luokka",
+   "age": "7–8",
+   "english_equivalent": "Year 1 by content (numbers to 20, then towards 100); by age Year 3"
+  },
+  {
+   "slug": "2-luokka",
+   "name": "2. luokka",
+   "age": "8–9",
+   "english_equivalent": "Year 2 by content (to 100, tables 1–5 and 10); by age Year 4"
+  },
+  {
+   "slug": "3-luokka",
+   "name": "3. luokka",
+   "age": "9–10",
+   "english_equivalent": "Year 3 by content (to 1000, column methods, tables 6–9); by age Year 5"
+  },
+  {
+   "slug": "4-luokka",
+   "name": "4. luokka",
+   "age": "10–11",
+   "english_equivalent": "Year 4 / Year 5 by content; by age Year 6"
+  },
+  {
+   "slug": "5-luokka",
+   "name": "5. luokka",
+   "age": "11–12",
+   "english_equivalent": "Year 5 / Year 6 by content; by age Year 7"
+  },
+  {
+   "slug": "6-luokka",
+   "name": "6. luokka",
+   "age": "12–13",
+   "english_equivalent": "Year 6 / Year 7 by content (end of alakoulu); by age Year 8"
+  }
+ ],
+ "address": "Sinä (informal singular), matching the Finnish apps (apps/kids/src/i18n/fi.ts: 'Everyone is addressed with sinä, children and parents alike'), the store listings and i18n/fi.json ('Pelaa ilmaiseksi selaimessa', 'kun lapsesi jää jumiin'). Use possessive suffixes: lapsesi, luokkasi, oppilaasi. Never polite 'te'; 'pelatkaa yhdessä' is fine when addressing parent and child together. Parents are 'vanhemmat' (section 'Vanhemmille'); school-style 'huoltaja' only where it fits (Wilma, arviointikeskustelu). Teachers are also addressed with sinä ('Opettajille', 'luokkasi'). Tone: calm, warm, plain and matter-of-fact, like a luokanopettaja at a vanhempainvartti; Finnish readers dislike hype and exclamation marks. 'Matikka' is fine as the everyday word. No 'helppo', 'yksinkertaisesti' or 'vain' in the sense of 'just', no emoji. Quotation marks ” ”. Indie is 'mehiläinen Indie' (genitive Indien), 'hän'. Brand names uninflected where possible ('Beequation Kids -sovelluksessa').",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Opi-osion etusivu (layout: hub). Cards for the 12 topics with the Finnish names and glyphs from site.json (money €, time 3.00), the 7 Finnish years (Esiopetus, 1.–6. luokka, ages from site.json as 'N–M-vuotiaat', glyphs E, 1–6), Vanhemmille / Opettajille / Tehtävämonisteet / Sanasto, and popular guides (the four older articles). Intro: 'esiopetuksesta 6. luokalle', written for the Finnish core curriculum (POPS 2014 and esiopetuksen perusteet); sinä form. Year blurbs with Finnish content: esiopetus lukumäärät ja lukujonotaidot leikkien; 1. lk lukualue 0–20, hajotelmat ja kymmenylitys; 2. lk 0–100 ja kertotaulut 1–5 ja 10; 3. lk 0–1000, allekkain laskeminen ja kertotaulut 6–9; 4. lk jakokulma, desimaaliluvut ja murtolukujen laventaminen; 5. lk prosentit, keskiarvo, pinta-alat; 6. lk negatiiviset luvut, yhtälöt, tilavuus ja siirtyminen yläkouluun. No SATs or tests talk. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Aiheet hub with the 12 Finnish topic names. 'Where to start, by age' becomes 'Mistä aloittaa: vuosiluokittain', using esiopetus, vuosiluokat 1–2 (alkuopetus) and 3–6 as the curriculum does. Mention briefly that the curriculum groups maths into content areas (sisältöalueet): ajattelun taidot, luvut ja laskutoimitukset, algebra (3–6), geometria ja mittaaminen, tietojenkäsittely ja tilastot (and todennäköisyys in 3–6), and that programming belongs to maths in Finland. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Luvut ja kymmenjärjestelmä. Year table per BRIEF section 2: esiopetus lukumäärä, lukusana ja numeromerkki, lukujonotaidot; 1. lk 0–20 (some schools to 100); 2. lk 0–100, kymmenet ja ykköset; 3. lk 0–1000; 4. lk 0–10 000 (some 100 000); 5. lk to a million; 6. lk millions and billions, negative numbers (POPS 3–6: 'pohjustetaan negatiivisen luvun käsite'). Use place-value tables T S K Y, 'luku' vs 'numero', parillinen/pariton, monikerrat, pyöristäminen (to 10 and 100 in 3. lk), lukusuora, satataulu, kymmenjärjestelmävälineet. Spaces in big numbers (25 000, 1 000 000); 'miljardi' = 10⁹. Negative numbers via temperatures (pakkasta). No Roman numerals section (not in POPS maths). Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Yhteen- ja vähennyslasku. Hajotelmat of 1–10 and kymppiparit, kymmenylitys and kymmenalitus (OPH's key goal for 1. lk: 'lukuhajotelmat alueella 0–20 ja kymmenylitys'), tuplat and lähes tuplat, adding within 20 then 100 (POPS 1–2), vaihdannaisuus and liitännäisyys. Written methods from 3. lk exactly as in BRIEF section 4: 'allekkain laskeminen' with muistinumero (347 + 285 = 632) and lainaaminen (532 − 178 = 354, check 354 + 178 = 532); mention that schools mark the borrowed digit differently (dot or crossing out). Terms yhteenlaskettava, summa, vähenevä, vähentäjä, erotus. Decimals in columns in 4. lk. Advise parents to look at how the textbook does it before showing their own way. No English 'exchange' jargon. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Kerto- ja jakolasku. National: kertotaulut 1–5 ja 10 in vuosiluokat 1–2 (with the concept through concrete materials, vaihdannaisuus, the basis of division), kertotaulut 6–9 and all of 1–10 secured in 3–6 (tables go to 10 · 10, not 12). Multiplication as repeated addition and arrays ('ryhmät', 'rivit'), tupla and puolet, 0 and 1 in multiplication. Division as sharing ('ositusjako') and grouping ('sisältöjako'), both named in POPS; 'lukuyksiköittäin jakaminen' first, then the jakokulma (857 : 4 = 214, jakojäännös 1; check 4 · 214 + 1 = 857). Column multiplication with partial products (234 · 23 = 5382). Terms kerrottava, kertoja, tulo, jaettava, jakaja, osamäärä, jakojäännös, 'menee tasan'. Say once that × also means multiplication. Divisibility ('jaollisuus') in 3–6. No bus stop, grid method, chunking or MTC. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Murtoluvut. Finland's sequence: 'pohjustetaan murtoluvun käsitettä jakamalla kokonainen yhtä suuriin osiin' in 1–2 (puolikas, neljäsosa of shapes and pizzas); fraction concept and basic operations in 3–6: tenths and hundredths and sekaluvut (often 3. lk), adding and subtracting and laventaminen (often 4. lk), supistaminen and multiplying by a whole number (often 5. lk), different denominators ('erinimiset murtoluvut', 6. lk). National text: fractions are multiplied and divided only by natural numbers in 3–6. Reading: puoli, kolmasosa, neljäsosa/neljännes… kymmenesosa; osoittaja, nimittäjä, murtoviiva; sekaluku, epämurtoluku; samanarvoiset murtoluvut. Fraction–decimal–percent links (POPS 3–6). Contexts: täytekakku at a birthday, pizza, a pulla pellillinen, dividing irtokarkit, a lap of the ice rink. SVG captions in Finnish. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Desimaaliluvut ja prosentit. Decimal comma everywhere (2,5 'kaksi pilkku viisi'; kymmenesosa, sadasosa, tuhannesosa; kokonaisosa, desimaalipilkku). POPS 3–6: 'desimaalilukuihin osana kymmenjärjestelmää', basic operations with decimals, the concept of percent, simple percentage calculations, links with fractions. Usual split (BRIEF): tenths/hundredths 3. lk, to thousandths and + − in columns 4. lk, × 5. lk, × and ÷ 6. lk; percent introduced in 5. lk ('alennettu hinta', e.g. 20 % alennus 15 eurosta = 3 €, uusi hinta 12 €) and practised in 6. lk. Contexts: euros and cents, irtokarkit per 100 g, sport times (60 m juoksu 9,8 s), rainfall and snow depth. Measurement link: cm ↔ m, dl ↔ l as decimals. '25 %' with a space. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Kellonajat. Finnish phrases exactly as BRIEF section 7: tasan kolme, varttia yli kolme, puoli neljä (= 3.30, warn parents strongly: the hour named is the coming one), varttia vaille neljä, viittä/kymmentä/kahtakymmentä yli and vaille, 'viittä vaille puoli neljä' (3.25) and 'viittä yli puoli neljä' (3.35). 24-hour time is everyday (bus and train timetables, TV, harrastukset), written with a full stop (klo 15.30, 'pistemerkintä'). Usual order: tasan and puoli in 1. lk, varttia yli/vaille in 2. lk, the minute, digital time and 24 h in 3. lk, seconds and time intervals in 4. lk, time calculations in 6. lk. Time units including vuorokausi; calendar with weeks starting on Monday and week numbers; dates 10.10.2026. Daylight (kaamos, midnight sun) as a context. No a.m./p.m. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Raha. Euro coins 1, 2, 5, 10, 20, 50 senttiä, 1 € and 2 €; notes 5–200 € (omit 500). Finnish specifics: cash totals are rounded to the nearest 5 cents (3,42 € → 3,40 €, 3,43 € → 3,45 €, 3,47 € → 3,45 €, 3,48 € → 3,50 €) and 1–2 cent coins are rare, so practise with 5 c upwards; card and mobile payment are common, so talk about money children can't see. Money is not named in the national 1–2 text but local curricula put 'eurot, rahankäytön alkeet' in 1–2; decimals with euros in 3–4; percent and alennettu hinta in 5–6. Format 3,45 € read 'kolme euroa neljäkymmentäviisi senttiä'. Contexts: viikkoraha, säästöpossu, karkkipäivä and irtokarkit by weight, kirpputori, kioski, tori. Coin facts: lion on cents, swans on 1 €, cloudberry flower on 2 € (optional). No pounds or pence. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Mittaaminen. POPS 1–2: pituus, massa, tilavuus, aika; key units metri ja senttimetri, kilogramma ja gramma, litra ja desilitra. 3–6: measuring accuracy and checking, how the unit system is built, conversions, perimeter (piiri) and area (pinta-ala) of shapes, volume (tilavuus) of a cuboid. Usual split: cm in 1. lk; m, kg, g, l, dl in 2. lk; mm–km and piiri in 3. lk; ml, cl, tonni, area idea and conversions in 4. lk; area of rectangle, parallelogram and triangle in 5. lk; volume in 6. lk. The desilitre is everyday Finnish (recipes '2 dl maitoa'): use it. Instruments: viivain, mittanauha, vaaka, desilitramitta, lämpömittari (°C, pakkasta). Contexts: baking pulla, berry picking in litres, ski trip in km, snow depth in cm. No imperial units. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometria. Tasokuviot vs kappaleet. 1–2: position and direction words, building and drawing, sorting shapes by properties. 3–6 (POPS): lieriöt, kartiot, suorakulmainen särmiö, ympyrälieriö, pyramidi; monikulmiot, kolmiot, nelikulmiot (neliö, suorakulmio, suunnikas, puolisuunnikas, neljäkäs), ympyrä; piste, jana, suora, kulma; measuring and classifying angles (suora, terävä, tylppä, oikokulma; astelevy); line symmetry and also rotational and translational symmetry in art; coordinates first quadrant then all four; mittakaava on maps; harppi. 6. lk angle sum of a triangle (180°) and quadrilateral (360°). Indie's hexagon (kuusikulmio) is the natural hook: bees' cells. SVGs with Finnish labels. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Tilastot ja diagrammit. 1–2: collecting data, simple tables and pylväsdiagrammit (POPS). 3–6: tables and diagrams, largest and smallest value, keskiarvo and tyyppiarvo (national), probability words mahdoton, mahdollinen, varma (and todennäköinen). Usual: line graphs (viivadiagrammi) in 4. lk, sektoridiagrammi and mean in 5. lk, median and range (mediaani, vaihteluväli) in some local curricula for 6. lk (say 'usein myös'). Tally marks 'tukkimiehen kirjanpito'. Contexts: favourite school lunch, weather and temperatures, daylight hours by month, a floorball league table without real clubs, class survey of harrastukset. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Algebra ja yhtälöt. Patterns ('säännönmukaisuudet') from esiopetus and 1–2 (S1 ajattelun taidot); S3 Algebra in 3–6: number sequences and their rules ('jatka lukujonoa'), the unknown ('tuntematon'), equations solved by reasoning and trying ('päättelemällä ja kokeilemalla'), e.g. □ + 7 = 15, 4 · x = 28. Ratio is not a separate topic in Finnish primary: cover scale ('mittakaava', 1 : 100 on a plan, maps) and 'suoraan verrannollinen' only informally (recipes for twice as many). Also programming and algorithmic thinking (step-by-step instructions in 1–2, a graphical environment such as Scratch in 3–6), part of maths in POPS. Keep it informal; no formal algebraic manipulation. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Päässälasku. POPS 1–2: 'harjoitellaan erilaisia päässälaskustrategioita laskutaidon sujuvoittamiseksi'; 3–6: 'harjaannutetaan taitoa laskea peruslaskutoimituksia päässä' and rounding to estimate. OPH on the extra 1–2 lesson: short daily practice. Strategies with Finnish names: kymppiparit, kymmenylitys ('8 + 5 = 8 + 2 + 3'), tuplat ja lähes tuplat, hajottaminen (lukujen hajottaminen kymmeniin ja ykkösiin), pyöristäminen ja korjaaminen, lisääminen (counting up to subtract), kertominen 10:llä ja 100:lla, puolittaminen ja tuplaaminen. Matikka in the car, at the shop, with dice. Link the older strategies article. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Vuosiluokat hub: 'Matematiikka vuosiluokittain: esiopetuksesta 6. luokalle'. Explain esiopetus (compulsory pre-primary year, the year the child turns six, at least 700 h, in a päiväkoti or school), perusopetus starting in August of the year the child turns seven (calendar-year cut-off), alakoulu 1–6 and yläkoulu 7–9; the curriculum bands vuosiluokat 1–2 and 3–6, each municipality's own OPS and the textbook decide the exact year split. Table of years with ages. 'Key tests by year' becomes 'Arviointi': no national tests in alakoulu; verbal or numeric in 1–3 as the organiser decides (usually verbal), numbers 4–10 required from 4. lk; an arviointikeskustelu in many schools (local practice, not a national rule); national criteria for the 6th-grade report (since 2023); Karvi sample assessments. One line on the osaamistakuu curriculum renewal under way (due end of October 2027), without details. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/esiopetus.html",
+   "sources": [
+    "learn-src/years/reception.html"
+   ],
+   "notes": "Esiopetus (6–7-vuotiaat), 'eskari'. Compulsory since 2015, free, at least 700 hours, in a päiväkoti or school; no subjects, maths is part of 'Tutkin ja toimin ympäristössäni' (Esiopetuksen opetussuunnitelman perusteet, current version in force 1.8.2025): lukumäärät linked to lukusana and numeromerkki, comparing quantities and how they change, lukujonotaidot and naming, classifying, comparing, ordering, patterns, memory games, 2D and 3D, position words (edessä, ylhäällä, joka toinen), building and crafts, measuring with the body and tools, time words (eilen, aamulla) and the order of the day; through play, games and stories. Usual practice (say 'usein'): counting to 10 and beyond, digits 0–9, adding and taking away with objects. No tests, no grades; getting ready for 1. luokka (calm, not a reading or writing race). Challenge at that level (counting or sharing). Worksheets year='esiopetus'. Next: 1. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/1-luokka.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "1. luokka (7–8-vuotiaat), start of perusopetus and of vuosiluokat 1–2 (alkuopetus). National 1–2 content (natural numbers; hajotelmat 1–10; + and − first within 0–20 then 0–100; mental strategies; tables 1–5 and 10 across the two years; m/cm, kg/g, l/dl; clock times; simple tables and pylväsdiagrammit; first programming steps) with the usual 1. lk split: lukualue 0–20 (some schools reach 100), hajotelmat and kymppiparit, kymmenylitys (OPH's named goal for 1. lk), symbols + − = < >, parillinen/pariton, basic shapes, cm, 'tasan ja puoli', euros in play. The extra maths lesson (from 2025, in 1. or 2. lk) is for practice, not new content. Assessment: usually verbal, often an arviointikeskustelu (local practice), no national tests. Checklist, vocabulary table (summa, erotus, yhteenlaskettava, kymmenylitys, lukusuora…). Prev: Esiopetus; next: 2. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/2-luokka.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "2. luokka (8–9-vuotiaat), end of vuosiluokat 1–2. Lukualue 0–100, kymmenet ja ykköset, + and − within 100 mentally (crossing tens); kertotaulut 1–5 ja 10 and the meaning of multiplication (ryhmät, toistuva yhteenlasku, vaihdannaisuus, 0 and 1), first division as sharing into equal groups and the link with multiplication; halves and quarters as equal parts; clock: tasatunnit, puolet tunnit, varttia yli, varttia vaille; units m, cm, kg, g, l, dl (and min, h); bar charts; step-by-step instructions (programming). Symbols · and : appear. Phrase splits as 'yleensä'. Prev 1. luokka, next 3. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/3-luokka.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "3. luokka (9–10-vuotiaat), start of vuosiluokat 3–6 (and of the algebra content area). Lukualue 0–1000 (some schools 10 000); allekkain laskeminen with muistinumero and lainaaminen (BRIEF examples); rounding to 10 and 100; kertotaulut 6–9 and all 1–10 secured; kertolasku allekkain by a one-digit number; the idea of division (sharing and grouping), lukuyksiköittäin jakaminen; tenths and hundredths, sekaluvut; polygons, piiri, symmetry; time to the minute, pistemerkintä 15.30 and 24-hour clock, time intervals; mm–km, dl, l, g, kg; bar charts; Scratch-style programming. Many children start numeric grades next year: say so calmly. Prev 2. luokka, next 4. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/4-luokka.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "4. luokka (10–11-vuotiaat). Lukualue 0–10 000 (some 100 000), negative numbers introduced with temperatures; jakolasku with jakojäännös and the jakokulma (one-digit divisor); decimals to thousandths, + and − in columns and mentally; adding and subtracting fractions, laventaminen; angles, triangles and quadrilaterals, the idea of area, parts of a circle, harppi, coordinates; time to the second and intervals; ml, cl, dl, l, g, kg, tonni and conversions; line graphs, largest and smallest value, mahdoton/mahdollinen/varma. Assessment: numeric grades 4–10 are required in the lukuvuositodistus from 4. lk at the latest (some schools already in 3. lk); explain the scale (8 hyvä, 9 kiitettävä…) and that it describes learning against the year's goals. No national test. Prev 3. luokka, next 5. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/5-luokka.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "5. luokka (11–12-vuotiaat). Numbers to a million (and big-number words: miljoona, miljardi), all four operations with whole numbers, divisibility; fractions: supistaminen, laventaminen, adding, subtracting, multiplying by a whole number; decimals: +, −, ×; percent: the concept, a percentage of an amount, alennettu hinta; fraction–decimal–percent links; simple equations; measuring and drawing angles (astelevy, piirtokolmio, harppi); area of rectangle, parallelogram and triangle; scale and similarity; unit conversions; pie charts, keskiarvo and tyyppiarvo; programming. No national test. Prev 4. luokka, next 6. luokka. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "years/6-luokka.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "6. luokka (12–13-vuotiaat), last year of alakoulu; next is 7. luokka in yläkoulu (subject teachers, no entrance exam for ordinary classes). Negative numbers in calculations; big numbers; percentages; × and ÷ with decimals; fractions with different denominators, × and ÷ by a natural number; equations; square and cube of a number; scale; area and the volume of a cuboid; angle sums; coordinates in all four quadrants; time calculations; probability; tables and diagrams, mean and mode (median and range in some schools). Assessment: the 6th-grade report uses OPH's national criteria for grades 5, 7, 8 and 9 (in use since 1.8.2023): teacher's judgement, no exam; Karvi sample assessments sometimes test a sample of 6th-graders (spring 2024). Replace SATs-preparation advice with calm advice on the move to yläkoulu (more teachers, more homework, keep the tables and allekkain methods secure). Prev 5. luokka; last card to years hub. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Matematiikan tukea vanhemmille'. Cards for the five Finnish guides; 'More help' links to vuosiluokat, tehtävämonisteet, sanasto and the older articles. sinä form, 'vanhemmat' (and 'huoltajat' once if natural). Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matematiikkaa arjessa: sections by Finnish years instead of English ages: esiopetus ja 1. luokka; 2.–4. luokka; 5. ja 6. luokka. Finnish situations: shopping and cash rounding to 5 cents, irtokarkit by weight on karkkipäivä, viikkoraha and säästöpossu, baking pulla with dl and g, berry picking in litres, bus and train timetables in 24 h, the drive to the mökki (km and hours), temperatures below zero, snow depth, daylight in kaamos and summer, kirpputori prices, sauna temperature, a floorball league table. Keep the total activity count accurate if the title states a number. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Näin tuet lasta matematiikassa kotona. 'Helping with homework' becomes 'Läksyt': the harjoituskirja and ruutuvihko, short daily practice, praise effort and strategies, 'vielä' ('et osaa sitä vielä'). 'When you don't know the method' covers the Finnish case: allekkain laskeminen with muistinumero and lainaaminen, the jakokulma, how the borrowed digit is marked and how the textbook shows things with välineet; look at the book's example or ask the luokanopettaja (Wilma message, arviointikeskustelu, vanhempainvartti) before teaching your own school method. Mention tukiopetus is available at school. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Miten matematiikkaa opetetaan alakoulussa. Rebuild for Finland: POPS 2014 principles ('Konkretia ja toiminnallisuus ovat keskeinen osa matematiikan opetusta', different senses, explaining one's thinking, problem solving, a positive self-image), 'toiminnallinen matematiikka', concrete → pictures → symbols with Finnish materials (kymmenjärjestelmävälineet, lukusuora, satataulu, helminauha, nopat, kymppikehys explained as such); hajotelmat and kymppiparit, kymmenylitys; written methods laid out exactly as in BRIEF section 4 (muistinumero; lainaaminen; kertolasku allekkain with partial products; lukuyksiköittäin jakaminen then the jakokulma; tarkistus); programming as part of maths; textbooks and harjoituskirjat with chapter tests. Remove grid method, bus stop and chunking; bar models only as an occasional picture tool ('palkkimalli'). Each municipality's OPS and the textbook set the order. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Matikka on vaikeaa': matematiikka-ahdistus. Can stay close to English in content. Tie to POPS goal T1 (supporting interest and a positive self-image as a maths learner, 'myönteistä minäkuvaa ja itseluottamusta'); OPH also names preventing maths anxiety among the aims of the extra lesson in 1–2. 'Vielä' language, avoid 'minäkään en ollut koskaan hyvä matikassa'. When to talk to the luokanopettaja; mention tukiopetus and the erityisopettaja without inventing procedures (support reform 2025: describe only in general terms). No statistics. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Finland's assessment, not England's: no national tests in alakoulu and no tables test; teacher's continuous assessment, chapter tests (kokeet) after textbook units; lukuvuositodistus each spring and often a mid-year väliarviointi; verbal assessment usually in 1–3 (the organiser decides between verbal and numeric), numeric grades 4–10 required from 4. lk (scale 4 hylätty … 10 erinomainen); an arviointikeskustelu in many schools (local practice, not a national rule: 'monissa kouluissa'); national criteria for the 6th-grade report (OPH, in use since 1.8.2023, grades 5, 7, 8, 9); Karvi sample assessments (e.g. a longitudinal maths assessment testing one cohort at the start of 1. lk, in 3. lk and at the end of 6. lk in spring 2024; results describe the system, not the child); esiopetus has no tests; no entrance exam to yläkoulu. Table of year / assessment / when. One short paragraph: the osaamistakuu reform (law amended 15.6.2026; new core curricula due end of October 2027; nationally harmonised criteria by year group; assessment changes mainly from 1.8.2028), phrased as coming. Calm-support advice. Link OPH pages. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Ilmaista matematiikan materiaalia opettajille'. Cards for the four Finnish teacher guides, tehtävämonisteet, the puzzle pack (/teachers.html), sanasto. Mention POPS terms teachers use lightly (tavoitteet T1–T14, sisältöalueet, laaja-alainen osaaminen, toiminnallisuus). Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Eriyttäminen matematiikassa: 'eriyttäminen ylöspäin ja alaspäin', samanaikaisopetus, joustavat ryhmittelyt; the 2025 support reform in one paragraph (group-level support in the child's own group: tukiopetus, erityisopettajan opetus muun opetuksen ohessa; individual support with a decision when that isn't enough), without procedural detail. Concrete → pictorial → abstract with välineet; low threshold–high ceiling tasks ('matala kynnys, korkea katto'); OPH-listed free materials can be named (ThinkMath, Näppituntuma, Matikkadiplomi) as options; pulmat for early finishers (link pack). Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Matematiikkapelit luokkaan: low-prep games with Finnish names and materials (nopat, pelikortit, satataulu, lukusuora on the floor, kymppiparimuistipeli, 'Bingo', 'Arvaa luku', kertotaulukisa without pressure, toiminnallinen matematiikka outdoors in the schoolyard: hopping on number tiles, as OPH's alkuopetus page suggests). Age-tag games by vuosiluokka (1–2, 3–4, 5–6). Keep games correct; Finnish notation in examples. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Tunnin aloitukset matematiikkaan: sections by band (vuosiluokat 1–2, 3–4, 5–6) instead of KS1/KS2. OPH recommends short daily practice in 1–2 (extra lesson page). Starters with Finnish notation: päivän luku, kymppiparit, kymmenylitys, kertotaulut, tuplat ja puolet, arvioi ja tarkista, missing number, 'mikä ei kuulu joukkoon', a quick lukujono. Decimal comma, · and :, spaces in 5-digit numbers. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Päättely ja ongelmanratkaisu: problem solving and explaining are POPS goals (T4 explaining reasoning with materials, drawings, orally and in writing; T5 problem solving; T6 judging whether an answer is sensible). Sanalliset tehtävät with a full answer sentence ('Vastaus: …'), question stems in Finnish ('Miten päättelit?', 'Aina, joskus vai ei koskaan?', 'Etsi virhe', 'Keksi oma tehtävä'), drawing a picture or a palkkimalli for word problems, estimating first. Examples in euros and metric units, Finnish contexts. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Ilmaiset matematiikan tehtävämonisteet vastauksineen, esiopetuksesta 6. luokalle. Uses the worksheets shortcodes with Finnish year slugs; list only sheets that fit Finland: leave out multiplication-check-practice and the 12 × 12 multiplication-grid (Finnish tables go to 10 · 10); tables sheets as 'kertotaulut 2, 5 ja 10' (2. lk) and 'kertotaulut 3, 4 ja 8' (end of 2. lk and 3. lk: 3 and 4 belong to the 1–5 tables of vuosiluokat 1–2, 8 to the 6–9 tables of 3–6); short-multiplication only if laid out as Finnish 'kertolasku allekkain'; money sheets in euros with 5 c–2 € coins; time sheets with Finnish phrases (puoli neljä!). Each sheet has 'vastaukset' on page two. Honeycomb puzzle pack section linking /teachers.html. Depends on worksheets.mjs (not part of this task). Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Matematiikan sanasto A:sta Ö:hön with Finnish headwords in Finnish alphabetical order (alphabet from site.json: a–z then å, ä, ö; letters with no maths words, such as b, c, f, q, w, x, z, å, have no entry), each with an example (decimal comma, spaced thousands, · and :) and the vuosiluokka where it usually appears. Mark each letter's first entry with id=\"<letter>\" (ä and ö too). Include Finnish-specific entries: allekkain laskeminen, desilitra, epämurtoluku, erotus, hajotelma, jakojäännös, jakokulma, jaettava, jakaja, kertotaulu, kymmenylitys, kymppiparit, kymmenjärjestelmä, laventaminen, lainaaminen, lukusuora, lukujono, muistinumero, nimittäjä, osamäärä, osoittaja, parillinen, piiri, pinta-ala, pylväsdiagrammi, sekaluku, supistaminen, tilavuus, tulo, tyyppiarvo, keskiarvo, vaihdannaisuus, yhtälö, ympyrä, ympyrädiagrammi. Finnish order puts å, ä, ö after z. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Hajotelmat ja kymppiparit 20:een asti (number bonds) for Finland: when learnt (esiopetus with objects; POPS 1–2 'lukujen 1–10 hajotelmat'; OPH: 'lukuhajotelmat alueella 0–20 ja kymmenylitys' in 1. lk), how they power kymmenylitys (8 + 5 = 8 + 2 + 3), how to practise (sormet, nappulat, kymppikehys, kortit, kymppiparimuistipeli, a hajotelmatalo drawing), honeycomb game with Beequation Kids (Plusniitty). Convert from the old hand-made full HTML to a front-matter fragment. Same path. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Kertotaulujen harjoittelu: tables 1 to 10 only; when (POPS: 1–5 and 10 in vuosiluokat 1–2, usually 2. lk; 6–9 in 3–6, usually 3. lk, all secured by 4. lk), understanding before memorising (ryhmät, toistuva yhteenlasku, rows of chairs, vaihdannaisuus halves the work), patterns (5:n kertotaulu ends in 0 or 5, 9:n with fingers, 4:n = tuplattu 2:n, 8:n = tuplattu 4:n), games and short daily practice. Replace the 'Year 4 multiplication tables check' section with 'Kertotauluista ei ole valtakunnallista koetta' plus why they matter for allekkain multiplication, the jakokulma and fractions. Kertotarha mention. Multiplication sign ·. Convert to fragment. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Päässälaskun strategiat, jotka toimivat: the same eight strategies with Finnish names (kymmenylitys / kympin kautta, hajottaminen, lähes tuplat, pyöristä ja korjaa, lisäämällä vähentäminen, tuplaaminen ja puolittaminen, 9:n ja 11:n kikat, tarkistus parillisuudella ja viimeisellä numerolla) with examples in Finnish notation; tie to POPS ('päässälaskustrategioita' in 1–2, mental calculation of basic operations in 3–6). Convert to fragment. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Päivittäinen matikkapulma aikuisille: about Beequation Pro and the 'Päivän pesä' (Daily Pro, numbered, the same for everyone each day, shareable result), the '60 sekunnin pikapeli', 64 levels from 'Muna' to 'Parviäly', 'Vaikea tila', 'Trio', 'Iso pesä'. Use the exact Finnish feature names from i18n/fi.json and apps/adult/src/i18n/fi.ts. No prices. Not curriculum-specific. Convert to fragment. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes fi /teachers.html: 'Ilmaisia matematiikkapulmia opettajille'. Reuse wording already in i18n/fi.json ('Tulostettava 24 kennopulman paketti: yhteenlaskuja 20:een asti ja kertotauluja, vastauksineen', 'Ilmaisia pulmia luokallesi', and its note '(Paketti on englanninkielinen.)'). 'Where it fits' must map to Finland: hajotelmat, kymppiparit and kymmenylitys in 1. lk; adding within 20 and 100 in 1–2; kertotaulut 1–5 and 10 in 2. lk and 6–9 in 3. lk, review later; daily päässälasku. No MTC. Ways to use: tunnin aloitus, viikon pulma, eriyttäminen for early finishers. The PDF (/assets/beequation-puzzle-pack.pdf) is English (numbers only; its multiplication sign is × where Finnish uses ·); flag if a Finnish PDF (pack.json with mul '·') is wanted. Notation on every page: decimal comma (2,5), space as thousands separator from 5 digits (10 000; 4-digit numbers unspaced), multiplication sign · and division sign : (never ÷), times written klo 15.30, dates 10.10.2026, money 3,45 €, percent 25 %."
+  }
+ ]
+}

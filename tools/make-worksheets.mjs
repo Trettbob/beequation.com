@@ -68,7 +68,7 @@ const EN = {
   coinLabel: v => v >= 100 ? `£${v / 100}` : `${v}p`,
   coins: null,                                         // { value: [fill, diameter in mm, 'circle' | sides] }; null = UK
   coinInner: null,                                     // value => inner ring colour (two-colour coins), or null = UK
-  paid: [100, 200, 500],
+  paid: [100, 200, 500], costStep: 5,                 // amounts paid, and prices go up in steps of costStep
   shopItems: ['a pencil', 'an apple', 'a comic', 'a juice', 'a notebook', 'some stickers', 'a toy car', 'a cake'],
   changeQ: (item, cost, paid, b) => `You buy ${item} for ${cost} and pay with ${paid}. Change: ${b}`,
   perimQ: b => `<div class="ansline">Perimeter ${b} cm</div><div class="ansline">Area ${b} cm²</div>`,
@@ -254,7 +254,7 @@ const SHEETS = [
     make: r => ({ kind: 'cards', items: unique(9, () => { const n = r.int(3, 5); return Array.from({ length: n }, () => r.pick(L.coinValues)).sort((a, b) => b - a); }, x => x.join()).map(cs => ({ q: `<div class="coins">${cs.map(coin).join('')}</div><div class="ansline">${box}</div>`, a: L.money(cs.reduce((s, c) => s + c, 0)) })) }) },
   { id: 'giving-change', title: 'Giving change', topic: 'money', years: ['year-3'],
     desc: 'Change from £1, £2 and £5', how: 'Work out the change for each shopping trip.', tip: 'Count up from the price to the money you paid. From 65p to £1: 5p makes 70p, then 30p makes £1. Change is 35p.', cols: 2,
-    make: r => ({ kind: 'list', items: unique(16, () => { const paid = r.pick(L.paid); const cost = 5 * r.int(2, paid / 5 - 1); return [r.pick(L.shopItems), cost, paid]; }, x => x.slice(1).join()).map(([item, cost, paid]) => ({ q: L.changeQ(item, L.money(cost), L.money(paid), box), a: L.money(paid - cost) })) }) },
+    make: r => ({ kind: 'list', items: unique(16, () => { const paid = r.pick(L.paid); const cost = L.costStep * r.int(2, paid / L.costStep - 1); return [r.pick(L.shopItems), cost, paid]; }, x => x.slice(1).join()).map(([item, cost, paid]) => ({ q: L.changeQ(item, L.money(cost), L.money(paid), box), a: L.money(paid - cost) })) }) },
   // measurement
   { id: 'perimeter-and-area', title: 'Perimeter and area', topic: 'measurement', years: ['year-4', 'year-5'],
     desc: 'Rectangles on a centimetre grid', how: 'Each square is 1 cm by 1 cm. Find the perimeter and area of each rectangle.', tip: 'Perimeter is the distance all the way round (add the sides). Area is the number of squares inside.', cols: 2,

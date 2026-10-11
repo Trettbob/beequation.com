@@ -1,0 +1,338 @@
+{
+ "years": [
+  {
+   "slug": "forskoleklass",
+   "name": "Förskoleklass",
+   "age": "6–7",
+   "english_equivalent": "Reception / Year 1 by content; by age between Year 1 and Year 2 (the compulsory bridge year into school, before åk 1; becomes åk 1 from autumn 2028)"
+  },
+  {
+   "slug": "arskurs-1",
+   "name": "Årskurs 1",
+   "age": "7–8",
+   "english_equivalent": "Year 1 / Year 2 by content; by age between Year 2 and Year 3"
+  },
+  {
+   "slug": "arskurs-2",
+   "name": "Årskurs 2",
+   "age": "8–9",
+   "english_equivalent": "Year 2 / Year 3 by content; by age between Year 3 and Year 4"
+  },
+  {
+   "slug": "arskurs-3",
+   "name": "Årskurs 3",
+   "age": "9–10",
+   "english_equivalent": "Year 3 / Year 4 by content; by age between Year 4 and Year 5 (end of lågstadiet, nationella prov)"
+  },
+  {
+   "slug": "arskurs-4",
+   "name": "Årskurs 4",
+   "age": "10–11",
+   "english_equivalent": "Year 4 / Year 5 by content; by age between Year 5 and Year 6 (start of mellanstadiet)"
+  },
+  {
+   "slug": "arskurs-5",
+   "name": "Årskurs 5",
+   "age": "11–12",
+   "english_equivalent": "Year 5 / Year 6 by content; by age between Year 6 and Year 7"
+  },
+  {
+   "slug": "arskurs-6",
+   "name": "Årskurs 6",
+   "age": "12–13",
+   "english_equivalent": "Year 6 / Year 7 by content; by age between Year 7 and Year 8 (end of mellanstadiet, nationella prov, first grades)"
+  }
+ ],
+ "address": "Du (informal singular) for everyone, matching the Swedish apps (apps/kids/src/i18n/sv.ts: 'Everyone is addressed with du, children and parents alike'), the store listings and i18n/sv.json ('Spela gratis i webbläsaren', 'ditt barn'). Never 'Ni' as a polite form. Parents: 'ditt barn', 'barnet', 'barnen'; 'vårdnadshavare' only where the school word matters (utvecklingssamtal). Teachers are also 'du': 'din klass', 'dina elever'. Tone: warm, plain and lagom, like a lågstadielärare talking to a parent at pick-up; short sentences; 'matte' is the everyday word. No 'bara', 'enkelt', 'lätt'; no emoji. Swedish quotation marks ” ”. Indie is 'biet Indie', 'hon'.",
+ "pages": [
+  {
+   "rel": "index.html",
+   "sources": [
+    "learn-src/index.html"
+   ],
+   "notes": "Learn home hub (layout: hub). Cards for the 12 topics with the Swedish names and glyphs from site.json (money glyph 'kr', multiplication glyph '3·4'), the 7 Swedish years (Förskoleklass, Årskurs 1–6; hex labels F, 1–6; ages from site.json), Föräldrar / Lärare / Arbetsblad / Matteord A–Ö, and popular guides (the four older articles). Intro: 'från förskoleklass till årskurs 6', written for Lgr22 (Skolverket's kursplan i matematik); du form. Example blurbs must use Swedish content: F: räkna och dela upp tal till 10; åk 1: tiokamrater och tiotalsövergång; åk 2: tal till 100 och de första tabellerna; åk 3: uppställning och nationella prov; åk 4: decimaltal och kort division; åk 5: procent och negativa tal; åk 6: bråk, decimaltal och procent, nationella prov och första betygen. No English years, SATs or £."
+  },
+  {
+   "rel": "topics/index.html",
+   "sources": [
+    "learn-src/topics/index.html"
+   ],
+   "notes": "Topics hub (Områden) with the 12 Swedish topic names. 'Where to start, by age' becomes 'Var ska vi börja? Efter årskurs', using förskoleklass, lågstadiet (åk 1–3) and mellanstadiet (åk 4–6). Briefly explain that Lgr22 groups maths content under six headings: Taluppfattning och tals användning, Algebra, Geometri (including measuring), Sannolikhet och statistik, Samband och förändring, Problemlösning, and that the kursplan gives content per stage (1–3, 4–6), not per year. Map each of our 12 topics to these headings in one short table."
+  },
+  {
+   "rel": "topics/counting-and-place-value.html",
+   "sources": [
+    "learn-src/topics/counting-and-place-value.html"
+   ],
+   "notes": "Tal och positionssystemet (taluppfattning). Year table per BRIEF (all per-year cells 'brukar', UNCERTAIN): F counting and digits 0–9, to 10/20, 'del av helhet och del av antal'; åk 1 to 20 (100); åk 2 to 100, then 1 000, talsorter ental/tiotal/hundratal; åk 3 to 1 000; åk 4 to 10 000 and decimals; åk 5 millions and negatives (temperature); åk 6 rational numbers. Quote Lgr22 1–3 'Positionssystemet och hur det används för att beskriva naturliga tal' and 4–6 'Rationella tal, däribland negativa tal'. Use 'siffra' vs 'tal' (as our apps do), 'udda och jämna', grannar, avrunda, tallinje, hundraruta, tiobasmaterial. Thousands separated with a (non-breaking) space: 1 000, 25 000. Warn: 'en miljard' = 10⁹, 'en biljon' = 10¹². Lgr22 'symboler för tal… i några olika kulturer' allows Roman numerals as an example, not a requirement. Tiotalsstaden (Beequation Kids world) fits here."
+  },
+  {
+   "rel": "topics/addition-and-subtraction.html",
+   "sources": [
+    "learn-src/topics/addition-and-subtraction.html",
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Addition och subtraktion. 'Tiokamrater' and 'talkamrater' (our apps' word), dubbelt och nästan dubbelt, tiotalsövergång (8 + 5 = 8 + 2 + 3), then 'talsortsräkning' (47 + 38 = 70 + 15 = 85), 'stegvis räkning' on an empty tallinje, and 'uppställning med minnessiffra' (347 + 285 = 632) and 'uppställning med växling' (532 − 178 = 354; check with addition). Explain that Lgr22 does not prescribe a method; by the end of åk 3 children should use 'skriftliga räknemetoder' for addition and subtraction (kriterier för bedömning åk 3). Old Lgr11 ranges (0–20, 0–200) must not be quoted as current. Terms: termer, summa, differens; 'växla' (not 'låna'). The likhetstecken point from the 2025 åk 3 national test report: '=' means 'är lika med', not only 'blir' (18 + 2 = __ + 17). Use the proper minus sign. Plusängen fits here."
+  },
+  {
+   "rel": "topics/multiplication-and-division.html",
+   "sources": [
+    "learn-src/topics/multiplication-and-division.html",
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Multiplikation och division. Multiplication sign '·' throughout (3 · 4 = 12, 'tre gånger fyra'); division as a fraction bar in pictures and '/' in running text (12/3 = 4, 'tolv delat med tre'); never '÷'. Mention once that the app shows ×. Multiplikationstabellen 1–10 (not 11–12), named '2:ans tabell… 10:ans tabell'; usually started in åk 2 with 2, 5, 10 and completed in åk 3–4 (phrase as 'brukar', UNCERTAIN). Upprepad addition, rektangelmönster (arrays), dubbelt och hälften (Lgr22 1–3: 'Proportionella samband, däribland dubbelt och hälften'), delningsdivision and innehållsdivision, 'rest'. Mellanstadiet: multiplying by 10, 100, 1 000; 'talsortsräkning' (3 · 123 = 369); 'uppställning' (7 · 294 = 2 058, minnessiffror); 'kort division med minnessiffra' (795/3 = 265; 857/4 = 214 rest 1); name 'liggande stolen' only. Lgr22 4–6 'regler för deras användning' (priority rules such as multiplication before addition are our reading; don't quote the kursplan as naming them). No national tables test. Gångergården fits here."
+  },
+  {
+   "rel": "topics/fractions.html",
+   "sources": [
+    "learn-src/topics/fractions.html"
+   ],
+   "notes": "Bråk. Swedish sequence: Lgr22 1–3 'Tal i bråkform som del av helhet och del av antal samt hur delarna benämns och uttrycks som enkla bråk' (halv, tredjedel, fjärdedel; ½ av 12); åk 4 comparing, blandad form; åk 5 likvärdiga bråk, förlänga och förkorta, adding with the same denominator; åk 6 links to decimal and percent form (Lgr22 4–6 'Tal i procentform och deras samband med tal i bråk- och decimalform'). The 2025 åk 6 test report found ¼ − ⅛ hard (common error: subtracting tops and bottoms): good 'common mistakes' material without quoting the percentage. Reading: en halv, en tredjedel, en fjärdedel ('en kvart' in daily life), femtedel… tiondel; täljare, nämnare, bråkstreck. Contexts: pizza, kladdkaka, a chokladkaka in squares, sharing kanelbullar, strawberries at midsommar. Bråkskogen fits here."
+  },
+  {
+   "rel": "topics/decimals-and-percentages.html",
+   "sources": [
+    "learn-src/topics/decimals-and-percentages.html"
+   ],
+   "notes": "Decimaltal och procent. Decimal comma everywhere (2,5 'två komma fem'; tiondelar, hundradelar, tusendelar; 'decimaltecken'). Lgr22 4–6: 'Positionssystemet och hur det används för att beskriva hela tal och tal i decimalform' and percent linked to fractions and decimals. Usually decimals in åk 4 with money (19,90 kr) and measures (1,5 l, 2,3 m), percent from åk 5 (50 %, 25 %, 10 %) and percent of amounts and 'rea' in åk 6 (percent was the theme of the 2025 åk 6 oral test part). '25 %' with a space. Multiplying and dividing by 10, 100, 1 000 (the 2025 åk 6 report noted the 'missing zero' error). Price per hg for plockgodis as a proportional context. Decimaldynerna fits here."
+  },
+  {
+   "rel": "topics/telling-the-time.html",
+   "sources": [
+    "learn-src/topics/telling-the-time.html"
+   ],
+   "notes": "Klockan och tid. Swedish phrases: klockan tre, kvart över tre, halv fyra (= 3:30, the classic trap), kvart i fyra, fem i halv fyra, fem över halv fyra, tjugo över tre / tio i halv fyra; 'på förmiddagen/eftermiddagen/kvällen'. 24-hour time is everyday (school timetable, trains, phones), written 15.30 in text (colon fine in a digital clock picture). Usual order (UNCERTAIN): hel and halv timme in åk 1, kvart in åk 2, minutes and digital/24-hour in åk 2–3, durations in mellanstadiet; Lgr22 only says 'mätning av… tid' (1–3) and 'tid' among the standard units (4–6). Calendar: weeks start on Monday, week numbers (vecka 44 = höstlov), dates 2026-10-10. Analog clock SVGs with the correct hour-hand position for 'halv'. No a.m./p.m."
+  },
+  {
+   "rel": "topics/money.html",
+   "sources": [
+    "learn-src/topics/money.html"
+   ],
+   "notes": "Pengar. Coins 1, 2, 5, 10 kr (1 and 2 kr copper-coloured, 5 and 10 kr gold-coloured; the 10-krona coin is smaller than the 5-krona coin), notes 20, 50, 100, 200, 500 (1 000) kr. No öre coins: cash is rounded to whole kronor, but prices are written 19,90 kr (price tags '19:90', '25:-'). Note honestly that money is not named in the Lgr22 maths kursplan; it is the most common everyday context ('elevnära situationer') and is used for decimals in mellanstadiet. Sweden is nearly cashless (card, Swish): suggest playing shop with real coins at home. Contexts: veckopeng, spargris, lördagsgodis per hg, loppis, kiosk, pant on cans. Format '25 kr'. No pounds/pence."
+  },
+  {
+   "rel": "topics/measurement.html",
+   "sources": [
+    "learn-src/topics/measurement.html"
+   ],
+   "notes": "Mätning och enheter (in Lgr22 part of Geometri). 1–3: 'Jämförelser och uppskattningar av storheter. Mätning av längd, massa, volym och tid med vanliga nutida och äldre måttenheter' (older units: tum, aln, famn as history; check facts before giving values); 4–6: 'längd, area, massa, volym, tid och vinkel med standardiserade måttenheter samt enhetsbyten', 'omkrets och area'. Swedish specials: dl (recipes: pannkakor), hg ('ett hekto'), the Swedish mil = 10 km. Ladder mm–cm–dm–m–km(–mil); g–hg–kg; ml–cl–dl–l; liter = dm³ in åk 6. Instruments: linjal, måttband, våg, litermått, gradskiva. Temperatures in °C. No imperial units."
+  },
+  {
+   "rel": "topics/shape-and-geometry.html",
+   "sources": [
+    "learn-src/topics/shape-and-geometry.html"
+   ],
+   "notes": "Geometri och former. 1–3: lägesord, 'grundläggande geometriska tvådimensionella objekt samt objekten klot, kon, cylinder och rätblock', symmetri, skala vid enkel förminskning och förstoring; 4–6: two- and three-dimensional objects and their properties, construction with and without digital tools, omkrets and area, skala, symmetri i planet, vinkel (rät, spetsig, trubbig; grader, gradskiva), koordinatsystem (Samband och förändring). Names: cirkel, triangel, kvadrat, rektangel, romb, parallellogram, parallelltrapets, månghörning, hexagon/sexhörning (Indie!); kub, rätblock, pyramid, cylinder, kon, klot. The 2025 åk 6 test had an angle-sum problem (triangle 180°): fine as a topic example without copying the task."
+  },
+  {
+   "rel": "topics/data-and-graphs.html",
+   "sources": [
+    "learn-src/topics/data-and-graphs.html"
+   ],
+   "notes": "Statistik och diagram (Lgr22 'Sannolikhet och statistik'). 1–3: 'Slumpmässiga händelser i konkreta situationer', 'Enkla tabeller och diagram… såväl med som utan digitala verktyg'; 4–6: chans och risk, 'Enkel kombinatorik i konkreta situationer', tables and diagrams and their interpretation, 'Lägesmåtten medelvärde, typvärde och median'. Diagram words: stapeldiagram, stolpdiagram, linjediagram, cirkeldiagram, tabell, frekvenstabell. Contexts: favourite fruit at fika, weather and temperature, a class vote like Melodifestivalen, a league table without real club names, how many outfits (combinatorics)."
+  },
+  {
+   "rel": "topics/algebra-and-ratio.html",
+   "sources": [
+    "learn-src/topics/algebra-and-ratio.html"
+   ],
+   "notes": "Algebra och samband (Lgr22 'Algebra' + 'Samband och förändring'). 1–3: 'Matematiska likheter och likhetstecknets betydelse', 'Obekanta tal och hur de kan betecknas med en symbol', patterns, 'Entydiga stegvisa instruktioner… som grund för programmering', 'Proportionella samband, däribland dubbelt och hälften'. 4–6: equations ('Metoder, däribland algebraiska, för att lösa enkla ekvationer'), variables and expressions, programming in visual environments, proportionality in fraction, decimal and percent form, coordinate systems and graphs of proportional relations (price per hg of plockgodis). Use the 2025 åk 3 report's point about '=' as 'är lika med' and its equalities with a gap (18 + 2 = __ + 17, answer 3), and x + 1 = 3 style unknowns. Keep algebra informal; 'vågen' (balance) as a picture for equations."
+  },
+  {
+   "rel": "topics/mental-maths.html",
+   "sources": [
+    "learn-src/topics/mental-maths.html",
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Huvudräkning, together with 'överslagsräkning' (estimation) and 'rimlighetsbedömning' (is it reasonable?), all three named in Lgr22 for 1–3 and 4–6. By the end of åk 3 children should use huvudräkning with all four operations (kriterier för bedömning). Strategies with Swedish names: tiokamrater, tiotalsövergång ('gå via tian'), dubbelt och nästan dubbelt, talsortsvis, stegvis på tallinjen, räkna upp (difference), kompensera (+9 = +10 − 1), dela upp, multiplicera med 10/100/1 000, dubbla och halvera. Delprov B of the åk 6 national test is done without a calculator. Short daily practice ('mattestart', 'dagens tal') is common; don't claim a national rule."
+  },
+  {
+   "rel": "years/index.html",
+   "sources": [
+    "learn-src/years/index.html"
+   ],
+   "notes": "Årskurser hub: 'Matte årskurs för årskurs: från förskoleklass till årskurs 6'. Explain förskola (not compulsory), förskoleklass (compulsory since 2018, for children who turn 6 that year; skolplikt is ten years), lågstadiet (åk 1–3), mellanstadiet (åk 4–6), högstadiet (7–9); a class is all children born in one calendar year. Table of years with ages from site.json. Lgr22 gives content for 1–3 and 4–6 only; schools and textbooks decide the order, so per-year pages describe common practice. 'Key tests by year' becomes 'Kartläggning, prov och betyg': Hitta matematiken (F), Fånga matematiken (åk 1), nationella prov åk 3 (no grade) and åk 6 (provbetyg), IUP with omdömen in åk 1–5, first betyg A–F in åk 6. One sentence on the reform: from autumn 2028 förskoleklassen becomes årskurs 1 in a ten-year grundskola (lågstadiet then åk 1–4, mellanstadiet åk 5–7)."
+  },
+  {
+   "rel": "years/forskoleklass.html",
+   "sources": [
+    "learn-src/years/reception.html",
+    "learn-src/years/year-1.html"
+   ],
+   "notes": "Förskoleklass (6–7 år). Compulsory since autumn 2018; one year before åk 1; often in the same building as F–3/F–6 with fritids. Lgr22 del 3: maths sits in 'Matematiska resonemang och uttrycksformer' (quote the three content lines from BRIEF: enkla matematiska resonemang; naturliga tal… antal och ordning, del av helhet och del av antal; rum, läge, form, riktning, mönster, tid och förändring). No grades or criteria. Hitta matematiken (mandatory mapping of number sense in the autumn; mapping has been required since 2019, this is a new version from HT 2026). Usual practice (say 'brukar'): counting to 10 and beyond, writing 0–9, fler/färre/lika många, splitting 5 into 2 and 3, grannar, patterns, shapes, lägesord, days and seasons, stegvisa instruktioner. Note the 2028 change (förskoleklassen becomes åk 1). Worksheets with year='forskoleklass'. Prev: none (years hub); next: åk 1."
+  },
+  {
+   "rel": "years/arskurs-1.html",
+   "sources": [
+    "learn-src/years/year-1.html",
+    "learn-src/years/year-2.html"
+   ],
+   "notes": "Årskurs 1 (7–8 år), first year of lågstadiet. Stage content from Lgr22 1–3 (quote briefly) plus usual åk 1 practice (UNCERTAIN): numbers to 20 (often 100 by spring), tiokamrater and talkamrater, addition and subtraction to 20 with tiotalsövergång, dubbelt och hälften, udda och jämna, hel och halv timme, comparing and measuring length (cm, m), shapes, simple diagrams, kronor coins. Fånga matematiken (mandatory assessment support in number sense; the åk 1 duty dates from 2016, Fånga matematiken is the new version from HT 2026): what it is, that it is not a graded test. IUP and utvecklingssamtal. Prev F, next åk 2."
+  },
+  {
+   "rel": "years/arskurs-2.html",
+   "sources": [
+    "learn-src/years/year-2.html",
+    "learn-src/years/year-3.html"
+   ],
+   "notes": "Årskurs 2 (8–9 år). Usual practice (UNCERTAIN): numbers to 100 and then 1 000, talsorter (ental, tiotal, hundratal), addition and subtraction to 100 with talsortsräkning and stegvis räkning, first written methods; multiplication as upprepad addition and the 2:ans, 5:ans and 10:ans tabell; delningsdivision; halv, tredjedel, fjärdedel; kvart över/kvart i; dl, l, kg, hg; symmetry; tally charts. Optional bedömningsstöd may be used. No national test this year. Prev åk 1, next åk 3."
+  },
+  {
+   "rel": "years/arskurs-3.html",
+   "sources": [
+    "learn-src/years/year-3.html",
+    "learn-src/years/year-4.html"
+   ],
+   "notes": "Årskurs 3 (9–10 år), end of lågstadiet. Usual practice: numbers to 1 000, uppställning med minnessiffra and växling for addition and subtraction (required by the end of åk 3 per Lgr22 kriterier), multiplikationstabellen 1–10 (often completed now or in åk 4), division with rest, simple fractions of a shape and a number, the minute clock and 24-hour time, standard units, tables and bar charts, chance words, equalities and unknowns. Quote 3–4 lines of the 'Kriterier för bedömning av godtagbara kunskaper i slutet av årskurs 3' in plain words. Full section on the nationella prov i matematik åk 3: several short delprov (2025: seven, one oral), done in a spring window chosen by the school (2026/27: 15 March–21 May 2027, SKOLFS 2026:1), no grade, a kravnivå per delprov, results discussed at utvecklingssamtalet. Prev åk 2, next åk 4."
+  },
+  {
+   "rel": "years/arskurs-4.html",
+   "sources": [
+    "learn-src/years/year-4.html",
+    "learn-src/years/year-5.html"
+   ],
+   "notes": "Årskurs 4 (10–11 år), start of mellanstadiet (often new teacher). Stage content Lgr22 4–6 (rational numbers, decimals, percent, equations, programming, area and perimeter, angles, mean/median/typvärde, coordinates) with usual åk 4 practice (UNCERTAIN): numbers to 10 000+, tiondelar and hundradelar with money and measures, ×/÷ by 10, 100, 1 000, uppställning (7 · 294 = 2 058) and kort division (795/3 = 265), tables secured, blandad form, omkrets and area, angle types, coordinates, visual programming. No national test. Prev åk 3, next åk 5."
+  },
+  {
+   "rel": "years/arskurs-5.html",
+   "sources": [
+    "learn-src/years/year-5.html",
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Årskurs 5 (11–12 år). Usual practice (UNCERTAIN): numbers to millions (miljon, miljard = 10⁹), negative numbers with temperature (Kiruna vs Malmö), decimals in all four operations, likvärdiga bråk (förlänga, förkorta), adding fractions with the same denominator, first percent (50 %, 25 %, 10 %), gradskiva and degrees, scale on maps, medelvärde/typvärde/median, simple equations (x + 15 = 40), combinatorics. Last year of IUP with omdömen; grades start next year. Prev åk 4, next åk 6."
+  },
+  {
+   "rel": "years/arskurs-6.html",
+   "sources": [
+    "learn-src/years/year-6.html"
+   ],
+   "notes": "Årskurs 6 (12–13 år), end of mellanstadiet; next is högstadiet (no entrance test). Usual practice: fractions, decimals and percent linked, percent of amounts and rea, negative numbers in order, decimals × and ÷, equations solved algebraically, area of triangles and parallelograms, volume (liter = dm³), probability as a fraction, graphs of proportional relations, multiplication before addition. Full section on the nationella prov i matematik åk 6: five delprov (2025: oral A in groups; B without calculator; C and D themed with calculator; E a larger task), oral part in the autumn (2026: 2 November–4 December), written parts on fixed days in May (2027: Tuesday 11 and Thursday 13 May, SKOLFS 2026:1), a provbetyg A–F that the teacher takes into special account. First betyg A–F at the end of each term (E = pass, F = not passed); mention in one line that a new grading system is decided from 2028. Prev åk 5, next: none (years hub)."
+  },
+  {
+   "rel": "parents/index.html",
+   "sources": [
+    "learn-src/parents/index.html"
+   ],
+   "notes": "Hub 'Mattehjälp för föräldrar'. Cards for the five Swedish guides; 'Mer hjälp' links to årskurser, arbetsblad, matteord A–Ö and the older articles. du form, 'ditt barn'."
+  },
+  {
+   "rel": "parents/everyday-maths.html",
+   "sources": [
+    "learn-src/parents/everyday-maths.html"
+   ],
+   "notes": "Matte i vardagen: sections by Swedish stage (förskoleklass och åk 1; åk 2–4; åk 5–6). Swedish situations: baking (pannkakor, kladdkaka, chokladbollar in dl and g), lördagsgodis per hg and veckopeng, loppis with whole-krona prices, mataffären and 'jämförpris' (kr/kg) for older children, train and bus timetables in 24-hour time, the car trip in mil, temperature on a winter morning, berry picking by the liter, Lucia and the Christmas countdown, week numbers on the family calendar, sharing a pizza. Keep the activity count accurate if the title states a number."
+  },
+  {
+   "rel": "parents/helping-at-home.html",
+   "sources": [
+    "learn-src/parents/helping-at-home.html"
+   ],
+   "notes": "Så hjälper du ditt barn med matte hemma (utan bråk). 'Helping with homework' becomes 'läxor' (and note some schools are läxfria). 'When you don't know the method' must cover the Swedish case: schools choose between talsortsräkning, stegvis räkning, uppställning med minnessiffra/växling, kort division or liggande stolen; look in the mattebok or ask the teacher (or at utvecklingssamtalet), and don't teach 'your own' method or old words ('låna') without checking. Signs: · for multiplication and fraction bar or / for division in Swedish books. Little and often, talk about how the child thought, praise effort, 'inte än' (not yet)."
+  },
+  {
+   "rel": "parents/how-maths-is-taught.html",
+   "sources": [
+    "learn-src/parents/how-maths-is-taught.html"
+   ],
+   "notes": "Så undervisas matte i dag: rebuild for Sweden. Lgr22's five abilities in plain words (begrepp, metod, problemlösning, resonemang, kommunikation) and six content areas; laborativt material → bilder → symboler (tiobasmaterial, pengar, tallinje, hundraruta, tiobild); tiokamrater and talets uppdelning; talsortsräkning and stegvis räkning before uppställning; written methods laid out exactly as in BRIEF (uppställning med minnessiffra 347 + 285 = 632, med växling 532 − 178 = 354, multiplication 7 · 294 = 2 058, kort division 795/3 = 265); signs · and /; huvudräkning, överslagsräkning, rimlighetsbedömning; problem solving in pairs (EPA: enskilt, par, alla); digital tools and programming in the kursplan. Don't claim any method is national."
+  },
+  {
+   "rel": "parents/maths-anxiety.html",
+   "sources": [
+    "learn-src/parents/maths-anxiety.html"
+   ],
+   "notes": "'Jag var dålig på matte': mattelust and matteångest. Can stay close to the English content. Tie to the kursplan's purpose that teaching should give pupils 'intresse för matematik och tilltro till sin förmåga att använda matematik i olika sammanhang' (quoted from Lgr22 Syfte). 'Inte än' language; avoid 'jag var också kass på matte'. When to talk to the teacher; mention extra anpassningar, speciallärare and elevhälsan without inventing procedures. No statistics."
+  },
+  {
+   "rel": "parents/maths-tests-explained.html",
+   "sources": [
+    "learn-src/parents/maths-tests-explained.html"
+   ],
+   "notes": "Must explain Sweden's checks, not England's: Hitta matematiken in förskoleklass and Fånga matematiken in åk 1 (mandatory, from HT 2026, number sense, not graded, used to give support early; the 'läsa, skriva, räkna'-garanti in one line); IUP with omdömen and utvecklingssamtal (åk 1–5); nationella prov åk 3 (maths and Swedish; several short delprov incl. one oral; spring window; no grade, a kravnivå per delprov; supports the teacher's judgement against the åk 3 criteria); nationella prov åk 6 (maths, Swedish, English; five delprov; oral part in the autumn, written in May; provbetyg A–F; the teacher sets the grade and gives the test special weight); first betyg A–F in åk 6. Tests are confidential, so no old papers: suggest everyday practice instead. One line on the new grading system decided for 2028. Keep the tone low-stress. No SATs, no tables check."
+  },
+  {
+   "rel": "teachers/index.html",
+   "sources": [
+    "learn-src/teachers/index.html"
+   ],
+   "notes": "Hub 'Gratis mattematerial för lärare'. Cards for the four Swedish teacher guides, arbetsblad, the puzzle pack (/teachers.html), matteord A–Ö. Mention Lgr22 terms teachers use (centralt innehåll, förmågor, kriterier för bedömning) lightly."
+  },
+  {
+   "rel": "teachers/differentiation-in-maths.html",
+   "sources": [
+    "learn-src/teachers/differentiation-in-maths.html"
+   ],
+   "notes": "Anpassad undervisning i matte: 'ledning och stimulans' for every pupil (skollagen; check wording), extra anpassningar within normal teaching, särskilt stöd and åtgärdsprogram (only name them), speciallärare i matematik; särskilt begåvade elever who need challenge. Låg tröskel, högt tak tasks; laborativt material; rika problem; the pack's puzzles for early finishers. Use Hitta matematiken / Fånga matematiken results as a starting point. No invented procedures or percentages."
+  },
+  {
+   "rel": "teachers/maths-games-for-the-classroom.html",
+   "sources": [
+    "learn-src/teachers/maths-games-for-the-classroom.html"
+   ],
+   "notes": "Mattespel i klassrummet: low-prep games with Swedish names and materials: tärningar, kortlek (52 cards), tiobasmaterial, hundraruta, 'Tiokamratsjakten' / memory with tiokamrater, 'Gissa talet' (UNCERTAIN names: present as our suggestions, not established Swedish games), multiplikationsbingo, 'Plock och byt' play shop with kronor, Yatzy for addition (a game every Swedish family knows). Age-tag by stage (F–3, 4–6) and keep every rule and example correct."
+  },
+  {
+   "rel": "teachers/maths-starters.html",
+   "sources": [
+    "learn-src/teachers/maths-starters.html"
+   ],
+   "notes": "Mattestarter / uppvärmning: sections by förskoleklass, lågstadiet (1–3) and mellanstadiet (4–6) instead of KS1/KS2. Swedish notation (decimal comma, · and /, 1 000 with a space). Starters: dagens tal, tiokamrater, talkamrater to 20, dubbla och halvera, tabellträning (2:ans… 10:ans), 'vilket tal är udda?', överslagsräkning ('ungefär hur mycket?'), rimlighetsbedömning, klockan with halv fyra traps, a vaxkaka puzzle on the board. Don't claim a national rule for daily practice."
+  },
+  {
+   "rel": "teachers/reasoning-and-problem-solving.html",
+   "sources": [
+    "learn-src/teachers/reasoning-and-problem-solving.html"
+   ],
+   "notes": "Resonemang och problemlösning: problem solving and reasoning are two of the five förmågor and 'Problemlösning' is a content area in Lgr22 (quote 'Strategier för att lösa matematiska problem i elevnära situationer'). Swedish structures: EPA (enskilt, par, alla), rika problem, 'lågt golv, högt tak'; question stems in Swedish ('Hur tänkte du?', 'Hur vet du det?', 'Stämmer det alltid, ibland eller aldrig?', 'Hitta felet', 'Är svaret rimligt?'); stapelmodell for textuppgifter (UNCERTAIN name: explain it); complete answer sentence ('Svar: …'). Examples in kronor and metric units."
+  },
+  {
+   "rel": "worksheets/index.html",
+   "sources": [
+    "learn-src/worksheets/index.html"
+   ],
+   "notes": "Gratis arbetsblad i matte med facit, från förskoleklass till årskurs 6. Uses the worksheets shortcodes with Swedish year slugs (forskoleklass, arskurs-1 … arskurs-6); list only sheets that fit Sweden (leave out England's multiplication-check-practice; tables sheets named '2:ans, 5:ans och 10:ans tabell', '3:ans, 4:ans och 8:ans tabell'; the 12 × 12 grid becomes a 10 · 10 multiplikationstabell; money sheets in whole kronor with coins 1, 2, 5, 10 kr; time sheets with Swedish phrases incl. 'halv fyra'; multiplication sign · and division as a fraction or /). Each sheet has 'facit' on page two. Section on the vaxkaka puzzle pack linking /teachers.html. Depends on worksheets.mjs (not part of this task)."
+  },
+  {
+   "rel": "glossary/index.html",
+   "sources": [
+    "learn-src/glossary/index.html"
+   ],
+   "notes": "Matteord från A till Ö with Swedish headwords in Swedish alphabetical order (a–z, then å, ä, ö; the glossary marks each letter's first entry with id=\"<letter>\"). Letters with no natural maths word (q, w, z) stay empty; x can have 'x (obekant tal)'; å: 'åttondel'; ä: 'äldre måttenheter'; ö: 'överslagsräkning', 'öre'. Each entry has an example (decimal comma, space thousands, · for multiplication) and the årskurs it usually appears. Include Swedish-specific entries: tiokamrater, talkamrater, tiotalsövergång, minnessiffra, växling, uppställning, talsortsräkning, kort division, liggande stolen, rest, kvot, differens, produkt, täljare, nämnare, blandad form, förlänga, förkorta, decimaltecken, tiondel, hundradel, positionssystemet, talsorter, ental, tiotal, hundratal, överslagsräkning, rimlighetsbedömning, huvudräkning, typvärde, median, medelvärde, gradskiva, rätblock, klot, mil, dl, hg, likhetstecken, obekant tal, ekvation, kombinatorik, sannolikhet, procent, öre, miljard."
+  },
+  {
+   "rel": "number-bonds-to-20.html",
+   "sources": [
+    "learn/number-bonds-to-20.html"
+   ],
+   "notes": "Tiokamrater och talkamrater upp till 20 (number bonds) for Sweden: when (förskoleklass: talets uppdelning with objects, Lgr22 del 3 'del av helhet och del av antal'; åk 1: tiokamrater and addition/subtraction to 20; used for tiotalsövergång 'via tian'), how to practise (fingrar, tiobild, kortlek, pärlband), the vaxkaka game with Beequation (Plusängen). Convert from the old hand-made full HTML to a front-matter fragment. Same path."
+  },
+  {
+   "rel": "times-tables-practice.html",
+   "sources": [
+    "learn/times-tables-practice.html"
+   ],
+   "notes": "Så övar du multiplikationstabellen (gångertabellen): tables 1 to 10, named 2:ans… 10:ans tabell; usually started in åk 2 and completed in åk 3–4 (say 'brukar'); understanding first (upprepad addition, rektangelmönster, mönster: 5:ans slutar på 0 eller 5, 9:ans with fingers, 4:ans = dubbla 2:ans, 8:ans = dubbla 4:ans), then speed. Replace the 'Year 4 multiplication tables check' section with 'Det finns inget nationellt tabellprov' plus why the tables matter for kort division, bråk and huvudräkning in mellanstadiet and in delprov B (without calculator) of the åk 6 test. Sign ·. Gångergården mention. Convert to fragment."
+  },
+  {
+   "rel": "mental-maths-strategies.html",
+   "sources": [
+    "learn/mental-maths-strategies.html"
+   ],
+   "notes": "Strategier för huvudräkning som fungerar: the same eight strategies with Swedish names (gå via tian/tiotalsövergång, dela upp i talsorter, nästan dubbelt, avrunda och kompensera, räkna upp för att subtrahera, dubbla och halvera, knepet med 9 och 11, kontrollera med udda/jämna och sista siffran) and examples in Swedish notation; tie to Lgr22 'huvudräkning, överslagsräkning' and 'rimlighetsbedömning' in both stages. Convert to fragment."
+  },
+  {
+   "rel": "daily-maths-puzzle-for-adults.html",
+   "sources": [
+    "learn/daily-maths-puzzle-for-adults.html"
+   ],
+   "notes": "Ett dagligt mattepussel för vuxna: about Beequation Pro and 'Dagens kupa' (Daily Pro, numbered, with svit and a shareable result), 'Blixt på 60 sekunder', 64 nivåer 'från Ägg till Kupans hjärna', 'Svårt läge', 'Trio', 'Stora kupan'. Use the exact Swedish feature names from i18n/sv.json and apps/adult/src/i18n/sv.ts. Not curriculum-specific. Convert to fragment."
+  },
+  {
+   "rel": "pack.html",
+   "sources": [
+    "teachers.html"
+   ],
+   "notes": "Becomes sv /teachers.html: 'Gratis pussel till din klass'. Reuse wording already in i18n/sv.json ('Ett paket att skriva ut med 24 pussel i vaxkakor, addition upp till 20 och multiplikationstabellen, med facit. Visa ett på tavlan som uppvärmning i två minuter…') and say honestly that the PDF is in English but the puzzles are numbers only ('(Paketet är på engelska.)'). 'Where it fits' must map to Sweden: tiokamrater and addition to 20 in åk 1–2, multiplikationstabellen in åk 2–4 and as huvudräkning practice in mellanstadiet; no tables check. Ways to use: mattestart, veckans utmaning, for early finishers, EPA discussion of strategies."
+  }
+ ]
+}

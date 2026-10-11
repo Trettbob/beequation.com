@@ -1,0 +1,268 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Getallenrijen tot 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "groep-3",
+   "groep-4"
+  ],
+  "desc": "Tellen met sprongen van 1, 2, 5 en 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Tientallen en eenheden",
+  "topic": "counting-and-place-value",
+  "years": [
+   "groep-4"
+  ],
+  "desc": "Getallen tot 100 splitsen"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Honderdtallen, tientallen en eenheden",
+  "topic": "counting-and-place-value",
+  "years": [
+   "groep-5"
+  ],
+  "desc": "Positiewaarde tot 1000"
+ },
+ {
+  "id": "rounding",
+  "title": "Afronden",
+  "topic": "counting-and-place-value",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Op tientallen, honderdtallen en duizendtallen"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Splitsen van 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "groep-1-2",
+   "groep-3"
+  ],
+  "desc": "Welke twee getallen maken samen 10?"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Samen 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "groep-3",
+   "groep-4"
+  ],
+  "desc": "Welke twee getallen maken samen 20?"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Plus en min tot 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "groep-3",
+   "groep-4"
+  ],
+  "desc": "Plus- en minsommen door elkaar"
+ },
+ {
+  "id": "column-addition",
+  "title": "Optellen onder elkaar",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Getallen van drie cijfers"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Aftrekken onder elkaar",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Getallen van drie cijfers"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "De tafels van 2, 5 en 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "groep-4"
+  ],
+  "desc": "Keersommen door elkaar"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "De tafels van 3, 4 en 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "groep-4",
+   "groep-5"
+  ],
+  "desc": "Keersommen door elkaar"
+ },
+ {
+  "id": "division-facts",
+  "title": "Deeltafels",
+  "topic": "multiplication-and-division",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Delen met de tafels"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Vermenigvuldigen onder elkaar",
+  "topic": "multiplication-and-division",
+  "years": [
+   "groep-6",
+   "groep-7"
+  ],
+  "desc": "Drie cijfers keer één cijfer"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Welk deel is gekleurd?",
+  "topic": "fractions",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Halven, derden, kwarten en meer"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Breuken van een getal",
+  "topic": "fractions",
+  "years": [
+   "groep-6",
+   "groep-7"
+  ],
+  "desc": "Zoals ½ van 12 en ¾ van 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Gelijkwaardige breuken",
+  "topic": "fractions",
+  "years": [
+   "groep-7",
+   "groep-8"
+  ],
+  "desc": "Vind het getal dat ontbreekt"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Tienden en honderdsten",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "groep-6",
+   "groep-7"
+  ],
+  "desc": "Breuken als kommagetal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Procenten berekenen",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "groep-7",
+   "groep-8"
+  ],
+  "desc": "10%, 25%, 50% en meer"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Hele en halve uren",
+  "topic": "telling-the-time",
+  "years": [
+   "groep-3",
+   "groep-4"
+  ],
+  "desc": "Klokkijken"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Kwart over en kwart voor",
+  "topic": "telling-the-time",
+  "years": [
+   "groep-4"
+  ],
+  "desc": "Klokkijken"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Klokkijken per 5 minuten",
+  "topic": "telling-the-time",
+  "years": [
+   "groep-5"
+  ],
+  "desc": "In woorden en in cijfers"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Munten tellen",
+  "topic": "money",
+  "years": [
+   "groep-4",
+   "groep-5"
+  ],
+  "desc": "Euromunten optellen"
+ },
+ {
+  "id": "giving-change",
+  "title": "Wisselgeld",
+  "topic": "money",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Terugkrijgen van € 1, € 2 en € 5"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Omtrek en oppervlakte",
+  "topic": "measurement",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Rechthoeken op een rooster van centimeters"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Vlakke figuren",
+  "topic": "shape-and-geometry",
+  "years": [
+   "groep-4",
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Namen, zijden en hoeken"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Een staafdiagram aflezen",
+  "topic": "data-and-graphs",
+  "years": [
+   "groep-3",
+   "groep-4"
+  ],
+  "desc": "Het lievelingsfruit van de klas"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Welk getal ontbreekt?",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "groep-5",
+   "groep-6"
+  ],
+  "desc": "Vind het getal in het hokje"
+ }
+]
