@@ -872,7 +872,7 @@ let P = load(AK, { full: false, stars: {}, blitz: {}, daily: {} });
 const aSave = () => store(AK, P);
 const aStatus = (mode, t) => (!level(mode, t).free && !P.full) ? 'paid' : (t === 1 || (P.stars[`${mode}-${t - 1}`] || 0) > 0) ? 'open' : 'locked';
 const PRACTICE = [['add', '+', T.modes.add[0]], ['mul', '×', T.modes.mul[0]], ['neg', '−', T.modes.neg[0]], ['frac', '½', T.modes.frac[0]], ['mixed', '±', T.modes.mixed[0]]];
-const LAUNCH = new Date(2026, 9, 1);
+const LAUNCH = new Date(2026, 10, 1);   // 1 November 2026: Daily Pro "Hive No. 1", the same as the Pro app (apps/adult/src/catalog.ts)
 const dailyNo = (d = new Date()) => Math.max(1, Math.round((new Date(d.getFullYear(), d.getMonth(), d.getDate()) - LAUNCH) / 864e5) + 1);
 const streak = () => { let d = P.daily[dayKey()] ? new Date() : addDays(new Date(), -1), n = 0; while (P.daily[dayKey(d)]) { n++; d = addDays(d, -1); } return n; };
 const DATE = new Intl.DateTimeFormat(T.locale, { weekday: 'long', day: 'numeric', month: 'long' });
