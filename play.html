@@ -195,20 +195,32 @@ h1, h2, p { margin: 0; }
 /*T*/// Every word the game shows. Language sites swap this table for i18n/play/<code>.js (same keys) when the site is built.
 const T = {
   locale: undefined,   // for dates (undefined = the browser's own)
+  decSep: ".",
   indie: 'Indie the bee', back: 'Back', close: 'Close', quit: 'Quit', settings: 'Settings',
   frac: s => s.replace('/', ' over '),   // how a screen reader says a fraction like 3/4 (some languages say the bottom number first)
   switchApp: 'Switch app', siteAria: 'Beequation: back to beequation.com',
-  tiers: ['Egg', 'Larva', 'Buzz', 'Worker', 'Forager', 'Guard', 'Royal', 'Queen'],
-  ages: ['5+', '6+', '7+', '8+', '10+', '12+', 'Teen & adult', 'Expert'],
-  modes: { add: ['Add', 'Find the number two others add up to'], mul: ['Times', 'Find the number two others multiply to'], neg: ['Negatives', 'Sums with numbers below zero'],
-    frac: ['Fractions', 'Add fractions in your head'], mixed: ['Mixed', 'Plus or times — it changes every puzzle'], hive: ['Big Hive', 'Solve four, then solve their answers'] },
+  tiers: ["Egg","Larva","Buzz","Worker","Forager","Guard","Royal","Queen","Swarm","Hive Mind"],
+  ages: ["5+","6+","7+","8+","10+","12+","Teen & adult","Expert","Expert","Expert"],
+  modes: {
+    add: ["Add","Find the number two others add up to"],
+    mul: ["Times","Find the number two others multiply to"],
+    neg: ["Negatives","Sums with numbers below zero"],
+    frac: ["Fractions","Add fractions in your head"],
+    mixed: ["Mixed","Plus or times — it changes every puzzle"],
+    hive: ["Big Hive","Solve four, then solve their answers"],
+    dec: ["Decimals","Add decimals in your head"],
+    trio: ["Trio","Find the number three others add up to"],
+    tens: ["Tens","Add tens and hundreds"],
+  },
   dailyJunior: 'Daily Junior', dailyPro: 'Daily Pro',
   // Beequation Kids
   worlds: {
-    add: ['Adding Meadow', ['Sum Sprout', 'Plus Pal', 'Sum Superstar', 'Adding Ace', 'Total Hero', 'Meadow Master']],
-    mul: ['Times Garden', ['Times Tadpole', 'Double Dazzler', 'Multiply Magic', 'Product Pro', 'Garden Genius', 'Times Titan']],
-    frac: ['Fraction Forest', ['Half Hero', 'Quarter Queen', 'Slice Star', 'Fraction Champ']],
-    hive: ['Big Hive', ['Busy Bee', 'Comb Captain', 'Hive Legend']],
+    add: ["Adding Meadow",["Sum Sprout","Plus Pal","Sum Superstar","Adding Ace","Total Hero","Meadow Master","Hundred Hopper","Sum Sorcerer"]],
+    mul: ["Times Garden",["Times Tadpole","Double Dazzler","Multiply Magic","Product Pro","Garden Genius","Times Titan","Times Wizard"]],
+    frac: ["Fraction Forest",["Half Hero","Quarter Queen","Slice Star","Fraction Champ","Pizza Pro","Forest Sage"]],
+    tens: ["Tens Town",["Ten Tot","Tens Trekker","Big Number Buddy","Hundred Hero","Town Mayor"]],
+    dec: ["Decimal Dunes",["Point Pup","Tenth Trekker","Dune Dasher","Decimal Dynamo"]],
+    hive: ["Big Hive",["Busy Bee","Comb Captain","Hive Legend","Honey Hero","Hive Royal"]],
   },
   gateTitle: 'Grown-ups only', gatePrompt: 'Type this number using digits:', gateAnswer: 'Answer in digits', gateMiss: 'That\'s not it. Try the new number.',
   gateOk: 'Continue', gateCancel: 'Cancel',
@@ -232,7 +244,8 @@ const T = {
   addedToBook: 'Added to your sticker book', get3: 'Get 3 stars to win this level\'s sticker.', nextLevel: 'Next level', again: 'Play again', home: 'Home', map: 'Map',
   myStickers: 'My stickers', stickersHow: 'Get 3 stars on a level to win its sticker.', notWon: n => `${n}, not won yet`,
   forGrown: 'For grown-ups', kFull: 'Full game unlocked', kUnlockAll: n => `Unlock all ${n} levels`, kThanks: 'Thank you! Every world and level is open.',
-  kFree: n => `The free game has ${n} levels and a daily puzzle. Subscribe, or buy Lifetime once, to open every level in all four worlds: harder sums, times tables up to 15, fractions, and Big Hive.`,
+  kFree: free =>
+      `The free game has ${free} levels and a daily puzzle. Subscribe, or buy Lifetime once, to open every level in all six worlds: harder sums, times tables up to 20, fractions, tens and hundreds, decimals, and Big Hive.`,
   kPrice: 'From £4.99 a month, with 7 days free. No ads. No data collected. Cancel any time.', backToFree: 'Back to the free version (preview only)',
   kBuy: 'Unlock full game', previewNote: 'This preview simulates the purchase. In the app, this opens the App Store or Google Play.', helpsTitle: 'How it helps',
   helps: 'Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Indie keep it calm, and stars count hints and slips gently, so there is no clock to beat.',
@@ -246,6 +259,7 @@ const T = {
   cellsAges: (n, a) => `${n} cells, ages ${a}`, fullVersion: 'Full version', finishLevel: t => `Finish level ${t}`,
   blitzTitle: '60-second blitz', blitzHow: 'Solve as many as you can in a minute. A wrong tap costs 2 seconds. You play at your highest open level.',
   nameLevel: (name, t) => `${name}, level ${t}`, solvedWord: 'solved', smallComb: n => `Small comb ${n} of 4`, finalComb: 'Final comb: your four answers',
+  trioAsk: "Find the number **three** others **add up to**",
   aAsk: b => `Find the number two others ${b}`, addUpTo: 'add up to', multiplyTo: 'multiply to', inARow: n => `${n} in a row`, wrongCosts: 'A wrong tap costs 2 seconds',
   dailyDone: 'Daily Pro complete', firstDaily: 'Your first daily hive. Come back tomorrow.', faster: n => `${n} seconds faster than last time`,
   slower: n => `${n} seconds slower than last time`, sameTime: 'Same time as last time', blitzOf: name => `${name} blitz`, nSolved: n => `${n} solved`,
@@ -255,7 +269,8 @@ const T = {
   share: 'Share result', nextName: (name, t) => `Next: ${name} ${t}`, unlockNext: 'Unlock the next levels', playBlitz: 'Play a 60s blitz',
   shareBlitz: (n, mode, name) => `Beequation blitz: ${n} solved in 60s (${mode}, ${name})`, copied: 'Result copied',
   aAll: n => `All ${n} levels`, aThanks: 'Thank you. Every level is open.',
-  aFree: n => `Free includes ${n} levels, the Daily Pro and blitz. The full version opens every level up to Queen, including Big Hive expert puzzles.`,
+  aFree: n => { return ((free, queen) =>
+      `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to ${queen}, including Decimals, Trio and Big Hive expert puzzles.`)(n, T.tiers[9]); },
   aPrice: 'From £2.99 a month or £29.99 a year, with 7 days free, or Lifetime. No ads. Cancel any time.', aBuy: 'Unlock full version',
   howTitle: 'How to play', how: 'Every comb hides one number made from two others, by adding or multiplying. Tap it. Rounds are 10 puzzles; Big Hive makes you solve four combs, then a comb of their answers.',
   aFull: 'Full version unlocked',
@@ -264,41 +279,43 @@ const T = {
   kidsPick: 'Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.', proPick: 'Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.',
   savedHere: 'Progress is saved in this browser only.',
 };/*/T*/
+// ---- engine: generated by tools/sync-engine.mjs from packages/engine (do not edit) ----
 // Beequation puzzle engine. Pure TypeScript, no React — shared by the app and tests.
 // Rule: in a group of numbers, exactly one number equals (sum | product) of two others.
 
-                               
-                                                                       
 
-                                              
 
-                         
-                 
-         
-                
-                                              
-                                                                             
- 
 
-                             
-               
-                                                                            
-                
- 
 
-                                            
 
-                            
-                                    
-               
-                               
-               
-               
-                                                       
-                
-                                                             
-                      
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ---------- fractions ----------
 function gcd(a        , b        )         {
@@ -319,14 +336,18 @@ function fmt(f      )         {
   const sign = f.n < 0 ? '−' : '';
   return f.d === 1 ? `${sign}${Math.abs(f.n)}` : `${sign}${Math.abs(f.n)}/${f.d}`;
 }
+// A cell as the player sees it: decimals in Decimals mode (with the given decimal separator), otherwise fmt.
+function fmtCell(f      , dec         , sep = '.')         {
+  if (!dec) return fmt(f);
+  return `${f.n < 0 ? '−' : ''}${(Math.abs(f.n) / f.d).toFixed(dec).replace('.', sep)}`;
+}
 const opSymbol = (op    ) => (op === 'add' ? '+' : '×');
-function equation(p        )         {
-  const [i, j] = p.pair;
-  return `${fmt(p.cells[i])} ${opSymbol(p.op)} ${fmt(p.cells[j])} = ${fmt(p.cells[p.answer])}`;
+function equation(p        , show                      = f => fmtCell(f, p.dec))         {
+  return `${p.pair.map(i => show(p.cells[i])).join(` ${opSymbol(p.op)} `)} = ${show(p.cells[p.answer])}`;
 }
 
 // ---------- seeded RNG ----------
-                               
+
 function makeRng(seed        )      {
   let s = seed >>> 0;
   return () => {
@@ -362,6 +383,21 @@ function isUnique(cells        , op    )          {
   const ks = new Set(solutions(cells, op).map(s => s.k));
   return ks.size === 1;
 }
+// Trio: one number is the sum of three others.
+function trioSolutions(cells        ) {
+  const out                                                   = [];
+  const n = cells.length;
+  for (let k = 0; k < n; k++)
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) for (let l = j + 1; l < n; l++)
+      if (i !== k && j !== k && l !== k && eq(apply('add', apply('add', cells[i], cells[j]), cells[l]), cells[k])) out.push({ k, i, j, l });
+  return out;
+}
+// Exactly one number is made from the puzzle's rule, and nothing else can be mistaken for it: in Trio there must
+// also be no pair that adds up to another number.
+function isUniquePuzzle(p        )          {
+  if (p.pair.length === 3) return solutions(p.cells, 'add').length === 0 && new Set(trioSolutions(p.cells).map(s => s.k)).size === 1;
+  return isUnique(p.cells, p.op);
+}
 
 // Build a puzzle around a chosen pair, adding distractors that never create a second answer.
 function build(rng     , size        , op    , a      , b      ,
@@ -391,10 +427,10 @@ function retry   (fn                )    {
 }
 
 // ---------- mode tables ----------
-const TIER_NAMES = T.tiers;
-const AGES = T.ages;
+const TIER_NAMES = ['Egg', 'Larva', 'Buzz', 'Worker', 'Forager', 'Guard', 'Royal', 'Queen', 'Swarm', 'Hive Mind'];
+const AGES = ['5+', '6+', '7+', '8+', '10+', '12+', 'Teen & adult', 'Expert', 'Expert', 'Expert'];
 
-                                                                         
+
 const ADD            = [
   { size: 4, lo: 1, max: 10, near: 0 },
   { size: 5, lo: 1, max: 15, near: 0 },
@@ -404,8 +440,10 @@ const ADD            = [
   { size: 9, lo: 5, max: 100, near: 0.3 },
   { size: 9, lo: 10, max: 250, near: 0.4 },
   { size: 9, lo: 50, max: 999, near: 0.55 },
+  { size: 12, lo: 50, max: 999, near: 0.6 },
+  { size: 12, lo: 100, max: 9999, near: 0.65 },
 ];
-                                                                            
+
 const MUL            = [
   { size: 4, fmin: 2, fmax: 5, near: 0 },
   { size: 5, fmin: 2, fmax: 6, near: 0 },
@@ -415,6 +453,8 @@ const MUL            = [
   { size: 9, fmin: 3, fmax: 15, near: 0.3 },
   { size: 9, fmin: 4, fmax: 20, near: 0.4 },
   { size: 9, fmin: 6, fmax: 30, near: 0.55 },
+  { size: 12, fmin: 6, fmax: 30, near: 0.6 },
+  { size: 12, fmin: 9, fmax: 50, near: 0.65 },
 ];
 const NEG            = [
   { size: 4, lo: 1, max: 10, near: 0 },
@@ -423,8 +463,10 @@ const NEG            = [
   { size: 7, lo: 1, max: 30, near: 0.25 },
   { size: 9, lo: 1, max: 50, near: 0.35 },
   { size: 9, lo: 1, max: 100, near: 0.5 },
+  { size: 9, lo: 1, max: 200, near: 0.55 },
+  { size: 12, lo: 1, max: 500, near: 0.6 },
 ];
-                                                                 
+
 const FRAC             = [
   { size: 4, dens: [2, 4], near: 0 },
   { size: 5, dens: [2, 4, 8], near: 0.1 },
@@ -432,8 +474,10 @@ const FRAC             = [
   { size: 7, dens: [2, 3, 4, 6, 12], near: 0.25 },
   { size: 7, dens: [2, 3, 4, 5, 6, 8, 10, 12], near: 0.35 },
   { size: 9, dens: [2, 3, 4, 5, 6, 7, 8, 9, 10, 12], near: 0.5 },
+  { size: 9, dens: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], near: 0.55 },
+  { size: 12, dens: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], near: 0.6 },
 ];
-                                                                 
+
 const HIVE             = [
   { subSize: 4, max: 20, near: 0 },
   { subSize: 5, max: 30, near: 0.1 },
@@ -441,6 +485,36 @@ const HIVE             = [
   { subSize: 7, max: 60, near: 0.25 },
   { subSize: 7, max: 100, near: 0.35 },
   { subSize: 9, max: 200, near: 0.5 },
+  { subSize: 9, max: 300, near: 0.55 },
+  { subSize: 12, max: 500, near: 0.6 },
+];
+// Decimals: adding puzzles on whole numbers of tenths or hundredths, shown as decimals.
+
+const DEC            = [
+  { size: 4, lo: 1, max: 10, near: 0, dec: 1 },
+  { size: 5, lo: 1, max: 20, near: 0, dec: 1 },
+  { size: 5, lo: 1, max: 50, near: 0.1, dec: 1 },
+  { size: 7, lo: 5, max: 100, near: 0.15, dec: 2 },
+  { size: 7, lo: 10, max: 500, near: 0.25, dec: 2 },
+  { size: 9, lo: 20, max: 1000, near: 0.35, dec: 2 },
+];
+// Tens Town (Beequation Kids): adding puzzles on multiples of 10 or 100.
+
+const TENS             = [
+  { size: 4, lo: 1, max: 10, near: 0, unit: 10 },
+  { size: 5, lo: 1, max: 10, near: 0, unit: 10 },
+  { size: 5, lo: 1, max: 20, near: 0.1, unit: 10 },
+  { size: 5, lo: 1, max: 10, near: 0, unit: 100 },
+  { size: 7, lo: 1, max: 50, near: 0.15, unit: 10 },
+];
+// Trio: one number is the sum of three others.
+const TRIO            = [
+  { size: 5, lo: 1, max: 20, near: 0 },
+  { size: 7, lo: 1, max: 30, near: 0.1 },
+  { size: 7, lo: 1, max: 50, near: 0.2 },
+  { size: 9, lo: 2, max: 100, near: 0.3 },
+  { size: 9, lo: 5, max: 250, near: 0.4 },
+  { size: 12, lo: 10, max: 500, near: 0.5 },
 ];
 
 function genAdd(rng     , t         )         {
@@ -494,17 +568,53 @@ function genHive(rng     , t          )             {
   return { kind: 'hive', subs, final };
 }
 
-const MODES                                                                  = [
-  { id: 'add', title: T.modes.add[0], tagline: T.modes.add[1], tiers: ADD.length },
-  { id: 'mul', title: T.modes.mul[0], tagline: T.modes.mul[1], tiers: MUL.length },
-  { id: 'neg', title: T.modes.neg[0], tagline: T.modes.neg[1], tiers: NEG.length },
-  { id: 'frac', title: T.modes.frac[0], tagline: T.modes.frac[1], tiers: FRAC.length },
-  { id: 'mixed', title: T.modes.mixed[0], tagline: T.modes.mixed[1], tiers: 6 },
-  { id: 'hive', title: T.modes.hive[0], tagline: T.modes.hive[1], tiers: HIVE.length },
+// Same puzzle as Add on small whole numbers, then every value scaled (to tenths/hundredths, or by 10/100).
+// Scaling keeps exactly one answer.
+function genDec(rng     , t         )         {
+  const p = genAdd(rng, t);
+  return { ...p, cells: p.cells.map(c => frac(c.n, 10 ** t.dec)), dec: t.dec };
+}
+function genTens(rng     , t          )         {
+  const p = genAdd(rng, t);
+  return { ...p, cells: p.cells.map(c => frac(c.n * t.unit)) };
+}
+function genTrio(rng     , t         )         {
+  return retry(() => {
+    const d = randInt(rng, Math.max(3 * t.lo + 3, Math.ceil(t.max * 0.4)), t.max);
+    const a = randInt(rng, t.lo, d - 2 * t.lo), b = randInt(rng, t.lo, Math.max(t.lo, d - a - t.lo)), c = d - a - b;
+    if (c < t.lo) return null;
+    const cells = [frac(a), frac(b), frac(c), frac(d)];
+    const ok = (cs        ) => solutions(cs, 'add').length === 0 && trioSolutions(cs).every(x => x.k === 3) && trioSolutions(cs).length > 0;
+    if (new Set([a, b, c, d]).size < 4 || !ok(cells)) return null;
+    let tries = 0;
+    while (cells.length < t.size && tries < 800) {
+      tries++;
+      const x = rng() < t.near ? frac(Math.max(t.lo, pick(rng, cells).n + pick(rng, [-2, -1, 1, 2, 10, -10]))) : frac(randInt(rng, t.lo, t.max));
+      if (cells.some(y => eq(x, y))) continue;
+      if (ok([...cells, x])) cells.push(x);
+    }
+    if (cells.length < t.size) return null;
+    const order = shuffle(rng, cells.map((_, i) => i));
+    const shuffled = order.map(i => cells[i]);
+    const sol = trioSolutions(shuffled)[0];
+    return { kind: 'single'         , op: 'add'         , cells: shuffled, answer: sol.k, pair: [sol.i, sol.j, sol.l] };
+  });
+}
+
+const MODES                                                                                      = [
+  { id: 'add', title: 'Add', tagline: 'Find the number that is the sum of two others', tiers: ADD.length },
+  { id: 'mul', title: 'Times', tagline: 'Find the product of two others', tiers: MUL.length },
+  { id: 'neg', title: 'Negatives', tagline: 'Sums with numbers below zero', tiers: NEG.length },
+  { id: 'frac', title: 'Fractions', tagline: 'Add fractions in your head', tiers: FRAC.length },
+  { id: 'mixed', title: 'Mixed', tagline: 'Plus or times — it changes every puzzle', tiers: 8 },
+  { id: 'hive', title: 'Big Hive', tagline: 'Solve four, then solve their answers', tiers: HIVE.length },
+  { id: 'dec', title: 'Decimals', tagline: 'Add decimals in your head', tiers: DEC.length },
+  { id: 'trio', title: 'Trio', tagline: 'Find the number three others add up to', tiers: TRIO.length },
+  { id: 'tens', title: 'Tens', tagline: 'Add tens and hundreds', tiers: TENS.length, kidsOnly: true },
 ];
 
-const FREE_TIERS                         = { add: 4, mul: 2, neg: 1, frac: 1, mixed: 1, hive: 1 };
-const MODE_PACE                         = { add: 1, mul: 1.2, neg: 1.4, frac: 2, mixed: 1.3, hive: 1 };
+const FREE_TIERS                         = { add: 4, mul: 2, neg: 1, frac: 1, mixed: 1, hive: 1, dec: 1, trio: 1, tens: 1 };
+const MODE_PACE                         = { add: 1, mul: 1.2, neg: 1.4, frac: 2, mixed: 1.3, hive: 1, dec: 1.6, trio: 1.8, tens: 1 };
 
 function sizeOf(mode        , tier        )         {
   const i = tier - 1;
@@ -513,8 +623,11 @@ function sizeOf(mode        , tier        )         {
     case 'mul': return MUL[i].size;
     case 'neg': return NEG[i].size;
     case 'frac': return FRAC[i].size;
-    case 'mixed': return ADD[Math.min(7, i + 2)].size;
+    case 'mixed': return ADD[Math.min(ADD.length - 1, i + 2)].size;
     case 'hive': return HIVE[i].subSize;
+    case 'dec': return DEC[i].size;
+    case 'trio': return TRIO[i].size;
+    case 'tens': return TENS[i].size;
   }
 }
 
@@ -523,10 +636,10 @@ function level(mode        , tier        )            {
   const isHive = mode === 'hive';
   const roundLength = isHive ? 3 : 10;
   const perPuzzle = isHive ? size * 4 * 1.3 + 8 : size * 1.1 * MODE_PACE[mode];
-  const ageIdx = Math.min(7, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1);
+  const ageIdx = Math.min(TIER_NAMES.length - 1, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1);
   return {
     id: `${mode}-${tier}`, mode, tier, size,
-    name: TIER_NAMES[Math.min(7, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1)],
+    name: TIER_NAMES[Math.min(TIER_NAMES.length - 1, mode === 'add' || mode === 'mul' ? tier - 1 : tier + 1)],
     ages: AGES[ageIdx],
     free: tier <= FREE_TIERS[mode],
     par: Math.round(perPuzzle * roundLength),
@@ -546,10 +659,14 @@ function generate(mode        , tier        , rng     )            {
     case 'neg': return genNeg(rng, NEG[i]);
     case 'frac': return genFrac(rng, FRAC[i]);
     case 'mixed': {
-      const add = ADD[Math.min(7, i + 2)];
-      return rng() < 0.5 ? genAdd(rng, add) : genMul(rng, { ...MUL[Math.min(7, i + 1)], size: add.size });
+      // Tiers 1-6 use exactly the same tables as before (the Daily Pro is mixed tier 5).
+      const add = ADD[Math.min(ADD.length - 1, i + 2)];
+      return rng() < 0.5 ? genAdd(rng, add) : genMul(rng, { ...MUL[Math.min(MUL.length - 1, i + 1)], size: add.size });
     }
     case 'hive': return genHive(rng, HIVE[i]);
+    case 'dec': return genDec(rng, DEC[i]);
+    case 'trio': return genTrio(rng, TRIO[i]);
+    case 'tens': return genTens(rng, TENS[i]);
   }
 }
 
@@ -562,15 +679,103 @@ function stars(level           , seconds        , mistakes        , relaxed     
 
 // Daily challenges: same puzzles for everyone on a given date.
 const DAILIES = [
-  { id: 'junior', title: T.dailyJunior, mode: 'add'          , tier: 3 },
-  { id: 'pro', title: T.dailyPro, mode: 'mixed'          , tier: 5 },
+  { id: 'junior', title: 'Daily Junior', mode: 'add'          , tier: 3 },
+  { id: 'pro', title: 'Daily Pro', mode: 'mixed'          , tier: 5 },
 ];
 function dailyRng(dateKey        , id        )      {
   return makeRng(seedFromString(`${dateKey}:${id}`));
 }
 
+// ---------- facts: weak-spot practice and progress reports ----------
+// A fact is the sum or product a puzzle tests, written the same whatever order its numbers came in:
+// "add:3+7", "mul:6x8". Only whole-number two-number puzzles have one (not fractions, decimals or Trio).
+function factOf(p        )                {
+  if (p.pair.length !== 2 || p.dec || p.op !== 'add' && p.op !== 'mul') return null;
+  const vals = [...p.pair.map(i => p.cells[i]), p.cells[p.answer]];
+  if (vals.some(f => f.d !== 1 || f.n < 0)) return null;
+  const [a, b] = p.pair.map(i => p.cells[i].n).sort((x, y) => x - y);
+  return `${p.op}:${a}${p.op === 'add' ? '+' : 'x'}${b}`;
+}
+function parseFact(fact        )                                          {
+  const m = /^(add|mul):(\d+)[+x](\d+)$/.exec(fact);
+  return m ? { op: m[1]      , a: +m[2], b: +m[3] } : null;
+}
+// "3 + 7 = 10" / "6 × 8 = 48", for reports.
+function factText(fact        )         {
+  const f = parseFact(fact);
+  if (!f) return fact;
+  return `${f.a} ${opSymbol(f.op)} ${f.b} = ${f.op === 'add' ? f.a + f.b : f.a * f.b}`;
+}
+// A puzzle whose answer is this fact, with distractors in the same number range that never make a second answer.
+function puzzleForFact(fact        , rng     , size = 5)         {
+  const f = parseFact(fact);
+  if (!f) throw new Error('bad fact ' + fact);
+  const { op, a, b } = f;
+  const c = op === 'add' ? a + b : a * b;
+  const sizes = [size, 4];
+  for (const n of sizes) {
+    for (let t = 0; t < 200; t++) {
+      const [x, y] = rng() < 0.5 ? [a, b] : [b, a];
+      const p = op === 'add'
+        ? build(rng, n, 'add', frac(x), frac(y),
+            () => frac(randInt(rng, 1, Math.max(12, c + 6))),
+            v => frac(Math.max(1, v.n + pick(rng, [-2, -1, 1, 2, 10, -10]))), 0.5)
+        : build(rng, n, 'mul', frac(x), frac(y),
+            () => rng() < 0.5 ? frac(randInt(rng, 2, Math.max(a, b) + 2) * randInt(rng, 1, Math.max(a, b) + 2)) : frac(randInt(rng, 2, Math.max(12, c + 8))),
+            v => frac(Math.max(2, v.n + pick(rng, [-1, 1, -2, 2]))), 0.5);
+      if (p && factOf(p) === fact && isUniquePuzzle(p)) return p;
+    }
+  }
+  throw new Error('no puzzle for ' + fact);
+}
+
+// Per-player fact record, kept on the device: fact -> [right first time, missed (a wrong tap or a hint first)].
+
+const MAX_FACTS = 300;
+function recordFact(facts       , p        , missed         )        {
+  const f = factOf(p);
+  if (!f) return facts;
+  const [ok, miss] = facts[f] ?? [0, 0];
+  const next        = { ...facts, [f]: missed ? [ok, miss + 1] : [ok + 1, miss] };
+  const keys = Object.keys(next);
+  if (keys.length > MAX_FACTS) {   // forget the best-known facts first
+    keys.sort((x, y) => (next[y][0] - next[y][1] * 2) - (next[x][0] - next[x][1] * 2));
+    for (const k of keys.slice(0, keys.length - MAX_FACTS)) delete next[k];
+  }
+  return next;
+}
+// Facts that still trip this player up, worst first: missed at least once and not yet put right by later successes.
+function weakFacts(facts       , n = 10)           {
+  return Object.keys(facts).filter(k => facts[k][1] > 0 && facts[k][1] * 2 > facts[k][0])
+    .sort((x, y) => (facts[y][1] * 2 - facts[y][0]) - (facts[x][1] * 2 - facts[x][0])).slice(0, n);
+}
+// Facts this player knows well: right first time at least 3 times and never or rarely missed.
+function strongFacts(facts       , n = 6)           {
+  return Object.keys(facts).filter(k => facts[k][0] >= 3 && facts[k][1] * 4 <= facts[k][0])
+    .sort((x, y) => facts[y][0] - facts[x][0]).slice(0, n);
+}
+function factTotals(facts       )                                    {
+  let right = 0, missed = 0;
+  for (const k in facts) { right += facts[k][0]; missed += facts[k][1]; }
+  return { right, missed };
+}
+// Seconds played per day (date key -> seconds), keeping the last 30 days.
+function addPlayTime(time                        , dateKey        , seconds        )                         {
+  const next = { ...time, [dateKey]: (time[dateKey] ?? 0) + Math.max(0, Math.round(seconds)) };
+  const keys = Object.keys(next).sort();
+  for (const k of keys.slice(0, Math.max(0, keys.length - 30))) delete next[k];
+  return next;
+}
+// ---- end engine ----
 
 // ---------- helpers ----------
+// Keep translations and display formatting outside the generated engine.
+const showCell = (f, p) => fmtCell(f, p.dec, T.decSep);
+const showEquation = p => equation(p, f => showCell(f, p));
+const displayLevel = l => ({ ...l, name: T.tiers[TIER_NAMES.indexOf(l.name)], ages: T.ages[AGES.indexOf(l.ages)] });
+const uiLevel = (mode, tier) => displayLevel(level(mode, tier));
+const uiLevelsFor = mode => levelsFor(mode).map(displayLevel);
+const emphasis = text => text.replace(/\*\*(.*?)\*\*/g, '<b style="color:var(--honey)">$1</b>');
 const app = document.getElementById('app');
 const load = (k, d) => { try { const r = localStorage.getItem(k); return r ? { ...d, ...JSON.parse(r) } : d; } catch (e) { return d; } };
 const store = (k, v) => { try { if (localStorage.getItem('bq-consent') !== 'no') localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };   // not after "Don't remember anything"
@@ -604,7 +809,7 @@ const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .8
 function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
 
 // ---------- boards ----------
-const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1] };
+const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1], 12: [2, 3, 2, 3, 2] };
 const CANDY = [['#FFD84D', '#E0B21A'], ['#7EE8C6', '#3FC497'], ['#8FD3FF', '#4FAEE8'], ['#FFA8D2', '#EB72AC'], ['#FFB37A', '#EE8A3E'], ['#C6B2FF', '#9A80F2']];
 function board(p, marks, W, maxH, skin, seed = 0) {
   const rows = ROWS[p.cells.length], kids = skin === 'kids';
@@ -612,7 +817,7 @@ function board(p, marks, W, maxH, skin, seed = 0) {
   const w = SQ3 * r, pad = kids ? 12 : 0, H = (rows.length - 1) * 1.5 * r + 2 * r + pad * 2;
   const pos = []; rows.forEach((n, row) => { for (let c = 0; c < n; c++) pos.push([W / 2 + (c - (n - 1) / 2) * w, pad + r + row * 1.5 * r]); });
   const cells = p.cells.map((v, i) => {
-    const [x, y] = pos[i], m = marks[i] || '', label = fmt(v);
+    const [x, y] = pos[i], m = marks[i] || '', label = showCell(v, p);
     let fill, lip = '', ink, ring = '';
     if (kids) {
       [fill, lip] = m === 'correct' ? ['#FFC93C', '#D99A00'] : m === 'wrong' ? ['#F2545B', '#C23A41'] : CANDY[(i + seed) % CANDY.length];
@@ -623,7 +828,7 @@ function board(p, marks, W, maxH, skin, seed = 0) {
     }
     const rr = r * (kids ? .9 : .95);
     let txt;
-    if (v.d !== 1) {
+    if (v.d !== 1 && !p.dec) {
       const fs = r * .44;
       txt = `<text x="${x}" y="${y - fs * .62}" font-size="${fs}" fill="${ink}">${v.n < 0 ? '−' : ''}${Math.abs(v.n)}</text><line x1="${x - r * .3}" x2="${x + r * .3}" y1="${y}" y2="${y}" stroke="${ink}" stroke-width="${kids ? 4 : 2}" stroke-linecap="round"/><text x="${x}" y="${y + fs * .66}" font-size="${fs}" fill="${ink}">${v.d}</text>`;
     } else {
@@ -669,10 +874,12 @@ const wireSwitch = () => on('[data-switch]', () => { stack = [{ name: 'choose' }
 
 // ================= KIDS =================
 const WORLDS = [
-  { id: 'add', title: T.worlds.add[0], glyph: '+', c: '#FFD84D', l: '#E0B21A', tiers: 6, free: 3, stickers: T.worlds.add[1] },
-  { id: 'mul', title: T.worlds.mul[0], glyph: '×', c: '#7EE8C6', l: '#3FC497', tiers: 6, free: 2, stickers: T.worlds.mul[1] },
-  { id: 'frac', title: T.worlds.frac[0], glyph: '½', c: '#FFA8D2', l: '#EB72AC', tiers: 4, free: 1, stickers: T.worlds.frac[1] },
-  { id: 'hive', title: T.worlds.hive[0], glyph: 'hex', c: '#8FD3FF', l: '#4FAEE8', tiers: 3, free: 1, stickers: T.worlds.hive[1] },
+  { id: 'add', title: T.worlds.add[0], glyph: '+', c: '#FFD84D', l: '#E0B21A', tiers: 8, free: 3, stickers: T.worlds.add[1] },
+  { id: 'mul', title: T.worlds.mul[0], glyph: '×', c: '#7EE8C6', l: '#3FC497', tiers: 7, free: 2, stickers: T.worlds.mul[1] },
+  { id: 'frac', title: T.worlds.frac[0], glyph: '½', c: '#FFA8D2', l: '#EB72AC', tiers: 6, free: 1, stickers: T.worlds.frac[1] },
+  { id: 'tens', title: T.worlds.tens[0], glyph: '10', c: '#FFB37A', l: '#EE8A3E', tiers: 5, free: 1, stickers: T.worlds.tens[1] },
+  { id: 'dec', title: T.worlds.dec[0], glyph: `0${T.decSep}5`, c: '#C6B2FF', l: '#9A80F2', tiers: 4, free: 1, stickers: T.worlds.dec[1] },
+  { id: 'hive', title: T.worlds.hive[0], glyph: '⬢', c: '#8FD3FF', l: '#4FAEE8', tiers: 5, free: 1, stickers: T.worlds.hive[1] },
 ];
 const wOf = id => WORLDS.find(w => w.id === id);
 const KK = 'beequation.kids.v1';
@@ -713,7 +920,7 @@ function k_home() {
     <button class="candy big k-grape" data-play>${I.play} ${T.play}</button>
     <div class="worlds">${WORLDS.map(w => {
       const earned = Array.from({ length: w.tiers }, (_, i) => K.stars[`${w.id}-${i + 1}`] || 0).reduce((a, b) => a + b, 0);
-      const g = w.glyph === 'hex' ? '<svg width="30" height="34" viewBox="0 0 30 34"><polygon points="15,2 28,9.5 28,24.5 15,32 2,24.5 2,9.5" fill="#fff" stroke="#1C1A4A" stroke-width="3" stroke-linejoin="round"/></svg>' : `<span class="glyph">${w.glyph}</span>`;
+      const g = `<span class="glyph">${w.glyph}</span>`;
       return `<button class="candy world" style="--c:${w.c};--l:${w.l}" data-world="${w.id}">${g}<b>${w.title}</b><small>${kStatus(w.id, 1) === 'paid' ? T.unlock : T.starsOf(earned, w.tiers * 3)}</small></button>`;
     }).join('')}</div>
     <button class="candy k-white" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px" data-daily>${I.cal}<span class="grow" style="text-align:left">${T.today}</span><span class="soft">${done ? T.doneTick : T.isNew}</span></button>
@@ -768,7 +975,7 @@ function k_game(r) {
       <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
-      ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? fmt(v) : '?'}</text>`)).join('')}</div>` : ''}
+      ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? showCell(v, item.final) : '?'}</text>`)).join('')}</div>` : ''}
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
       <div class="row" style="align-items:flex-end;gap:8px">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px" aria-live="polite">${say}</div></div>
       <button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button>
@@ -778,13 +985,13 @@ function k_game(r) {
   function hint(auto) {
     if (busy || Object.values(marks).includes('hint')) return;
     if (!auto) hints++;
-    const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = T.psst(fmt(p.cells[p.pair[0]])); draw();
+    const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = T.psst(showCell(p.cells[p.pair[0]], p)); draw();
   }
   function tap(i) {
     if (busy || done) return;
     const p = cur();
     if (i === p.answer) {
-      marks = { [p.pair[0]]: 'pair', [p.pair[1]]: 'pair', [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${equation(p)}`; busy = true; draw();
+      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${showEquation(p)}`; busy = true; draw();
       setTimeout(advance, 1100);
     } else {
       mistakes++; say = T.oops;
@@ -867,7 +1074,7 @@ const AK = 'beequation.adult.v1';
 let P = load(AK, { full: false, stars: {}, blitz: {}, daily: {} });
 const aSave = () => store(AK, P);
 const aStatus = (mode, t) => (!level(mode, t).free && !P.full) ? 'paid' : (t === 1 || (P.stars[`${mode}-${t - 1}`] || 0) > 0) ? 'open' : 'locked';
-const PRACTICE = [['add', '+', T.modes.add[0]], ['mul', '×', T.modes.mul[0]], ['neg', '−', T.modes.neg[0]], ['frac', '½', T.modes.frac[0]], ['mixed', '±', T.modes.mixed[0]]];
+const PRACTICE = [['add', '+', T.modes.add[0]], ['mul', '×', T.modes.mul[0]], ['neg', '−', T.modes.neg[0]], ['frac', '½', T.modes.frac[0]], ['mixed', '±', T.modes.mixed[0]], ['dec', `${T.decSep}5`, T.modes.dec[0]], ['trio', '∑', T.modes.trio[0]]];
 const LAUNCH = new Date(2026, 10, 1);   // 1 November 2026: Daily Pro "Hive No. 1", the same as the Pro app (apps/adult/src/catalog.ts)
 const dailyNo = (d = new Date()) => Math.max(1, Math.round((new Date(d.getFullYear(), d.getMonth(), d.getDate()) - LAUNCH) / 864e5) + 1);
 const streak = () => { let d = P.daily[dayKey()] ? new Date() : addDays(new Date(), -1), n = 0; while (P.daily[dayKey(d)]) { n++; d = addDays(d, -1); } return n; };
@@ -889,7 +1096,7 @@ function a_home() {
       <button class="tile" data-hive>${I.hex('currentColor')}<b>${T.modes.hive[0]}</b><small>${T.hiveSub}</small></button></div>
     <div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:18px">${T.practice}</b><span class="mute" style="font-size:14px">${T.highest}</span></div>
     <div class="list" style="margin-top:10px">${PRACTICE.map(([id, g, t]) => {
-      const ls = levelsFor(id), d = ls.filter(l => (P.stars[l.id] || 0) > 0);
+      const ls = uiLevelsFor(id), d = ls.filter(l => (P.stars[l.id] || 0) > 0);
       return `<button class="li" data-mode="${id}">${hexIcon(32, 'var(--a-ink)', g, 'var(--a-ground)')}<span class="grow"><span class="row" style="justify-content:space-between"><b style="font-weight:600">${t}</b><span class="mute" style="font-size:14px">${d.length ? d[d.length - 1].name : T.notStarted}</span></span><div class="bar"><i style="width:${d.length / ls.length * 100}%"></i></div></span></button>`;
     }).join('')}</div>
     ${switchLink()}
@@ -904,9 +1111,9 @@ function a_home() {
 }
 
 function a_levels(r) {
-  const m = MODES.find(x => x.id === r.mode);
-  h(`<div class="stack">${aTop(m.title)}<p class="mute" style="font-size:15px">${T.rounds(m.tagline, r.mode === 'hive')}</p>
-    <div class="lv-grid">${levelsFor(r.mode).map(l => {
+  const [title, tagline] = T.modes[r.mode];
+  h(`<div class="stack">${aTop(title)}<p class="mute" style="font-size:15px">${T.rounds(tagline, r.mode === 'hive')}</p>
+    <div class="lv-grid">${uiLevelsFor(r.mode).map(l => {
       const st = aStatus(r.mode, l.tier), s = P.stars[l.id] || 0;
       return `<button class="lv ${st === 'open' ? '' : 'off'}" data-t="${l.tier}" data-st="${st}" aria-label="${T.aLevelAria(l.tier, l.name, st, s)}">
         <div class="n">${l.tier}</div><b style="font-size:18px">${l.name}</b><div class="mute" style="font-size:13px">${T.cellsAges(l.size, l.ages)}</div>
@@ -919,7 +1126,7 @@ function a_levels(r) {
 function a_blitz() {
   h(`<div class="stack">${aTop(T.blitzTitle)}<p class="mute" style="font-size:15px;line-height:1.45">${T.blitzHow}</p>
     <div class="list">${PRACTICE.map(([id, g, t]) => {
-      const tier = Math.max(1, ...levelsFor(id).map(l => l.tier).filter(x => aStatus(id, x) === 'open')), L = level(id, tier);
+      const tier = Math.max(1, ...levelsFor(id).map(l => l.tier).filter(x => aStatus(id, x) === 'open')), L = uiLevel(id, tier);
       return `<button class="li" style="min-height:64px" data-m="${id}" data-t="${tier}">${hexIcon(34, '#2B50E8', g)}<span class="grow"><b style="font-weight:600;display:block">${t}</b><span class="mute" style="font-size:13px">${T.nameLevel(L.name, tier)}</span></span><b style="font-weight:600">${T.best(P.blitz[L.id] || 0)}</b></button>`;
     }).join('')}</div></div>`);
   on('[data-back]', back);
@@ -927,7 +1134,7 @@ function a_blitz() {
 }
 
 function a_game(r) {
-  const L = level(r.mode, r.tier), blitz = r.kind === 'blitz';
+  const L = uiLevel(r.mode, r.tier), blitz = r.kind === 'blitz';
   const rng = r.kind === 'daily' ? dailyRng(dayKey(), 'pro') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, slips = [], curSlips = 0, run = 0, marks = {}, eq = '', busy = false, done = false;
   const startAt = Date.now(); let endAt = Date.now() + 60000;
@@ -940,9 +1147,9 @@ function a_game(r) {
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? T.solvedWord : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</div></div>
         <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
       ${blitz ? `<div class="timer"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
-      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? T.smallComb(stage + 1) : T.finalComb) : T.aAsk(`<b style="color:var(--honey)">${p.op === 'add' ? T.addUpTo : T.multiplyTo}</b>`)}</span>
+      <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? T.smallComb(stage + 1) : T.finalComb) : p.pair.length === 3 ? emphasis(T.trioAsk) : T.aAsk(`<b style="color:var(--honey)">${p.op === 'add' ? T.addUpTo : T.multiplyTo}</b>`)}</span>
         ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${T.inARow(run)}</span>` : ''}</div>
-      ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? fmt(v) : '?'}</div>`).join('')}</div>` : ''}
+      ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? showCell(v, item.final) : '?'}</div>`).join('')}</div>` : ''}
       <div class="eqline" aria-live="polite">${eq}</div>
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .4 : .48), 'adult')}</div>
       ${blitz ? `<p style="text-align:center;font-size:14px;color:var(--night-mute)">${T.wrongCosts}</p>` : ''}
@@ -954,7 +1161,7 @@ function a_game(r) {
     const p = cur();
     if (i === p.answer) {
       run = curSlips === 0 ? run + 1 : 1;
-      marks = { [p.pair[0]]: 'pair', [p.pair[1]]: 'pair', [i]: 'correct' }; eq = equation(p); busy = true; draw();
+      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; eq = showEquation(p); busy = true; draw();
       setTimeout(advance, blitz ? 320 : 600);
     } else {
       curSlips++; run = 0; if (blitz) endAt -= 2000;
@@ -991,7 +1198,7 @@ function a_game(r) {
 }
 
 function a_result(r) {
-  const x = r.res, L = level(x.mode, x.tier), isDaily = x.kind === 'daily', isBlitz = x.kind === 'blitz';
+  const x = r.res, L = uiLevel(x.mode, x.tier), isDaily = x.kind === 'daily', isBlitz = x.kind === 'blitz';
   const no = dailyNo(new Date(x.dateKey + 'T12:00')), s = streak();
   const maxT = MODES.find(m => m.id === x.mode).tiers, next = x.kind === 'round' && x.tier < maxT ? x.tier + 1 : null;
   const prevKeys = Object.keys(P.daily).filter(k => k < x.dateKey).sort(), prev = prevKeys.length ? P.daily[prevKeys[prevKeys.length - 1]].seconds : null;
@@ -1011,14 +1218,14 @@ function a_result(r) {
       <div class="week">${week.map((d, i) => `<div>${hexSVG(30, P.daily[dayKey(d)] ? (i === 6 ? '#2B50E8' : 'var(--a-ink)') : 'var(--a-line)')}<div style="margin-top:6px">${WD.format(d)}</div></div>`).join('')}</div></div>` : ''}
     <div style="margin-top:28px">
       ${isDaily || isBlitz ? `<button class="btn b-cobalt" data-share>${I.share} ${T.share}</button>` : ''}
-      ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" data-next>${T.nextName(level(x.mode, next).name, next)}</button>` : ''}
+      ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" data-next>${T.nextName(uiLevel(x.mode, next).name, next)}</button>` : ''}
       ${next && aStatus(x.mode, next) === 'paid' ? `<button class="btn b-cobalt" data-unlock>${T.unlockNext}</button>` : ''}
       ${!isDaily ? `<button class="btn b-plain" style="margin-top:12px" data-again>${T.again}</button>` : `<button class="btn b-plain" style="margin-top:12px" data-toblitz>${T.playBlitz}</button>`}
     </div></div>`);
   on('[data-back]', back);
   on('[data-share]', async () => {
     const grid = [x.slips.slice(0, 5), x.slips.slice(5, 10)].filter(a => a.length).map(a => a.map(slipE).join('')).join('\n');
-    const text = isDaily ? `${T.shareNo(no)}  ${fmtTime(x.seconds)}\n${grid}` : T.shareBlitz(x.solved, MODES.find(m => m.id === x.mode).title, L.name);
+    const text = isDaily ? `${T.shareNo(no)}  ${fmtTime(x.seconds)}\n${grid}` : T.shareBlitz(x.solved, T.modes[x.mode][0], L.name);
     try { if (navigator.share) await navigator.share({ text }); else { await navigator.clipboard.writeText(text); toast(T.copied); } } catch (e) {}
   });
   on('[data-next]', () => replace({ name: 'a_game', mode: x.mode, tier: next, kind: 'round' }));
@@ -1028,7 +1235,8 @@ function a_result(r) {
 }
 
 function a_settings() {
-  const total = MODES.reduce((n, m) => n + levelsFor(m.id).length, 0), free = MODES.reduce((n, m) => n + levelsFor(m.id).filter(l => l.free).length, 0);
+  const proModes = MODES.filter(m => !m.kidsOnly);
+  const total = proModes.reduce((n, m) => n + levelsFor(m.id).length, 0), free = proModes.reduce((n, m) => n + levelsFor(m.id).filter(l => l.free).length, 0);
   h(`<div class="stack">${aTop(T.settings)}
     <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? T.fullVersion : T.aAll(total)}</h2>
       <p style="font-size:16px;line-height:1.45">${P.full ? T.aThanks : T.aFree(free)}</p>
