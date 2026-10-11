@@ -16,6 +16,22 @@ Company details (number 17310137, registered office from Companies House) and th
 Update the "Last updated" date on privacy.html or terms.html (and in i18n/*.json) whenever either changes.
 When the apps are live, swap the "coming soon" tags on the home page for App Store and Google Play links.
 
+## Smart link: /get
+
+Use `https://beequation.com/get/kids/?c=tiktok-daily` or
+`https://beequation.com/get/pro/?c=x-daily&m=social`. The path selects the app first, then
+`?app=kids|pro`; `/get` defaults to Kids. Campaign `c` and optional medium `m` accept 1–40
+lowercase letters, digits or hyphens, defaulting to `direct` and `link`. The source is the
+campaign's first part before a hyphen.
+
+Before launch, visitors open the browser game in their preferred language with the chosen app
+and UTM parameters. At launch, fill in both numeric iOS IDs in `STORES`, confirm the Android
+package names, optionally set `APPLE_PT`, and enable `LIVE.ios` and/or `LIVE.android` only when
+that store's pages are live for both apps. Apply the same config to all three identical files:
+`get/index.html`, `get/kids/index.html` and `get/pro/index.html`. Phones and tablets then open
+their live store; desktops open the localized `#apps` section once both stores are live.
+The pages use only inline code and a local favicon; there is no build step or third-party resource.
+
 ## Hosting on GitHub Pages (free)
 1. Create a public repo, for example Trettbob/beequation.com, and push these files (the `CNAME` file is already set to beequation.com).
 2. Repo Settings, then Pages: deploy from branch `main`, folder `/`.
