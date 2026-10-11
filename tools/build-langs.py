@@ -208,12 +208,20 @@ EMAIL = """<!--em--><script>document.querySelectorAll('a.em[data-e]').forEach(fu
 # this choice itself (bq-consent). "Don't remember anything" deletes those and stops them being saved (play.html and
 # the language scripts check bq-consent). The privacy page has a button (data-bq-consent) to show the notice again.
 CONSENT_TEXT = {
-  'en': ["Indie's note about cookies", "Good news: this site doesn't use cookies, ads or tracking (the only cookies here are the ones I dream about). If you play the free game or pick a language, your browser can remember that on this device. Nothing is ever sent to us.", "Sounds good!", "Don't remember anything", "Privacy policy"],
-  'fr': ["Le petit mot d'Indie sur les cookies", "Bonne nouvelle : ce site n'utilise ni cookies, ni publicité, ni pistage (les seuls cookies ici sont ceux dont je rêve). Si vous jouez au jeu gratuit ou choisissez une langue, votre navigateur peut s'en souvenir sur cet appareil. Rien ne nous est jamais envoyé.", "Très bien !", "Ne rien mémoriser", "Politique de confidentialité"],
-  'es': ["La nota de Indie sobre las cookies", "Buenas noticias: este sitio no usa cookies, anuncios ni rastreo (las únicas galletas aquí son las que yo sueño). Si juegas al juego gratis o eliges un idioma, tu navegador puede recordarlo en este dispositivo. Nunca se nos envía nada.", "¡Perfecto!", "No recordar nada", "Política de privacidad"],
-  'de': ["Indies Hinweis zu Cookies", "Gute Nachricht: Diese Website verwendet keine Cookies, keine Werbung und kein Tracking (die einzigen Kekse hier sind die, von denen ich träume). Wenn Sie das kostenlose Spiel spielen oder eine Sprache wählen, kann sich Ihr Browser das auf diesem Gerät merken. Es wird nie etwas an uns gesendet.", "Alles klar!", "Nichts speichern", "Datenschutzerklärung"],
-  'pt': ["O recado da Indie sobre cookies", "Boa notícia: este site não usa cookies, anúncios nem rastreamento (os únicos biscoitos aqui são os dos meus sonhos). Se você jogar o jogo grátis ou escolher um idioma, seu navegador pode lembrar disso neste aparelho. Nada é enviado para nós.", "Tudo bem!", "Não lembrar nada", "Política de privacidade"],
+  'en': ["Indie's note about cookies", "May we count visits? Only if you say yes, Google Analytics sets cookies so we can see which pages help families most. It's never used for ads. Your game progress and language are kept on this device either way, and never sent to us.", "Yes, that's fine", "No thanks", "Privacy policy"],
+  'fr': ["Le petit mot d'Indie sur les cookies", "Pouvons-nous compter les visites ? Seulement si vous dites oui, Google Analytics dépose des cookies pour nous montrer quelles pages aident le plus les familles. Jamais pour de la publicité. Votre progression dans le jeu et votre langue restent sur cet appareil dans tous les cas, et ne nous sont jamais envoyées.", "Oui, d'accord", "Non merci", "Politique de confidentialité"],
+  'es': ["La nota de Indie sobre las cookies", "¿Podemos contar las visitas? Solo si dices que sí, Google Analytics usa cookies para que veamos qué páginas ayudan más a las familias. Nunca se usa para anuncios. Tu progreso en el juego y tu idioma se guardan en este dispositivo en cualquier caso y nunca se nos envían.", "Sí, de acuerdo", "No, gracias", "Política de privacidad"],
+  'de': ["Indies Hinweis zu Cookies", "Dürfen wir Besuche zählen? Nur wenn Sie zustimmen, setzt Google Analytics Cookies, damit wir sehen, welche Seiten Familien am meisten helfen. Nie für Werbung. Ihr Spielfortschritt und Ihre Sprache bleiben in jedem Fall auf diesem Gerät und werden nie an uns gesendet.", "Ja, einverstanden", "Nein, danke", "Datenschutzerklärung"],
+  'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics usa cookies para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
 }
+# Google Analytics (Lee's decision, 2026-10-11): loaded only after a visitor says yes in the cookie note
+# ('bq-consent' = 'all'), with Google signals and ad personalisation off; never on the game page (play.html).
+GA_ID = 'G-3YFSG10Q1W'
+GA = """<!--ga--><script>(function(){var ID='__GA__',on=false;function ok(){try{return localStorage.getItem('bq-consent')==='all';}catch(e){return false;}}
+function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);}
+load();document.addEventListener('bq-consent',load);})();</script><!--/ga-->""".replace('__GA__', GA_ID)
 CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'
@@ -226,10 +234,14 @@ var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',bee='<svg viewB
 function show(){if(document.querySelector('.bq-ok'))return;var d=document.createElement('section');d.className='bq-ok';d.setAttribute('role','region');d.setAttribute('aria-labelledby','bq-ok-h');
 d.innerHTML=bee+'<div><h2 id="bq-ok-h"></h2><p></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button><a href="/privacy.html"></a></div></div>';
 var q=function(s){return d.querySelector(s);};q('h2').textContent=T[0];q('p').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
-function pick(v){try{if(v==='no'){['beequation.kids.v1','beequation.adult.v1','bq-lang'].forEach(function(x){ls.removeItem(x);});}ls.setItem('bq-consent',v);}catch(e){}d.remove();}
-q('.y').addEventListener('click',function(){pick('yes');});q('.n').addEventListener('click',function(){pick('no');});document.body.appendChild(d);}
+function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
+q('.y').addEventListener('click',function(){pick('all');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
-if(!ls.getItem('bq-consent'))show();})();</script><!--/consent-->"""
+// 'all' = Google Analytics allowed; 'basic' = no analytics. Anything else (no answer, or an answer from before
+// analytics) asks again. Saying no later stops GA and deletes its cookies.
+function noGA(){window['ga-disable-__GA__']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();
+if(/^_ga/.test(n))['',';domain=.beequation.com',';domain='+location.hostname].forEach(function(dm){document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+dm;});});}
+var v=ls.getItem('bq-consent');if(v!=='all'&&v!=='basic')show();})();</script><!--/consent-->"""
 
 # ---------- the site header ----------
 # One floating "pill" header for every page (the English pages, every Learn page and each language site), made by
@@ -682,7 +694,7 @@ def strip_markers(s):
     (pages from before the header had <div class="wrap"><nav class="top">…</nav></div> there instead)."""
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
-    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip',
+    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
               'drip'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     return s
@@ -719,7 +731,8 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace('</head>', nav_head() + '\n</head>', 1)
         s = s.replace('</body>', NAV + '\n</body>', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
-    s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)) + '\n</body>', 1)
+    s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
+    s = s.replace('</body>', GA + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
     if lang == 'en':
         if page in PAGES and LIVE:

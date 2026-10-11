@@ -124,7 +124,6 @@
  "Privacy policy: Beequation": "プライバシーポリシー：Beequation",
  "How Beequation Pro and Beequation Kids handle your data: they collect none. No accounts, ads, analytics or tracking.": "Beequation ProとBeequation Kidsのデータの扱いについて：データは一切収集しません。アカウント、広告、アクセス解析、トラッキングはありません。",
  "Privacy policy": "プライバシーポリシー",
- "<i>Last updated: 9 October 2026</i>": "<i>最終更新日：2026年10月9日</i>",
  "Beequation Pro and Beequation Kids (&quot;the apps&quot;) are published by <b>Trett Labs Limited</b>, a company registered in England and Wales (company number 17310137), registered office The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom (&quot;we&quot;, &quot;us&quot;).": "Beequation ProおよびBeequation Kids（以下「本アプリ」）は、イングランドおよびウェールズで登記された<b>Trett Labs Limited</b>（会社番号17310137、登記上の住所：The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom、以下「当社」）が提供しています。",
  "What we collect": "収集する情報",
  "<b>Nothing.</b> The apps have no accounts, advertising, analytics or tracking, and send no personal data to us or to anyone else.": "<b>ありません。</b>本アプリにはアカウント、広告、アクセス解析、トラッキングの仕組みがなく、当社にもその他の第三者にも個人データを送信しません。",
@@ -144,7 +143,6 @@
  "If this policy changes, we will update the date above and the policy in the apps&#x27; store listings.": "このポリシーを変更する場合は、上記の日付と、各ストアのアプリ掲載ページにあるポリシーを更新します。この日本語訳は参考のためのものです。内容に相違がある場合は英語版が優先されます。",
  "Contact: Trett Labs Limited, <a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">email address</a>": "お問い合わせ：Trett Labs Limited、<a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">メールアドレス</a>",
  "This website": "本ウェブサイト",
- "beequation.com uses no cookies, analytics or tracking. Your browser can keep a few things on this device, and nothing is sent to us: your progress in the free browser game, the language you choose from the language menu, and your answer to Indie's cookie note. Choose “Don't remember anything” to delete them and stop them being saved, and change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.": "beequation.comはCookie、アクセス解析、トラッキングを使用していません。お使いのブラウザがこの端末内にいくつかの情報を保存することがありますが、当社には何も送信されません。保存されるのは、無料のブラウザ版ゲームの記録、言語メニューで選んだ言語、そしてインディのCookieに関するお知らせへの回答です。「何も記録しない」を選ぶとこれらが削除され、以後は保存されません。このボタンでいつでも選択を変更できます：<button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">選択を変更する</button>。当社のウェブホスティング事業者は、セキュリティのためにIPアドレスなどの標準的なサーバーログを保存することがあります。",
  "Terms of use: Beequation": "利用規約：Beequation",
  "Terms of use for Beequation Pro and Beequation Kids, including subscriptions, free trials, Lifetime purchases and promo codes.": "Beequation ProとBeequation Kidsの利用規約。サブスクリプション、無料トライアル、買い切り版、プロモーションコードについて。",
  "Terms of use": "利用規約",
@@ -236,10 +234,10 @@
    ]
   },
   "consent": [
-   "インディからのCookieのお知らせ",
-   "うれしいお知らせです。このサイトはCookie、広告、トラッキングを使っていません（ここにあるクッキーといえば、わたしが夢に見るおかしのクッキーだけ）。無料ゲームで遊んだり言語を選んだりすると、お使いのブラウザがこの端末にその内容を記憶することがあります。私たちに何かが送られることは一切ありません。",
-   "わかりました！",
-   "何も記録しない",
+   "インディからクッキーについてのお知らせ",
+   "アクセス数をかぞえてもいいですか？「はい」を選んだときだけ、Google アナリティクスがクッキーを使い、どのページがご家庭の役に立っているかを調べます。広告には一切使いません。ゲームの進み具合と言語の設定は、どちらを選んでもこの端末に保存され、私たちに送られることはありません。",
+   "はい、どうぞ",
+   "いいえ",
    "プライバシーポリシー"
   ],
   "menu": "メニュー",
@@ -273,5 +271,8 @@
  "Beequation is a mental maths puzzle game. Every honeycomb hides one number that two others add up to, or multiply to. Find it and tap it.": "Beequationは暗算パズルゲームです。どのハニカムにも、ほかの2つの数をたす、またはかけるとできる数が1つ隠れています。その数を見つけてタップしましょう。",
  "Choose <b>Beequation Kids</b> (ages 5 to 12, with Indie the bee, stars and stickers and no clock) or <b>Beequation Pro</b> for teens and adults (a Daily Pro puzzle, a 60-second blitz and expert levels). It's free, there's no sign-up, and your progress is saved in this browser only.": "<b>Beequation Kids</b>（5〜12歳向け。ミツバチのインディ、星、シールつきで、時間制限なし）か、中高生・大人向けの<b>Beequation Pro</b>（デイリーチャレンジ、60秒アタック、エキスパートレベル）を選んでください。無料で、登録も不要。記録はこのブラウザにだけ保存されます。",
  "<a href=\"/how-to-play.html\">How to play</a> · <a href=\"/teachers.html\">Free puzzles for teachers</a> · <a href=\"/\">Beequation home</a>": "<a href=\"/how-to-play.html\">遊び方</a> · <a href=\"/teachers.html\">先生向けの無料パズル</a> · <a href=\"/\">Beequationホーム</a>",
- "<b>The game needs JavaScript.</b> Turn it on in your browser to play.": "<b>このゲームにはJavaScriptが必要です。</b>ブラウザでJavaScriptを有効にしてからプレイしてください。"
+ "<b>The game needs JavaScript.</b> Turn it on in your browser to play.": "<b>このゲームにはJavaScriptが必要です。</b>ブラウザでJavaScriptを有効にしてからプレイしてください。",
+ "beequation.com uses Google Analytics only if you say yes in Indie's cookie note. Then Google Analytics sets cookies, and Google receives information about your visit, such as the pages you view, your device and browser, and your approximate location. We use it only to see which pages are useful; Google processes it for us under its data processing terms (possibly outside the UK) and keeps it for 2 months. Google signals and advertising features are turned off, and the browser game page has no analytics at all. If you say no, no analytics cookies are set. Either way, your browser keeps a few things on this device that are never sent to us: your progress in the free browser game, the language you choose and your cookie choice. Change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.": "beequation.com では、インディのクッキーのお知らせで「はい」を選んだ場合にだけ Google アナリティクスを使います。その場合、Google アナリティクスがクッキーを使い、Google はご訪問についての情報（ご覧になったページ、端末やブラウザ、おおよその地域など）を受け取ります。私たちはどのページが役に立っているかを知るためだけにこれを使います。Google はデータ処理規約に基づいて私たちの代わりに情報を処理し（英国外で処理される場合があります）、2か月間保存します。Google シグナルと広告機能はオフにしており、ブラウザゲームのページでは分析を一切行いません。「いいえ」を選んだ場合、分析用のクッキーは使われません。どちらを選んでも、ブラウザはこの端末にいくつかの情報を保存しますが、私たちに送られることはありません。無料のブラウザゲームの進み具合、選んだ言語、クッキーについての選択です。選択はこのボタンでいつでも変更できます：<button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">選択を変更する</button>。ウェブサイトのホスティング事業者は、安全のために IP アドレスなどの通常のサーバーログを保存することがあります。",
+ "<i>Last updated: 11 October 2026</i>": "<i>最終更新日：2026年10月11日</i>",
+ "<i>Last updated: 9 October 2026</i>": "<i>最終更新日：2026年10月9日</i>"
 }

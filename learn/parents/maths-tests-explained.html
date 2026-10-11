@@ -451,7 +451,7 @@ var inH=0;h.addEventListener('focusin',function(){inH=1;});h.addEventListener('f
 D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
 on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
 var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->
-<!--consent--><script>(function(){var T=["Indie's note about cookies", "Good news: this site doesn't use cookies, ads or tracking (the only cookies here are the ones I dream about). If you play the free game or pick a language, your browser can remember that on this device. Nothing is ever sent to us.", "Sounds good!", "Don't remember anything", "Privacy policy"],ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
+<!--consent--><script>(function(){var T=["Indie's note about cookies", "May we count visits? Only if you say yes, Google Analytics sets cookies so we can see which pages help families most. It's never used for ads. Your game progress and language are kept on this device either way, and never sent to us.", "Yes, that's fine", "No thanks", "Privacy policy"],ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'
 +'.bq-ok .go{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.bq-ok button{font:700 15px/1 inherit;font-family:inherit;border:0;border-radius:12px;padding:11px 14px;cursor:pointer}'
@@ -463,10 +463,19 @@ var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',bee='<svg viewB
 function show(){if(document.querySelector('.bq-ok'))return;var d=document.createElement('section');d.className='bq-ok';d.setAttribute('role','region');d.setAttribute('aria-labelledby','bq-ok-h');
 d.innerHTML=bee+'<div><h2 id="bq-ok-h"></h2><p></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button><a href="/privacy.html"></a></div></div>';
 var q=function(s){return d.querySelector(s);};q('h2').textContent=T[0];q('p').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
-function pick(v){try{if(v==='no'){['beequation.kids.v1','beequation.adult.v1','bq-lang'].forEach(function(x){ls.removeItem(x);});}ls.setItem('bq-consent',v);}catch(e){}d.remove();}
-q('.y').addEventListener('click',function(){pick('yes');});q('.n').addEventListener('click',function(){pick('no');});document.body.appendChild(d);}
+function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
+q('.y').addEventListener('click',function(){pick('all');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
-if(!ls.getItem('bq-consent'))show();})();</script><!--/consent-->
+// 'all' = Google Analytics allowed; 'basic' = no analytics. Anything else (no answer, or an answer from before
+// analytics) asks again. Saying no later stops GA and deletes its cookies.
+function noGA(){window['ga-disable-G-3YFSG10Q1W']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();
+if(/^_ga/.test(n))['',';domain=.beequation.com',';domain='+location.hostname].forEach(function(dm){document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+dm;});});}
+var v=ls.getItem('bq-consent');if(v!=='all'&&v!=='basic')show();})();</script><!--/consent-->
+<!--ga--><script>(function(){var ID='G-3YFSG10Q1W',on=false;function ok(){try{return localStorage.getItem('bq-consent')==='all';}catch(e){return false;}}
+function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);}
+load();document.addEventListener('bq-consent',load);})();</script><!--/ga-->
 <!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var SAY={"fly": ["Catch me if you can!", "Hi! I'm Indie!", "Buzz buzz!", "Wheee!", "Maths is sweet!", "Can you spot the sum?", "7 + 3 = 10!"], "held": ["You caught me!", "Hee hee, that tickles!", "Good catch!", "Oh! Hello there!"], "flip": ["Wheee!", "Loop the loop!", "Woo-hoo!"], "peek": ["Peekaboo!", "Psst! Over here!", "Hello down there!", "Spot the sum!"], "boo": ["Boo!", "Eek! Found me!"], "pollen": ["Mmm, pollen!", "Sunflower snack!", "Yum!"], "home": ["Home sweet hive!", "Honey time!"], "free": ["Bye!", "Wheee!", "See you soon!"]},k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
 +'<defs><clipPath id="bqhb"><path d="'+hx+'"/></clipPath></defs>'
