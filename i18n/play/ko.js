@@ -1,4 +1,16 @@
 const T = {
+  lastResult: "최근 결과",
+  readNumbers: "모든 수 읽기",
+  boardLabel: "벌집의 수",
+  vibration: "진동",
+  keyboardTitle: "화면 읽기 프로그램이나 키보드로 이용하기",
+  keyboardHelp: "Tab으로 벌집에 들어가세요. 방향키로 수 사이를 이동하고 Home과 End로 첫 번째와 마지막 수로 이동해요. Enter나 스페이스로 선택해요. 게임 안에서 R을 누르면 모든 수를 행별로 읽어요. Escape는 이전 화면으로 돌아가요. 벌집 뒤의 최근 결과에는 각 메시지가 남아 있으며, Tab이나 화면 읽기 프로그램의 읽기 커서로 이동할 수 있어요.",
+  noClock: "서두르지 않아도 돼요. Kids, 각 레벨과 일일 퍼즐에는 시간 제한이 없어요. Blitz에만 카운트다운이 있어요.",
+  vibrationHelp: "지원하는 기기에서는 여기서 진동을 끌 수 있어요. 새 퍼즐: 10밀리초 진동, 정답: 40밀리초 진동 한 번, 오답: 60밀리초 간격으로 40밀리초 진동 두 번, 라운드 종료나 시간 종료: 300밀리초 진동 한 번.",
+  readRow: (n, values) => `${n}행: ${values}.`,
+  cellPosition: (value, row, col) => `${value}, ${row}행 ${col}열`,
+  timeRemaining: (n) => `${n}초 남았어요.`,
+  timeUp: "시간이 끝났어요.",
   locale: 'ko',
   decSep: ".",
   // Fractions: the game reads "3/4" as label.replace('/', T.over), which keeps the numerator first. Korean reads the

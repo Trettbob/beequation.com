@@ -72,11 +72,24 @@ body.grape { background: var(--grape); color: #fff; }
 #app { max-width: 460px; margin: 0 auto; padding: 18px 20px 28px; min-height: 100vh; position: relative; overflow-x: hidden; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; }
 button:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
-/* Hexagon cells: no square focus box; keyboard focus outlines the hexagon itself. */
+/* Two contrasting hexagon outlines stay inside the board, above its artwork. */
 .cell, .cell:focus { outline: none; }
-.cell:focus-visible .face { stroke: var(--cobalt); stroke-width: 5; stroke-linejoin: round; }
-.kids .cell:focus-visible .face { stroke: #1C1A4A; }
-.night .cell:focus-visible .face { stroke: #FFB020; }
+.cell .focus-edge { visibility: hidden; stroke-width: 0; pointer-events: none; }
+.cell:focus-visible .focus-edge { visibility: visible; stroke-width: 5; }
+.cell:focus-visible .focus-light { stroke-width: 10; }
+.cell:focus { scroll-margin: 20px; }
+@media (forced-colors: active) { .cell:focus .focus-edge { visibility: visible; stroke: Highlight; stroke-width: 5; } }
+#game-status { margin: 16px 0; padding: 12px 14px; border-radius: 12px; background: var(--a-card); color: var(--a-ink); font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+.kids #game-status { background: var(--k-card); color: var(--k-ink); }
+.night #game-status { background: var(--night-cell); color: var(--night-ink); }
+#game-status:has(span:empty) { padding: 0; margin: 0; }
+#game-status:focus-visible, summary:focus-visible, input:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+.night #game-status:focus-visible, .night summary:focus-visible { outline-color: #FFB020; }
+.game-help { font-size: 16px; line-height: 1.5; }
+.game-help summary { cursor: pointer; padding: 12px 0; }
+.game-help p + p { margin-top: 12px; }
+.vibration-setting { display: flex; gap: 10px; align-items: center; min-height: 48px; }
+.vibration-setting input { width: 24px; height: 24px; flex: none; }
 .night button:focus-visible { outline-color: #FFB020; }
 h1, h2, p { margin: 0; }
 .stack > * + * { margin-top: 16px; }
@@ -198,6 +211,18 @@ h1, h2, p { margin: 0; }
 <script>
 /*T*/// Every word the game shows. Language sites swap this table for i18n/play/<code>.js (same keys) when the site is built.
 const T = {
+  lastResult: "Last result",
+  readNumbers: "Read all numbers",
+  boardLabel: "Honeycomb numbers",
+  vibration: "Vibration",
+  keyboardTitle: "Using a screen reader or keyboard",
+  keyboardHelp: "Use Tab to enter the board. Arrow keys move between numbers; Home and End go to the first and last. Enter or Space selects. Press R in the game to read all numbers, row by row. Escape goes back. The Last result line after the board keeps each message and can be reached with Tab or a screen reader’s reading cursor.",
+  noClock: "No clock to beat: Kids, levels and the daily puzzles have no time limit. Only Blitz has a countdown.",
+  vibrationHelp: "On supported devices, Vibration can be turned off here. New puzzle: a 10 ms tick; correct: one 40 ms pulse; wrong: two 40 ms pulses with a 60 ms pause; round end or time up: one 300 ms pulse.",
+  readRow: (n, values) => `Row ${n}: ${values}.`,
+  cellPosition: (value, row, col) => `${value}, row ${row}, column ${col}`,
+  timeRemaining: (n) => `${n} seconds remaining.`,
+  timeUp: "Time’s up.",
   locale: undefined,   // for dates (undefined = the browser's own)
   decSep: ".",
   indie: 'Indie the bee', back: 'Back', close: 'Close', quit: 'Quit', settings: 'Settings',
@@ -810,12 +835,77 @@ const buzz = (size, happy = false) => `<svg width="${size}" height="${(size * .8
   ${happy ? '<path d="M64.5 57 Q68 52 71.5 57" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/>' : '<circle cx="68" cy="56" r="3.6" fill="#1C1A4A"/><circle cx="69" cy="55" r="1.1" fill="#fff"/>'}
   <path d="${happy ? 'M62 65 Q69 74 76 64' : 'M63 66 Q69 71 75 65'}" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="76" cy="61" r="3" fill="#FFA8D2"/>
   <path d="M64 34 Q68 20 76 16" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="77" cy="15.5" r="3.2" fill="#1C1A4A"/><path d="M18 57 L11 60 L18 63" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round"/></svg>`;
-function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
+// This live region is created once and never replaced, including during screen changes.
+let statusLine, statusMessage, screenBefore, screenAfter;
+function ensureStatus() {
+  if (statusLine) return;
+  screenBefore = document.createElement('div'); screenAfter = document.createElement('div');
+  statusLine = document.createElement('div'); statusLine.id = 'game-status';
+  statusLine.setAttribute('role', 'status'); statusLine.setAttribute('aria-live', 'polite');
+  statusLine.setAttribute('aria-atomic', 'true'); statusLine.setAttribute('aria-label', T.lastResult);
+  statusMessage = document.createElement('span'); statusMessage.id = 'game-status-message';
+  statusLine.setAttribute('aria-describedby', statusMessage.id); statusLine.replaceChildren(statusMessage);
+  statusLine.tabIndex = -1;
+  app.replaceChildren(screenBefore, statusLine, screenAfter);
+}
+function announce(msg) { ensureStatus(); statusMessage.textContent = msg; statusLine.tabIndex = 0; }
+function toast(msg) { announce(msg); }
+const SETTINGS_KEY = 'beequation.settings.v1';
+const preferences = load(SETTINGS_KEY, { vibration: true });
+function vibrate(pattern) {
+  if (preferences.vibration && typeof navigator.vibrate === 'function') {
+    try { navigator.vibrate(pattern); } catch (e) { /* Unsupported or denied: play continues. */ }
+  }
+}
+const vibrationSetting = () => typeof navigator.vibrate === 'function' ? `<label class="vibration-setting"><input type="checkbox" data-vibration ${preferences.vibration ? 'checked' : ''}>${T.vibration}</label>` : '';
+const gameHelp = () => `<details class="game-help" data-help><summary>${T.keyboardTitle}</summary><p>${T.keyboardHelp}</p><p>${T.noClock}</p><p>${T.vibrationHelp}</p>${vibrationSetting()}</details>`;
+function wirePreferences() {
+  app.querySelectorAll('[data-vibration]').forEach(el => el.onchange = () => {
+    preferences.vibration = el.checked; store(SETTINGS_KEY, preferences);
+    if (!el.checked && typeof navigator.vibrate === 'function') { try { navigator.vibrate(0); } catch (e) {} }
+  });
+}
 
 // ---------- boards ----------
 const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1], 12: [2, 3, 2, 3, 2] };
+function boardPositions(size) {
+  const positions = [];
+  ROWS[size].forEach((n, row) => { for (let col = 0; col < n; col++) positions.push({ row, col, x: col - (n - 1) / 2 }); });
+  return positions;
+}
+function boardNeighbour(size, index, key) {
+  const positions = boardPositions(size), here = positions[index];
+  if (key === 'Home') return 0;
+  if (key === 'End') return size - 1;
+  if (key === 'ArrowLeft' || key === 'ArrowRight') {
+    const col = here.col + (key === 'ArrowLeft' ? -1 : 1);
+    const next = positions.findIndex(p => p.row === here.row && p.col === col);
+    return next < 0 ? index : next;
+  }
+  const row = here.row + (key === 'ArrowUp' ? -1 : key === 'ArrowDown' ? 1 : 0);
+  let next = index, distance = Infinity;
+  positions.forEach((p, i) => {
+    // Equal distances choose the left cell, matching the row's reading order.
+    if (p.row === row && Math.abs(p.x - here.x) < distance) { next = i; distance = Math.abs(p.x - here.x); }
+  });
+  return next;
+}
+const speakCell = (v, p) => T.frac(showCell(v, p));
+function readBoard(p) {
+  let offset = 0;
+  return ROWS[p.cells.length].map((n, row) => {
+    const values = p.cells.slice(offset, offset + n).map(v => speakCell(v, p)); offset += n;
+    return T.readRow(row + 1, values.join(', '));
+  }).join(' ');
+}
+function blitzWarning(previous, remaining) {
+  if (remaining <= 0) return null;
+  return [5, 10, 30].find(n => previous > n && remaining <= n) ?? null;
+}
+let boardIndex = 0;
 const CANDY = [['#FFD84D', '#E0B21A'], ['#7EE8C6', '#3FC497'], ['#8FD3FF', '#4FAEE8'], ['#FFA8D2', '#EB72AC'], ['#FFB37A', '#EE8A3E'], ['#C6B2FF', '#9A80F2']];
 function board(p, marks, W, maxH, skin, seed = 0) {
+  const positions = boardPositions(p.cells.length);
   const rows = ROWS[p.cells.length], kids = skin === 'kids';
   const r = Math.min(W / (Math.max(...rows) * SQ3), maxH / ((rows.length - 1) * 1.5 + 2.2), kids ? 64 : 62);
   const w = SQ3 * r, pad = kids ? 12 : 0, H = (rows.length - 1) * 1.5 * r + 2 * r + pad * 2;
@@ -847,23 +937,59 @@ function board(p, marks, W, maxH, skin, seed = 0) {
         return `<text class="sp" x="${x}" y="${y}" font-size="${r * .36}" style="--dx:${(Math.cos(a) * d).toFixed(1)}px;--dy:${(Math.sin(a) * d).toFixed(1)}px">✦</text>`;
       }).join('');
     }
-    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="0" aria-label="${T.frac(label)}">${gold}${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon class="face" points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}${tick}</g>`;
-  }).join('');
-  return `<svg class="board" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${cells}</svg>`;
-}
-function wireBoard(tap) {
-  app.querySelectorAll('.cell').forEach(g => {
-    g.onclick = () => tap(+g.dataset.i);
-    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(+g.dataset.i); } };
+    return `<g class="cell ${m}" data-i="${i}" role="button" tabindex="${i === Math.min(boardIndex, p.cells.length - 1) ? 0 : -1}" aria-label="${T.cellPosition(speakCell(v, p), positions[i].row + 1, positions[i].col + 1)}">${gold}${ring}${lip ? `<polygon points="${hexPts(x, y + 6, rr)}" fill="${lip}"/>` : ''}<polygon class="face" points="${hexPts(x, y, rr)}" fill="${fill}"/>${txt}${tick}<polygon class="focus-edge focus-light" points="${hexPts(x, y, rr * .94)}" fill="none" stroke="#fff" stroke-width="10" stroke-linejoin="round"/><polygon class="focus-edge" points="${hexPts(x, y, rr * .94)}" fill="none" stroke="#12161F" stroke-width="5" stroke-linejoin="round"/></g>`;
   });
+  let offset = 0;
+  const gridRows = rows.map(n => {
+    const row = cells.slice(offset, offset + n).map(cell => `<g role="gridcell">${cell}</g>`).join(''); offset += n;
+    return `<g role="row">${row}</g>`;
+  }).join('');
+  return `<svg class="board" role="grid" aria-label="${T.boardLabel}" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${gridRows}</svg>`;
 }
+function focusCell(index) {
+  boardIndex = index;
+  app.querySelectorAll('.cell').forEach(g => g.tabIndex = +g.dataset.i === index ? 0 : -1);
+  app.querySelector(`.cell[data-i="${index}"]`)?.focus();
+}
+function wireBoard(tap, p) {
+  app.querySelectorAll('.cell').forEach(g => {
+    g.onfocus = () => { boardIndex = +g.dataset.i; app.querySelectorAll('.cell').forEach(cell => cell.tabIndex = cell === g ? 0 : -1); };
+    g.onclick = () => { focusCell(+g.dataset.i); tap(+g.dataset.i); };
+    g.onkeydown = e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tap(+g.dataset.i); }
+      else if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) {
+        e.preventDefault(); focusCell(boardNeighbour(p.cells.length, +g.dataset.i, e.key));
+      }
+    };
+  });
+  on('[data-read]', () => announce(readBoard(p)));
+}
+const boardTools = () => `<button class="btn b-plain" data-read aria-keyshortcuts="R">${T.readNumbers}</button>${gameHelp()}`;
 
 // ---------- router ----------
 let stack = (q => q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
 const replace = r => { stack[stack.length - 1] = r; render(); };
-const h = html => { app.innerHTML = html; };
+const h = html => {
+  // Redraw only the siblings of the live region. Remember focus and open help.
+  const active = document.activeElement;
+  const focused = app.contains(active) && active !== statusLine;
+  const cell = focused && active.classList.contains('cell') ? +active.dataset.i : null;
+  const attr = focused ? Array.from(active.attributes).find(a => a.name.startsWith('data-')) : null;
+  const summary = focused && active.tagName === 'SUMMARY';
+  const heading = focused && active.tagName === 'H1';
+  const helpOpen = app.querySelector('[data-help]')?.open;
+  ensureStatus();
+  const [before, after = ''] = html.split('<!--status-->');
+  screenBefore.innerHTML = before; screenAfter.innerHTML = after;
+  if (helpOpen && app.querySelector('[data-help]')) app.querySelector('[data-help]').open = true;
+  if (cell !== null) focusCell(boardIndex);
+  else if (attr) app.querySelector(`[${attr.name}="${attr.value}"]`)?.focus();
+  else if (summary) app.querySelector('[data-help] summary')?.focus();
+  else if (heading) { const el = app.querySelector('h1'); if (el) { el.tabIndex = -1; el.focus(); } }
+  wirePreferences();
+};
 const on = (sel, fn) => app.querySelectorAll(sel).forEach(el => el.onclick = fn.bind(null, el));
 function render() {
   if (cleanup) { cleanup(); cleanup = null; }
@@ -871,8 +997,20 @@ function render() {
   const kids = r.name.startsWith('k_');
   document.body.className = r.name === 'choose' ? '' : kids ? (r.name === 'k_win' ? 'kids grape' : 'kids') : (r.name === 'a_game' ? 'adult night' : 'adult');
   SCREENS[r.name](r);
+  const heading = app.querySelector('h1');
+  if (heading) { heading.tabIndex = -1; heading.focus(); }
+  // Heading focus announces navigation once; it does not also go through a live region.
   window.scrollTo(0, 0);
 }
+app.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, textarea, select, [contenteditable="true"], [role="textbox"]')) return;
+  if (document.querySelector('.scrim')) return;
+  if (e.key.toLowerCase() === 'r' && app.querySelector('[data-read]')) {
+    e.preventDefault(); app.querySelector('[data-read]').click();
+  } else if (e.key === 'Escape' && app.querySelector('[data-back]')) {
+    e.preventDefault(); app.querySelector('[data-back]').click();
+  }
+});
 const switchLink = () => `<div class="app-foot"><button class="switch-app" data-switch>${T.switchApp}</button><span aria-hidden="true">·</span><a class="switch-app" href="/">beequation.com</a></div>`;
 const wireSwitch = () => on('[data-switch]', () => { stack = [{ name: 'choose' }]; render(); });
 
@@ -897,7 +1035,17 @@ const kTop = title => `<div class="row"><button class="candy k-white" style="wid
 function parentGate(onPass) {
   // Same check as the apps: a four-digit number written in words, hard for 5-12 year olds to read.
   const words = T.gateWords;
+  const opener = document.activeElement, wasInert = app.inert;
   const el = document.createElement('div'); el.className = 'scrim';
+  const closeGate = passed => { app.inert = wasInert; el.remove(); if (passed) onPass(); else opener?.focus(); };
+  el.onkeydown = e => {
+    if (e.key === 'Escape') { e.preventDefault(); closeGate(false); }
+    else if (e.key === 'Tab') {
+      const controls = el.querySelectorAll('input, button'), first = controls[0], last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  };
   const ask = miss => {
     const d = () => 1 + Math.floor(Math.random() * 9), n = d() * 1000 + d() * 100 + 10 + Math.floor(Math.random() * 90);
     el.innerHTML = `<div class="gate" role="dialog" aria-modal="true" aria-label="${T.gateTitle}"><h2 style="font-size:26px">${T.gateTitle}</h2><div style="font-size:17px">${T.gatePrompt}</div>
@@ -905,11 +1053,11 @@ function parentGate(onPass) {
       ${miss ? `<div style="color:#F2545B;font-weight:600">${T.gateMiss}</div>` : ''}
       <button class="candy mid k-grape" data-ok>${T.gateOk}</button><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-x>${T.gateCancel}</button></div>`;
     const inp = el.querySelector('input'); inp.focus();
-    const check = () => { if (+inp.value === n) { el.remove(); onPass(); } else ask(true); };
+    const check = () => { if (+inp.value === n) closeGate(true); else ask(true); };
     el.querySelector('[data-ok]').onclick = check; inp.onkeydown = e => { if (e.key === 'Enter') check(); };
-    el.querySelector('[data-x]').onclick = () => el.remove();
+    el.querySelector('[data-x]').onclick = () => closeGate(false);
   };
-  document.body.appendChild(el); ask(false);
+  document.body.appendChild(el); app.inert = true; ask(false);
 }
 
 function k_home() {
@@ -928,6 +1076,7 @@ function k_home() {
       return `<button class="candy world" style="--c:${w.c};--l:${w.l}" data-world="${w.id}">${g}<b>${w.title}</b><small>${kStatus(w.id, 1) === 'paid' ? T.unlock : T.starsOf(earned, w.tiers * 3)}</small></button>`;
     }).join('')}</div>
     <button class="candy k-white" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px" data-daily>${I.cal}<span class="grow" style="text-align:left">${T.today}</span><span class="soft">${done ? T.doneTick : T.isNew}</span></button>
+    ${gameHelp()}
     ${switchLink()}
   </div>`);
   on('[data-stickers]', () => go({ name: 'k_stickers' }));
@@ -967,11 +1116,14 @@ function k_world(r) {
 }
 
 function k_game(r) {
+  boardIndex = 0;
   const L = level(r.mode, r.tier), w = wOf(r.mode);
   const rng = r.daily ? dailyRng(dayKey(), 'kids') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
   const CHEER = T.cheer, YAY = T.yay;
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, mistakes = 0, hints = 0, marks = {}, say = CHEER[0], busy = false, done = false, puzzleAt = Date.now();
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
+  const question = () => T.subJoin(T.puzzleOf(solved + 1, L.roundLength) + (item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''), item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(cur().op === 'add' ? T.added : T.multiplied));
+  const newPuzzle = () => { boardIndex = 0; draw(); focusCell(0); announce(question()); vibrate(10); };
   function draw() {
     const p = cur(), W = Math.min(app.clientWidth - 40, 420);
     const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
@@ -981,38 +1133,40 @@ function k_game(r) {
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? showCell(v, item.final) : '?'}</text>`)).join('')}</div>` : ''}
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
-      <div class="row" style="align-items:flex-end;gap:8px">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px" aria-live="polite">${say}</div></div>
+    </div><!--status--><div class="stack">
+      ${boardTools()}
+      <div class="row" style="align-items:flex-end;gap:8px" aria-hidden="true">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px">${say}</div></div>
       <button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button>
     </div>`);
-    on('[data-back]', back); on('[data-hint]', () => hint(false)); wireBoard(tap);
+    on('[data-back]', back); on('[data-hint]', () => hint(false)); wireBoard(tap, p);
   }
   function hint(auto) {
     if (busy || Object.values(marks).includes('hint')) return;
     if (!auto) hints++;
-    const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = T.psst(showCell(p.cells[p.pair[0]], p)); draw();
+    const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = T.psst(speakCell(p.cells[p.pair[0]], p)); draw(); announce(say);
   }
   function tap(i) {
     if (busy || done) return;
     const p = cur();
     if (i === p.answer) {
-      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${showEquation(p)}`; busy = true; draw();
+      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${showEquation(p)}`; busy = true; draw(); announce(say); vibrate(40);
       setTimeout(advance, 1100);
     } else {
       mistakes++; say = T.oops;
-      marks = Object.fromEntries(Object.entries(marks).filter(([, v]) => v === 'hint')); marks[i] = 'wrong'; draw();
+      marks = Object.fromEntries(Object.entries(marks).filter(([, v]) => v === 'hint')); marks[i] = 'wrong'; draw(); announce(say); vibrate([40, 60, 40]);
       setTimeout(() => { if (marks[i] === 'wrong' && !done) { delete marks[i]; draw(); } }, 500);
     }
   }
   function advance() {
     if (done) return;
     busy = false; marks = {}; puzzleAt = Date.now(); say = CHEER[(solved + stage + 1) % CHEER.length];
-    if (item.kind === 'hive' && stage < 4) { stage++; return draw(); }
+    if (item.kind === 'hive' && stage < 4) { stage++; return newPuzzle(); }
     solved++;
     if (solved >= L.roundLength) return finish();
-    item = generate(r.mode, r.tier, rng); stage = 0; draw();
+    item = generate(r.mode, r.tier, rng); stage = 0; newPuzzle();
   }
   function finish() {
-    done = true;
+    done = true; vibrate(300);
     const s = kidStars(mistakes, hints), id = `${r.mode}-${r.tier}`, sticker = !r.daily && s === 3 && !K.stickers.includes(id);
     if (r.daily) K.dailyDone = dayKey(); else K.stars[id] = Math.max(K.stars[id] || 0, s);
     if (sticker) K.stickers.push(id);
@@ -1021,7 +1175,7 @@ function k_game(r) {
   }
   const t = setInterval(() => { if (!busy && !done && Date.now() - puzzleAt > 15000) hint(true); }, 1000);
   cleanup = () => { clearInterval(t); done = true; };
-  draw();
+  draw(); announce(question()); vibrate(10);
 }
 
 function k_win(r) {
@@ -1045,6 +1199,7 @@ function k_win(r) {
   on('[data-next]', () => replace({ name: 'k_game', mode: x.mode, tier: next }));
   on('[data-again]', () => replace({ name: 'k_game', mode: x.mode, tier: x.tier }));
   on('[data-done]', back);
+  announce(T.subJoin(T.solvedAll(x.solved), T.subJoin(T.starsAria(x.stars), helpLine)));
 }
 
 function k_stickers() {
@@ -1065,6 +1220,7 @@ function k_grown() {
       ${K.full ? `<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>${T.backToFree}</button>` : `<button class="candy mid k-grape" data-buy>${T.kBuy}</button>`}
       <p class="soft" style="font-size:13px">${T.previewNote}</p></div>
     <div class="card-k stack"><h2 style="font-size:22px">${T.helpsTitle}</h2><p style="font-size:16px;line-height:1.45;font-weight:500">${T.helps}</p></div>
+    <div class="card-k stack">${gameHelp()}</div>
     <div class="card-k stack"><h2 style="font-size:22px">${T.progress}</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>${T.reset}</button></div>
   </div>`);
   on('[data-back]', back);
@@ -1128,7 +1284,7 @@ function a_levels(r) {
 }
 
 function a_blitz() {
-  h(`<div class="stack">${aTop(T.blitzTitle)}<p class="mute" style="font-size:15px;line-height:1.45">${T.blitzHow}</p>
+  h(`<div class="stack">${aTop(T.blitzTitle)}<p>${T.noClock}</p><p class="mute" style="font-size:15px;line-height:1.45">${T.blitzHow}</p>
     <div class="list">${PRACTICE.map(([id, g, t]) => {
       const tier = Math.max(1, ...levelsFor(id).map(l => l.tier).filter(x => aStatus(id, x) === 'open')), L = uiLevel(id, tier);
       return `<button class="li" style="min-height:64px" data-m="${id}" data-t="${tier}">${hexIcon(34, '#2B50E8', g)}<span class="grow"><b style="font-weight:600;display:block">${t}</b><span class="mute" style="font-size:13px">${T.nameLevel(L.name, tier)}</span></span><b style="font-weight:600">${T.best(P.blitz[L.id] || 0)}</b></button>`;
@@ -1138,51 +1294,69 @@ function a_blitz() {
 }
 
 function a_game(r) {
+  boardIndex = 0;
   const L = uiLevel(r.mode, r.tier), blitz = r.kind === 'blitz';
   const rng = r.kind === 'daily' ? dailyRng(dayKey(), 'pro') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, slips = [], curSlips = 0, run = 0, marks = {}, eq = '', busy = false, done = false;
   const startAt = Date.now(); let endAt = Date.now() + 60000;
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
   const clock = () => { const n = Date.now(); if (blitz) return `0:${String(Math.max(0, Math.ceil((endAt - n) / 1000))).padStart(2, '0')}`; return fmtTime(Math.floor((n - startAt) / 1000)); };
+  const question = () => T.subJoin(blitz ? T.nSolved(solved) : T.puzzleOf(solved + 1, L.roundLength), item.kind === 'hive' ? (stage < 4 ? T.smallComb(stage + 1) : T.finalComb) + '. ' + T.aAsk(cur().op === 'add' ? T.addUpTo : T.multiplyTo) : cur().pair.length === 3 ? T.trioAsk.replace(/\*\*/g, '') : T.aAsk(cur().op === 'add' ? T.addUpTo : T.multiplyTo));
+  const newPuzzle = () => { boardIndex = 0; draw(); focusCell(0); checkTime(question()); vibrate(10); };
+  let previousRemaining = 60;
+  function checkTime(message = '') {
+    if (done) return;
+    if (!blitz) { if (message) announce(message); return; }
+    const remaining = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+    if (remaining === 0) { finish(); return; }
+    const warning = blitzWarning(previousRemaining, remaining);
+    previousRemaining = remaining;
+    if (warning !== null) announce(message ? T.subJoin(message.replace(/[.!。]$/, ''), T.timeRemaining(warning)) : T.timeRemaining(warning));
+    else if (message) announce(message);
+  }
   function draw() {
     const p = cur(), W = Math.min(app.clientWidth - 40, 420), left = Math.max(0, endAt - Date.now());
     h(`<div class="stack"><h1 class="vh">${blitz ? T.blitzTitle : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</h1>
       <div class="row"><button class="icon-btn" aria-label="${T.quit}" data-back>${I.close('#F2F4F8')}</button>
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? T.solvedWord : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</div></div>
-        <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
-      ${blitz ? `<div class="timer"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
+        <div id="clock" aria-hidden="true" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
+      ${blitz ? `<div class="timer" aria-hidden="true"><i id="tbar" style="width:${left / 600}%"></i></div>` : ''}
       <div class="row" style="justify-content:space-between"><span style="font-size:15px;color:var(--night-mute);flex:1;margin-right:10px">${item.kind === 'hive' ? (stage < 4 ? T.smallComb(stage + 1) : T.finalComb) : p.pair.length === 3 ? emphasis(T.trioAsk) : T.aAsk(`<b style="color:var(--honey)">${p.op === 'add' ? T.addUpTo : T.multiplyTo}</b>`)}</span>
         ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${T.inARow(run)}</span>` : ''}</div>
       ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? showCell(v, item.final) : '?'}</div>`).join('')}</div>` : ''}
-      <div class="eqline" aria-live="polite">${eq}</div>
+      <div class="eqline" aria-hidden="true">${eq}</div>
       <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .4 : .48), 'adult')}</div>
+    </div><!--status--><div class="stack">
+      ${boardTools()}
       ${blitz ? `<p style="text-align:center;font-size:14px;color:var(--night-mute)">${T.wrongCosts}</p>` : ''}
     </div>`);
-    on('[data-back]', back); wireBoard(tap);
+    on('[data-back]', back); wireBoard(tap, p);
   }
   function tap(i) {
     if (busy || done) return;
+    if (blitz && Date.now() >= endAt) { finish(); return; }
     const p = cur();
     if (i === p.answer) {
       run = curSlips === 0 ? run + 1 : 1;
-      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; eq = showEquation(p); busy = true; draw();
+      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; eq = showEquation(p); busy = true; draw(); checkTime(`${T.yay[0]} ${eq}`); vibrate(40);
       setTimeout(advance, blitz ? 320 : 600);
     } else {
       curSlips++; run = 0; if (blitz) endAt -= 2000;
-      marks = { [i]: 'wrong' }; draw();
+      marks = { [i]: 'wrong' }; draw(); vibrate([40, 60, 40]); checkTime(blitz ? T.subJoin(T.oops.replace(/[.!。]$/, ''), T.wrongCosts) : T.oops);
       setTimeout(() => { if (marks[i] === 'wrong' && !done) { delete marks[i]; draw(); } }, 400);
     }
   }
   function advance() {
     if (done) return;
+    if (blitz && Date.now() >= endAt) { finish(); return; }
     busy = false; marks = {}; eq = '';
-    if (item.kind === 'hive' && stage < 4) { stage++; return draw(); }
+    if (item.kind === 'hive' && stage < 4) { stage++; return newPuzzle(); }
     solved++; slips.push(curSlips); curSlips = 0;
     if (!blitz && solved >= L.roundLength) return finish();
-    item = generate(r.mode, r.tier, rng); stage = 0; draw();
+    item = generate(r.mode, r.tier, rng); stage = 0; newPuzzle();
   }
   function finish() {
-    if (done) return; done = true;
+    if (done) return; done = true; vibrate(300);
     const seconds = Math.round((Date.now() - startAt) / 1000), mistakes = slips.reduce((a, b) => a + b, 0);
     const st = blitz ? 0 : stars(L, seconds, mistakes, false), prevBest = P.blitz[L.id] || 0, today = dayKey();
     if (r.kind === 'round') P.stars[L.id] = Math.max(P.stars[L.id] || 0, st);
@@ -1195,10 +1369,10 @@ function a_game(r) {
     if (done) return;
     const c = document.getElementById('clock'); if (c) c.textContent = clock();
     const b = document.getElementById('tbar'); if (b) b.style.width = `${Math.max(0, endAt - Date.now()) / 600}%`;
-    if (blitz && Date.now() >= endAt) finish();
+    checkTime();
   }, 200);
   cleanup = () => { clearInterval(t); done = true; };
-  draw();
+  draw(); announce(question()); vibrate(10);
 }
 
 function a_result(r) {
@@ -1214,7 +1388,7 @@ function a_result(r) {
   const week = Array.from({ length: 7 }, (_, i) => addDays(new Date(), i - 6));
   h(`<div class="stack">
     <div class="row" style="justify-content:flex-end"><button class="icon-btn" aria-label="${T.close}" data-back>${I.close('currentColor')}</button></div>
-    <div><div class="mute" style="font-size:15px">${label}</div><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
+    <div><h1 style="font-size:22px">${label}</h1><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
     ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? T.shareNo(no) : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
       <div class="hexrow">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
       <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px">${[[T.firstTry, '#FFB020'], [T.oneSlip, '#FFE0A3'], [T.twoPlus, '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
@@ -1236,6 +1410,7 @@ function a_result(r) {
   on('[data-unlock]', () => replace({ name: 'a_settings' }));
   on('[data-again]', () => replace({ name: 'a_game', mode: x.mode, tier: x.tier, kind: x.kind }));
   on('[data-toblitz]', () => replace({ name: 'a_blitz' }));
+  announce((isBlitz ? T.timeUp + ' ' : '') + T.subJoin(head, T.subJoin(sub, isBlitz ? '' : T.starsAria(x.stars))));
 }
 
 function a_settings() {
@@ -1247,7 +1422,7 @@ function a_settings() {
       <p class="mute">${T.aPrice}</p>
       ${P.full ? `<button class="btn b-plain" style="background:var(--a-ground)" data-lock>${T.backToFree}</button>` : `<button class="btn b-cobalt" data-buy>${T.aBuy}</button>`}
       <p class="mute" style="font-size:13px">${T.previewNote}</p></div>
-    <div class="card-a"><b style="font-size:18px">${T.howTitle}</b><p style="font-size:16px;line-height:1.45">${T.how}</p></div>
+    <div class="card-a"><h2 style="font-size:18px">${T.howTitle}</h2><p style="font-size:16px;line-height:1.45">${T.how}</p>${gameHelp()}</div>
   </div>`);
   on('[data-back]', back);
   on('[data-buy]', () => { P.full = true; aSave(); toast(T.aFull); render(); });

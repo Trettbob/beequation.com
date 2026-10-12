@@ -1,4 +1,16 @@
 const T = {
+  lastResult: "直前の結果",
+  readNumbers: "すべての数を読み上げる",
+  boardLabel: "ハチの巣の数",
+  vibration: "振動",
+  keyboardTitle: "スクリーンリーダーやキーボードで遊ぶ",
+  keyboardHelp: "Tabキーでハチの巣に移動します。矢印キーで数の間を移動し、HomeとEndで最初と最後の数に移動します。Enterまたはスペースで選びます。ゲーム内でRを押すと、すべての数を行ごとに読み上げます。Escapeで前の画面に戻ります。ハチの巣の後の「直前の結果」には各メッセージが残り、Tabやスクリーンリーダーの読み上げカーソルで移動できます。",
+  noClock: "時間を気にせず遊べます。Kids、各レベル、毎日のパズルに制限時間はありません。カウントダウンがあるのはBlitzだけです。",
+  vibrationHelp: "対応する端末では、ここで振動をオフにできます。新しいパズルは10ミリ秒、正解は40ミリ秒の振動1回、不正解は60ミリ秒の間隔をあけて40ミリ秒の振動2回、ラウンド終了や時間切れは300ミリ秒の振動1回です。",
+  readRow: (n, values) => `${n}行目：${values}。`,
+  cellPosition: (value, row, col) => `${value}、${row}行目、${col}列目`,
+  timeRemaining: (n) => `残り${n}秒です。`,
+  timeUp: "時間切れです。",
   locale: 'ja',
   decSep: ".",
   indie: 'はちのインディ', back: 'もどる', close: '閉じる', quit: 'やめる', settings: '設定', frac: s => { const [n, d] = s.split('/'); return d ? `${d}分の${n}` : s; },   // 3/4 → 4分の3
