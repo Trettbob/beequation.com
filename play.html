@@ -121,7 +121,7 @@ h1, h2, p { margin: 0; }
 .dots svg{min-width:0;flex-shrink:1}.dots { min-width:0; display: flex; justify-content: space-between; flex: 1; }
 .tray { display: flex; gap: 10px; justify-content: center; }
 .sticker { width: 90px; text-align: center; font-size: 13px; font-weight: 600; }
-.win> .row>svg,.win> .row>div{min-width:0;flex-shrink:1}.win> .row>div svg{max-width:100%;height:auto}.win> .row>svg{max-width:38%;height:auto}
+.win> .row>svg,.win> .row>div,.win>.screen-column>.row>svg,.win>.screen-column>.row>div{min-width:0;flex-shrink:1}.win> .row>div svg,.win>.screen-column>.row>div svg{max-width:100%;height:auto}.win> .row>svg,.win>.screen-column>.row>svg{max-width:38%;height:auto}
 .win h1 { overflow-wrap:anywhere;font-size: 56px; text-align: center; }
 .win p { font-size: 21px; font-weight: 600; text-align: center; line-height: 1.3; }
 
@@ -192,6 +192,76 @@ h1, h2, p { margin: 0; }
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #12161F; color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 15px; z-index: 6; }
 .preview-note { font-size: 13px; opacity: .75; text-align: center; }
 [hidden] { display: none !important; }
+/* These wrappers preserve the original stack and spacing in portrait. */
+.screen-column, .game-controls, .game-aside { display: contents; }
+.screen-column > * + *, .stack > .screen-column + .screen-column > :first-child,
+.game-controls > * + *, .stack > .game-aside > * { margin-top: 16px; }
+.stack > .screen-column, .stack > .game-controls, .stack > .game-aside { margin-top: 0; }
+.game-board { margin: 0 -20px; }
+
+/* Match LANDSCAPE below. Small CSS viewports (including phone zoom) reflow as a stack. */
+@media (orientation: landscape) and (min-width: 600px) and (min-height: 280px) {
+  #app { max-width: none; min-height: 0; padding: 12px max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px)); }
+  .screen-columns { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 24px; align-items: start; }
+  .screen-column { display: block; min-width: 0; }
+  .stack > .screen-column + .screen-column > :first-child { margin-top: 0; }
+  .screen-columns > .screen-column { margin-top: 0; }
+  .screen-columns .worlds, .screen-columns .lv-grid { grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); }
+  .screen-columns .world { height: auto; min-height: 100px; }
+  .screen-columns .map { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
+  .screen-columns .stone:nth-child(3n+2) { margin-top: 0; }
+  .screen-columns .list { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; border-radius: 0; }
+  .screen-columns .li { border: 0; border-radius: 16px; }
+  .screen-columns.win { display: grid !important; align-items: start !important; padding-top: 0 !important; }
+  .screen-columns.win h1, .screen-columns.win p { text-align: left; }
+  .screen-columns.win > .screen-column > .row { justify-content: center; }
+  .screen-columns .app-foot { flex-wrap: wrap; }
+  #app[data-screen="k_stickers"] .screen-column:last-child { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  #app[data-screen="k_stickers"] .screen-column:last-child > * { margin-top: 0; }
+
+  body:has(#app[data-screen$="_game"]) {
+    height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    min-height: 0; display: flex; flex-direction: column;
+  }
+  body:has(#app[data-screen$="_game"]) > :not(#app) { flex: none; }
+  #app[data-screen="k_game"], #app[data-screen="a_game"] {
+    flex: 1; width: 100%; min-height: 0;
+    display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: minmax(0, 1fr) auto auto; column-gap: 24px;
+    overflow: visible;
+  }
+  #app[data-screen$="_game"] > .screen-before, .game-main { display: contents; }
+  .game-controls { display: block; grid-column: 1; grid-row: 1 / 4; min-width: 0; min-height: 0; overflow-y: auto; padding: 4px 6px 8px; }
+  .game-controls > :first-child { margin-top: 0; }
+  .game-aside { display: block; }
+  .game-board { grid-column: 2; grid-row: 1; min-width: 0; min-height: 0; margin: 0; display: grid; place-items: center; padding: 4px; }
+  .game-board .board { max-height: 100%; }
+  #app[data-screen$="_game"] > #game-status { grid-column: 2; grid-row: 2; margin: 6px 4px; padding: 8px 12px; max-height: 24dvh; overflow-y: auto; }
+  #app[data-screen$="_game"] > .screen-after { grid-column: 2; grid-row: 3; min-width: 0; padding: 4px; }
+  #app[data-screen$="_game"] [data-read] { min-height: 44px; }
+  .game-controls .tray, .game-controls .row { flex-wrap: wrap; }
+  .game-controls .dots { min-width: 100px; }
+  .game-controls .eqline { height: auto; min-height: 36px; overflow-wrap: anywhere; }
+  .game-controls .slot { flex: 1; min-width: 40px; }
+  .game-controls .candy.mid { height: auto; min-height: 48px; padding: 8px 12px; }
+  .game-help summary { overflow-wrap: anywhere; }
+  .gate { max-height: calc(100dvh - 48px); overflow-y: auto; }
+}
+@media (orientation: landscape) and (min-width: 600px) and (min-height: 280px) and (max-height: 560px) {
+  .screen-columns { gap: 16px; }
+  .screen-columns .worlds { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .screen-columns .world { min-height: 86px; padding: 10px; }
+  .screen-columns .world b { font-size: 16px; }
+  .screen-columns .glyph { font-size: 24px; }
+  .screen-columns .candy.big, .screen-columns .candy.mid { height: auto; min-height: 48px; padding: 8px; }
+  .screen-columns .logo-k { font-size: 44px; }
+  #app[data-screen$="_game"] { column-gap: 16px; }
+  .game-controls > * + *, .game-controls .game-aside > * + * { margin-top: 10px; }
+  .game-controls .big-num { font-size: 32px; }
+  .game-controls .bubble { font-size: 16px; }
+  .game-controls .bee { width: 60px; height: auto; flex: none; }
+  .game-controls .card-k { padding: 12px; }
+}
 /* Indie keeps a dark outline in every theme: give it a light edge on dark grounds. */
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) svg.bee { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); } }
 :root[data-theme="dark"] svg.bee { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); }
@@ -840,6 +910,7 @@ let statusLine, statusMessage, screenBefore, screenAfter;
 function ensureStatus() {
   if (statusLine) return;
   screenBefore = document.createElement('div'); screenAfter = document.createElement('div');
+  screenBefore.className = 'screen-before'; screenAfter.className = 'screen-after';
   statusLine = document.createElement('div'); statusLine.id = 'game-status';
   statusLine.setAttribute('role', 'status'); statusLine.setAttribute('aria-live', 'polite');
   statusLine.setAttribute('aria-atomic', 'true'); statusLine.setAttribute('aria-label', T.lastResult);
@@ -848,7 +919,7 @@ function ensureStatus() {
   statusLine.tabIndex = -1;
   app.replaceChildren(screenBefore, statusLine, screenAfter);
 }
-function announce(msg) { ensureStatus(); statusMessage.textContent = msg; statusLine.tabIndex = 0; }
+function announce(msg) { ensureStatus(); statusMessage.textContent = msg; statusLine.tabIndex = 0; layoutGame(); }
 function toast(msg) { announce(msg); }
 const SETTINGS_KEY = 'beequation.settings.v1';
 const preferences = load(SETTINGS_KEY, { vibration: true });
@@ -868,6 +939,47 @@ function wirePreferences() {
 
 // ---------- boards ----------
 const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1], 12: [2, 3, 2, 3, 2] };
+const LANDSCAPE = '(orientation: landscape) and (min-width: 600px) and (min-height: 280px)';
+function fitBoardBox(width, height, availableWidth, availableHeight) {
+  const scale = Math.max(0, Math.min(availableWidth / width, availableHeight / height));
+  return { width: width * scale, height: height * scale };
+}
+function gameBoardSpace(portraitHeight) {
+  if (window.matchMedia?.(LANDSCAPE).matches) {
+    const bounds = app.querySelector?.('.game-board')?.getBoundingClientRect();
+    return { width: Math.max(1, bounds ? bounds.width - 8 : (app.clientWidth - 64) * .6), height: Math.max(1, bounds ? bounds.height - 8 : window.innerHeight - 160) };
+  }
+  return { width: Math.min(app.clientWidth - 40, 420), height: window.innerHeight * portraitHeight };
+}
+function layoutGame() {
+  const holder = app.querySelector?.('.game-board'), svg = holder?.querySelector('.board');
+  if (!svg) return;
+  const landscape = window.matchMedia(LANDSCAPE).matches;
+  const controls = app.querySelector('.game-controls'), tools = app.querySelector('.board-tools');
+  const help = app.querySelector('[data-help]'), aside = app.querySelector('.game-aside');
+  const active = document.activeElement;
+  // Move actual nodes, preserving DOM reading order, open help and the focused control.
+  if (landscape) {
+    if (aside && aside.parentElement !== controls) controls.appendChild(aside);
+    if (help && help.parentElement !== controls) controls.appendChild(help);
+  } else {
+    if (help && help.parentElement !== tools) tools.appendChild(help);
+    if (aside && aside.parentElement !== tools) tools.appendChild(aside);
+  }
+  if (active && document.activeElement !== active) active.focus({ preventScroll: true });
+  const [, y, width, height] = svg.dataset.portraitBox.split(' ').map(Number);
+  if (!landscape) {
+    svg.setAttribute('viewBox', svg.dataset.portraitBox);
+    svg.setAttribute('width', width); svg.setAttribute('height', height);
+    return;
+  }
+  // Crop only the unused sides of the portrait SVG, then scale its complete artwork and labels.
+  const boardWidth = +svg.dataset.combWidth;
+  svg.setAttribute('viewBox', `${(width - boardWidth) / 2} ${y} ${boardWidth} ${height}`);
+  const bounds = holder.getBoundingClientRect();
+  const size = fitBoardBox(boardWidth, height, bounds.width - 8, bounds.height - 8);
+  svg.setAttribute('width', size.width); svg.setAttribute('height', size.height);
+}
 function boardPositions(size) {
   const positions = [];
   ROWS[size].forEach((n, row) => { for (let col = 0; col < n; col++) positions.push({ row, col, x: col - (n - 1) / 2 }); });
@@ -944,7 +1056,7 @@ function board(p, marks, W, maxH, skin, seed = 0) {
     const row = cells.slice(offset, offset + n).map(cell => `<g role="gridcell">${cell}</g>`).join(''); offset += n;
     return `<g role="row">${row}</g>`;
   }).join('');
-  return `<svg class="board" role="grid" aria-label="${T.boardLabel}" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}">${gridRows}</svg>`;
+  return `<svg class="board" role="grid" aria-label="${T.boardLabel}" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}" data-portrait-box="0 0 ${W} ${H.toFixed(0)}" data-comb-width="${Math.max(...rows) * w + r * .2}">${gridRows}</svg>`;
 }
 function focusCell(index) {
   boardIndex = index;
@@ -967,6 +1079,7 @@ function wireBoard(tap, p) {
 const boardTools = () => `<button class="btn b-plain" data-read aria-keyshortcuts="R">${T.readNumbers}</button>${gameHelp()}`;
 
 // ---------- router ----------
+let redrawGame = null;
 let stack = (q => q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
@@ -989,12 +1102,15 @@ const h = html => {
   else if (summary) app.querySelector('[data-help] summary')?.focus();
   else if (heading) { const el = app.querySelector('h1'); if (el) { el.tabIndex = -1; el.focus(); } }
   wirePreferences();
+  layoutGame();
 };
 const on = (sel, fn) => app.querySelectorAll(sel).forEach(el => el.onclick = fn.bind(null, el));
 function render() {
   if (cleanup) { cleanup(); cleanup = null; }
+  redrawGame = null;
   const r = stack[stack.length - 1];
   const kids = r.name.startsWith('k_');
+  app.dataset.screen = r.name;
   document.body.className = r.name === 'choose' ? '' : kids ? (r.name === 'k_win' ? 'kids grape' : 'kids') : (r.name === 'a_game' ? 'adult night' : 'adult');
   SCREENS[r.name](r);
   const heading = app.querySelector('h1');
@@ -1062,7 +1178,7 @@ function parentGate(onPass) {
 
 function k_home() {
   const done = K.dailyDone === dayKey();
-  h(`<div class="stack">
+  h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="justify-content:space-between">
       <button class="candy k-white pill" data-stickers>${star(18)} ${T.stickersN(K.stickers.length)}</button>
       <button class="candy k-white pill" data-grown aria-label="${T.grownAria}">${I.lock('#1C1A4A')} ${T.grown}</button>
@@ -1070,6 +1186,7 @@ function k_home() {
     <div class="row" style="gap:0">${buzz(140)}<div class="bubble" style="border-radius:20px">${T.hello}</div></div>
     <h1 class="logo-k" aria-label="Beequation">${LET.map(([c, col]) => `<span style="color:${col}">${c}</span>`).join('')}</h1>
     <button class="candy big k-grape" data-play>${I.play} ${T.play}</button>
+    </div><div class="screen-column">
     <div class="worlds">${WORLDS.map(w => {
       const earned = Array.from({ length: w.tiers }, (_, i) => K.stars[`${w.id}-${i + 1}`] || 0).reduce((a, b) => a + b, 0);
       const g = `<span class="glyph">${w.glyph}</span>`;
@@ -1078,7 +1195,7 @@ function k_home() {
     <button class="candy k-white" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px" data-daily>${I.cal}<span class="grow" style="text-align:left">${T.today}</span><span class="soft">${done ? T.doneTick : T.isNew}</span></button>
     ${gameHelp()}
     ${switchLink()}
-  </div>`);
+  </div></div>`);
   on('[data-stickers]', () => go({ name: 'k_stickers' }));
   on('[data-grown]', () => parentGate(() => go({ name: 'k_grown' })));
   on('[data-world]', el => go({ name: 'k_world', mode: el.dataset.world }));
@@ -1093,7 +1210,8 @@ function k_home() {
 
 function k_world(r) {
   const w = wOf(r.mode), anyPaid = Array.from({ length: w.tiers }, (_, i) => kStatus(r.mode, i + 1)).includes('paid');
-  h(`<div class="stack">${kTop(w.title)}
+  h(`<div class="stack screen-columns"><div class="screen-column">${kTop(w.title)}
+    </div><div class="screen-column">
     <div class="map">${Array.from({ length: w.tiers }, (_, i) => {
       const t = i + 1, st = kStatus(r.mode, t), s = K.stars[`${r.mode}-${t}`] || 0;
       const inner = st === 'paid' ? `<g transform="translate(31,37)">${I.lock('#1C1A4A', 34).replace('<svg', '<svg x="0" y="0"')}</g>`
@@ -1104,7 +1222,7 @@ function k_world(r) {
     }).join('')}</div>
     <div class="row" style="align-items:flex-end;gap:8px" ${anyPaid ? '' : 'hidden'} id="nudgeRow">${buzz(84)}<div class="bubble grow" style="margin-bottom:14px" id="nudge">${T.moreLevels}</div></div>
     ${anyPaid ? `<button class="candy mid k-lemon" data-ask>${T.askGrown}</button>` : ''}
-  </div>`);
+  </div></div>`);
   on('[data-back]', back);
   on('[data-t]', el => {
     const st = el.dataset.st, t = +el.dataset.t, n = app.querySelector('#nudge');
@@ -1125,18 +1243,18 @@ function k_game(r) {
   const question = () => T.subJoin(T.puzzleOf(solved + 1, L.roundLength) + (item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''), item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(cur().op === 'add' ? T.added : T.multiplied));
   const newPuzzle = () => { boardIndex = 0; draw(); focusCell(0); announce(question()); vibrate(10); };
   function draw() {
-    const p = cur(), W = Math.min(app.clientWidth - 40, 420);
+    const p = cur(), space = gameBoardSpace(item.kind === 'hive' ? .34 : .42);
     const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
-    h(`<div class="stack"><h1 class="vh">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}</h1>
+    h(`<div class="stack game-main"><div class="game-controls"><h1 class="vh">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}</h1>
       <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" role="img" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? showCell(v, item.final) : '?'}</text>`)).join('')}</div>` : ''}
-      <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .34 : .42), 'kids', solved + stage)}</div>
-    </div><!--status--><div class="stack">
+      </div><div class="game-board">${board(p, marks, space.width, space.height, 'kids', solved + stage)}</div>
+    </div><!--status--><div class="stack board-tools">
       ${boardTools()}
-      <div class="row" style="align-items:flex-end;gap:8px" aria-hidden="true">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px">${say}</div></div>
-      <button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button>
+      <div class="game-aside"><div class="row" style="align-items:flex-end;gap:8px" aria-hidden="true">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px">${say}</div></div>
+      <button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button></div>
     </div>`);
     on('[data-back]', back); on('[data-hint]', () => hint(false)); wireBoard(tap, p);
   }
@@ -1175,6 +1293,7 @@ function k_game(r) {
   }
   const t = setInterval(() => { if (!busy && !done && Date.now() - puzzleAt > 15000) hint(true); }, 1000);
   cleanup = () => { clearInterval(t); done = true; };
+  redrawGame = draw;
   draw(); announce(question()); vibrate(10);
 }
 
@@ -1184,10 +1303,10 @@ function k_win(r) {
   const conf = Array.from({ length: 24 }, (_, i) => { const c = CANDY[i % 6][0], s = 10 + (i % 3) * 4;
     return `<div style="position:absolute;left:${(i * 53) % 420}px;top:${(i * 37) % 420}px;transform:rotate(${(i * 41) % 90}deg)" aria-hidden="true">${i % 3 === 0 ? hexSVG(s, c) : `<div style="width:${s}px;height:${s / 2}px;border-radius:3px;background:${c}"></div>`}</div>`; }).join('');
   const helpLine = x.hints === 0 ? T.helpNone : x.hints === 1 ? T.helpOne : T.helpN(x.hints);
-  h(`${conf}<div class="stack win" style="position:relative;padding-top:50px;display:flex;flex-direction:column;align-items:center">
+  h(`${conf}<div class="stack win screen-columns" style="position:relative;padding-top:50px;display:flex;flex-direction:column;align-items:center"><div class="screen-column">
     <div class="row" style="align-items:flex-start;gap:4px" role="img" aria-label="${T.starsAria(x.stars)}"><div style="margin-top:22px">${star(84, x.stars >= 1)}</div>${star(110, x.stars >= 2)}<div style="margin-top:22px">${star(84, x.stars >= 3)}</div></div>
     <h1>${HEAD[x.stars]}</h1><p>${T.solvedAll(x.solved)}<br>${helpLine}</p>
-    ${x.daily ? `<p style="font-size:18px;color:#FFD84D">${T.comeBack}</p>` : ''}
+    </div><div class="screen-column">${x.daily ? `<p style="font-size:18px;color:#FFD84D">${T.comeBack}</p>` : ''}
     ${x.sticker ? `<div style="align-self:stretch;background:#fff;color:#1C1A4A;border-radius:26px;padding:16px;display:flex;align-items:center;gap:16px;box-shadow:0 6px 0 #3B24A8">
       ${hexSVG(78, w.c, `<g transform="translate(18,24)">${star(42, true, '#fff')}</g>`)}<div><div style="font-size:15px;font-weight:600;color:#5A5688">${T.newSticker}</div><div style="font-size:24px;font-weight:700">${x.sticker}</div><div style="font-size:15px;font-weight:600">${T.addedToBook}</div></div></div>` : ''}
     ${!x.daily && x.stars < 3 ? `<p style="font-size:16px;color:#FFFFFF">${T.get3}</p>` : ''}
@@ -1195,7 +1314,7 @@ function k_win(r) {
       ${nextOpen ? `<button class="candy big k-lemon" style="font-size:26px" data-next>${T.nextLevel}</button>` : ''}
       ${!x.daily ? `<button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-again>${T.again}</button>` : ''}
       <button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-done>${x.daily ? T.home : T.map}</button>
-    </div></div>`);
+    </div></div></div>`);
   on('[data-next]', () => replace({ name: 'k_game', mode: x.mode, tier: next }));
   on('[data-again]', () => replace({ name: 'k_game', mode: x.mode, tier: x.tier }));
   on('[data-done]', back);
@@ -1203,26 +1322,28 @@ function k_win(r) {
 }
 
 function k_stickers() {
-  h(`<div class="stack">${kTop(T.myStickers)}<p class="soft" style="font-size:17px">${T.stickersHow}</p>
+  h(`<div class="stack screen-columns"><div class="screen-column">${kTop(T.myStickers)}<p class="soft" style="font-size:17px">${T.stickersHow}</p>
+    </div><div class="screen-column">
     ${WORLDS.map(w => `<div class="card-k"><h2 style="font-size:20px;margin-bottom:12px">${w.title}</h2><div class="row" style="flex-wrap:wrap;align-items:flex-start">${w.stickers.map((n, i) => {
       const got = K.stickers.includes(`${w.id}-${i + 1}`);
       return `<div class="sticker" role="img" aria-label="${got ? n : T.notWon(n)}">${hexSVG(64, got ? w.c : '#E6ECF3', got ? `<g transform="translate(16,21)">${star(32, true, '#fff')}</g>` : `<g transform="translate(21,26)">${I.lock('#9AA6B8', 22)}</g>`, got ? w.l : '')}<div style="color:${got ? 'inherit' : '#7C86A0'}">${got ? n : '???'}</div></div>`;
-    }).join('')}</div></div>`).join('')}</div>`);
+    }).join('')}</div></div>`).join('')}</div></div>`);
   on('[data-back]', back);
 }
 
 function k_grown() {
   const total = WORLDS.reduce((n, w) => n + w.tiers, 0), free = WORLDS.reduce((n, w) => n + w.free, 0);
-  h(`<div class="stack">${kTop(T.forGrown)}
+  h(`<div class="stack screen-columns"><div class="screen-column">${kTop(T.forGrown)}
     <div class="card-k stack"><h2 style="font-size:22px">${K.full ? T.kFull : T.kUnlockAll(total)}</h2>
       <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? T.kThanks : T.kFree(free)}</p>
       <p style="font-size:16px;font-weight:500">${T.kPrice}</p>
       ${K.full ? `<button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#1C1A4A" data-lock>${T.backToFree}</button>` : `<button class="candy mid k-grape" data-buy>${T.kBuy}</button>`}
       <p class="soft" style="font-size:13px">${T.previewNote}</p></div>
+    </div><div class="screen-column">
     <div class="card-k stack"><h2 style="font-size:22px">${T.helpsTitle}</h2><p style="font-size:16px;line-height:1.45;font-weight:500">${T.helps}</p></div>
     <div class="card-k stack">${gameHelp()}</div>
     <div class="card-k stack"><h2 style="font-size:22px">${T.progress}</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>${T.reset}</button></div>
-  </div>`);
+  </div></div>`);
   on('[data-back]', back);
   on('[data-buy]', () => { K.full = true; kSave(); toast(T.kFull); render(); });
   on('[data-lock]', () => { K.full = false; kSave(); render(); });
@@ -1245,13 +1366,14 @@ const hexIcon = (w, fill, glyph = '', ink = '#fff') => hexSVG(w, fill, glyph ? `
 
 function a_home() {
   const today = P.daily[dayKey()], s = streak(), best = Math.max(0, ...Object.values(P.blitz));
-  h(`<div class="stack">
+  h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="gap:10px"><a class="grow site-link" href="/" aria-label="${T.siteAria}" style="font-size:20px;font-weight:700;letter-spacing:-.4px"><img src="/assets/hexabee.svg" alt="" style="width:32px;height:32px">Beequation</a>
       ${s ? `<span class="chip" aria-label="${T.streakAria(s)}">${I.flame} ${s}</span>` : ''}<button class="icon-btn" aria-label="${T.settings}" data-settings>${I.gear('currentColor')}</button></div>
     <div class="hero"><div style="font-size:14px;color:#AEB6C4">${T.dailyOn(DATE.format(new Date()))}</div>
       <h1 style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">${T.hiveNo(dailyNo())}</h1>
       <div style="font-size:15px;color:#CBD1DB;line-height:1.4">${today ? T.doneIn(fmtTime(today.seconds)) : T.tenMixed}</div>
       ${today ? `<button class="btn b-dark" data-seedaily>${T.seeResult}</button>` : `<button class="btn b-honey" data-daily>${T.playToday}</button>`}</div>
+    </div><div class="screen-column">
     <div class="tiles"><button class="tile blue" data-blitz>${I.bolt('#fff')}<b>${T.blitzTile}</b><small>${best ? T.best(best) : T.beatClock}</small></button>
       <button class="tile" data-hive>${I.hex('currentColor')}<b>${T.modes.hive[0]}</b><small>${T.hiveSub}</small></button></div>
     <div class="row" style="justify-content:space-between;align-items:baseline"><b style="font-size:18px">${T.practice}</b><span class="mute" style="font-size:14px">${T.highest}</span></div>
@@ -1260,7 +1382,7 @@ function a_home() {
       return `<button class="li" data-mode="${id}">${hexIcon(32, 'var(--a-ink)', g, 'var(--a-ground)')}<span class="grow"><span class="row" style="justify-content:space-between"><b style="font-weight:600">${t}</b><span class="mute" style="font-size:14px">${d.length ? d[d.length - 1].name : T.notStarted}</span></span><div class="bar"><i style="width:${d.length / ls.length * 100}%"></i></div></span></button>`;
     }).join('')}</div>
     ${switchLink()}
-  </div>`);
+  </div></div>`);
   on('[data-settings]', () => go({ name: 'a_settings' }));
   on('[data-daily]', () => go({ name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }));
   on('[data-seedaily]', () => go({ name: 'a_result', res: { kind: 'daily', mode: 'mixed', tier: 5, seconds: today.seconds, slips: today.slips, solved: 10, dateKey: dayKey() } }));
@@ -1272,23 +1394,25 @@ function a_home() {
 
 function a_levels(r) {
   const [title, tagline] = T.modes[r.mode];
-  h(`<div class="stack">${aTop(title)}<p class="mute" style="font-size:15px">${T.rounds(tagline, r.mode === 'hive')}</p>
+  h(`<div class="stack screen-columns"><div class="screen-column">${aTop(title)}<p class="mute" style="font-size:15px">${T.rounds(tagline, r.mode === 'hive')}</p>
+    </div><div class="screen-column">
     <div class="lv-grid">${uiLevelsFor(r.mode).map(l => {
       const st = aStatus(r.mode, l.tier), s = P.stars[l.id] || 0;
       return `<button class="lv ${st === 'open' ? '' : 'off'}" data-t="${l.tier}" data-st="${st}" aria-label="${T.aLevelAria(l.tier, l.name, st, s)}">
         <div class="n">${l.tier}</div><b style="font-size:18px">${l.name}</b><div class="mute" style="font-size:13px">${T.cellsAges(l.size, l.ages)}</div>
         <div class="row" style="gap:6px;margin-top:8px;height:20px">${st === 'open' ? [1, 2, 3].map(n => hexSVG(16, n <= s ? '#FFB020' : 'var(--a-line)')).join('') : `${I.lock('#5B6474', 16)}<span class="mute" style="font-size:13px">${st === 'paid' ? T.fullVersion : T.finishLevel(l.tier - 1)}</span>`}</div></button>`;
-    }).join('')}</div></div>`);
+    }).join('')}</div></div></div>`);
   on('[data-back]', back);
   on('[data-t]', el => { if (el.dataset.st === 'open') go({ name: 'a_game', mode: r.mode, tier: +el.dataset.t, kind: 'round' }); else if (el.dataset.st === 'paid') go({ name: 'a_settings' }); });
 }
 
 function a_blitz() {
-  h(`<div class="stack">${aTop(T.blitzTitle)}<p>${T.noClock}</p><p class="mute" style="font-size:15px;line-height:1.45">${T.blitzHow}</p>
+  h(`<div class="stack screen-columns"><div class="screen-column">${aTop(T.blitzTitle)}<p>${T.noClock}</p><p class="mute" style="font-size:15px;line-height:1.45">${T.blitzHow}</p>
+    </div><div class="screen-column">
     <div class="list">${PRACTICE.map(([id, g, t]) => {
       const tier = Math.max(1, ...levelsFor(id).map(l => l.tier).filter(x => aStatus(id, x) === 'open')), L = uiLevel(id, tier);
       return `<button class="li" style="min-height:64px" data-m="${id}" data-t="${tier}">${hexIcon(34, '#2B50E8', g)}<span class="grow"><b style="font-weight:600;display:block">${t}</b><span class="mute" style="font-size:13px">${T.nameLevel(L.name, tier)}</span></span><b style="font-weight:600">${T.best(P.blitz[L.id] || 0)}</b></button>`;
-    }).join('')}</div></div>`);
+    }).join('')}</div></div></div>`);
   on('[data-back]', back);
   on('[data-m]', el => go({ name: 'a_game', mode: el.dataset.m, tier: +el.dataset.t, kind: 'blitz' }));
 }
@@ -1315,8 +1439,8 @@ function a_game(r) {
     else if (message) announce(message);
   }
   function draw() {
-    const p = cur(), W = Math.min(app.clientWidth - 40, 420), left = Math.max(0, endAt - Date.now());
-    h(`<div class="stack"><h1 class="vh">${blitz ? T.blitzTitle : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</h1>
+    const p = cur(), space = gameBoardSpace(item.kind === 'hive' ? .4 : .48), left = Math.max(0, endAt - Date.now());
+    h(`<div class="stack game-main"><div class="game-controls"><h1 class="vh">${blitz ? T.blitzTitle : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</h1>
       <div class="row"><button class="icon-btn" aria-label="${T.quit}" data-back>${I.close('#F2F4F8')}</button>
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? T.solvedWord : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</div></div>
         <div id="clock" aria-hidden="true" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>
@@ -1325,10 +1449,10 @@ function a_game(r) {
         ${run >= 3 ? `<span class="chip" style="background:var(--night-cell);height:30px;font-size:14px;font-weight:600">${I.bolt('#FFB020', 14)} ${T.inARow(run)}</span>` : ''}</div>
       ${item.kind === 'hive' ? `<div class="row" style="gap:8px">${item.final.cells.map((v, k) => `<div class="slot ${k < stage ? 'on' : ''}">${k < stage ? showCell(v, item.final) : '?'}</div>`).join('')}</div>` : ''}
       <div class="eqline" aria-hidden="true">${eq}</div>
-      <div style="margin:0 -20px">${board(p, marks, W, window.innerHeight * (item.kind === 'hive' ? .4 : .48), 'adult')}</div>
-    </div><!--status--><div class="stack">
+      </div><div class="game-board">${board(p, marks, space.width, space.height, 'adult')}</div>
+    </div><!--status--><div class="stack board-tools">
       ${boardTools()}
-      ${blitz ? `<p style="text-align:center;font-size:14px;color:var(--night-mute)">${T.wrongCosts}</p>` : ''}
+      <div class="game-aside">${blitz ? `<p style="text-align:center;font-size:14px;color:var(--night-mute)">${T.wrongCosts}</p>` : ''}</div>
     </div>`);
     on('[data-back]', back); wireBoard(tap, p);
   }
@@ -1372,6 +1496,7 @@ function a_game(r) {
     checkTime();
   }, 200);
   cleanup = () => { clearInterval(t); done = true; };
+  redrawGame = draw;
   draw(); announce(question()); vibrate(10);
 }
 
@@ -1386,12 +1511,13 @@ function a_result(r) {
   else if (isBlitz) { label = T.blitzOf(L.name); head = T.nSolved(x.solved); sub = x.newBest ? T.newBest : T.yourBest(x.best); }
   else { label = T.levelDone(L.name, L.tier); head = fmtTime(x.seconds); sub = T.subJoin(T.slips(x.mistakes), x.stars < 3 ? T.for3(fmtTime(L.par)) : T.fullMarks); }
   const week = Array.from({ length: 7 }, (_, i) => addDays(new Date(), i - 6));
-  h(`<div class="stack">
+  h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="justify-content:flex-end"><button class="icon-btn" aria-label="${T.close}" data-back>${I.close('currentColor')}</button></div>
     <div><h1 style="font-size:22px">${label}</h1><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
     ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? T.shareNo(no) : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
       <div class="hexrow">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
       <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px">${[[T.firstTry, '#FFB020'], [T.oneSlip, '#FFE0A3'], [T.twoPlus, '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
+    </div><div class="screen-column">
     ${isDaily ? `<div class="card-a"><div class="row" style="justify-content:space-between"><b>${T.streak(s)}</b><span class="mute" style="font-size:13px">${T.last7}</span></div>
       <div class="week">${week.map((d, i) => `<div>${hexSVG(30, P.daily[dayKey(d)] ? (i === 6 ? '#2B50E8' : 'var(--a-ink)') : 'var(--a-line)')}<div style="margin-top:6px">${WD.format(d)}</div></div>`).join('')}</div></div>` : ''}
     <div style="margin-top:28px">
@@ -1399,7 +1525,7 @@ function a_result(r) {
       ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" data-next>${T.nextName(uiLevel(x.mode, next).name, next)}</button>` : ''}
       ${next && aStatus(x.mode, next) === 'paid' ? `<button class="btn b-cobalt" data-unlock>${T.unlockNext}</button>` : ''}
       ${!isDaily ? `<button class="btn b-plain" style="margin-top:12px" data-again>${T.again}</button>` : `<button class="btn b-plain" style="margin-top:12px" data-toblitz>${T.playBlitz}</button>`}
-    </div></div>`);
+    </div></div></div>`);
   on('[data-back]', back);
   on('[data-share]', async () => {
     const grid = [x.slips.slice(0, 5), x.slips.slice(5, 10)].filter(a => a.length).map(a => a.map(slipE).join('')).join('\n');
@@ -1416,14 +1542,15 @@ function a_result(r) {
 function a_settings() {
   const proModes = MODES.filter(m => !m.kidsOnly);
   const total = proModes.reduce((n, m) => n + levelsFor(m.id).length, 0), free = proModes.reduce((n, m) => n + levelsFor(m.id).filter(l => l.free).length, 0);
-  h(`<div class="stack">${aTop(T.settings)}
+  h(`<div class="stack screen-columns"><div class="screen-column">${aTop(T.settings)}
     <div class="card-a"><h2 style="font-size:24px;letter-spacing:-.5px">${P.full ? T.fullVersion : T.aAll(total)}</h2>
       <p style="font-size:16px;line-height:1.45">${P.full ? T.aThanks : T.aFree(free)}</p>
       <p class="mute">${T.aPrice}</p>
       ${P.full ? `<button class="btn b-plain" style="background:var(--a-ground)" data-lock>${T.backToFree}</button>` : `<button class="btn b-cobalt" data-buy>${T.aBuy}</button>`}
       <p class="mute" style="font-size:13px">${T.previewNote}</p></div>
+    </div><div class="screen-column">
     <div class="card-a"><h2 style="font-size:18px">${T.howTitle}</h2><p style="font-size:16px;line-height:1.45">${T.how}</p>${gameHelp()}</div>
-  </div>`);
+  </div></div>`);
   on('[data-back]', back);
   on('[data-buy]', () => { P.full = true; aSave(); toast(T.aFull); render(); });
   on('[data-lock]', () => { P.full = false; aSave(); render(); });
@@ -1431,22 +1558,30 @@ function a_settings() {
 
 // ================= chooser =================
 function choose() {
-  h(`<div class="stack choose" style="padding-top:20px">
-    <a class="site-link" href="/"><img src="/assets/hexabee.svg" alt="">‹ beequation.com</a>
+  h(`<div class="stack choose screen-columns" style="padding-top:20px">
+    <div class="screen-column"><a class="site-link" href="/"><img src="/assets/hexabee.svg" alt="">‹ beequation.com</a>
     <h1>Beequation</h1><p class="mute" style="font-size:16px;line-height:1.45">${T.chooseIntro}</p>
-    <button class="pick" style="background:#EAF6FF;color:#1C1A4A;font-family:Fredoka,ui-rounded,system-ui,sans-serif" data-kids>
+    </div><div class="screen-column"><button class="pick" style="background:#EAF6FF;color:#1C1A4A;font-family:Fredoka,ui-rounded,system-ui,sans-serif" data-kids>
       <span style="display:flex;gap:6px">${hexSVG(34, '#FFD84D', '', '#E0B21A')}${hexSVG(34, '#7EE8C6', '', '#3FC497')}${hexSVG(34, '#FFA8D2', '', '#EB72AC')}</span>
       <b>Beequation Kids</b><span>${T.kidsPick}</span></button>
     <button class="pick" style="background:#12161F;color:#F2F4F8" data-adult>
       <span style="display:flex;gap:6px">${hexSVG(34, '#222938')}${hexSVG(34, '#FFB020')}${hexSVG(34, '#222938')}</span>
       <b style="font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif">Beequation Pro</b><span style="color:#CBD1DB">${T.proPick}</span></button>
     <p class="preview-note">${T.savedHere}</p>
-  </div>`);
+  </div></div>`);
   on('[data-kids]', () => { stack = [{ name: 'k_home' }]; render(); });
   on('[data-adult]', () => { stack = [{ name: 'a_home' }]; render(); });
 }
 
 const SCREENS = { choose, k_home, k_world, k_game, k_win, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_settings };
+window.addEventListener('resize', () => { if (redrawGame) redrawGame(); });
+window.addEventListener('orientationchange', () => { if (redrawGame) redrawGame(); });
+if (typeof ResizeObserver === 'function') {
+  const layoutObserver = new ResizeObserver(layoutGame);
+  layoutObserver.observe(app);
+  ensureStatus(); layoutObserver.observe(statusLine); layoutObserver.observe(screenAfter);
+}
+document.fonts?.ready.then(layoutGame);
 render();
 </script>
 <!--lang-suggestion--><style>
