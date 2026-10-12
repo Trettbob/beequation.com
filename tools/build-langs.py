@@ -119,7 +119,7 @@ REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',func
 # while the phone menu or a header panel is open (NAV_CSS also hides a pop-up or drip already showing when one opens).
 # Each one is over within 5 s (WCAG 2.2.2). Decoration only: hidden from screen readers, off with Reduce Motion and
 # while the tab is hidden.
-BEE = """<!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+BEE = """<!--bee--><script>(function(){try{function stopped(){return document.documentElement.classList.contains('bq-motion');}
 var SAY=__SAY__,k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
 +'<defs><clipPath id="bqhb"><path d="'+hx+'"/></clipPath></defs>'
 +'<ellipse class="w" cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="'+k+'" stroke-width="3" transform="rotate(-20 42 28)"/>'
@@ -160,8 +160,8 @@ document.head.appendChild(st);
 var busy=0,prev='',bag=[],K=['fly','trip','peek','drip'];function next(ms){setTimeout(turn,ms!=null?ms:20000+Math.random()*15000);}function end(){if(!busy)return;busy=0;next();}
 function deal(){var b=K.slice();for(var i=3;i>0;i--){var j=Math.floor(Math.random()*(i+1)),q=b[i];b[i]=b[j];b[j]=q;}if(b[0]===prev)b.push(b.shift());return b;}
 function from(b,same){for(var i=0;i<b.length;i++)if((b[i]===prev)===same&&(b[i]==='peek'?peek():b[i]==='drip'?drip():fly(b[i]==='trip'))){prev=b.splice(i,1)[0];busy=1;return 1;}}
-function turn(){if(document.hidden){document.addEventListener('visibilitychange',function v(){if(!document.hidden){document.removeEventListener('visibilitychange',v);next(4000+Math.random()*6000);}});return;}
-if(busy||document.querySelector('.bqm-open,.bqh-panel:not([hidden])'))return next(6000);
+function turn(){if(stopped())return next(6000);if(document.hidden){document.addEventListener('visibilitychange',function v(){if(!document.hidden){document.removeEventListener('visibilitychange',v);next(4000+Math.random()*6000);}});return;}
+if(busy||document.querySelector('.bqm-open,.bqh-panel:not([hidden]),dialog[open]'))return next(6000);
 if(!bag.length)bag=deal();if(from(bag,false))return;bag=deal();if(from(bag,false)||from(bag,true))return;next();}
 function fly(trip){if(trip&&(innerWidth<360||innerHeight<420))return false;var el=document.createElement('div');el.className='bq-bee';el.setAttribute('aria-hidden','true');el.innerHTML='<div class="b">'+svg+'</div><div class="say"></div>';document.body.appendChild(el);
 var body=el.firstChild,bub=el.lastChild,said=0;function say(list,ms){bub.textContent=list[Math.floor(Math.random()*list.length)];bub.classList.add('on');clearTimeout(said);if(ms)said=setTimeout(function(){bub.classList.remove('on');},ms);}
@@ -174,7 +174,7 @@ if(trip){var fl=Math.random()<.5;mode='trip';part('fl',flower,fl?'left':'right',
 var fx=fl?W*.05+48:W-W*.05-48,fy=H-150+40,hx=fl?W-W*.05-42:W*.05+42,hy=H-84+61;
 tp={sx:fl?-60:W+60,sy:H*.35,fx:fx-36,fy:fy-46,hx:hx-36,hy:hy-36,cx:W/2-36,cy:Math.min(fy,hy)-H*.42};x=tp.sx;y=tp.sy;face=fl?1:-1;}
 var raf=0,dead=0;function gone(){if(dead)return;dead=1;cancelAnimationFrame(raf);el.remove();unscene();end();}
-function step(t){if(mode==='held')return;if(!t0)t0=t;if(!last)last=t;var dt=Math.min(50,t-last);last=t;
+function step(t){if(stopped())return gone();if(mode==='held')return;if(!t0)t0=t;if(!last)last=t;var dt=Math.min(50,t-last);last=t;
 if(mode==='trip'){var ms=t-t0,io=function(q){q=Math.max(0,Math.min(1,q));return q<.5?2*q*q:1-Math.pow(2-2*q,2)/2;};tilt=0;spin=0;
 if(ms<1150){var q=io(ms/1150);x=tp.sx+(tp.fx-tp.sx)*q;y=tp.sy+(tp.fy-tp.sy)*q+Math.sin(ms/160)*6;}
 else if(ms<1850){x=tp.fx+Math.sin(ms/120)*3;y=tp.fy+Math.sin(ms/90)*4;tilt=Math.sin(ms/70)*6;if(!sp0){sp0=1;say(SAY.pollen,1200);}if(ms>1350)el.classList.add('pollen');}
@@ -212,7 +212,7 @@ var run=900+Math.round(Math.abs(dx)*5),bits=[];function bit(cls,left,css){var e=
 bit('bq-drip',x,{'--dx':dx+'px','--run':run+'ms'}).innerHTML='<i>'+honey+'</i>';
 if(dx)bit('bq-trail',dx>0?x:x+dx,{'width':Math.abs(dx)+'px','--run':run+'ms','transform-origin':dx>0?'0 50%':'100% 50%'});
 setTimeout(function(){bits.forEach(function(e){e.remove();});end();},run+1700);return true;}
-next(10000+Math.random()*6000);}catch(e){}})();</script><!--/bee-->"""
+document.addEventListener('bq-a11y',function(){if(stopped()){document.querySelectorAll('.bq-bee,.bq-peek,.bq-drip,.bq-trail,.bq-scene,.bq-drop').forEach(function(e){e.remove();});}});next(10000+Math.random()*6000);}catch(e){}})();</script><!--/bee-->"""
 
 # What Indie says in her speech bubble: while flying, when caught, and when let go.
 SAY = {
@@ -383,6 +383,35 @@ HIVE = ('<svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focu
         '<path d="M33.5 9.5l3 1.7-1.7 3-3-1.7z" fill="#FFD84D" stroke="#1C1A4A" stroke-width="1" stroke-linejoin="round"/></g></svg>')
 LOGO = '<a class="bqh-logo" href="/"><img src="/assets/hexabee.svg" width="34" height="34" alt="">Beequation</a>'
 
+A11Y_TEXT = {'en': dict(zip('title size standard font spacing contrast motion reset close easy easy_version full'.split(),
+    ['Accessibility', 'Larger text', 'Standard size', 'Dyslexia-friendly font', 'Extra spacing', 'High contrast', 'Stop animations', 'Reset', 'Close', 'Easy Read', 'Easy Read version', 'Full version']))}
+A11Y_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M4 8h16M12 7v7m0-1-5 8m5-8 5 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+def a11y_trigger(lang):
+    t = site_text(lang, 'a11y', A11Y_TEXT)
+    return f'<button type="button" class="bq-a11y-trigger" data-bq-a11y-open aria-haspopup="dialog" aria-controls="bq-a11y">{A11Y_ICON}<span>{esc(t["title"])}</span></button>'
+
+def a11y_panel(lang):
+    t = site_text(lang, 'a11y', A11Y_TEXT)
+    checks = ''.join(f'<label><input type="checkbox" data-a11y="{k}"><span>{esc(t[k])}</span></label>' for k in ('font', 'spacing', 'contrast', 'motion'))
+    return ('<!--a11y--><dialog id="bq-a11y" aria-labelledby="bq-a11y-title">'
+            f'<h2 id="bq-a11y-title">{esc(t["title"])}</h2><label for="bq-a11y-size">{esc(t["size"])}</label>'
+            f'<select id="bq-a11y-size" data-a11y="text"><option value="100">{esc(t["standard"])}</option><option value="125">125%</option><option value="150">150%</option></select>{checks}'
+            f'<div class="bq-a11y-actions"><button type="button" data-a11y-reset>{esc(t["reset"])}</button><button type="button" data-a11y-close>{esc(t["close"])}</button></div></dialog>'
+            '<script>' + rd('assets/accessibility.js') + '</script><!--/a11y-->')
+
+def a11y_head():
+    return '<!--a11y-head--><script>' + rd('assets/accessibility-head.js') + '</script><style>' + rd('assets/accessibility.css') + '</style><!--/a11y-head-->'
+
+def scalable_text(s):
+    """Scale pixel, root-relative and viewport text (including font shorthands), leaving layout sizes alone.
+    Marked calc values make source and generated pages safe to rebuild repeatedly."""
+    def declaration(m):
+        value = m.group(2)
+        value = re.sub(r'calc\([\d.]+(?:px|vw|vh|vmin|vmax|rem) \* var\(--bq-text-scale,1\)\)|([\d.]+)(px|vw|vh|vmin|vmax|rem)',
+                       lambda n: n.group(0) if n.group(1) is None else f'calc({n.group(1)}{n.group(2)} * var(--bq-text-scale,1))', value)
+        return m.group(1) + value
+    return re.sub(r'(\bfont(?:-size)?\s*:\s*)([^;}"\n]+)', declaration, s)
+
 def header(lang, page, label, offer):
     """The header for one page: the pill (with its mega panels) and the phone menu, from one model."""
     t, en, learn = nav_text(lang), lang == 'en', has_learn(lang)
@@ -444,7 +473,7 @@ def header(lang, page, label, offer):
             f'<div class="langs">{links}</div></details>') if offer else ''
     menu_label = site_text(lang, 'menu', MENU_LABEL)
     pill = (f'<div class="bqh-pill">{LOGO}<nav class="bqh-nav" aria-label="{esc(t["main"])}"><ul class="bqh-items">{"".join(items)}</ul></nav>'
-            f'<div class="bqh-end">{chip}<a class="bqh-cta bqh-cta-top" href="/play.html">{esc(t["play"])}</a>'
+            f'<div class="bqh-end">{a11y_trigger(lang) if page != "play.html" else ""}{chip}<a class="bqh-cta bqh-cta-top" href="/play.html">{esc(t["play"])}</a>'
             f'<button type="button" class="bqh-hive" aria-expanded="false" aria-controls="bqm" aria-label="{esc(menu_label)}">{HIVE}</button></div></div>')
 
     # ----- phones and tablets: the full-screen menu, one screen per level
@@ -464,6 +493,7 @@ def header(lang, page, label, offer):
             every = dict(href=s['all'][1], label=s['all'][0], icon=s['icon'])
             body = (f'<p class="bqh-blurb">{esc(s["blurb"])}</p>{az(s)}{rows([every])}' if s['key'] == 'glossary' else rows(s['items'] + [every]))
             screens.append(screen(f'bqm-l-{s["key"]}', 'bqm-learn', LT['learn'], s['label'], body))
+    if page != 'play.html': big.append('<li>' + a11y_trigger(lang) + '</li>')
     big.append(f'<li><a href="/support.html"{here("/support.html")}>{esc(t["support"])}</a></li>')
     if offer:
         big.append(f'<li><button type="button" class="bqm-small" data-to="bqm-lang">{GLOBE}<span>{esc(t["language"])}</span><span class="bqm-cur">{esc(LANGS[lang])}</span>{CHEV_R}</button></li>')
@@ -623,12 +653,12 @@ html.bqm-open .bq-ok,html.bqm-open .bq-peek,html.bqm-open .bq-scene{display:none
 html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-panel:not([hidden])) .bq-bee,html.bqm-open .bq-ok,html:has(.bqh-panel:not([hidden])) .bq-ok,html.bqm-open .bq-drip,html.bqm-open .bq-trail,html:has(.bqh-panel:not([hidden])) .bq-drip,html:has(.bqh-panel:not([hidden])) .bq-trail{visibility:hidden}
 @media (prefers-color-scheme:dark){.bqh-pill{border-color:var(--line);box-shadow:0 14px 34px -14px rgba(0,0,0,.8)}.bqh-in{border-color:var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.85)}}
 @media (min-width:1000px){
-.bqh-pill{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;padding:0 8px 0 22px;border-radius:999px}
+.bqh-pill{display:flex;flex-wrap:wrap;gap:8px;padding:8px 8px 8px 22px;border-radius:32px}
 .bqh-logo{justify-self:start;margin:0}
-.bqh-nav{order:0;align-self:stretch}
-.bqh-items{flex-wrap:nowrap;height:100%}
+.bqh-nav{order:0;flex:0 1 auto;align-self:stretch}
+.bqh-items{flex-wrap:wrap;height:100%}
 .bqh-item{display:flex;align-items:center;align-self:stretch}
-.bqh-end{justify-self:end;flex-wrap:nowrap}
+.bqh-end{margin-left:auto;flex-wrap:wrap}
 .bqh .lang[open]{flex:none}
 .bqh .lang .langs{position:absolute;right:0;top:calc(100% + 20px);z-index:2;grid-template-columns:repeat(3,max-content);margin:0;padding:10px;background:var(--card);border:1px solid transparent;border-radius:22px;box-shadow:0 24px 50px -20px rgba(18,22,31,.45),0 4px 12px rgba(18,22,31,.08);animation:bqhDrop .16s ease-out}
 .bqh .lang .langs a{padding:0 14px}
@@ -816,7 +846,8 @@ def footer(lang):
     cols = (f'<div><p class="bqf-h">{esc(play_h)}</p>' + links([('/play.html', t['online']), ('/how-to-play.html', t['howto']), ('/today/', today)]) + '</div>'
             f'<div><p class="bqf-h">{esc(tr("Learn"))}</p>' + links(learn_items) + '</div>'
             f'<div><p class="bqf-h">{esc(info_h)}</p>' + links([('/about.html', t['about']), ('/support.html', tr('Support')), ('/privacy.html', tr('Privacy')),
-                                                             ('/terms.html', tr('Terms')), ('/accessibility.html', tr('Accessibility'))]) + '</div>')
+                                                             ('/terms.html', tr('Terms')), ('/accessibility.html', tr('Accessibility')),
+                                                             ('/easy-read/how-to-play.html', site_text(lang, 'a11y', A11Y_TEXT)['easy'])]) + '</div>')
     comb = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="{n}" title="{n}">{i}</a></li>' for n, u, i in SOCIALS)
     return (f'<div class="wrap"><footer class="bqf"><div class="bqf-card">'
             f'<div class="bqf-brand"><a class="bqf-logo" href="/"><img src="/assets/hexabee.svg" width="44" height="44" alt="">Beequation</a>'
@@ -841,11 +872,12 @@ def strip_markers(s):
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
-              'drip', 'blog-rss'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
+              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
-    return s
+    # Fixed-size text is scaled in generated output; restore source values before translation.
+    return re.sub(r'calc\(([\d.]+)(px|vw|vh|vmin|vmax|rem) \* var\(--bq-text-scale,1\)\)', r'\1\2', s)
 
 def english_only(s, lang=None):
     """English-only pages and files live on beequation.com, so a language site links to them there (except its own
@@ -864,6 +896,8 @@ def english_only(s, lang=None):
 
 def chrome(src, lang, page, label='Language'):
     s = strip_markers(src)
+    s = re.sub(r'\s*</head>', '\n</head>', s)
+    s = re.sub(r'\s*</body>', '\n</body>', s)
     for old in (OLD_MENU_CSS, OLDER_MENU_CSS):  # the language menu's styles now come with the header
         s = s.replace(old + '\n', '').replace(old, '')
     offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
@@ -873,6 +907,10 @@ def chrome(src, lang, page, label='Language'):
         if lang == 'en' and LIVE:
             s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         return s
+    s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">' + a11y_head(), 1)
+    if page in ('how-to-play.html', 'privacy.html', 'terms.html'):
+        t = site_text(lang, 'a11y', A11Y_TEXT)
+        s = re.sub(r'(</h1>)', lambda m: m.group(1) + f'<!--easy-link--><p><a href="/easy-read/{page}">{esc(t["easy_version"])}</a></p><!--/easy-link-->', s, count=1)
     rss = ('<!--blog-rss--><link rel="alternate" type="application/rss+xml" '
            f'title="{esc(build_blog.words(lang)["feed_title"])}" href="/blog/feed.xml"><!--/blog-rss-->')
     s = s.replace('</head>', rss + '\n</head>', 1)
@@ -890,6 +928,7 @@ def chrome(src, lang, page, label='Language'):
     if FOOTER_SLOT in s:
         s = s.replace(FOOTER_SLOT, '<!--footer-->' + footer(lang) + '<!--/footer-->', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
+    s = s.replace('</body>', a11y_panel(lang) + '\n</body>', 1)
     s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
     s = s.replace('</body>', GA + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
@@ -897,7 +936,26 @@ def chrome(src, lang, page, label='Language'):
         if LIVE:
             s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         if LIVE: s = s.replace('</body>', REMEMBER + '\n</body>', 1)
-    return s
+    # Older Learn guides are maintained HTML rather than page() output.
+    # Annotate the main content here too, without touching metadata, navigation or PDFs.
+    if page.startswith('learn/'):
+        s = re.sub(r'(<main\b[^>]*>)(.*?)(</main>)',
+                   lambda m: m[1] + _learn().accessible_math(m[2], lang) + m[3], s, flags=re.S)
+    return scalable_text(s)
+
+def easy_sitemap_entry(page, lang):
+    links = ''.join(f'<xhtml:link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}/{page}"/>' for c in LANGS)
+    links += f'<xhtml:link rel="alternate" hreflang="x-default" href="{MAIN}/{page}"/>'
+    return f'  <url><loc>{site(lang)}/{page}</loc>{links}</url>\n'
+
+def update_easy_sitemap():
+    path = os.path.join(ROOT, 'sitemap.xml')
+    s = rd('sitemap.xml')
+    s = re.sub(r'  <url><loc>https://beequation\.com/easy-read/[^<]*</loc>.*?</url>\n', '', s)
+    if 'xmlns:xhtml=' not in s:
+        s = s.replace('<urlset ', '<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" ', 1)
+    add = ''.join(easy_sitemap_entry(p, 'en') for p in PAGES if p.startswith('easy-read/'))
+    open(path, 'w', encoding='utf-8').write(s.replace('</urlset>', add + '</urlset>'))
 
 def build_date():
     from datetime import date
@@ -906,6 +964,8 @@ def build_date():
 def update_english():
     pages = [p for p in os.listdir(ROOT) if p.endswith('.html')]
     for dp, _, fs in os.walk(os.path.join(ROOT, 'learn')):   # the Learn section has sub-folders
+        pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
+    for dp, _, fs in os.walk(os.path.join(ROOT, 'easy-read')):
         pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
     for p in pages:
         s = rd(p)
@@ -916,6 +976,7 @@ def update_english():
     build_today.build('en', build_date(), chrome=chrome)
     build_blog.build('en', learn=_learn(), chrome=chrome)
     build_blog.english_catalog()
+    update_easy_sitemap()
 
 # ---------- translating a page ----------
 def translate(src, lang, page, T):
@@ -947,9 +1008,10 @@ def translate(src, lang, page, T):
     def texts(h):
         b = re.sub(r'<script.*?</script>|<style.*?</style>|<svg.*?</svg>|<!--.*?-->', '', h.split('</head>', 1)[-1], flags=re.S)
         return {norm(H.unescape(t)) for t in re.findall(r'>([^<>]*[A-Za-z]{3,}[^<>]*)<', b)}
-    if id(T) not in _KEPT: _KEPT[id(T)] = '\n'.join(H.unescape(v) for v in T.values() if isinstance(v, str))
+    # Keep the vocabulary itself alive: Python can reuse ids between language builds.
+    if id(T) not in _KEPT: _KEPT[id(T)] = (T, '\n'.join(H.unescape(v) for v in T.values() if isinstance(v, str)))
     for t in sorted(texts(res) & texts(strip_markers(src))):
-        if t not in T and t not in _KEPT[id(T)]: missing.append(t)
+        if t not in T and t not in _KEPT[id(T)][1]: missing.append(t)
     return res, missing
 _KEPT = {}
 
@@ -1005,6 +1067,10 @@ def build(check_only=False):
         suggestion_text = T.get('__site__', {}).get('suggestion')
         if not isinstance(suggestion_text, list) or len(suggestion_text) != 2 or not all(isinstance(x, str) and x.strip() for x in suggestion_text):
             print(f'  {lang}: missing language suggestion text'); problems += 1
+        a11y = T.get('__site__', {}).get('a11y', {})
+        for key in A11Y_TEXT['en']:
+            if not isinstance(a11y.get(key), str) or not a11y[key].strip():
+                print(f'  {lang} accessibility: no translation for {key}'); problems += 1
         nav = T.get('__site__', {}).get('nav', {})
         for k, v in NAV_TEXT['en'].items():   # the header's words
             if not nav.get(k): print(f'  {lang} header: no translation for "{k}": {v}'); problems += 1
@@ -1019,6 +1085,7 @@ def build(check_only=False):
             for m in dict.fromkeys(missing): print(f'  {lang} {page}: no translation for: {m[:120]}'); problems += 1
             if check_only: continue
             html_out = chrome(localise(html_out, lang, page), lang, page, T.get('Language', 'Language'))
+            os.makedirs(os.path.dirname(os.path.join(out, page)), exist_ok=True)
             open(os.path.join(out, page), 'w', encoding='utf-8').write(html_out)
         if check_only: continue
         shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf'))
@@ -1037,12 +1104,13 @@ def build(check_only=False):
         shutil.copy(os.path.join(ROOT, 'favicon.ico'), out)
         open(os.path.join(out, 'CNAME'), 'w').write(f'{lang}.beequation.com\n')
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
-        urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html')
+        urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html' and not p.startswith('easy-read/'))
+        urls += ''.join(easy_sitemap_entry(p, lang) for p in PAGES if p.startswith('easy-read/'))
         urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls + today_urls + blog_urls))
         from pathlib import Path
         urls += ''.join(f'  <url><loc>{site(lang)}/{p.relative_to(out).as_posix()}</loc></url>\n'
                         for p in sorted(Path(out, 'assets').rglob('*.pdf')))
-        open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
+        open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}</urlset>\n')
         open(os.path.join(out, 'README.md'), 'w').write(f'# {lang}.beequation.com\n\nBuilt from Trettbob/beequation.com by tools/build-langs.py. Do not edit here: change the English pages or i18n/{lang}.json there and rebuild.\n')
     return problems
 

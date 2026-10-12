@@ -76,6 +76,8 @@ CANDY = {'lemon': ('#FFD84D', '#1C1A4A'), 'mint': ('#7EE8C6', '#1C1A4A'), 'sky':
 SECTIONS = {'topics': 'Topics', 'years': 'Year groups', 'parents': 'Parents', 'teachers': 'Teachers',
             'worksheets': 'Worksheets', 'glossary': 'Maths glossary'}
 
+from a11y_math import accessible_math
+
 def esc(s): return html.escape(s, quote=True)
 def rd(p): return open(p, encoding='utf-8').read()
 
@@ -301,6 +303,7 @@ FOOTER_SLOT = '<!--footer--><!--/footer-->'   # build-langs.py's chrome() puts t
 def base_parts(lang='en'):
     base = ROOT if lang == 'en' else os.path.join(ROOT, 'dist', lang)
     s = rd(os.path.join(base, 'about.html'))
+    s = re.sub(r'<!--a11y-head-->.*?<!--/a11y-head-->', '', s, flags=re.S)
     css = re.search(r'<style>(.*?)</style>', s, re.S).group(1)
     css = re.sub(r'\n\.lang \{.*', '', css)                      # (older pages: the language menu's styles)
     return css, HEADER_SLOT, FOOTER_SLOT
@@ -469,7 +472,7 @@ def page(rel, meta, body, parts, names, S=None):
     css, nav, foot = parts
     url = S.main + url_of(rel)
     faq = []
-    body = shortcodes(body, faq, S)
+    body = accessible_math(shortcodes(body, faq, S), S.lang)
     trail = crumbs_for(rel, meta, names, S)
     crumbs = ' › '.join(f'<a href="{h}">{esc(n)}</a>' for n, h in trail[1:-1]) + (f' › {esc(trail[-1][0])}' if len(trail) > 2 else '')
     ld = [{'@context': 'https://schema.org', '@type': 'CollectionPage' if meta.get('layout') == 'hub' else 'Article',

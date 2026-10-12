@@ -127,7 +127,11 @@ class WorksheetTests(unittest.TestCase):
                     p = site / 'learn/worksheets' / (sheet['id'] + '.html')
                     self.assertTrue(p.exists(), f'Missing accessible worksheet page: {p}')
                     page = p.read_text()
-                    self.assertIn('<h1>' + html.escape(sheet['title'], quote=True) + '</h1>', page)
+                    # Spoken-maths wrappers retain the exact original visible HTML.
+                    def original_visual(markup):
+                        return re.sub(r'<span class="(fr|math-op|math-fraction)" role="math" aria-label="[^"]*"><span aria-hidden="true">(.*?)</span></span>',
+                                      lambda m: '<span class="fr">' + m[2] + '</span>' if m[1] == 'fr' else m[2], markup, flags=re.S)
+                    self.assertIn('<h1>' + html.escape(sheet['title'], quote=True) + '</h1>', original_visual(page))
                     questions = re.search(r'<ol class="worksheet-questions"[^>]*>(.*?)</ol>', page, re.S)
                     self.assertIsNotNone(questions)
                     answers = re.search(r'<details class="worksheet-answers">.*?<ol>(.*?)</ol>.*?</details>', page, re.S)
@@ -152,8 +156,11 @@ class WorksheetTests(unittest.TestCase):
                     self.assertNotIn('tableOfContents', resource['accessibilityFeature'])
                     self.assertIn('PDF', page)
                     self.assertTrue(any(x.get('@type') == 'BreadcrumbList' for x in ld))
+                    # Accessibility wrappers may change markup; the complete original visual
+                    # question and answer (including SVG and fraction bars) must remain intact.
                     for item in data['items']:
-                        self.assertIn(item['q'], questions.group(1))
+                        self.assertIn(item['q'], original_visual(questions.group(1)))
+                        self.assertIn(item['a'], original_visual(answers.group(1)))
                         pics = Pictures(); pics.feed(item['q'])
                         for picture in pics.pictures:
                             self.assertEqual(picture.get('role'), 'img')
