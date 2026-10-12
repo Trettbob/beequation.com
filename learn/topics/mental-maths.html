@@ -508,7 +508,15 @@ var m=document.createElement('script'),counted=false;m.async=true;m.src='https:/
 function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
 counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}
 m.onload=visit;m.onreadystatechange=visit;document.head.appendChild(m);}
-load();document.addEventListener('bq-consent',load);})();</script><!--/ga-->
+load();document.addEventListener('bq-consent',load);
+// Key events (only once GA has loaded, so only with consent): play_click for links to the browser game, get_click for
+// the /get/ smart links and the store pages. No personal data; 'beacon' so they survive the navigation.
+document.addEventListener('click',function(e){if(!on||!ok()||typeof gtag!=='function'||!e.target.closest)return;var a=e.target.closest('a[href]');if(!a)return;
+var u;try{u=new URL(a.href,location.href);}catch(x){return;}var t=(a.textContent||a.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,60),here=location.origin+location.pathname,p=u.pathname;
+if(/(^|\.)beequation\.com$/.test(u.hostname)&&/\/play\.html$/.test(p)){gtag('event','play_click',{link_url:u.href,link_text:t,page_location:here,transport_type:'beacon'});return;}
+var store=/(^|\.)(apps\.apple\.com|play\.google\.com)$/.test(u.hostname),get=/(^|\.)beequation\.com$/.test(u.hostname)&&/^\/get(\/|$)/.test(p);if(!store&&!get)return;
+var s=p+u.search,c=a.closest('[data-app]'),app=c?c.getAttribute('data-app'):/kids/i.test(s)?'kids':/\/get\/pro|com\.trettlabs\.beequation(?!kids)/.test(s)?'pro':'unknown';
+gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->
 <!--bee--><script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var SAY={"fly": ["Catch me if you can!", "Hi! I'm Indie!", "Buzz buzz!", "Wheee!", "Maths is sweet!", "Can you spot the sum?", "7 + 3 = 10!"], "held": ["You caught me!", "Hee hee, that tickles!", "Good catch!", "Oh! Hello there!"], "flip": ["Wheee!", "Loop the loop!", "Woo-hoo!"], "peek": ["Peekaboo!", "Psst! Over here!", "Hello down there!", "Spot the sum!"], "boo": ["Boo!", "Eek! Found me!"], "pollen": ["Mmm, pollen!", "Sunflower snack!", "Yum!"], "home": ["Home sweet hive!", "Honey time!"], "free": ["Bye!", "Wheee!", "See you soon!"]},k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',svg='<svg viewBox="8 9 80 80" width="72" height="72" aria-hidden="true" focusable="false">'
 +'<defs><clipPath id="bqhb"><path d="'+hx+'"/></clipPath></defs>'
