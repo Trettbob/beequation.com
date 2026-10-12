@@ -160,6 +160,8 @@ def template(code, page, title, content, day, archive, chrome):
     # Borrow local CSS and footer; all active behaviour comes from the existing chrome.
     base = ROOT if code == 'en' else ROOT / 'dist' / code
     about = (base / 'about.html').read_text(encoding='utf-8')
+    # chrome injects preference CSS before the page CSS; borrow the page style.
+    about = re.sub(r'<!--a11y-head-->.*?<!--/a11y-head-->', '', about, flags=re.S)
     css = re.search(r'<style>(.*?)</style>', about, re.S).group(1)
     foot = '<!--footer--><!--/footer-->'   # chrome() fills it
     w = words(code)

@@ -675,6 +675,27 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 }
 @media (min-width:560px) and (max-width:999.98px){.js-nav .bqh-cta-top{display:inline-flex}}
 @media (max-width:420px){.bqm-scr{padding:6px 18px 24px}.bqm-big>li>a,.bqm-big>li>button{font-size:25px}.bqm-h{font-size:28px}.bqm-foot{padding-left:18px;padding-right:18px}}
+/* A pill stays wide only while its complete contents fit on one line. */
+@media(min-width:1000px){
+.bqh-pill{max-width:1500px;flex-wrap:nowrap}
+.bqh-nav,.bqh-end,.bqh-items{flex-wrap:nowrap;flex-shrink:0}
+.bqh-logo,.bqh-link,.bqh-end>*{flex-shrink:0}
+.bqh.bqh-compact .bqh-pill{border-radius:999px;padding-left:18px}
+.bqh.bqh-compact .bqh-nav,.bqh.bqh-compact .bqh-end .lang,.bqh.bqh-compact .bqh-pill .bq-a11y-trigger{display:none}
+.bqh.bqh-compact .bqh-hive{display:grid}
+.bqh.bqh-compact .bqh-panel{display:none!important}
+.bqh.bqh-compact .bqm:not([hidden]){display:flex!important}
+.bqh.bqh-measuring .bqh-pill{padding-left:22px!important}
+.bqh.bqh-measuring .bqh-logo{flex:0 0 auto!important;white-space:nowrap!important;overflow-wrap:normal!important;margin-right:0!important}
+.bqh.bqh-measuring .bqh-end{margin-left:auto!important}
+.bqh.bqh-measuring .bqh-nav{display:block!important}
+.bqh.bqh-measuring .bqh-end .lang{display:block!important}
+.bqh.bqh-measuring .bqh-pill .bq-a11y-trigger{display:inline-flex!important}
+.bqh.bqh-measuring .bqh-hive{display:none!important}
+}
+.bqh.bqh-compact .bqh-logo{margin-right:auto;min-width:0;flex:1 1 auto;white-space:normal;overflow-wrap:anywhere}
+.bqh.bqh-compact .bqh-end{margin-left:0;flex:none}
+@media(max-width:559.98px){.bqh-logo{font-size:18px;gap:6px}.bqh-logo img{width:28px;height:28px}.bqh-pill{padding-left:12px;gap:4px}.bqh-end{gap:4px}}
 :lang(ja) body,:lang(ko) body{word-break:keep-all;overflow-wrap:break-word}
 :lang(ja) body{line-break:strict}
 @supports (word-break:auto-phrase){:lang(ja) body{word-break:auto-phrase}}
@@ -697,9 +718,9 @@ def nav_head(): return "<!--nav-css--><script>document.documentElement.classList
 # something that has just been hidden: tabbing into a hovered panel keeps it open, a panel that takes over from one
 # holding focus (or from the open language list) moves focus to its own button, hovering another Learn section moves
 # focus to that section's button, and resizing past 1000px moves it to the beehive or the Apps button.
-NAV ="""<!--nav--><script>(function(){var D=document,R=D.documentElement,h=D.getElementById('bqh');if(!h)return;R.classList.add('js-nav');
+NAV ="""<!--nav--><script>""" + rd("assets/header-fit.js") + """(function(){var D=document,R=D.documentElement,h=D.getElementById('bqh');if(!h)return;R.classList.add('js-nav');
 function mq(q){return window.matchMedia?matchMedia(q):{matches:false};}function on(m,f){if(m.addEventListener)m.addEventListener('change',f);else if(m.addListener)m.addListener(f);}
-var wide=mq('(min-width: 1000px)'),fine=mq('(hover: hover) and (pointer: fine)'),calm=mq('(prefers-reduced-motion: reduce)');
+var baseWide=mq('(min-width: 1000px)'),wide={matches:baseWide.matches},fine=mq('(hover: hover) and (pointer: fine)'),calm=mq('(prefers-reduced-motion: reduce)');
 var pill=h.querySelector('.bqh-pill'),lang=pill.querySelector('.lang'),open=null,via='',tO=0,tC=0,tR=0;
 function show(li,hover){clearTimeout(tO);clearTimeout(tC);var a=D.activeElement,lost=0;if(open&&open!==li){lost=open.p.contains(a);hide(open);}
 if(lang&&lang.open){if(lang.querySelector('.langs').contains(a))lost=1;lang.open=false;}open=li;via=hover?'hover':'click';li.p.hidden=false;li.b.setAttribute('aria-expanded','true');if(lost)li.b.focus();}
@@ -743,8 +764,9 @@ else if(lang&&lang.open){lang.open=false;lang.querySelector('summary').focus();}
 D.addEventListener('click',function(e){var t=e.target;if(open&&!open.contains(t))hide(open);if(lang&&lang.open&&!lang.contains(t))lang.open=false;});
 var inH=0;h.addEventListener('focusin',function(){inH=1;});h.addEventListener('focusout',function(e){if(e.relatedTarget&&!h.contains(e.relatedTarget))inH=0;});
 D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
-on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
-var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->"""
+function fit(){var was=wide.matches;wide.matches=baseWide.matches&&window.bqHeaderFits(h);h.classList.toggle('bqh-compact',!wide.matches);if(was===wide.matches)return;if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
+var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}}
+on(baseWide,fit);window.addEventListener('resize',fit);D.addEventListener('bq-a11y',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(pill);if(D.fonts)D.fonts.ready.then(fit);fit();})();</script><!--/nav-->"""
 
 # ---------- the footer: one model for every page and site, like the header ----------
 # chrome() swaps the page's footer (or FOOTER_SLOT) for footer(lang); strip_markers() leaves FOOTER_SLOT behind.

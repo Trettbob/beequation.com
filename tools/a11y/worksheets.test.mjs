@@ -12,6 +12,7 @@ test('printed arithmetic uses one accessible equation instead of a table with em
   const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'bq-worksheets-'));
   try {
     await fs.mkdir(path.join(tmp,'tools/a11y'),{recursive:true});
+    await fs.cp(path.join(ROOT,'tools/braille'),path.join(tmp,'tools/braille'),{recursive:true});
     await fs.mkdir(path.join(tmp,'assets/fonts'),{recursive:true});
     await fs.mkdir(path.join(tmp,'learn-src'));
     await fs.mkdir(path.join(tmp,'html'));

@@ -75,10 +75,12 @@ button:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
 .cell, .cell:focus { outline: none; }
 .cell:focus-visible .face { stroke: var(--cobalt); stroke-width: 5; stroke-linejoin: round; }
 .kids .cell:focus-visible .face { stroke: #1C1A4A; }
+.night .cell:focus-visible .face { stroke: #FFB020; }
+.night button:focus-visible { outline-color: #FFB020; }
 h1, h2, p { margin: 0; }
 .stack > * + * { margin-top: 16px; }
 .row { display: flex; gap: 12px; align-items: center; }
-.grow { flex: 1; }
+.grow { flex: 1; min-width: 0; }
 
 /* kids */
 .candy { display: block; width: 100%; border-radius: 24px; background: var(--c, #fff); box-shadow: 0 6px 0 var(--l, var(--k-shadow)); color: var(--k-ink);
@@ -102,14 +104,15 @@ h1, h2, p { margin: 0; }
 .stone { background: none; padding: 0; text-align: center; color: #1C1A4A; }
 .stone:nth-child(3n+2) { margin-top: 40px; }
 .stars-row { height: 22px; display: flex; justify-content: center; }
-.dots { display: flex; justify-content: space-between; flex: 1; }
+.dots svg{min-width:0;flex-shrink:1}.dots { min-width:0; display: flex; justify-content: space-between; flex: 1; }
 .tray { display: flex; gap: 10px; justify-content: center; }
 .sticker { width: 90px; text-align: center; font-size: 13px; font-weight: 600; }
-.win h1 { font-size: 56px; text-align: center; }
+.win> .row>svg,.win> .row>div{min-width:0;flex-shrink:1}.win> .row>div svg{max-width:100%;height:auto}.win> .row>svg{max-width:38%;height:auto}
+.win h1 { overflow-wrap:anywhere;font-size: 56px; text-align: center; }
 .win p { font-size: 21px; font-weight: 600; text-align: center; line-height: 1.3; }
 
 /* adult */
-.btn { display: flex; width: 100%; height: 54px; border-radius: 16px; align-items: center; justify-content: center; gap: 10px; font-weight: 700; font-size: 17px; }
+.btn { display: flex; width: 100%; min-height: 54px; height: auto; padding: 8px 12px; border-radius: 16px; align-items: center; justify-content: center; gap: 10px; font-weight: 700; font-size: 17px; }
 .btn:active { opacity: .85; }
 .b-cobalt { background: var(--cobalt); color: #fff; } .b-honey { background: var(--honey); color: #12161F; }
 .b-plain { background: var(--a-card); color: var(--a-ink); } .b-dark { background: var(--night-cell); color: var(--night-ink); }
@@ -142,7 +145,7 @@ h1, h2, p { margin: 0; }
 .slot.on { background: var(--honey); color: #12161F; }
 
 /* boards */
-.board { display: block; margin: 0 auto; overflow: visible; touch-action: manipulation; }
+.board { max-width:100%;height:auto;display: block; margin: 0 auto; overflow: visible; touch-action: manipulation; }
 .cell { cursor: pointer; }
 .cell text { font-weight: 700; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
 .adult .cell text { font-weight: 600; }
@@ -969,10 +972,10 @@ function k_game(r) {
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, mistakes = 0, hints = 0, marks = {}, say = CHEER[0], busy = false, done = false, puzzleAt = Date.now();
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
   function draw() {
-    const p = cur(), W = Math.min(app.clientWidth, 460);
+    const p = cur(), W = Math.min(app.clientWidth - 40, 420);
     const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
     h(`<div class="stack">
-      <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
+      <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" role="img" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? showCell(v, item.final) : '?'}</text>`)).join('')}</div>` : ''}
@@ -1027,12 +1030,12 @@ function k_win(r) {
     return `<div style="position:absolute;left:${(i * 53) % 420}px;top:${(i * 37) % 420}px;transform:rotate(${(i * 41) % 90}deg)" aria-hidden="true">${i % 3 === 0 ? hexSVG(s, c) : `<div style="width:${s}px;height:${s / 2}px;border-radius:3px;background:${c}"></div>`}</div>`; }).join('');
   const helpLine = x.hints === 0 ? T.helpNone : x.hints === 1 ? T.helpOne : T.helpN(x.hints);
   h(`${conf}<div class="stack win" style="position:relative;padding-top:50px;display:flex;flex-direction:column;align-items:center">
-    <div class="row" style="align-items:flex-start;gap:4px" aria-label="${T.starsAria(x.stars)}"><div style="margin-top:22px">${star(84, x.stars >= 1)}</div>${star(110, x.stars >= 2)}<div style="margin-top:22px">${star(84, x.stars >= 3)}</div></div>
+    <div class="row" style="align-items:flex-start;gap:4px" role="img" aria-label="${T.starsAria(x.stars)}"><div style="margin-top:22px">${star(84, x.stars >= 1)}</div>${star(110, x.stars >= 2)}<div style="margin-top:22px">${star(84, x.stars >= 3)}</div></div>
     <h1>${HEAD[x.stars]}</h1><p>${T.solvedAll(x.solved)}<br>${helpLine}</p>
     ${x.daily ? `<p style="font-size:18px;color:#FFD84D">${T.comeBack}</p>` : ''}
     ${x.sticker ? `<div style="align-self:stretch;background:#fff;color:#1C1A4A;border-radius:26px;padding:16px;display:flex;align-items:center;gap:16px;box-shadow:0 6px 0 #3B24A8">
       ${hexSVG(78, w.c, `<g transform="translate(18,24)">${star(42, true, '#fff')}</g>`)}<div><div style="font-size:15px;font-weight:600;color:#5A5688">${T.newSticker}</div><div style="font-size:24px;font-weight:700">${x.sticker}</div><div style="font-size:15px;font-weight:600">${T.addedToBook}</div></div></div>` : ''}
-    ${!x.daily && x.stars < 3 ? `<p style="font-size:16px;color:#E4DDFF">${T.get3}</p>` : ''}
+    ${!x.daily && x.stars < 3 ? `<p style="font-size:16px;color:#FFFFFF">${T.get3}</p>` : ''}
     <div style="align-self:stretch;margin-top:28px">
       ${nextOpen ? `<button class="candy big k-lemon" style="font-size:26px" data-next>${T.nextLevel}</button>` : ''}
       ${!x.daily ? `<button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-again>${T.again}</button>` : ''}
@@ -1047,7 +1050,7 @@ function k_stickers() {
   h(`<div class="stack">${kTop(T.myStickers)}<p class="soft" style="font-size:17px">${T.stickersHow}</p>
     ${WORLDS.map(w => `<div class="card-k"><h2 style="font-size:20px;margin-bottom:12px">${w.title}</h2><div class="row" style="flex-wrap:wrap;align-items:flex-start">${w.stickers.map((n, i) => {
       const got = K.stickers.includes(`${w.id}-${i + 1}`);
-      return `<div class="sticker" aria-label="${got ? n : T.notWon(n)}">${hexSVG(64, got ? w.c : '#E6ECF3', got ? `<g transform="translate(16,21)">${star(32, true, '#fff')}</g>` : `<g transform="translate(21,26)">${I.lock('#9AA6B8', 22)}</g>`, got ? w.l : '')}<div style="color:${got ? 'inherit' : '#7C86A0'}">${got ? n : '???'}</div></div>`;
+      return `<div class="sticker" role="img" aria-label="${got ? n : T.notWon(n)}">${hexSVG(64, got ? w.c : '#E6ECF3', got ? `<g transform="translate(16,21)">${star(32, true, '#fff')}</g>` : `<g transform="translate(21,26)">${I.lock('#9AA6B8', 22)}</g>`, got ? w.l : '')}<div style="color:${got ? 'inherit' : '#7C86A0'}">${got ? n : '???'}</div></div>`;
     }).join('')}</div></div>`).join('')}</div>`);
   on('[data-back]', back);
 }
@@ -1089,7 +1092,7 @@ function a_home() {
     <div class="row" style="gap:10px"><a class="grow site-link" href="/" aria-label="${T.siteAria}" style="font-size:20px;font-weight:700;letter-spacing:-.4px"><img src="/assets/hexabee.svg" alt="" style="width:32px;height:32px">Beequation</a>
       ${s ? `<span class="chip" aria-label="${T.streakAria(s)}">${I.flame} ${s}</span>` : ''}<button class="icon-btn" aria-label="${T.settings}" data-settings>${I.gear('currentColor')}</button></div>
     <div class="hero"><div style="font-size:14px;color:#AEB6C4">${T.dailyOn(DATE.format(new Date()))}</div>
-      <div style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">${T.hiveNo(dailyNo())}</div>
+      <h1 style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">${T.hiveNo(dailyNo())}</h1>
       <div style="font-size:15px;color:#CBD1DB;line-height:1.4">${today ? T.doneIn(fmtTime(today.seconds)) : T.tenMixed}</div>
       ${today ? `<button class="btn b-dark" data-seedaily>${T.seeResult}</button>` : `<button class="btn b-honey" data-daily>${T.playToday}</button>`}</div>
     <div class="tiles"><button class="tile blue" data-blitz>${I.bolt('#fff')}<b>${T.blitzTile}</b><small>${best ? T.best(best) : T.beatClock}</small></button>
@@ -1141,7 +1144,7 @@ function a_game(r) {
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
   const clock = () => { const n = Date.now(); if (blitz) return `0:${String(Math.max(0, Math.ceil((endAt - n) / 1000))).padStart(2, '0')}`; return fmtTime(Math.floor((n - startAt) / 1000)); };
   function draw() {
-    const p = cur(), W = Math.min(app.clientWidth, 460), left = Math.max(0, endAt - Date.now());
+    const p = cur(), W = Math.min(app.clientWidth - 40, 420), left = Math.max(0, endAt - Date.now());
     h(`<div class="stack">
       <div class="row"><button class="icon-btn" aria-label="${T.quit}" data-back>${I.close('#F2F4F8')}</button>
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? T.solvedWord : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</div></div>

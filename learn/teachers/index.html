@@ -40,6 +40,11 @@ html.bq-contrast .btn,html.bq-contrast button,html.bq-contrast select,html.bq-co
 #bq-a11y label{display:flex;align-items:center;gap:12px;margin:18px 0}#bq-a11y select{font:inherit;max-width:100%;padding:8px}#bq-a11y input{width:24px;height:24px;flex:none;accent-color:var(--cobalt)}
 #bq-a11y .bq-a11y-actions{display:flex;flex-wrap:wrap;gap:12px}#bq-a11y button{font:inherit;min-height:44px;padding:10px 18px;border-radius:12px;cursor:pointer}
 #bq-a11y :focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+
+/* Native modal semantics, with a trigger anchor on desktop and a phone bottom sheet. */
+#bq-a11y{position:fixed;inset:auto;margin:0;width:480px}
+#bq-a11y[data-placement="sheet"]{left:12px;right:12px;bottom:12px;top:auto;width:calc(100% - 24px);max-width:480px;margin-inline:auto;max-height:calc(100dvh - 24px)}
+html.bq-spacing .easy-read,html.bq-spacing .easy-read p{line-height:1.6!important}
 </style><!--/a11y-head-->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Free primary maths resources for teachers</title>
@@ -114,7 +119,8 @@ footer a { color: var(--mute); }
 footer a:hover { color: var(--ink); }
 
 .doc.hub { max-width: none; }
-.doc table { border-collapse: collapse; width: 100%; margin: 12px 0 18px; font-size: calc(16px * var(--bq-text-scale,1)); }
+.doc p > a[href^="#"] { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; margin: 3px; }
+.doc table { table-layout: fixed; overflow-wrap: anywhere; border-collapse: collapse; width: 100%; margin: 12px 0 18px; font-size: calc(16px * var(--bq-text-scale,1)); }
 .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
 .doc th { font-size: calc(14px * var(--bq-text-scale,1)); color: var(--mute); font-weight: 600; }
 .doc ul, .doc ol { padding-left: 22px; margin: 0 0 14px; } .doc li { margin: 0 0 6px; }
@@ -346,6 +352,27 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 }
 @media (min-width:560px) and (max-width:999.98px){.js-nav .bqh-cta-top{display:inline-flex}}
 @media (max-width:420px){.bqm-scr{padding:6px 18px 24px}.bqm-big>li>a,.bqm-big>li>button{font-size:calc(25px * var(--bq-text-scale,1))}.bqm-h{font-size:calc(28px * var(--bq-text-scale,1))}.bqm-foot{padding-left:18px;padding-right:18px}}
+/* A pill stays wide only while its complete contents fit on one line. */
+@media(min-width:1000px){
+.bqh-pill{max-width:1500px;flex-wrap:nowrap}
+.bqh-nav,.bqh-end,.bqh-items{flex-wrap:nowrap;flex-shrink:0}
+.bqh-logo,.bqh-link,.bqh-end>*{flex-shrink:0}
+.bqh.bqh-compact .bqh-pill{border-radius:999px;padding-left:18px}
+.bqh.bqh-compact .bqh-nav,.bqh.bqh-compact .bqh-end .lang,.bqh.bqh-compact .bqh-pill .bq-a11y-trigger{display:none}
+.bqh.bqh-compact .bqh-hive{display:grid}
+.bqh.bqh-compact .bqh-panel{display:none!important}
+.bqh.bqh-compact .bqm:not([hidden]){display:flex!important}
+.bqh.bqh-measuring .bqh-pill{padding-left:22px!important}
+.bqh.bqh-measuring .bqh-logo{flex:0 0 auto!important;white-space:nowrap!important;overflow-wrap:normal!important;margin-right:0!important}
+.bqh.bqh-measuring .bqh-end{margin-left:auto!important}
+.bqh.bqh-measuring .bqh-nav{display:block!important}
+.bqh.bqh-measuring .bqh-end .lang{display:block!important}
+.bqh.bqh-measuring .bqh-pill .bq-a11y-trigger{display:inline-flex!important}
+.bqh.bqh-measuring .bqh-hive{display:none!important}
+}
+.bqh.bqh-compact .bqh-logo{margin-right:auto;min-width:0;flex:1 1 auto;white-space:normal;overflow-wrap:anywhere}
+.bqh.bqh-compact .bqh-end{margin-left:0;flex:none}
+@media(max-width:559.98px){.bqh-logo{font-size:calc(18px * var(--bq-text-scale,1));gap:6px}.bqh-logo img{width:28px;height:28px}.bqh-pill{padding-left:12px;gap:4px}.bqh-end{gap:4px}}
 :lang(ja) body,:lang(ko) body{word-break:keep-all;overflow-wrap:break-word}
 :lang(ja) body{line-break:strict}
 @supports (word-break:auto-phrase){:lang(ja) body{word-break:auto-phrase}}
@@ -384,9 +411,18 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 <div class="trybox"><svg class="indie" viewBox="1 9 91.4 80" width="96" height="84" aria-hidden="true" focusable="false"><ellipse cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="3" transform="rotate(-20 42 28)"/><ellipse cx="60" cy="26" rx="12" ry="9.5" fill="#DFF1FF" stroke="#1C1A4A" stroke-width="3" transform="rotate(18 60 26)"/><path d="M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z" fill="#FFD84D"/><rect x="35" y="34" width="7" height="52" fill="#1C1A4A"/><rect x="50" y="34" width="7" height="52" fill="#1C1A4A"/><path d="M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z" fill="none" stroke="#1C1A4A" stroke-width="3.5" stroke-linejoin="round"/><path d="M64.5 57 Q68 52 71.5 57" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><path d="M62 65 Q69 74 76 64" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="76" cy="61" r="3" fill="#FFA8D2"/><path d="M64 34 Q68 20 76 16" fill="none" stroke="#1C1A4A" stroke-width="2.6" stroke-linecap="round"/><circle cx="77" cy="15.5" r="3.2" fill="#1C1A4A"/><path d="M18 57 L11 60 L18 63" fill="#1C1A4A" stroke="#1C1A4A" stroke-width="2" stroke-linejoin="round"/></svg><div style="flex:1;min-width:220px"><p class="t">Practise with Indie</p><p>Beequation Kids turns number facts into honeycomb puzzles, with Indie giving a hint when a child is stuck. No ads and no data collected.</p><div class="go"><a class="btn honey" href="/play.html">Play free in your browser</a><a class="btn plain" href="/learn/worksheets/">Free worksheets</a></div></div></div>
 </article></main><!--footer--><div class="wrap"><footer class="bqf"><div class="bqf-card"><div class="bqf-brand"><a class="bqf-logo" href="/"><img src="/assets/hexabee.svg" width="44" height="44" alt="">Beequation</a><p class="bqf-tag">Find the number made by two others.</p><a class="bqf-today" href="/today/"><i aria-hidden="true"></i>Today&#x27;s puzzle</a></div><nav class="bqf-cols" aria-label="Beequation"><div><p class="bqf-h">Play</p><ul><li><a href="/play.html">Play online</a></li><li><a href="/how-to-play.html">How to play</a></li><li><a href="/today/">Today&#x27;s puzzle</a></li></ul></div><div><p class="bqf-h">Learn</p><ul><li><a href="/learn/">Learn home</a></li><li><a href="/teachers.html">Free puzzle pack for teachers</a></li><li><a href="/blog/">Blog</a></li></ul></div><div><p class="bqf-h">Help &amp; info</p><ul><li><a href="/about.html">About Beequation</a></li><li><a href="/support.html">Support</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/accessibility.html">Accessibility</a></li><li><a href="/easy-read/how-to-play.html">Easy Read</a></li></ul></div></nav><div class="bqf-social"><p class="bqf-h">Follow the hive</p><ul class="bqf-comb"><li><a href="https://www.instagram.com/beequationapp" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></svg></a></li><li><a href="https://www.tiktok.com/@beequationapp" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.4 2.6 2.3 4.4 5 4.6"/></svg></a></li><li><a href="https://www.youtube.com/@beequationapp" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/></svg></a></li><li><a href="https://www.twitch.tv/beequationapp" target="_blank" rel="noopener" aria-label="Twitch" title="Twitch"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.5h15v10l-4.5 4.5h-3.5l-3 3v-3H4.5z"/><path d="M11 8v4M15.5 8v4"/></svg></a></li><li><a href="https://www.facebook.com/beequationapp" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3.5H14a4 4 0 0 0-4 4V10H7.5v3.5H10v7h3.5v-7h2.6l.6-3.5h-3.2V8a1 1 0 0 1 1-1h1z"/></svg></a></li><li><a href="https://www.linkedin.com/company/beequationapp" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M7.8 10.5v6M7.8 7.4h.01M11.5 16.5v-6M11.5 13.2c0-1.6 1-2.8 2.5-2.8s2.3 1 2.3 2.7v3.4"/></svg></a></li><li><a href="https://x.com/beequationapp" target="_blank" rel="noopener" aria-label="X" title="X"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4.2l11.8 16h-4.2z"/><path d="M19.6 4l-6.6 7.3M4.4 20l6.6-7.3"/></svg></a></li><li><a href="https://bsky.app/profile/did:plc:v7vs5upct4ovtvhrjaq3fzgx" target="_blank" rel="noopener" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11.3C10.5 8.3 6.9 4.5 4.8 4.5 3.6 4.5 3 5.3 3 6.7c0 1.2.6 4.4 1.4 5.3 1.2 1.3 3.3 1.3 4.6 1-2.4.8-3.6 2.3-2.2 4 1.7 2 3.8 1 5.2-1.9 1.4 2.9 3.5 3.9 5.2 1.9 1.4-1.7.2-3.2-2.2-4 1.3.3 3.4.3 4.6-1 .8-.9 1.4-4.1 1.4-5.3 0-1.4-.6-2.2-1.8-2.2-2.1 0-5.7 3.8-7.2 6.8z"/></svg></a></li><li><a href="https://www.threads.com/@beequationapp" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 9v4.2a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.4 6.9"/></svg></a></li><li><a href="https://www.pinterest.com/beequationapp/" target="_blank" rel="noopener" aria-label="Pinterest" title="Pinterest"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 20.6l2.2-9"/><path d="M11 15.6c3 .8 5.6-1.3 5.6-4.3 0-2.6-2.1-4.4-4.7-4.4-3 0-5 2.1-5 4.6 0 1.1.4 2 1.1 2.6"/></svg></a></li></ul><img class="bqf-bee" src="/assets/hexabee.svg" width="46" height="46" alt="" loading="lazy"></div></div><p class="bqf-legal">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="/support.html">support page</a>. © 2026 Trett Labs Limited.</p></footer></div><!--/footer-->
 <script>document.addEventListener('click',function(e){document.querySelectorAll('.learnnav details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});</script>
-<!--nav--><script>(function(){var D=document,R=D.documentElement,h=D.getElementById('bqh');if(!h)return;R.classList.add('js-nav');
+<!--nav--><script>// Measure the full, unwrapped pill, including font/spacing preferences and translated labels.
+window.bqHeaderFits=function(h){
+  if(window.innerWidth<1000)return false;
+  var p=h.querySelector('.bqh-pill');h.classList.add('bqh-measuring');
+  try{
+    var r=p.getBoundingClientRect(),s=getComputedStyle(p),right=r.right-parseFloat(s.paddingRight||0),left=r.left+parseFloat(s.paddingLeft||0);
+    return Array.from(p.querySelectorAll('.bqh-logo,.bqh-link,.bqh-end > *')).every(function(e){var b=e.getBoundingClientRect();return !b.width||(b.left>=left-1&&b.right<=right+1);})&&p.scrollWidth<=p.clientWidth+1;
+  }finally{h.classList.remove('bqh-measuring');}
+};
+(function(){var D=document,R=D.documentElement,h=D.getElementById('bqh');if(!h)return;R.classList.add('js-nav');
 function mq(q){return window.matchMedia?matchMedia(q):{matches:false};}function on(m,f){if(m.addEventListener)m.addEventListener('change',f);else if(m.addListener)m.addListener(f);}
-var wide=mq('(min-width: 1000px)'),fine=mq('(hover: hover) and (pointer: fine)'),calm=mq('(prefers-reduced-motion: reduce)');
+var baseWide=mq('(min-width: 1000px)'),wide={matches:baseWide.matches},fine=mq('(hover: hover) and (pointer: fine)'),calm=mq('(prefers-reduced-motion: reduce)');
 var pill=h.querySelector('.bqh-pill'),lang=pill.querySelector('.lang'),open=null,via='',tO=0,tC=0,tR=0;
 function show(li,hover){clearTimeout(tO);clearTimeout(tC);var a=D.activeElement,lost=0;if(open&&open!==li){lost=open.p.contains(a);hide(open);}
 if(lang&&lang.open){if(lang.querySelector('.langs').contains(a))lost=1;lang.open=false;}open=li;via=hover?'hover':'click';li.p.hidden=false;li.b.setAttribute('aria-expanded','true');if(lost)li.b.focus();}
@@ -430,18 +466,29 @@ else if(lang&&lang.open){lang.open=false;lang.querySelector('summary').focus();}
 D.addEventListener('click',function(e){var t=e.target;if(open&&!open.contains(t))hide(open);if(lang&&lang.open&&!lang.contains(t))lang.open=false;});
 var inH=0;h.addEventListener('focusin',function(){inH=1;});h.addEventListener('focusout',function(e){if(e.relatedTarget&&!h.contains(e.relatedTarget))inH=0;});
 D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
-on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
-var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->
+function fit(){var was=wide.matches;wide.matches=baseWide.matches&&window.bqHeaderFits(h);h.classList.toggle('bqh-compact',!wide.matches);if(was===wide.matches)return;if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
+var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}}
+on(baseWide,fit);window.addEventListener('resize',fit);D.addEventListener('bq-a11y',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(pill);if(D.fonts)D.fonts.ready.then(fit);fit();})();</script><!--/nav-->
 <!--a11y--><dialog id="bq-a11y" aria-labelledby="bq-a11y-title"><h2 id="bq-a11y-title">Accessibility</h2><label for="bq-a11y-size">Larger text</label><select id="bq-a11y-size" data-a11y="text"><option value="100">Standard size</option><option value="125">125%</option><option value="150">150%</option></select><label><input type="checkbox" data-a11y="font"><span>Dyslexia-friendly font</span></label><label><input type="checkbox" data-a11y="spacing"><span>Extra spacing</span></label><label><input type="checkbox" data-a11y="contrast"><span>High contrast</span></label><label><input type="checkbox" data-a11y="motion"><span>Stop animations</span></label><div class="bq-a11y-actions"><button type="button" data-a11y-reset>Reset</button><button type="button" data-a11y-close>Close</button></div></dialog><script>(function(){
   var d=document.getElementById('bq-a11y');if(!d)return;
   var s=window.bqA11y,opener=null,root=document.documentElement;
   function sync(){d.querySelectorAll('[data-a11y]').forEach(function(c){var k=c.dataset.a11y;if(c.type==='checkbox')c.checked=s[k];else c.value=String(s[k]);});}
-  function save(){window.bqApplyA11y();try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-a11y',JSON.stringify(s));else localStorage.removeItem('bq-a11y');}catch(e){}document.dispatchEvent(new Event('bq-a11y'));}
-  document.querySelectorAll('[data-bq-a11y-open]').forEach(function(b){b.addEventListener('click',function(){opener=b;sync();d.inert=false;d.showModal();d.querySelector('select').focus();});});
+  function place(){
+    if(!d.open||!opener)return;
+    var anchor=opener;if(!anchor.getClientRects().length){var wide=document.querySelector('.bqh-pill [data-bq-a11y-open]');if(wide&&wide.getClientRects().length)anchor=wide;}
+    var r=anchor.getBoundingClientRect(),sheet=window.innerWidth<600||!anchor.getClientRects().length;
+    d.setAttribute('data-placement',sheet?'sheet':'anchor');
+    if(sheet){d.style.top='';d.style.left='';d.style.maxHeight='';return;}
+    var top=Math.min(r.bottom+8,window.innerHeight-100),width=d.getBoundingClientRect().width;
+    d.style.top=top+'px';d.style.left=Math.max(12,Math.min(r.right-width,window.innerWidth-width-12))+'px';d.style.maxHeight=Math.max(88,window.innerHeight-top-12)+'px';
+  }
+  window.addEventListener('resize',place);window.addEventListener('scroll',place,{passive:true});
+  function save(){window.bqApplyA11y();try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-a11y',JSON.stringify(s));else localStorage.removeItem('bq-a11y');}catch(e){}document.dispatchEvent(new Event('bq-a11y'));place();}
+  document.querySelectorAll('[data-bq-a11y-open]').forEach(function(b){b.addEventListener('click',function(){opener=b;sync();d.inert=false;d.showModal();place();d.querySelector('select').focus();});});
   d.addEventListener('change',function(e){var c=e.target,k=c.dataset.a11y;if(!k)return;s[k]=c.type==='checkbox'?c.checked:Number(c.value);save();});
   d.querySelector('[data-a11y-reset]').addEventListener('click',function(){s.text=100;s.font=s.spacing=s.contrast=false;s.motion=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);sync();save();});
   d.querySelector('[data-a11y-close]').addEventListener('click',function(){d.close();});
-  d.addEventListener('close',function(){if(opener&&opener.isConnected)opener.focus();d.inert=root.classList.contains('bqm-open');});
+  d.addEventListener('close',function(){var back=opener&&opener.isConnected&&opener.getClientRects().length?opener:document.querySelector('.bqh-pill [data-bq-a11y-open]');if(!back||!back.getClientRects().length)back=document.querySelector('.bqh-hive');if(!back||!back.getClientRects().length)back=document.querySelector('.bqh-logo');if(back)back.focus();d.inert=root.classList.contains('bqm-open');});
   d.addEventListener('cancel',function(e){e.preventDefault();d.close();});
   // A native modal makes the background inert. Keep Tab cycling inside the controls as well.
   d.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc'){e.preventDefault();e.stopPropagation();d.close();return;}if(e.key!=='Tab')return;

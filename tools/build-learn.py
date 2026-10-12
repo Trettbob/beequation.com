@@ -179,7 +179,8 @@ def glyph(g, colour, size=46):
 # ---------- styles shared by every Learn page (added to the site's base styles) ----------
 LEARN_CSS = """
 .doc.hub { max-width: none; }
-.doc table { border-collapse: collapse; width: 100%; margin: 12px 0 18px; font-size: 16px; }
+.doc p > a[href^="#"] { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; margin: 3px; }
+.doc table { table-layout: fixed; overflow-wrap: anywhere; border-collapse: collapse; width: 100%; margin: 12px 0 18px; font-size: 16px; }
 .doc th, .doc td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
 .doc th { font-size: 14px; color: var(--mute); font-weight: 600; }
 .doc ul, .doc ol { padding-left: 22px; margin: 0 0 14px; } .doc li { margin: 0 0 6px; }

@@ -26,20 +26,82 @@ export async function serveSite(root) {
   return {origin:`http://127.0.0.1:${server.address().port}`,close:()=>new Promise(r=>server.close(r))};
 }
 
+// Installed in each browser realm; layout and keyboard use the same state visibility.
+export function installAuditHelpers() {
+  const intersect=(a,b)=>({left:Math.max(a.left,b.left),top:Math.max(a.top,b.top),right:Math.min(a.right,b.right),bottom:Math.min(a.bottom,b.bottom)});
+  function rect(e,r=e.getBoundingClientRect(),viewport=true) {
+    r={left:r.left,top:r.top,right:r.right,bottom:r.bottom};
+    for(let p=e;p;p=p.parentElement) {
+      const s=getComputedStyle(p);
+      if(p.hasAttribute('hidden')||p.hasAttribute('inert')||s.display==='none'||s.visibility!=='visible'||Number(s.opacity)===0||s.contentVisibility==='hidden')return null;
+      if(p.localName==='dialog'&&!p.hasAttribute('open'))return null;
+      if(p.hasAttribute('popover')&&!p.matches(':popover-open'))return null;
+      if(p.localName==='details'&&!p.hasAttribute('open')) {
+        const summary=[...p.children].find(c=>c.localName==='summary');
+        if(p!==e&&(!summary||!summary.contains(e)))return null;
+      }
+      if(p!==e) {
+        const b=p.getBoundingClientRect();
+        if(['hidden','clip','scroll','auto'].includes(s.overflowX)){r.left=Math.max(r.left,b.left);r.right=Math.min(r.right,b.right);}
+        if(['hidden','clip','scroll','auto'].includes(s.overflowY)){r.top=Math.max(r.top,b.top);r.bottom=Math.min(r.bottom,b.bottom);}
+      }
+    }
+    if(viewport)r=intersect(r,{left:0,top:0,right:innerWidth,bottom:innerHeight});
+    return r.right-r.left>1&&r.bottom-r.top>1?r:null;
+  }
+  const visible=(e,viewport=true)=>!!rect(e,undefined,viewport);
+  function layer(e) {for(let p=e;p;p=p.parentElement){const s=getComputedStyle(p);if(s.position==='fixed'||p.localName==='dialog'||p.hasAttribute('popover'))return p;}return null;}
+  function overlap(a,ar,b,br) {
+    if(a===b||a.contains(b)||b.contains(a))return false;
+    ar=rect(a,ar);br=rect(b,br);if(!ar||!br)return false;
+    const r=intersect(ar,br);if(r.right-r.left<=2||r.bottom-r.top<=2)return false;
+    // Modal/fixed overlays occlude the text below them; they are not two visible
+    // text boxes colliding. Absolute positioning alone never exempts real text.
+    if(layer(a)!==layer(b))return false;
+    for(const [x,y] of [[.5,.5],[.2,.2],[.8,.8]]) {
+      const top=document.elementFromPoint(r.left+(r.right-r.left)*x,r.top+(r.bottom-r.top)*y);
+      if(top&&(a.contains(top)||b.contains(top)||top.contains(a)||top.contains(b)))return true;
+    }
+    return false;
+  }
+  function snapshot(e) {
+    const nodes=[];for(let p=e;p&&nodes.length<4;p=p.parentElement)nodes.push(p);
+    nodes.push(...e.querySelectorAll('polygon,path,rect,circle,ellipse'));
+    return nodes.map(p=>{const s=getComputedStyle(p);return [s.outlineStyle,s.outlineWidth,s.outlineColor,s.boxShadow,s.filter,s.backgroundColor,s.color,s.borderColor,s.stroke,s.strokeWidth];});
+  }
+  function indication(before,after) {
+    return after.some((s,i)=>{const b=before[i];if(!b)return false;
+      return (s[0]!=='none'&&parseFloat(s[1])>0&&!/^(transparent|rgba\(0, 0, 0, 0\))$/.test(s[2])&&s.slice(0,3).join()!==b.slice(0,3).join()) ||
+        s.some((v,k)=>k>=3&&v!==b[k]&&v&&v!=='none'&&v!=='transparent'&&v!=='rgba(0, 0, 0, 0)');});
+  }
+  window.__bqAuditHelpers={rect,visible,overlap,snapshot,indication};
+}
+
 // Functions evaluated in Chrome are self-contained. Stable selectors also cover SVG controls.
 export function inspectLayout(spacing=false) {
   const selector=e=>{if(e.id)return '#'+CSS.escape(e.id);const parts=[];while(e && e!==document.documentElement){let p=e.localName;const siblings=e.parentElement ? [...e.parentElement.children].filter(x=>x.localName===e.localName):[];if(siblings.length>1)p+=`:nth-of-type(${siblings.indexOf(e)+1})`;parts.unshift(p);e=e.parentElement;}return 'html > '+parts.join(' > ');};
-  const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>1&&r.height>1&&s.visibility==='visible'&&s.display!=='none'&&!e.closest('[hidden],[inert]');};
-  const all=[...document.body.querySelectorAll('*')].filter(visible),out=[];
+  const {visible,overlap}=window.__bqAuditHelpers;
+  const all=[...document.body.querySelectorAll('*')].filter(e=>visible(e,spacing)),out=[];
   if(!spacing && document.documentElement.scrollWidth>innerWidth+1) {
     const bad=all.filter(e=>{const r=e.getBoundingClientRect();return r.right>innerWidth+1 || r.left<-1;});
     out.push({id:'reflow-horizontal-scroll',impact:'serious',description:'Horizontal scrolling at 320 CSS pixels (400% zoom equivalent)',nodes:(bad.length?bad:[document.documentElement]).slice(0,100).map(e=>({target:[selector(e)],html:e.outerHTML.slice(0,700),failureSummary:`Document width ${document.documentElement.scrollWidth}px exceeds viewport ${innerWidth}px`}))});
   }
   if(spacing) {
-    const clipped=all.filter(e=>{const s=getComputedStyle(e);return e.textContent.trim() && ((['hidden','clip'].includes(s.overflowX)&&e.scrollWidth>e.clientWidth+1)||(['hidden','clip'].includes(s.overflowY)&&e.scrollHeight>e.clientHeight+1)) && e.clientWidth>2 && e.clientHeight>2;});
+    const textRects=e=>{
+      const out=[];for(const el of [e,...e.querySelectorAll('*')]) {
+        if(!visible(el,false)||(el.closest('[aria-hidden="true"]')&&!el.closest('[role="math"]')))continue;
+        for(const n of el.childNodes){if(n.nodeType!==Node.TEXT_NODE||!n.textContent.trim())continue;const range=document.createRange();range.selectNodeContents(n);out.push(...range.getClientRects());}
+      }return out;
+    };
+    const clipped=all.filter(e=>{
+      const s=getComputedStyle(e),x=['hidden','clip'].includes(s.overflowX),y=['hidden','clip'].includes(s.overflowY),b=e.getBoundingClientRect();
+      if(!(x&&e.scrollWidth>e.clientWidth+1||y&&e.scrollHeight>e.clientHeight+1)||e.clientWidth<=2||e.clientHeight<=2)return false;
+      // Decorative confetti/images expanding scroll bounds are not clipped text.
+      return textRects(e).some(r=>x&&(r.left<b.left-1||r.right>b.right+1)||y&&(r.top<b.top-1||r.bottom>b.bottom+1));
+    });
     if(clipped.length) out.push({id:'text-spacing-clipped',impact:'serious',description:'Text-spacing override clips text; inspect each flagged container',nodes:clipped.map(e=>({target:[selector(e)],html:e.outerHTML.slice(0,700),failureSummary:`Scroll ${e.scrollWidth}×${e.scrollHeight}; client ${e.clientWidth}×${e.clientHeight}`}))});
     const rects=[];
-    for(const e of all) for(const n of e.childNodes) {
+    for(const e of all.filter(e=>(!e.closest('[aria-hidden="true"]')||e.closest('[role="math"]')))) for(const n of e.childNodes) {
       if(n.nodeType!==Node.TEXT_NODE || !n.textContent.trim()) continue;
       const range=document.createRange();range.selectNodeContents(n);
       for(const r of range.getClientRects()) if(r.width>2&&r.height>2) rects.push({e,r});
@@ -48,7 +110,7 @@ export function inspectLayout(spacing=false) {
     const seen=new Set(),overlaps=[];
     for(let i=0;i<rects.length;i++) for(let j=i+1;j<rects.length && rects[j].r.top<rects[i].r.bottom-2;j++) {
       const a=rects[i],b=rects[j];if(a.e===b.e || a.e.contains(b.e)||b.e.contains(a.e))continue;
-      if(Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left)>2 && Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top)>2) {
+      if(overlap(a.e,a.r,b.e,b.r)) {
         const targets=[selector(a.e),selector(b.e)].sort(),key=targets.join('|');if(seen.has(key))continue;seen.add(key);
         overlaps.push({target:targets,html:a.e.outerHTML.slice(0,350)+'\n'+b.e.outerHTML.slice(0,350),failureSummary:'Text rectangles overlap after spacing override; visual review required'});
       }
@@ -59,36 +121,30 @@ export function inspectLayout(spacing=false) {
 }
 
 export async function inspectKeyboard(page) {
+  await page.evaluate(installAuditHelpers);
   await page.evaluate(()=>{
     window.__bqAudit={next:0,entries:new Map()};
     const body=document.body,old=body.getAttribute('tabindex');body.setAttribute('tabindex','-1');body.focus();if(old===null)body.removeAttribute('tabindex');else body.setAttribute('tabindex',old);
   });
   const collect=async()=>page.evaluate(()=>{
-    const a=window.__bqAudit;
+    const a=window.__bqAudit;let stops=0;
     const cssPath=e=>{if(e.id)return '#'+CSS.escape(e.id);let parts=[];while(e&&e!==document.documentElement){const sib=e.parentElement?[...e.parentElement.children].filter(x=>x.localName===e.localName):[];parts.unshift(e.localName+(sib.length>1?`:nth-of-type(${sib.indexOf(e)+1})`:''));e=e.parentElement;}return 'html > '+parts.join(' > ');};
-    const style=e=>{const s=getComputedStyle(e);return {outline:s.outline,outlineStyle:s.outlineStyle,outlineWidth:s.outlineWidth,outlineColor:s.outlineColor,boxShadow:s.boxShadow,filter:s.filter};};
     for(const e of document.querySelectorAll('a[href],area[href],button,input:not([type=hidden]),select,textarea,summary,iframe,object,audio[controls],video[controls],[tabindex]:not([tabindex^="-"]),[contenteditable]:not([contenteditable=false]),[role=button],[role=link],[role=checkbox],[role=radio],[role=switch],[role=tab],[role=menuitem],[role=slider],[role=spinbutton]')) {
-      const r=e.getBoundingClientRect(),s=getComputedStyle(e);
-      if(!r.width||!r.height||s.display==='none'||s.visibility!=='visible'||e.matches(':disabled')||e.closest('[inert],[hidden]'))continue;
+      if(!window.__bqAuditHelpers.visible(e,false)||e.matches(':disabled'))continue;
       if(e.matches('input[type=radio]') && e.name) {const group=[...document.querySelectorAll('input[type=radio]')].filter(x=>x.name===e.name&&x.form===e.form&&!x.disabled);if(e!==(group.find(x=>x.checked)||group[0]))continue;}
-      if(a.entries.has(e))continue;
+      stops++;if(!window.__bqAuditHelpers.visible(e)||a.entries.has(e))continue;
       const id='bqa-'+a.next++;e.setAttribute('data-bq-audit',id);
-      const chain=[];for(let p=e;p&&chain.length<4;p=p.parentElement)chain.push(style(p));
+      const chain=window.__bqAuditHelpers.snapshot(e);
       a.entries.set(e,{id,target:[cssPath(e)],html:e.outerHTML.slice(0,700),before:chain});
     }
-    return a.entries.size;
+    return stops;
   });
   let count=await collect(),first=null,reached=new Set(),missingFocus=[],truncated=true;
   for(let step=0;step<Math.max(100,count*3+30);step++) {
-    await page.keyboard.press('Tab');count=await collect();
+    await page.keyboard.press('Tab');
     const focus=await page.evaluate(()=>{
       const e=document.activeElement,entry=window.__bqAudit.entries.get(e);if(!entry)return null;
-      let indication=false,i=0;
-      for(let p=e;p&&i<entry.before.length;p=p.parentElement,i++) {
-        const s=getComputedStyle(p),b=entry.before[i];
-        const outline=s.outlineStyle!=='none'&&parseFloat(s.outlineWidth)>0 && s.outlineColor!=='rgba(0, 0, 0, 0)';
-        if((outline&&s.outline!==b.outline)||(s.boxShadow!=='none'&&s.boxShadow!==b.boxShadow)||(s.filter!=='none'&&s.filter!==b.filter))indication=true;
-      }
+      const indication=window.__bqAuditHelpers.indication(entry.before,window.__bqAuditHelpers.snapshot(e));
       return {...entry,visible:e.matches(':focus-visible'),indication};
     });
     if(!focus)continue;
@@ -107,12 +163,15 @@ export async function inspectKeyboard(page) {
 
 export async function auditState(page,meta,axeSource) {
   await page.evaluate(()=>document.fonts.ready);
+  await page.evaluate(installAuditHelpers);
   await page.evaluate(axeSource);
   const axe=await page.evaluate(tags=>window.axe.run(document,{runOnly:{type:'tag',values:tags}}),TAGS);
   const findings=axe.violations.map(v=>({...meta,id:v.id,impact:v.impact,description:v.help,helpUrl:v.helpUrl,nodes:v.nodes.map(n=>({target:n.target,html:n.html,failureSummary:n.failureSummary,checks:[...n.any,...n.all,...n.none].map(c=>c.id)}))}));
   if(meta.width===320)findings.push(...(await page.evaluate(inspectLayout,false)).map(f=>({...meta,...f})));
   // Keyboard checks run before spacing, which might change focus styles/layout.
+  const scroll=await page.evaluate(()=>({x:scrollX,y:scrollY}));
   findings.push(...(await inspectKeyboard(page)).map(f=>({...meta,...f})));
+  await page.evaluate(({x,y})=>{document.activeElement?.blur();window.scrollTo(x,y);},scroll);
   const spacing=await page.addStyleTag({content:'* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; } p { margin-bottom: 2em !important; }'});
   findings.push(...(await page.evaluate(inspectLayout,true)).map(f=>({...meta,...f})));
   await spacing.evaluate(e=>e.remove());
