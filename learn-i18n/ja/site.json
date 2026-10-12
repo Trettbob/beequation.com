@@ -51,7 +51,12 @@
     "m_glossary": "算数用語集",
     "m_glossary_k": "あ行からわ行までの算数用語",
     "m_glossary_all": "用語集をすべて見る",
-    "alphabet": "あかさたなはまやらわ"
+    "alphabet": "あかさたなはまやらわ",
+    "by": "執筆：{name}",
+    "reviewed_by": "確認：{name}",
+    "published_on": "公開日：{date}",
+    "reviewed_on": "確認日：{date}",
+    "report_error": "誤りを報告する"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "数と位取り", "glyph": "123", "colour": "lemon" },

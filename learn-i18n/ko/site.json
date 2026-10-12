@@ -51,7 +51,12 @@
     "m_glossary": "수학 용어 사전",
     "m_glossary_k": "ㄱ부터 ㅎ까지 수학 용어",
     "m_glossary_all": "용어 사전 전체 보기",
-    "alphabet": "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
+    "alphabet": "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ",
+    "by": "작성: {name}",
+    "reviewed_by": "검토: {name}",
+    "published_on": "게시일: {date}",
+    "reviewed_on": "검토일: {date}",
+    "report_error": "오류 신고"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "수 세기와 자릿값", "glyph": "123", "colour": "lemon" },

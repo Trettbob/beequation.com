@@ -51,7 +51,12 @@
     "m_glossary": "Słowniczek",
     "m_glossary_k": "Pojęcia matematyczne od A do Ż",
     "m_glossary_all": "Cały słowniczek",
-    "alphabet": "aąbcćdeęfghijklłmnńoóprsśtuwyzźż"
+    "alphabet": "aąbcćdeęfghijklłmnńoóprsśtuwyzźż",
+    "by": "Autor: {name}",
+    "reviewed_by": "Sprawdzenie: {name}",
+    "published_on": "Opublikowano {date}",
+    "reviewed_on": "Sprawdzono {date}",
+    "report_error": "Zgłoś błąd"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Liczenie i system dziesiątkowy", "glyph": "123", "colour": "lemon" },

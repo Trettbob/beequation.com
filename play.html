@@ -855,7 +855,7 @@ function wireBoard(tap) {
 }
 
 // ---------- router ----------
-let stack = [{ name: (app => app === 'kids' ? 'k_home' : app === 'pro' ? 'a_home' : 'choose')(new URLSearchParams(location.search).get('app')) }], cleanup = null;
+let stack = (q => q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
 const replace = r => { stack[stack.length - 1] = r; render(); };

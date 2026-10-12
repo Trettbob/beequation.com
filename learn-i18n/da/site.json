@@ -51,7 +51,12 @@
     "m_glossary": "Matematikordbog",
     "m_glossary_k": "Matematikord fra A til Å",
     "m_glossary_all": "Alle ord",
-    "alphabet": "abcdefghijklmnopqrstuvwxyzæøå"
+    "alphabet": "abcdefghijklmnopqrstuvwxyzæøå",
+    "by": "Af {name}",
+    "reviewed_by": "Gennemgået af {name}",
+    "published_on": "Udgivet {date}",
+    "reviewed_on": "Gennemgået {date}",
+    "report_error": "Rapportér en fejl"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tal og positionssystemet", "glyph": "123", "colour": "lemon" },

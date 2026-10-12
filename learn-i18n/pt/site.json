@@ -51,7 +51,12 @@
     "m_glossary": "Glossário",
     "m_glossary_k": "Palavras de matemática de A a Z",
     "m_glossary_all": "Todo o glossário",
-    "alphabet": "abcdefghijklmnopqrstuvwxyz"
+    "alphabet": "abcdefghijklmnopqrstuvwxyz",
+    "by": "Por {name}",
+    "reviewed_by": "Revisto por {name}",
+    "published_on": "Publicado em {date}",
+    "reviewed_on": "Revisto em {date}",
+    "report_error": "Comunicar um erro"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Números e valor posicional", "glyph": "123", "colour": "lemon" },

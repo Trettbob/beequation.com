@@ -51,7 +51,12 @@
     "m_glossary": "Matematik sözlüğü",
     "m_glossary_k": "A’dan Z’ye matematik terimleri",
     "m_glossary_all": "Tüm sözlük terimleri",
-    "alphabet": "abcçdefgğhıİjklmnoöprsştuüvyz"
+    "alphabet": "abcçdefgğhıİjklmnoöprsştuüvyz",
+    "by": "Yazan: {name}",
+    "reviewed_by": "İnceleyen: {name}",
+    "published_on": "Yayın tarihi: {date}",
+    "reviewed_on": "İnceleme tarihi: {date}",
+    "report_error": "Hata bildir"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Sayılar ve basamak değeri", "glyph": "123", "colour": "lemon" },

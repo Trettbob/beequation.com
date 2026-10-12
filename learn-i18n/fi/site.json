@@ -51,7 +51,12 @@
     "m_glossary": "Sanasto",
     "m_glossary_k": "Matematiikan sanat A:sta Ö:hön",
     "m_glossary_all": "Koko sanasto",
-    "alphabet": "abcdefghijklmnopqrstuvwxyzåäö"
+    "alphabet": "abcdefghijklmnopqrstuvwxyzåäö",
+    "by": "Kirjoittaja: {name}",
+    "reviewed_by": "Tarkistanut: {name}",
+    "published_on": "Julkaistu {date}",
+    "reviewed_on": "Tarkistettu {date}",
+    "report_error": "Ilmoita virheestä"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Luvut ja kymmenjärjestelmä", "glyph": "123", "colour": "lemon" },

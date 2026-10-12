@@ -51,7 +51,12 @@
     "m_glossary": "Mathe-Lexikon",
     "m_glossary_k": "Mathe-Wörter von A bis Z",
     "m_glossary_all": "Alle Begriffe",
-    "alphabet": "abcdefghijklmnopqrstuvwxyz"
+    "alphabet": "abcdefghijklmnopqrstuvwxyz",
+    "by": "Von {name}",
+    "reviewed_by": "Geprüft von {name}",
+    "published_on": "Veröffentlicht am {date}",
+    "reviewed_on": "Geprüft am {date}",
+    "report_error": "Fehler melden"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Zahlen und Stellenwerte", "glyph": "123", "colour": "lemon" },

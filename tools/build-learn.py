@@ -12,6 +12,10 @@ Each source is an HTML fragment that starts with a front-matter block:
     indie: <what Indie says at the top of the page> (optional)
     layout: article | hub (hub = full width)
     updated: YYYY-MM-DD
+    author: <name> (optional; author_role supplies their role)
+    reviewer: <name> (optional; reviewer_role supplies their role)
+    published: YYYY-MM-DD (optional)
+    reviewed: YYYY-MM-DD (optional; overrides updated in Article dateModified)
     ---
 
 Shortcodes in the body (all plain HTML otherwise):
@@ -33,6 +37,9 @@ written for that country's school system, not translated word for word: see lear
 builds them into dist/<code>/learn/ (plus dist/<code>/teachers.html from pack.html) for the codes in LEARN_LIVE.
 """
 import html, json, os, re, sys
+from urllib.parse import quote
+from build_today import format_date, words as today_words
+from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'learn-src')
@@ -96,6 +103,8 @@ WORDS = {
     'm_sheets': 'Worksheets', 'm_sheets_k': 'Free worksheets by topic', 'm_sheets_all': 'All worksheets', 'm_sheet_n': ['{n} worksheet', '{n} worksheets'],
     'm_glossary': 'Maths glossary', 'm_glossary_k': 'Maths words from A to Z', 'm_glossary_all': 'All glossary words',
     'alphabet': 'abcdefghijklmnopqrstuvwxyz',
+    'by': 'By {name}', 'reviewed_by': 'Reviewed by {name}',
+    'published_on': 'Published {date}', 'reviewed_on': 'Reviewed on {date}', 'report_error': 'Report an error',
 }
 
 class Site:
@@ -223,6 +232,7 @@ def base_parts(lang='en'):
     css = re.search(r'<style>(.*?)</style>', s, re.S).group(1)
     css = re.sub(r'\n\.lang \{.*', '', css)                      # (older pages: the language menu's styles)
     foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', s, re.S).group(0)
+    foot = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', foot, flags=re.S)
     return css, HEADER_SLOT, foot
 
 def learn_nav(current, S=None):
@@ -324,6 +334,22 @@ def alternates(rel, S):
     return ('<!--learn-hreflang-->\n' + '\n'.join(tag(x) for x in have) +
             f'\n<link rel="alternate" hreflang="x-default" href="{MAIN}{url_of(rel)}">\n<!--/learn-hreflang-->\n')
 
+def byline(meta, S):
+    bits = []
+    for field, role, word in [('author', 'author_role', 'by'), ('reviewer', 'reviewer_role', 'reviewed_by')]:
+        if meta.get(field):
+            name = meta[field] + (', ' + meta[role] if meta.get(role) else '')
+            bits.append(S.w[word].format(name=name))
+    for field, word in [('published', 'published_on'), ('reviewed', 'reviewed_on')]:
+        if meta.get(field):
+            bits.append(S.w[word].format(date=format_date(date.fromisoformat(meta[field]), today_words(S.lang))))
+    return '<p class="byline">' + esc(' · '.join(bits)) + '</p>' if bits else ''
+
+
+def report_error(rel, S):
+    return f'<p class="report-error"><small><a href="/support.html?about={quote(url_of(rel), safe="")}">{esc(S.w["report_error"])}</a></small></p>'
+
+
 def page(rel, meta, body, parts, names, S=None):
     S = S or EN
     css, nav, foot = parts
@@ -335,8 +361,9 @@ def page(rel, meta, body, parts, names, S=None):
     ld = [{'@context': 'https://schema.org', '@type': 'CollectionPage' if meta.get('layout') == 'hub' else 'Article',
            **({'headline': meta['h1']} if meta.get('layout') != 'hub' else {'name': meta['h1']}),
            'description': meta['description'], 'url': url, 'inLanguage': S.w['html_lang'],
-           **({'mainEntityOfPage': url, 'dateModified': meta.get('updated', '2026-10-09'),
-               'author': {'@type': 'Organization', 'name': 'Beequation', 'url': MAIN + '/'},
+           **({'mainEntityOfPage': url, 'dateModified': meta.get('reviewed') or meta.get('updated', '2026-10-09'),
+               **({'datePublished': meta['published']} if meta.get('published') else {}),
+               'author': ({'@type': 'Person', 'name': meta['author'], **({'jobTitle': meta['author_role']} if meta.get('author_role') else {})} if meta.get('author') else {'@type': 'Organization', 'name': 'Beequation', 'url': MAIN + '/'}),
                'publisher': {'@id': MAIN + '/#org'}, 'image': MAIN + '/assets/og-image.png'} if meta.get('layout') != 'hub' else {})},
           {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
               {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': S.main + h} for i, (n, h) in enumerate(trail)]}]
@@ -381,7 +408,7 @@ def page(rel, meta, body, parts, names, S=None):
 {nav}
 <!--learnnav-->{learn_nav(rel, S)}<!--/learnnav-->
 <main class="wrap"><article class="doc{' hub' if meta.get('layout') == 'hub' else ''}">{f'<p class="crumbs">{crumbs}</p>' if crumbs else ''}{kicker}<h1>{esc(meta['h1'])}</h1>
-{hero}{body.strip()}
+{byline(meta, S)}{hero}{body.strip()}{chr(10) + report_error(rel, S) if meta.get('layout') != 'hub' else ''}
 </article></main>{foot}
 {NAV_JS}
 </body></html>
@@ -397,6 +424,8 @@ def legacy(rel, nav_html):
     s = s.replace('\n<main', '\n<!--learnnav-->' + nav_html + '<!--/learnnav-->\n<main', 1)   # just below the site header
     if '.learnnav {' not in s: s = s.replace('</style>', LEARN_CSS + '</style>', 1)
     s = s.replace('</footer></div>', '</footer></div>\n' + NAV_JS, 1)
+    if 'class="report-error"' not in s:
+        s = s.replace('</article>', report_error(rel, EN) + '\n</article>', 1) if '</article>' in s else s.replace('</main>', report_error(rel, EN) + '\n</main>', 1)
     open(p, 'w', encoding='utf-8').write(s)
 
 def sitemap(urls):
@@ -446,7 +475,7 @@ def build_lang(lang):
         page_rel = 'teachers.html' if rel == PACK else 'learn/' + rel
         out = os.path.join(os.path.dirname(S.out), page_rel); os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8').write(page(rel, meta, body, parts, names, S))
-        built.append(page_rel); urls.append((url_of(rel), meta.get('updated', '2026-10-09')))
+        built.append(page_rel); urls.append((url_of(rel), meta.get('reviewed') or meta.get('updated') or meta.get('published', '2026-10-09')))
     for h in sorted(missing_links(S, metas)): print(f'  {lang} learn: link to a page not written yet: {h}')
     return built, urls
 
@@ -458,7 +487,7 @@ def main():
     for rel, (meta, body) in metas.items():
         out = os.path.join(OUT, rel); os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8').write(page(rel, meta, body, parts, names))
-        urls.append((url_of(rel), meta.get('updated', '2026-10-09')))
+        urls.append((url_of(rel), meta.get('reviewed') or meta.get('updated') or meta.get('published', '2026-10-09')))
     old = [f for f in os.listdir(OUT) if f.endswith('.html') and f not in metas]
     for f in old:
         legacy(f, learn_nav(f)); urls.append((url_of(f), '2026-10-08'))

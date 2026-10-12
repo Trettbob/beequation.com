@@ -51,7 +51,12 @@
     "m_glossary": "Rekenwoordenlijst",
     "m_glossary_k": "Rekenwoorden van A tot Z",
     "m_glossary_all": "De hele woordenlijst",
-    "alphabet": "abcdefghijklmnopqrstuvwxyz"
+    "alphabet": "abcdefghijklmnopqrstuvwxyz",
+    "by": "Door {name}",
+    "reviewed_by": "Nagekeken door {name}",
+    "published_on": "Gepubliceerd op {date}",
+    "reviewed_on": "Nagekeken op {date}",
+    "report_error": "Een fout melden"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tellen en getalbegrip", "glyph": "123", "colour": "lemon" },

@@ -51,7 +51,12 @@
     "m_glossary": "Ordliste",
     "m_glossary_k": "Matteord fra A til Å",
     "m_glossary_all": "Hele ordlisten",
-    "alphabet": "abcdefghijklmnopqrstuvwxyzæøå"
+    "alphabet": "abcdefghijklmnopqrstuvwxyzæøå",
+    "by": "Av {name}",
+    "reviewed_by": "Gjennomgått av {name}",
+    "published_on": "Publisert {date}",
+    "reviewed_on": "Gjennomgått {date}",
+    "report_error": "Meld fra om en feil"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tall og plassverdi", "glyph": "123", "colour": "lemon" },

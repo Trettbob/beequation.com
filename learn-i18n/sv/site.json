@@ -51,7 +51,12 @@
     "m_glossary": "Matteord A–Ö",
     "m_glossary_k": "Matteord från A till Ö",
     "m_glossary_all": "Alla matteord",
-    "alphabet": "abcdefghijklmnopqrstuvwxyzåäö"
+    "alphabet": "abcdefghijklmnopqrstuvwxyzåäö",
+    "by": "Av {name}",
+    "reviewed_by": "Granskat av {name}",
+    "published_on": "Publicerat {date}",
+    "reviewed_on": "Granskat {date}",
+    "report_error": "Rapportera ett fel"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tal och positionssystemet", "glyph": "123", "colour": "lemon" },

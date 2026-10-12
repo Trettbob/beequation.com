@@ -54,7 +54,12 @@
   "m_glossary": "Lexique des maths",
   "m_glossary_k": "Les mots des maths de A à Z",
   "m_glossary_all": "Tous les mots du lexique",
-  "alphabet": "abcdefghijklmnopqrstuvwxyz"
+  "alphabet": "abcdefghijklmnopqrstuvwxyz",
+  "by": "Par {name}",
+  "reviewed_by": "Relu par {name}",
+  "published_on": "Publié le {date}",
+  "reviewed_on": "Relu le {date}",
+  "report_error": "Signaler une erreur"
  },
  "topics": [
   {

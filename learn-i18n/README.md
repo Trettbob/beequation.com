@@ -101,3 +101,16 @@ every language; only the words, formats and pictures change. Money is in the cur
 The words of the teachers' puzzle pack (any keys of `W` in the apps repo's `tools/puzzle-pack/make-pack.mts`,
 e.g. `learn-i18n/es/pack.json`): titles, instructions, labels, tips, promo and footer in the language, `mul` for
 the multiplication sign used in that country's schools, `lang` for the page language.
+
+## Bylines and dated publication
+
+Optional front matter: `author`, `author_role`, `reviewer`, `reviewer_role`, `published` and
+`reviewed`. Write names and roles as they should appear in this language; dates must be
+`YYYY-MM-DD`. The byline appears directly below the H1. Article structured data uses a
+Person author when supplied, the publication date, and `reviewed` (or `updated`) as its
+modification date. Articles have a localised error-report link to this site's support page.
+
+Queue new pages at `../growth/content/queue/<code>/YYYY-MM-DD__slug.html`, including the
+required `path:` relative to this folder. Equivalent articles use the same path across
+languages. `tools/publish_queue.py` validates due files before moving them here; see
+`tools/DAILY.md` for the format, weekday warnings and dry-run commands.

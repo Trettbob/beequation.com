@@ -1,0 +1,7 @@
+{
+  "en": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  "es": ["Tuesday"], "fr": ["Wednesday"], "de": ["Thursday"], "pt": ["Friday"],
+  "pl": ["Tuesday"], "it": ["Monday"], "nl": ["Wednesday"], "sv": ["Thursday"],
+  "da": ["Friday"], "no": ["Monday"], "fi": ["Tuesday"], "tr": ["Wednesday"],
+  "ja": ["Thursday"], "ko": ["Friday"]
+}

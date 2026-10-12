@@ -14,6 +14,7 @@ Each dist/<lang>/ folder is published to its own repo (Trettbob/<lang>.beequatio
 import html as H, importlib.util, json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
+import build_today
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
@@ -27,7 +28,7 @@ MAIN = 'https://beequation.com'
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
 LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
-def url_path(page): return '/' if page == 'index.html' else '/' + page
+def url_path(page): return '/' if page == 'index.html' else '/' + page.removesuffix('index.html') if page.startswith('today/') else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()
 
 # ---------- the language menu, language links for search engines, and the first-visit language switch ----------
@@ -47,7 +48,7 @@ def lang_links(lang, page):
     links = []
     for code, name in LANGS.items():
         if code != 'en' and code not in LIVE and code != lang: continue
-        path = url_path(page) if page in PAGES else learn_path(page, code)
+        path = url_path(page) if page in PAGES or page.startswith('today/') else learn_path(page, code)
         href = site(code) + path + ('?lang=en' if code == 'en' and lang != 'en' else '')
         cur = ' aria-current="true"' if code == lang else ''
         links.append(f'<a href="{href}" lang="{code}" hreflang="{code}" data-lang="{code}"{cur}>{name}</a>')
@@ -93,7 +94,7 @@ def suggestion(page):
     options = {}
     for code in sorted(LIVE):
         text = site_text(code, 'suggestion', {})
-        path = url_path(page) if page in PAGES else learn_path(page, code)
+        path = url_path(page) if page in PAGES or page.startswith('today/') else learn_path(page, code)
         options[code] = {'lang': HTML_LANG[code], 'url': site(code) + path, 'text': text}
     return SUGGESTION.replace('__OPTIONS__', json.dumps(options, ensure_ascii=False))
 
@@ -720,6 +721,7 @@ def strip_markers(s):
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
               'drip'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
+    s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     return s
 
 def english_only(s, lang=None):
@@ -736,7 +738,7 @@ def chrome(src, lang, page, label='Language'):
     for old in (OLD_MENU_CSS, OLDER_MENU_CSS):  # the language menu's styles now come with the header
         s = s.replace(old + '\n', '').replace(old, '')
     offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
-    if page in PAGES and offer:
+    if (page in PAGES or page.startswith('today/')) and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
     if page == 'play.html':   # the game: no header, flying bee or cookie notice over it, on every site
         if lang == 'en' and LIVE:
@@ -753,6 +755,10 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace(HEADER_SLOT, '<!--header-->' + header(lang, page, label, offer) + '<!--/header-->', 1)
         s = s.replace('</head>', nav_head() + '\n</head>', 1)
         s = s.replace('</body>', NAV + '\n</body>', 1)
+    # Preserve existing English Learn output apart from its requested article error link.
+    if lang != 'en' or not page.startswith('learn/'):
+        link = '<!--today-footer--><a href="/today/">' + esc(build_today.words(lang)['heading']) + '</a><!--/today-footer-->'
+        s = re.sub(r'(<footer>.*?<div class="cols">.*?)</div>', lambda m: m.group(1) + link + '</div>', s, count=1, flags=re.S)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
     s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
     s = s.replace('</body>', GA + '\n</body>', 1)
@@ -763,6 +769,10 @@ def chrome(src, lang, page, label='Language'):
         if LIVE: s = s.replace('</body>', REMEMBER + '\n</body>', 1)
     return s
 
+def build_date():
+    from datetime import date
+    return date.fromisoformat(sys.argv[sys.argv.index('--date') + 1]) if '--date' in sys.argv else build_today.london_today()
+
 def update_english():
     pages = [p for p in os.listdir(ROOT) if p.endswith('.html')]
     for dp, _, fs in os.walk(os.path.join(ROOT, 'learn')):   # the Learn section has sub-folders
@@ -772,6 +782,8 @@ def update_english():
         if '<!--header-->' not in s and '<nav class="top"' not in s and p != 'play.html': continue   # pages without the header
         new = chrome(s, 'en', p)
         if new != s: open(os.path.join(ROOT, p), 'w', encoding='utf-8').write(new)
+
+    build_today.build('en', build_date(), chrome=chrome)
 
 # ---------- translating a page ----------
 def translate(src, lang, page, T):
@@ -830,6 +842,14 @@ def build(check_only=False):
     for lang in [l for l in LANGS if l != 'en' and (only is None or l == only)]:
         if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
             continue   # not translated yet
+        expected = build_today.words('en')
+        daily = build_today.words(lang)
+        for key in expected:
+            if key not in daily or not daily[key]:
+                print(f'  {lang} today: no translation for {key}'); problems += 1
+        for key in ('by', 'reviewed_by', 'published_on', 'reviewed_on', 'report_error'):
+            if not _learn().site_of(lang).w.get(key):
+                print(f'  {lang} Learn: no translation for {key}'); problems += 1
         T = json.load(open(os.path.join(ROOT, 'i18n', f'{lang}.json'), encoding='utf-8'))
         suggestion_text = T.get('__site__', {}).get('suggestion')
         if not isinstance(suggestion_text, list) or len(suggestion_text) != 2 or not all(isinstance(x, str) and x.strip() for x in suggestion_text):
@@ -861,11 +881,12 @@ def build(check_only=False):
                 open(f, 'w', encoding='utf-8').write(html_out)
             own = os.path.join(L.I18N, lang, 'assets')
             if os.path.isdir(own): shutil.copytree(own, os.path.join(out, 'assets'), dirs_exist_ok=True)
+        _, today_urls = build_today.build(lang, build_date(), chrome=chrome)
         shutil.copy(os.path.join(ROOT, 'favicon.ico'), out)
         open(os.path.join(out, 'CNAME'), 'w').write(f'{lang}.beequation.com\n')
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
         urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html')
-        urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls))
+        urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls + today_urls))
         from pathlib import Path
         urls += ''.join(f'  <url><loc>{site(lang)}/{p.relative_to(out).as_posix()}</loc></url>\n'
                         for p in sorted(Path(out, 'assets').rglob('*.pdf')))
