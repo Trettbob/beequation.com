@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
 import xml.etree.ElementTree as ET
+BLOG_START = '2026-10-12'   # when the blog went live: the empty feed's lastBuildDate
 
 from build_today import CODES, ROOT, format_date, words as today_words
 from publish_queue import parse
@@ -234,7 +235,7 @@ def feed(entries, code, root, output, w, learn):
     def field(parent, tag, value): ET.SubElement(parent, tag).text = value
     for tag, value in [('title', w['feed_title']), ('link', host(code) + '/blog/'),
                        ('description', w['feed_description']), ('language', learn.site_of(code).w['html_lang']),
-                       ('lastBuildDate', rfc822(max([p[k] for p in entries for k in ['published', 'modified']], default='1970-01-01')))]:
+                       ('lastBuildDate', rfc822(max([p[k] for p in entries for k in ['published', 'modified']], default=BLOG_START)))]:
         field(channel, tag, value)
     ET.SubElement(channel, 'atom:link', {'href': host(code) + '/blog/feed.xml', 'rel': 'self', 'type': 'application/rss+xml'})
     for p in entries[:PAGE_SIZE]:
