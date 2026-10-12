@@ -74,7 +74,7 @@ for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','
   assert.equal(r.notice(),undefined);
   assert.equal(r.external().length,2,'both analytics load after explicit consent');
   r.emit();r.emit();assert.equal(r.external().length,2,'once per page');
-  assert.match(r.external()[0].src,/^https:\/\/www.googletagmanager.com\/gtag\/js/);
+  assert.match(r.external()[0].src,/^https:\/\/www.googletagmanager.com\/gtm\.js\?id=GTM-W9MNXL3Z$/);
   const metric=r.external()[1], visits=[];
   assert.equal(metric.src,'https://tracker.metricool.com/resources/be.js');
   r.context.beTracker={t:value=>visits.push(value.hash)};

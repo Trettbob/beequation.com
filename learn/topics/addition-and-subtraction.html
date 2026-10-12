@@ -608,8 +608,9 @@ var v=ls.getItem('bq-consent');if(v!=='all2'&&v!=='basic')show();})();</script><
 <!--ga--><script>(function(){var ID='G-3YFSG10Q1W',on=false,h=location.hostname;if(!/(^|\.)beequation\.com$/.test(h))return;
 function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
 function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
-gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
-var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+gtag('js',new Date());gtag('set',{allow_google_signals:false,allow_ad_personalization_signals:false});
+dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-W9MNXL3Z';document.head.appendChild(s);
 var m=document.createElement('script'),counted=false;m.async=true;m.src='https://tracker.metricool.com/resources/be.js';
 function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
 counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}

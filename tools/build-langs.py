@@ -245,15 +245,18 @@ CONSENT_TEXT = {
   'de': ["Indies Hinweis zu Cookies", "Dürfen wir Besuche zählen? Nur wenn Sie zustimmen, zählen Google Analytics (mit Cookies) und Metricool (ohne Cookies) sie, damit wir sehen, welche Seiten Familien am meisten helfen. Nie für Werbung. Ihr Spielfortschritt und Ihre Sprache bleiben in jedem Fall auf diesem Gerät und werden nie an uns gesendet.", "Ja, einverstanden", "Nein, danke", "Datenschutzerklärung"],
   'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics (com cookies) e o Metricool (sem cookies) contam as visitas para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
 }
-# Google Analytics (approved 2026-10-11) and Metricool (approved 2026-10-12): loaded only after a visitor says yes
+# Google Analytics via Tag Manager (GA approved 2026-10-11, GTM 2026-10-12) and Metricool (approved 2026-10-12): loaded only after a visitor says yes
 # ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html), and only
 # on beequation.com and its language subdomains (never localhost or previews).
 GA_ID = 'G-3YFSG10Q1W'
+GTM_ID = 'GTM-W9MNXL3Z'   # Tag Manager container (Lee, 2026-10-12): its only tag is the GA4 Google tag above. It loads
+                          # only after opt-in, like GA did; signals/ad personalisation are switched off here with 'set'.
 GA = """<!--ga--><script>(function(){var ID='__GA__',on=false,h=location.hostname;if(!/(^|\\.)beequation\\.com$/.test(h))return;
 function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
 function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
-gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
-var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+gtag('js',new Date());gtag('set',{allow_google_signals:false,allow_ad_personalization_signals:false});
+dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=__GTM__';document.head.appendChild(s);
 var m=document.createElement('script'),counted=false;m.async=true;m.src='https://tracker.metricool.com/resources/be.js';
 function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
 counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}
@@ -266,7 +269,7 @@ var u;try{u=new URL(a.href,location.href);}catch(x){return;}var t=(a.textContent
 if(/(^|\\.)beequation\\.com$/.test(u.hostname)&&/\\/play\\.html$/.test(p)){gtag('event','play_click',{link_url:u.href,link_text:t,page_location:here,transport_type:'beacon'});return;}
 var store=/(^|\\.)(apps\\.apple\\.com|play\\.google\\.com)$/.test(u.hostname),get=/(^|\\.)beequation\\.com$/.test(u.hostname)&&/^\\/get(\\/|$)/.test(p);if(!store&&!get)return;
 var s=p+u.search,c=a.closest('[data-app]'),app=c?c.getAttribute('data-app'):/kids/i.test(s)?'kids':/\\/get\\/pro|com\\.trettlabs\\.beequation(?!kids)/.test(s)?'pro':'unknown';
-gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->""".replace('__GA__', GA_ID)
+gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->""".replace('__GA__', GA_ID).replace('__GTM__', GTM_ID)
 CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'
