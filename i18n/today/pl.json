@@ -48,5 +48,7 @@
     "grudzień"
   ],
   "prompt_sum": "Znajdź liczbę, która jest sumą dwóch innych",
-  "prompt_product": "Znajdź liczbę, która jest iloczynem dwóch innych"
+  "prompt_product": "Znajdź liczbę, która jest iloczynem dwóch innych",
+  "right": "Jest! Teraz spróbuj pozostałych dzisiejszych łamigłówek.",
+  "wrong": "To nie ta. Spróbuj jeszcze raz."
 }

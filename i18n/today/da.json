@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Find summen af to andre tal",
-  "prompt_product": "Find produktet af to andre tal"
+  "prompt_product": "Find produktet af to andre tal",
+  "right": "Fundet! Prøv nu resten af dagens opgaver.",
+  "wrong": "Ikke den. Prøv igen."
 }

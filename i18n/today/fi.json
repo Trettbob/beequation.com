@@ -48,5 +48,7 @@
     "joulukuu"
   ],
   "prompt_sum": "Etsi luku, joka on kahden muun summa",
-  "prompt_product": "Etsi luku, joka on kahden muun tulo"
+  "prompt_product": "Etsi luku, joka on kahden muun tulo",
+  "right": "Löytyi! Kokeile nyt muita päivän tehtäviä.",
+  "wrong": "Ei se. Yritä uudelleen."
 }

@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Trouvez le nombre obtenu en additionnant deux autres",
-  "prompt_product": "Trouvez le nombre obtenu en multipliant deux autres"
+  "prompt_product": "Trouvez le nombre obtenu en multipliant deux autres",
+  "right": "Trouvé ! Essayez maintenant la suite des puzzles du jour.",
+  "wrong": "Ce n’est pas celui-là. Réessayez."
 }

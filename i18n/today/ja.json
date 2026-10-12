@@ -34,5 +34,7 @@
   "month_format": "{year}年{month}",
   "decimal_separator": ".",
   "prompt_sum": "2つの数をたしてできる数を探す",
-  "prompt_product": "2つの数をかけてできる数を探す"
+  "prompt_product": "2つの数をかけてできる数を探す",
+  "right": "見つけた！今日の残りのパズルにも挑戦しよう。",
+  "wrong": "それではありません。もう一度。"
 }

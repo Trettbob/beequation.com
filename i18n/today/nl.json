@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Zoek het getal dat de som is van twee andere",
-  "prompt_product": "Zoek het getal dat het product is van twee andere"
+  "prompt_product": "Zoek het getal dat het product is van twee andere",
+  "right": "Gevonden! Probeer nu de rest van de puzzels van vandaag.",
+  "wrong": "Die is het niet. Probeer het nog eens."
 }

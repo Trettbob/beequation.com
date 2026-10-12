@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Diğer ikisinin toplamı olan sayıyı bul",
-  "prompt_product": "Diğer ikisinin çarpımı olan sayıyı bul"
+  "prompt_product": "Diğer ikisinin çarpımı olan sayıyı bul",
+  "right": "Buldun! Şimdi bugünün diğer bulmacalarını dene.",
+  "wrong": "O değil. Tekrar dene."
 }

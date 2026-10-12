@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Ache o resultado de somar outros dois",
-  "prompt_product": "Ache o resultado de multiplicar outros dois"
+  "prompt_product": "Ache o resultado de multiplicar outros dois",
+  "right": "Achou! Agora tente o resto dos quebra-cabeças de hoje.",
+  "wrong": "Não é esse. Tente de novo."
 }

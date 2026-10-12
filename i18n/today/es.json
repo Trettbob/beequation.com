@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Encuentra el resultado de sumar otros dos",
-  "prompt_product": "Encuentra el resultado de multiplicar otros dos"
+  "prompt_product": "Encuentra el resultado de multiplicar otros dos",
+  "right": "¡Lo encontraste! Ahora prueba el resto de los puzles de hoy.",
+  "wrong": "Ese no es. Inténtalo otra vez."
 }

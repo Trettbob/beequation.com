@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Finn tallet som er summen av to andre",
-  "prompt_product": "Finn tallet som er produktet av to andre"
+  "prompt_product": "Finn tallet som er produktet av to andre",
+  "right": "Funnet! Prøv nå resten av dagens nøtter.",
+  "wrong": "Ikke den. Prøv igjen."
 }

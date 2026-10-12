@@ -34,5 +34,7 @@
   "month_format": "{year}년 {month}",
   "decimal_separator": ".",
   "prompt_sum": "두 수의 합이 되는 수를 찾아요",
-  "prompt_product": "두 수의 곱이 되는 수를 찾아요"
+  "prompt_product": "두 수의 곱이 되는 수를 찾아요",
+  "right": "찾았어요! 이제 오늘의 나머지 퍼즐도 풀어 보세요.",
+  "wrong": "그게 아니에요. 다시 해 보세요."
 }

@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Hitta talet som är summan av två andra",
-  "prompt_product": "Hitta talet som är produkten av två andra"
+  "prompt_product": "Hitta talet som är produkten av två andra",
+  "right": "Hittat! Prova nu resten av dagens pussel.",
+  "wrong": "Inte den. Försök igen."
 }

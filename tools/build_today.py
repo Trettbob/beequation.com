@@ -102,6 +102,41 @@ def board(cells, w, solution=None):
     return ''.join(svg)
 
 
+def fnv(text):
+    """FNV-1a (32-bit, hex): the same function runs in the page, so taps are checked without the answer in the HTML."""
+    h = 0x811c9dc5
+    for ch in text.encode('utf-8'):
+        h = ((h ^ ch) * 0x01000193) & 0xffffffff
+    return f'{h:08x}'
+
+
+def board_play(cells, w, day, answer):
+    """Today's honeycomb as tappable cells. The page holds only a hash of (date, answer cell), never the answer."""
+    rows = ROWS[len(cells)]
+    radius = 48
+    width = math.sqrt(3) * radius
+    W = max(rows) * width + 20
+    H = ((len(rows) - 1) * 1.5 + 2) * radius + 20
+    key = fnv(f'{day.isoformat()}|{answer}|bq')
+    svg = [f'<svg class="puzzle-board play-board" viewBox="0 0 {W:.1f} {H:.1f}" role="group" aria-label="{esc(w["cells"].format(cells=", ".join(cells)))}" data-d="{day.isoformat()}" data-k="{key}">']
+    i = 0
+    for row, count in enumerate(rows):
+        for col in range(count):
+            x, y = W / 2 + (col - (count - 1) / 2) * width, 10 + radius + row * 1.5 * radius
+            points = ' '.join(f'{x + radius * .95 * math.cos(k * math.pi / 3 - math.pi / 2):.1f},{y + radius * .95 * math.sin(k * math.pi / 3 - math.pi / 2):.1f}' for k in range(6))
+            svg.append(f'<g class="cell" role="button" tabindex="0" data-i="{i}" aria-label="{esc(cells[i])}"><polygon points="{points}"/>'
+                       f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="middle" dominant-baseline="central" font-size="{24 if len(cells[i]) < 5 else 18}">{esc(cells[i])}</text></g>')
+            i += 1
+    svg.append('</svg>')
+    svg.append(f'<p class="play-msg" role="status" data-right="{esc(w["right"])}" data-wrong="{esc(w["wrong"])}"></p>')
+    svg.append("""<script>(function(){var b=document.querySelector('.play-board');if(!b)return;var m=document.querySelector('.play-msg'),done=0;
+function h(s){var x=0x811c9dc5,u=new TextEncoder().encode(s);for(var i=0;i<u.length;i++){x^=u[i];x=Math.imul(x,0x01000193)>>>0;}return ('0000000'+x.toString(16)).slice(-8);}
+function tap(c){if(done)return;if(h(b.dataset.d+'|'+c.dataset.i+'|bq')===b.dataset.k){done=1;c.classList.add('yes');b.classList.add('done');m.textContent=m.dataset.right;m.className='play-msg yes';}
+else{c.classList.remove('no');void c.getBBox();c.classList.add('no');m.textContent=m.dataset.wrong;m.className='play-msg no';}}
+[].forEach.call(b.querySelectorAll('.cell'),function(c){c.addEventListener('click',function(){tap(c);});c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tap(c);}});});})();</script>""")
+    return ''.join(svg)
+
+
 def solved(day, p, w):
     cells = local_cells(p, w)
     a, b = (cells[i] for i in p['pair'])
@@ -114,7 +149,7 @@ def solved(day, p, w):
 
 CSS = '''
 .today-content{max-width:960px;margin:24px auto;padding:0 20px}.today-puzzle,.solved-puzzle,.strategy-tip{padding:24px;border-radius:20px;margin:20px 0;background:var(--card)}
-.today-puzzle{background:#12161F;color:#F2F4F8}.puzzle-board{display:block;max-width:360px;width:100%;margin:20px auto;background:#12161F;border-radius:16px;font-family:'Space Grotesk',sans-serif}
+.play-board .cell{cursor:pointer;outline:none}.play-board .cell polygon{fill:#222938;transition:fill .15s}.play-board .cell text{fill:#F2F4F8;pointer-events:none}.play-board .cell:hover polygon,.play-board .cell:focus-visible polygon{fill:#2E3648}.play-board .cell:focus-visible polygon{stroke:#FFB020;stroke-width:3}.play-board .cell.yes polygon{fill:#FFB020}.play-board .cell.yes text{fill:#12161F}.play-board.done .cell{cursor:default}.play-board .cell.no{animation:tdno .35s}@keyframes tdno{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}.play-msg{min-height:1.5em;margin:0 0 14px;text-align:center;font-weight:700}.play-msg.yes{color:#FFB020}.play-msg.no{color:#F2F4F8}@media (prefers-reduced-motion:reduce){.play-board .cell.no{animation:none}}.today-puzzle{background:#12161F;color:#F2F4F8}.puzzle-board{display:block;max-width:360px;width:100%;margin:20px auto;background:#12161F;border-radius:16px;font-family:'Space Grotesk',sans-serif}
 .archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.archive-grid .solved-puzzle{margin:0}.month-nav{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:640px){.archive-grid{grid-template-columns:1fr}}
 @media print{html,body{background:#fff!important;color:#000!important}#bqh,footer,.bq-ok,.skip,.month-nav,#bq-language-suggestion,.bq-fly,.bq-peek,.bq-pollen{display:none!important}.today-content{max-width:none;margin:0;padding:0}.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8mm}.solved-puzzle{background:#fff!important;color:#000!important;break-inside:avoid;padding:3mm;box-shadow:none}.puzzle-board{max-width:58mm;margin:3mm auto;print-color-adjust:exact;-webkit-print-color-adjust:exact}.solved-puzzle h3,.solved-puzzle p{font-size:10pt;margin:2mm 0}h1{font-size:18pt}}
@@ -170,12 +205,12 @@ def build(code='en', day=None, *, output=None, data=None, decorate=True, chrome=
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
         chrome = module.chrome
     p = data[day.isoformat()]
-    # Deliberately discard answer and pair before rendering today's section (the game shows the operation too).
+    # Today's answer and pair never reach the HTML: the board gets only a hash of the answer cell (see board_play).
     current = {'cells': p['cells'], 'hive': p['hive']}
     prompt = w['prompt_sum'] if p['op'] == 'add' else w['prompt_product']
     label = w['hive'].format(n=current['hive']) if current['hive'] is not None else w['daily']
     content = (f'<section class="today-puzzle"><h2>{esc(label)}</h2><p><time datetime="{day}">{esc(format_date(day, w))}</time></p>'
-               + f'<p>{esc(prompt)}</p>' + board(local_cells(current, w), w)
+               + f'<p>{esc(prompt)}</p>' + board_play(local_cells(current, w), w, day, p['answer'])
                + f'<a class="btn honey" href="/play.html?app=pro&amp;daily=1">{esc(w["play"])}</a></section>')
     yesterday = day - timedelta(days=1)
     content += f'<h2>{esc(w["yesterday"])}</h2>' + solved(yesterday, data[yesterday.isoformat()], w)

@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ".",
   "prompt_sum": "Find the number two others add up to",
-  "prompt_product": "Find the number two others multiply to"
+  "prompt_product": "Find the number two others multiply to",
+  "right": "Found it! Now try the rest of today's puzzles.",
+  "wrong": "Not that one. Try again."
 }

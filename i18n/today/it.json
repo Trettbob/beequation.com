@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Trova il numero che è la somma di altri due",
-  "prompt_product": "Trova il numero che è il prodotto di altri due"
+  "prompt_product": "Trova il numero che è il prodotto di altri due",
+  "right": "Trovato! Ora prova il resto dei rompicapi di oggi.",
+  "wrong": "Non è quello. Riprova."
 }

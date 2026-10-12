@@ -34,5 +34,7 @@
   "month_format": "{month} {year}",
   "decimal_separator": ",",
   "prompt_sum": "Finde die Zahl, die zwei andere zusammen ergeben",
-  "prompt_product": "Finde die Zahl, die zwei andere malgenommen ergeben"
+  "prompt_product": "Finde die Zahl, die zwei andere malgenommen ergeben",
+  "right": "Gefunden! Probiere jetzt die restlichen Rätsel von heute.",
+  "wrong": "Das ist es nicht. Versuch es noch einmal."
 }
