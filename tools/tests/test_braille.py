@@ -10,6 +10,7 @@ import sys
 from unittest.mock import patch
 import tempfile
 import unittest
+from generator_fixture import preserve_generator_outputs
 import xml.etree.ElementTree as ET
 import zipfile
 
@@ -166,6 +167,7 @@ class BrailleTests(unittest.TestCase):
                     self.assertTrue(doc.findall('.//{http://www.w3.org/1999/xhtml}ol'))
 
     def test_coin_tactile_labels_keep_the_currency_unit(self):
+        preserve_generator_outputs(self, ROOT)
         with tempfile.TemporaryDirectory() as tmp:
             run = subprocess.run([NODE,str(ROOT/'tools/make-worksheets.mjs'),PUP,
                                   '--html-only','counting-coins'],cwd=ROOT,
@@ -177,6 +179,7 @@ class BrailleTests(unittest.TestCase):
             self.assertTrue('aria-label="⠼⠁⠏"' in s, '1p braille label lost its pence unit')
 
     def test_tactile_renders_are_monochrome_and_clocks_have_twelve_ticks(self):
+        preserve_generator_outputs(self, ROOT)
         with tempfile.TemporaryDirectory() as tmp:
             run = subprocess.run([NODE, str(ROOT / 'tools/make-worksheets.mjs'), PUP,
                                   '--html-only', 'time-oclock-and-half-past', 'what-fraction-is-shaded',

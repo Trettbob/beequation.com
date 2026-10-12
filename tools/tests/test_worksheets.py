@@ -9,6 +9,7 @@ import re
 import subprocess
 import tempfile
 import unittest
+from generator_fixture import preserve_generator_outputs
 
 ROOT = Path(__file__).resolve().parents[2]
 NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
@@ -74,6 +75,7 @@ class WorksheetTests(unittest.TestCase):
             src = ROOT / ('learn-src' if code == 'en' else f'learn-i18n/{code}')
             site = ROOT if code == 'en' else ROOT / 'dist' / code
             shapes = vocabulary(code)['shapes']
+            preserve_generator_outputs(self, ROOT, code)
             with tempfile.TemporaryDirectory() as tmp:
                 run = subprocess.run([NODE, str(ROOT / 'tools/make-worksheets.mjs'), PUP,
                                       '--lang', code, '--html-only', *CLOCK_SHEETS, '2d-shapes'],
@@ -182,6 +184,7 @@ class WorksheetTests(unittest.TestCase):
                     self.assertIn(f'/learn/worksheets/{sheet["id"]}.html</loc>', (site / 'sitemap.xml').read_text())
 
     def test_print_variants_reuse_questions_and_keep_answers_separate(self):
+        preserve_generator_outputs(self, ROOT)
         with tempfile.TemporaryDirectory() as tmp:
             run = subprocess.run([NODE, str(ROOT / 'tools/make-worksheets.mjs'), PUP,
                                   '--html-only', 'what-fraction-is-shaded', 'multiplication-grid'],

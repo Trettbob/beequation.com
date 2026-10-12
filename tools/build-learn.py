@@ -40,6 +40,7 @@ import html, json, os, re, sys
 from urllib.parse import quote
 from build_today import format_date, words as today_words
 from datetime import date
+from sitemap_dates import git_dates, refresh_sitemap
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'learn-src')
@@ -619,6 +620,7 @@ def sitemap(urls):
                    for p in sorted(Path(ROOT, 'assets').rglob('*.pdf')))
     s = s.replace('</urlset>', add + '</urlset>')
     open(p, 'w', encoding='utf-8').write(s)
+    refresh_sitemap(p)
 
 def llms(entries):
     """Lists every Learn page in llms.txt (the section after '## Learn' is rewritten on each build)."""
@@ -655,11 +657,12 @@ def build_lang(lang):
         page_rel = 'teachers.html' if rel == PACK else 'learn/' + rel
         out = os.path.join(os.path.dirname(S.out), page_rel); os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8').write(page(rel, meta, body, parts, names, S))
-        built.append(page_rel); urls.append((url_of(rel), meta.get('reviewed') or meta.get('updated') or meta.get('published', '2026-10-09')))
+        built.append(page_rel); urls.append((url_of(rel), git_dates().learn_page(rel, S.lang)))
     for h in sorted(missing_links(S, metas)): print(f'  {lang} learn: link to a page not written yet: {h}')
     return built, urls
 
 def main():
+    git_dates()  # Snapshot sources before rewriting maintained legacy HTML.
     parts = base_parts()
     metas = sources(EN)
     names = {rel: m.get('nav', m['h1']) for rel, (m, _) in metas.items()}
@@ -667,10 +670,10 @@ def main():
     for rel, (meta, body) in metas.items():
         out = os.path.join(OUT, rel); os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, 'w', encoding='utf-8').write(page(rel, meta, body, parts, names))
-        urls.append((url_of(rel), meta.get('reviewed') or meta.get('updated') or meta.get('published', '2026-10-09')))
+        urls.append((url_of(rel), git_dates().learn_page(rel)))
     old = [f for f in os.listdir(OUT) if f.endswith('.html') and f not in metas]
     for f in old:
-        legacy(f, learn_nav(f)); urls.append((url_of(f), '2026-10-08'))
+        legacy(f, learn_nav(f)); urls.append((url_of(f), git_dates().learn_page(f)))
     sitemap(sorted(urls))
     llms([(url_of(rel), m['h1'], m['description']) for rel, (m, _) in sorted(metas.items(), key=lambda x: (x[0].count('/'), x[0] != 'index.html', x[0]))])
     # Keep the Blog catalogue when this builder rewrites the Learn llms section.

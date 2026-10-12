@@ -16,6 +16,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
 import build_today
 import build_blog
+from sitemap_dates import git_dates, refresh_sitemap
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
@@ -962,6 +963,7 @@ def build_date():
     return date.fromisoformat(sys.argv[sys.argv.index('--date') + 1]) if '--date' in sys.argv else build_today.london_today()
 
 def update_english():
+    git_dates()  # Snapshot source status before any generated decoration.
     pages = [p for p in os.listdir(ROOT) if p.endswith('.html')]
     for dp, _, fs in os.walk(os.path.join(ROOT, 'learn')):   # the Learn section has sub-folders
         pages += [os.path.relpath(os.path.join(dp, f), ROOT) for f in fs if f.endswith('.html')]
@@ -977,6 +979,7 @@ def update_english():
     build_blog.build('en', learn=_learn(), chrome=chrome)
     build_blog.english_catalog()
     update_easy_sitemap()
+    refresh_sitemap(os.path.join(ROOT, 'sitemap.xml'))
 
 # ---------- translating a page ----------
 def translate(src, lang, page, T):
@@ -1102,6 +1105,8 @@ def build(check_only=False):
         _, today_urls = build_today.build(lang, build_date(), chrome=chrome)
         _, blog_urls = build_blog.build(lang, learn=_learn(), chrome=chrome)
         shutil.copy(os.path.join(ROOT, 'favicon.ico'), out)
+        key = json.load(open(os.path.join(ROOT, 'tools/indexnow.json'), encoding='utf-8'))['key']
+        shutil.copy(os.path.join(ROOT, key + '.txt'), out)
         open(os.path.join(out, 'CNAME'), 'w').write(f'{lang}.beequation.com\n')
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
         urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html' and not p.startswith('easy-read/'))
@@ -1111,6 +1116,7 @@ def build(check_only=False):
         urls += ''.join(f'  <url><loc>{site(lang)}/{p.relative_to(out).as_posix()}</loc></url>\n'
                         for p in sorted(Path(out, 'assets').rglob('*.pdf')))
         open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}</urlset>\n')
+        refresh_sitemap(os.path.join(out, 'sitemap.xml'), lang)
         open(os.path.join(out, 'README.md'), 'w').write(f'# {lang}.beequation.com\n\nBuilt from Trettbob/beequation.com by tools/build-langs.py. Do not edit here: change the English pages or i18n/{lang}.json there and rebuild.\n')
     return problems
 
