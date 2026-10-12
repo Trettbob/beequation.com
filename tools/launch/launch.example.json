@@ -1,0 +1,24 @@
+{
+  "stores_live": {"ios": true, "android": true},
+  "app_store_provider_token": "",
+  "apps": {
+    "kids": {
+      "ios_app_id": "[KIDS_APP_ID]",
+      "android_package": "com.trettlabs.beequationkids",
+      "family_offer_codes": {"ios": "[KIDS_IOS_CODE]", "android": "[KIDS_ANDROID_CODE]"},
+      "submit": {
+        "ios": {"appleId": "[APPLE_ID_EMAIL]", "ascAppId": "[KIDS_APP_ID]", "appleTeamId": "[TEAM_ID]"},
+        "android": {"serviceAccountKeyPath": "./google-play-service-account.json", "track": "internal"}
+      }
+    },
+    "pro": {
+      "ios_app_id": "[PRO_APP_ID]",
+      "android_package": "com.trettlabs.beequation",
+      "family_offer_codes": {"ios": "[PRO_IOS_CODE]", "android": "[PRO_ANDROID_CODE]"},
+      "submit": {
+        "ios": {"appleId": "[APPLE_ID_EMAIL]", "ascAppId": "[PRO_APP_ID]", "appleTeamId": "[TEAM_ID]"},
+        "android": {"serviceAccountKeyPath": "./google-play-service-account.json", "track": "internal"}
+      }
+    }
+  }
+}
