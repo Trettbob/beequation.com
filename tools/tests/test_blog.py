@@ -110,7 +110,7 @@ class BlogTests(unittest.TestCase):
             self.assertIn('/blog/page/2/', index); self.assertIn('href="/blog/"', second)
             self.assertIn('/blog/page/2/', [u for u, _ in urls]); self.assertIn('/blog/post-00.html', [u for u, _ in urls])
             self.assertNotIn('noindex', index); self.assertIn('22 October 2026', index)
-            self.assertIn('src="https://beequation.com/assets/custom.png"', index)
+            self.assertIn('src="/assets/custom.png"', index)
             listing_ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', index)[1])
             self.assertEqual(listing_ld['@type'], 'CollectionPage'); self.assertEqual(len(listing_ld['mainEntity']['itemListElement']), 20)
             post = (out / 'blog/post-00.html').read_text()
