@@ -77,5 +77,6 @@
    "q": "Du köper klistermärken för 68 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
    "a": "32 kr"
   }
- ]
+ ],
+ "hasTactile": false
 }

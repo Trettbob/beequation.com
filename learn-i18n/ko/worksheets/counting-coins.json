@@ -49,5 +49,6 @@
    "q": "<div class=\"coins\"><svg role=\"img\" aria-label=\"500원 동전\" focusable=\"false\" viewBox=\"0 0 26.5 26.5\" style=\"--coin-d:26.5mm;width:13.25mm;height:13.25mm\"><circle cx=\"13.25\" cy=\"13.25\" r=\"12.65\" fill=\"#CDD2D8\" stroke=\"#1C1A4A\" stroke-width=\"0.8\"/><text x=\"13.25\" y=\"15.85\" text-anchor=\"middle\" font-size=\"6.4\" font-weight=\"700\">500원</text></svg><svg role=\"img\" aria-label=\"500원 동전\" focusable=\"false\" viewBox=\"0 0 26.5 26.5\" style=\"--coin-d:26.5mm;width:13.25mm;height:13.25mm\"><circle cx=\"13.25\" cy=\"13.25\" r=\"12.65\" fill=\"#CDD2D8\" stroke=\"#1C1A4A\" stroke-width=\"0.8\"/><text x=\"13.25\" y=\"15.85\" text-anchor=\"middle\" font-size=\"6.4\" font-weight=\"700\">500원</text></svg><svg role=\"img\" aria-label=\"500원 동전\" focusable=\"false\" viewBox=\"0 0 26.5 26.5\" style=\"--coin-d:26.5mm;width:13.25mm;height:13.25mm\"><circle cx=\"13.25\" cy=\"13.25\" r=\"12.65\" fill=\"#CDD2D8\" stroke=\"#1C1A4A\" stroke-width=\"0.8\"/><text x=\"13.25\" y=\"15.85\" text-anchor=\"middle\" font-size=\"6.4\" font-weight=\"700\">500원</text></svg><svg role=\"img\" aria-label=\"100원 동전\" focusable=\"false\" viewBox=\"0 0 24 24\" style=\"--coin-d:24mm;width:12mm;height:12mm\"><circle cx=\"12\" cy=\"12\" r=\"11.4\" fill=\"#CDD2D8\" stroke=\"#1C1A4A\" stroke-width=\"0.8\"/><text x=\"12\" y=\"14.6\" text-anchor=\"middle\" font-size=\"6.4\" font-weight=\"700\">100원</text></svg></div><div class=\"ansline\"><span class=\"bx\">□</span></div>",
    "a": "1,600원"
   }
- ]
+ ],
+ "hasTactile": true
 }

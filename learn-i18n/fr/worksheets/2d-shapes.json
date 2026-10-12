@@ -49,5 +49,6 @@
    "q": "<svg role=\"img\" aria-label=\"Figure 9\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"63.59674775249769,10.153513283013247 85.59674775249769,26.137448899131183 94,52 85.59674775249769,77.86255110086881 63.59674775249769,93.84648671698676 36.403252247502316,93.84648671698676 14.403252247502316,77.86255110086883 6,52.00000000000001 14.403252247502309,26.137448899131186 36.40325224750231,10.153513283013247\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Nom :</div><div class=\"ansline\">Côtés <span class=\"bx\">□</span> Sommets <span class=\"bx\">□</span></div>",
    "a": "décagone : 10 côtés, 10 sommets"
   }
- ]
+ ],
+ "hasTactile": true
 }

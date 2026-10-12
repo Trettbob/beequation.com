@@ -115,10 +115,16 @@ WORDS = {
     'published_on': 'Published {date}', 'reviewed_on': 'Reviewed on {date}', 'report_error': 'Report an error',
 }
 
+# Text-format vocabulary is shared with the local liblouis and EPUB generators.
+import sys
+sys.path.insert(0, os.path.join(ROOT, 'tools', 'braille'))
+from common import words as braille_words, LICENSE
+
 class Site:
     """One language's Learn section: where its sources are, where it's built to, its words, topics and school years."""
     def __init__(self, lang='en'):
         self.lang, self.en = lang, lang == 'en'
+        self.bw = braille_words(lang)
         self.src = SRC if self.en else os.path.join(I18N, lang)
         self.out = OUT if self.en else os.path.join(ROOT, 'dist', lang, 'learn')
         self.main = MAIN if self.en else f'https://{lang}.beequation.com'
@@ -337,11 +343,13 @@ def sheet_card(w, S=None):
     S = S or EN
     yrs = ', '.join(n for s, n, *_ in S.years if s in w['years'])
     url = f'/learn/worksheets/{w["id"]}.html'
+    data = json.load(open(os.path.join(S.src, 'worksheets', w['id'] + '.json'), encoding='utf-8'))
+    extra = ' · '.join(format_download(m, S) for m in worksheet_formats(data, S)[3:])
     return (f'<div class="sheet" data-years="{" ".join(w["years"])}"><a href="{url}"><img src="/assets/worksheets/{w["id"]}.webp" width="420" height="594" loading="lazy" '
             f'alt="{esc(S.w["sheet_alt"].format(title=w["title"]))}"></a><b><a href="{url}">{esc(w["title"])}</a></b><small>{esc(yrs)} · {esc(w["desc"])}</small>'
             f'<a class="dl" href="/assets/worksheets/{w["id"]}.pdf" download>{esc(S.w["download"])}</a>'
             f'<p class="sheet-formats"><a href="/assets/worksheets/{w["id"]}-large.pdf" download>{esc(S.w["large_print"])}</a> · '
-            f'<a href="/assets/worksheets/{w["id"]}-easy-read.pdf" download>{esc(S.w["easy_read"])}</a></p></div>')
+            f'<a href="/assets/worksheets/{w["id"]}-easy-read.pdf" download>{esc(S.w["easy_read"])}</a></p><p class="sheet-formats">{extra}</p></div>')
 
 
 def worksheet_pdfs(data, S):
@@ -356,6 +364,37 @@ def worksheet_pdfs(data, S):
     return media
 
 
+def worksheet_formats(data, S):
+    media = worksheet_pdfs(data, S)
+    choices = []
+    if S.lang != 'ja':
+        choices += [('.brf', 'brf', 'application/x-brf'), ('-braille.txt', 'brailleText', 'text/plain')]
+    tactile = data.get('hasTactile', bool(data.get('chart')) or data['id'] == 'multiplication-grid'
+                       or any('<svg' in it['q'] for it in data['items']))
+    if tactile:
+        choices.append(('-tactile.pdf', 'tactilePdf', 'application/pdf'))
+    base = ROOT if S.en else S.src
+    for suffix, key, mime in choices:
+        url = f'/assets/worksheets/{data["id"]}{suffix}'
+        file = os.path.join(base, url.lstrip('/'))
+        size = os.path.getsize(file) if os.path.isfile(file) else None
+        media.append({'@type':'MediaObject', 'name':S.bw[key], 'encodingFormat':mime,
+                      'contentUrl':S.main + url, **({'contentSize':str(size)+' B'} if size is not None else {})})
+    return media
+
+
+def format_download(media, S):
+    size = (S.w['pdf_kb'].format(size=max(1, (int(media['contentSize'].split()[0])+1023)//1024))
+            if 'contentSize' in media else S.w['pdf_size_pending'])
+    return f'<a href="{media["contentUrl"][len(S.main):]}" download>{esc(media["name"])}</a> <small>({esc(size)})</small>'
+
+
+def license_line(S):
+    return '<p class="worksheet-license">' + esc(S.bw['license']).replace('CC BY 4.0',
+           f'<a href="{LICENSE}">CC BY 4.0</a>') + '</p>'
+
+
+
 def worksheet_sources(S):
     pages = {}
     for sheet in worksheets_manifest(S):
@@ -366,14 +405,13 @@ def worksheet_sources(S):
         data = json.load(open(file, encoding='utf-8'))
         topic = next(n for slug, n, *_ in S.topics if slug == data['topic'])
         downloads = []
-        for media in worksheet_pdfs(data, S):
-            size = (f'PDF, {S.w["pdf_kb"].format(size=max(1, (int(media["contentSize"].split()[0]) + 1023) // 1024))}'
-                    if 'contentSize' in media else S.w['pdf_size_pending'])
-            downloads.append(f'<li><a href="{media["contentUrl"][len(S.main):]}" download>{esc(media["name"])}</a> <small>({esc(size)})</small></li>')
+        for media in worksheet_formats(data, S):
+            downloads.append('<li>' + format_download(media, S) + '</li>')
+        downloads.append(f'<li><a href="/learn/braille.html">{esc(S.bw["title"])}</a></li>')
         context = f'<div class="worksheet-chart">{data["chart"]}{data["chartTable"]}</div>' if data.get('chart') else ''
         body = (f'<div class="worksheet worksheet-{esc(data["kind"])}"><p class="worksheet-years">{esc(data["yearsLabel"])} · <a href="/learn/topics/{data["topic"]}.html">{esc(topic)}</a></p>'
-                f'<h2>{esc(S.w["worksheet_downloads"])}</h2><ul class="worksheet-downloads">{"".join(downloads)}</ul>'
-                f'<h2>{esc(S.w["worksheet_questions"])}</h2><p>{esc(data["how"])}</p>{context}'
+                f'<h2>{esc(S.w["worksheet_downloads"])}</h2><ul class="worksheet-downloads">{"".join(downloads)}</ul>' +
+                license_line(S) + f'<h2>{esc(S.w["worksheet_questions"])}</h2><p>{esc(data["how"])}</p>{context}'
                 '<ol class="worksheet-questions" role="list">' + ''.join(
                     f'<li><span class="worksheet-number" aria-hidden="true">{i}</span><div class="worksheet-question">{it["q"]}</div></li>'
                     for i, it in enumerate(data['items'], 1)) + '</ol>'
@@ -470,6 +508,11 @@ def page(rel, meta, body, parts, names, S=None):
     url = S.main + url_of(rel)
     faq = []
     body = shortcodes(body, faq, S)
+    if '<epub/>' in body:
+        file = os.path.join(ROOT if S.en else S.src, 'assets', f'beequation-worksheets-{S.lang}.epub')
+        media = {'name':S.bw['epub'], 'contentUrl':S.main + f'/assets/beequation-worksheets-{S.lang}.epub',
+                 **({'contentSize':str(os.path.getsize(file))+' B'} if os.path.isfile(file) else {})}
+        body = body.replace('<epub/>', '<p>' + format_download(media,S) + '</p>')
     trail = crumbs_for(rel, meta, names, S)
     crumbs = ' › '.join(f'<a href="{h}">{esc(n)}</a>' for n, h in trail[1:-1]) + (f' › {esc(trail[-1][0])}' if len(trail) > 2 else '')
     ld = [{'@context': 'https://schema.org', '@type': 'CollectionPage' if meta.get('layout') == 'hub' else 'Article',
@@ -487,10 +530,20 @@ def page(rel, meta, body, parts, names, S=None):
                  'description': data['desc'], 'url': url, 'inLanguage': S.w['html_lang'],
                  'educationalLevel': [n for slug, n, *_ in S.years if slug in data['years']],
                  'learningResourceType': 'Worksheet', 'isAccessibleForFree': True,
-                 'encoding': worksheet_pdfs(data, S),
+                 'encoding': worksheet_formats(data, S), 'license': LICENSE,
                  'accessibilityFeature': ['alternativeText', 'largePrint', 'highContrastDisplay', 'structuralNavigation'],
                  'accessMode': ['textual', 'visual'],
                  'accessModeSufficient': [{'@type': 'ItemList', 'itemListElement': ['textual']}]}
+    if meta.get('layout') == 'braille':
+        ld[0] = {'@context':'https://schema.org', '@type':'WebPage', 'name':meta['h1'],
+                 'description':meta['description'], 'url':url, 'inLanguage':S.w['html_lang'],
+                 'mainEntity': {'@type':'LearningResource', 'name':S.bw['epub'], 'license':LICENSE,
+                                'inLanguage':S.w['html_lang'], 'isAccessibleForFree':True,
+                                'encoding':{'@type':'MediaObject','encodingFormat':'application/epub+zip',
+                                            'contentUrl':S.main + f'/assets/beequation-worksheets-{S.lang}.epub'}}}
+    if rel == PACK:
+        ld[0].update({'@type':'LearningResource', 'name':meta['h1'], 'license':LICENSE,
+                      'isAccessibleForFree':True})
     if faq:
         strip = lambda x: html.unescape(re.sub(r'<[^>]+>', '', x)).strip()
         ld.append({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [

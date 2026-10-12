@@ -35,5 +35,6 @@
    "q": "How many children voted altogether? <span class=\"line\"></span>",
    "a": "29"
   }
- ]
+ ],
+ "hasTactile": true
 }

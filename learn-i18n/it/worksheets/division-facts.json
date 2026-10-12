@@ -133,5 +133,6 @@
    "q": "10 : 2 = <span class=\"bx\">□</span>",
    "a": "5"
   }
- ]
+ ],
+ "hasTactile": false
 }

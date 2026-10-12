@@ -61,5 +61,6 @@
    "q": "<span class=\"column-expression\">848 − 207 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>4</td><td>8</td></tr><tr><td>−</td><td>2</td><td>0</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
    "a": "641"
   }
- ]
+ ],
+ "hasTactile": false
 }

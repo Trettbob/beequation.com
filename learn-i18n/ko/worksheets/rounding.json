@@ -108,5 +108,6 @@
    "q": "반올림하여 천의 자리까지: <b class=\"n\">1,530</b> → <span class=\"bx\">□</span>",
    "a": "2,000"
   }
- ]
+ ],
+ "hasTactile": false
 }

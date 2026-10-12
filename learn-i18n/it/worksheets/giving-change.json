@@ -77,5 +77,6 @@
    "q": "Compri della frutta per 3,40 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
    "a": "1,60 €"
   }
- ]
+ ],
+ "hasTactile": false
 }

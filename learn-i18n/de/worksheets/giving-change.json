@@ -76,5 +76,6 @@
    "q": "Du kaufst Eis für 3,40 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
    "a": "1,60 €"
   }
- ]
+ ],
+ "hasTactile": false
 }

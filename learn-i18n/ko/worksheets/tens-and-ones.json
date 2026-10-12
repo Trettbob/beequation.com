@@ -92,5 +92,6 @@
    "q": "<b class=\"n\">31</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
    "a": "10개씩 묶음 3개, 낱개 1개"
   }
- ]
+ ],
+ "hasTactile": false
 }

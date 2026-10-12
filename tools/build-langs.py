@@ -1021,7 +1021,7 @@ def build(check_only=False):
             html_out = chrome(localise(html_out, lang, page), lang, page, T.get('Language', 'Language'))
             open(os.path.join(out, page), 'w', encoding='utf-8').write(html_out)
         if check_only: continue
-        shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf'))
+        shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf', '*.brf', '*-braille.txt', '*.epub'))
         learn_urls = []
         if has_learn(lang):   # that country's own Learn section, teachers page and worksheets
             L = _learn()

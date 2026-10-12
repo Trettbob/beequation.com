@@ -1,0 +1,83 @@
+.ARRONDIR LES NOMBRES
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.ARRONDIS CHAQUE NOMBRE COMME
+INDIQU=4 .C'EST TR!S UTILE
+POUR TROUVER UN ORDRE DE
+GRANDEUR4
+
+,*4 ,] ,#$] ( LA DIZAINE PR!S 
+,7  CASE VIDE
+,<4 ,* ,?\* AU MILLIER PR!S 
+,7  CASE VIDE
+,%4 ,% ,$$] ( LA DIZAINE PR!S 
+,7  CASE VIDE
+,?4 ,% ,]<[ ( LA DIZAINE PR!S 
+,7  CASE VIDE
+,:4 ,? ,]#? AU MILLIER PR!S 
+,7  CASE VIDE
+,$4 ,: ,%#< ( LA DIZAINE PR!S 
+,7  CASE VIDE
+,]4 ,* ,]%? ( LA CENTAINE PR!S
+,7  CASE VIDE
+,\4 ,\ ,#** ( LA CENTAINE PR!S
+,7  CASE VIDE,[4 ,? ,*\# ( LA DIZAINE PR!S 
+,7  CASE VIDE
+,*#4 ,< ,*:$ AU MILLIER PR!S 
+,7  CASE VIDE
+,**4 ,: ,[\< ( LA DIZAINE PR!S
+,7  CASE VIDE
+,*<4 ,[ ,$%$ ( LA CENTAINE
+PR!S  ,7  CASE VIDE
+,*%4 ,\ ,\\% AU MILLIER PR!S 
+,7  CASE VIDE
+,*?4 ,% ,:<% ( LA DIZAINE PR!S
+,7  CASE VIDE
+,*:4 ,< ,]]# ( LA CENTAINE
+PR!S  ,7  CASE VIDE
+,*$4 ,? ,?%* ( LA DIZAINE PR!S
+,7  CASE VIDE
+,*]4 ,: ,:?\ ( LA CENTAINE
+PR!S  ,7  CASE VIDE
+,*\4 ,[ ,?:: AU MILLIER PR!S 
+,7  CASE VIDE
+,*[4 ,< ,[$% ( LA CENTAINE
+PR!S  ,7  CASE VIDE
+,<#4 ,? ,\[$ ( LA DIZAINE PR!S
+,7  CASE VIDE
+,<*4 ,% ,[%# AU MILLIER PR!S 
+,7  CASE VIDE
+,<<4 ,] ,\]% AU MILLIER PR!S ,7  CASE VIDE
+,<%4 ,$ ,<:] ( LA DIZAINE PR!S
+,7  CASE VIDE
+,<?4 ,* ,:%# AU MILLIER PR!S 
+,7  CASE VIDE.CORRIG=
+.ARRONDIR LES NOMBRES
+
+,*4 ,] ,#]#
+,<4 ,* ,###
+,%4 ,% ,$]#
+,?4 ,% ,]%#
+,:4 ,: ,###
+,$4 ,: ,%##
+,]4 ,* ,]##
+,\4 ,\ ,###
+,[4 ,? ,*\#
+,*#4 ,< ,###
+,**4 ,: ,[\#
+,*<4 ,[ ,$##
+,*%4 ,[ ,###
+,*?4 ,% ,:<#
+,*:4 ,< ,\##
+,*$4 ,? ,?%#
+,*]4 ,: ,:##
+,*\4 ,[ ,###
+,*[4 ,% ,###
+,<#4 ,? ,[##
+,<*4 ,? ,###
+,<<4 ,\ ,###
+,<%4 ,$ ,<$#
+,<?4 ,< ,###

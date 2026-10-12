@@ -35,5 +35,6 @@
    "q": "ぜんぶで何人が答えましたか。 <span class=\"line\"></span>",
    "a": "29人"
   }
- ]
+ ],
+ "hasTactile": true
 }

@@ -112,5 +112,6 @@
    "q": "10 × 8 = <span class=\"bx\">□</span>",
    "a": "80"
   }
- ]
+ ],
+ "hasTactile": false
 }

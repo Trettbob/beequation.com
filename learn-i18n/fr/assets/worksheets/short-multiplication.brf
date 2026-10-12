@@ -1,0 +1,38 @@
+.MULTIPLICATIONS POS=ES
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.CALCULE CHAQUE MULTIPLICATION
+POS=E4
+.LES CALCULS POS=S SONT =CRITS
+EN LIGNE1 PAR EXEMPLE ,%?: ,6
+,<]\ ,74
+
+,*4 ,?<# "9 ,[ ,7 CASE VIDE
+,<4 ,%:$ "9 ,% ,7 CASE VIDE
+,%4 ,<]$ "9 ,$ ,7 CASE VIDE
+,?4 ,%*[ "9 ,[ ,7 CASE VIDE
+,:4 ,*[\ "9 ,% ,7 CASE VIDE
+,$4 ,*<[ "9 ,] ,7 CASE VIDE
+,]4 ,<$? "9 ,] ,7 CASE VIDE
+,\4 ,*$[ "9 ,\ ,7 CASE VIDE
+,[4 ,**$ "9 ,? ,7 CASE VIDE
+,*#4 ,??? "9 ,$ ,7 CASE VIDE
+,**4 ,?:[ "9 ,] ,7 CASE VIDE
+,*<4 ,?*# "9 ,$ ,7 CASE VIDE.CORRIG=
+.MULTIPLICATIONS POS=ES
+
+,*4 ,%]\#
+,<4 ,*#$\
+,%4 ,*$:$
+,?4 ,<\]*
+,:4 ,:[?
+,$4 ,[#%
+,]4 ,*\?\
+,\4 ,*%:<
+,[4 ,?$?
+,*#4 ,<$$?
+,**4 ,%<*%
+,*<4 ,<?$#

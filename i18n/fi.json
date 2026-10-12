@@ -328,5 +328,9 @@
  "Every worksheet is available as a web page, a standard PDF, a large-print PDF and an easy-read PDF.": "Jokainen tehtävämoniste on saatavilla verkkosivuna, tavallisena PDF-tiedostona, isotekstisenä PDF-tiedostona ja lukuystävällisenä PDF-tiedostona.",
  "Our PDFs are tagged and include text alternatives for meaningful pictures.": "PDF-tiedostomme ovat merkittyjä, ja tietoa välittävillä kuvilla on tekstivastineet.",
  "For other formats, such as braille or editable versions, please contact us through our <a href=\"/support.html\">support page</a>.": "Jos tarvitset muita muotoja, kuten pistekirjoitusta tai muokattavia versioita, ota yhteyttä <a href=\"/support.html\">tukisivumme</a> kautta.",
- "This statement was last reviewed on 12 October 2026.": "Tämä seloste tarkistettiin viimeksi 12. lokakuuta 2026."
+ "This statement was last reviewed on 12 October 2026.": "Tämä seloste tarkistettiin viimeksi 12. lokakuuta 2026.",
+ "The worksheets and teachers’ puzzle pack are licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>. The apps, browser game, Beequation name, logos and Indie the bee are not covered by this licence.": "Tehtävämonisteet ja opettajien pulmapaketti on lisensoitu <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a> -lisenssillä. Se ei koske sovelluksia, selainpeliä, Beequation-nimeä, logoja eikä Indie-mehiläistä.",
+ "<a href=\"/learn/braille.html\">Get it in braille</a>": "<a href=\"/learn/braille.html\">Tehtävämonisteet pistekirjoituksena</a>",
+ "Get it in braille": "Tehtävämonisteet pistekirjoituksena",
+ "CC BY 4.0": "CC BY 4.0"
 }

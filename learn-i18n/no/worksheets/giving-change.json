@@ -77,5 +77,6 @@
    "q": "Du kjøper smågodt for 15 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
    "a": "85 kr"
   }
- ]
+ ],
+ "hasTactile": false
 }

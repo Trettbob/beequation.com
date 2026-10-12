@@ -93,5 +93,6 @@
    "q": "10 % av 300 = <span class=\"bx\">□</span>",
    "a": "30"
   }
- ]
+ ],
+ "hasTactile": false
 }

@@ -35,5 +35,6 @@
    "q": "조사한 학생은 모두 몇 명인가요? <span class=\"line\"></span>",
    "a": "29명"
   }
- ]
+ ],
+ "hasTactile": true
 }

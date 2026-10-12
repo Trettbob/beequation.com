@@ -1,0 +1,60 @@
+.SUITES DE NOMBRES JUSQU'(
+,*##
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.COMPL!TE CHAQUE SUITE AVEC
+LES NOMBRES QUI MANQUENT4
+
+,*4 ,<# 1 ,<: 1 CASE VIDE 1
+CASE VIDE 1 ,?# 1 ,?: 1 CASE
+VIDE
+,<4 ,\# 1 CASE VIDE 1 ,\? 1
+CASE VIDE 1 ,\\ 1 CASE VIDE 1
+,[<
+,%4 ,$$ 1 CASE VIDE 1 ,]# 1
+CASE VIDE 1 ,]? 1 ,]$ 1 CASE
+VIDE
+,?4 ,$: 1 ,$$ 1 CASE VIDE 1
+CASE VIDE 1 ,$[ 1 CASE VIDE 1
+,]*
+,:4 ,*< 1 CASE VIDE 1 ,*$ 1
+,*\ 1 ,<# 1 CASE VIDE 1 CASE
+VIDE
+,$4 ,*# 1 CASE VIDE 1 CASE
+VIDE 1 ,?# 1 ,:# 1 CASE VIDE 1,]#
+,]4 ,]# 1 CASE VIDE 1 ,\# 1
+CASE VIDE 1 ,[# 1 CASE VIDE 1
+,*##
+,\4 ,%# 1 CASE VIDE 1 ,:# 1
+CASE VIDE 1 ,]# 1 CASE VIDE 1
+,[#
+,[4 ,%[ 1 ,?# 1 ,?* 1 CASE
+VIDE 1 CASE VIDE 1 CASE VIDE 1
+,?:
+,*#4 ,*# 1 ,*: 1 CASE VIDE 1
+,<: 1 ,%# 1 CASE VIDE 1 CASE
+VIDE
+,**4 ,*? 1 ,*: 1 ,*$ 1 CASE
+VIDE 1 CASE VIDE 1 ,*[ 1 CASE
+VIDE
+,*<4 ,%# 1 ,%* 1 CASE VIDE 1
+CASE VIDE 1 ,%? 1 CASE VIDE 1
+,%$.CORRIG=
+.SUITES DE NOMBRES JUSQU'(
+,*##
+
+,*4 ,%#1 ,%:1 ,:#
+,<4 ,\<1 ,\$1 ,[#
+,%4 ,$\1 ,]<1 ,]\
+,?4 ,$]1 ,$\1 ,]#
+,:4 ,*?1 ,<<1 ,<?
+,$4 ,<#1 ,%#1 ,$#
+,]4 ,]:1 ,\:1 ,[:
+,\4 ,?#1 ,$#1 ,\#
+,[4 ,?<1 ,?%1 ,??
+,*#4 ,<#1 ,%:1 ,?#
+,**4 ,*]1 ,*\1 ,<#
+,*<4 ,%<1 ,%%1 ,%:

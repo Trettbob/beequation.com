@@ -92,5 +92,6 @@
    "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
    "a": "3 Zehner und 1 Einer"
   }
- ]
+ ],
+ "hasTactile": false
 }

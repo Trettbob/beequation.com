@@ -110,5 +110,6 @@
    "q": "<span class=\"bx\">□</span> + 10 = 24",
    "a": "14"
   }
- ]
+ ],
+ "hasTactile": false
 }

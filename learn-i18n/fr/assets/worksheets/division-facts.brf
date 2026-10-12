@@ -1,0 +1,68 @@
+.DIVISER AVEC LES TABLES
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.CALCULE CHAQUE R=SULTAT4
+
+,*4 ,*?? 3 ,*< ,7 CASE VIDE
+,<4 ,?< 3 ,] ,7 CASE VIDE
+,%4 ,?\ 3 ,$ ,7 CASE VIDE
+,?4 ,%$ 3 ,? ,7 CASE VIDE
+,:4 ,**# 3 ,*# ,7 CASE VIDE
+,$4 ,\\ 3 ,** ,7 CASE VIDE
+,]4 ,?? 3 ,? ,7 CASE VIDE
+,\4 ,\? 3 ,] ,7 CASE VIDE
+,[4 ,]# 3 ,] ,7 CASE VIDE
+,*#4 ,<# 3 ,*# ,7 CASE VIDE
+,**4 ,]] 3 ,** ,7 CASE VIDE
+,*<4 ,\\ 3 ,\ ,7 CASE VIDE
+,*%4 ,$$ 3 ,** ,7 CASE VIDE
+,*?4 ,$? 3 ,\ ,7 CASE VIDE
+,*:4 ,$$ 3 ,$ ,7 CASE VIDE
+,*$4 ,*< 3 ,$ ,7 CASE VIDE
+,*]4 ,$% 3 ,] ,7 CASE VIDE
+,*\4 ,*#\ 3 ,[ ,7 CASE VIDE
+,*[4 ,**# 3 ,** ,7 CASE VIDE,<#4 ,[ 3 ,% ,7 CASE VIDE
+,<*4 ,]# 3 ,*# ,7 CASE VIDE
+,<<4 ,]< 3 ,$ ,7 CASE VIDE
+,<%4 ,<? 3 ,*< ,7 CASE VIDE
+,<?4 ,$# 3 ,$ ,7 CASE VIDE
+,<:4 ,?\ 3 ,\ ,7 CASE VIDE
+,<$4 ,*$ 3 ,\ ,7 CASE VIDE
+,<]4 ,<\ 3 ,? ,7 CASE VIDE
+,<\4 ,%# 3 ,*# ,7 CASE VIDE
+,<[4 ,*? 3 ,] ,7 CASE VIDE
+,%#4 ,*# 3 ,< ,7 CASE VIDE.CORRIG=
+.DIVISER AVEC LES TABLES
+
+,*4 ,*<
+,<4 ,$
+,%4 ,\
+,?4 ,[
+,:4 ,**
+,$4 ,\
+,]4 ,**
+,\4 ,*<
+,[4 ,*#
+,*#4 ,<
+,**4 ,]
+,*<4 ,**
+,*%4 ,$
+,*?4 ,\
+,*:4 ,**
+,*$4 ,<
+,*]4 ,[
+,*\4 ,*<
+,*[4 ,*#
+,<#4 ,%
+,<*4 ,]
+,<<4 ,*<
+,<%4 ,<
+,<?4 ,*#,<:4 ,$
+,<$4 ,<
+,<]4 ,]
+,<\4 ,%
+,<[4 ,<
+,%#4 ,:

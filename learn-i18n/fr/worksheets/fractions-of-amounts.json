@@ -108,5 +108,6 @@
    "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> de 15 = <span class=\"bx\">□</span>",
    "a": "5"
   }
- ]
+ ],
+ "hasTactile": false
 }

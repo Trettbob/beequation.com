@@ -109,5 +109,6 @@
    "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>24</i></span>",
    "a": "12"
   }
- ]
+ ],
+ "hasTactile": false
 }

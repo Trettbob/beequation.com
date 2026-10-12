@@ -77,5 +77,6 @@
    "q": "Tu achètes un pain au chocolat à 3,40 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
    "a": "1,60 €"
   }
- ]
+ ],
+ "hasTactile": false
 }

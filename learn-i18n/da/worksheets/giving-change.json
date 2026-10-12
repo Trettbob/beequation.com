@@ -77,5 +77,6 @@
    "q": "Du køber is for 68 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
    "a": "32 kr."
   }
- ]
+ ],
+ "hasTactile": false
 }

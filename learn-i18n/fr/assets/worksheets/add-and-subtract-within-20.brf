@@ -1,0 +1,70 @@
+.ADDITIONS ET SOUSTRACTIONS
+JUSQU'( ,<#
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.CALCULE CHAQUE R=SULTAT4
+
+,*4 ,*# ,6 ,* ,7 CASE VIDE
+,<4 ,*< - ,$ ,7 CASE VIDE
+,%4 ,** ,6 ,] ,7 CASE VIDE
+,?4 ,: ,6 ,*: ,7 CASE VIDE
+,:4 ,% ,6 ,$ ,7 CASE VIDE
+,$4 ,*< - ,% ,7 CASE VIDE
+,]4 ,*% ,6 ,] ,7 CASE VIDE
+,\4 ,\ ,6 ,[ ,7 CASE VIDE
+,[4 ,% ,6 ,** ,7 CASE VIDE
+,*#4 ,*$ - ,*? ,7 CASE VIDE
+,**4 ,] - ,< ,7 CASE VIDE
+,*<4 ,** ,6 ,$ ,7 CASE VIDE
+,*%4 ,*< - ,** ,7 CASE VIDE
+,*?4 ,? ,6 ,*< ,7 CASE VIDE
+,*:4 ,\ - ,< ,7 CASE VIDE
+,*$4 ,% ,6 ,*$ ,7 CASE VIDE
+,*]4 ,$ ,6 ,*? ,7 CASE VIDE
+,*\4 ,** - ,? ,7 CASE VIDE,*[4 ,*# ,6 ,% ,7 CASE VIDE
+,<#4 ,] - ,* ,7 CASE VIDE
+,<*4 ,] ,6 ,*% ,7 CASE VIDE
+,<<4 ,<# - ,[ ,7 CASE VIDE
+,<%4 ,*? ,6 ,: ,7 CASE VIDE
+,<?4 ,[ ,6 ,] ,7 CASE VIDE
+,<:4 ,*$ - ,% ,7 CASE VIDE
+,<$4 ,*< ,6 ,] ,7 CASE VIDE
+,<]4 ,*% ,6 ,* ,7 CASE VIDE
+,<\4 ,*? ,6 ,? ,7 CASE VIDE
+,<[4 ,<# - ,*? ,7 CASE VIDE
+,%#4 ,[ - ,$ ,7 CASE VIDE.CORRIG=
+.ADDITIONS ET SOUSTRACTIONS
+JUSQU'( ,<#
+
+,*4 ,**
+,<4 ,$
+,%4 ,*\
+,?4 ,<#
+,:4 ,[
+,$4 ,[
+,]4 ,<#
+,\4 ,*]
+,[4 ,*?
+,*#4 ,<
+,**4 ,:
+,*<4 ,*]
+,*%4 ,*
+,*?4 ,*$
+,*:4 ,$
+,*$4 ,*[
+,*]4 ,<#
+,*\4 ,]
+,*[4 ,*%
+,<#4 ,$
+,<*4 ,<#
+,<<4 ,**
+,<%4 ,*[,<?4 ,*$
+,<:4 ,*%
+,<$4 ,*[
+,<]4 ,*?
+,<\4 ,*\
+,<[4 ,$
+,%#4 ,%
