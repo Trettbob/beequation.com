@@ -1,5 +1,55 @@
 # Existing PDF/UA failures and worksheet source repairs
 
+## Content repair results — 12 October 2026
+
+Extended `tools/a11y/pdf-ua-fix.mjs` was run on temporary copies of the requested existing PDFs, using pdf-lib 1.17.1, the supplied Node 22.23.3, veraPDF 1.30.3 and Java 21. Chrome, regeneration, installation and publishing were not run. Repository PDFs were not changed by this work. The older baseline investigation below is retained as historical evidence; its metadata-only and missing-dependency statements no longer describe the fixer.
+
+Each copy was validated before/after with `veraPDF -f ua1 --format json --maxfailuresdisplayed 2 --recurse`. The validator processed all 11 files normally. All 11 now have **zero 7.1-3 and 7.1-8 failures**. Ten are fully compliant with veraPDF's PDF/UA-1 profile; column-addition retains its existing table defect.
+
+| Sample path | Pages | Lang | 7.1-3 before → after | 7.1-8 before → after | Alt count before → after | Final PDF/UA-1 |
+| --- | ---: | --- | ---: | ---: | ---: | --- |
+| `assets/worksheets/2d-shapes.pdf` | 2 | en-GB | 115 → 0 | 1 → 0 | 9 → 9 | PASS |
+| `assets/worksheets/2d-shapes-large.pdf` | 7 | en-GB | 183 → 0 | 0 → 0 | 9 → 9 | PASS |
+| `assets/worksheets/2d-shapes-easy-read.pdf` | 2 | en-GB | 117 → 0 | 0 → 0 | 9 → 9 | PASS |
+| `assets/worksheets/2d-shapes-tactile.pdf` | 9 | en-GB | 18 → 0 | 0 → 0 | 18 → 18 | PASS |
+| `assets/worksheets/column-addition.pdf` | 2 | en-GB | 73 → 0 | 1 → 0 | 0 → 0 | FAIL: 7.2-42, 12 checks |
+| `assets/worksheets/time-to-5-minutes.pdf` | 2 | en-GB | 88 → 0 | 1 → 0 | 9 → 9 | PASS |
+| `learn-i18n/fr/assets/worksheets/2d-shapes.pdf` | 2 | fr | 115 → 0 | 1 → 0 | 9 → 9 | PASS |
+| `learn-i18n/ko/assets/worksheets/2d-shapes.pdf` | 2 | ko | 115 → 0 | 1 → 0 | 9 → 9 | PASS |
+| `assets/beequation-puzzle-pack.pdf` | 3 | en | 94 → 0 | 1 → 0 | 24 → 24 | PASS |
+| `assets/beequation-puzzle-pack-large.pdf` | 15 | en | 364 → 0 | 1 → 0 | 24 → 24 | PASS |
+| `assets/beequation-puzzle-pack-easy-read.pdf` | 5 | en | 145 → 0 | 1 → 0 | 24 → 24 | PASS |
+
+The existing `/Lang` explains the puzzle packs' `en`; `--lang-from-path` preserves it rather than replacing it with `en-GB`. The supplied current files have mixed metadata state, shown above; older files still needed the existing metadata repair.
+
+### Exact remaining failure
+
+Column-addition fails ISO 14289-1:2014 clause **7.2, test 42**: table rows must span the same number of columns. veraPDF's expression is `numberOfRowWithWrongColumnSpan == null || wrongColumnSpan != null`; all **12** failing tables report that rows 1 and 2 span different numbers of columns. Structure inspection confirms each first row contains three TDs and each second row four TDs, all with ColSpan 1. Table object references are `35, 54, 73, 92, 111, 130, 149, 168, 187, 206, 225, 244` (generation 0). For example, table 35 has rows 36 and 43 with K arrays of length 3 and 4. The missing empty sign cell is the earlier producer defect described below. These twelve failures were present before repair and are unchanged after it.
+
+Repairing that table would require changing the structure tree or regenerating with the corrected worksheet producer. Neither fits the requested content-stream repair and tree-preservation constraint; Chrome cannot run here. No additional rule fails in this sample.
+
+### Preservation and repeatability evidence
+
+For every sample, pdf-lib decoded page-stream bytes after repair equal the original bytes with only the expected artifact delimiters inserted. An independent comparison also removes artifact marker pairs from the token sequences and verifies every original operator and operand is unchanged. The original literal/hex text and array operand sequence is identical: counts are respectively **1125, 2746, 1159, 1199, 771, 951, 1139, 746, 1931, 4598, 2482** in table order. This checks the requested pdf-lib/zlib text dump preservation; no separate text-extractor executable was available. Original non-page/catalog dictionaries and arrays, including the structure tree, ParentTree, Alt values and outline objects where present, were compared by reference and serialized value. Font content is retained. Alt-bearing objects were counted before/after as shown above. All eleven repaired PDFs are byte-identical after a second pass, and source-file SHA-256 checks confirmed originals were unchanged during verification.
+
+The tokenizer/wrapper keeps strings, composite operands and binary inline-image data opaque. Runs include whole BT/ET blocks and balanced q/Q pairs. q/Q pairs spanning real tags stay outside artifact wrappers. Existing marked runs are untouched. Form repair is recursive and clones decorative uses to protect shared tagged Figure uses. Synthetic tests cover Forms, content arrays with cross-stream BT/ET and q/Q, languages/directories, strings/comments/composites, inline-image false EI delimiters and malformed inputs. **10 tests passed, no skips**, using:
+
+```sh
+node --test tools/a11y/pdf-content.test.mjs tools/a11y/pdf-fix.test.mjs
+```
+
+Temporary evidence and repaired copies are at `/var/folders/jc/gjvk6spj3x382xnjwrg8c_sm0000gn/T/bq-pdf-ua-samples-W7cf8f/`: `before.json`, `after.json`, `fix.log`, `results.json`, and `fixed/<original-relative-path>`. Validator stderr contains the existing glyph-code warnings; the original run log is `/tmp/bq-sample-run.log`, and completed preservation receipts are in `/tmp/bq-sample-preservation.log`. These are temporary evidence paths, not durable published assets. This is sample validation; the full 1,269-file tree was not batch-repaired or revalidated here.
+
+Batch usage:
+
+```sh
+node tools/a11y/pdf-ua-fix.mjs --lang-from-path assets learn-i18n
+```
+
+This command repairs files in place. See the tooling README for atomic writes, per-file JSON results and explicit fail-closed limits on unsupported inline-image encodings, mixed text objects and structured/cyclic Form cloning. The retained tagged tree and known Chrome decorations are the basis for this repair; automated profile compliance does not replace a human reading-order/content review.
+
+## Historical baseline — before content repair
+
 Measured with veraPDF 1.30.3, Java 21, PDF/UA-1 profile on 12 October 2026. These results concern existing PDFs. Chrome was not launched and PDFs were not regenerated or repaired in this session.
 
 | Sample | 7.1-3: untagged checks | 7.1-8: metadata checks | Other failures |

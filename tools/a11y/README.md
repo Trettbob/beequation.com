@@ -47,24 +47,28 @@ Uses the supplied Java 21 and veraPDF CLI, `-f ua1`, and recursively audits `ass
 
 Exit codes: 0 all compliant; 1 non-compliant PDFs; 2 processing/coverage errors. The current report intentionally exits 1.
 
-### Metadata fixer
+### Tagged PDF fixer
 
-**Dependency missing:** install only `pdf-lib` into the existing a11y tools directory yourself:
-
-```sh
-npm install --prefix "/Volumes/External SSD/Projects/devtools/tools/a11y" pdf-lib
-```
-
-The expected module is `/Volumes/External SSD/Projects/devtools/tools/a11y/node_modules/pdf-lib`. Nothing was installed by Codex. The fixer uses pdf-lib's [document metadata and catalog APIs](https://pdf-lib.js.org/docs/api/classes/pdfdocument).
+Uses the existing pdf-lib 1.17.1 installation at `/Volumes/External SSD/Projects/devtools/tools/a11y/node_modules/pdf-lib`. No installation is needed.
 
 ```sh
 node tools/a11y/pdf-ua-fix.mjs --lang en-GB assets/worksheets/2d-shapes.pdf
-# Use the document's actual language for translated PDFs, e.g. fr, nb, pt-BR.
+# Recursively repair worksheets, translated PDFs and puzzle packs in place:
+node tools/a11y/pdf-ua-fix.mjs --lang-from-path assets learn-i18n
+# To inspect copies first, pass a temporary directory containing the same tree.
 ```
 
-This rewrites the named PDF in place via a temporary sibling and rename, preserving permissions. It reads the PDF Title into `dc:title`, writes `dc:language` and `pdfuaid:part=1`, sets catalog Lang, DisplayDocTitle and Marked, and preserves the existing structure tree and page content. It refuses untagged PDFs, missing titles and overwriting third-party XMP. Its own output can be processed repeatedly. Adding PDF/UA identification is **not a certification**; rerun veraPDF.
+Directories are walked recursively in sorted order; `.pdf` matching is case-insensitive, symlinks are skipped, and overlapping arguments are deduplicated. `--lang-from-path` uses the existing catalog `/Lang`, otherwise `learn-i18n/<code>/` in the path, otherwise `en-GB`. `--lang CODE` explicitly overrides language and cannot be combined with `--lang-from-path`. Each file gets one JSON result line; failures are reported separately and the batch continues, exiting 1 if any file failed. Exit 0 means successful repair, not a validator pass.
 
-`tools/make-worksheets.mjs` now invokes the fixer after every `page.pdf`, passing the worksheet's `htmlLang`. If the module is absent it warns once and continues the build. Other repair failures stop generation. Puzzle pack PDFs come from the apps repo; their producer was not changed here. This standalone fixer can repair their metadata, but not their untagged drawings.
+The fixer writes through a temporary sibling and rename, preserving permissions. It retains the metadata repair: Title into `dc:title`, `dc:language`, `pdfuaid:part=1`, catalog Lang, DisplayDocTitle and Marked. It refuses untagged PDFs, missing titles and overwriting third-party XMP.
+
+Decoded content is tokenized as PDF syntax, with escaped/balanced strings, hex strings, names, arrays, dictionaries, comments and opaque inline images. Every maximal eligible run at marked-content depth zero containing paths/paint, shading, XObject invocation, a whole text object or an inline image is wrapped in `/Artifact BMC ... EMC`. Runs include intervening graphics-state operators. q/Q pairs crossing real tags remain outside wrappers; pairs inside wrappers stay balanced. Existing BMC/BDC/EMC sequences, MCIDs and marked content bytes are untouched. Content arrays are analyzed as one logical stream, then edits are distributed back to the existing streams. Changed streams are Flate-compressed with their other dictionary entries retained.
+
+Unmarked Form XObject invocations are followed recursively. When a Form needs repair, only that decorative invocation receives a repaired clone and a new resource name; shared tagged Figure invocations keep the original Form. Form resource dictionaries are copied rather than mutating inherited/shared resources. Structure tree, ParentTree, Alt text, outlines and font resources remain intact. An unchanged second pass leaves the entire PDF byte-for-byte unchanged.
+
+This is for already tagged Chrome PDFs where unmarked paint is decoration. It cannot reconstruct missing semantic tags or malformed tables. Malformed nesting, mixed tagged/untagged text within a single BT/ET, cyclic unmarked Forms and cloning a Form with structure-parent identity fail before writing the file. Inline image lengths use dimensions for unfiltered standard/Indexed colour spaces, or boundaries from Flate, ASCIIHex, ASCII85, RunLength or JPEG encodings. Unsupported inline-image filters or unresolved unfiltered colour-space aliases fail explicitly rather than scanning arbitrary binary data for a possibly false `EI`.
+
+`tools/make-worksheets.mjs` invokes this same fixer after every `page.pdf`, passing `htmlLang`; missing pdf-lib remains an optional warning, and other repair failures stop generation. The standalone command also repairs the existing puzzle packs without changing their apps-repo producer. Revalidate output with veraPDF `-f ua1`.
 
 ### Worksheet regeneration (host Chrome)
 
@@ -78,13 +82,15 @@ Omit IDs to rebuild all English worksheets. Add `--lang <code>` to generate a la
 
 ## Verification
 
-Local checks:
+PDF checks (no Chrome required):
 
 ```sh
-node --test tools/a11y/audit.test.mjs tools/a11y/worksheets.test.mjs tools/a11y/pdf-fix.test.mjs
+node --test tools/a11y/pdf-content.test.mjs tools/a11y/pdf-fix.test.mjs
 ```
 
-Observed here: **7 passed, 2 skipped**, no test failures. The HTTP server test is skipped only on EPERM; the real PDF integration test is skipped when pdf-lib is absent. The latter copies the real 2d-shapes PDF to a temporary directory, exercises the actual fixer twice, compares decoded page streams and structure-tree references, then runs veraPDF to assert metadata failure removal while preserving the 115 content failures. It has not been executed with pdf-lib in this session.
+Observed for the extended fixer: **10 passed, 0 skipped**, including real 2d-shapes → veraPDF compliance, full-file second-pass idempotence, synthetic multi-stream/shared/nested Forms and directory/language handling. Parser tests include false `EI` bytes and JPEG segment boundaries, graphics-state balance and malformed-stream rejection. Other existing tooling checks remain available with `node --test tools/a11y/audit.test.mjs tools/a11y/worksheets.test.mjs`.
+
+All 11 requested sample copies lost their 7.1-3 and 7.1-8 failures. Ten pass the full PDF/UA-1 profile; the older column-addition PDF retains twelve 7.2-42 table-row failures. Text operands, original structure/ParentTree objects, Alt values/counts and second-pass PDF bytes were checked for every sample. See [current per-file results](../../reports/a11y/pdf-investigation.md). Original assets were not modified by this validation.
 
 Host browser checks (not launched here):
 
@@ -104,7 +110,7 @@ The final PDF audit processed **1,269/1,269 existing PDFs**, with four failed ru
 - `tools/make-worksheets.mjs`: metadata hook, decorative column layout replacing malformed tables with an accompanying printed equation, and meaningful □ placeholders in multiplication-grid answer cells.
 - `tools/a11y/audit-pages.mjs`: local page server, axe runs, custom layout/keyboard/motion checks, app traversal and reporting.
 - `tools/a11y/audit-pdfs.sh`, `summarize-pdfs.mjs`: veraPDF execution and JSON/Markdown summaries with coverage checks.
-- `tools/a11y/pdf-ua-fix.mjs`: optional metadata post-processing, not content retagging.
+- `tools/a11y/pdf-ua-fix.mjs`: metadata and unmarked-decoration post-processing, including recursive directory and Form handling.
 - `tools/a11y/common.mjs`: shared discovery, globs, grouping and reporting utilities.
-- `tools/a11y/audit.test.mjs`, `worksheets.test.mjs`, `pdf-fix.test.mjs`, `browser.test.mjs`: scoped local and host acceptance checks.
+- `tools/a11y/audit.test.mjs`, `worksheets.test.mjs`, `pdf-content.test.mjs`, `pdf-fix.test.mjs`, `browser.test.mjs`: scoped local and host acceptance checks.
 - `tools/a11y/README.md`, `reports/a11y/pdf-investigation.md`, `reports/a11y/pdfs.md`: instructions, evidence and baseline summary. Generated JSON and diagnostic text/logs remain ignored.
