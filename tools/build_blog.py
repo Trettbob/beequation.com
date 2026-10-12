@@ -120,7 +120,7 @@ def template(code, url, title, description, content, ld, learn, *, image=None, a
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{esc(title)}</title>
+<title>{esc(title if 'Beequation' in title else title + ' | Beequation')}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{absolute}">
 {alternates}
@@ -186,6 +186,7 @@ def index_page(entries, code, n, total, learn, w):
             # External OG images remain metadata/feed references. Never introduce
             # a third-party browser request through a listing thumbnail.
             image = p['image'] if urlsplit(p['image']).netloc in {urlsplit(host(c)).netloc for c in CODES} else host(code) + '/assets/og-image.png'
+            if image.startswith(host(code) + '/'): image = image[len(host(code)):]   # same site: a local path
             content += (f'<li class="blog-entry"><img src="{esc(image)}" width="104" height="78" alt="" loading="lazy">'
                         f'<div><h2><a href="{p["url"]}">{esc(p["meta"]["title"])}</a></h2>'
                         f'<time datetime="{p["published"]}">{esc(format_date(date.fromisoformat(p["published"]), w))}</time>'
