@@ -98,3 +98,14 @@ only after all foreground work finishes, with success or failed-safe. Manual run
 maintenance locks. Set stdout/stderr log destinations and working Git credentials as part of
 any future installation. The SSD must be mounted. launchd runs missed calendar events after
 wake; normal due-date processing catches up queued sources.
+
+## Installed job (this Mac)
+
+Installed 2026-10-12 with Lee's OK: `~/Library/LaunchAgents/com.trettlabs.beequation-daily.plist` runs
+`tools/daily-runner.sh` every 15 minutes, at login and whenever a disk mounts. The runner calls `daily.sh` once per
+UK day from 00:05 (so a sleeping Mac or unplugged drive only delays it) and retries a failed run on the next tick.
+Logs: `../logs/daily-YYYY-MM-DD.log`; `../logs/daily-last-run` holds the last successful date (delete it to force a
+re-run today). Keep this checkout clean: `daily.sh` stops if it has uncommitted changes, so work in worktrees.
+
+    launchctl kickstart gui/$(id -u)/com.trettlabs.beequation-daily      # run a tick now
+    launchctl bootout gui/$(id -u)/com.trettlabs.beequation-daily        # stop the job (then delete the plist)

@@ -49,6 +49,8 @@ if [ -n "$STATUS" ]; then
   printf '%s\n' "$STATUS" >&2
   exit 1
 fi
+# Pick up anything pushed from elsewhere before building (never merges: fails if the branches diverged).
+git pull -q --ff-only
 if [ -z "$RUN_DATE" ]; then
   RUN_DATE="$(python3 -c 'from datetime import datetime; from zoneinfo import ZoneInfo; print(datetime.now(ZoneInfo("Europe/London")).date())')"
 fi
