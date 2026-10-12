@@ -87,7 +87,7 @@ def posts(root, code, learn, output):
                 if not page.exists(): page = native / page.relative_to(output)
                 if page.exists(): image = OGImage(page.read_text(encoding='utf-8')).image or image
             entry = {'meta': meta, 'body': body, 'url': url, 'rel': rel,
-                     'published': published, 'modified': meta.get('reviewed') or meta['updated'],
+                     'published': published, 'modified': meta.get('reviewed') or meta.get('updated') or published,
                      'image': image_url(image, code), 'news': tree == 'blog'}
             entries.append(entry)
             if tree == 'blog': news.append(entry)
@@ -156,7 +156,7 @@ def news_page(post, code, root, learn, w):
     trail = [(S.w['home'], '/'), (w['heading'], '/blog/'), (meta['h1'], post['url'])]
     ld = [{'@context': 'https://schema.org', '@type': 'BlogPosting', 'headline': meta['h1'],
            'description': meta['description'], 'url': url, 'mainEntityOfPage': url,
-           'datePublished': post['published'], 'dateModified': meta['updated'],
+           'datePublished': post['published'], 'dateModified': post['modified'],
            'author': author, 'image': post['image'], 'publisher': {'@id': MAIN + '/#org'},
            'inLanguage': S.w['html_lang']},
           {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
@@ -272,9 +272,9 @@ def build(code='en', *, source_root=ROOT, output=None, learn=None, chrome=None):
         file = output / rel; file.parent.mkdir(parents=True, exist_ok=True)
         file.write_text(chrome(text, code, rel), encoding='utf-8')
     (output / 'blog/feed.xml').write_text(feed(entries, code, root, output, w, learn), encoding='utf-8')
-    urls = [(p['url'], p['meta']['updated']) for p in news]
+    urls = [(p['url'], p['modified']) for p in news]
     if entries:
-        modified = max(max(p['published'], p['modified']) for p in entries)
+        modified = max(p['published'] for p in entries)
         urls += [(index_url(n), modified) for n in range(1, total + 1)]
     return list(pages), urls
 
@@ -289,9 +289,9 @@ def english_catalog(root=ROOT):
     sitemap = root / 'sitemap.xml'
     if sitemap.exists():
         text = re.sub(r'  <url><loc>https://beequation\.com/blog/[^<]*</loc>.*?</url>\n', '', sitemap.read_text(encoding='utf-8'))
-        urls = [(p['url'], p['meta']['updated']) for p in news]
+        urls = [(p['url'], p['modified']) for p in news]
         if entries:
-            urls += [(index_url(n), max(max(p['published'], p['modified']) for p in entries))
+            urls += [(index_url(n), max(p['published'] for p in entries))
                      for n in range(1, (len(entries) + PAGE_SIZE - 1) // PAGE_SIZE + 1)]
         add = ''.join(f'  <url><loc>{MAIN}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(urls))
         sitemap.write_text(text.replace('</urlset>', add + '</urlset>'), encoding='utf-8')

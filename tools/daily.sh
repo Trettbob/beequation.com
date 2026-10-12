@@ -74,3 +74,7 @@ git push
 heartbeat "Publishing language websites"
 # Invoke via bash so executable bits in an existing checkout are not a dependency.
 bash tools/publish-langs.sh "$MESSAGE"
+
+heartbeat "Notifying IndexNow"
+# Submission is best effort: publication has already succeeded.
+python3 tools/indexnow.py || echo "IndexNow submission failed; see response logs above (publication succeeded)." >&2

@@ -3,7 +3,9 @@
 Nothing is installed by these tools. `tools/daily.sh` publishes the website: it validates and
 moves due Learn sources, builds Learn and all language sites (including `/today/`), checks
 translations, commits changes as `Daily: YYYY-MM-DD`, pushes the website and invokes the
-existing language publishing script with the same message. Any error stops the script.
+existing language publishing script with the same message. After language publication succeeds, it
+runs `python3 tools/indexnow.py`; IndexNow failures are logged and do not fail the daily run.
+Other errors stop the script.
 It refuses every uncommitted change, including untracked files, before processing the queue.
 Use a clean publication checkout with working Git authentication; do not run it in an active
 editing worktree. A publication failure may leave generated changes or a local commit: inspect
@@ -139,3 +141,51 @@ re-run today). Keep this checkout clean: `daily.sh` stops if it has uncommitted 
 
     launchctl kickstart gui/$(id -u)/com.trettlabs.beequation-daily      # run a tick now
     launchctl bootout gui/$(id -u)/com.trettlabs.beequation-daily        # stop the job (then delete the plist)
+
+## Sitemap dates and IndexNow
+
+Every sitemap URL has a `YYYY-MM-DD` lastmod. A shared cache reads Git history once per
+builder process (`git log --name-only --format=%x1e%cs`) plus working-tree status. Committed
+sources use their last Git commit date (`%cs`, matching `git log -1 --format=%cs -- <sources>`);
+uncommitted or new sources use today's date in Europe/London. Generated output timestamps
+and file mtimes are never used. Git `%cs` preserves the commit's calendar date; London is
+used for the current day and the Today build date.
+
+Learn pages use their `learn-src/` or `learn-i18n/<code>/` source; worksheet pages also use
+their individual worksheet JSON. Legacy English Learn articles use their maintained HTML.
+Root and Easy Read pages use their English HTML. For translated root pages, we pragmatically
+use the maximum of the English source date and `i18n/<code>.json` date: a translation change
+to any page can therefore advance all that language's root-page dates. The translated
+teachers page uses its own `learn-i18n/<code>/pack.html` source. Assets/PDFs use the Git date
+of the original file, including language-specific assets. Today uses the build date;
+monthly archives use the last day included (empty archives are omitted). Blog indexes use
+the newest publication date; posts use reviewed, updated, then published date. Sitemap
+indexes, if introduced, use the newest lastmod in their child sitemap.
+
+`tools/indexnow.json` contains the public IndexNow key. Its matching root `.txt` file is
+copied into each `dist/<code>/` by the language build, so normal language publication
+includes it. The verification file is excluded from sitemaps. Keep these files together;
+the builder does not regenerate or rotate the key.
+
+Once the key file and rebuilt sitemaps have been published on all 15 hosts, preview and
+make the one-off full submission from this checkout:
+
+```sh
+python3 tools/indexnow.py --all --dry-run
+python3 tools/indexnow.py --all
+```
+
+The default command submits new URLs and URLs whose sitemap lastmod differs from the last
+successful submission, plus `/today/`, `/today/<current-month>/`, `/blog/` and `/blog/feed.xml`
+on every host. These four URLs are always submitted even when omitted from an empty sitemap.
+Each host's key is checked with a GET before any POST; the body must exactly equal the key.
+Missing, incorrect or unreachable key files skip that host and leave its state unchanged.
+POSTs go to `https://api.indexnow.org/indexnow`, use at most 10,000 URLs per batch and a 20-second
+timeout. Every response code or network error is logged; only 200/202 count as success.
+All hosts/batches are attempted before a non-zero exit. A host's snapshot advances only
+when all its batches succeed; successful hosts are saved even if another host fails.
+
+State lives outside the repository at `../logs/indexnow-state.json`; use `--state /path/to/state.json`
+to override it. State is written atomically after each successful host. Failed hosts may safely
+be retried with `python3 tools/indexnow.py`; successful unchanged sitemap URLs are skipped.
+`--dry-run` prints the actual JSON payloads and neither accesses the network nor writes state.
