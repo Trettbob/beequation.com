@@ -620,7 +620,7 @@ html{scroll-padding-top:100px;overflow-x:clip}
 .bqm-scr.b-out{z-index:2;animation:bqmBackOut .3s cubic-bezier(.2,.8,.2,1) both}
 html.bqm-open,html.bqm-open body{overflow:hidden}
 html.bqm-open .bq-ok,html.bqm-open .bq-peek,html.bqm-open .bq-scene{display:none}
-html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-drip,html.bqm-open .bq-trail,html:has(.bqh-panel:not([hidden])) .bq-drip,html:has(.bqh-panel:not([hidden])) .bq-trail{visibility:hidden}
+html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-panel:not([hidden])) .bq-bee,html.bqm-open .bq-ok,html:has(.bqh-panel:not([hidden])) .bq-ok,html.bqm-open .bq-drip,html.bqm-open .bq-trail,html:has(.bqh-panel:not([hidden])) .bq-drip,html:has(.bqh-panel:not([hidden])) .bq-trail{visibility:hidden}
 @media (prefers-color-scheme:dark){.bqh-pill{border-color:var(--line);box-shadow:0 14px 34px -14px rgba(0,0,0,.8)}.bqh-in{border-color:var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.85)}}
 @media (min-width:1000px){
 .bqh-pill{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;padding:0 8px 0 22px;border-radius:999px}
@@ -932,7 +932,17 @@ def translate(src, lang, page, T):
         part = LINK.sub(lambda m: m.group(0) if (not re.search('[A-Za-z]', m.group(2)) or m.group(2).strip().startswith('@') or norm(m.group(2)) in ('Beequation', 'Instagram', 'TikTok', 'YouTube', 'X', 'Facebook')) else f'<a {m.group(1)}>{T[norm(m.group(2))]}</a>' if norm(m.group(2)) in T else m.group(0), part)  # links inside translated text are already done
         part = ATTR.sub(lambda m: m.group(0) if keepnum(m.group(2)) else f'{m.group(1)}="{tr(m.group(2))}"', part)
         out.append(part)
-    return head + '</head>' + ''.join(out), missing
+    res = head + '</head>' + ''.join(out)
+    # Visible text still exactly as in the English page (a link, button or bare <span> the patterns above skip) is
+    # untranslated too, unless the translations themselves keep it (names, places).
+    def texts(h):
+        b = re.sub(r'<script.*?</script>|<style.*?</style>|<svg.*?</svg>|<!--.*?-->', '', h.split('</head>', 1)[-1], flags=re.S)
+        return {norm(H.unescape(t)) for t in re.findall(r'>([^<>]*[A-Za-z]{3,}[^<>]*)<', b)}
+    if id(T) not in _KEPT: _KEPT[id(T)] = '\n'.join(H.unescape(v) for v in T.values() if isinstance(v, str))
+    for t in sorted(texts(res) & texts(strip_markers(src))):
+        if t not in T and t not in _KEPT[id(T)]: missing.append(t)
+    return res, missing
+_KEPT = {}
 
 def localise(s, lang, page):
     s = re.sub(r'<html lang="[^"]*"', f'<html lang="{HTML_LANG[lang]}"', s, count=1)
