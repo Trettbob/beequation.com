@@ -721,7 +721,7 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 @media (prefers-contrast:more){.bqh-pill,.bqh-in,.bqh .lang .langs{border-color:var(--ink)}.bqh-kicker,.bqh-txt small,.bqh-app small,.bqh-home span{color:var(--ink)!important}.bqh .lang summary{box-shadow:inset 0 0 0 2px var(--ink)}}
 @media (forced-colors:active){.bqh-link[aria-expanded="true"],.bqh-tab[aria-expanded="true"],.bqh .lang[open] summary,.bqh-row[aria-current="page"],.bqh .lang .langs a[aria-current],.bqm-langs a[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.bqh-hex,.bqh-hive{forced-color-adjust:none}.bqh .bqh-hive:focus-visible{outline-color:Highlight}}
 """
-def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + 'h1,h2,h3{overflow-wrap:break-word;hyphens:auto}' + '</style><!--/nav-css-->'
+def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + 'h1,h2,h3{overflow-wrap:break-word;hyphens:auto}.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}' + '</style><!--/nav-css-->'
 
 # Opens and closes the panels and the phone menu. Hover only opens panels for a mouse on a wide screen, after 150 ms
 # (and closes 150 ms after leaving, so the pointer can travel into the panel); a click pins a hovered panel open.
@@ -913,6 +913,11 @@ def strip_markers(s):
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
+    # external_links() adds these after translation; take them out so translation sees the plain link text
+    notes = '|'.join(re.escape(n) for n in NEW_TAB_TEXT.values())
+    s = re.sub(r'<span class="vh"> \((?:' + notes + r')\)</span>', '', s)
+    s = re.sub(r' \((?:' + notes + r')\)"', '"', s)
+    s = s.replace(' target="_blank" data-ext rel="noopener"', '').replace(' target="_blank" data-ext', '')
     # Fixed-size text is scaled in generated output; restore source values before translation.
     return re.sub(r'calc\(([\d.]+)(px|vw|vh|vmin|vmax|rem) \* var\(--bq-text-scale,1\)\)', r'\1\2', s)
 
@@ -931,7 +936,7 @@ def english_only(s, lang=None):
                       lambda m: m.group(0) if own(m.group(1)) or worksheet_pdf(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
     return re.sub(r'href="/(teachers\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
 
-def chrome(src, lang, page, label='Language'):
+def _chrome(src, lang, page, label='Language'):
     s = strip_markers(src)
     s = re.sub(r'\s*</head>', '\n</head>', s)
     s = re.sub(r'\s*</body>', '\n</body>', s)
@@ -993,6 +998,39 @@ def update_easy_sitemap():
         s = s.replace('<urlset ', '<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" ', 1)
     add = ''.join(easy_sitemap_entry(p, 'en') for p in PAGES if p.startswith('easy-read/'))
     open(path, 'w', encoding='utf-8').write(s.replace('</urlset>', add + '</urlset>'))
+
+NEW_TAB_TEXT = {'en': 'opens in a new tab', 'fr': 's’ouvre dans un nouvel onglet', 'es': 'se abre en una pestaña nueva',
+    'de': 'öffnet sich in einem neuen Tab', 'pt': 'abre em uma nova aba', 'it': 'si apre in una nuova scheda',
+    'nl': 'opent in een nieuw tabblad', 'pl': 'otwiera się w nowej karcie', 'sv': 'öppnas i en ny flik', 'da': 'åbner i en ny fane',
+    'no': 'åpnes i en ny fane', 'fi': 'avautuu uuteen välilehteen', 'tr': 'yeni sekmede açılır', 'ja': '新しいタブで開きます',
+    'ko': '새 탭에서 열립니다'}
+OWN_HOST = re.compile(r'^https?://(?:[a-z0-9-]+\.)?beequation\.com(?:[/:?#]|$)', re.I)
+EXT_LINK = re.compile(r'<a\b([^>]*?)\bhref="(https?://[^"]+)"([^>]*)>', re.S)
+
+def external_links(s, lang):
+    """Links that leave beequation.com and its language sites open in a new tab (rel=noopener), and say so to screen
+    readers: a visually hidden note, or added to the link's aria-label. Script blocks are left alone."""
+    note = NEW_TAB_TEXT.get(lang, NEW_TAB_TEXT['en'])
+    def fix(part):
+        def one(m):
+            before, url, after = m.group(1), m.group(2), m.group(3)
+            if OWN_HOST.match(url): return m.group(0)
+            attrs = before + after
+            if 'target=' not in attrs: after += ' target="_blank" data-ext'   # data-ext: added here, stripped before translation
+            if 'rel=' not in attrs: after += ' rel="noopener"' if 'data-ext' in after else ''
+            label = re.search(r'aria-label="([^"]*)"', attrs)
+            if label and note not in label.group(1):
+                new = f'aria-label="{label.group(1)} ({note})"'
+                before, after = before.replace(label.group(0), new), after.replace(label.group(0), new)
+            return f'<a{before}href="{url}"{after}>' + ('' if label else '\x00')
+        part = EXT_LINK.sub(one, part)
+        # the hidden note goes just before the link's closing tag
+        return re.sub(r'\x00(.*?)</a>', lambda m: m.group(1) + (f'<span class="vh"> ({note})</span>' if note not in m.group(1) else '') + '</a>', part, flags=re.S)
+    parts = re.split(r'(<script.*?</script>|<style.*?</style>)', s, flags=re.S)
+    return ''.join(x if x.startswith(('<script', '<style')) else fix(x) for x in parts)
+
+def chrome(src, lang, page, label='Language'):
+    return external_links(_chrome(src, lang, page, label), lang)
 
 def build_date():
     from datetime import date
