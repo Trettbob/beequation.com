@@ -576,5 +576,24 @@ bit('bq-drip',x,{'--dx':dx+'px','--run':run+'ms'}).innerHTML='<i>'+honey+'</i>';
 if(dx)bit('bq-trail',dx>0?x:x+dx,{'width':Math.abs(dx)+'px','--run':run+'ms','transform-origin':dx>0?'0 50%':'100% 50%'});
 setTimeout(function(){bits.forEach(function(e){e.remove();});end();},run+1700);return true;}
 next(10000+Math.random()*6000);}catch(e){}})();</script><!--/bee-->
+<!--lang-suggestion--><style>
+#bq-language-suggestion{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin:12px auto;padding:10px 16px;max-width:900px;box-sizing:border-box;background:#FFF1B8;color:#1C1A4A;border-radius:14px;font:15px/1.4 system-ui,sans-serif}
+#bq-language-suggestion a{color:#3B24A8;text-decoration:underline;font-weight:700}
+#bq-language-suggestion button{background:#fff;color:#1C1A4A;border:1px solid #1C1A4A;border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+#bq-language-suggestion :focus-visible{outline:3px solid #6A4BF5;outline-offset:3px}
+</style><script>(function(){var options={"da": {"lang": "da", "url": "https://da.beequation.com/learn/parents/maths-anxiety.html", "text": ["Se hjemmesiden på dansk", "Fortsæt på engelsk"]}, "de": {"lang": "de", "url": "https://de.beequation.com/learn/parents/maths-anxiety.html", "text": ["Website auf Deutsch ansehen", "Auf Englisch bleiben"]}, "es": {"lang": "es", "url": "https://es.beequation.com/learn/parents/maths-anxiety.html", "text": ["Ver el sitio en español", "Seguir en inglés"]}, "fi": {"lang": "fi", "url": "https://fi.beequation.com/learn/parents/maths-anxiety.html", "text": ["Avaa suomenkielinen sivusto", "Jatka englanniksi"]}, "fr": {"lang": "fr", "url": "https://fr.beequation.com/learn/parents/maths-anxiety.html", "text": ["Consulter le site en français", "Rester en anglais"]}, "it": {"lang": "it", "url": "https://it.beequation.com/learn/parents/maths-anxiety.html", "text": ["Visita il sito in italiano", "Continua in inglese"]}, "ja": {"lang": "ja", "url": "https://ja.beequation.com/learn/parents/maths-anxiety.html", "text": ["日本語のサイトを見る", "英語のまま続ける"]}, "ko": {"lang": "ko", "url": "https://ko.beequation.com/learn/parents/maths-anxiety.html", "text": ["한국어 사이트 보기", "영어로 계속 보기"]}, "nl": {"lang": "nl", "url": "https://nl.beequation.com/learn/parents/maths-anxiety.html", "text": ["Bekijk de website in het Nederlands", "Doorgaan in het Engels"]}, "no": {"lang": "nb", "url": "https://no.beequation.com/learn/parents/maths-anxiety.html", "text": ["Se nettstedet på norsk", "Fortsett på engelsk"]}, "pl": {"lang": "pl", "url": "https://pl.beequation.com/learn/parents/maths-anxiety.html", "text": ["Przejdź do strony po polsku", "Zostań przy angielskim"]}, "pt": {"lang": "pt-BR", "url": "https://pt.beequation.com/learn/parents/maths-anxiety.html", "text": ["Ver o site em português", "Continuar em inglês"]}, "sv": {"lang": "sv", "url": "https://sv.beequation.com/learn/parents/maths-anxiety.html", "text": ["Visa webbplatsen på svenska", "Fortsätt på engelska"]}, "tr": {"lang": "tr", "url": "https://tr.beequation.com/learn/parents/maths-anxiety.html", "text": ["Siteyi Türkçe görüntüle", "İngilizce devam et"]}},saved='',dismissed=false,consent='';
+try{saved=localStorage.getItem('bq-lang');dismissed=localStorage.getItem('bq-lang-dismissed')==='yes';consent=localStorage.getItem('bq-consent');}catch(e){}
+if(new URLSearchParams(location.search).get('lang')==='en'){try{if(consent!=='no')localStorage.setItem('bq-lang','en');}catch(e){}return;}
+if(dismissed||saved==='en')return;
+var pick=Object.prototype.hasOwnProperty.call(options,saved)?saved:null,ls=navigator.languages||[navigator.language||''];
+if(!pick){for(var i=0;i<ls.length;i++){var c=String(ls[i]).slice(0,2).toLowerCase();if(c==='nb'||c==='nn')c='no';if(c==='en')return;if(options[c]){pick=c;break;}}}
+if(!pick)return;
+var o=options[pick],d=document.createElement('aside'),a=document.createElement('a'),b=document.createElement('button');
+d.id='bq-language-suggestion';d.lang=o.lang;d.setAttribute('aria-label',o.text[0]);
+a.textContent=o.text[0];a.href=o.url+location.search+location.hash;
+b.type='button';b.textContent=o.text[1];b.addEventListener('click',function(){try{if(consent!=='no')localStorage.setItem('bq-lang-dismissed','yes');}catch(e){}d.remove();});
+d.appendChild(a);d.appendChild(b);
+var header=document.getElementById('bqh');if(header)header.insertAdjacentElement('afterend',d);else document.body.insertBefore(d,document.body.firstChild);
+})();</script><!--/lang-suggestion-->
 <!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->
 </body></html>

@@ -1,0 +1,7 @@
+# Branch-based GitHub Pages runs Jekyll: keep build inputs out of the served site.
+# Do not add .nojekyll: that would bypass these exclusions.
+exclude:
+  - learn-src
+  - learn-i18n
+  - i18n
+  - tools

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /learn-src/
+Disallow: /learn-i18n/
+Disallow: /i18n/
+Disallow: /tools/
 
 Sitemap: https://beequation.com/sitemap.xml

@@ -43,9 +43,10 @@ The pages use only inline code and a local favicon; there is no build step or th
 ## Languages
 
 The English pages in this repo are the source. `python3 tools/build-langs.py` builds a translated copy of the main
-pages (home, how to play, about, support, privacy, terms, 404) into `dist/<code>/` for every `i18n/<code>.json`, and
-updates the English pages' language menu and hreflang links. `--check` only lists English text that has no
-translation yet. The Learn section, teachers page, accessibility page and the web game stay English-only.
+pages (home, how to play, about, support, privacy, terms, accessibility, 404 and the web game) into `dist/<code>/` for every `i18n/<code>.json`, and
+updates the English pages' language menu and hreflang links. `--check` lists English text and shared interface
+strings that have no translation yet. Learn and Teachers use each country's sources in `learn-i18n/`; their
+footer comes from the translated About page. The game uses `i18n/play/<code>.js`.
 
 | Code | Language | Site | Status |
 | --- | --- | --- | --- |
@@ -65,7 +66,7 @@ translation yet. The Learn section, teachers page, accessibility page and the we
 | ko | 한국어 | ko.beequation.com | translated, not set up |
 
 `LIVE` in `tools/build-langs.py` lists the languages whose site works. Every site only offers, links to and
-redirects to those (a site that isn't live yet also lists itself), so a translated language stays invisible until
+suggests those (a site that isn't live yet also lists itself), so a translated language stays invisible until
 its site is up. Indie's speech bubbles, the cookie note and the menu labels for the newer languages are in each
 `i18n/<code>.json` under `"__site__"`; the header's words for every language are under `"__site__"` → `"nav"`
 (English in `NAV_TEXT` in `tools/build-langs.py`; `--check` lists any that are missing).
@@ -77,7 +78,7 @@ styles (`<!--nav-css-->`) and script (`<!--nav-->`): a floating pill with Apps a
 Support, the language menu and "Play free" on wide screens, and the beehive button with a full-screen menu on
 phones and tablets. Learn's menu is built from the Learn data (`TOPICS` and `YEARS` in `tools/build-learn.py`, the
 `learn-src/` pages and `worksheets.json`), so run `python3 tools/build-learn.py` then `python3 tools/build-langs.py`
-after changing either. Learn and Teachers are left out on the language sites.
+after changing either. Language sites include Learn and Teachers when listed in `LEARN_LIVE`.
 
 ### Putting a new language live (owner, once per language)
 Replace `<code>` with the code above, e.g. `ja`.
@@ -90,10 +91,50 @@ Replace `<code>` with the code above, e.g. `ja`.
    hours after DNS works), tick **Enforce HTTPS**.
 5. When https://<code>.beequation.com loads, add `'<code>'` to `LIVE` in `tools/build-langs.py`, run
    `python3 tools/build-langs.py` and `tools/publish-langs.sh` (this updates every live site's language menu), then
-   commit and push this repo (the English pages' menu, hreflang links and browser-language redirect now include it).
+   commit and push this repo (the English pages' menu, hreflang links and browser-language suggestion now include it).
 
 `tools/publish-langs.sh` keeps a clone of each language repo in `../langsites/<code>` and only publishes live
 languages (or the one named with `--first`).
 
 ## Email
 The contact address is the "hello" mailbox at this domain. It never appears in the HTML: links have class="em" and a data-e attribute (the address reversed, then base64), and a small script added by tools/build-langs.py turns them into a mailto link in the browser, so spam bots that scrape pages can't read it. Set up the mailbox or forwarding in 123-reg (Email settings for the domain).
+
+## International SEO and local checks
+
+Run in this order after changing sources or translations:
+
+```sh
+python3 tools/build-learn.py
+python3 tools/build-langs.py
+python3 tools/build-langs.py --check
+python3 tools/check-international-seo.py
+node tools/check-language-script.mjs
+```
+
+The last script checks the four older guides and accessibility hreflang across all 15 sites, local accessibility
+links, localized footers, Latin-script metadata limits, WebSite identities and public PDF sitemap entries.
+English hreflang annotations and explicit English language-menu choices remain intentional.
+`build-learn.py` adds public `assets/**/*.pdf` resources to the English sitemap; `build-langs.py` adds each
+language's public PDFs after copying its localized assets. All current PDFs are worksheets or puzzle packs
+intended for search. Do not put private or non-indexable documents in these public asset folders.
+
+English pages offer a small suggestion in the visitor's language rather than redirecting. The suggestion
+links to the corresponding page, or the language's Learn hub for a country-specific year page. Dismissal is
+remembered locally; blocked storage is tolerated, and the legacy no-storage choice is respected. The cookie
+note and explicit opt-in for Google Analytics are unchanged; the suggestion makes no network requests.
+
+There is no `.nojekyll` in the publishing root. GitHub Pages' branch-based publishing therefore runs Jekyll
+([GitHub documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#static-site-generators)).
+`_config.yml` excludes `learn-src/`, `learn-i18n/`, `i18n/` and `tools/` from that output. The existing finished
+HTML and public assets retain their paths. Do not add `.nojekyll`: it would disable those exclusions. Matching
+robots.txt rules discourage crawling, but do not themselves remove files or guarantee deindexing. After a
+future deployment, check that all four source/tool paths return HTTP 404; local builds cannot prove live status.
+
+Browser regression check (requires Playwright and Chrome):
+
+```sh
+node tools/check-language-banner.mjs /path/to/playwright/index.mjs
+```
+
+This serves local build bytes through browser request interception, blocks external traffic, and checks
+language suggestions, storage denial, dismissal, cookie-note coexistence and the analytics opt-in boundary.

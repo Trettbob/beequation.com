@@ -113,7 +113,11 @@ class Site:
         self.years = YEARS if self.en else [(y['slug'], y['name'], y['age'], y.get('us', '')) for y in cfg['years']]
         self.year_hex = ({s: 'R' if s == 'reception' else n.split()[-1] for s, n, *_ in YEARS} if self.en else
                          {y['slug']: y['short'] for y in cfg['years']})
-    def has(self, rel): return os.path.exists(os.path.join(self.src, rel))
+    def has(self, rel):
+        # These four articles predate learn-src; their English files are still their source.
+        legacy = {'mental-maths-strategies.html', 'times-tables-practice.html',
+                  'daily-maths-puzzle-for-adults.html', 'number-bonds-to-20.html'}
+        return os.path.exists(os.path.join(self.src, rel)) or (self.en and rel in legacy and os.path.isfile(os.path.join(self.out, rel)))
 
 _SITES = {}
 def site_of(lang='en'):
@@ -213,8 +217,9 @@ LEARN_CSS = """
 # ---------- page chrome taken from an existing page, so Learn matches the rest of the site ----------
 # The site header is not copied: each page gets an empty <!--header--> slot that build-langs.py fills.
 HEADER_SLOT = '<!--header--><!--/header-->'
-def base_parts():
-    s = rd(os.path.join(ROOT, 'about.html'))
+def base_parts(lang='en'):
+    base = ROOT if lang == 'en' else os.path.join(ROOT, 'dist', lang)
+    s = rd(os.path.join(base, 'about.html'))
     css = re.search(r'<style>(.*?)</style>', s, re.S).group(1)
     css = re.sub(r'\n\.lang \{.*', '', css)                      # (older pages: the language menu's styles)
     foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', s, re.S).group(0)
@@ -385,6 +390,8 @@ def page(rel, meta, body, parts, names, S=None):
 def legacy(rel, nav_html):
     """Adds the Learn menu to the older hand-made articles."""
     p = os.path.join(OUT, rel); s = rd(p)
+    s = re.sub(r'<!--learn-hreflang-->.*?<!--/learn-hreflang-->\n?', '', s, flags=re.S)
+    s = re.sub(r'(<link rel="canonical"[^>]*>\n)', lambda m: m.group(1) + alternates(rel, EN), s, count=1)
     s = re.sub(r'\n?<!--learnnav-->.*?<!--/learnnav-->', '', s, flags=re.S)
     s = re.sub(r'\n?<script>document.addEventListener\(\'click\',function\(e\)\{document.querySelectorAll\(\'.learnnav.*?</script>', '', s, flags=re.S)
     s = s.replace('\n<main', '\n<!--learnnav-->' + nav_html + '<!--/learnnav-->\n<main', 1)   # just below the site header
@@ -396,6 +403,11 @@ def sitemap(urls):
     p = os.path.join(ROOT, 'sitemap.xml'); s = rd(p)
     s = re.sub(r'  <url><loc>https://beequation\.com/learn/[^<]*</loc>.*?</url>\n', '', s)
     add = ''.join(f'  <url><loc>{MAIN}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in urls)
+    # All public assets PDFs are search resources (worksheets and the puzzle pack).
+    s = re.sub(r'  <url><loc>https://beequation\.com/[^<]*\.pdf</loc>.*?</url>\n', '', s)
+    from pathlib import Path
+    add += ''.join(f'  <url><loc>{MAIN}/{p.relative_to(ROOT).as_posix()}</loc></url>\n'
+                   for p in sorted(Path(ROOT, 'assets').rglob('*.pdf')))
     s = s.replace('</urlset>', add + '</urlset>')
     open(p, 'w', encoding='utf-8').write(s)
 
@@ -426,7 +438,7 @@ def build_lang(lang):
     """Builds learn-i18n/<lang>/ into dist/<lang>/learn/ (and its pack page into dist/<lang>/teachers.html), without
     the site header: build-langs.py adds that. Returns the pages' paths under dist/<lang>/ and the sitemap entries."""
     S = site_of(lang)
-    parts = base_parts()
+    parts = base_parts(lang)
     metas = sources(S)
     names = {rel: m.get('nav', m['h1']) for rel, (m, _) in metas.items()}
     built, urls = [], []

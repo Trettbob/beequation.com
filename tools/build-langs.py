@@ -67,13 +67,36 @@ def alternates(page, lang='en'):
     tags.append(f'<link rel="alternate" hreflang="x-default" href="{MAIN}{p}">')
     return '<!--hreflang-->\n' + '\n'.join(tags) + '\n<!--/hreflang-->'
 
-# English pages only: on a first visit, follow the browser's language if it's one of ours. A choice made in the
-# menu is remembered in this browser (localStorage, never sent anywhere). Search engines get English plus the
-# alternate links above, so nothing is hidden from them. Norwegian browsers say nb or nn; that site is no.
-REDIRECT = """<!--lang-redirect--><script>(function(){try{var L=['fr','es','de','pt'],k='bq-lang',q=new URLSearchParams(location.search).get('lang');
-if(q){if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem(k,q);return;}var s=localStorage.getItem(k);if(s==='en')return;var pick=L.indexOf(s)>=0?s:null;
-if(!pick){var ls=navigator.languages||[navigator.language||''];for(var i=0;i<ls.length;i++){var c=String(ls[i]).slice(0,2).toLowerCase();if(c==='nb'||c==='nn')c='no';if(c==='en')return;if(L.indexOf(c)>=0){pick=c;break;}}}
-if(pick)location.replace('https://'+pick+'.beequation.com'+location.pathname+location.hash);}catch(e){}})();</script><!--/lang-redirect-->"""
+# A suggestion only: English URLs remain accessible in every browser language.
+# Stored choices are optional; blocked storage must not stop the page working.
+SUGGESTION = """<!--lang-suggestion--><style>
+#bq-language-suggestion{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin:12px auto;padding:10px 16px;max-width:900px;box-sizing:border-box;background:#FFF1B8;color:#1C1A4A;border-radius:14px;font:15px/1.4 system-ui,sans-serif}
+#bq-language-suggestion a{color:#3B24A8;text-decoration:underline;font-weight:700}
+#bq-language-suggestion button{background:#fff;color:#1C1A4A;border:1px solid #1C1A4A;border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+#bq-language-suggestion :focus-visible{outline:3px solid #6A4BF5;outline-offset:3px}
+</style><script>(function(){var options=__OPTIONS__,saved='',dismissed=false,consent='';
+try{saved=localStorage.getItem('bq-lang');dismissed=localStorage.getItem('bq-lang-dismissed')==='yes';consent=localStorage.getItem('bq-consent');}catch(e){}
+if(new URLSearchParams(location.search).get('lang')==='en'){try{if(consent!=='no')localStorage.setItem('bq-lang','en');}catch(e){}return;}
+if(dismissed||saved==='en')return;
+var pick=Object.prototype.hasOwnProperty.call(options,saved)?saved:null,ls=navigator.languages||[navigator.language||''];
+if(!pick){for(var i=0;i<ls.length;i++){var c=String(ls[i]).slice(0,2).toLowerCase();if(c==='nb'||c==='nn')c='no';if(c==='en')return;if(options[c]){pick=c;break;}}}
+if(!pick)return;
+var o=options[pick],d=document.createElement('aside'),a=document.createElement('a'),b=document.createElement('button');
+d.id='bq-language-suggestion';d.lang=o.lang;d.setAttribute('aria-label',o.text[0]);
+a.textContent=o.text[0];a.href=o.url+location.search+location.hash;
+b.type='button';b.textContent=o.text[1];b.addEventListener('click',function(){try{if(consent!=='no')localStorage.setItem('bq-lang-dismissed','yes');}catch(e){}d.remove();});
+d.appendChild(a);d.appendChild(b);
+var header=document.getElementById('bqh');if(header)header.insertAdjacentElement('afterend',d);else document.body.insertBefore(d,document.body.firstChild);
+})();</script><!--/lang-suggestion-->"""
+
+def suggestion(page):
+    options = {}
+    for code in sorted(LIVE):
+        text = site_text(code, 'suggestion', {})
+        path = url_path(page) if page in PAGES else learn_path(page, code)
+        options[code] = {'lang': HTML_LANG[code], 'url': site(code) + path, 'text': text}
+    return SUGGESTION.replace('__OPTIONS__', json.dumps(options, ensure_ascii=False))
+
 REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->"""
 
 # Indie (the Hexabee) and the header's honey take turns, one thing at a time, in a shuffled rotation that never
@@ -687,14 +710,14 @@ def site_text(lang, key, table):
     if lang not in _SITE:
         f = os.path.join(ROOT, 'i18n', f'{lang}.json')
         _SITE[lang] = json.load(open(f, encoding='utf-8')).get('__site__', {}) if os.path.exists(f) else {}
-    return _SITE[lang].get(key, table['en'])
+    return _SITE[lang].get(key, table.get('en'))
 
 def strip_markers(s):
     """Takes out everything chrome() adds. The header leaves HEADER_SLOT behind so it's rebuilt in the same place
     (pages from before the header had <div class="wrap"><nav class="top">…</nav></div> there instead)."""
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
-    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
+    for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
               'drip'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     return s
@@ -704,9 +727,9 @@ def english_only(s, lang=None):
     Learn section, teachers page and worksheets, once it has them)."""
     if lang and has_learn(lang):
         own = lambda f: os.path.exists(os.path.join(_learn().I18N, lang, f))   # its own pack, worksheets…
-        return re.sub(r'href="/(accessibility\.html|assets/[^"]+\.pdf)"',
+        return re.sub(r'href="/(assets/[^"]+\.pdf)"',
                       lambda m: m.group(0) if m.group(1).startswith('assets/') and own(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
-    return re.sub(r'href="/(teachers\.html|accessibility\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
+    return re.sub(r'href="/(teachers\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
 
 def chrome(src, lang, page, label='Language'):
     s = strip_markers(src)
@@ -717,7 +740,7 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
     if page == 'play.html':   # the game: no header, flying bee or cookie notice over it, on every site
         if lang == 'en' and LIVE:
-            s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + REDIRECT.replace("var L=['fr','es','de','pt']", 'var L=' + json.dumps(sorted(LIVE))), 1)
+            s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         return s
     if lang == 'en' and page == 'teachers.html':   # the teachers page on sites with their own Learn section
         s = re.sub(r'<!--learn-hreflang-->.*?<!--/learn-hreflang-->\n', '', s, flags=re.S)
@@ -735,8 +758,8 @@ def chrome(src, lang, page, label='Language'):
     s = s.replace('</body>', GA + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
     if lang == 'en':
-        if page in PAGES and LIVE:
-            s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + REDIRECT.replace("var L=['fr','es','de','pt']", 'var L=' + json.dumps(sorted(LIVE))), 1)
+        if LIVE:
+            s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         if LIVE: s = s.replace('</body>', REMEMBER + '\n</body>', 1)
     return s
 
@@ -786,6 +809,14 @@ def localise(s, lang, page):
     if page == 'play.html':   # the browser game: its structured data, and its own words (i18n/play/<lang>.js)
         s = s.replace('"inLanguage":"en-GB"', f'"inLanguage":"{HTML_LANG[lang]}"').replace(f'"url":"{MAIN}/play.html"', f'"url":"{site(lang)}/play.html"')
         s = re.sub(r'/\*T\*/.*?/\*/T\*/', lambda m: '/*T*/' + rd(os.path.join('i18n', 'play', f'{lang}.js')).strip() + '/*/T*/', s, count=1, flags=re.S)
+    if page == 'index.html':
+        def website(m):
+            data = json.loads(m.group(1))
+            for item in data.get('@graph', [data]):
+                if item.get('@type') == 'WebSite':
+                    item.update({'url': site(lang) + '/', '@id': site(lang) + '/#website', 'inLanguage': HTML_LANG[lang]})
+            return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '</script>'
+        s = re.sub(r'<script type="application/ld\+json">(.*?)</script>', website, s, flags=re.S)
     if page == 'support.html':
         qa = re.findall(r'<h2>(.*?)</h2><p>(.*?)</p>', s, re.S)
         strip = lambda x: H.unescape(re.sub(r'<[^>]+>', '', x)).strip()
@@ -800,6 +831,9 @@ def build(check_only=False):
         if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
             continue   # not translated yet
         T = json.load(open(os.path.join(ROOT, 'i18n', f'{lang}.json'), encoding='utf-8'))
+        suggestion_text = T.get('__site__', {}).get('suggestion')
+        if not isinstance(suggestion_text, list) or len(suggestion_text) != 2 or not all(isinstance(x, str) and x.strip() for x in suggestion_text):
+            print(f'  {lang}: missing language suggestion text'); problems += 1
         nav = T.get('__site__', {}).get('nav', {})
         for k, v in NAV_TEXT['en'].items():   # the header's words
             if not nav.get(k): print(f'  {lang} header: no translation for "{k}": {v}'); problems += 1
@@ -832,6 +866,9 @@ def build(check_only=False):
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
         urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html')
         urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls))
+        from pathlib import Path
+        urls += ''.join(f'  <url><loc>{site(lang)}/{p.relative_to(out).as_posix()}</loc></url>\n'
+                        for p in sorted(Path(out, 'assets').rglob('*.pdf')))
         open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
         open(os.path.join(out, 'README.md'), 'w').write(f'# {lang}.beequation.com\n\nBuilt from Trettbob/beequation.com by tools/build-langs.py. Do not edit here: change the English pages or i18n/{lang}.json there and rebuild.\n')
     return problems
