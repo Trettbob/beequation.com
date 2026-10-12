@@ -56,10 +56,10 @@ class InternationalSEO(unittest.TestCase):
             self.assertIn('/play.html', [a.get('href') for a in Page(root(code) / '404.html').links])
     def test_learn_footer_is_localized(self):
         for code in LANGS.keys() - {'en'}:
-            expected = re.search(r'<footer>.*?</footer>', (root(code) / 'about.html').read_text(), re.S)[0]
+            expected = re.search(r'<footer[^>]*>.*?</footer>', (root(code) / 'about.html').read_text(), re.S)[0]
             for p in [root(code) / 'teachers.html'] + sorted((root(code) / 'learn').rglob('*.html')):
                 with self.subTest(page=str(p)):
-                    actual = re.search(r'<footer>.*?</footer>', p.read_text(), re.S)[0]
+                    actual = re.search(r'<footer[^>]*>.*?</footer>', p.read_text(), re.S)[0]
                     self.assertEqual(actual, expected)
                     self.assertIn('Trett Labs Limited', actual)
                     self.assertIn('17310137', actual)
