@@ -13,18 +13,29 @@ DET SAMME REGNESTYKKET'
 SKRIVES P* =N LINJE1 FOR
 EKSEMPEL #CDE 6 #BGH 7'
 
-#A' #DBJ   #I 7 TOMT FELT
-#B' #CEF   #C 7 TOMT FELT
-#C' #BGF   #F 7 TOMT FELT
-#D' #CAI   #I 7 TOMT FELT
-#E' #AIH   #C 7 TOMT FELT
-#F' #ABI   #G 7 TOMT FELT
-#G' #BFD   #G 7 TOMT FELT
-#H' #AFI   #H 7 TOMT FELT
-#I' #AAF   #D 7 TOMT FELT
-#AJ' #DDD   #F 7 TOMT FELT
-#AA' #DEI   #G 7 TOMT FELT
-#AB' #DAJ   #F 7 TOMT FELT,SVAR
+#A' #DBJ   #I 7 TOMT FELT #D
+#B #J   #I
+#B' #CEF   #C 7 TOMT FELT #C
+#E #F   #C
+#C' #BGF   #F 7 TOMT FELT #B
+#G #F   #F
+#D' #CAI   #I 7 TOMT FELT #C
+#A #I   #I
+#E' #AIH   #C 7 TOMT FELT #A
+#I #H   #C
+#F' #ABI   #G 7 TOMT FELT #A
+#B #I   #G#G' #BFD   #G 7 TOMT FELT #B
+#F #D   #G
+#H' #AFI   #H 7 TOMT FELT #A
+#F #I   #H
+#I' #AAF   #D 7 TOMT FELT #A
+#A #F   #D
+#AJ' #DDD   #F 7 TOMT FELT #D
+#D #D   #F
+#AA' #DEI   #G 7 TOMT FELT #D
+#E #I   #G
+#AB' #DAJ   #F 7 TOMT FELT #D
+#A #J   #F,SVAR
 ,GANGE MED OPPSTILLING
 
 #A' #CGHJ

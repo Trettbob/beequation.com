@@ -12,18 +12,29 @@ MED ENERNE6
 SKRIVES P* =N LINJE1 FOR
 EKSEMPEL #CDE 6 #BGH 7'
 
-#A' #GBH - #EDF 7 TOMT FELT
-#B' #EDB - #AFA 7 TOMT FELT
-#C' #IEI - #BFD 7 TOMT FELT
-#D' #HBG - #FGI 7 TOMT FELT
-#E' #DCE - #BHC 7 TOMT FELT
-#F' #FAI - #AHH 7 TOMT FELT
-#G' #GJH - #AGJ 7 TOMT FELT
-#H' #EAH - #BAE 7 TOMT FELT
-#I' #DGC - #BFF 7 TOMT FELT
+#A' #GBH - #EDF 7 TOMT FELT #G
+#B #H - #E #D #F
+#B' #EDB - #AFA 7 TOMT FELT #E
+#D #B - #A #F #A
+#C' #IEI - #BFD 7 TOMT FELT #I
+#E #I - #B #F #D
+#D' #HBG - #FGI 7 TOMT FELT #H
+#B #G - #F #G #I
+#E' #DCE - #BHC 7 TOMT FELT #D
+#C #E - #B #H #C
+#F' #FAI - #AHH 7 TOMT FELT #F
+#A #I - #A #H #H
+#G' #GJH - #AGJ 7 TOMT FELT #G#J #H - #A #G #J
+#H' #EAH - #BAE 7 TOMT FELT #E
+#A #H - #B #A #E
+#I' #DGC - #BFF 7 TOMT FELT #D
+#G #C - #B #F #F
 #AJ' #DEE - #AEE 7 TOMT FELT
+#D #E #E - #A #E #E
 #AA' #FCC - #BBH 7 TOMT FELT
-#AB' #HDH - #BJG 7 TOMT FELT,SVAR
+#F #C #C - #B #B #H
+#AB' #HDH - #BJG 7 TOMT FELT
+#H #D #H - #B #J #G,SVAR
 ,MINUS MED OPPSTILLING
 
 #A' #AHB

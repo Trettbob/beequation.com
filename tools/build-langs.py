@@ -707,7 +707,7 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 @media (prefers-contrast:more){.bqh-pill,.bqh-in,.bqh .lang .langs{border-color:var(--ink)}.bqh-kicker,.bqh-txt small,.bqh-app small,.bqh-home span{color:var(--ink)!important}.bqh .lang summary{box-shadow:inset 0 0 0 2px var(--ink)}}
 @media (forced-colors:active){.bqh-link[aria-expanded="true"],.bqh-tab[aria-expanded="true"],.bqh .lang[open] summary,.bqh-row[aria-current="page"],.bqh .lang .langs a[aria-current],.bqm-langs a[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.bqh-hex,.bqh-hive{forced-color-adjust:none}.bqh .bqh-hive:focus-visible{outline-color:Highlight}}
 """
-def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + '</style><!--/nav-css-->'
+def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + 'h1,h2,h3{overflow-wrap:break-word;hyphens:auto}' + '</style><!--/nav-css-->'
 
 # Opens and closes the panels and the phone menu. Hover only opens panels for a mouse on a wide screen, after 150 ms
 # (and closes 150 ms after leaving, so the pointer can travel into the panel); a click pins a hovered panel open.

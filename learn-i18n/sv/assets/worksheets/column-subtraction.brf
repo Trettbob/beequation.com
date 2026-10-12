@@ -10,18 +10,29 @@ ATT KONTROLLERA DEN'
 RAD1 TILL EXEMPEL #CDE 4 #BGH
 7'
 
-#A' #GBH - #EDF 7 TOM RUTA
-#B' #EDB - #AFA 7 TOM RUTA
-#C' #IEI - #BFD 7 TOM RUTA
-#D' #HBG - #FGI 7 TOM RUTA
-#E' #DCE - #BHC 7 TOM RUTA
-#F' #FAI - #AHH 7 TOM RUTA
-#G' #GJH - #AGJ 7 TOM RUTA
-#H' #EAH - #BAE 7 TOM RUTA
-#I' #DGC - #BFF 7 TOM RUTA
-#AJ' #DEE - #AEE 7 TOM RUTA
-#AA' #FCC - #BBH 7 TOM RUTA
-#AB' #HDH - #BJG 7 TOM RUTA,SVAR
+#A' #GBH - #EDF 7 TOM RUTA #G
+#B #H - #E #D #F
+#B' #EDB - #AFA 7 TOM RUTA #E
+#D #B - #A #F #A
+#C' #IEI - #BFD 7 TOM RUTA #I
+#E #I - #B #F #D
+#D' #HBG - #FGI 7 TOM RUTA #H
+#B #G - #F #G #I
+#E' #DCE - #BHC 7 TOM RUTA #D
+#C #E - #B #H #C
+#F' #FAI - #AHH 7 TOM RUTA #F
+#A #I - #A #H #H
+#G' #GJH - #AGJ 7 TOM RUTA #G
+#J #H - #A #G #J
+#H' #EAH - #BAE 7 TOM RUTA #E#A #H - #B #A #E
+#I' #DGC - #BFF 7 TOM RUTA #D
+#G #C - #B #F #F
+#AJ' #DEE - #AEE 7 TOM RUTA #D
+#E #E - #A #E #E
+#AA' #FCC - #BBH 7 TOM RUTA #F
+#C #C - #B #B #H
+#AB' #HDH - #BJG 7 TOM RUTA #H
+#D #H - #B #J #G,SVAR
 ,SUBTRAKTION MED UPPST>LLNING
 
 #A' #AHB

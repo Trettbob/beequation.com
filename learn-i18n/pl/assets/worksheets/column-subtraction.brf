@@ -12,17 +12,28 @@ W JEDNYM WIERSZU1 NA PRZYK<AD
 #CDE 6 #BGH 7'
 
 #A' #GBH - #EDF 7 PUSTE POLE
+#G #B #H - #E #D #F
 #B' #EDB - #AFA 7 PUSTE POLE
+#E #D #B - #A #F #A
 #C' #IEI - #BFD 7 PUSTE POLE
+#I #E #I - #B #F #D
 #D' #HBG - #FGI 7 PUSTE POLE
+#H #B #G - #F #G #I
 #E' #DCE - #BHC 7 PUSTE POLE
+#D #C #E - #B #H #C
 #F' #FAI - #AHH 7 PUSTE POLE
+#F #A #I - #A #H #H
 #G' #GJH - #AGJ 7 PUSTE POLE
-#H' #EAH - #BAE 7 PUSTE POLE
+#G #J #H - #A #G #J#H' #EAH - #BAE 7 PUSTE POLE
+#E #A #H - #B #A #E
 #I' #DGC - #BFF 7 PUSTE POLE
+#D #G #C - #B #F #F
 #AJ' #DEE - #AEE 7 PUSTE POLE
+#D #E #E - #A #E #E
 #AA' #FCC - #BBH 7 PUSTE POLE
-#AB' #HDH - #BJG 7 PUSTE POLE.ODPOWIEDZI
+#F #C #C - #B #B #H
+#AB' #HDH - #BJG 7 PUSTE POLE
+#H #D #H - #B #J #G.ODPOWIEDZI
 .ODEJMOWANIE PISEMNE
 
 #A' #AHB

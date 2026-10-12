@@ -14,17 +14,28 @@ KIRJOITETAAN YHDELLE RIVILLE1
 ESIMERKIKSI #CDE 6 #BGH 7'
 
 #A' #GBH - #EDF 7 TYHJ> KOHTA
+#G #B #H - #E #D #F
 #B' #EDB - #AFA 7 TYHJ> KOHTA
+#E #D #B - #A #F #A
 #C' #IEI - #BFD 7 TYHJ> KOHTA
+#I #E #I - #B #F #D
 #D' #HBG - #FGI 7 TYHJ> KOHTA
+#H #B #G - #F #G #I
 #E' #DCE - #BHC 7 TYHJ> KOHTA
+#D #C #E - #B #H #C
 #F' #FAI - #AHH 7 TYHJ> KOHTA
-#G' #GJH - #AGJ 7 TYHJ> KOHTA
+#F #A #I - #A #H #H#G' #GJH - #AGJ 7 TYHJ> KOHTA
+#G #J #H - #A #G #J
 #H' #EAH - #BAE 7 TYHJ> KOHTA
+#E #A #H - #B #A #E
 #I' #DGC - #BFF 7 TYHJ> KOHTA
+#D #G #C - #B #F #F
 #AJ' #DEE - #AEE 7 TYHJ> KOHTA
+#D #E #E - #A #E #E
 #AA' #FCC - #BBH 7 TYHJ> KOHTA
-#AB' #HDH - #BJG 7 TYHJ> KOHTA,VASTAUKSET
+#F #C #C - #B #B #H
+#AB' #HDH - #BJG 7 TYHJ> KOHTA
+#H #D #H - #B #J #G,VASTAUKSET
 ,V>HENNYSLASKU ALLEKKAIN
 
 #A' #AHB

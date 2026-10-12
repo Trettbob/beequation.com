@@ -12,17 +12,28 @@ P* =N LINJE1 FOR EKSEMPEL #CDE
 ^6 #BGH ^7'
 
 #A' #CGC ^6 #BGA ^7 TOMT FELT
+#C #G #C ^6 #B #G #A
 #B' #BEI ^6 #BAH ^7 TOMT FELT
+#B #E #I ^6 #B #A #H
 #C' #ABH ^6 #BJJ ^7 TOMT FELT
+#A #B #H ^6 #B #J #J
 #D' #FGB ^6 #BCI ^7 TOMT FELT
+#F #G #B ^6 #B #C #I
 #E' #DHA ^6 #BGB ^7 TOMT FELT
+#D #H #A ^6 #B #G #B
 #F' #AFC ^6 #BFH ^7 TOMT FELT
+#A #F #C ^6 #B #F #H
 #G' #DFF ^6 #BGD ^7 TOMT FELT
-#H' #DFE ^6 #ACB ^7 TOMT FELT
+#D #F #F ^6 #B #G #D#H' #DFE ^6 #ACB ^7 TOMT FELT
+#D #F #E ^6 #A #C #B
 #I' #BAB ^6 #BBG ^7 TOMT FELT
+#B #A #B ^6 #B #B #G
 #AJ' #ABF ^6 #AEG ^7 TOMT FELT
+#A #B #F ^6 #A #E #G
 #AA' #FJH ^6 #ABA ^7 TOMT FELT
-#AB' #EEA ^6 #AEB ^7 TOMT FELT,SVAR
+#F #J #H ^6 #A #B #A
+#AB' #EEA ^6 #AEB ^7 TOMT FELT
+#E #E #A ^6 #A #E #B,SVAR
 ,PLUS MED OPSTILLING
 
 #A' #FDD

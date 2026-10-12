@@ -14,51 +14,51 @@
  "kind": "cards",
  "items": [
   {
-   "q": "<span class=\"column-expression\">728 − 546 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>2</td><td>8</td></tr><tr><td>−</td><td>5</td><td>4</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">728 − 546 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>7</span><span>2</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>5</span><span>4</span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "182"
   },
   {
-   "q": "<span class=\"column-expression\">542 − 161 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>4</td><td>2</td></tr><tr><td>−</td><td>1</td><td>6</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">542 − 161 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>5</span><span>4</span><span>2</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>6</span><span>1</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "381"
   },
   {
-   "q": "<span class=\"column-expression\">959 − 264 = □</span><table class=\"col\"><tr><td></td><td>9</td><td>5</td><td>9</td></tr><tr><td>−</td><td>2</td><td>6</td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">959 − 264 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>9</span><span>5</span><span>9</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>6</span><span>4</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "695"
   },
   {
-   "q": "<span class=\"column-expression\">827 − 679 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>2</td><td>7</td></tr><tr><td>−</td><td>6</td><td>7</td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">827 − 679 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>8</span><span>2</span><span>7</span></div><div class=\"col-row\"><span>−</span><span>6</span><span>7</span><span>9</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "148"
   },
   {
-   "q": "<span class=\"column-expression\">435 − 283 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>3</td><td>5</td></tr><tr><td>−</td><td>2</td><td>8</td><td>3</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">435 − 283 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>3</span><span>5</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>8</span><span>3</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "152"
   },
   {
-   "q": "<span class=\"column-expression\">619 − 188 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>1</td><td>9</td></tr><tr><td>−</td><td>1</td><td>8</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">619 − 188 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>1</span><span>9</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>8</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "431"
   },
   {
-   "q": "<span class=\"column-expression\">708 − 170 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>0</td><td>8</td></tr><tr><td>−</td><td>1</td><td>7</td><td>0</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">708 − 170 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>7</span><span>0</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>7</span><span>0</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "538"
   },
   {
-   "q": "<span class=\"column-expression\">518 − 215 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>1</td><td>8</td></tr><tr><td>−</td><td>2</td><td>1</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">518 − 215 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>5</span><span>1</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>1</span><span>5</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "303"
   },
   {
-   "q": "<span class=\"column-expression\">473 − 266 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>7</td><td>3</td></tr><tr><td>−</td><td>2</td><td>6</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">473 − 266 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>7</span><span>3</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>6</span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "207"
   },
   {
-   "q": "<span class=\"column-expression\">455 − 155 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>5</td><td>5</td></tr><tr><td>−</td><td>1</td><td>5</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">455 − 155 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>5</span><span>5</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>5</span><span>5</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "300"
   },
   {
-   "q": "<span class=\"column-expression\">633 − 228 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>3</td><td>3</td></tr><tr><td>−</td><td>2</td><td>2</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">633 − 228 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>3</span><span>3</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>2</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "405"
   },
   {
-   "q": "<span class=\"column-expression\">848 − 207 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>4</td><td>8</td></tr><tr><td>−</td><td>2</td><td>0</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "q": "<span class=\"column-expression\">848 − 207 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>8</span><span>4</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>0</span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
    "a": "641"
   }
  ],

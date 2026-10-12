@@ -43,6 +43,7 @@
 <meta name="theme-color" content="#12161F">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 :root {
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -974,7 +975,7 @@ function k_game(r) {
   function draw() {
     const p = cur(), W = Math.min(app.clientWidth - 40, 420);
     const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
-    h(`<div class="stack">
+    h(`<div class="stack"><h1 class="vh">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}</h1>
       <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" role="img" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
       <div class="card-k"><div class="soft">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
@@ -1145,7 +1146,7 @@ function a_game(r) {
   const clock = () => { const n = Date.now(); if (blitz) return `0:${String(Math.max(0, Math.ceil((endAt - n) / 1000))).padStart(2, '0')}`; return fmtTime(Math.floor((n - startAt) / 1000)); };
   function draw() {
     const p = cur(), W = Math.min(app.clientWidth - 40, 420), left = Math.max(0, endAt - Date.now());
-    h(`<div class="stack">
+    h(`<div class="stack"><h1 class="vh">${blitz ? T.blitzTitle : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</h1>
       <div class="row"><button class="icon-btn" aria-label="${T.quit}" data-back>${I.close('#F2F4F8')}</button>
         <div class="grow" style="text-align:center"><div class="big-num" style="font-variant-numeric:tabular-nums">${blitz ? solved : `${Math.min(solved + 1, L.roundLength)}/${L.roundLength}`}</div><div style="font-size:13px;color:var(--night-mute)">${blitz ? T.solvedWord : r.kind === 'daily' ? T.dailyPro : `${L.name} ${L.tier}`}</div></div>
         <div id="clock" style="width:64px;text-align:right;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">${clock()}</div></div>

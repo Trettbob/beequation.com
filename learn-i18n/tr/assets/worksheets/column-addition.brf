@@ -11,18 +11,29 @@ BA%LA6
 YAZ9L9R1 [RNE<IN #CDE "6 #BGH
 "74
 
-#A4 #CGC "6 #BGA "7 BO%LUK
-#B4 #BEI "6 #BAH "7 BO%LUK
-#C4 #ABH "6 #BJJ "7 BO%LUK
-#D4 #FGB "6 #BCI "7 BO%LUK
-#E4 #DHA "6 #BGB "7 BO%LUK
-#F4 #AFC "6 #BFH "7 BO%LUK
-#G4 #DFF "6 #BGD "7 BO%LUK
-#H4 #DFE "6 #ACB "7 BO%LUK
-#I4 #BAB "6 #BBG "7 BO%LUK
-#AJ4 #ABF "6 #AEG "7 BO%LUK
-#AA4 #FJH "6 #ABA "7 BO%LUK
-#AB4 #EEA "6 #AEB "7 BO%LUK,CEVAPLAR
+#A4 #CGC "6 #BGA "7 BO%LUK #C
+#G #C "6 #B #G #A
+#B4 #BEI "6 #BAH "7 BO%LUK #B
+#E #I "6 #B #A #H
+#C4 #ABH "6 #BJJ "7 BO%LUK #A
+#B #H "6 #B #J #J
+#D4 #FGB "6 #BCI "7 BO%LUK #F
+#G #B "6 #B #C #I
+#E4 #DHA "6 #BGB "7 BO%LUK #D
+#H #A "6 #B #G #B
+#F4 #AFC "6 #BFH "7 BO%LUK #A
+#F #C "6 #B #F #H
+#G4 #DFF "6 #BGD "7 BO%LUK #D
+#F #F "6 #B #G #D#H4 #DFE "6 #ACB "7 BO%LUK #D
+#F #E "6 #A #C #B
+#I4 #BAB "6 #BBG "7 BO%LUK #B
+#A #B "6 #B #B #G
+#AJ4 #ABF "6 #AEG "7 BO%LUK #A
+#B #F "6 #A #E #G
+#AA4 #FJH "6 #ABA "7 BO%LUK #F
+#J #H "6 #A #B #A
+#AB4 #EEA "6 #AEB "7 BO%LUK #E
+#E #A "6 #A #E #B,CEVAPLAR
 ,ELDELI TOPLAMA
 
 #A4 #FDD

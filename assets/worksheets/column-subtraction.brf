@@ -9,18 +9,29 @@ METHOD4 ,START WITH THE ONES6
 LINEAR CALCULATIONS1 FOR
 EXAMPLE #CDE "6 #BGH "74
 
-#A4 #GBH "- #EDF "7 BLANK
-#B4 #EDB "- #AFA "7 BLANK
-#C4 #IEI "- #BFD "7 BLANK
-#D4 #HBG "- #FGI "7 BLANK
-#E4 #DCE "- #BHC "7 BLANK
-#F4 #FAI "- #AHH "7 BLANK
-#G4 #GJH "- #AGJ "7 BLANK
-#H4 #EAH "- #BAE "7 BLANK
-#I4 #DGC "- #BFF "7 BLANK
-#AJ4 #DEE "- #AEE "7 BLANK
-#AA4 #FCC "- #BBH "7 BLANK
-#AB4 #HDH "- #BJG "7 BLANK,ANSWERS
+#A4 #GBH "- #EDF "7 BLANK #G
+#B #H "- #E #D #F
+#B4 #EDB "- #AFA "7 BLANK #E
+#D #B "- #A #F #A
+#C4 #IEI "- #BFD "7 BLANK #I
+#E #I "- #B #F #D
+#D4 #HBG "- #FGI "7 BLANK #H
+#B #G "- #F #G #I
+#E4 #DCE "- #BHC "7 BLANK #D
+#C #E "- #B #H #C
+#F4 #FAI "- #AHH "7 BLANK #F
+#A #I "- #A #H #H
+#G4 #GJH "- #AGJ "7 BLANK #G
+#J #H "- #A #G #J
+#H4 #EAH "- #BAE "7 BLANK #E
+#A #H "- #B #A #E#I4 #DGC "- #BFF "7 BLANK #D
+#G #C "- #B #F #F
+#AJ4 #DEE "- #AEE "7 BLANK #D
+#E #E "- #A #E #E
+#AA4 #FCC "- #BBH "7 BLANK #F
+#C #C "- #B #B #H
+#AB4 #HDH "- #BJG "7 BLANK #H
+#D #H "- #B #J #G,ANSWERS
 ,COLUMN SUBTRACTION
 
 #A4 #AHB

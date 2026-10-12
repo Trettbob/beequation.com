@@ -11,18 +11,29 @@ BA%LA6
 YAZ9L9R1 [RNE<IN #CDE "6 #BGH
 "74
 
-#A4 #DBJ "8 #I "7 BO%LUK
-#B4 #CEF "8 #C "7 BO%LUK
-#C4 #BGF "8 #F "7 BO%LUK
-#D4 #CAI "8 #I "7 BO%LUK
-#E4 #AIH "8 #C "7 BO%LUK
-#F4 #ABI "8 #G "7 BO%LUK
-#G4 #BFD "8 #G "7 BO%LUK
-#H4 #AFI "8 #H "7 BO%LUK
-#I4 #AAF "8 #D "7 BO%LUK
-#AJ4 #DDD "8 #F "7 BO%LUK
-#AA4 #DEI "8 #G "7 BO%LUK
-#AB4 #DAJ "8 #F "7 BO%LUK,CEVAPLAR
+#A4 #DBJ "8 #I "7 BO%LUK #D #B
+#J "8 #I
+#B4 #CEF "8 #C "7 BO%LUK #C #E
+#F "8 #C
+#C4 #BGF "8 #F "7 BO%LUK #B #G
+#F "8 #F
+#D4 #CAI "8 #I "7 BO%LUK #C #A
+#I "8 #I
+#E4 #AIH "8 #C "7 BO%LUK #A #I
+#H "8 #C
+#F4 #ABI "8 #G "7 BO%LUK #A #B
+#I "8 #G
+#G4 #BFD "8 #G "7 BO%LUK #B #F
+#D "8 #G#H4 #AFI "8 #H "7 BO%LUK #A #F
+#I "8 #H
+#I4 #AAF "8 #D "7 BO%LUK #A #A
+#F "8 #D
+#AJ4 #DDD "8 #F "7 BO%LUK #D
+#D #D "8 #F
+#AA4 #DEI "8 #G "7 BO%LUK #D
+#E #I "8 #G
+#AB4 #DAJ "8 #F "7 BO%LUK #D
+#A #J "8 #F,CEVAPLAR
 ,ALT ALTA *ARPMA
 
 #A4 #CGHJ

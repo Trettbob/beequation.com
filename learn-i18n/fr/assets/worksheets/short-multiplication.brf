@@ -10,18 +10,29 @@ POS=E4
 EN LIGNE1 PAR EXEMPLE ,%?: ,6
 ,<]\ ,74
 
-,*4 ,?<# "9 ,[ ,7 CASE VIDE
-,<4 ,%:$ "9 ,% ,7 CASE VIDE
-,%4 ,<]$ "9 ,$ ,7 CASE VIDE
-,?4 ,%*[ "9 ,[ ,7 CASE VIDE
-,:4 ,*[\ "9 ,% ,7 CASE VIDE
-,$4 ,*<[ "9 ,] ,7 CASE VIDE
-,]4 ,<$? "9 ,] ,7 CASE VIDE
-,\4 ,*$[ "9 ,\ ,7 CASE VIDE
-,[4 ,**$ "9 ,? ,7 CASE VIDE
+,*4 ,?<# "9 ,[ ,7 CASE VIDE ,?
+,< ,# "9 ,[
+,<4 ,%:$ "9 ,% ,7 CASE VIDE ,%
+,: ,$ "9 ,%
+,%4 ,<]$ "9 ,$ ,7 CASE VIDE ,<
+,] ,$ "9 ,$
+,?4 ,%*[ "9 ,[ ,7 CASE VIDE ,%
+,* ,[ "9 ,[
+,:4 ,*[\ "9 ,% ,7 CASE VIDE ,*
+,[ ,\ "9 ,%
+,$4 ,*<[ "9 ,] ,7 CASE VIDE ,*
+,< ,[ "9 ,]
+,]4 ,<$? "9 ,] ,7 CASE VIDE ,<
+,$ ,? "9 ,]
+,\4 ,*$[ "9 ,\ ,7 CASE VIDE ,*,$ ,[ "9 ,\
+,[4 ,**$ "9 ,? ,7 CASE VIDE ,*
+,* ,$ "9 ,?
 ,*#4 ,??? "9 ,$ ,7 CASE VIDE
+,? ,? ,? "9 ,$
 ,**4 ,?:[ "9 ,] ,7 CASE VIDE
-,*<4 ,?*# "9 ,$ ,7 CASE VIDE.CORRIG=
+,? ,: ,[ "9 ,]
+,*<4 ,?*# "9 ,$ ,7 CASE VIDE
+,? ,* ,# "9 ,$.CORRIG=
 .MULTIPLICATIONS POS=ES
 
 ,*4 ,%]\#
