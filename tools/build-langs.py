@@ -233,24 +233,28 @@ SAY = {
 # them into a mailto link showing the address in the visitor's browser.
 EMAIL = """<!--em--><script>document.querySelectorAll('a.em[data-e]').forEach(function(a){try{var e=atob(a.dataset.e).split('').reverse().join('');a.href='mailto:'+e;a.textContent=e;}catch(x){}});</script><!--/em-->"""
 
-# Indie's cookie notice. The site sets no cookies; the only things kept (in the visitor's browser, never sent
-# anywhere) are browser-game progress (beequation.kids.v1, beequation.adult.v1), the language choice (bq-lang) and
+# Indie's cookie notice. Analytics require opt-in. The things kept locally (never sent to us) are browser-game
+# progress (beequation.kids.v1, beequation.adult.v1), the language choice (bq-lang) and
 # this choice itself (bq-consent). "Don't remember anything" deletes those and stops them being saved (play.html and
 # the language scripts check bq-consent). The privacy page has a button (data-bq-consent) to show the notice again.
 CONSENT_TEXT = {
-  'en': ["Indie's note about cookies", "May we count visits? Only if you say yes, Google Analytics sets cookies so we can see which pages help families most. It's never used for ads. Your game progress and language are kept on this device either way, and never sent to us.", "Yes, that's fine", "No thanks", "Privacy policy"],
-  'fr': ["Le petit mot d'Indie sur les cookies", "Pouvons-nous compter les visites ? Seulement si vous dites oui, Google Analytics dépose des cookies pour nous montrer quelles pages aident le plus les familles. Jamais pour de la publicité. Votre progression dans le jeu et votre langue restent sur cet appareil dans tous les cas, et ne nous sont jamais envoyées.", "Oui, d'accord", "Non merci", "Politique de confidentialité"],
-  'es': ["La nota de Indie sobre las cookies", "¿Podemos contar las visitas? Solo si dices que sí, Google Analytics usa cookies para que veamos qué páginas ayudan más a las familias. Nunca se usa para anuncios. Tu progreso en el juego y tu idioma se guardan en este dispositivo en cualquier caso y nunca se nos envían.", "Sí, de acuerdo", "No, gracias", "Política de privacidad"],
-  'de': ["Indies Hinweis zu Cookies", "Dürfen wir Besuche zählen? Nur wenn Sie zustimmen, setzt Google Analytics Cookies, damit wir sehen, welche Seiten Familien am meisten helfen. Nie für Werbung. Ihr Spielfortschritt und Ihre Sprache bleiben in jedem Fall auf diesem Gerät und werden nie an uns gesendet.", "Ja, einverstanden", "Nein, danke", "Datenschutzerklärung"],
-  'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics usa cookies para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
+  'en': ["Indie's note about cookies", "May we count visits? Only if you say yes, Google Analytics (which sets cookies) and Metricool (without cookies) count them so we can see which pages help families most. Never for ads. Your game progress and language are kept on this device either way, and never sent to us.", "Yes, that's fine", "No thanks", "Privacy policy"],
+  'fr': ["Le petit mot d'Indie sur les cookies", "Pouvons-nous compter les visites ? Seulement si vous dites oui, Google Analytics (avec des cookies) et Metricool (sans cookies) les comptent pour nous montrer quelles pages aident le plus les familles. Jamais pour de la publicité. Votre progression dans le jeu et votre langue restent sur cet appareil dans tous les cas, et ne nous sont jamais envoyées.", "Oui, d'accord", "Non merci", "Politique de confidentialité"],
+  'es': ["La nota de Indie sobre las cookies", "¿Podemos contar las visitas? Solo si dices que sí, Google Analytics (con cookies) y Metricool (sin cookies) las cuentan para que veamos qué páginas ayudan más a las familias. Nunca para anuncios. Tu progreso en el juego y tu idioma se guardan en este dispositivo en cualquier caso y nunca se nos envían.", "Sí, de acuerdo", "No, gracias", "Política de privacidad"],
+  'de': ["Indies Hinweis zu Cookies", "Dürfen wir Besuche zählen? Nur wenn Sie zustimmen, zählen Google Analytics (mit Cookies) und Metricool (ohne Cookies) sie, damit wir sehen, welche Seiten Familien am meisten helfen. Nie für Werbung. Ihr Spielfortschritt und Ihre Sprache bleiben in jedem Fall auf diesem Gerät und werden nie an uns gesendet.", "Ja, einverstanden", "Nein, danke", "Datenschutzerklärung"],
+  'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics (com cookies) e o Metricool (sem cookies) contam as visitas para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
 }
-# Google Analytics (Lee's decision, 2026-10-11): loaded only after a visitor says yes in the cookie note
-# ('bq-consent' = 'all'), with Google signals and ad personalisation off; never on the game page (play.html).
+# Google Analytics (approved 2026-10-11) and Metricool (approved 2026-10-12): loaded only after a visitor says yes
+# ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html).
 GA_ID = 'G-3YFSG10Q1W'
-GA = """<!--ga--><script>(function(){var ID='__GA__',on=false;function ok(){try{return localStorage.getItem('bq-consent')==='all';}catch(e){return false;}}
+GA = """<!--ga--><script>(function(){var ID='__GA__',on=false;function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
 function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
 gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
-var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);}
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+var m=document.createElement('script'),counted=false;m.async=true;m.src='https://tracker.metricool.com/resources/be.js';
+function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
+counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}
+m.onload=visit;m.onreadystatechange=visit;document.head.appendChild(m);}
 load();document.addEventListener('bq-consent',load);})();</script><!--/ga-->""".replace('__GA__', GA_ID)
 CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
@@ -265,13 +269,13 @@ function show(){if(document.querySelector('.bq-ok'))return;var d=document.create
 d.innerHTML=bee+'<div><h2 id="bq-ok-h"></h2><p></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button><a href="/privacy.html"></a></div></div>';
 var q=function(s){return d.querySelector(s);};q('h2').textContent=T[0];q('p').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
 function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
-q('.y').addEventListener('click',function(){pick('all');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
+q('.y').addEventListener('click',function(){pick('all2');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
-// 'all' = Google Analytics allowed; 'basic' = no analytics. Anything else (no answer, or an answer from before
-// analytics) asks again. Saying no later stops GA and deletes its cookies.
+// 'all2' = GA + Metricool allowed; 'basic' = no analytics. Older answers (including 'all') ask again.
+// Saying no later stops GA and deletes its cookies. Metricool keeps no cookies or storage.
 function noGA(){window['ga-disable-__GA__']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();
 if(/^_ga/.test(n))['',';domain=.beequation.com',';domain='+location.hostname].forEach(function(dm){document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+dm;});});}
-var v=ls.getItem('bq-consent');if(v!=='all'&&v!=='basic')show();})();</script><!--/consent-->"""
+var v=ls.getItem('bq-consent');if(v!=='all2'&&v!=='basic')show();})();</script><!--/consent-->"""
 
 # ---------- the site header ----------
 # One floating "pill" header for every page (the English pages, every Learn page and each language site), made by
