@@ -1,0 +1,10 @@
+{
+  "heading": "Blog",
+  "coming_soon": "İlk yazılar yakında burada. Haberler ve yeni matematik fikirleri için tekrar uğra!",
+  "newer": "Daha yeni yazılar",
+  "older": "Daha eski yazılar",
+  "page": "Sayfa {n}",
+  "feed_title": "Beequation blogu",
+  "feed_description": "Beequation’dan haberler, matematik fikirleri ve yeni rehberler.",
+  "date_format": "{day} {month} {year}"
+}

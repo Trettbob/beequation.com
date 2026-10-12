@@ -1,0 +1,10 @@
+{
+  "heading": "Blogg",
+  "coming_soon": "De första inläggen kommer snart. Titta in igen för nyheter och nya matteidéer!",
+  "newer": "Nyare inlägg",
+  "older": "Äldre inlägg",
+  "page": "Sida {n}",
+  "feed_title": "Beequations blogg",
+  "feed_description": "Nyheter, matteidéer och nya guider från Beequation.",
+  "date_format": "{day} {month} {year}"
+}

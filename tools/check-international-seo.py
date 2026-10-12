@@ -44,7 +44,7 @@ class InternationalSEO(unittest.TestCase):
                 with self.subTest(code=code, page=rel):
                     p = root(code) / rel
                     self.assertTrue(p.is_file(), str(p))
-                    links = [a for a in Page(p).links if a.get('rel') == 'alternate']
+                    links = [a for a in Page(p).links if a.get('rel') == 'alternate' and a.get('hreflang')]
                     self.assertEqual(len(links), 16)
                     self.assertEqual({a['hreflang']: a['href'] for a in links}, expected)
     def test_local_accessibility_and_recovery(self):

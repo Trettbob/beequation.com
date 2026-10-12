@@ -1,0 +1,10 @@
+{
+  "heading": "블로그",
+  "coming_soon": "첫 게시글을 준비하고 있어요. 새로운 소식과 수학 아이디어를 기대해 주세요!",
+  "newer": "최신 글",
+  "older": "이전 글",
+  "page": "{n}페이지",
+  "feed_title": "Beequation 블로그",
+  "feed_description": "Beequation의 소식, 수학 아이디어와 새로운 가이드를 만나 보세요.",
+  "date_format": "{year}년 {month} {day}일"
+}

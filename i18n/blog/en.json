@@ -1,0 +1,10 @@
+{
+  "heading": "Blog",
+  "coming_soon": "First posts coming soon. Come back for news and fresh maths ideas!",
+  "newer": "Newer posts",
+  "older": "Older posts",
+  "page": "Page {n}",
+  "feed_title": "Beequation blog",
+  "feed_description": "News, maths ideas and new guides from Beequation.",
+  "date_format": "{day} {month} {year}"
+}

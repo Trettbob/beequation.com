@@ -492,6 +492,9 @@ def main():
         legacy(f, learn_nav(f)); urls.append((url_of(f), '2026-10-08'))
     sitemap(sorted(urls))
     llms([(url_of(rel), m['h1'], m['description']) for rel, (m, _) in sorted(metas.items(), key=lambda x: (x[0].count('/'), x[0] != 'index.html', x[0]))])
+    # Keep the Blog catalogue when this builder rewrites the Learn llms section.
+    import build_blog
+    build_blog.english_catalog()
     missing = missing_links(EN, metas, {url_of(f) for f in old})   # links to Learn pages that don't exist yet
     print(f'{len(metas)} pages built, {len(old)} older articles given the menu')
     for h in sorted(missing): print('  not written yet:', h)

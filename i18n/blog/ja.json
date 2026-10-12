@@ -1,0 +1,10 @@
+{
+  "heading": "ブログ",
+  "coming_soon": "最初の記事を準備中です。ニュースや算数のアイデアを、どうぞお楽しみに！",
+  "newer": "新しい記事",
+  "older": "以前の記事",
+  "page": "{n}ページ目",
+  "feed_title": "Beequationのブログ",
+  "feed_description": "Beequationのニュース、算数のアイデア、新しいガイドをお届けします。",
+  "date_format": "{year}年{month}{day}日"
+}

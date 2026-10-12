@@ -19,8 +19,8 @@ bash tools/daily.sh --date 2026-11-05
 
 The default queue is `../growth/content/queue/<code>/`. Codes: `en fr es de pt it nl pl sv da no fi tr ja ko`.
 Use `YYYY-MM-DD__slug.html`. The filename date determines when the source becomes due;
-`path` determines its destination. Matching paths across languages produce Learn hreflang pairs.
-The ordinary Learn builder also updates menus, sitemaps and English `llms.txt`.
+`path` determines a Learn item's destination. Matching paths across languages produce Learn hreflang pairs.
+The ordinary builders also update menus, sitemaps, the blog and English `llms.txt`.
 
 ```html
 ---
@@ -45,6 +45,36 @@ unresolved `/learn/` links leave the source queued and produce exit status 1. Sa
 are allowed only to valid pages in that language; links to rejected pages are also rejected.
 Valid independent pages are published even if others fail. `tools/publish_days.json` only warns
 about weekdays; it never delays a due file.
+
+For a news post, use `type: news` and omit `path` and `layout`:
+
+```html
+---
+type: news
+title: News from the hive
+description: The latest Beequation news.
+h1: News from the hive
+updated: 2026-10-20
+author: Lee Trett
+author_role: founder
+image: /assets/og-image.png
+---
+<p>The news goes here, with the same shortcodes and byline fields as Learn.</p>
+```
+
+News requires `title`, `description`, `h1` and `updated`. Its filename supplies the slug;
+`published` defaults to the filename date. The publisher moves it to `blog-src/<slug>.html`
+or `blog-i18n/<code>/<slug>.html`, and the language build renders `/blog/<slug>.html`.
+The slugs `index`, `page` and `feed` are reserved. `image` is optional: a site-relative
+path or absolute HTTP(S) URL, used in OG metadata and RSS. External images use the local
+default thumbnail on the index so visiting the blog adds no third-party requests.
+News validation and collision handling follow the same queue rules as Learn.
+
+Every site's `/blog/` combines news and Learn pages with a front-matter `published` date,
+newest first, with 20 entries per page and `/blog/feed.xml` for the latest 20. Empty
+indexes are noindex and omitted from sitemaps; their feeds remain valid. Post hreflang
+links exist only for matching news slugs in more than one language. Visible blog words
+live in `i18n/blog/<code>.json`; month names are shared with `i18n/today/<code>.json`.
 
 Preview without moving anything:
 

@@ -52,3 +52,7 @@ Free primary maths guides and worksheets for parents and teachers (Reception to 
 - [Year 4 maths: what your child learns (age 8 to 9)](https://beequation.com/learn/years/year-4.html): What children learn in Year 4 maths (age 8 to 9): times tables to 12 × 12, the Multiplication Tables Check, negative numbers, decimals, area and symmetry.
 - [Year 5 maths: what your child learns (age 9 to 10)](https://beequation.com/learn/years/year-5.html): What children learn in Year 5 maths (age 9 to 10): numbers to a million, long multiplication, prime and square numbers, decimals, percentages and angles.
 - [Year 6 maths: what your child learns (age 10 to 11)](https://beequation.com/learn/years/year-6.html): What children learn in Year 6 maths (age 10 to 11): long division, fractions, percentages, ratio, algebra, area and volume, and the KS2 SATs.
+
+## Blog
+
+- [Blog](https://beequation.com/blog/): News, maths ideas and new guides from Beequation.

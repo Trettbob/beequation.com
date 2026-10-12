@@ -1,0 +1,10 @@
+{
+  "heading": "Blog",
+  "coming_soon": "¡Pronto llegarán los primeros artículos! Vuelve para descubrir novedades e ideas para las mates.",
+  "newer": "Artículos más recientes",
+  "older": "Artículos anteriores",
+  "page": "Página {n}",
+  "feed_title": "Blog de Beequation",
+  "feed_description": "Novedades, ideas para las mates y nuevas guías de Beequation.",
+  "date_format": "{day} de {month} de {year}"
+}

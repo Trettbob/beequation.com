@@ -15,6 +15,7 @@ import html as H, importlib.util, json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
 import build_today
+import build_blog
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
@@ -28,7 +29,7 @@ MAIN = 'https://beequation.com'
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
 LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
-def url_path(page): return '/' if page == 'index.html' else '/' + page.removesuffix('index.html') if page.startswith('today/') else '/' + page
+def url_path(page): return '/' if page == 'index.html' else '/' + page.removesuffix('index.html') if page.startswith(('today/', 'blog/')) else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()
 
 # ---------- the language menu, language links for search engines, and the first-visit language switch ----------
@@ -56,6 +57,11 @@ def lang_links(lang, page):
 
 def learn_path(page, code):
     """From a Learn page (or the teachers page), the same page on site `code` if it has one, else that site's home."""
+    if page.startswith('blog/'):
+        if page == 'blog/index.html': return '/blog/'
+        rel = page[len('blog/'):]
+        src = build_blog.source_dir(build_today.ROOT, 'blog', code)
+        return url_path(page) if (src / rel).is_file() else '/blog/'
     if code != 'en' and not has_learn(code): return '/'
     if page == 'teachers.html': return '/teachers.html'
     if not page.startswith('learn/'): return '/'
@@ -797,6 +803,7 @@ def footer(lang):
     links = lambda items: '<ul>' + ''.join(f'<li><a href="{h}">{esc(l)}</a></li>' for h, l in items) + '</ul>'
     learn_items = ([('/learn/', LT['learn_home']), ('/teachers.html', LT['pack'])] if learn else
                    [(f'{MAIN}/learn/', tr('Learn')), (f'{MAIN}/teachers.html', tr('Teachers'))])
+    learn_items.append(('/blog/', build_blog.words(lang)['heading']))
     cols = (f'<div><p class="bqf-h">{esc(play_h)}</p>' + links([('/play.html', t['online']), ('/how-to-play.html', t['howto']), ('/today/', today)]) + '</div>'
             f'<div><p class="bqf-h">{esc(tr("Learn"))}</p>' + links(learn_items) + '</div>'
             f'<div><p class="bqf-h">{esc(info_h)}</p>' + links([('/about.html', t['about']), ('/support.html', tr('Support')), ('/privacy.html', tr('Privacy')),
@@ -825,7 +832,7 @@ def strip_markers(s):
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
-              'drip'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
+              'drip', 'blog-rss'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
@@ -851,6 +858,9 @@ def chrome(src, lang, page, label='Language'):
         if lang == 'en' and LIVE:
             s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         return s
+    rss = ('<!--blog-rss--><link rel="alternate" type="application/rss+xml" '
+           f'title="{esc(build_blog.words(lang)["feed_title"])}" href="/blog/feed.xml"><!--/blog-rss-->')
+    s = s.replace('</head>', rss + '\n</head>', 1)
     if lang == 'en' and page == 'teachers.html':   # the teachers page on sites with their own Learn section
         s = re.sub(r'<!--learn-hreflang-->.*?<!--/learn-hreflang-->\n', '', s, flags=re.S)
         s = re.sub(r'(<link rel="canonical"[^>]*>\n)', lambda m: m.group(1) + _learn().alternates(_learn().PACK, _learn().EN), s, count=1)
@@ -889,6 +899,8 @@ def update_english():
         if new != s: open(os.path.join(ROOT, p), 'w', encoding='utf-8').write(new)
 
     build_today.build('en', build_date(), chrome=chrome)
+    build_blog.build('en', learn=_learn(), chrome=chrome)
+    build_blog.english_catalog()
 
 # ---------- translating a page ----------
 def translate(src, lang, page, T):
@@ -944,6 +956,15 @@ def localise(s, lang, page):
 def build(check_only=False):
     problems = 0
     only = sys.argv[sys.argv.index('--lang') + 1] if '--lang' in sys.argv else None
+    for lang in LANGS:
+        try:
+            blog_words = json.loads(rd(f'i18n/blog/{lang}.json'))
+        except (OSError, ValueError):
+            print(f'  {lang} blog: missing or invalid i18n/blog/{lang}.json'); problems += 1
+            continue
+        for key in ('heading', 'coming_soon', 'newer', 'older', 'page', 'feed_title', 'feed_description', 'date_format'):
+            if not isinstance(blog_words.get(key), str) or not blog_words[key].strip():
+                print(f'  {lang} blog: no translation for {key}'); problems += 1
     for lang in [l for l in LANGS if l != 'en' and (only is None or l == only)]:
         if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
             continue   # not translated yet
@@ -987,11 +1008,12 @@ def build(check_only=False):
             own = os.path.join(L.I18N, lang, 'assets')
             if os.path.isdir(own): shutil.copytree(own, os.path.join(out, 'assets'), dirs_exist_ok=True)
         _, today_urls = build_today.build(lang, build_date(), chrome=chrome)
+        _, blog_urls = build_blog.build(lang, learn=_learn(), chrome=chrome)
         shutil.copy(os.path.join(ROOT, 'favicon.ico'), out)
         open(os.path.join(out, 'CNAME'), 'w').write(f'{lang}.beequation.com\n')
         open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {site(lang)}/sitemap.xml\n')
         urls = ''.join(f'  <url><loc>{site(lang)}{url_path(p)}</loc></url>\n' for p in PAGES if p != '404.html')
-        urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls + today_urls))
+        urls += ''.join(f'  <url><loc>{site(lang)}{u}</loc><lastmod>{d}</lastmod></url>\n' for u, d in sorted(learn_urls + today_urls + blog_urls))
         from pathlib import Path
         urls += ''.join(f'  <url><loc>{site(lang)}/{p.relative_to(out).as_posix()}</loc></url>\n'
                         for p in sorted(Path(out, 'assets').rglob('*.pdf')))

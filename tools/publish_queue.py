@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate and publish dated Learn sources; invalid files remain queued.
+"""Validate and publish dated Learn and news sources; invalid files remain queued.
 
 Queue: growth/content/queue/<code>/YYYY-MM-DD__slug.html
 Required metadata: title, description, h1, layout, updated, path.
@@ -63,19 +63,31 @@ def parse(source):
         key, value = field.group(1), field.group(2) or ''
         if key in meta: raise ValueError(f'duplicate front-matter field: {key}')
         meta[key] = value
-    missing = [key for key in REQUIRED if not meta.get(key, '').strip()]
+    kind = meta.get('type', 'learn')
+    if kind not in {'learn', 'news'}: raise ValueError('type must be learn or news')
+    required = ('title', 'description', 'h1', 'updated') if kind == 'news' else REQUIRED
+    missing = [key for key in required if not meta.get(key, '').strip()]
     if missing: raise ValueError('missing fields: ' + ', '.join(missing))
-    if meta['layout'] not in {'article', 'hub'}: raise ValueError('layout must be article or hub')
+    if kind == 'news' and 'path' in meta: raise ValueError('news must not specify path; the filename supplies the slug')
+    if kind == 'learn' and meta['layout'] not in {'article', 'hub'}: raise ValueError('layout must be article or hub')
     for key in ('updated', 'published', 'reviewed'):
         if key in meta:
             try:
                 if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', meta[key]): raise ValueError()
                 date.fromisoformat(meta[key])
             except ValueError: raise ValueError(f'{key} must be a valid YYYY-MM-DD date')
-    path = meta['path']
-    if not re.fullmatch(r'(?:[a-z0-9]+(?:-[a-z0-9]+)*/)*[a-z0-9]+(?:-[a-z0-9]+)*\.html', path):
-        raise ValueError('path must be a relative Learn .html path (no traversal)')
-    if path == 'pack.html': raise ValueError('pack.html is a teachers page, not a Learn queue path')
+    if kind == 'learn':
+        path = meta['path']
+        if not re.fullmatch(r'(?:[a-z0-9]+(?:-[a-z0-9]+)*/)*[a-z0-9]+(?:-[a-z0-9]+)*\.html', path):
+            raise ValueError('path must be a relative Learn .html path (no traversal)')
+        if path == 'pack.html': raise ValueError('pack.html is a teachers page, not a Learn queue path')
+    if 'image' in meta:
+        image = urlsplit(meta['image'])
+        local = (meta['image'].startswith('/') and not image.netloc and not image.scheme
+                 and not any(p in {'.', '..'} for p in unquote(image.path).split('/')))
+        absolute = image.scheme in {'https', 'http'} and bool(image.netloc) and not image.username and not image.password
+        if not (local or absolute) or any(c.isspace() for c in meta['image']):
+            raise ValueError('image must be a site-relative path or absolute HTTP(S) URL')
     body = source[match.end():]
     fragment = Fragment(); fragment.feed(body); fragment.close()
     if fragment.stack: fragment.errors.append('unclosed shortcodes: ' + ', '.join(fragment.stack))
@@ -111,13 +123,17 @@ def publish(queue, day, *, dry_run=False, root=ROOT):
                 meta, body, links = parse(source)
                 if not meta.get('published'): meta['published'] = queued.isoformat()
                 contents = '---\n' + '\n'.join(f'{k}: {v}' for k, v in meta.items()) + '\n---\n' + body
-                src = root / 'learn-src' if langdir.name == 'en' else root / 'learn-i18n' / langdir.name
-                dest = src / meta['path']
-                if not dest.resolve().is_relative_to(src.resolve()): raise ValueError('destination escapes its Learn source tree')
+                news = meta.get('type') == 'news'
+                if news and match[2] in {'index', 'feed', 'page'}: raise ValueError('reserved blog slug: ' + match[2])
+                tree = 'blog' if news else 'learn'
+                src = root / f'{tree}-src' if langdir.name == 'en' else root / f'{tree}-i18n' / langdir.name
+                path = match[2] + '.html' if news else meta['path']
+                dest = src / path
+                if not dest.resolve().is_relative_to(src.resolve()): raise ValueError('destination escapes its source tree')
                 # Older English articles use their built file as the authoritative source.
-                existing = dest if dest.exists() else root / 'learn' / meta['path'] if langdir.name == 'en' else dest
+                existing = dest if dest.exists() else root / 'learn' / path if langdir.name == 'en' and not news else dest
                 if existing.exists() and (existing != dest or existing.read_text(encoding='utf-8') != contents):
-                    raise ValueError(f'path clashes with an existing different page: {meta["path"]}')
+                    raise ValueError(f'path clashes with an existing different page: {path}')
                 records[file] = {'code': langdir.name, 'meta': meta, 'links': links, 'dest': dest, 'contents': contents, 'source': source}
             except (ValueError, OSError) as error:
                 errors[file] = [str(error)]
@@ -134,7 +150,8 @@ def publish(queue, day, *, dry_run=False, root=ROOT):
             code = record['code']; src = root / 'learn-src' if code == 'en' else root / 'learn-i18n' / code
             have = {learn_url(p.relative_to(src).as_posix()) for p in src.rglob('*.html')}
             if code == 'en': have |= {learn_url(p.relative_to(root / 'learn').as_posix()) for p in (root / 'learn').rglob('*.html')}
-            have |= {learn_url(r['meta']['path']) for f, r in records.items() if f not in errors and r['code'] == code}
+            have |= {learn_url(r['meta']['path']) for f, r in records.items()
+                     if f not in errors and r['code'] == code and r['meta'].get('type') != 'news'}
             missing = sorted(set(record['links']) - have)
             if missing: new_errors[file] = ['unresolved internal Learn links: ' + ', '.join(missing)]
         if not new_errors: break

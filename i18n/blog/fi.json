@@ -1,0 +1,10 @@
+{
+  "heading": "Blogi",
+  "coming_soon": "Ensimmäiset kirjoitukset ovat tulossa pian. Palaa lukemaan uutisia ja uusia matikkaideoita!",
+  "newer": "Uudemmat kirjoitukset",
+  "older": "Vanhemmat kirjoitukset",
+  "page": "Sivu {n}",
+  "feed_title": "Beequationin blogi",
+  "feed_description": "Beequationin uutisia, matikkaideoita ja uusia oppaita.",
+  "date_format": "{day}. {month} {year}"
+}
