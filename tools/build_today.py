@@ -126,7 +126,7 @@ def template(code, page, title, content, day, archive, chrome):
     base = ROOT if code == 'en' else ROOT / 'dist' / code
     about = (base / 'about.html').read_text(encoding='utf-8')
     css = re.search(r'<style>(.*?)</style>', about, re.S).group(1)
-    foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', about, re.S).group()
+    foot = '<!--footer--><!--/footer-->'   # chrome() fills it
     w = words(code)
     path = '/' + page.removesuffix('index.html')
     site = 'https://beequation.com' if code == 'en' else f'https://{code}.beequation.com'

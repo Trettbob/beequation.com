@@ -643,7 +643,7 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-drip,html.bqm-open
 @media (prefers-contrast:more){.bqh-pill,.bqh-in,.bqh .lang .langs{border-color:var(--ink)}.bqh-kicker,.bqh-txt small,.bqh-app small,.bqh-home span{color:var(--ink)!important}.bqh .lang summary{box-shadow:inset 0 0 0 2px var(--ink)}}
 @media (forced-colors:active){.bqh-link[aria-expanded="true"],.bqh-tab[aria-expanded="true"],.bqh .lang[open] summary,.bqh-row[aria-current="page"],.bqh .lang .langs a[aria-current],.bqm-langs a[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.bqh-hex,.bqh-hive{forced-color-adjust:none}.bqh .bqh-hive:focus-visible{outline-color:Highlight}}
 """
-def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + '</style><!--/nav-css-->'
+def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + '</style><!--/nav-css-->'
 
 # Opens and closes the panels and the phone menu. Hover only opens panels for a mouse on a wide screen, after 150 ms
 # (and closes 150 ms after leaving, so the pointer can travel into the panel); a click pins a hovered panel open.
@@ -704,6 +704,112 @@ D.addEventListener('pointerdown',function(e){if(!h.contains(e.target))inH=0;});
 on(wide,function(){if(wide.matches)closeDr(0);else{if(open)hide(open);if(lang)lang.open=false;}
 var a=D.activeElement;if(inH&&(!a||a===D.body||!a.getClientRects().length)){var f=wide.matches?pill.querySelector('.bqh-btn')||pill.querySelector('.bqh-logo'):hive;if(f)f.focus();}});})();</script><!--/nav-->"""
 
+# ---------- the footer: one model for every page and site, like the header ----------
+# chrome() swaps the page's footer (or FOOTER_SLOT) for footer(lang); strip_markers() leaves FOOTER_SLOT behind.
+FOOTER_SLOT = '<!--footer--><!--/footer-->'
+FOOTER_RE = re.compile(r'<!--footer-->.*?<!--/footer-->|<div class="wrap"><footer>.*?</footer></div>', re.S)
+LEGAL_EN = ('Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: '
+            'The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="/support.html">support page</a>. '
+            '© 2026 Trett Labs Limited.')
+FOOTER_TEXT = {   # column headings and the social heading; everything else comes from words the site already has
+    'en': ('Play', 'Help & info', 'Follow the hive'),
+    'fr': ('Jouer', 'Aide et infos', 'Suivez la ruche'),
+    'es': ('Jugar', 'Ayuda e información', 'Sigue a la colmena'),
+    'de': ('Spielen', 'Hilfe & Infos', 'Folge dem Bienenstock'),
+    'pt': ('Jogar', 'Ajuda e informações', 'Siga a colmeia'),
+    'it': ('Gioca', 'Aiuto e info', 'Segui l’alveare'),
+    'nl': ('Spelen', 'Hulp & info', 'Volg de bijenkorf'),
+    'pl': ('Graj', 'Pomoc i informacje', 'Obserwuj ul'),
+    'sv': ('Spela', 'Hjälp & info', 'Följ kupan'),
+    'da': ('Spil', 'Hjælp & info', 'Følg bistadet'),
+    'no': ('Spill', 'Hjelp og info', 'Følg bikuben'),
+    'fi': ('Pelaa', 'Ohjeet ja tiedot', 'Seuraa pesää'),
+    'tr': ('Oyna', 'Yardım ve bilgi', 'Kovanı takip et'),
+    'ja': ('遊ぶ', 'ヘルプと情報', 'ハチの巣をフォロー'),
+    'ko': ('플레이', '도움말 및 정보', '벌집 팔로우하기'),
+}
+_ICON = lambda d: f'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{d}</svg>'
+SOCIALS = [   # (name, url, monoline icon)
+    ('Instagram', 'https://www.instagram.com/beequationapp', _ICON('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/>')),
+    ('TikTok', 'https://www.tiktok.com/@beequationapp', _ICON('<path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.4 2.6 2.3 4.4 5 4.6"/>')),
+    ('YouTube', 'https://www.youtube.com/@beequationapp', _ICON('<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/>')),
+    ('Facebook', 'https://www.facebook.com/beequationapp', _ICON('<path d="M15.5 3.5H14a4 4 0 0 0-4 4V10H7.5v3.5H10v7h3.5v-7h2.6l.6-3.5h-3.2V8a1 1 0 0 1 1-1h1z"/>')),
+    ('X', 'https://x.com/beequationapp', _ICON('<path d="M4 4h4.2l11.8 16h-4.2z"/><path d="M19.6 4l-6.6 7.3M4.4 20l6.6-7.3"/>')),
+    ('Threads', 'https://www.threads.com/@beequationapp', _ICON('<circle cx="12" cy="12" r="3.6"/><path d="M15.6 9v4.2a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.4 6.9"/>')),
+    ('Pinterest', 'https://www.pinterest.com/beequationapp/', _ICON('<circle cx="12" cy="12" r="9"/><path d="M10 20.6l2.2-9"/><path d="M11 15.6c3 .8 5.6-1.3 5.6-4.3 0-2.6-2.1-4.4-4.7-4.4-3 0-5 2.1-5 4.6 0 1.1.4 2 1.1 2.6"/>')),
+]
+FOOTER_CSS = """
+footer.bqf{margin-top:96px;padding:0 0 40px;border-top:0;font-size:15px;color:var(--mute)}
+.bqf-card{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(220px,1.1fr) 2fr auto;gap:36px 44px;padding:40px 40px 36px;border-radius:28px;background:var(--card,#1A2030);border:1px solid var(--line,#2A3142)}
+.bqf-card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 1 54 16v31L28 62 2 47V16zM28 62v35M0 79l28-17 28 17' fill='none' stroke='%23FFB020' stroke-opacity='.10' stroke-width='1.5'/%3E%3C/svg%3E");-webkit-mask-image:linear-gradient(115deg,transparent 35%,#000 100%);mask-image:linear-gradient(115deg,transparent 35%,#000 100%)}
+.bqf-card>*{position:relative}
+.bqf a{color:var(--mute);text-decoration:none}
+.bqf a:hover{color:var(--ink)}
+.bqf-logo{display:inline-flex;align-items:center;gap:10px;font:700 22px/1 'Space Grotesk',system-ui,sans-serif;color:var(--ink)!important;letter-spacing:-.3px}
+.bqf-logo img{width:44px;height:44px}
+.bqf-tag{margin:14px 0 20px;max-width:28ch;color:var(--ink);opacity:.85;font-size:16px;line-height:1.45}
+.bqf-today{display:inline-flex;align-items:center;gap:10px;padding:11px 18px 11px 14px;border-radius:999px;background:#FFB020;color:#12161F!important;font-weight:700;font-size:15px;transition:transform .15s}
+.bqf-today:hover{transform:translateY(-2px)}
+.bqf-today i{width:18px;height:20px;background:#12161F;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.bqf-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.bqf-h{display:flex;align-items:center;gap:8px;margin:0 0 14px;color:var(--ink);font-weight:700;font-size:15px}
+.bqf-h::before{content:"";flex:none;width:12px;height:14px;background:#FFB020;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.bqf ul{list-style:none;margin:0;padding:0}
+.bqf-cols li{margin:0 0 10px;overflow-wrap:break-word;hyphens:auto}
+.bqf-cols a{position:relative;display:inline-block;line-height:1.35;transition:color .15s,transform .15s}
+.bqf-cols a::before{content:"";position:absolute;left:-14px;top:.38em;width:8px;height:9px;background:#FFB020;opacity:0;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:opacity .15s}
+.bqf-cols a:hover,.bqf-cols a:focus-visible{transform:translateX(6px)}
+.bqf-cols a:hover::before,.bqf-cols a:focus-visible::before{opacity:1}
+.bqf-social{position:relative;min-width:236px}
+.bqf-comb{display:flex;flex-wrap:wrap;width:232px;gap:0 4px;padding-top:4px}
+.bqf-comb li{width:53px;height:61px;margin-bottom:-11px}
+.bqf-comb li:nth-child(5){margin-left:28.5px}
+.bqf-comb a{display:grid;place-items:center;width:100%;height:100%;background:var(--line,#2A3142);color:var(--ink);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:background .15s,color .15s,transform .15s}
+.bqf-comb a:hover,.bqf-comb a:focus-visible{background:#FFB020;color:#12161F;transform:scale(1.06)}
+.bqf-comb a:focus-visible{outline:none}
+.bqf-comb li:focus-within{filter:drop-shadow(0 0 0 #FFB020) drop-shadow(0 0 3px #FFB020)}
+.bqf-bee{position:absolute;right:-6px;top:-30px;width:46px;height:46px;transform:rotate(12deg);animation:bqfbob 3.2s ease-in-out infinite}
+@keyframes bqfbob{0%,100%{translate:0 0}50%{translate:-4px -7px}}
+.bqf-legal{margin:22px 4px 0;font-size:13px;line-height:1.6;color:var(--mute)}
+.bqf-legal a{text-decoration:underline}
+@media (max-width:980px){.bqf-card{grid-template-columns:1fr 1fr}.bqf-cols{grid-column:1/-1;order:3}}
+@media (max-width:620px){.bqf-card{grid-template-columns:1fr;padding:28px 22px;gap:30px}.bqf-cols{grid-template-columns:1fr 1fr;order:0}.bqf-cols>div:last-child{grid-column:1/-1}.bqf-cols>div:last-child ul{display:flex;flex-wrap:wrap;gap:0 22px}.bqf-social{min-width:0}.bqf-bee{top:-16px;right:0}.bqf-social>.bqf-h{padding-right:52px}}
+@media (prefers-reduced-motion:reduce){.bqf-bee{animation:none}.bqf-comb a,.bqf-today,.bqf-cols a{transition:none}}
+@media print{footer.bqf .bqf-card{display:none}}
+"""
+
+_FT = {}
+def footer_words(lang):
+    """The words the site already has for the footer's links, from i18n/<lang>.json (English for 'en')."""
+    if lang not in _FT:
+        f = os.path.join(ROOT, 'i18n', f'{lang}.json')
+        T = json.load(open(f, encoding='utf-8')) if lang != 'en' and os.path.exists(f) else {}
+        tr = lambda k: T.get(norm(k), k)
+        if lang != 'en' and norm(LEGAL_EN) not in T: print(f'  {lang}: footer: no translation of the legal line')
+        _FT[lang] = dict(tr=tr, legal=tr(LEGAL_EN), tag=tr('Find the number made by two others.'))
+    return _FT[lang]
+
+def footer(lang):
+    t, fw, learn = nav_text(lang), footer_words(lang), has_learn(lang)
+    tr = fw['tr']; play_h, info_h, follow_h = FOOTER_TEXT.get(lang, FOOTER_TEXT['en'])
+    LT = _learn().site_of(lang).w if learn else {}
+    today = build_today.words(lang)['heading']
+    links = lambda items: '<ul>' + ''.join(f'<li><a href="{h}">{esc(l)}</a></li>' for h, l in items) + '</ul>'
+    learn_items = ([('/learn/', LT['learn_home']), ('/teachers.html', LT['pack'])] if learn else
+                   [(f'{MAIN}/learn/', tr('Learn')), (f'{MAIN}/teachers.html', tr('Teachers'))])
+    cols = (f'<div><p class="bqf-h">{esc(play_h)}</p>' + links([('/play.html', t['online']), ('/how-to-play.html', t['howto']), ('/today/', today)]) + '</div>'
+            f'<div><p class="bqf-h">{esc(tr("Learn"))}</p>' + links(learn_items) + '</div>'
+            f'<div><p class="bqf-h">{esc(info_h)}</p>' + links([('/about.html', t['about']), ('/support.html', tr('Support')), ('/privacy.html', tr('Privacy')),
+                                                             ('/terms.html', tr('Terms')), ('/accessibility.html', tr('Accessibility'))]) + '</div>')
+    comb = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="{n}" title="{n}">{i}</a></li>' for n, u, i in SOCIALS)
+    return (f'<div class="wrap"><footer class="bqf"><div class="bqf-card">'
+            f'<div class="bqf-brand"><a class="bqf-logo" href="/"><img src="/assets/hexabee.svg" width="44" height="44" alt="">Beequation</a>'
+            f'<p class="bqf-tag">{esc(fw["tag"])}</p><a class="bqf-today" href="/today/"><i aria-hidden="true"></i>{esc(today)}</a></div>'
+            f'<nav class="bqf-cols" aria-label="Beequation">{cols}</nav>'
+            f'<div class="bqf-social"><p class="bqf-h">{esc(follow_h)}</p><ul class="bqf-comb">{comb}</ul>'
+            f'<img class="bqf-bee" src="/assets/hexabee.svg" width="46" height="46" alt="" loading="lazy"></div>'
+            f'</div><p class="bqf-legal">{fw["legal"]}</p></footer></div>')
+
 _SITE = {}
 def site_text(lang, key, table):
     """A per-language snippet (say, consent, menu, skip, nav): from the tables above, or i18n/<lang>.json \"__site__\"."""
@@ -722,6 +828,7 @@ def strip_markers(s):
               'drip'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
+    s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
     return s
 
 def english_only(s, lang=None):
@@ -755,10 +862,8 @@ def chrome(src, lang, page, label='Language'):
         s = s.replace(HEADER_SLOT, '<!--header-->' + header(lang, page, label, offer) + '<!--/header-->', 1)
         s = s.replace('</head>', nav_head() + '\n</head>', 1)
         s = s.replace('</body>', NAV + '\n</body>', 1)
-    # Preserve existing English Learn output apart from its requested article error link.
-    if lang != 'en' or not page.startswith('learn/'):
-        link = '<!--today-footer--><a href="/today/">' + esc(build_today.words(lang)['heading']) + '</a><!--/today-footer-->'
-        s = re.sub(r'(<footer>.*?<div class="cols">.*?)</div>', lambda m: m.group(1) + link + '</div>', s, count=1, flags=re.S)
+    if FOOTER_SLOT in s:
+        s = s.replace(FOOTER_SLOT, '<!--footer-->' + footer(lang) + '<!--/footer-->', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
     s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
     s = s.replace('</body>', GA + '\n</body>', 1)

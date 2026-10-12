@@ -14,7 +14,7 @@ SKIP_ATTR = re.compile(r'^(width=|initial-scale|#|summary_large_image|website|ar
 def norm(s): return re.sub(r'\s+', ' ', s).strip()
 
 def segments(src):
-    for m in ('header', 'lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip'):
+    for m in ('header', 'footer', 'lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip'):
         src = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', src, flags=re.S)   # added by build-langs.py, translated there
     head, body = src.split('</head>', 1)
     out = []

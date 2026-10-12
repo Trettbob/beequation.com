@@ -226,14 +226,13 @@ LEARN_CSS = """
 # ---------- page chrome taken from an existing page, so Learn matches the rest of the site ----------
 # The site header is not copied: each page gets an empty <!--header--> slot that build-langs.py fills.
 HEADER_SLOT = '<!--header--><!--/header-->'
+FOOTER_SLOT = '<!--footer--><!--/footer-->'   # build-langs.py's chrome() puts the site footer here
 def base_parts(lang='en'):
     base = ROOT if lang == 'en' else os.path.join(ROOT, 'dist', lang)
     s = rd(os.path.join(base, 'about.html'))
     css = re.search(r'<style>(.*?)</style>', s, re.S).group(1)
     css = re.sub(r'\n\.lang \{.*', '', css)                      # (older pages: the language menu's styles)
-    foot = re.search(r'<div class="wrap"><footer>.*?</footer></div>', s, re.S).group(0)
-    foot = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', foot, flags=re.S)
-    return css, HEADER_SLOT, foot
+    return css, HEADER_SLOT, FOOTER_SLOT
 
 def learn_nav(current, S=None):
     """The Learn sub-menu. `current` is the page's path under learn/, e.g. 'topics/fractions.html'."""
@@ -423,7 +422,7 @@ def legacy(rel, nav_html):
     s = re.sub(r'\n?<script>document.addEventListener\(\'click\',function\(e\)\{document.querySelectorAll\(\'.learnnav.*?</script>', '', s, flags=re.S)
     s = s.replace('\n<main', '\n<!--learnnav-->' + nav_html + '<!--/learnnav-->\n<main', 1)   # just below the site header
     if '.learnnav {' not in s: s = s.replace('</style>', LEARN_CSS + '</style>', 1)
-    s = s.replace('</footer></div>', '</footer></div>\n' + NAV_JS, 1)
+    s = s.replace('<!--/footer-->', '<!--/footer-->\n' + NAV_JS, 1) if '<!--/footer-->' in s else s.replace('</footer></div>', '</footer></div>\n' + NAV_JS, 1)
     if 'class="report-error"' not in s:
         s = s.replace('</article>', report_error(rel, EN) + '\n</article>', 1) if '</article>' in s else s.replace('</main>', report_error(rel, EN) + '\n</main>', 1)
     open(p, 'w', encoding='utf-8').write(s)
