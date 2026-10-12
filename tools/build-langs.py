@@ -395,8 +395,13 @@ LOGO = '<a class="bqh-logo" href="/"><img src="/assets/hexabee.svg" width="34" h
 A11Y_TEXT = {'en': dict(zip('title size standard font spacing contrast motion reset close easy easy_version full'.split(),
     ['Accessibility', 'Larger text', 'Standard size', 'Dyslexia-friendly font', 'Extra spacing', 'High contrast', 'Stop animations', 'Reset', 'Close', 'Easy Read', 'Easy Read version', 'Full version']))}
 A11Y_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="4" r="2" fill="currentColor"/><path d="M4 8h16M12 7v7m0-1-5 8m5-8 5 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
-def a11y_trigger(lang):
+def a11y_trigger(lang, icon_only=False):
+    """The accessibility settings button: icon-only in the wide header (named by aria-label, with a tooltip), with
+    its label in the phone menu."""
     t = site_text(lang, 'a11y', A11Y_TEXT)
+    if icon_only:
+        return (f'<button type="button" class="bq-a11y-trigger bq-a11y-icon" data-bq-a11y-open aria-haspopup="dialog" aria-controls="bq-a11y" '
+                f'aria-label="{esc(t["title"])}" title="{esc(t["title"])}">{A11Y_ICON}</button>')
     return f'<button type="button" class="bq-a11y-trigger" data-bq-a11y-open aria-haspopup="dialog" aria-controls="bq-a11y">{A11Y_ICON}<span>{esc(t["title"])}</span></button>'
 
 def a11y_panel(lang):
@@ -482,7 +487,7 @@ def header(lang, page, label, offer):
             f'<div class="langs">{links}</div></details>') if offer else ''
     menu_label = site_text(lang, 'menu', MENU_LABEL)
     pill = (f'<div class="bqh-pill">{LOGO}<nav class="bqh-nav" aria-label="{esc(t["main"])}"><ul class="bqh-items">{"".join(items)}</ul></nav>'
-            f'<div class="bqh-end">{a11y_trigger(lang) if page != "play.html" else ""}{chip}<a class="bqh-cta bqh-cta-top" href="/play.html">{esc(t["play"])}</a>'
+            f'<div class="bqh-end">{a11y_trigger(lang, icon_only=True) if page != "play.html" else ""}{chip}<a class="bqh-cta bqh-cta-top" href="/play.html">{esc(t["play"])}</a>'
             f'<button type="button" class="bqh-hive" aria-expanded="false" aria-controls="bqm" aria-label="{esc(menu_label)}">{HIVE}</button></div></div>')
 
     # ----- phones and tablets: the full-screen menu, one screen per level
@@ -686,7 +691,7 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 @media (max-width:420px){.bqm-scr{padding:6px 18px 24px}.bqm-big>li>a,.bqm-big>li>button{font-size:25px}.bqm-h{font-size:28px}.bqm-foot{padding-left:18px;padding-right:18px}}
 /* A pill stays wide only while its complete contents fit on one line. */
 @media(min-width:1000px){
-.bqh-pill{max-width:1500px;flex-wrap:nowrap}
+.bqh-pill{flex-wrap:nowrap}
 .bqh-nav,.bqh-end,.bqh-items{flex-wrap:nowrap;flex-shrink:0}
 .bqh-logo,.bqh-link,.bqh-end>*{flex-shrink:0}
 .bqh.bqh-compact .bqh-pill{border-radius:999px;padding-left:18px}
@@ -700,6 +705,7 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 .bqh.bqh-measuring .bqh-nav{display:block!important}
 .bqh.bqh-measuring .bqh-end .lang{display:block!important}
 .bqh.bqh-measuring .bqh-pill .bq-a11y-trigger{display:inline-flex!important}
+.bq-a11y-trigger.bq-a11y-icon{width:44px;height:44px;padding:0;justify-content:center;border-radius:50%}
 .bqh.bqh-measuring .bqh-hive{display:none!important}
 }
 .bqh.bqh-compact .bqh-logo{margin-right:auto;min-width:0;flex:1 1 auto;white-space:normal;overflow-wrap:anywhere}
