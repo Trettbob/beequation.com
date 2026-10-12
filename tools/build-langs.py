@@ -245,9 +245,11 @@ CONSENT_TEXT = {
   'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics (com cookies) e o Metricool (sem cookies) contam as visitas para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
 }
 # Google Analytics (approved 2026-10-11) and Metricool (approved 2026-10-12): loaded only after a visitor says yes
-# ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html).
+# ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html), and only
+# on beequation.com and its language subdomains (never localhost or previews).
 GA_ID = 'G-3YFSG10Q1W'
-GA = """<!--ga--><script>(function(){var ID='__GA__',on=false;function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
+GA = """<!--ga--><script>(function(){var ID='__GA__',on=false,h=location.hostname;if(!/(^|\\.)beequation\\.com$/.test(h))return;
+function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
 function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
 gtag('js',new Date());gtag('config',ID,{allow_google_signals:false,allow_ad_personalization_signals:false});
 var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
