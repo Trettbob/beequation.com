@@ -1,6 +1,7 @@
 // Builds the free printable worksheets for the Learn section: A4 PDFs (questions, then an answer page) with
-// Beequation Kids branding and Indie, a WebP preview of each first page, and learn-src/worksheets.json (read by
-// tools/build-learn.py to show the worksheet cards). Questions come from fixed seeds, so a rebuild gives the same
+// Beequation Kids branding and Indie, standard/large/easy-read variants, a WebP preview, and reusable question JSON.
+// The manifest learn-src/worksheets.json is read by
+// tools/build-learn.py to show worksheet cards and build accessible web pages. Questions come from fixed seeds, so a rebuild gives the same
 // sheets. Uses the Google Chrome already on the Mac via puppeteer-core, and cwebp for the previews.
 // Usage (from the repo root): node tools/make-worksheets.mjs <puppeteer-core dir> [--lang <code>] [--html-only] [id ...]
 // Other languages: learn-i18n/<code>/worksheets.mjs gives that country's words, money, clock phrases and which sheets
@@ -48,14 +49,29 @@ function unique(n, make, key = x => JSON.stringify(x)) {
   if (out.length < n) throw new Error('not enough distinct questions');
   return out;
 }
-const box = '<span class="bx"></span>';
-const fr = (n, d) => `<span class="fr"><b>${n}</b><i>${d}</i></span>`;
+const box = '<span class="bx">□</span>';
+const attr = s => String(s).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+const picture = label => `role="img" aria-label="${attr(label)}" focusable="false"`;
+const fr = (n, d) => `<span class="fr"><b>${n}</b><span class="fraction-slash">/</span><i>${d}</i></span>`;
 const pounds = p => p >= 100 ? `£${(p / 100).toFixed(2)}` : `${p}p`;
 
 // Everything on a sheet that depends on the language or country. A language's worksheets.mjs exports an object with
 // any of these (plus `sheets`: { id: { title, desc, how, tip, years } } for the sheets it uses; others are left out).
 const EN = {
   htmlLang: 'en-GB',
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Clock: the minute hand points to ${minute} and the hour hand points to ${hour}`
+      : `Clock: the minute hand points to ${minute} and the hour hand is between ${hour} and ${next}`;
+  },
+  shapeAlt: n => `Shape ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} with ${shaded} of ${total} equal parts shaded`,
+  fractionKinds: { bar: 'Bar', circle: 'Circle', grid: 'Grid' },
+  coinAlt: value => `${value} coin`,
+  rectangleAlt: (w, h) => `Rectangle on a grid, ${w} columns and ${h} rows of 1 cm squares`,
+  chartAlt: 'Bar chart of favourite fruit votes; values are in the table below',
+  chartFruit: 'Fruit', chartVotes: 'Votes',
+
   num: n => n.toLocaleString('en-GB'),                 // whole numbers (thousands separator)
   dec: (x, places) => x.toFixed(places),               // decimals
   mul: '×', div: '÷',
@@ -90,7 +106,7 @@ const L = { ...EN, ...LOC };
 
 // Indie the Hexabee (apps/kids/src/components/Indie.tsx)
 const HEXP = 'M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z';
-const indie = (cls = 'indie', happy = true) => `<svg class="${cls}" viewBox="1 9 91.4 80">
+const indie = (cls = 'indie', happy = true) => `<svg aria-hidden="true" focusable="false" class="${cls}" viewBox="1 9 91.4 80">
   <ellipse cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="${INK}" stroke-width="3" transform="rotate(-20 42 28)"/>
   <ellipse cx="60" cy="26" rx="12" ry="9.5" fill="#DFF1FF" stroke="${INK}" stroke-width="3" transform="rotate(18 60 26)"/>
   <path d="${HEXP}" fill="${LEMON}"/><rect x="35" y="34" width="7" height="52" fill="${INK}"/><rect x="50" y="34" width="7" height="52" fill="${INK}"/>
@@ -108,7 +124,7 @@ function clock(h, m, size = 30) {
   }).join('');
   const nums = Array.from({ length: 12 }, (_, i) => { const n = i + 1, a = n * 30 * Math.PI / 180; return `<text x="${50 + 33 * Math.sin(a)}" y="${50 - 33 * Math.cos(a) + 3.6}" text-anchor="middle" font-size="10.5">${n}</text>`; }).join('');
   const ha = ((h % 12) * 30 + m * 0.5) * Math.PI / 180, ma = m * 6 * Math.PI / 180;
-  return `<svg viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><circle cx="50" cy="50" r="48" fill="#fff" stroke="${INK}" stroke-width="2.4"/>${ticks}${nums}
+  return `<svg class="clock" ${picture(L.clockAlt(h, m))} viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><circle cx="50" cy="50" r="48" fill="#fff" stroke="${INK}" stroke-width="2.4"/>${ticks}${nums}
     <line x1="50" y1="50" x2="${50 + 22 * Math.sin(ha)}" y2="${50 - 22 * Math.cos(ha)}" stroke="${INK}" stroke-width="4.2" stroke-linecap="round"/>
     <line x1="50" y1="50" x2="${50 + 36 * Math.sin(ma)}" y2="${50 - 36 * Math.cos(ma)}" stroke="${GRAPE}" stroke-width="2.6" stroke-linecap="round"/>
     <circle cx="50" cy="50" r="3" fill="${INK}"/></svg>`;
@@ -124,9 +140,10 @@ const timeWords = (h, m) => {
 const digital = (h, m) => `${h % 12 || 12}:${String(m).padStart(2, '0')}`;
 
 function fractionShape(kind, n, k, size = 26) {
+  const alt = picture(L.fractionAlt(L.fractionKinds[kind], L.num(k), L.num(n)));
   if (kind === 'bar') {
     const w = 100 / n;
-    return `<svg viewBox="-1 -1 102 32" style="width:${size * 1.4}mm;height:${size * 0.45}mm">${Array.from({ length: n }, (_, i) => `<rect x="${i * w}" y="0" width="${w}" height="30" fill="${i < k ? '#FFA8D2' : '#fff'}" stroke="${INK}" stroke-width="1.2"/>`).join('')}</svg>`;
+    return `<svg ${alt} viewBox="-1 -1 102 32" style="width:${size * 1.4}mm;height:${size * 0.45}mm">${Array.from({ length: n }, (_, i) => `<rect x="${i * w}" y="0" width="${w}" height="30" fill="${i < k ? '#FFA8D2' : '#fff'}" stroke="${INK}" stroke-width="1.2"/>`).join('')}</svg>`;
   }
   if (kind === 'circle') {
     const parts = Array.from({ length: n }, (_, i) => {
@@ -134,11 +151,11 @@ function fractionShape(kind, n, k, size = 26) {
       const x0 = 50 + 46 * Math.cos(a0), y0 = 50 + 46 * Math.sin(a0), x1 = 50 + 46 * Math.cos(a1), y1 = 50 + 46 * Math.sin(a1);
       return `<path d="M50 50 L${x0} ${y0} A46 46 0 ${1 / n > 0.5 ? 1 : 0} 1 ${x1} ${y1} Z" fill="${i < k ? '#8FD3FF' : '#fff'}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>`;
     }).join('');
-    return `<svg viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm">${n === 1 ? `<circle cx="50" cy="50" r="46" fill="#8FD3FF" stroke="${INK}" stroke-width="1.6"/>` : parts}</svg>`;
+    return `<svg ${alt} viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm">${n === 1 ? `<circle cx="50" cy="50" r="46" fill="#8FD3FF" stroke="${INK}" stroke-width="1.6"/>` : parts}</svg>`;
   }
   // grid of n squares (rows × cols)
   const cols = n % 4 === 0 && n > 4 ? 4 : n % 3 === 0 && n > 3 ? 3 : n, rows = n / cols, s = 100 / Math.max(cols, rows);
-  return `<svg viewBox="-1 -1 ${cols * s + 2} ${rows * s + 2}" style="width:${size * cols / Math.max(cols, rows)}mm;height:${size * rows / Math.max(cols, rows)}mm">${Array.from({ length: n }, (_, i) => `<rect x="${(i % cols) * s}" y="${Math.floor(i / cols) * s}" width="${s}" height="${s}" fill="${i < k ? '#7EE8C6' : '#fff'}" stroke="${INK}" stroke-width="1.4"/>`).join('')}</svg>`;
+  return `<svg ${alt} viewBox="-1 -1 ${cols * s + 2} ${rows * s + 2}" style="width:${size * cols / Math.max(cols, rows)}mm;height:${size * rows / Math.max(cols, rows)}mm">${Array.from({ length: n }, (_, i) => `<rect x="${(i % cols) * s}" y="${Math.floor(i / cols) * s}" width="${s}" height="${s}" fill="${i < k ? '#7EE8C6' : '#fff'}" stroke="${INK}" stroke-width="1.4"/>`).join('')}</svg>`;
 }
 
 const COINS = { 1: ['#D9895B', 20.3, 'circle'], 2: ['#D9895B', 25.9, 'circle'], 5: ['#D7DCE3', 18, 'circle'], 10: ['#D7DCE3', 24.5, 'circle'],
@@ -146,25 +163,26 @@ const COINS = { 1: ['#D9895B', 20.3, 'circle'], 2: ['#D9895B', 25.9, 'circle'], 
 function coin(v) {
   const [fill, d, shape] = (L.coins || COINS)[v], r = d / 2;
   const label = L.coinLabel(v);
+  const spokenLabel = label.replaceAll('</tspan>', ' ').replace(/<[^>]+>/g, '').trim();
   const outline = shape === 'circle' ? `<circle cx="${r}" cy="${r}" r="${r - 0.6}" fill="${fill}" stroke="${INK}" stroke-width="0.8"/>`
     : `<polygon points="${Array.from({ length: shape }, (_, i) => { const a = (i / shape) * 2 * Math.PI - Math.PI / 2; return `${r + (r - 0.6) * Math.cos(a)},${r + (r - 0.6) * Math.sin(a)}`; }).join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="0.8" stroke-linejoin="round"/>`;
   const ring = L.coinInner ? L.coinInner(v) : null;
   const inner = L.coinInner ? (ring ? `<circle cx="${r}" cy="${r}" r="${r * 0.66}" fill="${ring}" stroke="${INK}" stroke-width="0.4"/>` : '')
     : v === 200 ? `<circle cx="${r}" cy="${r}" r="${r * 0.66}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : v === 100 ? `<circle cx="${r}" cy="${r}" r="${r * 0.64}" fill="#D7DCE3" stroke="${INK}" stroke-width="0.4"/>` : '';
-  return `<svg viewBox="0 0 ${d} ${d}" style="width:${d * 0.5}mm;height:${d * 0.5}mm">${outline}${inner}<text x="${r}" y="${r + 2.6}" text-anchor="middle" font-size="${label.length > 2 ? 6.4 : 7.4}" font-weight="700">${label}</text></svg>`;
+  return `<svg ${picture(L.coinAlt(spokenLabel))} viewBox="0 0 ${d} ${d}" style="--coin-d:${d}mm;width:${d * 0.5}mm;height:${d * 0.5}mm">${outline}${inner}<text x="${r}" y="${r + 2.6}" text-anchor="middle" font-size="${label.length > 2 ? 6.4 : 7.4}" font-weight="700">${label}</text></svg>`;
 }
 
-function poly(n, size = 22, fill = CANDY[0], rect = false) {
-  if (n === 0) return `<svg viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><circle cx="50" cy="50" r="44" fill="${fill}" stroke="${INK}" stroke-width="2.4"/></svg>`;
-  if (rect) return `<svg viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><rect x="6" y="24" width="88" height="52" fill="${fill}" stroke="${INK}" stroke-width="2.4"/></svg>`;
+function poly(n, label, size = 22, fill = CANDY[0], rect = false) {
+  if (n === 0) return `<svg ${picture(label)} viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><circle cx="50" cy="50" r="44" fill="${fill}" stroke="${INK}" stroke-width="2.4"/></svg>`;
+  if (rect) return `<svg ${picture(label)} viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><rect x="6" y="24" width="88" height="52" fill="${fill}" stroke="${INK}" stroke-width="2.4"/></svg>`;
   const pts = Array.from({ length: n }, (_, i) => { const a = (i / n) * 2 * Math.PI - Math.PI / 2 + (n % 2 ? 0 : Math.PI / n); return `${50 + 44 * Math.cos(a)},${52 + 44 * Math.sin(a)}`; }).join(' ');
-  return `<svg viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><polygon points="${pts}" fill="${fill}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/></svg>`;
+  return `<svg ${picture(label)} viewBox="0 0 100 100" style="width:${size}mm;height:${size}mm"><polygon points="${pts}" fill="${fill}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/></svg>`;
 }
 
 function column(a, b, op) {
   const w = Math.max(String(a).length, String(b).length) + 1;
   const row = (s, sign = '') => `<tr>${Array.from({ length: w }, (_, i) => { const d = String(s).padStart(w, ' ')[i]; return `<td>${i === 0 && sign ? sign : d === ' ' ? '' : d}</td>`; }).join('')}</tr>`;
-  return `<table class="col">${row(a)}${row(b, op)}<tr class="ans">${'<td></td>'.repeat(w)}</tr></table>`;
+  return `<span class="column-expression">${a} ${op} ${b} = □</span><table class="col">${row(a)}${row(b, op)}<tr class="ans">${'<td></td>'.repeat(w)}</tr></table>`;
 }
 
 // ---------- the worksheets ----------
@@ -214,7 +232,7 @@ const SHEETS = [
     make: r => ({ kind: 'list', items: unique(25, () => [r.int(2, 12), r.int(2, 12)], ([a, b]) => Math.min(a, b) + 'x' + Math.max(a, b)).map(([a, b]) => ({ q: `${a} ${L.mul} ${b} = ${box}`, a: String(a * b) })) }) },
   { id: 'multiplication-grid', title: 'Multiplication grid', topic: 'multiplication-and-division', years: ['year-3', 'year-4', 'year-5', 'year-6'],
     desc: 'Fill in the 12 × 12 grid', how: 'Multiply the number at the start of each row by the number at the top of each column.', tip: 'Fill in the easy rows first (1, 2, 5, 10, 11). Then use the grid\'s pattern: 3 × 7 is the same as 7 × 3.', cols: 1,
-    make: () => { const g = full => `<table class="grid12"><tr><th>${L.mul}</th>${Array.from({ length: 12 }, (_, i) => `<th>${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th>${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : ''}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
+    make: () => { const g = full => `<table class="grid12"><tr><th>${L.mul}</th>${Array.from({ length: 12 }, (_, i) => `<th scope="col">${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th scope="row">${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : ''}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
   { id: 'division-facts', title: 'Division facts', topic: 'multiplication-and-division', years: ['year-3', 'year-4'],
     desc: 'Using times tables to divide', how: 'Work out each answer.', tip: 'Division is the inverse of multiplication. For 42 ÷ 6, ask: 6 times what makes 42?', cols: 3,
     make: r => ({ kind: 'list', items: unique(30, () => [r.int(2, 12), r.int(2, 12)]).map(([a, b]) => ({ q: `${a * b} ${L.div} ${a} = ${box}`, a: String(b) })) }) },
@@ -258,11 +276,11 @@ const SHEETS = [
   // measurement
   { id: 'perimeter-and-area', title: 'Perimeter and area', topic: 'measurement', years: ['year-4', 'year-5'],
     desc: 'Rectangles on a centimetre grid', how: 'Each square is 1 cm by 1 cm. Find the perimeter and area of each rectangle.', tip: 'Perimeter is the distance all the way round (add the sides). Area is the number of squares inside.', cols: 2,
-    make: r => ({ kind: 'cards', items: unique(6, () => [r.int(2, 8), r.int(2, 5)], x => x.join()).map(([w, h]) => { const s = 4.2; const cells = Array.from({ length: w * h }, (_, i) => `<rect x="${(i % w) * s}" y="${Math.floor(i / w) * s}" width="${s}" height="${s}" fill="#D2F7EA" stroke="${INK}" stroke-width="0.25"/>`).join(''); return { q: `<svg viewBox="-1 -1 ${w * s + 2} ${h * s + 2}" style="width:${w * s}mm;height:${h * s}mm">${cells}<rect x="0" y="0" width="${w * s}" height="${h * s}" fill="none" stroke="${INK}" stroke-width="0.7"/></svg>${L.perimQ(box)}`, a: L.perimA(2 * (w + h), w * h) }; }) }) },
+    make: r => ({ kind: 'cards', items: unique(6, () => [r.int(2, 8), r.int(2, 5)], x => x.join()).map(([w, h]) => { const s = 4.2; const cells = Array.from({ length: w * h }, (_, i) => `<rect x="${(i % w) * s}" y="${Math.floor(i / w) * s}" width="${s}" height="${s}" fill="#D2F7EA" stroke="${INK}" stroke-width="0.25"/>`).join(''); return { q: `<svg ${picture(L.rectangleAlt(L.num(w), L.num(h)))} viewBox="-1 -1 ${w * s + 2} ${h * s + 2}" style="width:${w * s}mm;height:${h * s}mm">${cells}<rect x="0" y="0" width="${w * s}" height="${h * s}" fill="none" stroke="${INK}" stroke-width="0.7"/></svg>${L.perimQ(box)}`, a: L.perimA(2 * (w + h), w * h) }; }) }) },
   // shape
   { id: '2d-shapes', title: '2D shapes', topic: 'shape-and-geometry', years: ['year-1', 'year-2'],
     desc: 'Names, sides and vertices', how: 'Name each shape and count its sides and vertices (corners).', tip: 'Put a dot on each corner as you count, so you don\'t count one twice.', cols: 3,
-    make: () => ({ kind: 'cards', items: [[3, L.shapes[3]], [4, L.shapes[4]], [4, L.shapes.rect, true], [5, L.shapes[5]], [6, L.shapes[6]], [8, L.shapes[8]], [0, L.shapes[0]], [7, L.shapes[7]], [10, L.shapes[10]]].map(([n, name, rect], i) => ({ q: `${poly(n, 22, CANDY[i % 6], rect)}${L.shapeQ(box)}`, a: L.shapeA(name, n) })) }) },
+    make: () => ({ kind: 'cards', items: [[3, L.shapes[3]], [4, L.shapes[4]], [4, L.shapes.rect, true], [5, L.shapes[5]], [6, L.shapes[6]], [8, L.shapes[8]], [0, L.shapes[0]], [7, L.shapes[7]], [10, L.shapes[10]]].map(([n, name, rect], i) => ({ q: `${poly(n, L.shapeAlt(i + 1), 22, CANDY[i % 6], rect)}${L.shapeQ(box)}`, a: L.shapeA(name, n) })) }) },
   // data
   { id: 'reading-bar-charts', title: 'Reading a bar chart', topic: 'data-and-graphs', years: ['year-2', 'year-3'],
     desc: 'Favourite fruit survey', how: 'Class 3 voted for their favourite fruit. Use the bar chart to answer the questions.', tip: 'Run your finger from the top of the bar across to the numbers on the side to read its value.', cols: 1,
@@ -270,10 +288,11 @@ const SHEETS = [
       const bw = 14, gap = 8, H = 60, sc = H / 10;
       const bars = vals.map((v, i) => `<rect x="${14 + i * (bw + gap)}" y="${H - v * sc + 4}" width="${bw}" height="${v * sc}" fill="${CANDY[i]}" stroke="${INK}" stroke-width="0.5"/><text x="${14 + i * (bw + gap) + bw / 2}" y="${H + 10}" text-anchor="middle" font-size="4.2">${fruits[i]}</text>`).join('');
       const grid = Array.from({ length: 11 }, (_, i) => `<line x1="10" x2="${14 + 5 * (bw + gap)}" y1="${H - i * sc + 4}" y2="${H - i * sc + 4}" stroke="#C7DDF0" stroke-width="0.3"/><text x="8" y="${H - i * sc + 5.4}" text-anchor="end" font-size="3.8">${i}</text>`).join('');
-      const chart = `<svg viewBox="0 0 130 78" style="width:150mm;height:90mm">${grid}${bars}<line x1="10" x2="10" y1="4" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/><line x1="10" x2="${14 + 5 * (bw + gap)}" y1="${H + 4}" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/></svg>`;
+      const chart = `<svg ${picture(L.chartAlt)} viewBox="0 0 130 78" style="width:150mm;height:90mm">${grid}${bars}<line x1="10" x2="10" y1="4" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/><line x1="10" x2="${14 + 5 * (bw + gap)}" y1="${H + 4}" y2="${H + 4}" stroke="${INK}" stroke-width="0.6"/></svg>`;
       const mx = vals.indexOf(Math.max(...vals)), mn = vals.indexOf(Math.min(...vals));
       const qs = L.chartQs(fruits, vals, mx, mn);
-      return { kind: 'chart', chart, items: qs.map(([q, a]) => ({ q: `${q} <span class="line"></span>`, a: String(a) })) }; } },
+      const chartTable = `<table class="chart-data"><thead><tr><th scope="col">${L.chartFruit}</th><th scope="col">${L.chartVotes}</th></tr></thead><tbody>${fruits.map((f, i) => `<tr><th scope="row">${f}</th><td>${L.num(vals[i])}</td></tr>`).join('')}</tbody></table>`;
+      return { kind: 'chart', chart, chartTable, items: qs.map(([q, a]) => ({ q: `${q} <span class="line"></span>`, a: String(a) })) }; } },
   // algebra
   { id: 'missing-number-problems', title: 'Missing number problems', topic: 'algebra-and-ratio', years: ['year-3', 'year-4', 'year-5', 'year-6'],
     desc: 'Find the number in the box', how: 'Find the missing number in each number sentence.', tip: 'Use the inverse. For ▢ + 7 = 15, work out 15 − 7. For 3 × ▢ = 24, work out 24 ÷ 3.', cols: 3,
@@ -287,20 +306,34 @@ const SHEETS = [
 // ---------- page layout ----------
 const yearsLabel = ys => L.yearsLabel(ys, L.years);
 const header = (title, sub, happy) => `<header><img class="icon" src="${ICON}" alt=""><div class="brand"><div class="name">Beequation <span>Kids</span></div><h1>${title}</h1></div><div class="sub">${sub}</div>${indie('indie', happy)}</header>`;
-const footer = `<footer><span class="dots"><i></i><i></i><i></i></span><span>${L.footer}</span><span class="c">© ${YEAR} Trett Labs Limited</span></footer>`;
+const footer = `<footer><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>${L.footer}</span><span class="c">© ${YEAR} Trett Labs Limited</span></footer>`;
 
-function render(s) {
-  const r = rng('ws-' + s.id), { kind, items, chart } = s.make(r), sub = yearsLabel(s.years);
-  const qs = kind === 'whole' ? `<div class="whole">${items[0].q}</div>`
-    : kind === 'chart' ? `<div class="whole">${chart}</div><ol class="qlist">${items.map(it => `<li>${it.q}</li>`).join('')}</ol>`
-    : `<div class="${kind}" style="grid-template-columns:repeat(${s.cols},1fr)">${items.map((it, i) => `<div class="it"><span class="num" style="background:${CANDY[i % 6]}">${i + 1}</span><div class="q">${it.q}</div></div>`).join('')}</div>`;
-  const as = kind === 'whole' ? `<div class="whole">${items[0].a}</div>`
-    : `<ol class="alist" style="columns:${kind === 'cards' && items[0].a.length > 14 ? 2 : 3}">${items.map(it => `<li>${it.a}</li>`).join('')}</ol>`;
-  return `<section class="page">${header(s.title, sub, false)}<p class="how">${s.how}</p>
-    <div class="fields"><span>${L.name}</span><span>${L.date}</span></div>${qs}
-    <div class="tipbar">${indie('mini')}<p><b>${L.tip}</b> ${s.tip}</p></div>${footer}</section>
-    <section class="page">${header(L.answers, s.title, true)}<div class="answers">${as}</div>
-    <div class="promo"><img class="icon" src="${ICON}" alt=""><p>${L.promo}</p></div>${footer}</section>`;
+// Question data is generated once and consumed by all PDF variants and the web builder.
+function render(s, data, variant = 'standard') {
+  const { kind, items, chart, chartTable } = data, sub = yearsLabel(s.years);
+  const large = variant === 'large';
+  const chunks = (xs, n) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, (i + 1) * n));
+  // A wide multiplication grid keeps its column headings on every continuation page.
+  const grids = html => {
+    const rows = html.match(/<tr>.*?<\/tr>/g);
+    return chunks(rows.slice(1), 6).map(rs => `<table class="grid12">${rows[0]}${rs.join('')}</table>`);
+  };
+  const perPage = kind === 'cards' ? 2 : 4;
+  const groups = large ? (kind === 'whole' ? grids(items[0].q) : chunks(items, perPage)) : [items];
+  const qs = (group, pageIndex) => kind === 'whole' ? `<div class="whole">${large ? group : items[0].q}</div>`
+    : kind === 'chart' ? `${pageIndex === 0 ? `<div class="whole chart-picture">${chart}</div>${chartTable}` : ''}<ol class="qlist" start="${pageIndex * perPage + 1}">${group.map(it => `<li>${it.q}</li>`).join('')}</ol>`
+    : `<div class="${kind}" style="grid-template-columns:repeat(${large ? 1 : s.cols},1fr)">${group.map((it, i) => {
+      const number = pageIndex * perPage + i + 1;
+      return `<div class="it"><span class="num" style="background:${CANDY[(number - 1) % 6]}">${number}</span><div class="q">${it.q}</div></div>`;
+    }).join('')}</div>`;
+  const answerGroups = large ? (kind === 'whole' ? grids(items[0].a) : chunks(items, 8)) : [items];
+  const as = (group, i) => kind === 'whole' ? `<div class="whole">${large ? group : items[0].a}</div>`
+    : `<ol class="alist" start="${i * 8 + 1}" style="columns:${large ? 1 : kind === 'cards' && items[0].a.length > 14 ? 2 : 3}">${group.map(it => `<li>${it.a}</li>`).join('')}</ol>`;
+  return groups.map((group, i) => `<section class="page questions">${header(s.title, sub, false)}<p class="how">${s.how}</p>
+    <div class="fields"><span>${L.name}</span><span>${L.date}</span></div>${qs(group, i)}
+    <div class="tipbar">${indie('mini')}<p><b>${L.tip}</b> ${s.tip}</p></div>${footer}</section>`).join('') +
+    answerGroups.map((group, i) => `<section class="page answers">${header(L.answers, s.title, true)}<div class="answers">${as(group, i)}</div>
+    <div class="promo"><img class="icon" src="${ICON}" alt=""><p>${L.promo}</p></div>${footer}</section>`).join('');
 }
 
 const css = `
@@ -323,14 +356,16 @@ const css = `
   .fields { display: flex; gap: 8mm; margin: 4mm 1mm 4mm; font-size: 10pt; font-weight: 600; }
   .fields span { flex: 1; border-bottom: 0.35mm solid ${INK}; padding-bottom: 1mm; }
   .list, .cards { display: grid; gap: 3mm 4mm; align-content: start; flex: 1; }
+  .it, .alist li, .qlist li, .tipbar, .promo { break-inside: avoid; }
   .list .it { display: flex; align-items: center; gap: 2.5mm; font-size: 13pt; min-height: 10.5mm; border-bottom: 0.25mm dashed #C7DDF0; }
   .cards .it { border: 0.35mm solid #C7DDF0; border-radius: 4mm; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6mm 2mm 3mm; }
   .cards .it .q { display: flex; flex-direction: column; align-items: center; gap: 2.5mm; font-size: 11pt; }
   .num { flex: none; width: 6.2mm; height: 6.2mm; border-radius: 50%; font-weight: 700; font-size: 8.5pt; display: inline-flex; align-items: center; justify-content: center; }
   .cards .num { position: absolute; left: 2mm; top: 2mm; }
   .q { line-height: 1.6; } .q .n { font-weight: 700; } .sep { margin-right: 2mm; color: ${SOFT}; }
-  .bx { display: inline-block; width: 11mm; height: 8mm; border: 0.4mm solid ${INK}; border-radius: 1.6mm; vertical-align: middle; background: #fff; }
+  .bx { color: transparent; display: inline-block; width: 11mm; height: 8mm; border: 0.4mm solid ${INK}; border-radius: 1.6mm; vertical-align: middle; background: #fff; }
   .fr { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.05; margin: 0 0.6mm; font-weight: 700; }
+  .fraction-slash { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .fr b, .fr i { font-style: normal; padding: 0 0.6mm; } .fr i { border-top: 0.4mm solid ${INK}; }
   .fr .bx { width: 9mm; height: 6.4mm; margin: 0.4mm 0; }
   .ansline { font-size: 10.5pt; display: flex; align-items: center; gap: 1.5mm; }
@@ -339,6 +374,9 @@ const css = `
   table.col { border-collapse: collapse; font-size: 15pt; font-weight: 600; }
   table.col td { width: 7mm; height: 8.5mm; text-align: center; border: 0.2mm solid #DCE8F4; }
   table.col tr.ans td { border-top: 0.5mm solid ${INK}; border-bottom: 0.5mm solid ${INK}; height: 9mm; }
+  .column-expression { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .chart-data { border-collapse: collapse; font-size: 10pt; margin: 0 auto 2mm; }
+  .chart-data th, .chart-data td { padding: 0.3mm 3mm; text-align: left; }
   .whole { display: flex; justify-content: center; margin: 2mm 0 4mm; }
   table.grid12 { border-collapse: collapse; font-size: 10pt; }
   table.grid12 th, table.grid12 td { width: 12.8mm; height: 12.8mm; text-align: center; border: 0.3mm solid ${INK}; }
@@ -359,31 +397,93 @@ const css = `
   .promo b { font-weight: 700; }
 `;
 
+const variantCSS = {
+  standard: '',
+  large: `
+    body { font-size: 18pt; }
+    .page { height: auto; min-height: 270mm; }
+    .page p, .page span, .page li, .page td, .page th, .brand .name, .how, .fields, .sub,
+    .list .it, .cards .it .q, .ansline, .tipbar, .promo, footer, .qlist, .alist { font-size: 18pt; line-height: 1.45; }
+    h1 { font-size: 24pt; line-height: 1.2; }
+    .sub { max-width: 55mm; margin-right: 0; text-align: left; }
+    header .indie { display: none; }
+    .list, .cards { flex: none; gap: 5mm; margin-top: 3mm; }
+    .list .it { min-height: 20mm; }
+    .cards .it { min-height: 55mm; padding: 5mm 4mm; align-items: flex-start; }
+    .cards .it .q { align-items: flex-start; margin-left: 14mm; }
+    .num { width: 11mm; height: 11mm; font-size: 18pt; }
+    .bx, .fr .bx { width: 17mm; height: 12mm; }
+    .ansline.wide { height: 12mm; width: 65mm; }
+    .coins { max-width: none; }
+    .coins svg { width: calc(var(--coin-d) * 0.9) !important; height: calc(var(--coin-d) * 0.9) !important; }
+    .coins svg text, .coins svg tspan { font-size: 7.1px; }
+    .clock { width: 45mm !important; height: 45mm !important; }
+    .clock text { font-size: 14.2px; }
+    table.col td { width: 12mm; height: 13mm; }
+    table.grid12 th, table.grid12 td { width: 12.8mm; height: 16mm; }
+    .whole { flex: none; }
+    .chart-picture { display: none; }
+    .chart-data { font-size: 18pt; }
+    .qlist { flex: none; line-height: 1.6; }
+    .tipbar { margin-top: 6mm; }
+    footer { flex-wrap: wrap; }
+  `,
+  'easy-read': `
+    html, body, .page { background: #FDF6E3; color: #1C1A4A; }
+    body { letter-spacing: 0.05em; word-spacing: 0.12em; line-height: 1.6; }
+    .page { height: auto; min-height: 270mm; }
+    .page * { font-style: normal; text-align: left; line-height: 1.6; }
+    h1, .how, .q, .tipbar, .promo, .alist, .qlist { line-height: 1.6; }
+    .cards .it, .cards .it .q { align-items: flex-start; }
+    .cards .it .q { padding-left: 3mm; }
+    .sub, .brand .name, footer, .sep, .ansline.wide { color: #1C1A4A; }
+  `,
+};
+
 // ---------- build ----------
-// a language uses the sheets its worksheets.mjs lists, with its own words (and its school years)
 const USED = LANG === 'en' ? SHEETS : SHEETS.filter(s => LOC.sheets && LOC.sheets[s.id]).map(s => ({ ...s, ...LOC.sheets[s.id] }));
+const DATA_OUT = path.join(path.dirname(MANIFEST), 'worksheets');
 fs.mkdirSync(OUT, { recursive: true });
+fs.mkdirSync(DATA_OUT, { recursive: true });
 const browser = HTML_ONLY ? null : await puppeteer.launch({ executablePath: CHROME, headless: true });
 const page = HTML_ONLY ? null : await browser.newPage();
-const todo = USED.filter(s => !ONLY.length || ONLY.includes(s.id));
-for (const s of todo) {
-  const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${L.titleTag(s.title)}</title><style>${css}</style></head><body>${render(s)}</body></html>`;
-  if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}.html`), html);   // for checking the answer pages
-  if (HTML_ONLY) { console.log(s.id); continue; }
-  await page.setContent(html, { waitUntil: 'load' });
-  await page.evaluateHandle('document.fonts.ready');
-  await page.pdf({ path: path.join(OUT, `${s.id}.pdf`), format: 'A4', printBackground: true, margin: { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
-  // preview of the first page at A4 proportions
-  await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 });
-  await page.setContent(html.replace('<body>', '<body style="padding-top:12mm"><style>.page + .page { display: none; }</style>'), { waitUntil: 'load' });
-  await page.evaluateHandle('document.fonts.ready');
-  const png = path.join(OUT, `${s.id}.png`);
-  await page.screenshot({ path: png, clip: { x: 0, y: 0, width: 794, height: 1123 } });
-  execFileSync('cwebp', ['-quiet', '-q', '80', '-resize', '420', '0', png, '-o', path.join(OUT, `${s.id}.webp`)]);
-  fs.unlinkSync(png);
-  console.log(s.id);
+// Embedded fonts and images only: worksheets never fetch third-party resources.
+if (page) {
+  await page.setRequestInterception(true);
+  page.on('request', request => /^(data:|about:)/.test(request.url()) ? request.continue() : request.abort());
 }
-if (browser) await browser.close();
+const todo = USED.filter(s => !ONLY.length || ONLY.includes(s.id));
+try {
+  for (const s of todo) {
+    const data = { id: s.id, title: s.title, topic: s.topic, years: s.years, desc: s.desc, how: s.how, tip: s.tip,
+      yearsLabel: yearsLabel(s.years), htmlLang: L.htmlLang, ...s.make(rng('ws-' + s.id)) };
+    fs.writeFileSync(path.join(DATA_OUT, `${s.id}.json`), JSON.stringify(data, null, 1) + '\n');
+    let standard;
+    for (const variant of ['standard', 'large', 'easy-read']) {
+      const suffix = variant === 'standard' ? '' : `-${variant}`;
+      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${css}${variantCSS[variant]}</style></head><body class="variant-${variant}">${render(s, data, variant)}</body></html>`;
+      if (variant === 'standard') standard = html;
+      if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}${suffix}.html`), html);
+      if (HTML_ONLY) continue;
+      await page.setContent(html, { waitUntil: 'load' });
+      await page.evaluateHandle('document.fonts.ready');
+      await page.pdf({ path: path.join(OUT, `${s.id}${suffix}.pdf`), format: 'A4', printBackground: true,
+        tagged: true, outline: true, margin: { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
+    }
+    if (!HTML_ONLY) {
+      await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 });
+      await page.setContent(standard.replace('<body class="variant-standard">', '<body class="variant-standard" style="padding-top:12mm"><style>.page + .page { display: none; }</style>'), { waitUntil: 'load' });
+      await page.evaluateHandle('document.fonts.ready');
+      const png = path.join(OUT, `${s.id}.png`);
+      await page.screenshot({ path: png, clip: { x: 0, y: 0, width: 794, height: 1123 } });
+      execFileSync('cwebp', ['-quiet', '-q', '80', '-resize', '420', '0', png, '-o', path.join(OUT, `${s.id}.webp`)]);
+      fs.unlinkSync(png);
+    }
+    console.log(s.id);
+  }
+} finally {
+  if (browser) await browser.close();
+}
 const manifest = USED.map(({ id, title, topic, years, desc }) => ({ id, title, topic, years, desc }));
-if (!HTML_ONLY) fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1) + '\n');
+fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1) + '\n');
 console.log(`${todo.length} worksheets, manifest has ${manifest.length}`);

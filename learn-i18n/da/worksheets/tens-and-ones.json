@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Tiere og enere",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-klasse",
+  "2-klasse"
+ ],
+ "desc": "Del tocifrede tal op i tiere og enere",
+ "how": "Skriv, hvor mange tiere og enere der er i hvert tal.",
+ "tip": "I 47 står 4 til venstre: Det er 4 tiere. 7 er 7 enere. Pas på: Vi siger enerne først (»syvogfyrre«), men vi skriver tierne først.",
+ "yearsLabel": "1. og 2. klasse",
+ "htmlLang": "da",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "7 tiere og 9 enere"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "3 tiere og 6 enere"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "5 tiere og 8 enere"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "1 tier og 9 enere"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "9 tiere og 0 enere"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "9 tiere og 5 enere"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "2 tiere og 3 enere"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "6 tiere og 8 enere"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "6 tiere og 4 enere"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "3 tiere og 3 enere"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "1 tier og 2 enere"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "8 tiere og 1 ener"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "6 tiere og 7 enere"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "3 tiere og 5 enere"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "6 tiere og 0 enere"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "1 tier og 8 enere"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "1 tier og 6 enere"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "8 tiere og 8 enere"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "5 tiere og 4 enere"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> tiere og <span class=\"bx\">□</span> enere",
+   "a": "3 tiere og 1 ener"
+  }
+ ]
+}

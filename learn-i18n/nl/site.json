@@ -56,7 +56,15 @@
     "reviewed_by": "Nagekeken door {name}",
     "published_on": "Gepubliceerd op {date}",
     "reviewed_on": "Nagekeken op {date}",
-    "report_error": "Een fout melden"
+    "report_error": "Een fout melden",
+    "standard_pdf": "Standaard-PDF",
+    "large_print": "Grote letters",
+    "easy_read": "Leesvriendelijk",
+    "show_answers": "Toon de antwoorden",
+    "worksheet_questions": "Vragen",
+    "worksheet_downloads": "Downloads",
+    "pdf_size_pending": "PDF; bestandsgrootte beschikbaar na het maken",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tellen en getalbegrip", "glyph": "123", "colour": "lemon" },

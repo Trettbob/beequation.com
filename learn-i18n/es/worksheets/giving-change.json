@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "¿Cuánto te devuelven?",
+ "topic": "money",
+ "years": [
+  "3-primaria",
+  "4-primaria"
+ ],
+ "desc": "Pagando con 1 €, 2 € y 5 €",
+ "how": "Calcula cuánto te devuelven en cada compra.",
+ "tip": "Cuenta desde el precio hasta lo que has pagado. De 0,65 € a 1 €: 5 céntimos hasta 0,70 € y 30 más hasta 1 €. Te devuelven 0,35 €.",
+ "yearsLabel": "3.º y 4.º de Primaria",
+ "htmlLang": "es",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Compras un cómic por 2,70 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "2,30 €"
+  },
+  {
+   "q": "Compras un cómic por 1,85 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "3,15 €"
+  },
+  {
+   "q": "Compras un cuaderno por 1,20 € y pagas con 2 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,80 €"
+  },
+  {
+   "q": "Compras unas chuches por 4,95 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,05 €"
+  },
+  {
+   "q": "Compras unas pegatinas por 4,25 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,75 €"
+  },
+  {
+   "q": "Compras un zumo por 4,50 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,50 €"
+  },
+  {
+   "q": "Compras un helado por 1,50 € y pagas con 2 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,50 €"
+  },
+  {
+   "q": "Compras un cuaderno por 2,55 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "2,45 €"
+  },
+  {
+   "q": "Compras unas chuches por 0,35 € y pagas con 1 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,65 €"
+  },
+  {
+   "q": "Compras un cómic por 0,60 € y pagas con 2 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "1,40 €"
+  },
+  {
+   "q": "Compras un helado por 1,65 € y pagas con 2 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,35 €"
+  },
+  {
+   "q": "Compras un rotulador por 0,95 € y pagas con 1 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,05 €"
+  },
+  {
+   "q": "Compras un lápiz por 0,90 € y pagas con 2 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "1,10 €"
+  },
+  {
+   "q": "Compras unas chuches por 0,90 € y pagas con 1 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "0,10 €"
+  },
+  {
+   "q": "Compras un lápiz por 0,80 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "4,20 €"
+  },
+  {
+   "q": "Compras un zumo por 3,40 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
+   "a": "1,60 €"
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+ "id": "add-and-subtract-within-20",
+ "title": "Plus och minus upp till 20",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "arskurs-1",
+  "arskurs-2"
+ ],
+ "desc": "Blandade uppgifter med tal upp till 20",
+ "how": "Räkna ut varje uppgift.",
+ "tip": "Över tiotalet räknar du i två steg: 8 + 5 = 8 + 2 + 3 = 13. Minus går likadant: 13 − 5 = 13 − 3 − 2 = 8.",
+ "yearsLabel": "Årskurs 1 och 2",
+ "htmlLang": "sv",
+ "kind": "list",
+ "items": [
+  {
+   "q": "10 + 1 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "12 − 6 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "11 + 7 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "5 + 15 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 + 6 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "12 − 3 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "13 + 7 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "8 + 9 = <span class=\"bx\">□</span>",
+   "a": "17"
+  },
+  {
+   "q": "3 + 11 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "16 − 14 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "7 − 2 = <span class=\"bx\">□</span>",
+   "a": "5"
+  },
+  {
+   "q": "11 + 6 = <span class=\"bx\">□</span>",
+   "a": "17"
+  },
+  {
+   "q": "12 − 11 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "4 + 12 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "8 − 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "3 + 16 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "6 + 14 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "11 − 4 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "10 + 3 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "7 − 1 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "7 + 13 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "20 − 9 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "14 + 5 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "9 + 7 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "16 − 3 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "12 + 7 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "13 + 1 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "14 + 4 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "20 − 14 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "9 − 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  }
+ ]
+}

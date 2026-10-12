@@ -1,0 +1,39 @@
+{
+ "id": "reading-bar-charts",
+ "title": "막대그래프 읽기",
+ "topic": "data-and-graphs",
+ "years": [
+  "chodeung-3",
+  "chodeung-4"
+ ],
+ "desc": "좋아하는 과일 조사",
+ "how": "우리 반 학생들이 좋아하는 과일을 조사하여 막대그래프로 나타냈어요. 그래프를 보고 물음에 답하세요.",
+ "tip": "막대 끝에서 옆으로 손가락을 쭉 옮겨 세로 눈금을 읽어요. 눈금 한 칸이 몇 명인지 먼저 확인하세요.",
+ "yearsLabel": "초등 3~4학년",
+ "htmlLang": "ko",
+ "kind": "chart",
+ "chart": "<svg role=\"img\" aria-label=\"좋아하는 과일에 투표한 수를 나타낸 막대그래프. 값은 아래 표에 있습니다\" focusable=\"false\" viewBox=\"0 0 130 78\" style=\"width:150mm;height:90mm\"><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"65.4\" text-anchor=\"end\" font-size=\"3.8\">0</text><line x1=\"10\" x2=\"124\" y1=\"58\" y2=\"58\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"59.4\" text-anchor=\"end\" font-size=\"3.8\">1</text><line x1=\"10\" x2=\"124\" y1=\"52\" y2=\"52\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"53.4\" text-anchor=\"end\" font-size=\"3.8\">2</text><line x1=\"10\" x2=\"124\" y1=\"46\" y2=\"46\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"47.4\" text-anchor=\"end\" font-size=\"3.8\">3</text><line x1=\"10\" x2=\"124\" y1=\"40\" y2=\"40\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"41.4\" text-anchor=\"end\" font-size=\"3.8\">4</text><line x1=\"10\" x2=\"124\" y1=\"34\" y2=\"34\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"35.4\" text-anchor=\"end\" font-size=\"3.8\">5</text><line x1=\"10\" x2=\"124\" y1=\"28\" y2=\"28\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"29.4\" text-anchor=\"end\" font-size=\"3.8\">6</text><line x1=\"10\" x2=\"124\" y1=\"22\" y2=\"22\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"23.4\" text-anchor=\"end\" font-size=\"3.8\">7</text><line x1=\"10\" x2=\"124\" y1=\"16\" y2=\"16\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"17.4\" text-anchor=\"end\" font-size=\"3.8\">8</text><line x1=\"10\" x2=\"124\" y1=\"10\" y2=\"10\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"11.4\" text-anchor=\"end\" font-size=\"3.8\">9</text><line x1=\"10\" x2=\"124\" y1=\"4\" y2=\"4\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"5.4\" text-anchor=\"end\" font-size=\"3.8\">10</text><rect x=\"14\" y=\"16\" width=\"14\" height=\"48\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"21\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">사과</text><rect x=\"36\" y=\"28\" width=\"14\" height=\"36\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"43\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">바나나</text><rect x=\"58\" y=\"10\" width=\"14\" height=\"54\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"65\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">포도</text><rect x=\"80\" y=\"52\" width=\"14\" height=\"12\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"87\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">귤</text><rect x=\"102\" y=\"40\" width=\"14\" height=\"24\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"109\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">배</text><line x1=\"10\" x2=\"10\" y1=\"4\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/></svg>",
+ "chartTable": "<table class=\"chart-data\"><thead><tr><th scope=\"col\">과일</th><th scope=\"col\">투표 수</th></tr></thead><tbody><tr><th scope=\"row\">사과</th><td>8</td></tr><tr><th scope=\"row\">바나나</th><td>6</td></tr><tr><th scope=\"row\">포도</th><td>9</td></tr><tr><th scope=\"row\">귤</th><td>2</td></tr><tr><th scope=\"row\">배</th><td>4</td></tr></tbody></table>",
+ "items": [
+  {
+   "q": "바나나를 고른 학생은 몇 명인가요? <span class=\"line\"></span>",
+   "a": "6명"
+  },
+  {
+   "q": "가장 많은 학생이 고른 과일은 무엇인가요? <span class=\"line\"></span>",
+   "a": "포도"
+  },
+  {
+   "q": "가장 적은 학생이 고른 과일은 무엇인가요? <span class=\"line\"></span>",
+   "a": "귤"
+  },
+  {
+   "q": "포도를 고른 학생은 귤을 고른 학생보다 몇 명 더 많나요? <span class=\"line\"></span>",
+   "a": "7명"
+  },
+  {
+   "q": "조사한 학생은 모두 몇 명인가요? <span class=\"line\"></span>",
+   "a": "29명"
+  }
+ ]
+}

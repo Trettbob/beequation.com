@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Arredondar números",
+ "topic": "counting-and-place-value",
+ "years": [
+  "3-ano",
+  "4-ano"
+ ],
+ "desc": "Para a dezena, a centena e o milhar mais próximos",
+ "how": "Arredonde cada número para a dezena, a centena ou o milhar mais próximo, como indicado.",
+ "tip": "Olhe o algarismo logo à direita da ordem para a qual você vai arredondar. Se for 5 ou mais, arredonde para cima; se for 4 ou menos, para baixo.",
+ "yearsLabel": "3º e 4º anos",
+ "htmlLang": "pt-BR",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7.067</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "7.070"
+  },
+  {
+   "q": "<b class=\"n\">1.481</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "1.000"
+  },
+  {
+   "q": "<b class=\"n\">3.667</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "3.670"
+  },
+  {
+   "q": "<b class=\"n\">3.729</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "3.730"
+  },
+  {
+   "q": "<b class=\"n\">4.704</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "5.000"
+  },
+  {
+   "q": "<b class=\"n\">5.302</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "5.300"
+  },
+  {
+   "q": "<b class=\"n\">1.734</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "1.700"
+  },
+  {
+   "q": "<b class=\"n\">8.011</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "<b class=\"n\">4.180</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "4.180"
+  },
+  {
+   "q": "<b class=\"n\">2.156</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "2.000"
+  },
+  {
+   "q": "<b class=\"n\">5.982</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "5.980"
+  },
+  {
+   "q": "<b class=\"n\">9.636</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "9.600"
+  },
+  {
+   "q": "<b class=\"n\">8.883</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "<b class=\"n\">3.523</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "3.520"
+  },
+  {
+   "q": "<b class=\"n\">2.770</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "2.800"
+  },
+  {
+   "q": "<b class=\"n\">4.431</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "4.430"
+  },
+  {
+   "q": "<b class=\"n\">5.548</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "5.500"
+  },
+  {
+   "q": "<b class=\"n\">9.455</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "<b class=\"n\">2.963</b> para a centena → <span class=\"bx\">□</span>",
+   "a": "3.000"
+  },
+  {
+   "q": "<b class=\"n\">4.896</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "4.900"
+  },
+  {
+   "q": "<b class=\"n\">3.930</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "4.000"
+  },
+  {
+   "q": "<b class=\"n\">7.873</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "<b class=\"n\">6.257</b> para a dezena → <span class=\"bx\">□</span>",
+   "a": "6.260"
+  },
+  {
+   "q": "<b class=\"n\">1.530</b> para o milhar → <span class=\"bx\">□</span>",
+   "a": "2.000"
+  }
+ ]
+}

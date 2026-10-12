@@ -1,0 +1,137 @@
+{
+ "id": "times-tables-2-5-10",
+ "title": "Mnożenie przez 2, 5 i 10",
+ "topic": "multiplication-and-division",
+ "years": [
+  "klasa-2",
+  "klasa-3"
+ ],
+ "desc": "Tabliczka mnożenia na wyrywki",
+ "how": "Oblicz. Działania z 11 i 12 to zadania dodatkowe: 5 · 12 to 5 · 10 i jeszcze 5 · 2.",
+ "tip": "Każdy wynik mnożenia przez 10 kończy się zerem, a każdy wynik mnożenia przez 5 kończy się zerem albo piątką.",
+ "yearsLabel": "Klasy 2 i 3",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "5 · 4 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 · 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "5 · 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "7 · 5 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "5 · 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "10 · 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "5 · 9 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "10 · 2 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 · 1 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "2 · 4 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 · 8 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "2 · 5 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "7 · 2 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "2 · 10 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 · 9 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 · 10 = <span class=\"bx\">□</span>",
+   "a": "100"
+  },
+  {
+   "q": "5 · 5 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "2 · 2 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "5 · 6 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 · 12 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "10 · 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "9 · 10 = <span class=\"bx\">□</span>",
+   "a": "90"
+  },
+  {
+   "q": "7 · 10 = <span class=\"bx\">□</span>",
+   "a": "70"
+  },
+  {
+   "q": "10 · 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "6 · 10 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "9 · 5 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "12 · 5 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "4 · 10 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "5 · 7 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "1 · 5 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

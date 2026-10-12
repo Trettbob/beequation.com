@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "Onluklar ve birlikler",
+ "topic": "counting-and-place-value",
+ "years": [
+  "2-sinif"
+ ],
+ "desc": "İki basamaklı sayıları ayır",
+ "how": "Her sayının kaç onluk ve kaç birlikten oluştuğunu yaz.",
+ "tip": "Soldaki rakam onlar basamağındadır ve kaç onluk olduğunu söyler. 47 sayısında 4 onluk ve 7 birlik vardır.",
+ "yearsLabel": "2. sınıf",
+ "htmlLang": "tr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "7 onluk 9 birlik"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "3 onluk 6 birlik"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "5 onluk 8 birlik"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "1 onluk 9 birlik"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "9 onluk 0 birlik"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "9 onluk 5 birlik"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "2 onluk 3 birlik"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "6 onluk 8 birlik"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "6 onluk 4 birlik"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "3 onluk 3 birlik"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "1 onluk 2 birlik"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "8 onluk 1 birlik"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "6 onluk 7 birlik"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "3 onluk 5 birlik"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "6 onluk 0 birlik"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "1 onluk 8 birlik"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "1 onluk 6 birlik"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "8 onluk 8 birlik"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "5 onluk 4 birlik"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> onluk <span class=\"bx\">□</span> birlik",
+   "a": "3 onluk 1 birlik"
+  }
+ ]
+}

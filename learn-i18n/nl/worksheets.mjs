@@ -63,6 +63,19 @@ const COPPER = '#B87333', GOLD = '#D9B44A', SILVER = '#C8CCD0';
 const GROEP = { 'groep-1-2': [1, 2], 'groep-3': [3], 'groep-4': [4], 'groep-5': [5], 'groep-6': [6], 'groep-7': [7], 'groep-8': [8] };
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Klok: de grote wijzer wijst naar de ${minute} en de kleine wijzer wijst naar de ${hour}`
+      : `Klok: de grote wijzer wijst naar de ${minute} en de kleine wijzer staat tussen de ${hour} en de ${next}`;
+  },
+  shapeAlt: n => `Figuur ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} met ${shaded} van de ${total} gelijke delen gekleurd`,
+  fractionKinds: {"bar": "Strook", "circle": "Cirkel", "grid": "Raster"},
+  coinAlt: value => `Munt van ${value}`,
+  rectangleAlt: (w, h) => `Rechthoek op een raster met ${w} kolommen en ${h} rijen van vierkantjes van 1 cm bij 1 cm`,
+  chartAlt: "Staafdiagram van de stemmen voor het favoriete fruit; de waarden staan in de tabel hieronder",
+  chartFruit: "Fruit", chartVotes: "Stemmen",
   htmlLang: 'nl',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

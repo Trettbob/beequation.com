@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Kymmenet ja ykköset",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-luokka",
+  "2-luokka"
+ ],
+ "desc": "Kaksinumeroiset luvut osiin",
+ "how": "Kirjoita, montako kymmentä ja montako ykköstä luvussa on.",
+ "tip": "Vasemmanpuoleinen numero kertoo kymmenet ja oikeanpuoleinen ykköset. Luvussa 47 on 4 kymmentä ja 7 ykköstä.",
+ "yearsLabel": "1. ja 2. luokka",
+ "htmlLang": "fi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "7 kymmentä ja 9 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "3 kymmentä ja 6 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "5 kymmentä ja 8 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "1 kymmen ja 9 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "9 kymmentä ja 0 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "9 kymmentä ja 5 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "2 kymmentä ja 3 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "6 kymmentä ja 8 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "6 kymmentä ja 4 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "3 kymmentä ja 3 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "1 kymmen ja 2 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "8 kymmentä ja 1 ykkönen"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "6 kymmentä ja 7 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "3 kymmentä ja 5 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "6 kymmentä ja 0 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "1 kymmen ja 8 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "1 kymmen ja 6 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "8 kymmentä ja 8 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "5 kymmentä ja 4 ykköstä"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
+   "a": "3 kymmentä ja 1 ykkönen"
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Paljonko saat takaisin?",
+ "topic": "money",
+ "years": [
+  "3-luokka",
+  "4-luokka"
+ ],
+ "desc": "Vaihtoraha, kun maksat 1, 2 tai 5 euroa",
+ "how": "Laske jokaisesta ostoksesta vaihtoraha eli se, minkä saat takaisin.",
+ "tip": "Laske hinnasta ylöspäin siihen summaan, jonka annoit. 65 sentistä 1 euroon: 5 snt lisää on 70 snt, ja 30 snt lisää on 1 €. Saat takaisin 35 snt.",
+ "yearsLabel": "3. ja 4. luokka",
+ "htmlLang": "fi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Sarjakuvalehti maksaa 2,70 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "2,30 €"
+  },
+  {
+   "q": "Sarjakuvalehti maksaa 1,85 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "3,15 €"
+  },
+  {
+   "q": "Vihko maksaa 1,20 €, ja annat 2 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "80 snt"
+  },
+  {
+   "q": "Pulla maksaa 4,95 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "5 snt"
+  },
+  {
+   "q": "Karkkipussi maksaa 4,25 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "75 snt"
+  },
+  {
+   "q": "Mehu maksaa 4,50 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "50 snt"
+  },
+  {
+   "q": "Jäätelö maksaa 1,50 €, ja annat 2 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "50 snt"
+  },
+  {
+   "q": "Vihko maksaa 2,55 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "2,45 €"
+  },
+  {
+   "q": "Pulla maksaa 35 snt, ja annat 1 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "65 snt"
+  },
+  {
+   "q": "Sarjakuvalehti maksaa 60 snt, ja annat 2 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "1,40 €"
+  },
+  {
+   "q": "Jäätelö maksaa 1,65 €, ja annat 2 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "35 snt"
+  },
+  {
+   "q": "Korvapuusti maksaa 95 snt, ja annat 1 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "5 snt"
+  },
+  {
+   "q": "Kynä maksaa 90 snt, ja annat 2 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "1,10 €"
+  },
+  {
+   "q": "Pulla maksaa 90 snt, ja annat 1 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "10 snt"
+  },
+  {
+   "q": "Kynä maksaa 80 snt, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "4,20 €"
+  },
+  {
+   "q": "Mehu maksaa 3,40 €, ja annat 5 €. Saat takaisin <span class=\"bx\">□</span>",
+   "a": "1,60 €"
+  }
+ ]
+}

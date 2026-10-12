@@ -37,6 +37,19 @@ const PLACE = { 10: 'à la dizaine près', 100: 'à la centaine près', 1000: 'a
 const art = f => (f.endsWith('s') ? 'les ' : 'le ') + f.toLowerCase();
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Horloge${NB}: la grande aiguille pointe sur ${minute} et la petite aiguille pointe sur ${hour}`
+      : `Horloge${NB}: la grande aiguille pointe sur ${minute} et la petite aiguille est entre ${hour} et ${next}`;
+  },
+  shapeAlt: n => `Figure ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} avec ${shaded} parties coloriées sur ${total} parties égales`,
+  fractionKinds: {"bar": "Bande", "circle": "Disque", "grid": "Quadrillage"},
+  coinAlt: value => `Pièce de ${value}`,
+  rectangleAlt: (w, h) => `Rectangle sur un quadrillage de ${w} colonnes et ${h} lignes de carrés de 1 cm de côté`,
+  chartAlt: "Diagramme en barres des votes pour les fruits préférés ; les valeurs figurent dans le tableau ci-dessous",
+  chartFruit: "Fruit", chartVotes: "Votes",
   htmlLang: 'fr',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

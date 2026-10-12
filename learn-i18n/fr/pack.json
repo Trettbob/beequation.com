@@ -6,4 +6,8 @@
  "inClass": "En classe",
  "tips": ["Projetez une alvéole en rituel de calcul mental de deux minutes et demandez aux élèves comment ils ont trouvé.", "Donnez une fiche en défi chronométré, puis laissez chaque élève battre son propre temps la semaine suivante.", "Demandez aux élèves d’inventer leur propre alvéole pour un camarade."],
  "promo": "<b>Encore plus d’énigmes avec Indie l’abeille.</b> Jouez gratuitement sur fr.beequation.com, ou cherchez Beequation Kids sur téléphone ou tablette : sans publicité, sans pistage, sans chrono.",
- "footer": "Libre de reproduction pour la classe et la maison. Jouez en ligne sur <b>fr.beequation.com</b>"}
+ "footer": "Libre de reproduction pour la classe et la maison. Jouez en ligne sur <b>fr.beequation.com</b>",
+  "hexAlt": "Grille en alvéoles avec les nombres {list}",
+  "listSep": ", ",
+  "partOf": "Partie {n} sur {total}"
+}

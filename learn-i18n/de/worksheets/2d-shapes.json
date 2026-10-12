@@ -1,0 +1,53 @@
+{
+ "id": "2d-shapes",
+ "title": "Formen erkennen",
+ "topic": "shape-and-geometry",
+ "years": [
+  "klasse-1",
+  "klasse-2"
+ ],
+ "desc": "Namen, Seiten und Ecken",
+ "how": "Schreibe zu jeder Form ihren Namen und zähle ihre Seiten und Ecken.",
+ "tip": "Mach an jede Ecke einen kleinen Punkt, wenn du sie zählst. Dann zählst du keine doppelt. Und ein Fünfeck hat 5 Ecken: Der Name verrät es dir.",
+ "yearsLabel": "1. und 2. Klasse",
+ "htmlLang": "de",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 1\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"50,8 88.1051177665153,74 11.894882233484708,74.00000000000001\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Dreieck: 3 Seiten, 3 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 2\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"81.11269837220809,20.887301627791913 81.11269837220809,83.11269837220809 18.887301627791913,83.11269837220809 18.887301627791903,20.887301627791913\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Quadrat: 4 Seiten, 4 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 3\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><rect x=\"6\" y=\"24\" width=\"88\" height=\"52\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"2.4\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Rechteck: 4 Seiten, 4 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 4\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"50,8 91.84648671698676,38.403252247502316 75.86255110086881,87.59674775249769 24.137448899131186,87.59674775249769 8.15351328301324,38.40325224750232\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Fünfeck: 5 Seiten, 5 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 5\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"72,13.894882233484694 94,51.99999999999999 72.00000000000001,90.10511776651529 28.00000000000001,90.1051177665153 6,52.00000000000003 28.000000000000018,13.894882233484694\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Sechseck: 6 Seiten, 6 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 6\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"66.83807102406395,11.349300569503384 90.65069943049662,35.16192897593605 90.65069943049662,68.83807102406395 66.83807102406395,92.65069943049662 33.16192897593605,92.65069943049662 9.349300569503384,68.83807102406395 9.349300569503377,35.16192897593606 33.16192897593602,11.349300569503392\" fill=\"#C6B2FF\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Achteck: 8 Seiten, 8 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 7\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><circle cx=\"50\" cy=\"50\" r=\"44\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"2.4\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Kreis: keine Ecken, keine geraden Seiten"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 8\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"50,8 84.40058522859331,24.566448718215728 92.89682813600024,61.79092109407783 69.09088452117255,91.64263018770644 30.909115478827445,91.64263018770644 7.103171863999762,61.79092109407784 15.599414771406686,24.56644871821573\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Siebeneck: 7 Seiten, 7 Ecken"
+  },
+  {
+   "q": "<svg role=\"img\" aria-label=\"Form 9\" focusable=\"false\" viewBox=\"0 0 100 100\" style=\"width:22mm;height:22mm\"><polygon points=\"63.59674775249769,10.153513283013247 85.59674775249769,26.137448899131183 94,52 85.59674775249769,77.86255110086881 63.59674775249769,93.84648671698676 36.403252247502316,93.84648671698676 14.403252247502316,77.86255110086883 6,52.00000000000001 14.403252247502309,26.137448899131186 36.40325224750231,10.153513283013247\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/></svg><div class=\"ansline wide\">Name:</div><div class=\"ansline\">Seiten <span class=\"bx\">□</span> Ecken <span class=\"bx\">□</span></div>",
+   "a": "Zehneck: 10 Seiten, 10 Ecken"
+  }
+ ]
+}

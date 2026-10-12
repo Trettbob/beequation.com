@@ -1,0 +1,113 @@
+{
+ "id": "number-bonds-to-10",
+ "title": "10 만들기",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "yuchiwon-5se",
+  "chodeung-1"
+ ],
+ "desc": "더해서 10이 되는 두 수",
+ "how": "빈칸에 알맞은 수를 써서 10을 만들어 보세요.",
+ "tip": "손가락으로 해 보세요! 손가락 7개를 펴면 접힌 손가락은 몇 개일까요? 펴진 손가락과 접힌 손가락을 모으면 10이 돼요.",
+ "yearsLabel": "유치원 만 5세반, 초등 1학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">3</b> + <span class=\"bx\">□</span> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">10</b> = 10",
+   "a": "0"
+  },
+  {
+   "q": "<b class=\"n\">6</b> + <span class=\"bx\">□</span> = 10",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">2</b> = 10",
+   "a": "8"
+  },
+  {
+   "q": "<b class=\"n\">9</b> + <span class=\"bx\">□</span> = 10",
+   "a": "1"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">5</b> = 10",
+   "a": "5"
+  },
+  {
+   "q": "<b class=\"n\">1</b> + <span class=\"bx\">□</span> = 10",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">8</b> = 10",
+   "a": "2"
+  },
+  {
+   "q": "<b class=\"n\">4</b> + <span class=\"bx\">□</span> = 10",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">0</b> = 10",
+   "a": "10"
+  },
+  {
+   "q": "<b class=\"n\">7</b> + <span class=\"bx\">□</span> = 10",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">3</b> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<b class=\"n\">10</b> + <span class=\"bx\">□</span> = 10",
+   "a": "0"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">6</b> = 10",
+   "a": "4"
+  },
+  {
+   "q": "<b class=\"n\">2</b> + <span class=\"bx\">□</span> = 10",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">9</b> = 10",
+   "a": "1"
+  },
+  {
+   "q": "<b class=\"n\">5</b> + <span class=\"bx\">□</span> = 10",
+   "a": "5"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">1</b> = 10",
+   "a": "9"
+  },
+  {
+   "q": "<b class=\"n\">8</b> + <span class=\"bx\">□</span> = 10",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">4</b> = 10",
+   "a": "6"
+  },
+  {
+   "q": "<b class=\"n\">0</b> + <span class=\"bx\">□</span> = 10",
+   "a": "10"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">7</b> = 10",
+   "a": "3"
+  },
+  {
+   "q": "<b class=\"n\">3</b> + <span class=\"bx\">□</span> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">10</b> = 10",
+   "a": "0"
+  }
+ ]
+}

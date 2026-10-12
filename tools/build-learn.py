@@ -89,6 +89,14 @@ WORDS = {
     'html_lang': 'en-GB', 'home': 'Home', 'learn': 'Learn', 'learn_home': 'Learn home', 'sections': SECTIONS,
     'all_topics': 'All topics →', 'all_years': 'All year groups →', 'year_small': 'age {age} · US {us}',
     'tip': "Indie's tip", 'challenge': "Indie's challenge", 'show': 'Show the answer',
+    'standard_pdf': 'Standard PDF',
+    'large_print': 'Large print',
+    'easy_read': 'Easy-read',
+    'show_answers': 'Show answers',
+    'worksheet_questions': 'Questions',
+    'worksheet_downloads': 'Downloads',
+    'pdf_size_pending': 'PDF; size available after generation',
+    'pdf_kb': '{size} KB',
     'sheet_alt': 'Preview of the {title} worksheet', 'download': 'Download PDF',
     'try_title': 'Practise with Indie', 'try_text': 'Beequation Kids turns number facts into honeycomb puzzles, with Indie giving a hint when a child is stuck. No ads and no data collected.',
     'try_play': 'Play free in your browser', 'try_sheets': 'Free worksheets',
@@ -126,7 +134,10 @@ class Site:
         # These four articles predate learn-src; their English files are still their source.
         legacy = {'mental-maths-strategies.html', 'times-tables-practice.html',
                   'daily-maths-puzzle-for-adults.html', 'number-bonds-to-20.html'}
-        return os.path.exists(os.path.join(self.src, rel)) or (self.en and rel in legacy and os.path.isfile(os.path.join(self.out, rel)))
+        worksheet = (rel.startswith('worksheets/') and rel.endswith('.html')
+                     and os.path.isfile(os.path.join(self.src, rel[:-5] + '.json'))
+                     and any(rel == f'worksheets/{w["id"]}.html' for w in worksheets_manifest(self)))
+        return worksheet or os.path.exists(os.path.join(self.src, rel)) or (self.en and rel in legacy and os.path.isfile(os.path.join(self.out, rel)))
 
 _SITES = {}
 def site_of(lang='en'):
@@ -223,6 +234,66 @@ LEARN_CSS = """
 .hero .say { margin: 0; }
 """
 
+
+# Worksheet questions remain text/HTML; the print view omits site navigation and keeps answers optional.
+LEARN_CSS += "\n.sheet-formats { font-size: 13px; margin: 8px 0 0; }\n"
+WORKSHEET_CSS = r"""
+.doc:has(.worksheet) { max-width: 1100px; }
+.worksheet { line-height: 1.6; }
+.doc .worksheet-questions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 20px 0 28px; list-style: none; }
+.worksheet-questions > li { position: relative; min-width: 0; margin: 0; padding: 16px; background: var(--card); color: var(--ink); border-radius: 18px; box-shadow: inset 0 0 0 1px var(--line); break-inside: avoid; }
+.worksheet-number { display: inline-flex; align-items: center; justify-content: center; width: 2em; height: 2em; margin-bottom: 12px; border-radius: 50%; background: #FFD84D; color: #1C1A4A; font: 700 16px/1 Fredoka, sans-serif; }
+.worksheet-questions > li:nth-child(6n + 2) .worksheet-number { background: #7EE8C6; }
+.worksheet-questions > li:nth-child(6n + 3) .worksheet-number { background: #8FD3FF; }
+.worksheet-questions > li:nth-child(6n + 4) .worksheet-number { background: #FFA8D2; }
+.worksheet-questions > li:nth-child(6n + 5) .worksheet-number { background: #FFB37A; }
+.worksheet-questions > li:nth-child(6n) .worksheet-number { background: #C6B2FF; }
+.worksheet-question { overflow-wrap: anywhere; }
+.worksheet-cards .worksheet-question { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.doc .worksheet-whole .worksheet-questions { grid-template-columns: minmax(0, 1fr); }
+.worksheet svg { max-width: 100%; vertical-align: middle; background: white; border-radius: 8px; }
+.worksheet svg text { fill: #1C1A4A; }
+.worksheet .coins { display: flex; gap: .5em; flex-wrap: wrap; align-items: center; justify-content: center; }
+.worksheet .ansline { margin-top: .5em; max-width: 100%; }
+.worksheet .bx { display: inline-block; box-sizing: border-box; width: 3em; height: 1.9em; border: 2px solid var(--ink); border-radius: .35em; background: var(--ground); color: transparent; vertical-align: middle; }
+.worksheet .line, .worksheet .ansline.wide { display: inline-block; box-sizing: border-box; width: 6em; max-width: 100%; min-height: 1.9em; border-bottom: 2px solid var(--ink); vertical-align: bottom; }
+.worksheet .line { margin-left: .5em; }
+.worksheet .fr { white-space: nowrap; }
+.worksheet .fr i { font-style: normal; }
+.worksheet .col { display: none; }
+.worksheet .column-expression { font-size: 1.15em; }
+.worksheet .grid12 { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: clamp(11px, 2vw, 18px); }
+.worksheet .grid12 th, .worksheet .grid12 td { text-align: center; padding: .4em .1em; border: 1px solid currentColor; }
+.worksheet .chart-data { border-collapse: collapse; width: auto; margin: 1em 0; }
+.worksheet .chart-data th, .worksheet .chart-data td { padding: .3em 1em; text-align: left; border: 1px solid currentColor; }
+.worksheet-answers { margin-top: 2em; }
+.worksheet-answers summary { display: list-item; width: fit-content; padding: 12px 20px; border-radius: 12px; background: var(--honey); color: var(--honey-ink); cursor: pointer; font-weight: 700; }
+.worksheet-answers summary:hover { outline: 2px solid var(--ink); outline-offset: 2px; }
+.worksheet-answers summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.worksheet-answers[open] > ol { margin-top: 20px; }
+@media (min-width: 960px) { .doc .worksheet-questions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .doc .worksheet-questions { grid-template-columns: minmax(0, 1fr); } }
+@media print {
+  body:has(.worksheet) { --ground: #fff; --card: #fff; --ink: #000; --mute: #000; --line: #000; --honey: #fff; --honey-ink: #000; background: white; color: black; }
+  body:has(.worksheet) #bqh, body:has(.worksheet) .learnnav, body:has(.worksheet) .bqf,
+  body:has(.worksheet) .crumbs, body:has(.worksheet) .report-error,
+  body:has(.worksheet) .worksheet-downloads, body:has(.worksheet) .worksheet h2:first-of-type,
+  body:has(.worksheet) #bq-language-suggestion, body:has(.worksheet) .bq-ok { display: none !important; }
+  body:has(.worksheet) .wrap, body:has(.worksheet) .doc { width: auto; max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; }
+  body:has(.worksheet) a { color: black; }
+  .doc .worksheet-questions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12pt; }
+  .doc .worksheet-whole .worksheet-questions { grid-template-columns: minmax(0, 1fr); }
+  .worksheet-questions > li { border: 1px solid black; box-shadow: none; background: white; color: black; }
+  .worksheet-number, .worksheet-questions > li .worksheet-number { background: white; color: black; border: 1px solid black; }
+  .worksheet svg { filter: grayscale(1); }
+  .worksheet svg text { fill: black; }
+  .worksheet-answers summary { background: white; color: black; border: 1px solid black; }
+  .worksheet-answers:not([open]) { display: none; }
+  .worksheet-answers[open] { break-before: page; }
+  .worksheet .tip, .worksheet .tip b.t, .worksheet .tip a { background: white; color: black; filter: none; break-inside: avoid; }
+}
+"""
+
 # ---------- page chrome taken from an existing page, so Learn matches the rest of the site ----------
 # The site header is not copied: each page gets an empty <!--header--> slot that build-langs.py fills.
 HEADER_SLOT = '<!--header--><!--/header-->'
@@ -265,9 +336,53 @@ def worksheets_manifest(S=None):
 def sheet_card(w, S=None):
     S = S or EN
     yrs = ', '.join(n for s, n, *_ in S.years if s in w['years'])
-    return (f'<div class="sheet" data-years="{" ".join(w["years"])}"><img src="/assets/worksheets/{w["id"]}.webp" width="420" height="594" loading="lazy" '
-            f'alt="{esc(S.w["sheet_alt"].format(title=w["title"]))}"><b>{esc(w["title"])}</b><small>{esc(yrs)} · {esc(w["desc"])}</small>'
-            f'<a class="dl" href="/assets/worksheets/{w["id"]}.pdf" download>{esc(S.w["download"])}</a></div>')
+    url = f'/learn/worksheets/{w["id"]}.html'
+    return (f'<div class="sheet" data-years="{" ".join(w["years"])}"><a href="{url}"><img src="/assets/worksheets/{w["id"]}.webp" width="420" height="594" loading="lazy" '
+            f'alt="{esc(S.w["sheet_alt"].format(title=w["title"]))}"></a><b><a href="{url}">{esc(w["title"])}</a></b><small>{esc(yrs)} · {esc(w["desc"])}</small>'
+            f'<a class="dl" href="/assets/worksheets/{w["id"]}.pdf" download>{esc(S.w["download"])}</a>'
+            f'<p class="sheet-formats"><a href="/assets/worksheets/{w["id"]}-large.pdf" download>{esc(S.w["large_print"])}</a> · '
+            f'<a href="/assets/worksheets/{w["id"]}-easy-read.pdf" download>{esc(S.w["easy_read"])}</a></p></div>')
+
+
+def worksheet_pdfs(data, S):
+    base = ROOT if S.en else S.src
+    media = []
+    for suffix, key in [('', 'standard_pdf'), ('-large', 'large_print'), ('-easy-read', 'easy_read')]:
+        url = f'/assets/worksheets/{data["id"]}{suffix}.pdf'
+        file = os.path.join(base, url.lstrip('/'))
+        size = os.path.getsize(file) if os.path.isfile(file) else None
+        media.append({'@type': 'MediaObject', 'name': S.w[key], 'encodingFormat': 'application/pdf',
+                      'contentUrl': S.main + url, **({'contentSize': str(size) + ' B'} if size is not None else {})})
+    return media
+
+
+def worksheet_sources(S):
+    pages = {}
+    for sheet in worksheets_manifest(S):
+        rel = f'worksheets/{sheet["id"]}.html'
+        file = os.path.join(S.src, 'worksheets', sheet['id'] + '.json')
+        if not os.path.isfile(file):
+            raise ValueError(f'{file}: generate worksheet data with make-worksheets.mjs --lang {S.lang} --html-only first')
+        data = json.load(open(file, encoding='utf-8'))
+        topic = next(n for slug, n, *_ in S.topics if slug == data['topic'])
+        downloads = []
+        for media in worksheet_pdfs(data, S):
+            size = (f'PDF, {S.w["pdf_kb"].format(size=max(1, (int(media["contentSize"].split()[0]) + 1023) // 1024))}'
+                    if 'contentSize' in media else S.w['pdf_size_pending'])
+            downloads.append(f'<li><a href="{media["contentUrl"][len(S.main):]}" download>{esc(media["name"])}</a> <small>({esc(size)})</small></li>')
+        context = f'<div class="worksheet-chart">{data["chart"]}{data["chartTable"]}</div>' if data.get('chart') else ''
+        body = (f'<div class="worksheet worksheet-{esc(data["kind"])}"><p class="worksheet-years">{esc(data["yearsLabel"])} · <a href="/learn/topics/{data["topic"]}.html">{esc(topic)}</a></p>'
+                f'<h2>{esc(S.w["worksheet_downloads"])}</h2><ul class="worksheet-downloads">{"".join(downloads)}</ul>'
+                f'<h2>{esc(S.w["worksheet_questions"])}</h2><p>{esc(data["how"])}</p>{context}'
+                '<ol class="worksheet-questions" role="list">' + ''.join(
+                    f'<li><span class="worksheet-number" aria-hidden="true">{i}</span><div class="worksheet-question">{it["q"]}</div></li>'
+                    for i, it in enumerate(data['items'], 1)) + '</ol>'
+                f'<div class="tip">{indie(56)}<div><b class="t">{esc(S.w["tip"])}</b><p>{esc(data["tip"])}</p></div></div>'
+                f'<details class="worksheet-answers"><summary>{esc(S.w["show_answers"])}</summary><ol>' +
+                ''.join(f'<li>{it["a"]}</li>' for it in data['items']) + '</ol></details></div>')
+        pages[rel] = ({'title': data['title'], 'h1': data['title'], 'description': data['desc'],
+                       'updated': '2026-10-12', 'layout': 'worksheet', '_worksheet': data}, body)
+    return pages
 
 def shortcodes(body, faq, S=None):
     S = S or EN; w = S.w
@@ -366,6 +481,16 @@ def page(rel, meta, body, parts, names, S=None):
                'publisher': {'@id': MAIN + '/#org'}, 'image': MAIN + '/assets/og-image.png'} if meta.get('layout') != 'hub' else {})},
           {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
               {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': S.main + h} for i, (n, h) in enumerate(trail)]}]
+    if meta.get('layout') == 'worksheet':
+        data = meta['_worksheet']
+        ld[0] = {'@context': 'https://schema.org', '@type': 'LearningResource', 'name': data['title'],
+                 'description': data['desc'], 'url': url, 'inLanguage': S.w['html_lang'],
+                 'educationalLevel': [n for slug, n, *_ in S.years if slug in data['years']],
+                 'learningResourceType': 'Worksheet', 'isAccessibleForFree': True,
+                 'encoding': worksheet_pdfs(data, S),
+                 'accessibilityFeature': ['alternativeText', 'largePrint', 'highContrastDisplay', 'structuralNavigation'],
+                 'accessMode': ['textual', 'visual'],
+                 'accessModeSufficient': [{'@type': 'ItemList', 'itemListElement': ['textual']}]}
     if faq:
         strip = lambda x: html.unescape(re.sub(r'<[^>]+>', '', x)).strip()
         ld.append({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
@@ -401,7 +526,7 @@ def page(rel, meta, body, parts, names, S=None):
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#12161F">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<style>{css}{LEARN_CSS}</style>
+<style>{css}{LEARN_CSS}{WORKSHEET_CSS if meta.get("layout") == "worksheet" else ""}</style>
 </head>
 <body>
 {nav}
@@ -451,7 +576,7 @@ def sources(S):
     for dp, _, fs in os.walk(S.src):
         for f in fs:
             if f.endswith('.html'): out.append(os.path.relpath(os.path.join(dp, f), S.src))
-    return {rel: front(rd(os.path.join(S.src, rel))) for rel in sorted(out)}
+    return {**{rel: front(rd(os.path.join(S.src, rel))) for rel in sorted(out)}, **worksheet_sources(S)}
 
 def missing_links(S, metas, extra=()):
     have = {url_of(r) for r in metas} | set(extra)

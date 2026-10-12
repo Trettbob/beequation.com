@@ -1,0 +1,137 @@
+{
+ "id": "division-facts",
+ "title": "Diviser avec les tables",
+ "topic": "multiplication-and-division",
+ "years": [
+  "ce2",
+  "cm1"
+ ],
+ "desc": "Se servir des tables de multiplication pour diviser",
+ "how": "Calcule chaque résultat.",
+ "tip": "La division est l’opération inverse de la multiplication. Pour 42 ÷ 6, demande-toi : 6 fois combien font 42 ?",
+ "yearsLabel": "CE2 et CM1",
+ "htmlLang": "fr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "144 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "42 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "48 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "36 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "110 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "88 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "44 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "84 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "70 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "20 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "77 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "88 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "66 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "64 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "66 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "12 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "63 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "108 ÷ 9 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "110 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "9 ÷ 3 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "70 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "72 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "24 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "60 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "48 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "16 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "28 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "30 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "14 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "10 ÷ 2 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

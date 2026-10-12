@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Quanto resto ricevi?",
+ "topic": "money",
+ "years": [
+  "classe-terza",
+  "classe-quarta"
+ ],
+ "desc": "Pagando con 1 €, 2 € e 5 €",
+ "how": "Calcola il resto per ogni acquisto.",
+ "tip": "Conta in avanti dal prezzo fino ai soldi che hai dato. Da 65 centesimi a 1 €: 5 centesimi per arrivare a 70 e altri 30 per arrivare a 1 €. Il resto è 35 centesimi.",
+ "yearsLabel": "Classi terza e quarta",
+ "htmlLang": "it",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Compri un fumetto per 2,70 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "2,30 €"
+  },
+  {
+   "q": "Compri un fumetto per 1,85 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "3,15 €"
+  },
+  {
+   "q": "Compri un quaderno per 1,20 € e paghi con 2 €. Resto: <span class=\"bx\">□</span>",
+   "a": "80 centesimi"
+  },
+  {
+   "q": "Compri delle caramelle per 4,95 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "5 centesimi"
+  },
+  {
+   "q": "Compri delle figurine per 4,25 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "75 centesimi"
+  },
+  {
+   "q": "Compri della frutta per 4,50 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "50 centesimi"
+  },
+  {
+   "q": "Compri della pizza al taglio per 1,50 € e paghi con 2 €. Resto: <span class=\"bx\">□</span>",
+   "a": "50 centesimi"
+  },
+  {
+   "q": "Compri un quaderno per 2,55 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "2,45 €"
+  },
+  {
+   "q": "Compri delle caramelle per 35 centesimi e paghi con 1 €. Resto: <span class=\"bx\">□</span>",
+   "a": "65 centesimi"
+  },
+  {
+   "q": "Compri un fumetto per 60 centesimi e paghi con 2 €. Resto: <span class=\"bx\">□</span>",
+   "a": "1,40 €"
+  },
+  {
+   "q": "Compri della pizza al taglio per 1,65 € e paghi con 2 €. Resto: <span class=\"bx\">□</span>",
+   "a": "35 centesimi"
+  },
+  {
+   "q": "Compri dei biscotti per 95 centesimi e paghi con 1 €. Resto: <span class=\"bx\">□</span>",
+   "a": "5 centesimi"
+  },
+  {
+   "q": "Compri una matita per 90 centesimi e paghi con 2 €. Resto: <span class=\"bx\">□</span>",
+   "a": "1,10 €"
+  },
+  {
+   "q": "Compri delle caramelle per 90 centesimi e paghi con 1 €. Resto: <span class=\"bx\">□</span>",
+   "a": "10 centesimi"
+  },
+  {
+   "q": "Compri una matita per 80 centesimi e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "4,20 €"
+  },
+  {
+   "q": "Compri della frutta per 3,40 € e paghi con 5 €. Resto: <span class=\"bx\">□</span>",
+   "a": "1,60 €"
+  }
+ ]
+}

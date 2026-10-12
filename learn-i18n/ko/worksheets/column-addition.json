@@ -1,0 +1,64 @@
+{
+ "id": "column-addition",
+ "title": "세 자리 수의 덧셈",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "chodeung-3"
+ ],
+ "desc": "받아올림이 있는 세로셈",
+ "how": "세로셈으로 계산하세요. 일의 자리부터 시작해요!",
+ "tip": "같은 자리끼리 더한 값이 10이거나 10보다 크면 일의 자리 숫자만 쓰고, 1은 바로 윗자리로 받아올려요. 받아올린 1을 윗자리 위에 작게 써 두면 잊지 않아요.",
+ "yearsLabel": "초등 3학년",
+ "htmlLang": "ko",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">373 + 271 = □</span><table class=\"col\"><tr><td></td><td>3</td><td>7</td><td>3</td></tr><tr><td>+</td><td>2</td><td>7</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "644"
+  },
+  {
+   "q": "<span class=\"column-expression\">259 + 218 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>5</td><td>9</td></tr><tr><td>+</td><td>2</td><td>1</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "477"
+  },
+  {
+   "q": "<span class=\"column-expression\">128 + 200 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>2</td><td>8</td></tr><tr><td>+</td><td>2</td><td>0</td><td>0</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "328"
+  },
+  {
+   "q": "<span class=\"column-expression\">672 + 239 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>7</td><td>2</td></tr><tr><td>+</td><td>2</td><td>3</td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "911"
+  },
+  {
+   "q": "<span class=\"column-expression\">481 + 272 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>8</td><td>1</td></tr><tr><td>+</td><td>2</td><td>7</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "753"
+  },
+  {
+   "q": "<span class=\"column-expression\">163 + 268 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>6</td><td>3</td></tr><tr><td>+</td><td>2</td><td>6</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">466 + 274 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>6</td><td>6</td></tr><tr><td>+</td><td>2</td><td>7</td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "740"
+  },
+  {
+   "q": "<span class=\"column-expression\">465 + 132 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>6</td><td>5</td></tr><tr><td>+</td><td>1</td><td>3</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "597"
+  },
+  {
+   "q": "<span class=\"column-expression\">212 + 227 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>1</td><td>2</td></tr><tr><td>+</td><td>2</td><td>2</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "439"
+  },
+  {
+   "q": "<span class=\"column-expression\">126 + 157 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>2</td><td>6</td></tr><tr><td>+</td><td>1</td><td>5</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "283"
+  },
+  {
+   "q": "<span class=\"column-expression\">608 + 121 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>0</td><td>8</td></tr><tr><td>+</td><td>1</td><td>2</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "729"
+  },
+  {
+   "q": "<span class=\"column-expression\">551 + 152 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>5</td><td>1</td></tr><tr><td>+</td><td>1</td><td>5</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "703"
+  }
+ ]
+}

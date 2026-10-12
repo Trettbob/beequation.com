@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "Dizaines et unités",
+ "topic": "counting-and-place-value",
+ "years": [
+  "cp"
+ ],
+ "desc": "Décomposer les nombres à deux chiffres",
+ "how": "Écris combien il y a de dizaines et d’unités dans chaque nombre.",
+ "tip": "Le chiffre de gauche donne les dizaines : 47, c’est 4 dizaines et 7 unités. Attention, 73 se dit « soixante-treize », mais c’est bien 7 dizaines et 3 unités !",
+ "yearsLabel": "CP",
+ "htmlLang": "fr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "7 dizaines, 9 unités"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "3 dizaines, 6 unités"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "5 dizaines, 8 unités"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "1 dizaine, 9 unités"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "9 dizaines, 0 unité"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "9 dizaines, 5 unités"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "2 dizaines, 3 unités"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "6 dizaines, 8 unités"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "6 dizaines, 4 unités"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "3 dizaines, 3 unités"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "1 dizaine, 2 unités"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "8 dizaines, 1 unité"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "6 dizaines, 7 unités"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "3 dizaines, 5 unités"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "6 dizaines, 0 unité"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "1 dizaine, 8 unités"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "1 dizaine, 6 unités"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "8 dizaines, 8 unités"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "5 dizaines, 4 unités"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> dizaines et <span class=\"bx\">□</span> unités",
+   "a": "3 dizaines, 1 unité"
+  }
+ ]
+}

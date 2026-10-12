@@ -56,7 +56,15 @@
     "reviewed_by": "Sprawdzenie: {name}",
     "published_on": "Opublikowano {date}",
     "reviewed_on": "Sprawdzono {date}",
-    "report_error": "Zgłoś błąd"
+    "report_error": "Zgłoś błąd",
+    "standard_pdf": "Standardowy PDF",
+    "large_print": "Duży druk",
+    "easy_read": "Łatwiejsze czytanie",
+    "show_answers": "Pokaż odpowiedzi",
+    "worksheet_questions": "Zadania",
+    "worksheet_downloads": "Pliki do pobrania",
+    "pdf_size_pending": "PDF; rozmiar dostępny po wygenerowaniu",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Liczenie i system dziesiątkowy", "glyph": "123", "colour": "lemon" },

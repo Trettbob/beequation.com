@@ -56,7 +56,15 @@
     "reviewed_by": "Revisionato da {name}",
     "published_on": "Pubblicato il {date}",
     "reviewed_on": "Revisionato il {date}",
-    "report_error": "Segnala un errore"
+    "report_error": "Segnala un errore",
+    "standard_pdf": "PDF standard",
+    "large_print": "Caratteri grandi",
+    "easy_read": "Lettura facilitata",
+    "show_answers": "Mostra le soluzioni",
+    "worksheet_questions": "Domande",
+    "worksheet_downloads": "Download",
+    "pdf_size_pending": "PDF; dimensione disponibile dopo la generazione",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Numeri e valore posizionale", "glyph": "123", "colour": "lemon" },

@@ -1,0 +1,112 @@
+{
+ "id": "tenths-and-hundredths",
+ "title": "분수를 소수로",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "chodeung-4"
+ ],
+ "desc": "소수 한 자리 수와 두 자리 수",
+ "how": "분수를 소수로 나타내세요.",
+ "tip": "분모가 10인 분수는 소수 한 자리 수, 분모가 100인 분수는 소수 두 자리 수가 돼요. 100분의 7은 0.07이에요.",
+ "yearsLabel": "초등 4학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>75</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.75"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.7"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.02"
+  },
+  {
+   "q": "<span class=\"fr\"><b>35</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.35"
+  },
+  {
+   "q": "<span class=\"fr\"><b>91</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.91"
+  },
+  {
+   "q": "<span class=\"fr\"><b>9</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>28</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>80</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.8 (0.80)"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.5"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.08"
+  },
+  {
+   "q": "<span class=\"fr\"><b>6</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>66</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.66"
+  },
+  {
+   "q": "<span class=\"fr\"><b>82</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.82"
+  },
+  {
+   "q": "<span class=\"fr\"><b>15</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.15"
+  },
+  {
+   "q": "<span class=\"fr\"><b>98</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.98"
+  },
+  {
+   "q": "<span class=\"fr\"><b>72</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>46</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.46"
+  },
+  {
+   "q": "<span class=\"fr\"><b>33</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.33"
+  },
+  {
+   "q": "<span class=\"fr\"><b>92</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.92"
+  },
+  {
+   "q": "<span class=\"fr\"><b>49</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.49"
+  },
+  {
+   "q": "<span class=\"fr\"><b>88</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0.88"
+  }
+ ]
+}

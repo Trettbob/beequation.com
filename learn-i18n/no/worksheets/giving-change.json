@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Hvor mye får du igjen?",
+ "topic": "money",
+ "years": [
+  "2-trinn",
+  "3-trinn"
+ ],
+ "desc": "Betal med 20, 50 og 100 kr",
+ "how": "Regn ut hvor mye du får igjen hver gang du handler.",
+ "tip": "Tell oppover fra prisen til det du betalte. Fra 65 kr til 100 kr: 5 kr til 70 kr, og 30 kr til 100 kr. Du får 35 kr igjen.",
+ "yearsLabel": "2. og 3. trinn",
+ "htmlLang": "nb",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Du kjøper boller for 55 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "45 kr"
+  },
+  {
+   "q": "Du kjøper boller for 40 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "60 kr"
+  },
+  {
+   "q": "Du kjøper en ball for 30 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "20 kr"
+  },
+  {
+   "q": "Du kjøper frukt for 95 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "5 kr"
+  },
+  {
+   "q": "Du kjøper et puslespill for 85 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "15 kr"
+  },
+  {
+   "q": "Du kjøper klistremerker for 90 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "10 kr"
+  },
+  {
+   "q": "Du kjøper fargeblyanter for 40 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "10 kr"
+  },
+  {
+   "q": "Du kjøper frukt for 10 kr og betaler med 20 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "10 kr"
+  },
+  {
+   "q": "Du kjøper boller for 20 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "30 kr"
+  },
+  {
+   "q": "Du kjøper en bok for 15 kr og betaler med 20 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "5 kr"
+  },
+  {
+   "q": "Du kjøper smågodt for 25 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "25 kr"
+  },
+  {
+   "q": "Du kjøper smågodt for 20 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "80 kr"
+  },
+  {
+   "q": "Du kjøper klistremerker for 70 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "30 kr"
+  },
+  {
+   "q": "Du kjøper klistremerker for 45 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "5 kr"
+  },
+  {
+   "q": "Du kjøper et puslespill for 10 kr og betaler med 50 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "40 kr"
+  },
+  {
+   "q": "Du kjøper smågodt for 15 kr og betaler med 100 kr. Du får igjen: <span class=\"bx\">□</span>",
+   "a": "85 kr"
+  }
+ ]
+}

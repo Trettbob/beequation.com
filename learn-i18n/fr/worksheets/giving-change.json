@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Rendre la monnaie",
+ "topic": "money",
+ "years": [
+  "ce1",
+  "ce2"
+ ],
+ "desc": "La monnaie sur 1 €, 2 € et 5 €",
+ "how": "Calcule la monnaie qu’on te rend pour chaque achat.",
+ "tip": "Avance du prix jusqu’à la somme donnée. De 0,65 € à 1 € : 5 c pour arriver à 0,70 €, puis 30 c pour arriver à 1 €. On te rend 0,35 €.",
+ "yearsLabel": "CE1 et CE2",
+ "htmlLang": "fr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Tu achètes une pomme à 2,70 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "2,30 €"
+  },
+  {
+   "q": "Tu achètes une pomme à 1,85 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "3,15 €"
+  },
+  {
+   "q": "Tu achètes un jus de fruits à 1,20 € et tu paies avec 2 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,80 €"
+  },
+  {
+   "q": "Tu achètes une gomme à 4,95 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,05 €"
+  },
+  {
+   "q": "Tu achètes un cahier à 4,25 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,75 €"
+  },
+  {
+   "q": "Tu achètes un pain au chocolat à 4,50 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,50 €"
+  },
+  {
+   "q": "Tu achètes une petite voiture à 1,50 € et tu paies avec 2 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,50 €"
+  },
+  {
+   "q": "Tu achètes un jus de fruits à 2,55 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "2,45 €"
+  },
+  {
+   "q": "Tu achètes une gomme à 0,35 € et tu paies avec 1 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,65 €"
+  },
+  {
+   "q": "Tu achètes une pomme à 0,60 € et tu paies avec 2 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "1,40 €"
+  },
+  {
+   "q": "Tu achètes une petite voiture à 1,65 € et tu paies avec 2 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,35 €"
+  },
+  {
+   "q": "Tu achètes des autocollants à 0,95 € et tu paies avec 1 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,05 €"
+  },
+  {
+   "q": "Tu achètes un crayon à 0,90 € et tu paies avec 2 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "1,10 €"
+  },
+  {
+   "q": "Tu achètes une gomme à 0,90 € et tu paies avec 1 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "0,10 €"
+  },
+  {
+   "q": "Tu achètes un crayon à 0,80 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "4,20 €"
+  },
+  {
+   "q": "Tu achètes un pain au chocolat à 3,40 € et tu paies avec 5 €. On te rend : <span class=\"bx\">□</span>",
+   "a": "1,60 €"
+  }
+ ]
+}

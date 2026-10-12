@@ -6,4 +6,8 @@
  "inClass": "Ideen für den Unterricht",
  "tips": ["Zeigen Sie eine Wabe als Zwei-Minuten-Einstieg und fragen Sie, wie die Kinder die Lösung gefunden haben.", "Geben Sie ein Blatt als Zeitchallenge aus und lassen Sie die Kinder ihre eigene Zeit in der nächsten Woche unterbieten.", "Lassen Sie die Kinder eine eigene Wabe für ein Partnerkind erfinden."],
  "promo": "<b>Mehr Rätsel mit Indie, der Biene.</b> Kostenlos spielen auf de.beequation.com, oder Beequation Kids auf dem Handy oder Tablet: ohne Werbung, ohne Tracking, ohne Zeitdruck.",
- "footer": "Darf für Unterricht und Zuhause frei kopiert werden. Online spielen auf <b>de.beequation.com</b>"}
+ "footer": "Darf für Unterricht und Zuhause frei kopiert werden. Online spielen auf <b>de.beequation.com</b>",
+  "hexAlt": "Wabe mit den Zahlen {list}",
+  "listSep": ", ",
+  "partOf": "Teil {n} von {total}"
+}

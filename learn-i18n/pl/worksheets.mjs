@@ -59,6 +59,19 @@ const BRASS = '#C9A23F';    // 1, 2 and 5 gr (brass-plated steel), the ring of 2
 const SILVER = '#C8CCD0';   // 10, 20, 50 gr and 1 zł, the centre of 2 zł and the ring of 5 zł
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Zegar: długa wskazówka wskazuje ${minute}, a krótka wskazówka wskazuje ${hour}`
+      : `Zegar: długa wskazówka wskazuje ${minute}, a krótka wskazówka jest między ${hour} a ${next}`;
+  },
+  shapeAlt: n => `Figura ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}: zamalowano ${shaded} z ${total} równych części`,
+  fractionKinds: {"bar": "Pasek", "circle": "Koło", "grid": "Siatka"},
+  coinAlt: value => `Moneta o wartości ${value}`,
+  rectangleAlt: (w, h) => `Prostokąt na siatce: ${w} kolumn i ${h} wierszy kwadratów o boku 1 cm`,
+  chartAlt: "Wykres słupkowy głosów na ulubione owoce; wartości są w tabeli poniżej",
+  chartFruit: "Owoc", chartVotes: "Głosy",
   htmlLang: 'pl',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

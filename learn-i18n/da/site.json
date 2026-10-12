@@ -56,7 +56,15 @@
     "reviewed_by": "Gennemgået af {name}",
     "published_on": "Udgivet {date}",
     "reviewed_on": "Gennemgået {date}",
-    "report_error": "Rapportér en fejl"
+    "report_error": "Rapportér en fejl",
+    "standard_pdf": "Standard-PDF",
+    "large_print": "Stor skrift",
+    "easy_read": "Læsevenlig",
+    "show_answers": "Vis facit",
+    "worksheet_questions": "Opgaver",
+    "worksheet_downloads": "Downloads",
+    "pdf_size_pending": "PDF; størrelse tilgængelig efter generering",
+    "pdf_kb": "{size} kB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tal og positionssystemet", "glyph": "123", "colour": "lemon" },

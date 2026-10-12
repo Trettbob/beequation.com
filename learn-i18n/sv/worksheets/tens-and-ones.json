@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Tiotal och ental",
+ "topic": "counting-and-place-value",
+ "years": [
+  "arskurs-1",
+  "arskurs-2"
+ ],
+ "desc": "Dela upp tvåsiffriga tal",
+ "how": "Dela upp varje tal i tiotal och ental.",
+ "tip": "Siffran till vänster visar hur många tiotal det finns. 47 är 4 tiotal och 7 ental.",
+ "yearsLabel": "Årskurs 1 och 2",
+ "htmlLang": "sv",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "7 tiotal och 9 ental"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "3 tiotal och 6 ental"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "5 tiotal och 8 ental"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "1 tiotal och 9 ental"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "9 tiotal och 0 ental"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "9 tiotal och 5 ental"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "2 tiotal och 3 ental"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "6 tiotal och 8 ental"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "6 tiotal och 4 ental"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "3 tiotal och 3 ental"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "1 tiotal och 2 ental"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "8 tiotal och 1 ental"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "6 tiotal och 7 ental"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "3 tiotal och 5 ental"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "6 tiotal och 0 ental"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "1 tiotal och 8 ental"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "1 tiotal och 6 ental"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "8 tiotal och 8 ental"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "5 tiotal och 4 ental"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> tiotal och <span class=\"bx\">□</span> ental",
+   "a": "3 tiotal och 1 ental"
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "id": "giving-change",
+ "title": "Giving change",
+ "topic": "money",
+ "years": [
+  "year-3"
+ ],
+ "desc": "Change from £1, £2 and £5",
+ "how": "Work out the change for each shopping trip.",
+ "tip": "Count up from the price to the money you paid. From 65p to £1: 5p makes 70p, then 30p makes £1. Change is 35p.",
+ "yearsLabel": "Year 3",
+ "htmlLang": "en-GB",
+ "kind": "list",
+ "items": [
+  {
+   "q": "You buy a comic for £2.70 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "£2.30"
+  },
+  {
+   "q": "You buy a comic for £1.85 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "£3.15"
+  },
+  {
+   "q": "You buy a notebook for £1.20 and pay with £2.00. Change: <span class=\"bx\">□</span>",
+   "a": "80p"
+  },
+  {
+   "q": "You buy an apple for £4.95 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "5p"
+  },
+  {
+   "q": "You buy some stickers for £4.25 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "75p"
+  },
+  {
+   "q": "You buy a juice for £4.50 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "50p"
+  },
+  {
+   "q": "You buy a cake for £1.50 and pay with £2.00. Change: <span class=\"bx\">□</span>",
+   "a": "50p"
+  },
+  {
+   "q": "You buy a notebook for £2.55 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "£2.45"
+  },
+  {
+   "q": "You buy an apple for 35p and pay with £1.00. Change: <span class=\"bx\">□</span>",
+   "a": "65p"
+  },
+  {
+   "q": "You buy a comic for 60p and pay with £2.00. Change: <span class=\"bx\">□</span>",
+   "a": "£1.40"
+  },
+  {
+   "q": "You buy a cake for £1.65 and pay with £2.00. Change: <span class=\"bx\">□</span>",
+   "a": "35p"
+  },
+  {
+   "q": "You buy a toy car for 95p and pay with £1.00. Change: <span class=\"bx\">□</span>",
+   "a": "5p"
+  },
+  {
+   "q": "You buy a pencil for 90p and pay with £2.00. Change: <span class=\"bx\">□</span>",
+   "a": "£1.10"
+  },
+  {
+   "q": "You buy an apple for 90p and pay with £1.00. Change: <span class=\"bx\">□</span>",
+   "a": "10p"
+  },
+  {
+   "q": "You buy a pencil for 80p and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "£4.20"
+  },
+  {
+   "q": "You buy a juice for £3.40 and pay with £5.00. Change: <span class=\"bx\">□</span>",
+   "a": "£1.60"
+  }
+ ]
+}

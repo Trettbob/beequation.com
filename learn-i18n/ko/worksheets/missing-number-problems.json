@@ -1,0 +1,113 @@
+{
+ "id": "missing-number-problems",
+ "title": "□ 안에 알맞은 수",
+ "topic": "algebra-and-ratio",
+ "years": [
+  "chodeung-3",
+  "chodeung-4"
+ ],
+ "desc": "□가 있는 식",
+ "how": "□ 안에 알맞은 수를 쓰세요.",
+ "tip": "거꾸로 계산해 보세요. □ + 7 = 15에서는 15 − 7을, 3 × □ = 24에서는 24 ÷ 3을 계산하면 돼요.",
+ "yearsLabel": "초등 3~4학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"bx\">□</span> + 9 = 29",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 8 = 10",
+   "a": "80"
+  },
+  {
+   "q": "24 − <span class=\"bx\">□</span> = 5",
+   "a": "19"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 5 = 19",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 6 = 8",
+   "a": "48"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 11 = 5",
+   "a": "55"
+  },
+  {
+   "q": "9 × <span class=\"bx\">□</span> = 63",
+   "a": "7"
+  },
+  {
+   "q": "27 − <span class=\"bx\">□</span> = 8",
+   "a": "19"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 8 = 25",
+   "a": "17"
+  },
+  {
+   "q": "10 × <span class=\"bx\">□</span> = 110",
+   "a": "11"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 4 = 10",
+   "a": "40"
+  },
+  {
+   "q": "4 × <span class=\"bx\">□</span> = 32",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 12 = 8",
+   "a": "96"
+  },
+  {
+   "q": "22 − <span class=\"bx\">□</span> = 3",
+   "a": "19"
+  },
+  {
+   "q": "4 × <span class=\"bx\">□</span> = 12",
+   "a": "3"
+  },
+  {
+   "q": "6 × <span class=\"bx\">□</span> = 18",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 4 = 11",
+   "a": "44"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 2 = 23",
+   "a": "21"
+  },
+  {
+   "q": "11 × <span class=\"bx\">□</span> = 66",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 11 = 11",
+   "a": "121"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 12 = 24",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 9 = 9",
+   "a": "81"
+  },
+  {
+   "q": "25 − <span class=\"bx\">□</span> = 12",
+   "a": "13"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 10 = 24",
+   "a": "14"
+  }
+ ]
+}

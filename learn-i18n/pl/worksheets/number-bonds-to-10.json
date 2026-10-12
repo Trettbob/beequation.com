@@ -1,0 +1,113 @@
+{
+ "id": "number-bonds-to-10",
+ "title": "Rozkład liczby 10",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "zerowka",
+  "klasa-1"
+ ],
+ "desc": "Pary liczb, które razem dają 10",
+ "how": "Wpisz brakującą liczbę, żeby razem było 10.",
+ "tip": "Pomóż sobie palcami! Pokaż 7 palców. Ile palców jest jeszcze schowanych? Tyle brakuje do 10.",
+ "yearsLabel": "Zerówka i klasa 1",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">3</b> + <span class=\"bx\">□</span> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">10</b> = 10",
+   "a": "0"
+  },
+  {
+   "q": "<b class=\"n\">6</b> + <span class=\"bx\">□</span> = 10",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">2</b> = 10",
+   "a": "8"
+  },
+  {
+   "q": "<b class=\"n\">9</b> + <span class=\"bx\">□</span> = 10",
+   "a": "1"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">5</b> = 10",
+   "a": "5"
+  },
+  {
+   "q": "<b class=\"n\">1</b> + <span class=\"bx\">□</span> = 10",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">8</b> = 10",
+   "a": "2"
+  },
+  {
+   "q": "<b class=\"n\">4</b> + <span class=\"bx\">□</span> = 10",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">0</b> = 10",
+   "a": "10"
+  },
+  {
+   "q": "<b class=\"n\">7</b> + <span class=\"bx\">□</span> = 10",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">3</b> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<b class=\"n\">10</b> + <span class=\"bx\">□</span> = 10",
+   "a": "0"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">6</b> = 10",
+   "a": "4"
+  },
+  {
+   "q": "<b class=\"n\">2</b> + <span class=\"bx\">□</span> = 10",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">9</b> = 10",
+   "a": "1"
+  },
+  {
+   "q": "<b class=\"n\">5</b> + <span class=\"bx\">□</span> = 10",
+   "a": "5"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">1</b> = 10",
+   "a": "9"
+  },
+  {
+   "q": "<b class=\"n\">8</b> + <span class=\"bx\">□</span> = 10",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">4</b> = 10",
+   "a": "6"
+  },
+  {
+   "q": "<b class=\"n\">0</b> + <span class=\"bx\">□</span> = 10",
+   "a": "10"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">7</b> = 10",
+   "a": "3"
+  },
+  {
+   "q": "<b class=\"n\">3</b> + <span class=\"bx\">□</span> = 10",
+   "a": "7"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">10</b> = 10",
+   "a": "0"
+  }
+ ]
+}

@@ -1,0 +1,113 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "ある数の何分の何",
+ "topic": "fractions",
+ "years": [
+  "5-nensei",
+  "6-nensei"
+ ],
+ "desc": "20の¾のように、ある数の½や¾にあたる大きさを求める",
+ "how": "計算しましょう。",
+ "tip": "まず分母の数でわって、それから分子の数をかけるよ。20の¾なら、20 ÷ 4 = 5、5 × 3 = 15。",
+ "yearsLabel": "小学5・6年生",
+ "htmlLang": "ja",
+ "kind": "list",
+ "items": [
+  {
+   "q": "35の<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "6の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "24の<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "12の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "18の<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "6の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "30の<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "20の<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "32の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "15の<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "10の<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "16の<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "90の<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "4の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "20の<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "40の<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "80の<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "40の<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "36の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "20の<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "8の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "25の<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "18の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "15の<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

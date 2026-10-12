@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Procenten berekenen",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "groep-7",
+  "groep-8"
+ ],
+ "desc": "10%, 25%, 50% en meer",
+ "how": "Reken elke som uit.",
+ "tip": "10% vind je door te delen door 10. Daarmee bouw je verder: 30% is drie keer 10%, en 5% is de helft van 10%. En 25% is een kwart.",
+ "yearsLabel": "Groep 7 en 8",
+ "htmlLang": "nl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50% van 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5% van 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25% van 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40% van 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10% van 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10% van 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25% van 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5% van 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5% van 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30% van 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30% van 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20% van 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50% van 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75% van 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5% van 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75% van 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40% van 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25% van 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75% van 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10% van 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

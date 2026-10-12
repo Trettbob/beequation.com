@@ -1,0 +1,137 @@
+{
+ "id": "times-tables-2-5-10",
+ "title": "곱셈구구 2단, 5단과 10의 곱",
+ "topic": "multiplication-and-division",
+ "years": [
+  "chodeung-2",
+  "chodeung-3"
+ ],
+ "desc": "곱셈구구 섞어 풀기, 도전 문제 포함",
+ "how": "곱셈을 해 보세요. 곱셈구구는 9까지 곱하니까 × 10, × 11, × 12가 나오는 문제는 도전 문제예요. 10씩 뛰어 세기를 떠올려 보세요.",
+ "tip": "10을 곱한 값은 끝자리가 모두 0이고, 5단의 곱은 끝자리가 0 아니면 5예요. 5 × 12는 5 × 10 = 50에 5 × 2 = 10을 더해서 60이에요.",
+ "yearsLabel": "초등 2~3학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "5 × 4 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 × 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "5 × 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "7 × 5 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "5 × 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "10 × 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "5 × 9 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "10 × 2 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 × 1 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "2 × 4 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 × 8 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "2 × 5 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "7 × 2 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "2 × 10 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 × 9 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 × 10 = <span class=\"bx\">□</span>",
+   "a": "100"
+  },
+  {
+   "q": "5 × 5 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "2 × 2 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "5 × 6 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 × 12 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "10 × 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "9 × 10 = <span class=\"bx\">□</span>",
+   "a": "90"
+  },
+  {
+   "q": "7 × 10 = <span class=\"bx\">□</span>",
+   "a": "70"
+  },
+  {
+   "q": "10 × 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "6 × 10 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "9 × 5 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "12 × 5 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "4 × 10 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "5 × 7 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "1 × 5 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

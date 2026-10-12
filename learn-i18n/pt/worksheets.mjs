@@ -45,6 +45,19 @@ const BRONZE = '#C9A13B';   // 10 and 25 centavos, and the ring of R$ 1 (bronze-
 const STEEL = '#C0C3C7';    // 50 centavos, and the centre of R$ 1 (stainless steel)
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Relógio: o ponteiro grande aponta para o ${minute} e o ponteiro pequeno aponta para o ${hour}`
+      : `Relógio: o ponteiro grande aponta para o ${minute} e o ponteiro pequeno está entre o ${hour} e o ${next}`;
+  },
+  shapeAlt: n => `Figura ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} com ${shaded} de ${total} partes iguais pintadas`,
+  fractionKinds: {"bar": "Barra", "circle": "Círculo", "grid": "Grade"},
+  coinAlt: value => `Moeda de ${value}`,
+  rectangleAlt: (w, h) => `Retângulo em uma malha de ${w} colunas e ${h} linhas de quadrados de 1 cm de lado`,
+  chartAlt: "Gráfico de barras dos votos na fruta preferida; os valores estão na tabela abaixo",
+  chartFruit: "Fruta", chartVotes: "Votos",
   htmlLang: 'pt-BR',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

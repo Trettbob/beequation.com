@@ -1,0 +1,65 @@
+{
+ "id": "missing-numbers-to-100",
+ "title": "Brakujące liczby do 100",
+ "topic": "counting-and-place-value",
+ "years": [
+  "klasa-1",
+  "klasa-2"
+ ],
+ "desc": "Liczenie co 1, co 2, co 5 i co 10",
+ "how": "Wpisz brakujące liczby w każdym rzędzie.",
+ "tip": "Mów liczby na głos, kiedy liczysz. Twoje uszy szybko wychwycą skok, który nie pasuje!",
+ "yearsLabel": "Klasy 1 i 2",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">20</b><span class=\"sep\">,</span><b class=\"n\">25</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">40</b><span class=\"sep\">,</span><b class=\"n\">45</b><span class=\"sep\">,</span><span class=\"bx\">□</span>",
+   "a": "30, 35, 50"
+  },
+  {
+   "q": "<b class=\"n\">80</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">84</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">88</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">92</b>",
+   "a": "82, 86, 90"
+  },
+  {
+   "q": "<b class=\"n\">66</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">70</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">74</b><span class=\"sep\">,</span><b class=\"n\">76</b><span class=\"sep\">,</span><span class=\"bx\">□</span>",
+   "a": "68, 72, 78"
+  },
+  {
+   "q": "<b class=\"n\">65</b><span class=\"sep\">,</span><b class=\"n\">66</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">69</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">71</b>",
+   "a": "67, 68, 70"
+  },
+  {
+   "q": "<b class=\"n\">12</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">16</b><span class=\"sep\">,</span><b class=\"n\">18</b><span class=\"sep\">,</span><b class=\"n\">20</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span>",
+   "a": "14, 22, 24"
+  },
+  {
+   "q": "<b class=\"n\">10</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">40</b><span class=\"sep\">,</span><b class=\"n\">50</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">70</b>",
+   "a": "20, 30, 60"
+  },
+  {
+   "q": "<b class=\"n\">70</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">80</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">90</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">100</b>",
+   "a": "75, 85, 95"
+  },
+  {
+   "q": "<b class=\"n\">30</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">50</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">70</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">90</b>",
+   "a": "40, 60, 80"
+  },
+  {
+   "q": "<b class=\"n\">39</b><span class=\"sep\">,</span><b class=\"n\">40</b><span class=\"sep\">,</span><b class=\"n\">41</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">45</b>",
+   "a": "42, 43, 44"
+  },
+  {
+   "q": "<b class=\"n\">10</b><span class=\"sep\">,</span><b class=\"n\">15</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">25</b><span class=\"sep\">,</span><b class=\"n\">30</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span>",
+   "a": "20, 35, 40"
+  },
+  {
+   "q": "<b class=\"n\">14</b><span class=\"sep\">,</span><b class=\"n\">15</b><span class=\"sep\">,</span><b class=\"n\">16</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">19</b><span class=\"sep\">,</span><span class=\"bx\">□</span>",
+   "a": "17, 18, 20"
+  },
+  {
+   "q": "<b class=\"n\">30</b><span class=\"sep\">,</span><b class=\"n\">31</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">34</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">36</b>",
+   "a": "32, 33, 35"
+  }
+ ]
+}

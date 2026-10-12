@@ -56,7 +56,15 @@
     "reviewed_by": "Tarkistanut: {name}",
     "published_on": "Julkaistu {date}",
     "reviewed_on": "Tarkistettu {date}",
-    "report_error": "Ilmoita virheestä"
+    "report_error": "Ilmoita virheestä",
+    "standard_pdf": "Tavallinen PDF",
+    "large_print": "Iso teksti",
+    "easy_read": "Lukuystävällinen",
+    "show_answers": "Näytä vastaukset",
+    "worksheet_questions": "Tehtävät",
+    "worksheet_downloads": "Lataukset",
+    "pdf_size_pending": "PDF; koko saatavilla luomisen jälkeen",
+    "pdf_kb": "{size} kt"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Luvut ja kymmenjärjestelmä", "glyph": "123", "colour": "lemon" },

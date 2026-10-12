@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Hur mycket får du tillbaka?",
+ "topic": "money",
+ "years": [
+  "arskurs-2",
+  "arskurs-3"
+ ],
+ "desc": "Betala med 20 kr, 50 kr och 100 kr",
+ "how": "Räkna ut hur mycket du får tillbaka vid varje köp.",
+ "tip": "Räkna uppåt från priset till det du betalade med. Från 35 kr till 50 kr: 5 kr till 40 kr och 10 kr till 50 kr. Du får tillbaka 15 kr.",
+ "yearsLabel": "Årskurs 2 och 3",
+ "htmlLang": "sv",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Du köper en glass för 54 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "46 kr"
+  },
+  {
+   "q": "Du köper en glass för 37 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "63 kr"
+  },
+  {
+   "q": "Du köper ett pussel för 30 kr och betalar med 50 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "20 kr"
+  },
+  {
+   "q": "Du köper plockgodis för 99 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "1 kr"
+  },
+  {
+   "q": "Du köper en leksaksbil för 85 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "15 kr"
+  },
+  {
+   "q": "Du köper klistermärken för 90 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "10 kr"
+  },
+  {
+   "q": "Du köper en bok på loppis för 38 kr och betalar med 50 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "12 kr"
+  },
+  {
+   "q": "Du köper ett pussel för 51 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "49 kr"
+  },
+  {
+   "q": "Du köper plockgodis för 7 kr och betalar med 20 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "13 kr"
+  },
+  {
+   "q": "Du köper en glass för 15 kr och betalar med 50 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "35 kr"
+  },
+  {
+   "q": "Du köper en bok på loppis för 41 kr och betalar med 50 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "9 kr"
+  },
+  {
+   "q": "Du köper frukt för 19 kr och betalar med 20 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "1 kr"
+  },
+  {
+   "q": "Du köper en serietidning för 22 kr och betalar med 50 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "28 kr"
+  },
+  {
+   "q": "Du köper plockgodis för 18 kr och betalar med 20 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "2 kr"
+  },
+  {
+   "q": "Du köper en serietidning för 16 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "84 kr"
+  },
+  {
+   "q": "Du köper klistermärken för 68 kr och betalar med 100 kr. Du får tillbaka: <span class=\"bx\">□</span>",
+   "a": "32 kr"
+  }
+ ]
+}

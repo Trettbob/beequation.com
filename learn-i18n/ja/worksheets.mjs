@@ -31,6 +31,19 @@ const RING500 = '#D9B95A';    // 500円 (2021–): nickel-brass ring
 const CENTRE500 = '#D7CFAE';  //               paler centre
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `時計：長いはりは${minute}をさし、短いはりは${hour}をさしています`
+      : `時計：長いはりは${minute}をさし、短いはりは${hour}と${next}の間にあります`;
+  },
+  shapeAlt: n => `図形 ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}を同じ大きさの${total}こに分け、そのうち${shaded}こに色をぬった図`,
+  fractionKinds: {"bar": "帯", "circle": "円", "grid": "ます目の図"},
+  coinAlt: value => `${value}の硬貨`,
+  rectangleAlt: (w, h) => `1辺が1cmの正方形が横に${w}こ、たてに${h}こならんだ長方形`,
+  chartAlt: "すきなくだものの票数を表す棒グラフ。数は下の表にあります",
+  chartFruit: "くだもの", chartVotes: "票数",
   htmlLang: 'ja',
   num,
   // decimals: a point; a final 0 is not written (0.80 → 0.8), as Japanese textbooks teach

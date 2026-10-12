@@ -56,7 +56,15 @@
     "reviewed_by": "검토: {name}",
     "published_on": "게시일: {date}",
     "reviewed_on": "검토일: {date}",
-    "report_error": "오류 신고"
+    "report_error": "오류 신고",
+    "standard_pdf": "기본 PDF",
+    "large_print": "큰 글씨",
+    "easy_read": "읽기 편한 버전",
+    "show_answers": "정답 보기",
+    "worksheet_questions": "문제",
+    "worksheet_downloads": "다운로드",
+    "pdf_size_pending": "PDF·생성 후 파일 크기 표시",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "수 세기와 자릿값", "glyph": "123", "colour": "lemon" },

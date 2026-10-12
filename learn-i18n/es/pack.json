@@ -6,4 +6,8 @@
  "inClass": "Ideas para el aula",
  "tips": ["Proyecta un panal como calentamiento de dos minutos y pregunta cómo lo han encontrado.", "Plantea una ficha como reto cronometrado y, la semana siguiente, que cada alumno intente mejorar su propio tiempo.", "Pide a cada alumno que invente su propio panal para que lo resuelva un compañero."],
  "promo": "<b>Más retos con Indie, la abeja.</b> Juega gratis en es.beequation.com o busca Beequation Kids en tu móvil o tableta: sin anuncios, sin rastreo y sin cronómetro.",
- "footer": "Puedes fotocopiarlo libremente para el aula y para casa. Juega en línea en <b>es.beequation.com</b>"}
+ "footer": "Puedes fotocopiarlo libremente para el aula y para casa. Juega en línea en <b>es.beequation.com</b>",
+  "hexAlt": "Panal con los números {list}",
+  "listSep": ", ",
+  "partOf": "Parte {n} de {total}"
+}

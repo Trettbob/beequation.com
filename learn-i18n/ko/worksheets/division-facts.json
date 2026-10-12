@@ -1,0 +1,137 @@
+{
+ "id": "division-facts",
+ "title": "곱셈구구로 나눗셈하기",
+ "topic": "multiplication-and-division",
+ "years": [
+  "chodeung-3",
+  "chodeung-4"
+ ],
+ "desc": "나눗셈의 몫 구하기, 도전 문제 포함",
+ "how": "나눗셈의 몫을 구하세요. 88 ÷ 11처럼 곱셈구구를 넘는 문제는 도전 문제예요.",
+ "tip": "나눗셈은 곱셈을 거꾸로 생각하면 돼요. 42 ÷ 6은 “6에 어떤 수를 곱해야 42가 될까?” 하고 생각해요.",
+ "yearsLabel": "초등 3~4학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "144 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "42 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "48 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "36 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "110 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "88 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "44 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "84 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "70 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "20 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "77 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "88 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "66 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "64 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "66 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "12 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "63 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "108 ÷ 9 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "110 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "9 ÷ 3 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "70 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "72 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "24 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "60 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "48 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "16 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "28 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "30 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "14 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "10 ÷ 2 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

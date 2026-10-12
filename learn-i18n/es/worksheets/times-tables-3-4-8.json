@@ -1,0 +1,137 @@
+{
+ "id": "times-tables-3-4-8",
+ "title": "Tablas del 3, del 4 y del 8",
+ "topic": "multiplication-and-division",
+ "years": [
+  "2-primaria",
+  "3-primaria"
+ ],
+ "desc": "Multiplicaciones salteadas",
+ "how": "Calcula cada multiplicación. ¿Te sale un 11 o un 12? Es un reto extra: 4 × 11 es 4 × 10 y un 4 más.",
+ "tip": "La tabla del 8 es el doble de la del 4. Si 4 × 6 = 24, entonces 8 × 6 = 48.",
+ "yearsLabel": "2.º y 3.º de Primaria",
+ "htmlLang": "es",
+ "kind": "list",
+ "items": [
+  {
+   "q": "8 × 5 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "6 × 4 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "11 × 4 = <span class=\"bx\">□</span>",
+   "a": "44"
+  },
+  {
+   "q": "4 × 11 = <span class=\"bx\">□</span>",
+   "a": "44"
+  },
+  {
+   "q": "4 × 5 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 × 10 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 × 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "4 × 4 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "3 × 8 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "3 × 7 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "6 × 3 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "3 × 3 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "8 × 11 = <span class=\"bx\">□</span>",
+   "a": "88"
+  },
+  {
+   "q": "9 × 4 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "1 × 3 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "4 × 8 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "4 × 12 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "8 × 12 = <span class=\"bx\">□</span>",
+   "a": "96"
+  },
+  {
+   "q": "5 × 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "8 × 10 = <span class=\"bx\">□</span>",
+   "a": "80"
+  },
+  {
+   "q": "3 × 6 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "1 × 4 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "10 × 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "4 × 2 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "8 × 8 = <span class=\"bx\">□</span>",
+   "a": "64"
+  },
+  {
+   "q": "7 × 8 = <span class=\"bx\">□</span>",
+   "a": "56"
+  },
+  {
+   "q": "4 × 8 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "1 × 8 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 × 3 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "3 × 1 = <span class=\"bx\">□</span>",
+   "a": "3"
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+ "id": "times-tables-2-5-10",
+ "title": "2:ans, 5:ans och 10:ans tabell",
+ "topic": "multiplication-and-division",
+ "years": [
+  "arskurs-2",
+  "arskurs-3"
+ ],
+ "desc": "Blandade uppgifter, med extrautmaningar upp till 12",
+ "how": "Räkna ut varje uppgift. Uppgifter med 11 eller 12 är extrautmaningar: 5 · 11 är 5 · 10 och en femma till.",
+ "tip": "I 10:ans tabell slutar alla svar på 0, och i 5:ans tabell slutar de på 0 eller 5.",
+ "yearsLabel": "Årskurs 2 och 3",
+ "htmlLang": "sv",
+ "kind": "list",
+ "items": [
+  {
+   "q": "5 · 4 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 · 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "5 · 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "7 · 5 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "5 · 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "10 · 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "5 · 9 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "10 · 2 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 · 1 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "2 · 4 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 · 8 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "2 · 5 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "7 · 2 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "2 · 10 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 · 9 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 · 10 = <span class=\"bx\">□</span>",
+   "a": "100"
+  },
+  {
+   "q": "5 · 5 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "2 · 2 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "5 · 6 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 · 12 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "10 · 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "9 · 10 = <span class=\"bx\">□</span>",
+   "a": "90"
+  },
+  {
+   "q": "7 · 10 = <span class=\"bx\">□</span>",
+   "a": "70"
+  },
+  {
+   "q": "10 · 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "6 · 10 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "9 · 5 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "12 · 5 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "4 · 10 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "5 · 7 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "1 · 5 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

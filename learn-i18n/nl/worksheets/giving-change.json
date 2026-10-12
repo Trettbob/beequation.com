@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Wisselgeld",
+ "topic": "money",
+ "years": [
+  "groep-5",
+  "groep-6"
+ ],
+ "desc": "Terugkrijgen van € 1, € 2 en € 5",
+ "how": "Hoeveel geld krijg je terug bij elke aankoop?",
+ "tip": "Tel aan vanaf de prijs tot het bedrag dat je betaalt. Van 65 cent tot € 1: 5 cent erbij is 70 cent, 30 cent erbij is € 1. Je krijgt 35 cent terug.",
+ "yearsLabel": "Groep 5 en 6",
+ "htmlLang": "nl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Je koopt een zakje drop voor € 2,70 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 2,30"
+  },
+  {
+   "q": "Je koopt een zakje drop voor € 1,85 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 3,15"
+  },
+  {
+   "q": "Je koopt een schrift voor € 1,20 en betaalt met € 2. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "80 cent"
+  },
+  {
+   "q": "Je koopt stickers voor € 4,95 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "5 cent"
+  },
+  {
+   "q": "Je koopt een stuiterbal voor € 4,25 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "75 cent"
+  },
+  {
+   "q": "Je koopt een ijsje voor € 4,50 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "50 cent"
+  },
+  {
+   "q": "Je koopt een gum voor € 1,50 en betaalt met € 2. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "50 cent"
+  },
+  {
+   "q": "Je koopt een schrift voor € 2,55 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 2,45"
+  },
+  {
+   "q": "Je koopt stickers voor 35 cent en betaalt met € 1. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "65 cent"
+  },
+  {
+   "q": "Je koopt een zakje drop voor 60 cent en betaalt met € 2. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 1,40"
+  },
+  {
+   "q": "Je koopt een gum voor € 1,65 en betaalt met € 2. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "35 cent"
+  },
+  {
+   "q": "Je koopt stroopwafels voor 95 cent en betaalt met € 1. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "5 cent"
+  },
+  {
+   "q": "Je koopt een potlood voor 90 cent en betaalt met € 2. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 1,10"
+  },
+  {
+   "q": "Je koopt stickers voor 90 cent en betaalt met € 1. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "10 cent"
+  },
+  {
+   "q": "Je koopt een potlood voor 80 cent en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 4,20"
+  },
+  {
+   "q": "Je koopt een ijsje voor € 3,40 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
+   "a": "€ 1,60"
+  }
+ ]
+}

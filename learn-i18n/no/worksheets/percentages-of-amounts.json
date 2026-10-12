@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Prosent av et tall",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "6-trinn",
+  "7-trinn"
+ ],
+ "desc": "10 %, 25 %, 50 % og flere",
+ "how": "Regn ut hvert stykke.",
+ "tip": "10 % finner du ved å dele på 10. Så bygger du videre: 30 % er tre ganger 10 %, og 5 % er halvparten av 10 %.",
+ "yearsLabel": "6. og 7. trinn",
+ "htmlLang": "nb",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50 % av 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5 % av 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25 % av 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40 % av 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10 % av 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 % av 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25 % av 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5 % av 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5 % av 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30 % av 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30 % av 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20 % av 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50 % av 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75 % av 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5 % av 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75 % av 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40 % av 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25 % av 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75 % av 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10 % av 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

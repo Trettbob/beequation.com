@@ -1,0 +1,65 @@
+{
+ "id": "column-addition",
+ "title": "Conta armada de adição",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "2-ano",
+  "3-ano"
+ ],
+ "desc": "Números de três algarismos, com “vai um”",
+ "how": "Resolva cada conta armada. Comece pelas unidades!",
+ "tip": "Se uma coluna der 10 ou mais, escreva só as unidades e “vai um” para a coluna seguinte. Anote o 1 bem pequenininho em cima dela para não esquecer.",
+ "yearsLabel": "2º e 3º anos",
+ "htmlLang": "pt-BR",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">373 + 271 = □</span><table class=\"col\"><tr><td></td><td>3</td><td>7</td><td>3</td></tr><tr><td>+</td><td>2</td><td>7</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "644"
+  },
+  {
+   "q": "<span class=\"column-expression\">259 + 218 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>5</td><td>9</td></tr><tr><td>+</td><td>2</td><td>1</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "477"
+  },
+  {
+   "q": "<span class=\"column-expression\">128 + 200 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>2</td><td>8</td></tr><tr><td>+</td><td>2</td><td>0</td><td>0</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "328"
+  },
+  {
+   "q": "<span class=\"column-expression\">672 + 239 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>7</td><td>2</td></tr><tr><td>+</td><td>2</td><td>3</td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "911"
+  },
+  {
+   "q": "<span class=\"column-expression\">481 + 272 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>8</td><td>1</td></tr><tr><td>+</td><td>2</td><td>7</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "753"
+  },
+  {
+   "q": "<span class=\"column-expression\">163 + 268 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>6</td><td>3</td></tr><tr><td>+</td><td>2</td><td>6</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">466 + 274 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>6</td><td>6</td></tr><tr><td>+</td><td>2</td><td>7</td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "740"
+  },
+  {
+   "q": "<span class=\"column-expression\">465 + 132 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>6</td><td>5</td></tr><tr><td>+</td><td>1</td><td>3</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "597"
+  },
+  {
+   "q": "<span class=\"column-expression\">212 + 227 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>1</td><td>2</td></tr><tr><td>+</td><td>2</td><td>2</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "439"
+  },
+  {
+   "q": "<span class=\"column-expression\">126 + 157 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>2</td><td>6</td></tr><tr><td>+</td><td>1</td><td>5</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "283"
+  },
+  {
+   "q": "<span class=\"column-expression\">608 + 121 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>0</td><td>8</td></tr><tr><td>+</td><td>1</td><td>2</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "729"
+  },
+  {
+   "q": "<span class=\"column-expression\">551 + 152 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>5</td><td>1</td></tr><tr><td>+</td><td>1</td><td>5</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "703"
+  }
+ ]
+}

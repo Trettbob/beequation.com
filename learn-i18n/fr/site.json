@@ -59,8 +59,16 @@
   "reviewed_by": "Relu par {name}",
   "published_on": "Publié le {date}",
   "reviewed_on": "Relu le {date}",
-  "report_error": "Signaler une erreur"
- },
+  "report_error": "Signaler une erreur",
+  "standard_pdf": "PDF standard",
+  "large_print": "Gros caractères",
+  "easy_read": "Lecture facilitée",
+  "show_answers": "Afficher les réponses",
+  "worksheet_questions": "Questions",
+  "worksheet_downloads": "Téléchargements",
+  "pdf_size_pending": "PDF ; taille disponible après génération",
+  "pdf_kb": "{size} Ko"
+},
  "topics": [
   {
    "slug": "counting-and-place-value",

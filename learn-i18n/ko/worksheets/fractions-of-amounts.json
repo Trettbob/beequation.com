@@ -1,0 +1,113 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "분수만큼은 얼마일까요",
+ "topic": "fractions",
+ "years": [
+  "chodeung-3",
+  "chodeung-4"
+ ],
+ "desc": "12의 ½, 20의 ¾ 같은 문제",
+ "how": "계산해 보세요.",
+ "tip": "분모로 나누고, 분자만큼 곱해요. 20의 4분의 3은 20 ÷ 4 = 5, 5 × 3 = 15예요.",
+ "yearsLabel": "초등 3~4학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "35의 <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "6의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "24의 <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "12의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "18의 <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "6의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "30의 <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "20의 <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "32의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "15의 <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "10의 <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "16의 <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "90의 <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "4의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "20의 <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "40의 <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "80의 <span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "40의 <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "36의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "20의 <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "8의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "25의 <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "18의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "15의 <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "百分率（%）の計算",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "5-nensei",
+  "6-nensei"
+ ],
+ "desc": "10%、25%、50%などにあたる大きさを求める",
+ "how": "計算しましょう。",
+ "tip": "10%は、10でわると求められるよ。30%は10%の3つ分、5%は10%の半分だね。",
+ "yearsLabel": "小学5・6年生",
+ "htmlLang": "ja",
+ "kind": "list",
+ "items": [
+  {
+   "q": "290の50% = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "260の5% = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "48の25% = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "130の40% = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "180の10% = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "250の10% = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "12の25% = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "40の5% = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "180の5% = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "240の30% = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "250の30% = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "240の20% = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "120の50% = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "100の75% = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20の5% = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "48の75% = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "230の40% = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "40の25% = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "52の75% = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "300の10% = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

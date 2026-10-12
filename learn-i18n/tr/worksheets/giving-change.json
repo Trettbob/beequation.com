@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Para üstü",
+ "topic": "money",
+ "years": [
+  "2-sinif",
+  "3-sinif"
+ ],
+ "desc": "20 TL, 50 TL ve 100 TL ile ödeme",
+ "how": "Her alışverişte ne kadar para üstü alırsın? Hesapla.",
+ "tip": "Fiyattan ödediğin paraya kadar ileri say. 37 TL’den 50 TL’ye: 3 TL eklersen 40 TL olur, 10 TL daha eklersen 50 TL. Para üstü 13 TL.",
+ "yearsLabel": "2. ve 3. sınıf",
+ "htmlLang": "tr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Fiyatı 54 TL olan bir top alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "46 TL"
+  },
+  {
+   "q": "Fiyatı 37 TL olan bir top alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "63 TL"
+  },
+  {
+   "q": "Fiyatı 30 TL olan bir paket çıkartma alıyorsun ve 50 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "20 TL"
+  },
+  {
+   "q": "Fiyatı 99 TL olan bir kitap alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "1 TL"
+  },
+  {
+   "q": "Fiyatı 85 TL olan bir kutu boya kalemi alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "15 TL"
+  },
+  {
+   "q": "Fiyatı 90 TL olan bir oyuncak araba alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "10 TL"
+  },
+  {
+   "q": "Fiyatı 38 TL olan bir kalem kutusu alıyorsun ve 50 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "12 TL"
+  },
+  {
+   "q": "Fiyatı 51 TL olan bir paket çıkartma alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "49 TL"
+  },
+  {
+   "q": "Fiyatı 7 TL olan bir kitap alıyorsun ve 20 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "13 TL"
+  },
+  {
+   "q": "Fiyatı 15 TL olan bir top alıyorsun ve 50 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "35 TL"
+  },
+  {
+   "q": "Fiyatı 41 TL olan bir kalem kutusu alıyorsun ve 50 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "9 TL"
+  },
+  {
+   "q": "Fiyatı 19 TL olan bir yapboz alıyorsun ve 20 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "1 TL"
+  },
+  {
+   "q": "Fiyatı 22 TL olan bir defter alıyorsun ve 50 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "28 TL"
+  },
+  {
+   "q": "Fiyatı 18 TL olan bir kitap alıyorsun ve 20 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "2 TL"
+  },
+  {
+   "q": "Fiyatı 16 TL olan bir defter alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "84 TL"
+  },
+  {
+   "q": "Fiyatı 68 TL olan bir oyuncak araba alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
+   "a": "32 TL"
+  }
+ ]
+}

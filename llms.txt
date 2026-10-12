@@ -43,7 +43,36 @@ Free primary maths guides and worksheets for parents and teachers (Reception to 
 - [Multiplication and division](https://beequation.com/learn/topics/multiplication-and-division.html): How children learn multiplication and division, Reception to Year 6: arrays, times tables, the Year 4 check, long multiplication, with free worksheets.
 - [Shape and geometry](https://beequation.com/learn/topics/shape-and-geometry.html): How children learn shape and geometry, Reception to Year 6: 2D and 3D shapes, symmetry, angles, coordinates, reflection, with games and free worksheets.
 - [Telling the time](https://beequation.com/learn/topics/telling-the-time.html): How children learn to tell the time, Year 1 to Year 6: o'clock, quarter past and to, am and pm, the 24-hour clock and durations, with free worksheets.
+- [2D shapes](https://beequation.com/learn/worksheets/2d-shapes.html): Names, sides and vertices
+- [Adding and subtracting to 20](https://beequation.com/learn/worksheets/add-and-subtract-within-20.html): Mixed sums within 20
+- [Column addition](https://beequation.com/learn/worksheets/column-addition.html): Three-digit numbers, with exchanging
+- [Column subtraction](https://beequation.com/learn/worksheets/column-subtraction.html): Three-digit numbers, with exchanging
+- [Counting coins](https://beequation.com/learn/worksheets/counting-coins.html): Add up UK coins
+- [Division facts](https://beequation.com/learn/worksheets/division-facts.html): Using times tables to divide
+- [Equivalent fractions](https://beequation.com/learn/worksheets/equivalent-fractions.html): Find the missing number
+- [Fractions of amounts](https://beequation.com/learn/worksheets/fractions-of-amounts.html): Like ½ of 12 and ¾ of 20
+- [Giving change](https://beequation.com/learn/worksheets/giving-change.html): Change from £1, £2 and £5
+- [Hundreds, tens and ones](https://beequation.com/learn/worksheets/hundreds-tens-ones.html): Place value to 1,000
 - [Free maths worksheets](https://beequation.com/learn/worksheets/): Free printable primary maths worksheets with answers: number bonds, times tables, column methods, fractions, time, money and shapes, by topic and year.
+- [Missing number problems](https://beequation.com/learn/worksheets/missing-number-problems.html): Find the number in the box
+- [Missing numbers to 100](https://beequation.com/learn/worksheets/missing-numbers-to-100.html): Count in 1s, 2s, 5s and 10s
+- [Multiplication check practice](https://beequation.com/learn/worksheets/multiplication-check-practice.html): 25 questions up to 12 × 12
+- [Multiplication grid](https://beequation.com/learn/worksheets/multiplication-grid.html): Fill in the 12 × 12 grid
+- [Number bonds to 10](https://beequation.com/learn/worksheets/number-bonds-to-10.html): Pairs that make 10
+- [Number bonds to 20](https://beequation.com/learn/worksheets/number-bonds-to-20.html): Pairs that make 20
+- [Percentages of amounts](https://beequation.com/learn/worksheets/percentages-of-amounts.html): 10%, 25%, 50% and more
+- [Perimeter and area](https://beequation.com/learn/worksheets/perimeter-and-area.html): Rectangles on a centimetre grid
+- [Reading a bar chart](https://beequation.com/learn/worksheets/reading-bar-charts.html): Favourite fruit survey
+- [Rounding numbers](https://beequation.com/learn/worksheets/rounding.html): Round to the nearest 10, 100 and 1,000
+- [Short multiplication](https://beequation.com/learn/worksheets/short-multiplication.html): Three-digit by one-digit numbers
+- [Tens and ones](https://beequation.com/learn/worksheets/tens-and-ones.html): Partition two-digit numbers
+- [Tenths and hundredths](https://beequation.com/learn/worksheets/tenths-and-hundredths.html): Fractions as decimals
+- [O'clock and half past](https://beequation.com/learn/worksheets/time-oclock-and-half-past.html): Read the clocks
+- [Quarter past and quarter to](https://beequation.com/learn/worksheets/time-quarter-past-and-to.html): Read the clocks
+- [Time to 5 minutes](https://beequation.com/learn/worksheets/time-to-5-minutes.html): Read the clocks
+- [2, 5 and 10 times tables](https://beequation.com/learn/worksheets/times-tables-2-5-10.html): Mixed questions
+- [3, 4 and 8 times tables](https://beequation.com/learn/worksheets/times-tables-3-4-8.html): Mixed questions
+- [What fraction is shaded?](https://beequation.com/learn/worksheets/what-fraction-is-shaded.html): Halves, thirds, quarters and more
 - [Maths by year group](https://beequation.com/learn/years/): What children learn in primary maths each year, from Reception (age 4 to 5) to Year 6 (age 10 to 11), with US grades, key tests and free worksheets.
 - [Reception maths: what your child learns (age 4 to 5)](https://beequation.com/learn/years/reception.html): What children learn in Reception maths (age 4 to 5): EYFS Early Learning Goals, counting, subitising, number bonds to 10 and doubling, with ideas for home.
 - [Year 1 maths: what your child learns (age 5 to 6)](https://beequation.com/learn/years/year-1.html): What children learn in Year 1 maths (age 5 to 6): counting to 100, number bonds to 20, halves and quarters, coins, o'clock and shapes, with worksheets.

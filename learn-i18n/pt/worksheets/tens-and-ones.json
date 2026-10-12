@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Dezenas e unidades",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-ano",
+  "2-ano"
+ ],
+ "desc": "Decomponha números de dois algarismos",
+ "how": "Decomponha cada número em dezenas e unidades.",
+ "tip": "O algarismo da esquerda mostra quantas dezenas há. 47 tem 4 dezenas e 7 unidades: quatro barras e sete cubinhos do material dourado.",
+ "yearsLabel": "1º e 2º anos",
+ "htmlLang": "pt-BR",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "7 dezenas e 9 unidades"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "3 dezenas e 6 unidades"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "5 dezenas e 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "1 dezena e 9 unidades"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "9 dezenas e 0 unidades"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "9 dezenas e 5 unidades"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "2 dezenas e 3 unidades"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "6 dezenas e 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "6 dezenas e 4 unidades"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "3 dezenas e 3 unidades"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "1 dezena e 2 unidades"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "8 dezenas e 1 unidade"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "6 dezenas e 7 unidades"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "3 dezenas e 5 unidades"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "6 dezenas e 0 unidades"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "1 dezena e 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "1 dezena e 6 unidades"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "8 dezenas e 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "5 dezenas e 4 unidades"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> dezenas e <span class=\"bx\">□</span> unidades",
+   "a": "3 dezenas e 1 unidade"
+  }
+ ]
+}

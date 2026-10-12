@@ -1,0 +1,112 @@
+{
+ "id": "number-bonds-to-20",
+ "title": "20 만들기",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "chodeung-1"
+ ],
+ "desc": "더해서 20이 되는 두 수",
+ "how": "빈칸에 알맞은 수를 쓰세요. 모든 식에 20이 숨어 있어요!",
+ "tip": "3 + 7 = 10을 알면 13 + 7 = 20도 알 수 있어요. 10 만들기가 20 만들기를 도와줘요!",
+ "yearsLabel": "초등 1학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">3</b> + <span class=\"bx\">□</span> = 20",
+   "a": "17"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">11</b> = 20",
+   "a": "9"
+  },
+  {
+   "q": "20 − <b class=\"n\">19</b> = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">6</b> = 20",
+   "a": "14"
+  },
+  {
+   "q": "<b class=\"n\">14</b> + <span class=\"bx\">□</span> = 20",
+   "a": "6"
+  },
+  {
+   "q": "20 − <b class=\"n\">1</b> = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "<b class=\"n\">9</b> + <span class=\"bx\">□</span> = 20",
+   "a": "11"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">17</b> = 20",
+   "a": "3"
+  },
+  {
+   "q": "20 − <b class=\"n\">4</b> = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">12</b> = 20",
+   "a": "8"
+  },
+  {
+   "q": "<b class=\"n\">20</b> + <span class=\"bx\">□</span> = 20",
+   "a": "0"
+  },
+  {
+   "q": "20 − <b class=\"n\">7</b> = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "<b class=\"n\">15</b> + <span class=\"bx\">□</span> = 20",
+   "a": "5"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">2</b> = 20",
+   "a": "18"
+  },
+  {
+   "q": "20 − <b class=\"n\">10</b> = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">18</b> = 20",
+   "a": "2"
+  },
+  {
+   "q": "<b class=\"n\">5</b> + <span class=\"bx\">□</span> = 20",
+   "a": "15"
+  },
+  {
+   "q": "20 − <b class=\"n\">13</b> = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "<b class=\"n\">0</b> + <span class=\"bx\">□</span> = 20",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">8</b> = 20",
+   "a": "12"
+  },
+  {
+   "q": "20 − <b class=\"n\">16</b> = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + <b class=\"n\">3</b> = 20",
+   "a": "17"
+  },
+  {
+   "q": "<b class=\"n\">11</b> + <span class=\"bx\">□</span> = 20",
+   "a": "9"
+  },
+  {
+   "q": "20 − <b class=\"n\">19</b> = <span class=\"bx\">□</span>",
+   "a": "1"
+  }
+ ]
+}

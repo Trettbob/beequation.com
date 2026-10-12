@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Avrunding",
+ "topic": "counting-and-place-value",
+ "years": [
+  "4-trinn",
+  "5-trinn"
+ ],
+ "desc": "Rund av til nærmeste tier, hundrer og tusen",
+ "how": "Rund av hvert tall slik det står.",
+ "tip": "Se på sifferet rett til høyre for plassen du runder av til. Er det 0, 1, 2, 3 eller 4, runder du ned. Er det 5, 6, 7, 8 eller 9, runder du opp.",
+ "yearsLabel": "4. og 5. trinn",
+ "htmlLang": "nb",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7067</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "7070"
+  },
+  {
+   "q": "<b class=\"n\">1481</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "1000"
+  },
+  {
+   "q": "<b class=\"n\">3667</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "3670"
+  },
+  {
+   "q": "<b class=\"n\">3729</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "3730"
+  },
+  {
+   "q": "<b class=\"n\">4704</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "5000"
+  },
+  {
+   "q": "<b class=\"n\">5302</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "5300"
+  },
+  {
+   "q": "<b class=\"n\">1734</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "1700"
+  },
+  {
+   "q": "<b class=\"n\">8011</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "<b class=\"n\">4180</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "4180"
+  },
+  {
+   "q": "<b class=\"n\">2156</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "2000"
+  },
+  {
+   "q": "<b class=\"n\">5982</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "5980"
+  },
+  {
+   "q": "<b class=\"n\">9636</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "9600"
+  },
+  {
+   "q": "<b class=\"n\">8883</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "<b class=\"n\">3523</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "3520"
+  },
+  {
+   "q": "<b class=\"n\">2770</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "2800"
+  },
+  {
+   "q": "<b class=\"n\">4431</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "4430"
+  },
+  {
+   "q": "<b class=\"n\">5548</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "5500"
+  },
+  {
+   "q": "<b class=\"n\">9455</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "<b class=\"n\">2963</b> til nærmeste hundrer → <span class=\"bx\">□</span>",
+   "a": "3000"
+  },
+  {
+   "q": "<b class=\"n\">4896</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "4900"
+  },
+  {
+   "q": "<b class=\"n\">3930</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "4000"
+  },
+  {
+   "q": "<b class=\"n\">7873</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "<b class=\"n\">6257</b> til nærmeste tier → <span class=\"bx\">□</span>",
+   "a": "6260"
+  },
+  {
+   "q": "<b class=\"n\">1530</b> til nærmeste tusen → <span class=\"bx\">□</span>",
+   "a": "2000"
+  }
+ ]
+}

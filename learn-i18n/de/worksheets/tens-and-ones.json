@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "Zehner und Einer",
+ "topic": "counting-and-place-value",
+ "years": [
+  "klasse-2"
+ ],
+ "desc": "Zweistellige Zahlen zerlegen",
+ "how": "Zerlege jede Zahl in Zehner und Einer.",
+ "tip": "Bei 47 steht die 4 vorne: Das sind 4 Zehner. Die 7 hinten sind 7 Einer. Pass auf: Wir sagen zuerst die Einer („sieben-und-vierzig“), schreiben aber zuerst die Zehner.",
+ "yearsLabel": "2. Klasse",
+ "htmlLang": "de",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "7 Zehner und 9 Einer"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "3 Zehner und 6 Einer"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "5 Zehner und 8 Einer"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "1 Zehner und 9 Einer"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "9 Zehner und 0 Einer"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "9 Zehner und 5 Einer"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "2 Zehner und 3 Einer"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "6 Zehner und 8 Einer"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "6 Zehner und 4 Einer"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "3 Zehner und 3 Einer"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "1 Zehner und 2 Einer"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "8 Zehner und 1 Einer"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "6 Zehner und 7 Einer"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "3 Zehner und 5 Einer"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "6 Zehner und 0 Einer"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "1 Zehner und 8 Einer"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "1 Zehner und 6 Einer"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "8 Zehner und 8 Einer"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "5 Zehner und 4 Einer"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> Zehner und <span class=\"bx\">□</span> Einer",
+   "a": "3 Zehner und 1 Einer"
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Wydawanie reszty",
+ "topic": "money",
+ "years": [
+  "klasa-3",
+  "klasa-4"
+ ],
+ "desc": "Reszta z 1 zł, 2 zł, 5 zł i 10 zł",
+ "how": "Oblicz, ile reszty dostaniesz przy każdych zakupach.",
+ "tip": "Licz w górę od ceny do kwoty, którą płacisz. Od 65 gr do 1 zł: 5 gr to 70 gr, a jeszcze 30 gr to 1 zł. Reszta: 35 gr.",
+ "yearsLabel": "Klasy 3 i 4",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Kupujesz bułki za 5,35 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "4,65 zł"
+  },
+  {
+   "q": "Kupujesz bułki za 3,65 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "6,35 zł"
+  },
+  {
+   "q": "Kupujesz naklejki za 3,05 zł i płacisz 5 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "1,95 zł"
+  },
+  {
+   "q": "Kupujesz mandarynki za 9,90 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "10 gr"
+  },
+  {
+   "q": "Kupujesz jabłka za 8,50 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "1,50 zł"
+  },
+  {
+   "q": "Kupujesz cukierki za 9 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "1 zł"
+  },
+  {
+   "q": "Kupujesz drożdżówki za 1,50 zł i płacisz 2 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "50 gr"
+  },
+  {
+   "q": "Kupujesz naklejki za 5,10 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "4,90 zł"
+  },
+  {
+   "q": "Kupujesz mandarynki za 35 gr i płacisz 1 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "65 gr"
+  },
+  {
+   "q": "Kupujesz bułki za 60 gr i płacisz 2 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "1,40 zł"
+  },
+  {
+   "q": "Kupujesz drożdżówki za 4,15 zł i płacisz 5 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "85 gr"
+  },
+  {
+   "q": "Kupujesz lizaki za 95 gr i płacisz 1 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "5 gr"
+  },
+  {
+   "q": "Kupujesz ołówek za 2,15 zł i płacisz 5 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "2,85 zł"
+  },
+  {
+   "q": "Kupujesz mandarynki za 1,80 zł i płacisz 2 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "20 gr"
+  },
+  {
+   "q": "Kupujesz ołówek za 1,50 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "8,50 zł"
+  },
+  {
+   "q": "Kupujesz cukierki za 6,80 zł i płacisz 10 zł. Reszta: <span class=\"bx\">□</span>",
+   "a": "3,20 zł"
+  }
+ ]
+}

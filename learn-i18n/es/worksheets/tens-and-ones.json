@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Decenas y unidades",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-primaria",
+  "2-primaria"
+ ],
+ "desc": "Descompón números de dos cifras",
+ "how": "Descompón cada número en decenas y unidades.",
+ "tip": "La cifra de la izquierda te dice cuántas decenas hay. 47 son 4 decenas y 7 unidades.",
+ "yearsLabel": "1.º y 2.º de Primaria",
+ "htmlLang": "es",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "7 decenas y 9 unidades"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "3 decenas y 6 unidades"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "5 decenas y 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "1 decena y 9 unidades"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "9 decenas y 0 unidades"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "9 decenas y 5 unidades"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "2 decenas y 3 unidades"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "6 decenas y 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "6 decenas y 4 unidades"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "3 decenas y 3 unidades"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "1 decena y 2 unidades"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "8 decenas y 1 unidad"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "6 decenas y 7 unidades"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "3 decenas y 5 unidades"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "6 decenas y 0 unidades"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "1 decena y 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "1 decena y 6 unidades"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "8 decenas y 8 unidades"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "5 decenas y 4 unidades"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
+   "a": "3 decenas y 1 unidad"
+  }
+ ]
+}

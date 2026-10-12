@@ -59,6 +59,19 @@ const PLACE = { 10: 'Tiotal', 100: 'Hundratal', 1000: 'Tusental' };
 const COPPER = '#C8794A', GOLD = '#E3B94B';
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Klocka: den långa visaren pekar på ${minute} och den korta visaren pekar på ${hour}`
+      : `Klocka: den långa visaren pekar på ${minute} och den korta visaren är mellan ${hour} och ${next}`;
+  },
+  shapeAlt: n => `Form ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} med ${shaded} av ${total} lika stora delar färglagda`,
+  fractionKinds: {"bar": "Remsa", "circle": "Cirkel", "grid": "Rutnät"},
+  coinAlt: value => `Mynt värt ${value}`,
+  rectangleAlt: (w, h) => `Rektangel på ett rutnät med ${w} kolumner och ${h} rader av rutor med sidan 1 cm`,
+  chartAlt: "Stapeldiagram över röster på favoritfrukt; värdena finns i tabellen nedan",
+  chartFruit: "Frukt", chartVotes: "Röster",
   htmlLang: 'sv',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

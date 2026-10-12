@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Decine e unità",
+ "topic": "counting-and-place-value",
+ "years": [
+  "classe-prima",
+  "classe-seconda"
+ ],
+ "desc": "Scomponi i numeri di due cifre",
+ "how": "Scomponi ogni numero in decine e unità.",
+ "tip": "La cifra a sinistra ti dice quante decine ci sono. 47 è fatto di 4 decine e 7 unità: da u, proprio come sul quaderno.",
+ "yearsLabel": "Classi prima e seconda",
+ "htmlLang": "it",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "7 decine e 9 unità"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "3 decine e 6 unità"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "5 decine e 8 unità"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "1 decina e 9 unità"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "9 decine e 0 unità"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "9 decine e 5 unità"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "2 decine e 3 unità"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "6 decine e 8 unità"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "6 decine e 4 unità"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "3 decine e 3 unità"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "1 decina e 2 unità"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "8 decine e 1 unità"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "6 decine e 7 unità"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "3 decine e 5 unità"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "6 decine e 0 unità"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "1 decina e 8 unità"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "1 decina e 6 unità"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "8 decine e 8 unità"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "5 decine e 4 unità"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> decine e <span class=\"bx\">□</span> unità",
+   "a": "3 decine e 1 unità"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "id": "short-multiplication",
+ "title": "Conta armada de multiplicação",
+ "topic": "multiplication-and-division",
+ "years": [
+  "3-ano",
+  "4-ano"
+ ],
+ "desc": "Números de três algarismos vezes um algarismo",
+ "how": "Resolva cada conta armada. Comece pelas unidades!",
+ "tip": "Se a multiplicação de uma ordem der 10 ou mais, escreva as unidades e anote em cima da coluna seguinte o que “vai”. Some esse número depois de multiplicar o próximo algarismo.",
+ "yearsLabel": "3º e 4º anos",
+ "htmlLang": "pt-BR",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">420 × 9 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>2</td><td>0</td></tr><tr><td>×</td><td></td><td></td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "3780"
+  },
+  {
+   "q": "<span class=\"column-expression\">356 × 3 = □</span><table class=\"col\"><tr><td></td><td>3</td><td>5</td><td>6</td></tr><tr><td>×</td><td></td><td></td><td>3</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "1068"
+  },
+  {
+   "q": "<span class=\"column-expression\">276 × 6 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>7</td><td>6</td></tr><tr><td>×</td><td></td><td></td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "1656"
+  },
+  {
+   "q": "<span class=\"column-expression\">319 × 9 = □</span><table class=\"col\"><tr><td></td><td>3</td><td>1</td><td>9</td></tr><tr><td>×</td><td></td><td></td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "2871"
+  },
+  {
+   "q": "<span class=\"column-expression\">198 × 3 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>9</td><td>8</td></tr><tr><td>×</td><td></td><td></td><td>3</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "594"
+  },
+  {
+   "q": "<span class=\"column-expression\">129 × 7 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>2</td><td>9</td></tr><tr><td>×</td><td></td><td></td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "903"
+  },
+  {
+   "q": "<span class=\"column-expression\">264 × 7 = □</span><table class=\"col\"><tr><td></td><td>2</td><td>6</td><td>4</td></tr><tr><td>×</td><td></td><td></td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "1848"
+  },
+  {
+   "q": "<span class=\"column-expression\">169 × 8 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>6</td><td>9</td></tr><tr><td>×</td><td></td><td></td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "1352"
+  },
+  {
+   "q": "<span class=\"column-expression\">116 × 4 = □</span><table class=\"col\"><tr><td></td><td>1</td><td>1</td><td>6</td></tr><tr><td>×</td><td></td><td></td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "464"
+  },
+  {
+   "q": "<span class=\"column-expression\">444 × 6 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>4</td><td>4</td></tr><tr><td>×</td><td></td><td></td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "2664"
+  },
+  {
+   "q": "<span class=\"column-expression\">459 × 7 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>5</td><td>9</td></tr><tr><td>×</td><td></td><td></td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "3213"
+  },
+  {
+   "q": "<span class=\"column-expression\">410 × 6 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>1</td><td>0</td></tr><tr><td>×</td><td></td><td></td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "2460"
+  }
+ ]
+}

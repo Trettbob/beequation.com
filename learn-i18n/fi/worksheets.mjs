@@ -57,6 +57,19 @@ const BRASS = '#F2C14E';    // the gold-coloured part of the 1 € and 2 € coi
 const SILVER = '#D7DCE3';   // the silver-coloured part of the 1 € and 2 € coins
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Kello: pitkä viisari osoittaa lukua ${minute} ja lyhyt viisari osoittaa lukua ${hour}`
+      : `Kello: pitkä viisari osoittaa lukua ${minute} ja lyhyt viisari on lukujen ${hour} ja ${next} välissä`;
+  },
+  shapeAlt: n => `Kuvio ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}: ${shaded} osaa ${total} yhtä suuresta osasta väritetty`,
+  fractionKinds: {"bar": "Palkki", "circle": "Ympyrä", "grid": "Ruudukko"},
+  coinAlt: value => `Kolikko, jonka arvo on ${value}`,
+  rectangleAlt: (w, h) => `Suorakulmio ruudukossa, jossa on ${w} saraketta ja ${h} riviä neliöitä, joiden sivu on 1 cm`,
+  chartAlt: "Pylväsdiagrammi suosikkihedelmien äänistä; arvot ovat alla olevassa taulukossa",
+  chartFruit: "Hedelmä", chartVotes: "Ääniä",
   htmlLang: 'fi',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

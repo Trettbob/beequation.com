@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Byttepenge",
+ "topic": "money",
+ "years": [
+  "3-klasse",
+  "4-klasse"
+ ],
+ "desc": "Byttepenge fra 20, 50 og 100 kr.",
+ "how": "Hvor mange penge får du tilbage ved hvert køb?",
+ "tip": "Tæl op fra prisen til det beløb, du betaler med. Fra 36,50 kr. til 50 kr.: 50 øre op til 37 kr., 3 kr. op til 40 kr. og 10 kr. op til 50 kr. Du får 13,50 kr. tilbage.",
+ "yearsLabel": "3. og 4. klasse",
+ "htmlLang": "da",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Du køber kager for 53,50 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "46,50 kr."
+  },
+  {
+   "q": "Du køber kager for 36,50 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "63,50 kr."
+  },
+  {
+   "q": "Du køber klistermærker for 30,50 kr. og betaler med 50 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "19,50 kr."
+  },
+  {
+   "q": "Du køber frugt for 99 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "1 kr."
+  },
+  {
+   "q": "Du køber tegneserier for 85 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "15 kr."
+  },
+  {
+   "q": "Du køber is for 90 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "10 kr."
+  },
+  {
+   "q": "Du køber brugt legetøj for 38 kr. og betaler med 50 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "12 kr."
+  },
+  {
+   "q": "Du køber klistermærker for 51 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "49 kr."
+  },
+  {
+   "q": "Du køber frugt for 7 kr. og betaler med 20 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "13 kr."
+  },
+  {
+   "q": "Du køber kager for 14 kr. og betaler med 50 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "36 kr."
+  },
+  {
+   "q": "Du køber brugt legetøj for 41,50 kr. og betaler med 50 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "8,50 kr."
+  },
+  {
+   "q": "Du køber perler for 19,50 kr. og betaler med 20 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "50 øre"
+  },
+  {
+   "q": "Du køber bland selv-slik for 21,50 kr. og betaler med 50 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "28,50 kr."
+  },
+  {
+   "q": "Du køber frugt for 18 kr. og betaler med 20 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "2 kr."
+  },
+  {
+   "q": "Du køber bland selv-slik for 15 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "85 kr."
+  },
+  {
+   "q": "Du køber is for 68 kr. og betaler med 100 kr. Du får <span class=\"bx\">□</span> tilbage.",
+   "a": "32 kr."
+  }
+ ]
+}

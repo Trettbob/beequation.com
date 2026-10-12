@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Arrondir les nombres",
+ "topic": "counting-and-place-value",
+ "years": [
+  "cm1",
+  "cm2"
+ ],
+ "desc": "À la dizaine, à la centaine et au millier près",
+ "how": "Arrondis chaque nombre comme indiqué. C’est très utile pour trouver un ordre de grandeur.",
+ "tip": "Regarde le chiffre juste à droite du rang demandé : si c’est 5 ou plus, on arrondit au-dessus.",
+ "yearsLabel": "CM1 et CM2",
+ "htmlLang": "fr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7 067</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "7 070"
+  },
+  {
+   "q": "<b class=\"n\">1 481</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "1 000"
+  },
+  {
+   "q": "<b class=\"n\">3 667</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "3 670"
+  },
+  {
+   "q": "<b class=\"n\">3 729</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "3 730"
+  },
+  {
+   "q": "<b class=\"n\">4 704</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "5 000"
+  },
+  {
+   "q": "<b class=\"n\">5 302</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "5 300"
+  },
+  {
+   "q": "<b class=\"n\">1 734</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "1 700"
+  },
+  {
+   "q": "<b class=\"n\">8 011</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "8 000"
+  },
+  {
+   "q": "<b class=\"n\">4 180</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "4 180"
+  },
+  {
+   "q": "<b class=\"n\">2 156</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "2 000"
+  },
+  {
+   "q": "<b class=\"n\">5 982</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "5 980"
+  },
+  {
+   "q": "<b class=\"n\">9 636</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "9 600"
+  },
+  {
+   "q": "<b class=\"n\">8 883</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "9 000"
+  },
+  {
+   "q": "<b class=\"n\">3 523</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "3 520"
+  },
+  {
+   "q": "<b class=\"n\">2 770</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "2 800"
+  },
+  {
+   "q": "<b class=\"n\">4 431</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "4 430"
+  },
+  {
+   "q": "<b class=\"n\">5 548</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "5 500"
+  },
+  {
+   "q": "<b class=\"n\">9 455</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "9 000"
+  },
+  {
+   "q": "<b class=\"n\">2 963</b> à la centaine près → <span class=\"bx\">□</span>",
+   "a": "3 000"
+  },
+  {
+   "q": "<b class=\"n\">4 896</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "4 900"
+  },
+  {
+   "q": "<b class=\"n\">3 930</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "4 000"
+  },
+  {
+   "q": "<b class=\"n\">7 873</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "8 000"
+  },
+  {
+   "q": "<b class=\"n\">6 257</b> à la dizaine près → <span class=\"bx\">□</span>",
+   "a": "6 260"
+  },
+  {
+   "q": "<b class=\"n\">1 530</b> au millier près → <span class=\"bx\">□</span>",
+   "a": "2 000"
+  }
+ ]
+}

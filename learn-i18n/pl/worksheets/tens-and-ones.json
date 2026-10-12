@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "Dziesiątki i jedności",
+ "topic": "counting-and-place-value",
+ "years": [
+  "klasa-2"
+ ],
+ "desc": "Rozkład liczb dwucyfrowych",
+ "how": "Rozłóż każdą liczbę na dziesiątki (d) i jedności (j).",
+ "tip": "Cyfra z lewej strony mówi, ile jest dziesiątek. 47 to 4 dziesiątki i 7 jedności.",
+ "yearsLabel": "Klasa 2",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "7 dziesiątek i 9 jedności"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "3 dziesiątki i 6 jedności"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "5 dziesiątek i 8 jedności"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "1 dziesiątka i 9 jedności"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "9 dziesiątek i 0 jedności"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "9 dziesiątek i 5 jedności"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "2 dziesiątki i 3 jedności"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "6 dziesiątek i 8 jedności"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "6 dziesiątek i 4 jedności"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "3 dziesiątki i 3 jedności"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "1 dziesiątka i 2 jedności"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "8 dziesiątek i 1 jedność"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "6 dziesiątek i 7 jedności"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "3 dziesiątki i 5 jedności"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "6 dziesiątek i 0 jedności"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "1 dziesiątka i 8 jedności"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "1 dziesiątka i 6 jedności"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "8 dziesiątek i 8 jedności"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "5 dziesiątek i 4 jedności"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> d + <span class=\"bx\">□</span> j",
+   "a": "3 dziesiątki i 1 jedność"
+  }
+ ]
+}

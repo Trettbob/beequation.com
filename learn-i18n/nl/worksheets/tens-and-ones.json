@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "Tientallen en eenheden",
+ "topic": "counting-and-place-value",
+ "years": [
+  "groep-4"
+ ],
+ "desc": "Getallen tot 100 splitsen",
+ "how": "Splits elk getal in tientallen en eenheden.",
+ "tip": "Bij 47 zeg je eerst de 7 (zeven-en-veertig), maar je schrijft eerst de 4. Die 4 vooraan betekent 4 tientallen, de 7 achteraan 7 eenheden.",
+ "yearsLabel": "Groep 4",
+ "htmlLang": "nl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "7 tientallen en 9 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "3 tientallen en 6 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "5 tientallen en 8 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "1 tiental en 9 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "9 tientallen en 0 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "9 tientallen en 5 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "2 tientallen en 3 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "6 tientallen en 8 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "6 tientallen en 4 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "3 tientallen en 3 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "1 tiental en 2 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "8 tientallen en 1 eenheid"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "6 tientallen en 7 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "3 tientallen en 5 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "6 tientallen en 0 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "1 tiental en 8 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "1 tiental en 6 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "8 tientallen en 8 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "5 tientallen en 4 eenheden"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> tientallen en <span class=\"bx\">□</span> eenheden",
+   "a": "3 tientallen en 1 eenheid"
+  }
+ ]
+}

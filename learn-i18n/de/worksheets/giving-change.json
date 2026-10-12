@@ -1,0 +1,80 @@
+{
+ "id": "giving-change",
+ "title": "Rückgeld berechnen",
+ "topic": "money",
+ "years": [
+  "klasse-3"
+ ],
+ "desc": "Rückgeld von 1 €, 2 € und 5 €",
+ "how": "Wie viel Rückgeld bekommst du bei jedem Einkauf?",
+ "tip": "Ergänze vom Preis bis zum Geld, das du gibst. Von 65 ct bis 1 €: 5 ct dazu sind 70 ct, 30 ct dazu sind 1 €. Du bekommst 35 ct zurück.",
+ "yearsLabel": "3. Klasse",
+ "htmlLang": "de",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Du kaufst ein Comicheft für 2,70 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "2,30 €"
+  },
+  {
+   "q": "Du kaufst ein Comicheft für 1,85 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "3,15 €"
+  },
+  {
+   "q": "Du kaufst ein Heft für 1,20 € und zahlst mit 2 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "80 ct"
+  },
+  {
+   "q": "Du kaufst Obst für 4,95 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "5 ct"
+  },
+  {
+   "q": "Du kaufst Sticker für 4,25 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "75 ct"
+  },
+  {
+   "q": "Du kaufst Eis für 4,50 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "50 ct"
+  },
+  {
+   "q": "Du kaufst Süßigkeiten für 1,50 € und zahlst mit 2 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "50 ct"
+  },
+  {
+   "q": "Du kaufst ein Heft für 2,55 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "2,45 €"
+  },
+  {
+   "q": "Du kaufst Obst für 35 ct und zahlst mit 1 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "65 ct"
+  },
+  {
+   "q": "Du kaufst ein Comicheft für 60 ct und zahlst mit 2 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "1,40 €"
+  },
+  {
+   "q": "Du kaufst Süßigkeiten für 1,65 € und zahlst mit 2 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "35 ct"
+  },
+  {
+   "q": "Du kaufst Brezeln für 95 ct und zahlst mit 1 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "5 ct"
+  },
+  {
+   "q": "Du kaufst einen Bleistift für 90 ct und zahlst mit 2 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "1,10 €"
+  },
+  {
+   "q": "Du kaufst Obst für 90 ct und zahlst mit 1 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "10 ct"
+  },
+  {
+   "q": "Du kaufst einen Bleistift für 80 ct und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "4,20 €"
+  },
+  {
+   "q": "Du kaufst Eis für 3,40 € und zahlst mit 5 €. Rückgeld: <span class=\"bx\">□</span>",
+   "a": "1,60 €"
+  }
+ ]
+}

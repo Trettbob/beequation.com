@@ -1,0 +1,96 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Porcentagem de uma quantidade",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "5-ano"
+ ],
+ "desc": "10%, 25%, 50%, 75% e mais",
+ "how": "Calcule cada resultado.",
+ "tip": "Para achar 10%, divida por 10. Depois é só montar: 30% são três vezes 10%, e 5% é a metade de 10%. E 50% é a metade, e 25%, a quarta parte.",
+ "yearsLabel": "5º ano",
+ "htmlLang": "pt-BR",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50% de 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5% de 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25% de 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40% de 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10% de 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10% de 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25% de 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5% de 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5% de 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30% de 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30% de 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20% de 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50% de 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75% de 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5% de 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75% de 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40% de 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25% de 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75% de 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10% de 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

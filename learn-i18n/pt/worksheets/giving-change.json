@@ -1,0 +1,81 @@
+{
+ "id": "giving-change",
+ "title": "Quanto é o troco?",
+ "topic": "money",
+ "years": [
+  "3-ano",
+  "4-ano"
+ ],
+ "desc": "Pagando com R$ 2, R$ 5 e R$ 10",
+ "how": "Calcule o troco de cada compra.",
+ "tip": "Conte do preço até o valor que você deu. De R$ 3,65 até R$ 5,00: mais 5 centavos dá R$ 3,70, mais 30 centavos dá R$ 4,00 e mais R$ 1,00 dá R$ 5,00. O troco é R$ 1,35.",
+ "yearsLabel": "3º e 4º anos",
+ "htmlLang": "pt-BR",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Você compra um gibi por R$ 5,35 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 4,65"
+  },
+  {
+   "q": "Você compra um gibi por R$ 3,65 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 6,35"
+  },
+  {
+   "q": "Você compra pão de queijo por R$ 3,05 e paga com R$ 5,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 1,95"
+  },
+  {
+   "q": "Você compra uma borracha por R$ 9,90 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 0,10"
+  },
+  {
+   "q": "Você compra figurinhas por R$ 8,50 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 1,50"
+  },
+  {
+   "q": "Você compra um suco por R$ 9,00 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 1,00"
+  },
+  {
+   "q": "Você compra frutas na feira por R$ 3,80 e paga com R$ 5,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 1,20"
+  },
+  {
+   "q": "Você compra pão de queijo por R$ 5,10 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 4,90"
+  },
+  {
+   "q": "Você compra uma borracha por R$ 0,70 e paga com R$ 2,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 1,30"
+  },
+  {
+   "q": "Você compra um gibi por R$ 1,40 e paga com R$ 5,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 3,60"
+  },
+  {
+   "q": "Você compra frutas na feira por R$ 4,15 e paga com R$ 5,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 0,85"
+  },
+  {
+   "q": "Você compra balas por R$ 1,95 e paga com R$ 2,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 0,05"
+  },
+  {
+   "q": "Você compra um lápis por R$ 2,15 e paga com R$ 5,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 2,85"
+  },
+  {
+   "q": "Você compra uma borracha por R$ 1,80 e paga com R$ 2,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 0,20"
+  },
+  {
+   "q": "Você compra um lápis por R$ 1,50 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 8,50"
+  },
+  {
+   "q": "Você compra um suco por R$ 6,80 e paga com R$ 10,00. Troco: <span class=\"bx\">□</span>",
+   "a": "R$ 3,20"
+  }
+ ]
+}

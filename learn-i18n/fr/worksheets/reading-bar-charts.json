@@ -1,0 +1,40 @@
+{
+ "id": "reading-bar-charts",
+ "title": "Lire un diagramme en barres",
+ "topic": "data-and-graphs",
+ "years": [
+  "cp",
+  "ce1",
+  "ce2"
+ ],
+ "desc": "Le sondage des fruits préférés",
+ "how": "Les élèves d’une classe ont voté pour leur fruit préféré. Lis le diagramme en barres pour répondre aux questions.",
+ "tip": "Pose ton doigt en haut de la barre et glisse jusqu’aux nombres sur le côté pour lire sa valeur.",
+ "yearsLabel": "du CP au CE2",
+ "htmlLang": "fr",
+ "kind": "chart",
+ "chart": "<svg role=\"img\" aria-label=\"Diagramme en barres des votes pour les fruits préférés ; les valeurs figurent dans le tableau ci-dessous\" focusable=\"false\" viewBox=\"0 0 130 78\" style=\"width:150mm;height:90mm\"><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"65.4\" text-anchor=\"end\" font-size=\"3.8\">0</text><line x1=\"10\" x2=\"124\" y1=\"58\" y2=\"58\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"59.4\" text-anchor=\"end\" font-size=\"3.8\">1</text><line x1=\"10\" x2=\"124\" y1=\"52\" y2=\"52\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"53.4\" text-anchor=\"end\" font-size=\"3.8\">2</text><line x1=\"10\" x2=\"124\" y1=\"46\" y2=\"46\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"47.4\" text-anchor=\"end\" font-size=\"3.8\">3</text><line x1=\"10\" x2=\"124\" y1=\"40\" y2=\"40\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"41.4\" text-anchor=\"end\" font-size=\"3.8\">4</text><line x1=\"10\" x2=\"124\" y1=\"34\" y2=\"34\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"35.4\" text-anchor=\"end\" font-size=\"3.8\">5</text><line x1=\"10\" x2=\"124\" y1=\"28\" y2=\"28\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"29.4\" text-anchor=\"end\" font-size=\"3.8\">6</text><line x1=\"10\" x2=\"124\" y1=\"22\" y2=\"22\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"23.4\" text-anchor=\"end\" font-size=\"3.8\">7</text><line x1=\"10\" x2=\"124\" y1=\"16\" y2=\"16\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"17.4\" text-anchor=\"end\" font-size=\"3.8\">8</text><line x1=\"10\" x2=\"124\" y1=\"10\" y2=\"10\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"11.4\" text-anchor=\"end\" font-size=\"3.8\">9</text><line x1=\"10\" x2=\"124\" y1=\"4\" y2=\"4\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"5.4\" text-anchor=\"end\" font-size=\"3.8\">10</text><rect x=\"14\" y=\"16\" width=\"14\" height=\"48\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"21\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Pommes</text><rect x=\"36\" y=\"28\" width=\"14\" height=\"36\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"43\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Bananes</text><rect x=\"58\" y=\"10\" width=\"14\" height=\"54\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"65\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Raisin</text><rect x=\"80\" y=\"52\" width=\"14\" height=\"12\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"87\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Oranges</text><rect x=\"102\" y=\"40\" width=\"14\" height=\"24\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"109\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Poires</text><line x1=\"10\" x2=\"10\" y1=\"4\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/></svg>",
+ "chartTable": "<table class=\"chart-data\"><thead><tr><th scope=\"col\">Fruit</th><th scope=\"col\">Votes</th></tr></thead><tbody><tr><th scope=\"row\">Pommes</th><td>8</td></tr><tr><th scope=\"row\">Bananes</th><td>6</td></tr><tr><th scope=\"row\">Raisin</th><td>9</td></tr><tr><th scope=\"row\">Oranges</th><td>2</td></tr><tr><th scope=\"row\">Poires</th><td>4</td></tr></tbody></table>",
+ "items": [
+  {
+   "q": "Combien d’enfants ont voté pour les bananes ? <span class=\"line\"></span>",
+   "a": "6"
+  },
+  {
+   "q": "Quel fruit a eu le plus de voix ? <span class=\"line\"></span>",
+   "a": "le raisin"
+  },
+  {
+   "q": "Quel fruit a eu le moins de voix ? <span class=\"line\"></span>",
+   "a": "les oranges"
+  },
+  {
+   "q": "Combien d’enfants de plus ont voté pour le raisin que pour les oranges ? <span class=\"line\"></span>",
+   "a": "7"
+  },
+  {
+   "q": "Combien d’enfants ont voté en tout ? <span class=\"line\"></span>",
+   "a": "29"
+  }
+ ]
+}

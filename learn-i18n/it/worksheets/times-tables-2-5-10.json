@@ -1,0 +1,137 @@
+{
+ "id": "times-tables-2-5-10",
+ "title": "Le tabelline del 2, del 5 e del 10",
+ "topic": "multiplication-and-division",
+ "years": [
+  "classe-seconda",
+  "classe-terza"
+ ],
+ "desc": "Moltiplicazioni in ordine sparso",
+ "how": "Calcola ogni moltiplicazione. Trovi anche l'11 o il 12? È una sfida in più: 5 × 12 è 5 × 10 più 5 × 2.",
+ "tip": "Nella tabellina del 10 tutti i risultati finiscono con 0, in quella del 5 finiscono con 0 o con 5.",
+ "yearsLabel": "Classi seconda e terza",
+ "htmlLang": "it",
+ "kind": "list",
+ "items": [
+  {
+   "q": "5 × 4 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 × 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "5 × 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "7 × 5 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "5 × 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "10 × 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "5 × 9 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "10 × 2 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 × 1 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "2 × 4 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 × 8 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "2 × 5 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "7 × 2 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "2 × 10 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "2 × 9 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 × 10 = <span class=\"bx\">□</span>",
+   "a": "100"
+  },
+  {
+   "q": "5 × 5 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "2 × 2 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "5 × 6 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 × 12 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "10 × 5 = <span class=\"bx\">□</span>",
+   "a": "50"
+  },
+  {
+   "q": "9 × 10 = <span class=\"bx\">□</span>",
+   "a": "90"
+  },
+  {
+   "q": "7 × 10 = <span class=\"bx\">□</span>",
+   "a": "70"
+  },
+  {
+   "q": "10 × 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "6 × 10 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "9 × 5 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "12 × 5 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "4 × 10 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "5 × 7 = <span class=\"bx\">□</span>",
+   "a": "35"
+  },
+  {
+   "q": "1 × 5 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

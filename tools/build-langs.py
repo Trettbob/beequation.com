@@ -852,8 +852,14 @@ def english_only(s, lang=None):
     Learn section, teachers page and worksheets, once it has them)."""
     if lang and has_learn(lang):
         own = lambda f: os.path.exists(os.path.join(_learn().I18N, lang, f))   # its own pack, worksheets…
+        # --html-only prepares local variant links before Chrome produces the files.
+        worksheets = {w['id'] for w in _learn().worksheets_manifest(_learn().site_of(lang))}
+        def worksheet_pdf(f):
+            if not f.startswith('assets/worksheets/') or not f.endswith('.pdf'): return False
+            stem = f[len('assets/worksheets/'):-4]
+            return stem.removesuffix('-large').removesuffix('-easy-read') in worksheets
         return re.sub(r'href="/(assets/[^"]+\.pdf)"',
-                      lambda m: m.group(0) if m.group(1).startswith('assets/') and own(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
+                      lambda m: m.group(0) if own(m.group(1)) or worksheet_pdf(m.group(1)) else f'href="{MAIN}/{m.group(1)}"', s)
     return re.sub(r'href="/(teachers\.html|learn/[^"]*|assets/[^"]+\.pdf)"', rf'href="{MAIN}/\1"', s)
 
 def chrome(src, lang, page, label='Language'):

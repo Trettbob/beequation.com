@@ -56,6 +56,19 @@ const GOLD = '#C9A13B';     // "oro nordico": 10, 20 and 50 centesimi; also the 
 const SILVER = '#D7DCE3';   // the silver-coloured part of 1 € and 2 €
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Orologio: la lancetta lunga punta sul numero ${minute} e la lancetta corta punta sul numero ${hour}`
+      : `Orologio: la lancetta lunga punta sul numero ${minute} e la lancetta corta è tra i numeri ${hour} e ${next}`;
+  },
+  shapeAlt: n => `Figura ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} con ${shaded} parti colorate su ${total} parti uguali`,
+  fractionKinds: {"bar": "Striscia", "circle": "Cerchio", "grid": "Griglia"},
+  coinAlt: value => `Moneta da ${value}`,
+  rectangleAlt: (w, h) => `Rettangolo su una griglia di ${w} colonne e ${h} righe di quadrati di lato 1 cm`,
+  chartAlt: "Grafico a barre dei voti per la frutta preferita; i valori sono nella tabella sottostante",
+  chartFruit: "Frutta", chartVotes: "Voti",
   htmlLang: 'it',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

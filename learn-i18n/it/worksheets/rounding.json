@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Arrotondare i numeri",
+ "topic": "counting-and-place-value",
+ "years": [
+  "classe-quarta",
+  "classe-quinta"
+ ],
+ "desc": "Alle decine, alle centinaia e alle migliaia",
+ "how": "Arrotonda ogni numero come indicato.",
+ "tip": "Guarda la cifra subito a destra della posizione a cui arrotondi. Se è 5 o più, arrotondi per eccesso; se è 4 o meno, per difetto.",
+ "yearsLabel": "Classi quarta e quinta",
+ "htmlLang": "it",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7067</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "7070"
+  },
+  {
+   "q": "<b class=\"n\">1481</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "1000"
+  },
+  {
+   "q": "<b class=\"n\">3667</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "3670"
+  },
+  {
+   "q": "<b class=\"n\">3729</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "3730"
+  },
+  {
+   "q": "<b class=\"n\">4704</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "5000"
+  },
+  {
+   "q": "<b class=\"n\">5302</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "5300"
+  },
+  {
+   "q": "<b class=\"n\">1734</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "1700"
+  },
+  {
+   "q": "<b class=\"n\">8011</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "<b class=\"n\">4180</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "4180"
+  },
+  {
+   "q": "<b class=\"n\">2156</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "2000"
+  },
+  {
+   "q": "<b class=\"n\">5982</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "5980"
+  },
+  {
+   "q": "<b class=\"n\">9636</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "9600"
+  },
+  {
+   "q": "<b class=\"n\">8883</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "<b class=\"n\">3523</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "3520"
+  },
+  {
+   "q": "<b class=\"n\">2770</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "2800"
+  },
+  {
+   "q": "<b class=\"n\">4431</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "4430"
+  },
+  {
+   "q": "<b class=\"n\">5548</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "5500"
+  },
+  {
+   "q": "<b class=\"n\">9455</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "<b class=\"n\">2963</b> alle centinaia → <span class=\"bx\">□</span>",
+   "a": "3000"
+  },
+  {
+   "q": "<b class=\"n\">4896</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "4900"
+  },
+  {
+   "q": "<b class=\"n\">3930</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "4000"
+  },
+  {
+   "q": "<b class=\"n\">7873</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "<b class=\"n\">6257</b> alle decine → <span class=\"bx\">□</span>",
+   "a": "6260"
+  },
+  {
+   "q": "<b class=\"n\">1530</b> alle migliaia → <span class=\"bx\">□</span>",
+   "a": "2000"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "id": "column-subtraction",
+ "title": "Conta armada de subtração",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "2-ano",
+  "3-ano"
+ ],
+ "desc": "Números de três algarismos, com “empresta um”",
+ "how": "Resolva cada conta armada do jeito que você aprendeu na escola. Comece pelas unidades!",
+ "tip": "Faça a prova real com uma adição: se 532 − 178 = 354, então 354 + 178 tem que dar 532.",
+ "yearsLabel": "2º e 3º anos",
+ "htmlLang": "pt-BR",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">728 − 546 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>2</td><td>8</td></tr><tr><td>−</td><td>5</td><td>4</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "182"
+  },
+  {
+   "q": "<span class=\"column-expression\">542 − 161 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>4</td><td>2</td></tr><tr><td>−</td><td>1</td><td>6</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "381"
+  },
+  {
+   "q": "<span class=\"column-expression\">959 − 264 = □</span><table class=\"col\"><tr><td></td><td>9</td><td>5</td><td>9</td></tr><tr><td>−</td><td>2</td><td>6</td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "695"
+  },
+  {
+   "q": "<span class=\"column-expression\">827 − 679 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>2</td><td>7</td></tr><tr><td>−</td><td>6</td><td>7</td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "148"
+  },
+  {
+   "q": "<span class=\"column-expression\">435 − 283 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>3</td><td>5</td></tr><tr><td>−</td><td>2</td><td>8</td><td>3</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "152"
+  },
+  {
+   "q": "<span class=\"column-expression\">619 − 188 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>1</td><td>9</td></tr><tr><td>−</td><td>1</td><td>8</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">708 − 170 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>0</td><td>8</td></tr><tr><td>−</td><td>1</td><td>7</td><td>0</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "538"
+  },
+  {
+   "q": "<span class=\"column-expression\">518 − 215 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>1</td><td>8</td></tr><tr><td>−</td><td>2</td><td>1</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "303"
+  },
+  {
+   "q": "<span class=\"column-expression\">473 − 266 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>7</td><td>3</td></tr><tr><td>−</td><td>2</td><td>6</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "207"
+  },
+  {
+   "q": "<span class=\"column-expression\">455 − 155 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>5</td><td>5</td></tr><tr><td>−</td><td>1</td><td>5</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "300"
+  },
+  {
+   "q": "<span class=\"column-expression\">633 − 228 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>3</td><td>3</td></tr><tr><td>−</td><td>2</td><td>2</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "405"
+  },
+  {
+   "q": "<span class=\"column-expression\">848 − 207 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>4</td><td>8</td></tr><tr><td>−</td><td>2</td><td>0</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "641"
+  }
+ ]
+}

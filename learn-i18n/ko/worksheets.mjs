@@ -36,6 +36,19 @@ const digital = (h, m) => `${h % 12 || 12}:${String(m).padStart(2, '0')}`;
 const COPPER = '#C27C4E', SILVER = '#CDD2D8';
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `시계: 긴바늘이 가리키는 숫자는 ${minute}이고, 짧은바늘이 가리키는 숫자는 ${hour}입니다`
+      : `시계: 긴바늘이 가리키는 숫자는 ${minute}이고, 짧은바늘은 두 숫자 ${hour}, ${next} 사이에 있습니다`;
+  },
+  shapeAlt: n => `도형 ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}: 같은 크기의 ${total}부분 중 ${shaded}부분을 색칠한 그림`,
+  fractionKinds: {"bar": "막대", "circle": "원", "grid": "격자 도형"},
+  coinAlt: value => `${value} 동전`,
+  rectangleAlt: (w, h) => `한 변이 1cm인 정사각형이 가로 ${w}칸, 세로 ${h}칸으로 놓인 직사각형`,
+  chartAlt: "좋아하는 과일에 투표한 수를 나타낸 막대그래프. 값은 아래 표에 있습니다",
+  chartFruit: "과일", chartVotes: "투표 수",
   htmlLang: 'ko',
   num,
   // decimal point; a final 0 may be left off (4학년: 0.8 = 0.80), so the answer key shows both: "0.8 (0.80)"

@@ -1,0 +1,96 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Procent liczby",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "klasa-6"
+ ],
+ "desc": "10%, 25%, 50% i inne",
+ "how": "Oblicz.",
+ "tip": "10% to jedna dziesiąta, więc podziel liczbę przez 10. Potem buduj dalej: 30% to trzy razy po 10%, a 5% to połowa z 10%.",
+ "yearsLabel": "Klasa 6",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50% liczby 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5% liczby 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25% liczby 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40% liczby 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10% liczby 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10% liczby 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25% liczby 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5% liczby 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5% liczby 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30% liczby 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30% liczby 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20% liczby 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50% liczby 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75% liczby 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5% liczby 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75% liczby 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40% liczby 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25% liczby 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75% liczby 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10% liczby 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

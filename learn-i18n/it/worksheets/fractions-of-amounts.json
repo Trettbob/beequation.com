@@ -1,0 +1,113 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "La frazione di un numero",
+ "topic": "fractions",
+ "years": [
+  "classe-terza",
+  "classe-quarta"
+ ],
+ "desc": "Come ½ di 12 o ¾ di 20",
+ "how": "Calcola ogni risultato.",
+ "tip": "Dividi per il denominatore e moltiplica per il numeratore. Per ¾ di 20: 20 : 4 = 5, poi 5 × 3 = 15.",
+ "yearsLabel": "Classi terza e quarta",
+ "htmlLang": "it",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 35 = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> di 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> di 24 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> di 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> di 18 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> di 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> di 30 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> di 20 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> di 32 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 15 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 10 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> di 16 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> di 90 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> di 4 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 20 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> di 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> di 80 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> di 36 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 20 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> di 8 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> di 25 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> di 18 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> di 15 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

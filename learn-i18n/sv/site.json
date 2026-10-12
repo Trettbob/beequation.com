@@ -56,7 +56,15 @@
     "reviewed_by": "Granskat av {name}",
     "published_on": "Publicerat {date}",
     "reviewed_on": "Granskat {date}",
-    "report_error": "Rapportera ett fel"
+    "report_error": "Rapportera ett fel",
+    "standard_pdf": "Standard-PDF",
+    "large_print": "Stor stil",
+    "easy_read": "Läsvänlig",
+    "show_answers": "Visa facit",
+    "worksheet_questions": "Uppgifter",
+    "worksheet_downloads": "Nedladdningar",
+    "pdf_size_pending": "PDF; storlek tillgänglig efter skapandet",
+    "pdf_kb": "{size} kB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tal och positionssystemet", "glyph": "123", "colour": "lemon" },

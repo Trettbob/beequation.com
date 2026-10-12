@@ -66,6 +66,19 @@ const ACC = { Elma: 'elmayı', Muz: 'muzu', Üzüm: 'üzümü', Portakal: 'porta
 const cap = s => s.charAt(0).toLocaleUpperCase('tr') + s.slice(1);
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Saat: yelkovan ${minute} sayısını gösteriyor ve akrep ${hour} sayısını gösteriyor`
+      : `Saat: yelkovan ${minute} sayısını gösteriyor ve akrep ${hour} ile ${next} arasında`;
+  },
+  shapeAlt: n => `Şekil ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}: ${total} eş parçanın ${shaded} tanesi boyalı`,
+  fractionKinds: {"bar": "Şerit", "circle": "Daire", "grid": "Kareli şekil"},
+  coinAlt: value => `${value} değerinde madeni para`,
+  rectangleAlt: (w, h) => `Bir kenarı 1 cm olan karelerden oluşan, ${w} sütun ve ${h} satırlık bir dikdörtgen`,
+  chartAlt: "En sevilen meyveler için verilen oyların sütun grafiği; değerler aşağıdaki tabloda",
+  chartFruit: "Meyve", chartVotes: "Oy sayısı",
   htmlLang: 'tr',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

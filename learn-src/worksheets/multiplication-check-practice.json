@@ -1,0 +1,116 @@
+{
+ "id": "multiplication-check-practice",
+ "title": "Multiplication check practice",
+ "topic": "multiplication-and-division",
+ "years": [
+  "year-4"
+ ],
+ "desc": "25 questions up to 12 × 12",
+ "how": "Like the real check, try to answer each one in about 6 seconds. Skip and come back if you need to.",
+ "tip": "The trickiest facts are usually 6 × 7, 6 × 8, 7 × 8, 8 × 9 and 12 × 7. Practise those a little extra!",
+ "yearsLabel": "Year 4",
+ "htmlLang": "en-GB",
+ "kind": "list",
+ "items": [
+  {
+   "q": "2 × 3 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "5 × 5 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "6 × 11 = <span class=\"bx\">□</span>",
+   "a": "66"
+  },
+  {
+   "q": "4 × 7 = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "11 × 9 = <span class=\"bx\">□</span>",
+   "a": "99"
+  },
+  {
+   "q": "8 × 9 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "7 × 10 = <span class=\"bx\">□</span>",
+   "a": "70"
+  },
+  {
+   "q": "9 × 7 = <span class=\"bx\">□</span>",
+   "a": "63"
+  },
+  {
+   "q": "4 × 6 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "3 × 6 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "6 × 2 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "8 × 8 = <span class=\"bx\">□</span>",
+   "a": "64"
+  },
+  {
+   "q": "3 × 11 = <span class=\"bx\">□</span>",
+   "a": "33"
+  },
+  {
+   "q": "8 × 4 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "12 × 2 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "12 × 12 = <span class=\"bx\">□</span>",
+   "a": "144"
+  },
+  {
+   "q": "4 × 12 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "9 × 5 = <span class=\"bx\">□</span>",
+   "a": "45"
+  },
+  {
+   "q": "3 × 8 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "8 × 11 = <span class=\"bx\">□</span>",
+   "a": "88"
+  },
+  {
+   "q": "12 × 11 = <span class=\"bx\">□</span>",
+   "a": "132"
+  },
+  {
+   "q": "9 × 3 = <span class=\"bx\">□</span>",
+   "a": "27"
+  },
+  {
+   "q": "9 × 10 = <span class=\"bx\">□</span>",
+   "a": "90"
+  },
+  {
+   "q": "7 × 2 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "10 × 8 = <span class=\"bx\">□</span>",
+   "a": "80"
+  }
+ ]
+}

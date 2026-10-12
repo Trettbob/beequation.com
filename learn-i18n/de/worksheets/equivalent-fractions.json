@@ -1,0 +1,113 @@
+{
+ "id": "equivalent-fractions",
+ "title": "Brüche erweitern",
+ "topic": "fractions",
+ "years": [
+  "klasse-5",
+  "klasse-6"
+ ],
+ "desc": "Gleichwertige Brüche: Finde die fehlende Zahl",
+ "how": "Schreibe die fehlende Zahl hin, damit beide Brüche gleich groß sind.",
+ "tip": "Was du mit dem Nenner machst, machst du auch mit dem Zähler. ½ = ⁴⁄₈, weil beide Zahlen mal 4 genommen wurden.",
+ "yearsLabel": "5. und 6. Klasse",
+ "htmlLang": "de",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>6</i></span> = <span class=\"fr\"><b>9</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"fr\"><b>6</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>6</i></span> = <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>6</i></span> = <span class=\"fr\"><b>12</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "36"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>15</i></span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>9</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"fr\"><b>54</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "60"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>6</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>30</i></span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>20</i></span>",
+   "a": "15"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b>6</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "24"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"fr\"><b>12</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "10"
+  },
+  {
+   "q": "<span class=\"fr\"><b>9</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"fr\"><b>18</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"fr\"><b>18</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "30"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>12</i></span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"fr\"><b>10</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "15"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"fr\"><b>10</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "25"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>6</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>12</i></span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"fr\"><b>6</b><span class=\"fraction-slash\">/</span><i><span class=\"bx\">□</span></i></span>",
+   "a": "30"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"fr\"><b><span class=\"bx\">□</span></b><span class=\"fraction-slash\">/</span><i>24</i></span>",
+   "a": "12"
+  }
+ ]
+}

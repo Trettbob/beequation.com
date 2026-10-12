@@ -59,6 +59,19 @@ const SILVER = '#D7DCE3';   // 1 and 5 kroner (cupronickel)
 const GOLD = '#F2C14E';     // 10 and 20 kroner (Nordic gold)
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Klokke: den lange viseren peker på ${minute}, og den korte viseren peker på ${hour}`
+      : `Klokke: den lange viseren peker på ${minute}, og den korte viseren er mellom ${hour} og ${next}`;
+  },
+  shapeAlt: n => `Figur ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} med ${shaded} av ${total} like store deler fargelagt`,
+  fractionKinds: {"bar": "Stripe", "circle": "Sirkel", "grid": "Rutenett"},
+  coinAlt: value => `Mynt verdt ${value}`,
+  rectangleAlt: (w, h) => `Rektangel på et rutenett med ${w} kolonner og ${h} rader av ruter med sidelengde 1 cm`,
+  chartAlt: "Søylediagram over stemmer på favorittfrukt; verdiene står i tabellen nedenfor",
+  chartFruit: "Frukt", chartVotes: "Stemmer",
   htmlLang: 'nb',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

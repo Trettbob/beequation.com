@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "10がいくつと1がいくつ",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-nensei"
+ ],
+ "desc": "2けたの数を、10のまとまりとばらに分ける",
+ "how": "□に あてはまる かずを かきましょう。",
+ "tip": "47の 4は 十のくらいの すうじで、10が 4こ。7は 一のくらいの すうじで、1が 7こ だよ。",
+ "yearsLabel": "小学1年生",
+ "htmlLang": "ja",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が7こと1が9こ"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が3こと1が6こ"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が5こと1が8こ"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が1こと1が9こ"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が9こと1が0こ"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が9こと1が5こ"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が2こと1が3こ"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が6こと1が8こ"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が6こと1が4こ"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が3こと1が3こ"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が1こと1が2こ"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が8こと1が1こ"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が6こと1が7こ"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が3こと1が5こ"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が6こと1が0こ"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が1こと1が8こ"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が1こと1が6こ"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が8こと1が8こ"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が5こと1が4こ"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
+   "a": "10が3こと1が1こ"
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Bir çokluğun yüzdesi",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "5-sinif",
+  "6-sinif"
+ ],
+ "desc": "%10, %25, %50 ve daha fazlası",
+ "how": "Her işlemin sonucunu bul.",
+ "tip": "%10’u bulmak için 10’a böl. Sonra ondan yararlan: %30, %10’un 3 katıdır; %5 ise %10’un yarısıdır.",
+ "yearsLabel": "5. ve 6. sınıf",
+ "htmlLang": "tr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "290’ın %50’si = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "260’ın %5’i = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "48’in %25’i = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "130’un %40’ı = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "180’in %10’u = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "250’nin %10’u = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "12’nin %25’i = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "40’ın %5’i = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "180’in %5’i = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "240’ın %30’u = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "250’nin %30’u = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "240’ın %20’si = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "120’nin %50’si = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "100’ün %75’i = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20’nin %5’i = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "48’in %75’i = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "230’un %40’ı = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "40’ın %25’i = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "52’nin %75’i = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "300’ün %10’u = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

@@ -19,13 +19,14 @@ learn-i18n/<code>/
   site.json           the template's words, the 12 topic names, the school years
   worksheets.mjs      the worksheets' words and formats, and which sheets this country uses
   worksheets.json     written by make-worksheets.mjs (don't edit)
-  assets/worksheets/  written by make-worksheets.mjs: <id>.pdf and <id>.webp
+  assets/worksheets/  written by make-worksheets.mjs: <id>.pdf, <id>-large.pdf, <id>-easy-read.pdf and <id>.webp
   index.html                       Learn home (hub)
   topics/index.html  topics/<slug>.html          same 12 slugs as English (see site.json "topics")
   years/index.html   years/<local-slug>.html     this country's own school years
   parents/index.html parents/<slug>.html         same slugs as English
   teachers/index.html teachers/<slug>.html       same slugs as English
   worksheets/index.html                          the worksheets hub
+  worksheets/<id>.json                           generated questions and answers (also with --html-only)
   glossary/index.html                            maths words A to Z
   number-bonds-to-20.html  times-tables-practice.html  mental-maths-strategies.html  daily-maths-puzzle-for-adults.html
   pack.html                                      the free puzzle pack for teachers (becomes /teachers.html)
@@ -114,3 +115,42 @@ Queue new pages at `../growth/content/queue/<code>/YYYY-MM-DD__slug.html`, inclu
 required `path:` relative to this folder. Equivalent articles use the same path across
 languages. `tools/publish_queue.py` validates due files before moving them here; see
 `tools/DAILY.md` for the format, weekday warnings and dry-run commands.
+
+## Accessible worksheets
+
+The worksheet generator writes each sheet’s instructions, tip, seeded question HTML, answers and
+shared chart data to `worksheets/<id>.json` beside the manifest. This happens with `--html-only` too;
+Chrome is not needed for that run or for the Python builders. `build-learn.py` uses the JSON to build
+`/learn/worksheets/<id>.html`, with the normal Learn navigation, breadcrumbs, an answers disclosure,
+PDF downloads, structured data and the same language alternates as the other Learn pages. English
+uses `learn-src/worksheets/<id>.json` and outputs to `learn/worksheets/`. Existing country-specific
+sheet selections and school years are preserved.
+
+A normal generator run creates three tagged A4 PDFs from the same questions: standard, large print
+(at least 18pt body text, smaller groups of questions and separate answer pages), and easy-read
+(cream background, dark text and increased spacing). Only the standard version gets a WebP preview.
+Meaningful SVGs have localised text alternatives; decorative pictures are hidden from screen readers.
+Add new alternative-text words to the language’s `worksheets.mjs`, and download/page UI words to
+`site.json`. Bar charts also include a real data table; column operations have a linear text version.
+
+On a machine where Chrome can run, generate the PDFs and then rebuild the pages so file sizes
+and PDF sitemap entries reflect the new files:
+
+```sh
+(
+  set -e
+  export PATH="/Volumes/External SSD/Projects/devtools/node/bin:$PATH"
+  for code in en fr es de pt it nl pl sv da no fi tr ja ko; do
+    node tools/make-worksheets.mjs "/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core" --lang "$code"
+  done
+  python3 tools/build-learn.py
+  python3 tools/build-langs.py
+  python3 tools/build-langs.py --check
+)
+```
+
+For a Chrome-free check, add `--html-only` to the generator command. Optional `HTML_DIR` writes
+all three HTML print renders to an existing directory for inspection. Downloads whose PDF has not
+yet been generated retain the correct local URL and show a translated size-pending message.
+After PDF generation, inspect the print layout and the tagged PDF’s Figure/Alt entries in a PDF
+accessibility checker; HTML-only checks cannot establish Chrome’s final pagination or PDF tags.

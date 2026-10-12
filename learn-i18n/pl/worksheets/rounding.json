@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Zaokrąglanie liczb",
+ "topic": "counting-and-place-value",
+ "years": [
+  "klasa-4",
+  "klasa-5"
+ ],
+ "desc": "Do dziesiątek, setek i tysięcy",
+ "how": "Zaokrąglij każdą liczbę tak, jak pokazano. Znak ≈ czytamy „w przybliżeniu”.",
+ "tip": "Spójrz na cyfrę tuż na prawo od miejsca, do którego zaokrąglasz. Przy 0, 1, 2, 3 i 4 zaokrąglasz w dół, a przy 5, 6, 7, 8 i 9 w górę.",
+ "yearsLabel": "Klasy 4 i 5",
+ "htmlLang": "pl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Do dziesiątek: <b class=\"n\">7067</b> ≈ <span class=\"bx\">□</span>",
+   "a": "7070"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">1481</b> ≈ <span class=\"bx\">□</span>",
+   "a": "1000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">3667</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3670"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">3729</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3730"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">4704</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">5302</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5300"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">1734</b> ≈ <span class=\"bx\">□</span>",
+   "a": "1700"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">8011</b> ≈ <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">4180</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4180"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">2156</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">5982</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5980"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">9636</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9600"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">8883</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">3523</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3520"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">2770</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2800"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">4431</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4430"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">5548</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5500"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">9455</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "Do setek: <b class=\"n\">2963</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">4896</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4900"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">3930</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4000"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">7873</b> ≈ <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "Do dziesiątek: <b class=\"n\">6257</b> ≈ <span class=\"bx\">□</span>",
+   "a": "6260"
+  },
+  {
+   "q": "Do tysięcy: <b class=\"n\">1530</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2000"
+  }
+ ]
+}

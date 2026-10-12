@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Afronden",
+ "topic": "counting-and-place-value",
+ "years": [
+  "groep-5",
+  "groep-6"
+ ],
+ "desc": "Op tientallen, honderdtallen en duizendtallen",
+ "how": "Rond elk getal af zoals aangegeven.",
+ "tip": "Kijk naar het cijfer rechts van de plek waarop je afrondt. Is het 0, 1, 2, 3 of 4, dan rond je naar beneden af. Bij 5, 6, 7, 8 of 9 rond je naar boven af.",
+ "yearsLabel": "Groep 5 en 6",
+ "htmlLang": "nl",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Op tientallen: <b class=\"n\">7067</b> → <span class=\"bx\">□</span>",
+   "a": "7070"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">1481</b> → <span class=\"bx\">□</span>",
+   "a": "1000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">3667</b> → <span class=\"bx\">□</span>",
+   "a": "3670"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">3729</b> → <span class=\"bx\">□</span>",
+   "a": "3730"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">4704</b> → <span class=\"bx\">□</span>",
+   "a": "5000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">5302</b> → <span class=\"bx\">□</span>",
+   "a": "5300"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">1734</b> → <span class=\"bx\">□</span>",
+   "a": "1700"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">8011</b> → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">4180</b> → <span class=\"bx\">□</span>",
+   "a": "4180"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">2156</b> → <span class=\"bx\">□</span>",
+   "a": "2000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">5982</b> → <span class=\"bx\">□</span>",
+   "a": "5980"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">9636</b> → <span class=\"bx\">□</span>",
+   "a": "9600"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">8883</b> → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">3523</b> → <span class=\"bx\">□</span>",
+   "a": "3520"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">2770</b> → <span class=\"bx\">□</span>",
+   "a": "2800"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">4431</b> → <span class=\"bx\">□</span>",
+   "a": "4430"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">5548</b> → <span class=\"bx\">□</span>",
+   "a": "5500"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">9455</b> → <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "Op honderdtallen: <b class=\"n\">2963</b> → <span class=\"bx\">□</span>",
+   "a": "3000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">4896</b> → <span class=\"bx\">□</span>",
+   "a": "4900"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">3930</b> → <span class=\"bx\">□</span>",
+   "a": "4000"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">7873</b> → <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "Op tientallen: <b class=\"n\">6257</b> → <span class=\"bx\">□</span>",
+   "a": "6260"
+  },
+  {
+   "q": "Op duizendtallen: <b class=\"n\">1530</b> → <span class=\"bx\">□</span>",
+   "a": "2000"
+  }
+ ]
+}

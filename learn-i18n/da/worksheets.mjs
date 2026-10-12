@@ -64,6 +64,19 @@ const SILVER = '#C9CDD2';   // 1, 2 and 5 kr.: cupronickel (the coins with a hol
 const GOLD = '#D9B44A';     // 10 and 20 kr.: aluminium bronze
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Ur: den store viser peger på ${minute}, og den lille viser peger på ${hour}`
+      : `Ur: den store viser peger på ${minute}, og den lille viser er mellem ${hour} og ${next}`;
+  },
+  shapeAlt: n => `Figur ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} med ${shaded} af ${total} lige store dele farvelagt`,
+  fractionKinds: {"bar": "Stribe", "circle": "Cirkel", "grid": "Gitter"},
+  coinAlt: value => `Mønt på ${value}`,
+  rectangleAlt: (w, h) => `Rektangel på et gitter med ${w} kolonner og ${h} rækker af kvadrater med sidelængden 1 cm`,
+  chartAlt: "Søjlediagram over stemmer på yndlingsfrugt; værdierne står i tabellen nedenfor",
+  chartFruit: "Frugt", chartVotes: "Stemmer",
   htmlLang: 'da',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

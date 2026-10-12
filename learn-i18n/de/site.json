@@ -56,7 +56,15 @@
     "reviewed_by": "Geprüft von {name}",
     "published_on": "Veröffentlicht am {date}",
     "reviewed_on": "Geprüft am {date}",
-    "report_error": "Fehler melden"
+    "report_error": "Fehler melden",
+    "standard_pdf": "Standard-PDF",
+    "large_print": "Großdruck",
+    "easy_read": "Lesefreundlich",
+    "show_answers": "Lösungen anzeigen",
+    "worksheet_questions": "Aufgaben",
+    "worksheet_downloads": "Downloads",
+    "pdf_size_pending": "PDF; Dateigröße nach der Erstellung verfügbar",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Zahlen und Stellenwerte", "glyph": "123", "colour": "lemon" },

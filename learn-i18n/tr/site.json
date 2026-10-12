@@ -56,7 +56,15 @@
     "reviewed_by": "İnceleyen: {name}",
     "published_on": "Yayın tarihi: {date}",
     "reviewed_on": "İnceleme tarihi: {date}",
-    "report_error": "Hata bildir"
+    "report_error": "Hata bildir",
+    "standard_pdf": "Standart PDF",
+    "large_print": "Büyük yazı",
+    "easy_read": "Kolay okuma",
+    "show_answers": "Cevapları göster",
+    "worksheet_questions": "Sorular",
+    "worksheet_downloads": "İndirmeler",
+    "pdf_size_pending": "PDF; boyut oluşturulduktan sonra gösterilir",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Sayılar ve basamak değeri", "glyph": "123", "colour": "lemon" },

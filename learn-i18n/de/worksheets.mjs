@@ -56,6 +56,19 @@ const PLACE = { 10: 'Zehner', 100: 'Hunderter', 1000: 'Tausender' };
 const COPPER = '#D9895B', GOLD = '#E9C46A', SILVER = '#D7DCE3';
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Uhr: Der lange Zeiger zeigt auf die ${minute} und der kurze Zeiger auf die ${hour}`
+      : `Uhr: Der lange Zeiger zeigt auf die ${minute} und der kurze Zeiger steht zwischen ${hour} und ${next}`;
+  },
+  shapeAlt: n => `Form ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind}: ${shaded} von ${total} gleich großen Teilen sind eingefärbt`,
+  fractionKinds: {"bar": "Streifen", "circle": "Kreis", "grid": "Raster"},
+  coinAlt: value => `${value}-Münze`,
+  rectangleAlt: (w, h) => `Rechteck auf einem Raster mit ${w} Spalten und ${h} Zeilen aus Quadraten mit 1 cm Seitenlänge`,
+  chartAlt: "Säulendiagramm zur Lieblingsobst-Abstimmung; die Werte stehen in der Tabelle darunter",
+  chartFruit: "Obst", chartVotes: "Stimmen",
   htmlLang: 'de',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

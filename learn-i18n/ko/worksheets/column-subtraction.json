@@ -1,0 +1,64 @@
+{
+ "id": "column-subtraction",
+ "title": "세 자리 수의 뺄셈",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "chodeung-3"
+ ],
+ "desc": "받아내림이 있는 세로셈",
+ "how": "세로셈으로 계산하세요. 일의 자리부터 시작해요!",
+ "tip": "덧셈으로 검산해 보세요. 532 − 178 = 354가 맞다면 354 + 178은 532가 되어야 해요.",
+ "yearsLabel": "초등 3학년",
+ "htmlLang": "ko",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">728 − 546 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>2</td><td>8</td></tr><tr><td>−</td><td>5</td><td>4</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "182"
+  },
+  {
+   "q": "<span class=\"column-expression\">542 − 161 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>4</td><td>2</td></tr><tr><td>−</td><td>1</td><td>6</td><td>1</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "381"
+  },
+  {
+   "q": "<span class=\"column-expression\">959 − 264 = □</span><table class=\"col\"><tr><td></td><td>9</td><td>5</td><td>9</td></tr><tr><td>−</td><td>2</td><td>6</td><td>4</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "695"
+  },
+  {
+   "q": "<span class=\"column-expression\">827 − 679 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>2</td><td>7</td></tr><tr><td>−</td><td>6</td><td>7</td><td>9</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "148"
+  },
+  {
+   "q": "<span class=\"column-expression\">435 − 283 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>3</td><td>5</td></tr><tr><td>−</td><td>2</td><td>8</td><td>3</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "152"
+  },
+  {
+   "q": "<span class=\"column-expression\">619 − 188 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>1</td><td>9</td></tr><tr><td>−</td><td>1</td><td>8</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">708 − 170 = □</span><table class=\"col\"><tr><td></td><td>7</td><td>0</td><td>8</td></tr><tr><td>−</td><td>1</td><td>7</td><td>0</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "538"
+  },
+  {
+   "q": "<span class=\"column-expression\">518 − 215 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>1</td><td>8</td></tr><tr><td>−</td><td>2</td><td>1</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "303"
+  },
+  {
+   "q": "<span class=\"column-expression\">473 − 266 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>7</td><td>3</td></tr><tr><td>−</td><td>2</td><td>6</td><td>6</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "207"
+  },
+  {
+   "q": "<span class=\"column-expression\">455 − 155 = □</span><table class=\"col\"><tr><td></td><td>4</td><td>5</td><td>5</td></tr><tr><td>−</td><td>1</td><td>5</td><td>5</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "300"
+  },
+  {
+   "q": "<span class=\"column-expression\">633 − 228 = □</span><table class=\"col\"><tr><td></td><td>6</td><td>3</td><td>3</td></tr><tr><td>−</td><td>2</td><td>2</td><td>8</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "405"
+  },
+  {
+   "q": "<span class=\"column-expression\">848 − 207 = □</span><table class=\"col\"><tr><td></td><td>8</td><td>4</td><td>8</td></tr><tr><td>−</td><td>2</td><td>0</td><td>7</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
+   "a": "641"
+  }
+ ]
+}

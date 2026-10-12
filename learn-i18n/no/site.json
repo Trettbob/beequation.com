@@ -56,7 +56,15 @@
     "reviewed_by": "Gjennomgått av {name}",
     "published_on": "Publisert {date}",
     "reviewed_on": "Gjennomgått {date}",
-    "report_error": "Meld fra om en feil"
+    "report_error": "Meld fra om en feil",
+    "standard_pdf": "Standard-PDF",
+    "large_print": "Stor skrift",
+    "easy_read": "Lesevennlig",
+    "show_answers": "Vis fasit",
+    "worksheet_questions": "Oppgaver",
+    "worksheet_downloads": "Nedlastinger",
+    "pdf_size_pending": "PDF; størrelse tilgjengelig etter generering",
+    "pdf_kb": "{size} kB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "Tall og plassverdi", "glyph": "123", "colour": "lemon" },

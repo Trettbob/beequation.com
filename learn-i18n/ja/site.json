@@ -56,7 +56,15 @@
     "reviewed_by": "確認：{name}",
     "published_on": "公開日：{date}",
     "reviewed_on": "確認日：{date}",
-    "report_error": "誤りを報告する"
+    "report_error": "誤りを報告する",
+    "standard_pdf": "標準PDF",
+    "large_print": "大きな文字",
+    "easy_read": "読みやすい版",
+    "show_answers": "答えを見る",
+    "worksheet_questions": "問題",
+    "worksheet_downloads": "ダウンロード",
+    "pdf_size_pending": "PDF・作成後にファイルサイズを表示",
+    "pdf_kb": "{size} KB"
   },
   "topics": [
     { "slug": "counting-and-place-value", "name": "数と位取り", "glyph": "123", "colour": "lemon" },

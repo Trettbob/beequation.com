@@ -1,0 +1,73 @@
+{
+ "id": "hundreds-tens-ones",
+ "title": "Centenas, dezenas e unidades",
+ "topic": "counting-and-place-value",
+ "years": [
+  "2-ano",
+  "3-ano"
+ ],
+ "desc": "Valor posicional até 999",
+ "how": "Escreva cada número como centenas + dezenas + unidades.",
+ "tip": "O zero guarda o lugar. Em 405 não há dezenas, mas é o 0 que segura o 4 na ordem das centenas.",
+ "yearsLabel": "2º e 3º anos",
+ "htmlLang": "pt-BR",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">545</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "500 + 40 + 5"
+  },
+  {
+   "q": "<b class=\"n\">967</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "900 + 60 + 7"
+  },
+  {
+   "q": "<b class=\"n\">362</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "300 + 60 + 2"
+  },
+  {
+   "q": "<b class=\"n\">405</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "400 + 0 + 5"
+  },
+  {
+   "q": "<b class=\"n\">761</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "700 + 60 + 1"
+  },
+  {
+   "q": "<b class=\"n\">865</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "800 + 60 + 5"
+  },
+  {
+   "q": "<b class=\"n\">751</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "700 + 50 + 1"
+  },
+  {
+   "q": "<b class=\"n\">957</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "900 + 50 + 7"
+  },
+  {
+   "q": "<b class=\"n\">995</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "900 + 90 + 5"
+  },
+  {
+   "q": "<b class=\"n\">759</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "700 + 50 + 9"
+  },
+  {
+   "q": "<b class=\"n\">763</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "700 + 60 + 3"
+  },
+  {
+   "q": "<b class=\"n\">546</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "500 + 40 + 6"
+  },
+  {
+   "q": "<b class=\"n\">881</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "800 + 80 + 1"
+  },
+  {
+   "q": "<b class=\"n\">963</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
+   "a": "900 + 60 + 3"
+  }
+ ]
+}

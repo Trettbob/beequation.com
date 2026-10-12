@@ -1,0 +1,137 @@
+{
+ "id": "division-facts",
+ "title": "Division facts",
+ "topic": "multiplication-and-division",
+ "years": [
+  "year-3",
+  "year-4"
+ ],
+ "desc": "Using times tables to divide",
+ "how": "Work out each answer.",
+ "tip": "Division is the inverse of multiplication. For 42 ÷ 6, ask: 6 times what makes 42?",
+ "yearsLabel": "Year 3 and Year 4",
+ "htmlLang": "en-GB",
+ "kind": "list",
+ "items": [
+  {
+   "q": "144 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "42 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "48 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "36 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "110 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "88 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "44 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "84 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "70 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "20 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "77 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "88 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "66 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "64 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "66 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "12 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "63 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "108 ÷ 9 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "110 ÷ 11 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "9 ÷ 3 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "70 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "72 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "24 ÷ 12 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "60 ÷ 6 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "48 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "16 ÷ 8 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "28 ÷ 4 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "30 ÷ 10 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "14 ÷ 7 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "10 ÷ 2 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

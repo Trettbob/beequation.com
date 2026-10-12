@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Avrunda tal",
+ "topic": "counting-and-place-value",
+ "years": [
+  "arskurs-3",
+  "arskurs-4"
+ ],
+ "desc": "Till närmaste tiotal, hundratal och tusental",
+ "how": "Avrunda varje tal till det som står framför: närmaste tiotal, hundratal eller tusental. Tecknet ≈ betyder ”ungefär lika med”.",
+ "tip": "Titta på siffran direkt till höger om platsen du avrundar till. Är den 0, 1, 2, 3 eller 4 avrundar du nedåt. Är den 5, 6, 7, 8 eller 9 avrundar du uppåt.",
+ "yearsLabel": "Årskurs 3 och 4",
+ "htmlLang": "sv",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Tiotal: <b class=\"n\">7 067</b> ≈ <span class=\"bx\">□</span>",
+   "a": "7 070"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">1 481</b> ≈ <span class=\"bx\">□</span>",
+   "a": "1 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">3 667</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3 670"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">3 729</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3 730"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">4 704</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">5 302</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5 300"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">1 734</b> ≈ <span class=\"bx\">□</span>",
+   "a": "1 700"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">8 011</b> ≈ <span class=\"bx\">□</span>",
+   "a": "8 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">4 180</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4 180"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">2 156</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">5 982</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5 980"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">9 636</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9 600"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">8 883</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">3 523</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3 520"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">2 770</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2 800"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">4 431</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4 430"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">5 548</b> ≈ <span class=\"bx\">□</span>",
+   "a": "5 500"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">9 455</b> ≈ <span class=\"bx\">□</span>",
+   "a": "9 000"
+  },
+  {
+   "q": "Hundratal: <b class=\"n\">2 963</b> ≈ <span class=\"bx\">□</span>",
+   "a": "3 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">4 896</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4 900"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">3 930</b> ≈ <span class=\"bx\">□</span>",
+   "a": "4 000"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">7 873</b> ≈ <span class=\"bx\">□</span>",
+   "a": "8 000"
+  },
+  {
+   "q": "Tiotal: <b class=\"n\">6 257</b> ≈ <span class=\"bx\">□</span>",
+   "a": "6 260"
+  },
+  {
+   "q": "Tusental: <b class=\"n\">1 530</b> ≈ <span class=\"bx\">□</span>",
+   "a": "2 000"
+  }
+ ]
+}

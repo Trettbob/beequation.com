@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Porcentaje de una cantidad",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "5-primaria",
+  "6-primaria"
+ ],
+ "desc": "10 %, 25 %, 50 % y más",
+ "how": "Calcula cada resultado.",
+ "tip": "Para el 10 %, divide entre 10. Luego ve sumando: el 30 % son tres veces el 10 %, y el 5 % es la mitad del 10 %.",
+ "yearsLabel": "5.º y 6.º de Primaria",
+ "htmlLang": "es",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50 % de 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5 % de 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25 % de 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40 % de 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10 % de 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 % de 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25 % de 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5 % de 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5 % de 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30 % de 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30 % de 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20 % de 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50 % de 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75 % de 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5 % de 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75 % de 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40 % de 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25 % de 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75 % de 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10 % de 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ]
+}

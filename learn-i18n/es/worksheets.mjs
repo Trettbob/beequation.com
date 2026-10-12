@@ -20,6 +20,19 @@ const BRASS = '#F2C14E';    // the gold-coloured part of the 1 € and 2 € coi
 const SILVER = '#D7DCE3';   // the silver-coloured part of the 1 € and 2 € coins
 
 export default {
+  // Text alternatives describe the picture, without adding a worked answer.
+  clockAlt: (h, m) => {
+    const hour = h % 12 || 12, next = hour % 12 + 1, minute = m === 0 ? 12 : m / 5;
+    return m === 0 ? `Reloj: la aguja larga apunta al ${minute} y la aguja corta apunta al ${hour}`
+      : `Reloj: la aguja larga apunta al ${minute} y la aguja corta está entre el ${hour} y el ${next}`;
+  },
+  shapeAlt: n => `Figura ${n}`,
+  fractionAlt: (kind, shaded, total) => `${kind} con ${shaded} de ${total} partes iguales coloreadas`,
+  fractionKinds: {"bar": "Barra", "circle": "Círculo", "grid": "Cuadrícula"},
+  coinAlt: value => `Moneda de ${value}`,
+  rectangleAlt: (w, h) => `Rectángulo en una cuadrícula de ${w} columnas y ${h} filas de cuadrados de 1 cm de lado`,
+  chartAlt: "Diagrama de barras de los votos por la fruta favorita; los valores están en la tabla de abajo",
+  chartFruit: "Fruta", chartVotes: "Votos",
   htmlLang: 'es',
   num,
   dec: (x, places) => x.toFixed(places).replace('.', ','),

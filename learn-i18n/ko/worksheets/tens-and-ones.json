@@ -1,0 +1,96 @@
+{
+ "id": "tens-and-ones",
+ "title": "10개씩 묶음과 낱개",
+ "topic": "counting-and-place-value",
+ "years": [
+  "chodeung-1"
+ ],
+ "desc": "두 자리 수를 묶음과 낱개로 나타내기",
+ "how": "각 수는 10개씩 묶음 몇 개와 낱개 몇 개인지 빈칸에 쓰세요.",
+ "tip": "47에서 앞의 4는 10개씩 묶음이 4개라는 뜻이고, 뒤의 7은 낱개가 7개라는 뜻이에요.",
+ "yearsLabel": "초등 1학년",
+ "htmlLang": "ko",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 7개, 낱개 9개"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 3개, 낱개 6개"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 5개, 낱개 8개"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 1개, 낱개 9개"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 9개, 낱개 0개"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 9개, 낱개 5개"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 2개, 낱개 3개"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 6개, 낱개 8개"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 6개, 낱개 4개"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 3개, 낱개 3개"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 1개, 낱개 2개"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 8개, 낱개 1개"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 6개, 낱개 7개"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 3개, 낱개 5개"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 6개, 낱개 0개"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 1개, 낱개 8개"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 1개, 낱개 6개"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 8개, 낱개 8개"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 5개, 낱개 4개"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = 10개씩 묶음 <span class=\"bx\">□</span>개와 낱개 <span class=\"bx\">□</span>개",
+   "a": "10개씩 묶음 3개, 낱개 1개"
+  }
+ ]
+}

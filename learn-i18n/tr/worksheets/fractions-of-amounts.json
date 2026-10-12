@@ -1,0 +1,113 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "Bir çokluğun kesir kadarı",
+ "topic": "fractions",
+ "years": [
+  "4-sinif",
+  "5-sinif"
+ ],
+ "desc": "20’nin ¾’ü gibi işlemler",
+ "how": "Her işlemin sonucunu bul.",
+ "tip": "Önce paydaya böl, sonra payla çarp. 20’nin ¾’ü için: 20 ÷ 4 = 5, sonra 5 × 3 = 15.",
+ "yearsLabel": "4. ve 5. sınıf",
+ "htmlLang": "tr",
+ "kind": "list",
+ "items": [
+  {
+   "q": "35’in <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "6’nın <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "24’ün <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "12’nin <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "18’in <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span>’si = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "6’nın <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "30’un <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span>’si = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "20’nin <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span>’si = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "32’nin <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "15’in <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span>’si = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "10’un <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "16’nın <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "90’ın <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "4’ün <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "20’nin <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span>’si = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "40’ın <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "80’in <span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "40’ın <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "36’nın <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "20’nin <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "8’in <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "25’in <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span>’ü = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "18’in <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "15’in <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span>’i = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ]
+}

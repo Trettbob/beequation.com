@@ -1,0 +1,113 @@
+{
+ "id": "rounding",
+ "title": "Rounding numbers",
+ "topic": "counting-and-place-value",
+ "years": [
+  "year-4",
+  "year-5"
+ ],
+ "desc": "Round to the nearest 10, 100 and 1,000",
+ "how": "Round each number as shown.",
+ "tip": "Look at the digit to the right of the place you are rounding to. 5 or more rounds up.",
+ "yearsLabel": "Year 4 and Year 5",
+ "htmlLang": "en-GB",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7,067</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "7,070"
+  },
+  {
+   "q": "<b class=\"n\">1,481</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "1,000"
+  },
+  {
+   "q": "<b class=\"n\">3,667</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "3,670"
+  },
+  {
+   "q": "<b class=\"n\">3,729</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "3,730"
+  },
+  {
+   "q": "<b class=\"n\">4,704</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "5,000"
+  },
+  {
+   "q": "<b class=\"n\">5,302</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "5,300"
+  },
+  {
+   "q": "<b class=\"n\">1,734</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "1,700"
+  },
+  {
+   "q": "<b class=\"n\">8,011</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "8,000"
+  },
+  {
+   "q": "<b class=\"n\">4,180</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "4,180"
+  },
+  {
+   "q": "<b class=\"n\">2,156</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "2,000"
+  },
+  {
+   "q": "<b class=\"n\">5,982</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "5,980"
+  },
+  {
+   "q": "<b class=\"n\">9,636</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "9,600"
+  },
+  {
+   "q": "<b class=\"n\">8,883</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "9,000"
+  },
+  {
+   "q": "<b class=\"n\">3,523</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "3,520"
+  },
+  {
+   "q": "<b class=\"n\">2,770</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "2,800"
+  },
+  {
+   "q": "<b class=\"n\">4,431</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "4,430"
+  },
+  {
+   "q": "<b class=\"n\">5,548</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "5,500"
+  },
+  {
+   "q": "<b class=\"n\">9,455</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "9,000"
+  },
+  {
+   "q": "<b class=\"n\">2,963</b> to the nearest 100 → <span class=\"bx\">□</span>",
+   "a": "3,000"
+  },
+  {
+   "q": "<b class=\"n\">4,896</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "4,900"
+  },
+  {
+   "q": "<b class=\"n\">3,930</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "4,000"
+  },
+  {
+   "q": "<b class=\"n\">7,873</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "8,000"
+  },
+  {
+   "q": "<b class=\"n\">6,257</b> to the nearest 10 → <span class=\"bx\">□</span>",
+   "a": "6,260"
+  },
+  {
+   "q": "<b class=\"n\">1,530</b> to the nearest 1,000 → <span class=\"bx\">□</span>",
+   "a": "2,000"
+  }
+ ]
+}
