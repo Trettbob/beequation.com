@@ -271,6 +271,8 @@ var store=/(^|\\.)(apps\\.apple\\.com|play\\.google\\.com)$/.test(u.hostname),ge
 var s=p+u.search,c=a.closest('[data-app]'),app=c?c.getAttribute('data-app'):/kids/i.test(s)?'kids':/\\/get\\/pro|com\\.trettlabs\\.beequation(?!kids)/.test(s)?'pro':'unknown';
 gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->""".replace('__GA__', GA_ID).replace('__GTM__', GTM_ID)
 CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
+var sharedHost=/(^|\\.)beequation\\.com$/.test(location.hostname);
+function saveCookie(value,maxAge){if(!sharedHost)return;try{document.cookie='bq-consent='+value+'; Domain=.beequation.com; Path=/; Max-Age='+maxAge+'; SameSite=Lax; Secure';}catch(e){}}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'
 +'.bq-ok .go{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.bq-ok button{font:700 15px/1 inherit;font-family:inherit;border:0;border-radius:12px;padding:11px 14px;cursor:pointer}'
@@ -282,14 +284,14 @@ var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',bee='<svg viewB
 function show(){if(document.querySelector('.bq-ok'))return;var d=document.createElement('section');d.className='bq-ok';d.setAttribute('role','region');d.setAttribute('aria-labelledby','bq-ok-h');
 d.innerHTML=bee+'<div><h2 id="bq-ok-h"></h2><p></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button><a href="/privacy.html"></a></div></div>';
 var q=function(s){return d.querySelector(s);};q('h2').textContent=T[0];q('p').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
-function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
+function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}saveCookie(v,31536000);if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
 q('.y').addEventListener('click',function(){pick('all2');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
-document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}saveCookie('',0);show();}});
 // 'all2' = GA + Metricool allowed; 'basic' = no analytics. Older answers (including 'all') ask again.
 // Saying no later stops GA and deletes its cookies. Metricool keeps no cookies or storage.
 function noGA(){window['ga-disable-__GA__']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();
 if(/^_ga/.test(n))['',';domain=.beequation.com',';domain='+location.hostname].forEach(function(dm){document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+dm;});});}
-var v=ls.getItem('bq-consent');if(v!=='all2'&&v!=='basic')show();})();</script><!--/consent-->"""
+var v=ls.getItem('bq-consent');if(v!=='all2'&&v!=='basic'){var savedChoice=document.cookie.match(/(?:^|;\\s*)bq-consent=(all2|basic)(?:;|$)/);if(savedChoice){v=savedChoice[1];try{ls.setItem('bq-consent',v);}catch(e){}}}if(v!=='all2'&&v!=='basic')show();})();</script><!--/consent-->"""
 
 # ---------- the site header ----------
 # One floating "pill" header for every page (the English pages, every Learn page and each language site), made by
