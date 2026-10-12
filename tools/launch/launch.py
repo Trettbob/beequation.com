@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_APPS = Path('/Volumes/External SSD/Projects/Beequation/beequation')
 LANGS = 'fr es de pt it nl pl sv da no fi tr ja ko'.split()
 OLD_DESCRIPTION = 'Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.'
-OLD_HERO = 'Coming soon to iPhone and Android. Follow <a href="https://www.instagram.com/beequationapp" style="color:var(--honey)">@beequationapp</a> for launch day.'
+OLD_HERO = 'Coming soon to iPhone and Android. Follow <a href="https://www.instagram.com/beequationapp" target="_blank" rel="noopener" style="color:var(--honey)">@beequationapp</a> for launch day.'
 OLD_CHIP = 'iPhone and Android: coming soon'
 TEACHER_OLD = 'Beequation Kids is coming soon to iPhone, iPad and Android, with six worlds of levels, hints from Indie the bee and no clock.'
 TEACHER_NEW = 'Beequation Kids is available now, with six worlds of levels, hints from Indie the bee and no clock.'
