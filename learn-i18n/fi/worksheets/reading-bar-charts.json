@@ -35,5 +35,6 @@
    "q": "Montako lasta äänesti yhteensä? <span class=\"line\"></span>",
    "a": "29"
   }
- ]
+ ],
+ "hasTactile": true
 }

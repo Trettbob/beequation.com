@@ -93,5 +93,6 @@
    "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> decenas y <span class=\"bx\">□</span> unidades",
    "a": "3 decenas y 1 unidad"
   }
- ]
+ ],
+ "hasTactile": false
 }

@@ -1,0 +1,293 @@
+.LA TABLE DE .PYTHAGORE
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.MULTIPLIE LE NOMBRE AU D=BUT
+DE CHAQUE LIGNE PAR LE NOMBRE
+EN HAUT DE CHAQUE COLONNE4
+.LES LIGNES ET LES COLONNES
+,** ET ,*< SONT UN D=FI EN
+PLUS4
+
+,*4 ,* "9 ,* ,7 CASE VIDE
+,<4 ,* "9 ,< ,7 CASE VIDE
+,%4 ,* "9 ,% ,7 CASE VIDE
+,?4 ,* "9 ,? ,7 CASE VIDE
+,:4 ,* "9 ,: ,7 CASE VIDE
+,$4 ,* "9 ,$ ,7 CASE VIDE
+,]4 ,* "9 ,] ,7 CASE VIDE
+,\4 ,* "9 ,\ ,7 CASE VIDE
+,[4 ,* "9 ,[ ,7 CASE VIDE
+,*#4 ,* "9 ,*# ,7 CASE VIDE
+,**4 ,* "9 ,** ,7 CASE VIDE
+,*<4 ,* "9 ,*< ,7 CASE VIDE
+,*%4 ,< "9 ,* ,7 CASE VIDE
+,*?4 ,< "9 ,< ,7 CASE VIDE,*:4 ,< "9 ,% ,7 CASE VIDE
+,*$4 ,< "9 ,? ,7 CASE VIDE
+,*]4 ,< "9 ,: ,7 CASE VIDE
+,*\4 ,< "9 ,$ ,7 CASE VIDE
+,*[4 ,< "9 ,] ,7 CASE VIDE
+,<#4 ,< "9 ,\ ,7 CASE VIDE
+,<*4 ,< "9 ,[ ,7 CASE VIDE
+,<<4 ,< "9 ,*# ,7 CASE VIDE
+,<%4 ,< "9 ,** ,7 CASE VIDE
+,<?4 ,< "9 ,*< ,7 CASE VIDE
+,<:4 ,% "9 ,* ,7 CASE VIDE
+,<$4 ,% "9 ,< ,7 CASE VIDE
+,<]4 ,% "9 ,% ,7 CASE VIDE
+,<\4 ,% "9 ,? ,7 CASE VIDE
+,<[4 ,% "9 ,: ,7 CASE VIDE
+,%#4 ,% "9 ,$ ,7 CASE VIDE
+,%*4 ,% "9 ,] ,7 CASE VIDE
+,%<4 ,% "9 ,\ ,7 CASE VIDE
+,%%4 ,% "9 ,[ ,7 CASE VIDE
+,%?4 ,% "9 ,*# ,7 CASE VIDE
+,%:4 ,% "9 ,** ,7 CASE VIDE
+,%$4 ,% "9 ,*< ,7 CASE VIDE
+,%]4 ,? "9 ,* ,7 CASE VIDE
+,%\4 ,? "9 ,< ,7 CASE VIDE
+,%[4 ,? "9 ,% ,7 CASE VIDE
+,?#4 ,? "9 ,? ,7 CASE VIDE
+,?*4 ,? "9 ,: ,7 CASE VIDE,?<4 ,? "9 ,$ ,7 CASE VIDE
+,?%4 ,? "9 ,] ,7 CASE VIDE
+,??4 ,? "9 ,\ ,7 CASE VIDE
+,?:4 ,? "9 ,[ ,7 CASE VIDE
+,?$4 ,? "9 ,*# ,7 CASE VIDE
+,?]4 ,? "9 ,** ,7 CASE VIDE
+,?\4 ,? "9 ,*< ,7 CASE VIDE
+,?[4 ,: "9 ,* ,7 CASE VIDE
+,:#4 ,: "9 ,< ,7 CASE VIDE
+,:*4 ,: "9 ,% ,7 CASE VIDE
+,:<4 ,: "9 ,? ,7 CASE VIDE
+,:%4 ,: "9 ,: ,7 CASE VIDE
+,:?4 ,: "9 ,$ ,7 CASE VIDE
+,::4 ,: "9 ,] ,7 CASE VIDE
+,:$4 ,: "9 ,\ ,7 CASE VIDE
+,:]4 ,: "9 ,[ ,7 CASE VIDE
+,:\4 ,: "9 ,*# ,7 CASE VIDE
+,:[4 ,: "9 ,** ,7 CASE VIDE
+,$#4 ,: "9 ,*< ,7 CASE VIDE
+,$*4 ,$ "9 ,* ,7 CASE VIDE
+,$<4 ,$ "9 ,< ,7 CASE VIDE
+,$%4 ,$ "9 ,% ,7 CASE VIDE
+,$?4 ,$ "9 ,? ,7 CASE VIDE
+,$:4 ,$ "9 ,: ,7 CASE VIDE
+,$$4 ,$ "9 ,$ ,7 CASE VIDE
+,$]4 ,$ "9 ,] ,7 CASE VIDE
+,$\4 ,$ "9 ,\ ,7 CASE VIDE,$[4 ,$ "9 ,[ ,7 CASE VIDE
+,]#4 ,$ "9 ,*# ,7 CASE VIDE
+,]*4 ,$ "9 ,** ,7 CASE VIDE
+,]<4 ,$ "9 ,*< ,7 CASE VIDE
+,]%4 ,] "9 ,* ,7 CASE VIDE
+,]?4 ,] "9 ,< ,7 CASE VIDE
+,]:4 ,] "9 ,% ,7 CASE VIDE
+,]$4 ,] "9 ,? ,7 CASE VIDE
+,]]4 ,] "9 ,: ,7 CASE VIDE
+,]\4 ,] "9 ,$ ,7 CASE VIDE
+,][4 ,] "9 ,] ,7 CASE VIDE
+,\#4 ,] "9 ,\ ,7 CASE VIDE
+,\*4 ,] "9 ,[ ,7 CASE VIDE
+,\<4 ,] "9 ,*# ,7 CASE VIDE
+,\%4 ,] "9 ,** ,7 CASE VIDE
+,\?4 ,] "9 ,*< ,7 CASE VIDE
+,\:4 ,\ "9 ,* ,7 CASE VIDE
+,\$4 ,\ "9 ,< ,7 CASE VIDE
+,\]4 ,\ "9 ,% ,7 CASE VIDE
+,\\4 ,\ "9 ,? ,7 CASE VIDE
+,\[4 ,\ "9 ,: ,7 CASE VIDE
+,[#4 ,\ "9 ,$ ,7 CASE VIDE
+,[*4 ,\ "9 ,] ,7 CASE VIDE
+,[<4 ,\ "9 ,\ ,7 CASE VIDE
+,[%4 ,\ "9 ,[ ,7 CASE VIDE
+,[?4 ,\ "9 ,*# ,7 CASE VIDE
+,[:4 ,\ "9 ,** ,7 CASE VIDE,[$4 ,\ "9 ,*< ,7 CASE VIDE
+,[]4 ,[ "9 ,* ,7 CASE VIDE
+,[\4 ,[ "9 ,< ,7 CASE VIDE
+,[[4 ,[ "9 ,% ,7 CASE VIDE
+,*##4 ,[ "9 ,? ,7 CASE VIDE
+,*#*4 ,[ "9 ,: ,7 CASE VIDE
+,*#<4 ,[ "9 ,$ ,7 CASE VIDE
+,*#%4 ,[ "9 ,] ,7 CASE VIDE
+,*#?4 ,[ "9 ,\ ,7 CASE VIDE
+,*#:4 ,[ "9 ,[ ,7 CASE VIDE
+,*#$4 ,[ "9 ,*# ,7 CASE VIDE
+,*#]4 ,[ "9 ,** ,7 CASE VIDE
+,*#\4 ,[ "9 ,*< ,7 CASE VIDE
+,*#[4 ,*# "9 ,* ,7 CASE VIDE
+,**#4 ,*# "9 ,< ,7 CASE VIDE
+,***4 ,*# "9 ,% ,7 CASE VIDE
+,**<4 ,*# "9 ,? ,7 CASE VIDE
+,**%4 ,*# "9 ,: ,7 CASE VIDE
+,**?4 ,*# "9 ,$ ,7 CASE VIDE
+,**:4 ,*# "9 ,] ,7 CASE VIDE
+,**$4 ,*# "9 ,\ ,7 CASE VIDE
+,**]4 ,*# "9 ,[ ,7 CASE VIDE
+,**\4 ,*# "9 ,*# ,7 CASE VIDE
+,**[4 ,*# "9 ,** ,7 CASE VIDE
+,*<#4 ,*# "9 ,*< ,7 CASE VIDE
+,*<*4 ,** "9 ,* ,7 CASE VIDE
+,*<<4 ,** "9 ,< ,7 CASE VIDE,*<%4 ,** "9 ,% ,7 CASE VIDE
+,*<?4 ,** "9 ,? ,7 CASE VIDE
+,*<:4 ,** "9 ,: ,7 CASE VIDE
+,*<$4 ,** "9 ,$ ,7 CASE VIDE
+,*<]4 ,** "9 ,] ,7 CASE VIDE
+,*<\4 ,** "9 ,\ ,7 CASE VIDE
+,*<[4 ,** "9 ,[ ,7 CASE VIDE
+,*%#4 ,** "9 ,*# ,7 CASE VIDE
+,*%*4 ,** "9 ,** ,7 CASE VIDE
+,*%<4 ,** "9 ,*< ,7 CASE VIDE
+,*%%4 ,*< "9 ,* ,7 CASE VIDE
+,*%?4 ,*< "9 ,< ,7 CASE VIDE
+,*%:4 ,*< "9 ,% ,7 CASE VIDE
+,*%$4 ,*< "9 ,? ,7 CASE VIDE
+,*%]4 ,*< "9 ,: ,7 CASE VIDE
+,*%\4 ,*< "9 ,$ ,7 CASE VIDE
+,*%[4 ,*< "9 ,] ,7 CASE VIDE
+,*?#4 ,*< "9 ,\ ,7 CASE VIDE
+,*?*4 ,*< "9 ,[ ,7 CASE VIDE
+,*?<4 ,*< "9 ,*# ,7 CASE VIDE
+,*?%4 ,*< "9 ,** ,7 CASE VIDE
+,*??4 ,*< "9 ,*< ,7 CASE VIDE.CORRIG=
+.LA TABLE DE .PYTHAGORE
+
+,*4 ,*
+,<4 ,<
+,%4 ,%
+,?4 ,?
+,:4 ,:
+,$4 ,$
+,]4 ,]
+,\4 ,\
+,[4 ,[
+,*#4 ,*#
+,**4 ,**
+,*<4 ,*<
+,*%4 ,<
+,*?4 ,?
+,*:4 ,$
+,*$4 ,\
+,*]4 ,*#
+,*\4 ,*<
+,*[4 ,*?
+,<#4 ,*$
+,<*4 ,*\
+,<<4 ,<#
+,<%4 ,<<
+,<?4 ,<?,<:4 ,%
+,<$4 ,$
+,<]4 ,[
+,<\4 ,*<
+,<[4 ,*:
+,%#4 ,*\
+,%*4 ,<*
+,%<4 ,<?
+,%%4 ,<]
+,%?4 ,%#
+,%:4 ,%%
+,%$4 ,%$
+,%]4 ,?
+,%\4 ,\
+,%[4 ,*<
+,?#4 ,*$
+,?*4 ,<#
+,?<4 ,<?
+,?%4 ,<\
+,??4 ,%<
+,?:4 ,%$
+,?$4 ,?#
+,?]4 ,??
+,?\4 ,?\
+,?[4 ,:
+,:#4 ,*#
+,:*4 ,*:,:<4 ,<#
+,:%4 ,<:
+,:?4 ,%#
+,::4 ,%:
+,:$4 ,?#
+,:]4 ,?:
+,:\4 ,:#
+,:[4 ,::
+,$#4 ,$#
+,$*4 ,$
+,$<4 ,*<
+,$%4 ,*\
+,$?4 ,<?
+,$:4 ,%#
+,$$4 ,%$
+,$]4 ,?<
+,$\4 ,?\
+,$[4 ,:?
+,]#4 ,$#
+,]*4 ,$$
+,]<4 ,]<
+,]%4 ,]
+,]?4 ,*?
+,]:4 ,<*
+,]$4 ,<\
+,]]4 ,%:
+,]\4 ,?<,][4 ,?[
+,\#4 ,:$
+,\*4 ,$%
+,\<4 ,]#
+,\%4 ,]]
+,\?4 ,\?
+,\:4 ,\
+,\$4 ,*$
+,\]4 ,<?
+,\\4 ,%<
+,\[4 ,?#
+,[#4 ,?\
+,[*4 ,:$
+,[<4 ,$?
+,[%4 ,]<
+,[?4 ,\#
+,[:4 ,\\
+,[$4 ,[$
+,[]4 ,[
+,[\4 ,*\
+,[[4 ,<]
+,*##4 ,%$
+,*#*4 ,?:
+,*#<4 ,:?
+,*#%4 ,$%
+,*#?4 ,]<
+,*#:4 ,\*,*#$4 ,[#
+,*#]4 ,[[
+,*#\4 ,*#\
+,*#[4 ,*#
+,**#4 ,<#
+,***4 ,%#
+,**<4 ,?#
+,**%4 ,:#
+,**?4 ,$#
+,**:4 ,]#
+,**$4 ,\#
+,**]4 ,[#
+,**\4 ,*##
+,**[4 ,**#
+,*<#4 ,*<#
+,*<*4 ,**
+,*<<4 ,<<
+,*<%4 ,%%
+,*<?4 ,??
+,*<:4 ,::
+,*<$4 ,$$
+,*<]4 ,]]
+,*<\4 ,\\
+,*<[4 ,[[
+,*%#4 ,**#
+,*%*4 ,*<*
+,*%<4 ,*%<,*%%4 ,*<
+,*%?4 ,<?
+,*%:4 ,%$
+,*%$4 ,?\
+,*%]4 ,$#
+,*%\4 ,]<
+,*%[4 ,\?
+,*?#4 ,[$
+,*?*4 ,*#\
+,*?<4 ,*<#
+,*?%4 ,*%<
+,*??4 ,*??

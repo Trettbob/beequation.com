@@ -69,5 +69,6 @@
    "q": "<b class=\"n\">963</b> = <span class=\"bx\">□</span> + <span class=\"bx\">□</span> + <span class=\"bx\">□</span>",
    "a": "900 + 60 + 3"
   }
- ]
+ ],
+ "hasTactile": false
 }

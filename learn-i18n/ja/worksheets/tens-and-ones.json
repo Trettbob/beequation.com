@@ -92,5 +92,6 @@
    "q": "<b class=\"n\">31</b> = 10が<span class=\"bx\">□</span>こと 1が<span class=\"bx\">□</span>こ",
    "a": "10が3こと1が1こ"
   }
- ]
+ ],
+ "hasTactile": false
 }

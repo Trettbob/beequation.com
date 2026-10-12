@@ -1,0 +1,59 @@
+.FRACTIONS =GALES
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.=CRIS LE NOMBRE QUI MANQUE
+POUR QUE LES DEUX FRACTIONS
+SOIENT =GALES4
+
+,*4 ,%/$ ,7 ,[ / CASE VIDE
+,<4 ,*/< ,7 ,$ / CASE VIDE
+,%4 ,*/$ ,7 ,% / CASE VIDE
+,?4 ,</$ ,7 ,*< / CASE VIDE
+,:4 ,</: ,7 CASE VIDE / ,*:
+,$4 ,</% ,7 ,? / CASE VIDE
+,]4 ,[/*# ,7 ,:? / CASE VIDE
+,\4 ,?/$ ,7 CASE VIDE / ,%#
+,[4 ,*/< ,7 ,% / CASE VIDE
+,*#4 ,%/? ,7 CASE VIDE / ,<#
+,**4 ,*/? ,7 ,< / CASE VIDE
+,*<4 ,*/? ,7 ,$ / CASE VIDE
+,*%4 ,</% ,7 ,*< / CASE VIDE
+,*?4 ,*/: ,7 ,< / CASE VIDE
+,*:4 ,[/*# ,7 ,*\ / CASE VIDE
+,*$4 ,%/: ,7 ,*\ / CASE VIDE
+,*]4 ,*/? ,7 CASE VIDE / ,*<,*\4 ,</% ,7 ,*# / CASE VIDE
+,*[4 ,</? ,7 ,? / CASE VIDE
+,<#4 ,</: ,7 ,*# / CASE VIDE
+,<*4 ,*/$ ,7 CASE VIDE / ,*<
+,<<4 ,</*# ,7 ,? / CASE VIDE
+,<%4 ,*/: ,7 ,$ / CASE VIDE
+,<?4 ,</? ,7 CASE VIDE / ,<?.CORRIG=
+.FRACTIONS =GALES
+
+,*4 ,*\
+,<4 ,*<
+,%4 ,*\
+,?4 ,%$
+,:4 ,$
+,$4 ,$
+,]4 ,$#
+,\4 ,<#
+,[4 ,$
+,*#4 ,*:
+,**4 ,\
+,*<4 ,<?
+,*%4 ,*\
+,*?4 ,*#
+,*:4 ,<#
+,*$4 ,%#
+,*]4 ,%
+,*\4 ,*:
+,*[4 ,\
+,<#4 ,<:
+,<*4 ,<
+,<<4 ,<#
+,<%4 ,%#
+,<?4 ,*<

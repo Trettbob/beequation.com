@@ -60,5 +60,6 @@
    "q": "<span class=\"column-expression\">551 + 152 = □</span><table class=\"col\"><tr><td></td><td>5</td><td>5</td><td>1</td></tr><tr><td>+</td><td>1</td><td>5</td><td>2</td></tr><tr class=\"ans\"><td></td><td></td><td></td><td></td></tr></table>",
    "a": "703"
   }
- ]
+ ],
+ "hasTactile": false
 }

@@ -1,0 +1,46 @@
+.COMPTER LES PI!CES
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.COMBIEN D'ARGENT Y A-T-IL
+DANS CHAQUE PORTE-MONNAIE 5
+.=CRIS LE TOTAL4
+
+,*4 .PI!CE DE ,< C .PI!CE DE
+,* C .PI!CE DE ,* C CASE VIDE
+,<4 .PI!CE DE ,*# C .PI!CE DE
+,< C .PI!CE DE ,* C CASE VIDE
+,%4 .PI!CE DE ,<# C .PI!CE DE
+,<# C .PI!CE DE ,*# C .PI!CE
+DE ,*# C CASE VIDE
+,?4 .PI!CE DE ,:# C .PI!CE DE
+,*# C .PI!CE DE ,: C .PI!CE DE
+,: C .PI!CE DE ,* C CASE VIDE
+,:4 .PI!CE DE ,<# C .PI!CE DE
+,<# C .PI!CE DE ,*# C .PI!CE
+DE ,: C .PI!CE DE ,: C CASE
+VIDE
+,$4 .PI!CE DE ,:# C .PI!CE DE
+,<# C .PI!CE DE ,<# C .PI!CE
+DE ,< C CASE VIDE,]4 .PI!CE DE ,:# C .PI!CE DE
+,<# C .PI!CE DE ,< C .PI!CE DE
+,* C CASE VIDE
+,\4 .PI!CE DE ,<# C .PI!CE DE
+,: C .PI!CE DE ,: C .PI!CE DE
+,* C CASE VIDE
+,[4 .PI!CE DE ,:# C .PI!CE DE
+,:# C .PI!CE DE ,:# C .PI!CE
+DE ,<# C CASE VIDE.CORRIG=
+.COMPTER LES PI!CES
+
+,*4 ,#1#? ^E
+,<4 ,#1*% ^E
+,%4 ,#1$# ^E
+,?4 ,#1]* ^E
+,:4 ,#1$# ^E
+,$4 ,#1[< ^E
+,]4 ,#1]% ^E
+,\4 ,#1%* ^E
+,[4 ,*1]# ^E

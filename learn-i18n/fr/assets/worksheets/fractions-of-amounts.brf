@@ -1,0 +1,57 @@
+.FRACTION D'UNE QUANTIT=
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.CALCULE CHAQUE R=SULTAT4
+
+,*4 ,?/: DE ,%: ,7 CASE VIDE
+,<4 ,*/% DE ,$ ,7 CASE VIDE
+,%4 ,%/? DE ,<? ,7 CASE VIDE
+,?4 ,*/? DE ,*< ,7 CASE VIDE
+,:4 ,</% DE ,*\ ,7 CASE VIDE
+,$4 ,*/< DE ,$ ,7 CASE VIDE
+,]4 ,]/*# DE ,%# ,7 CASE VIDE
+,\4 ,]/*# DE ,<# ,7 CASE VIDE
+,[4 ,*/? DE ,%< ,7 CASE VIDE
+,*#4 ,</: DE ,*: ,7 CASE VIDE
+,**4 ,?/: DE ,*# ,7 CASE VIDE
+,*<4 ,%/? DE ,*$ ,7 CASE VIDE
+,*%4 ,\/*# DE ,[# ,7 CASE VIDE
+,*?4 ,*/< DE ,? ,7 CASE VIDE
+,*:4 ,</: DE ,<# ,7 CASE VIDE
+,*$4 ,\/*# DE ,?# ,7 CASE VIDE
+,*]4 ,:/*# DE ,\# ,7 CASE VIDE
+,*\4 ,?/: DE ,?# ,7 CASE VIDE
+,*[4 ,*/? DE ,%$ ,7 CASE VIDE,<#4 ,%/: DE ,<# ,7 CASE VIDE
+,<*4 ,*/< DE ,\ ,7 CASE VIDE
+,<<4 ,?/: DE ,<: ,7 CASE VIDE
+,<%4 ,*/< DE ,*\ ,7 CASE VIDE
+,<?4 ,*/% DE ,*: ,7 CASE VIDE.CORRIG=
+.FRACTION D'UNE QUANTIT=
+
+,*4 ,<\
+,<4 ,<
+,%4 ,*\
+,?4 ,%
+,:4 ,*<
+,$4 ,%
+,]4 ,<*
+,\4 ,*?
+,[4 ,\
+,*#4 ,$
+,**4 ,\
+,*<4 ,*<
+,*%4 ,]<
+,*?4 ,<
+,*:4 ,\
+,*$4 ,%<
+,*]4 ,?#
+,*\4 ,%<
+,*[4 ,[
+,<#4 ,*<
+,<*4 ,?
+,<<4 ,<#
+,<%4 ,[
+,<?4 ,:

@@ -109,5 +109,6 @@
    "q": "<span class=\"fr\"><b>88</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
    "a": "0.88"
   }
- ]
+ ],
+ "hasTactile": false
 }

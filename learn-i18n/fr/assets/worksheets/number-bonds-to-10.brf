@@ -1,0 +1,58 @@
+.COMPL=MENTS ( ,*#
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.=CRIS LE NOMBRE QUI MANQUE
+POUR FAIRE ,*#4
+
+,*4 ,% ,6 CASE VIDE ,7 ,*#
+,<4 CASE VIDE ,6 ,*# ,7 ,*#
+,%4 ,$ ,6 CASE VIDE ,7 ,*#
+,?4 CASE VIDE ,6 ,< ,7 ,*#
+,:4 ,[ ,6 CASE VIDE ,7 ,*#
+,$4 CASE VIDE ,6 ,: ,7 ,*#
+,]4 ,* ,6 CASE VIDE ,7 ,*#
+,\4 CASE VIDE ,6 ,\ ,7 ,*#
+,[4 ,? ,6 CASE VIDE ,7 ,*#
+,*#4 CASE VIDE ,6 ,# ,7 ,*#
+,**4 ,] ,6 CASE VIDE ,7 ,*#
+,*<4 CASE VIDE ,6 ,% ,7 ,*#
+,*%4 ,*# ,6 CASE VIDE ,7 ,*#
+,*?4 CASE VIDE ,6 ,$ ,7 ,*#
+,*:4 ,< ,6 CASE VIDE ,7 ,*#
+,*$4 CASE VIDE ,6 ,[ ,7 ,*#
+,*]4 ,: ,6 CASE VIDE ,7 ,*#
+,*\4 CASE VIDE ,6 ,* ,7 ,*#,*[4 ,\ ,6 CASE VIDE ,7 ,*#
+,<#4 CASE VIDE ,6 ,? ,7 ,*#
+,<*4 ,# ,6 CASE VIDE ,7 ,*#
+,<<4 CASE VIDE ,6 ,] ,7 ,*#
+,<%4 ,% ,6 CASE VIDE ,7 ,*#
+,<?4 CASE VIDE ,6 ,*# ,7 ,*#.CORRIG=
+.COMPL=MENTS ( ,*#
+
+,*4 ,]
+,<4 ,#
+,%4 ,?
+,?4 ,\
+,:4 ,*
+,$4 ,:
+,]4 ,[
+,\4 ,<
+,[4 ,$
+,*#4 ,*#
+,**4 ,%
+,*<4 ,]
+,*%4 ,#
+,*?4 ,?
+,*:4 ,\
+,*$4 ,*
+,*]4 ,:
+,*\4 ,[
+,*[4 ,<
+,<#4 ,$
+,<*4 ,*#
+,<<4 ,%
+,<%4 ,]
+,<?4 ,#

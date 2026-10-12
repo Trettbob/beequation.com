@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fixPDF } from './a11y/pdf-ua-fix.mjs';
+import { coinLabels, hasPictures, renderTactile, tactileCSS } from './braille/tactile.mjs';
 
 const [, , PUP, ...REST] = process.argv;
 if (!PUP) throw new Error('usage: make-worksheets.mjs <puppeteer-core dir> [--lang <code>] [--html-only] [id ...]');
@@ -103,7 +104,8 @@ const EN = {
   promo: '<b>Practise with Indie.</b> Play free honeycomb number puzzles at beequation.com, or look for Beequation Kids on your phone or tablet: no ads, no tracking, no timers.',
 };
 const LOC = LANG === 'en' ? {} : (await import(path.join(ROOT, 'learn-i18n', LANG, 'worksheets.mjs'))).default;
-const L = { ...EN, ...LOC };
+const BRAILLE_WORDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools', 'braille', `${LANG}.json`), 'utf8'));
+const L = { ...EN, ...LOC, footer: BRAILLE_WORDS.license + '<br>https://creativecommons.org/licenses/by/4.0/' };
 
 // Indie the Hexabee (apps/kids/src/components/Indie.tsx)
 const HEXP = 'M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z';
@@ -464,18 +466,28 @@ try {
   for (const s of todo) {
     const data = { id: s.id, title: s.title, topic: s.topic, years: s.years, desc: s.desc, how: s.how, tip: s.tip,
       yearsLabel: yearsLabel(s.years), htmlLang: L.htmlLang, ...s.make(rng('ws-' + s.id)) };
+    data.hasTactile = hasPictures(data);
     fs.writeFileSync(path.join(DATA_OUT, `${s.id}.json`), JSON.stringify(data, null, 1) + '\n');
     let standard;
-    for (const variant of ['standard', 'large', 'easy-read']) {
+    let labels;
+    if (data.hasTactile) {
+      const values = new Set(Array.from({length:145}, (_,i) => String(i)));
+      if (s.id === 'counting-coins') for (const v of coinLabels(data)) values.add(LANG === 'ja' ? v.replace(/\D/g,'') : v);
+      const list = [...values];
+      const translated = JSON.parse(execFileSync('python3', [path.join(ROOT, 'tools/braille/make-braille.py'), '--lang', LANG,
+        ...list.flatMap(v => ['--label-text',v])], {encoding:'utf8'}));
+      labels = Object.fromEntries(list.map((v,i) => [v,translated[i]]));
+    }
+    for (const variant of ['standard', 'large', 'easy-read', ...(data.hasTactile ? ['tactile'] : [])]) {
       const suffix = variant === 'standard' ? '' : `-${variant}`;
-      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${css}${variantCSS[variant]}</style></head><body class="variant-${variant}">${render(s, data, variant)}</body></html>`;
+      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${variant === 'tactile' ? tactileCSS : css + variantCSS[variant]}</style></head><body class="variant-${variant}">${variant === 'tactile' ? renderTactile(data, BRAILLE_WORDS, labels) : render(s, data, variant)}</body></html>`;
       if (variant === 'standard') standard = html;
       if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}${suffix}.html`), html);
       if (HTML_ONLY) continue;
       await page.setContent(html, { waitUntil: 'load' });
       await page.evaluateHandle('document.fonts.ready');
       await page.pdf({ path: path.join(OUT, `${s.id}${suffix}.pdf`), format: 'A4', printBackground: true,
-        tagged: true, outline: true, margin: { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
+        tagged: true, outline: true, margin: variant === 'tactile' ? { top:'12mm', bottom:'12mm', left:'12mm', right:'12mm' } : { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
       const repaired = await fixPDF(path.join(OUT, `${s.id}${suffix}.pdf`), { lang: L.htmlLang, optional: true });
       if (repaired.skipped && !metadataWarningShown) {
         console.warn(repaired.warning);
@@ -499,3 +511,7 @@ try {
 const manifest = USED.map(({ id, title, topic, years, desc }) => ({ id, title, topic, years, desc }));
 fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1) + '\n');
 console.log(`${todo.length} worksheets, manifest has ${manifest.length}`);
+
+// Refresh text formats from the exact JSON just written, including selected-sheet runs.
+execFileSync('python3', [path.join(ROOT, 'tools/braille/make-braille.py'), '--lang', LANG], {stdio:'inherit'});
+execFileSync('python3', [path.join(ROOT, 'tools/braille/make-epub.py'), '--lang', LANG], {stdio:'inherit'});

@@ -77,5 +77,6 @@
    "q": "Compras un zumo por 3,40 € y pagas con 5 €. Te devuelven: <span class=\"bx\">□</span>",
    "a": "1,60 €"
   }
- ]
+ ],
+ "hasTactile": false
 }

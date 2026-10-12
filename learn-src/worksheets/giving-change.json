@@ -76,5 +76,6 @@
    "q": "You buy a juice for £3.40 and pay with £5.00. Change: <span class=\"bx\">□</span>",
    "a": "£1.60"
   }
- ]
+ ],
+ "hasTactile": false
 }

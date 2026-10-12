@@ -1,0 +1,53 @@
+.CENTAINES1 DIZAINES ET UNIT=S
+.BRAILLE PRODUIT PAR
+ORDINATEUR1 PAS ENCORE RELU4
+.FAITES-LE V=RIFIER PAR UNE
+PERSONNE QUI LIT LE BRAILLE4
+
+.D=COMPOSE CHAQUE NOMBRE EN
+CENTAINES ,6 DIZAINES ,6
+UNIT=S4
+
+,*4 ,:?: ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,<4 ,[$] ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,%4 ,%$< ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,?4 ,?#: ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,:4 ,]$* ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,$4 ,\$: ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,]4 ,]:* ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,\4 ,[:] ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,[4 ,[[: ,7 CASE VIDE ,6 CASEVIDE ,6 CASE VIDE
+,*#4 ,]:[ ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,**4 ,]$% ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,*<4 ,:?$ ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,*%4 ,\\* ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE
+,*?4 ,[$% ,7 CASE VIDE ,6 CASE
+VIDE ,6 CASE VIDE.CORRIG=
+.CENTAINES1 DIZAINES ET UNIT=S
+
+,*4 ,:## ,6 ,?# ,6 ,:
+,<4 ,[## ,6 ,$# ,6 ,]
+,%4 ,%## ,6 ,$# ,6 ,<
+,?4 ,?## ,6 ,# ,6 ,:
+,:4 ,]## ,6 ,$# ,6 ,*
+,$4 ,\## ,6 ,$# ,6 ,:
+,]4 ,]## ,6 ,:# ,6 ,*
+,\4 ,[## ,6 ,:# ,6 ,]
+,[4 ,[## ,6 ,[# ,6 ,:
+,*#4 ,]## ,6 ,:# ,6 ,[
+,**4 ,]## ,6 ,$# ,6 ,%
+,*<4 ,:## ,6 ,?# ,6 ,$
+,*%4 ,\## ,6 ,\# ,6 ,*
+,*?4 ,[## ,6 ,$# ,6 ,%

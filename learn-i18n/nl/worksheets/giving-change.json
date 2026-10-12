@@ -77,5 +77,6 @@
    "q": "Je koopt een ijsje voor € 3,40 en betaalt met € 5. Je krijgt <span class=\"bx\">□</span> terug.",
    "a": "€ 1,60"
   }
- ]
+ ],
+ "hasTactile": false
 }

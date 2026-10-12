@@ -6,7 +6,7 @@
  "inClass": "Vinkkejä luokkaan",
  "tips": ["Näytä yksi kenno taululla kahden minuutin lämmittelynä ja kysy, miten oppilaat löysivät oikean luvun.", "Tee monisteesta aikahaaste. Seuraavalla viikolla jokainen yrittää parantaa omaa aikaansa.", "Pyydä oppilaita tekemään oma kenno parin ratkaistavaksi."],
  "promo": "<b>Lisää pulmia mehiläinen Indien kanssa.</b> Pelaa ilmaiseksi osoitteessa fi.beequation.com tai etsi Beequation Kids puhelimeesi tai tablettiisi: ei mainoksia, ei tietojen keruuta eikä ajanottoa.",
- "footer": "Saa kopioida vapaasti luokkaan ja kotiin. Pelaa verkossa: <b>fi.beequation.com</b>",
+ "footer": "Saa jakaa ja muokata CC BY 4.0 -lisenssillä, kun mainitset Beequationin (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/",
   "hexAlt": "Kenno, jossa on luvut {list}",
   "listSep": ", ",
   "partOf": "Osa {n}/{total}"

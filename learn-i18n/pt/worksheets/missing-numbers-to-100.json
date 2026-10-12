@@ -61,5 +61,6 @@
    "q": "<b class=\"n\">30</b><span class=\"sep\">,</span><b class=\"n\">31</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">34</b><span class=\"sep\">,</span><span class=\"bx\">□</span><span class=\"sep\">,</span><b class=\"n\">36</b>",
    "a": "32, 33, 35"
   }
- ]
+ ],
+ "hasTactile": false
 }

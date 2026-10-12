@@ -6,7 +6,7 @@
  "inClass": "수업에서 이렇게 써 보세요",
  "tips": ["수업 도입 활동으로 벌집 하나를 2분 동안 화면에 띄우고, 학생들에게 어떻게 찾았는지 물어보세요.", "학습지 한 장을 시간을 재는 도전 과제로 내 주고, 다음 주에 학생마다 자기 기록을 깨 보게 하세요.", "학생마다 짝이 풀 벌집을 직접 만들어 보게 하세요."],
  "promo": "<b>꿀벌 인디와 함께 퍼즐을 더 풀어 보세요.</b> ko.beequation.com에서 무료로 플레이하거나, 휴대폰이나 태블릿에서 Beequation Kids를 찾아보세요. 광고도, 데이터 수집도, 시간제한도 없어요.",
- "footer": "교실과 가정에서 자유롭게 복사해 쓰세요. 온라인으로 플레이하기: <b>ko.beequation.com</b>",
+ "footer": "Beequation(beequation.com)을 출처로 표시하면 CC BY 4.0에 따라 공유하고 수정할 수 있습니다.<br>https://creativecommons.org/licenses/by/4.0/",
   "hexAlt": "숫자 {list}이(가) 있는 벌집",
   "listSep": ", ",
   "partOf": "{total}부 중 {n}부"

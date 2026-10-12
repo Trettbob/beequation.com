@@ -36,5 +36,6 @@
    "q": "Combien d’enfants ont voté en tout ? <span class=\"line\"></span>",
    "a": "29"
   }
- ]
+ ],
+ "hasTactile": true
 }

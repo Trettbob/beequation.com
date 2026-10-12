@@ -154,3 +154,79 @@ all three HTML print renders to an existing directory for inspection. Downloads 
 yet been generated retain the correct local URL and show a translated size-pending message.
 After PDF generation, inspect the print layout and the tagged PDF’s Figure/Alt entries in a PDF
 accessibility checker; HTML-only checks cannot establish Chrome’s final pagination or PDF tags.
+
+## Braille, tactile pictures, EPUB and the open licence
+
+Worksheets and the teachers’ puzzle pack are **CC BY 4.0**, with credit to
+Beequation (beequation.com): https://creativecommons.org/licenses/by/4.0/.
+The apps, browser game, Beequation name, logos and Indie are excluded (see terms.html).
+`tools/braille/<code>.json` holds the new translated format labels, notices and licence text.
+The 14 `pack.json` files change **footer only**; `promo` is unchanged. Mirror the English
+pack default in the apps repo’s `tools/puzzle-pack/make-pack.mts` as:
+
+```js
+footer: 'Free to share and adapt under CC BY 4.0, with credit to Beequation (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/',
+```
+
+`make-worksheets.mjs` now also runs the two Python text generators after writing JSON.
+Both can run separately, without Chrome, node packages or network requests:
+
+```sh
+export LOUIS_TABLEPATH="/Volumes/External SSD/Projects/devtools/liblouis/share/liblouis/tables"
+python3 tools/braille/make-braille.py
+python3 tools/braille/make-epub.py
+# Optional, per-language braille frame size:
+python3 tools/braille/make-braille.py --lang en --cells 40 --lines 25
+```
+
+Set `LIBLOUIS_BIN` to override the directory containing `lou_translate` and
+`lou_checktable`; the default is the installed devtools liblouis directory.
+Default braille pages are 30 cells by 27 lines. BRF uses North American braille
+ASCII (`en-us-brf.dis`); text uses `unicode.dis`, with identical hard line breaks
+and form feeds. Answers always start on a new page. Fraction slashes are retained;
+column operations and the multiplication matrix are written as linear questions.
+Every first page carries the translated computer-made/not-proofread notice.
+Japanese is deliberately skipped: there is no standard children’s kana table in
+this liblouis installation. Japanese still gets tactile PDFs and EPUB; tactile
+numeral labels use UEB digits. Portuguese uses the Portugal table, with an explicit
+notice on the site and in each braille sheet.
+
+All requested tables load with `lou_checktable` in liblouis 3.39.0. English grade 1
+already includes `en-ueb-math.ctb`; the digits/operators/fraction probe succeeds.
+Danish `da-dk-g16.ctb` declares uncontracted six-dot grade 1 (2022 standard).
+Translation adaptations discovered by the real CLI probes:
+
+- Spanish, Korean and Italian: Unicode minus becomes the table’s ASCII hyphen.
+- Italian: multiplication becomes the table’s asterisk; centred dots do too.
+- Dutch: the table uses virtual dots 9–f. Temporary display wrappers extend
+  `unicode.dis` and `en-us-brf.dis` with the exact physical-cell mappings shipped
+  in `nl-unicode.dis`. No physical dot is discarded.
+- Curly quotes/dashes become ordinary punctuation; ordinal suffixes º/ª become
+  o/a. Square centimetres and approximate equality use localised words where a
+  table does not support the symbol. An undefined character or non-six-dot output
+  stops generation instead of silently creating a broken BRF.
+
+These probes establish that the translation tables and display encodings work,
+not that the braille is proofread or suitable for a particular child. Have a
+braille reader and the child’s vision teacher check it before use.
+
+A normal Chrome-enabled run also writes `<id>-tactile.pdf` for picture worksheets
+and the multiplication grid. `--html-only` writes the exact tactile print HTML to
+`HTML_DIR` alongside the other renders and refreshes all braille/EPUB files.
+The tactile master uses A4, one diagram or coin group per page, black and white,
+lines at least 1 mm, hatching for shaded fractions, separated labels and large
+print question numbers with liblouis braille cells drawn as vector dots. Clocks
+have 12 ticks, stronger cardinal ticks, a shorter thicker hour hand and an arrow
+on the minute hand. The multiplication matrix is split into 4×4 sections; bar
+charts have numbered bars and a key. Rectangles are enlarged for touch: each grid
+square represents 1 cm in the exercise, rather than measuring 1 cm on the paper.
+These follow BANA simplification and separation principles; they need physical
+proofing on the chosen swell paper/embosser and teacher adaptation before use.
+
+Download sizes come from the generated files. Tactile links appear only on sheets
+with a tactile master; until the Chrome run they show the translated size-pending
+notice. Rebuild both Python site builders after generating PDFs to refresh sizes.
+The `/learn/braille.html` pages offer the language’s complete EPUB 3 collection for
+libraries and transcription services. EPUB ZIP ordering, XML, local references,
+manifest/spine, language and accessibility metadata are covered by
+`tools/tests/test_braille.py`; EPUBCheck is not installed.

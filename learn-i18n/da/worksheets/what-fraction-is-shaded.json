@@ -61,5 +61,6 @@
    "q": "<svg role=\"img\" aria-label=\"Stribe med 1 af 6 lige store dele farvelagt\" focusable=\"false\" viewBox=\"-1 -1 102 32\" style=\"width:36.4mm;height:11.700000000000001mm\"><rect x=\"0\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/><rect x=\"16.666666666666668\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#fff\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/><rect x=\"33.333333333333336\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#fff\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/><rect x=\"50\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#fff\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/><rect x=\"66.66666666666667\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#fff\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/><rect x=\"83.33333333333334\" y=\"0\" width=\"16.666666666666668\" height=\"30\" fill=\"#fff\" stroke=\"#1C1A4A\" stroke-width=\"1.2\"/></svg><div class=\"ansline\"><span class=\"bx\">□</span></div>",
    "a": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>6</i></span>"
   }
- ]
+ ],
+ "hasTactile": true
 }

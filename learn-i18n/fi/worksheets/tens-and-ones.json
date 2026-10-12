@@ -93,5 +93,6 @@
    "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> kymmentä ja <span class=\"bx\">□</span> ykköstä",
    "a": "3 kymmentä ja 1 ykkönen"
   }
- ]
+ ],
+ "hasTactile": false
 }

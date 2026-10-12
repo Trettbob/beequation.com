@@ -1,0 +1,58 @@
+,DENK KESIRLER
+,BILGISAYARDA \RETILMI%
+,BRAILLE YAZ9S91 HEN\Z KONTROL
+EDILMEDI4 ,BRAILLE OKUYAN
+BIRINE KONTROL ETTIRIN4
+
+,KESIRLERIN DENK OLMAS9 I*IN
+KUTUYA GELECEK SAY9Y9 YAZ4
+
+#A4 #C_/#F "7 #I _/ BO%LUK
+#B4 #A_/#B "7 #F _/ BO%LUK
+#C4 #A_/#F "7 #C _/ BO%LUK
+#D4 #B_/#F "7 #AB _/ BO%LUK
+#E4 #B_/#E "7 BO%LUK _/ #AE
+#F4 #B_/#C "7 #D _/ BO%LUK
+#G4 #I_/#AJ "7 #ED _/ BO%LUK
+#H4 #D_/#F "7 BO%LUK _/ #CJ
+#I4 #A_/#B "7 #C _/ BO%LUK
+#AJ4 #C_/#D "7 BO%LUK _/ #BJ
+#AA4 #A_/#D "7 #B _/ BO%LUK
+#AB4 #A_/#D "7 #F _/ BO%LUK
+#AC4 #B_/#C "7 #AB _/ BO%LUK
+#AD4 #A_/#E "7 #B _/ BO%LUK
+#AE4 #I_/#AJ "7 #AH _/ BO%LUK
+#AF4 #C_/#E "7 #AH _/ BO%LUK
+#AG4 #A_/#D "7 BO%LUK _/ #AB
+#AH4 #B_/#C "7 #AJ _/ BO%LUK#AI4 #B_/#D "7 #D _/ BO%LUK
+#BJ4 #B_/#E "7 #AJ _/ BO%LUK
+#BA4 #A_/#F "7 BO%LUK _/ #AB
+#BB4 #B_/#AJ "7 #D _/ BO%LUK
+#BC4 #A_/#E "7 #F _/ BO%LUK
+#BD4 #B_/#D "7 BO%LUK _/ #BD,CEVAPLAR
+,DENK KESIRLER
+
+#A4 #AH
+#B4 #AB
+#C4 #AH
+#D4 #CF
+#E4 #F
+#F4 #F
+#G4 #FJ
+#H4 #BJ
+#I4 #F
+#AJ4 #AE
+#AA4 #H
+#AB4 #BD
+#AC4 #AH
+#AD4 #AJ
+#AE4 #BJ
+#AF4 #CJ
+#AG4 #C
+#AH4 #AE
+#AI4 #H
+#BJ4 #BE
+#BA4 #B
+#BB4 #BJ
+#BC4 #CJ
+#BD4 #AB

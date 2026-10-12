@@ -77,5 +77,6 @@
    "q": "Fiyatı 68 TL olan bir oyuncak araba alıyorsun ve 100 TL veriyorsun. Para üstü: <span class=\"bx\">□</span>",
    "a": "32 TL"
   }
- ]
+ ],
+ "hasTactile": false
 }
