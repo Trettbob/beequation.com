@@ -234,114 +234,16 @@ SAY = {
 # them into a mailto link showing the address in the visitor's browser.
 EMAIL = """<!--em--><script>document.querySelectorAll('a.em[data-e]').forEach(function(a){try{var e=atob(a.dataset.e).split('').reverse().join('');a.href='mailto:'+e;a.textContent=e;}catch(x){}});</script><!--/em-->"""
 
-# Opt-in analytics; a necessary preference cookie shares the choice across language hosts.
-# The privacy page can reopen the note with data-bq-consent.
+# Indie's cookie notice. Analytics require opt-in. The things kept locally (never sent to us) are browser-game
+# progress (beequation.kids.v1, beequation.adult.v1), the language choice (bq-lang) and
+# this choice itself (bq-consent). "Don't remember anything" deletes those and stops them being saved (play.html and
+# the language scripts check bq-consent). The privacy page has a button (data-bq-consent) to show the notice again.
 CONSENT_TEXT = {
-  "en": [
-    "Cookie choice",
-    "Can we count visits with Google Analytics and Metricool to improve the site, never for ads?",
-    "Allow",
-    "No thanks",
-    "Privacy"
-  ],
-  "fr": [
-    "Choix des cookies",
-    "Pouvons-nous compter les visites avec Google Analytics et Metricool pour améliorer le site, jamais pour la publicité ?",
-    "Autoriser",
-    "Non merci",
-    "Confidentialité"
-  ],
-  "es": [
-    "Preferencias de cookies",
-    "¿Podemos contar visitas con Google Analytics y Metricool para mejorar el sitio, nunca para publicidad?",
-    "Permitir",
-    "No, gracias",
-    "Privacidad"
-  ],
-  "de": [
-    "Cookie-Auswahl",
-    "Dürfen wir mit Google Analytics und Metricool Besuche zählen, um die Website zu verbessern, nie für Werbung?",
-    "Erlauben",
-    "Nein, danke",
-    "Datenschutz"
-  ],
-  "pt": [
-    "Preferências de cookies",
-    "Podemos contar visitas com Google Analytics e Metricool para melhorar o site, nunca para anúncios?",
-    "Permitir",
-    "Não, obrigado",
-    "Privacidade"
-  ],
-  "it": [
-    "Scelta dei cookie",
-    "Possiamo contare le visite con Google Analytics e Metricool per migliorare il sito, mai per la pubblicità?",
-    "Consenti",
-    "No, grazie",
-    "Privacy"
-  ],
-  "nl": [
-    "Cookiekeuze",
-    "Mogen we bezoeken tellen met Google Analytics en Metricool om de site te verbeteren, nooit voor reclame?",
-    "Toestaan",
-    "Nee, bedankt",
-    "Privacy"
-  ],
-  "pl": [
-    "Wybór plików cookie",
-    "Czy możemy zliczać wizyty za pomocą Google Analytics i Metricool, by ulepszać stronę, nigdy do reklam?",
-    "Zezwól",
-    "Nie, dziękuję",
-    "Prywatność"
-  ],
-  "sv": [
-    "Val av kakor",
-    "Får vi räkna besök med Google Analytics och Metricool för att förbättra webbplatsen, aldrig för reklam?",
-    "Tillåt",
-    "Nej tack",
-    "Integritet"
-  ],
-  "da": [
-    "Valg af cookies",
-    "Må vi tælle besøg med Google Analytics og Metricool for at forbedre siden, aldrig til reklamer?",
-    "Tillad",
-    "Nej tak",
-    "Privatliv"
-  ],
-  "no": [
-    "Valg av informasjonskapsler",
-    "Kan vi telle besøk med Google Analytics og Metricool for å forbedre nettstedet, aldri til reklame?",
-    "Tillat",
-    "Nei takk",
-    "Personvern"
-  ],
-  "fi": [
-    "Evästevalinta",
-    "Saammeko laskea käynnit Google Analyticsilla ja Metricoolilla sivuston parantamiseksi, ei koskaan mainontaan?",
-    "Salli",
-    "Ei kiitos",
-    "Tietosuoja"
-  ],
-  "tr": [
-    "Çerez tercihi",
-    "Siteyi iyileştirmek için ziyaretleri Google Analytics ve Metricool ile sayabilir miyiz? Asla reklam amacıyla kullanılmaz.",
-    "İzin ver",
-    "Hayır, sağ ol",
-    "Gizlilik"
-  ],
-  "ja": [
-    "Cookieの選択",
-    "サイト改善のため、Google AnalyticsとMetricoolで訪問数を集計してもよいですか？広告には使いません。",
-    "許可する",
-    "許可しない",
-    "プライバシー"
-  ],
-  "ko": [
-    "쿠키 선택",
-    "사이트 개선을 위해 Google Analytics와 Metricool로 방문 수를 집계해도 될까요? 광고에는 사용하지 않습니다.",
-    "허용",
-    "거절",
-    "개인정보"
-  ]
+  'en': ["Indie's note about cookies", "May we count visits? Only if you say yes, Google Analytics (which sets cookies) and Metricool (without cookies) count them so we can see which pages help families most. Never for ads. Your game progress and language are kept on this device either way, and never sent to us.", "Yes, that's fine", "No thanks", "Privacy policy"],
+  'fr': ["Le petit mot d'Indie sur les cookies", "Pouvons-nous compter les visites ? Seulement si vous dites oui, Google Analytics (avec des cookies) et Metricool (sans cookies) les comptent pour nous montrer quelles pages aident le plus les familles. Jamais pour de la publicité. Votre progression dans le jeu et votre langue restent sur cet appareil dans tous les cas, et ne nous sont jamais envoyées.", "Oui, d'accord", "Non merci", "Politique de confidentialité"],
+  'es': ["La nota de Indie sobre las cookies", "¿Podemos contar las visitas? Solo si dices que sí, Google Analytics (con cookies) y Metricool (sin cookies) las cuentan para que veamos qué páginas ayudan más a las familias. Nunca para anuncios. Tu progreso en el juego y tu idioma se guardan en este dispositivo en cualquier caso y nunca se nos envían.", "Sí, de acuerdo", "No, gracias", "Política de privacidad"],
+  'de': ["Indies Hinweis zu Cookies", "Dürfen wir Besuche zählen? Nur wenn Sie zustimmen, zählen Google Analytics (mit Cookies) und Metricool (ohne Cookies) sie, damit wir sehen, welche Seiten Familien am meisten helfen. Nie für Werbung. Ihr Spielfortschritt und Ihre Sprache bleiben in jedem Fall auf diesem Gerät und werden nie an uns gesendet.", "Ja, einverstanden", "Nein, danke", "Datenschutzerklärung"],
+  'pt': ["O recado da Indie sobre cookies", "Podemos contar as visitas? Só se você disser que sim, o Google Analytics (com cookies) e o Metricool (sem cookies) contam as visitas para vermos quais páginas mais ajudam as famílias. Nunca para anúncios. Seu progresso no jogo e seu idioma ficam neste aparelho de qualquer forma e nunca são enviados para nós.", "Sim, tudo bem", "Não, obrigado", "Política de privacidade"],
 }
 # Google Analytics via Tag Manager (GA approved 2026-10-11, GTM 2026-10-12) and Metricool (approved 2026-10-12): loaded only after a visitor says yes
 # ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html), and only
@@ -351,7 +253,7 @@ GTM_ID = 'GTM-W9MNXL3Z'   # Tag Manager container (Lee, 2026-10-12): its only ta
                           # only after opt-in, like GA did; signals/ad personalisation are switched off here with 'set'.
 GA = """<!--ga--><script>(function(){var ID='__GA__',on=false,h=location.hostname;if(!/(^|\\.)beequation\\.com$/.test(h))return;
 function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
-function load(){if(!ok())return;window['ga-disable-'+ID]=false;if(on)return;on=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
 gtag('js',new Date());gtag('set',{allow_google_signals:false,allow_ad_personalization_signals:false});
 dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=__GTM__';document.head.appendChild(s);
@@ -368,31 +270,26 @@ if(/(^|\\.)beequation\\.com$/.test(u.hostname)&&/\\/play\\.html$/.test(p)){gtag(
 var store=/(^|\\.)(apps\\.apple\\.com|play\\.google\\.com)$/.test(u.hostname),get=/(^|\\.)beequation\\.com$/.test(u.hostname)&&/^\\/get(\\/|$)/.test(p);if(!store&&!get)return;
 var s=p+u.search,c=a.closest('[data-app]'),app=c?c.getAttribute('data-app'):/kids/i.test(s)?'kids':/\\/get\\/pro|com\\.trettlabs\\.beequation(?!kids)/.test(s)?'pro':'unknown';
 gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->""".replace('__GA__', GA_ID).replace('__GTM__', GTM_ID)
-CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls,host=/(^|\\.)beequation\\.com$/.test(location.hostname);try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
-function remember(v){try{ls.setItem('bq-consent',v);}catch(e){}if(host)try{document.cookie='bq-consent='+v+'; Domain=.beequation.com; Path=/; Max-Age=31536000; SameSite=Lax'+(location.protocol==='https:'?'; Secure':'');}catch(e){}}
-var v=ls.getItem('bq-consent');if(v===null&&host){try{var c=document.cookie.match(/(?:^|;\\s*)bq-consent=(all2|basic)(?:;|$)/);if(c){v=c[1];ls.setItem('bq-consent',v);}}catch(e){}}
-var st=document.createElement('style');st.textContent='.bq-ok{box-sizing:border-box;position:fixed;left:0;right:0;bottom:0;margin:auto;z-index:40;width:100%;max-width:920px;max-height:25vh;max-height:25svh;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;align-items:center;background:#fff;color:#1C1A4A;border:1px solid #79738e;border-radius:12px 12px 0 0;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -3px 16px #0002;font:15px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif}'
-+'.bq-ok p{min-height:0;overflow:auto;margin:0;overscroll-behavior:contain}.bq-ok a{color:inherit;text-decoration:underline}.bq-ok .go{display:grid;grid-template-columns:1fr 1fr;gap:8px}.bq-ok button{min-height:44px;font:600 15px/1.2 system-ui,sans-serif;border:1px solid currentColor;border-radius:8px;padding:6px 12px;background:transparent;color:inherit;cursor:pointer}.bq-ok button:hover{background:#eee9ff}.bq-ok :focus-visible{outline:3px solid currentColor;outline-offset:-3px}'
-+'@media(max-width:600px){.bq-ok{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;border-radius:0;gap:6px;padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}}'
-+'@media(prefers-color-scheme:dark){.bq-ok{background:#201c35;color:#f7f4ff;border-color:#b7aecb}.bq-ok button:hover{background:#39314f}}'
-+'html.bqm-open .bq-ok,html:has(#bq-a11y[open]) .bq-ok,html:has(.bqh-panel:not([hidden])) .bq-ok{display:none}';
+CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
+var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
++'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'
++'.bq-ok .go{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.bq-ok button{font:700 15px/1 inherit;font-family:inherit;border:0;border-radius:12px;padding:11px 14px;cursor:pointer}'
++'.bq-ok .y{background:#FFB020;color:#12161F}.bq-ok .n{background:#EEE9FF;color:#3B24A8}.bq-ok button:focus-visible,.bq-ok a:focus-visible{outline:3px solid #6A4BF5;outline-offset:2px}'
++'.bq-ok svg{flex:none;animation:bqwave 1.6s ease-in-out .5s 2}@keyframes bqok{from{transform:translateY(120%)}}@keyframes bqwave{50%{transform:rotate(-10deg) translateY(-4px)}}'
++'@media (max-width:520px){.bq-ok{left:10px;right:10px;bottom:10px;max-width:none}}@media (prefers-reduced-motion:reduce){.bq-ok,.bq-ok svg{animation:none}}';
 document.head.appendChild(st);
-function show(){if(document.querySelector('.bq-ok'))return;var d=document.createElement('section');d.className='bq-ok';d.setAttribute('role','region');d.setAttribute('aria-label',T[0]);
-d.innerHTML='<p tabindex="0"><span></span> <a href="/privacy.html"></a></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button></div>';
-var q=function(s){return d.querySelector(s);};q('span').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
-var body=document.body,root=document.documentElement,oldPad=body.style.paddingBottom,base=getComputedStyle(body).paddingBottom,oldScroll=root.style.scrollPaddingBottom,ro,mo;
-function visible(){var s=getComputedStyle(d);return s.display!=='none'&&s.visibility!=='hidden';}
-function space(){var h=visible()?d.getBoundingClientRect().height:0;body.style.paddingBottom='calc('+base+' + '+h+'px)';root.style.scrollPaddingBottom=h+'px';protect({target:document.activeElement});}
-function protect(e){if(!e.target||!visible()||d.contains(e.target)||!e.target.getBoundingClientRect)return;var b=e.target.getBoundingClientRect(),top=d.getBoundingClientRect().top;if(b.bottom>top&&b.top<window.innerHeight)window.scrollBy(0,b.bottom-top+8);}
-function pick(v){remember(v);if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}if(ro)ro.disconnect();if(mo)mo.disconnect();window.removeEventListener('resize',space);document.removeEventListener('focusin',protect);d.remove();body.style.paddingBottom=oldPad;root.style.scrollPaddingBottom=oldScroll;}
-q('.y').addEventListener('click',function(){pick('all2');});q('.n').addEventListener('click',function(){pick('basic');});var skip=document.querySelector('.skip');if(skip)skip.insertAdjacentElement('afterend',d);else body.insertBefore(d,body.firstChild);
-space();if(window.ResizeObserver){ro=new ResizeObserver(space);ro.observe(d);}if(window.MutationObserver){mo=new MutationObserver(space);mo.observe(root,{attributes:true,attributeFilter:['class']});var panel=document.getElementById('bq-a11y');if(panel)mo.observe(panel,{attributes:true,attributeFilter:['open']});}window.addEventListener('resize',space);document.addEventListener('focusin',protect);}
-document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){remember('basic');noGA();document.dispatchEvent(new Event('bq-consent'));show();}});
-// 'all2' allows GA + Metricool; 'basic' refuses analytics. Legacy answers still ask again.
-// Reopening withdraws consent immediately and updates the shared preference.
+var k='#1C1A4A',hx='M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z',bee='<svg viewBox="8 9 80 80" width="64" height="64" aria-hidden="true" focusable="false"><ellipse cx="42" cy="28" rx="13" ry="10" fill="#DFF1FF" stroke="'+k+'" stroke-width="3" transform="rotate(-20 42 28)"/><ellipse cx="60" cy="26" rx="12" ry="9.5" fill="#DFF1FF" stroke="'+k+'" stroke-width="3" transform="rotate(18 60 26)"/><path d="'+hx+'" fill="#FFD84D"/><rect x="35" y="34" width="7" height="52" fill="'+k+'"/><rect x="50" y="34" width="7" height="52" fill="'+k+'"/><path d="'+hx+'" fill="none" stroke="'+k+'" stroke-width="3.5" stroke-linejoin="round"/><path d="M64.5 57 Q68 52 71.5 57M62 65 Q69 74 76 64M64 34 Q68 20 76 16" fill="none" stroke="'+k+'" stroke-width="2.6" stroke-linecap="round"/><circle cx="76" cy="61" r="3" fill="#FFA8D2"/><circle cx="77" cy="15.5" r="3.2" fill="'+k+'"/><path d="M18 57 L11 60 L18 63" fill="'+k+'" stroke="'+k+'" stroke-width="2" stroke-linejoin="round"/></svg>';
+function show(){if(document.querySelector('.bq-ok'))return;var d=document.createElement('section');d.className='bq-ok';d.setAttribute('role','region');d.setAttribute('aria-labelledby','bq-ok-h');
+d.innerHTML=bee+'<div><h2 id="bq-ok-h"></h2><p></p><div class="go"><button type="button" class="y"></button><button type="button" class="n"></button><a href="/privacy.html"></a></div></div>';
+var q=function(s){return d.querySelector(s);};q('h2').textContent=T[0];q('p').textContent=T[1];q('.y').textContent=T[2];q('.n').textContent=T[3];q('a').textContent=T[4];
+function pick(v){try{ls.setItem('bq-consent',v);}catch(e){}if(v==='basic')noGA();try{document.dispatchEvent(new Event('bq-consent'));}catch(e){}d.remove();}
+q('.y').addEventListener('click',function(){pick('all2');});q('.n').addEventListener('click',function(){pick('basic');});document.body.appendChild(d);}
+document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-bq-consent]')){try{ls.removeItem('bq-consent');}catch(x){}show();}});
+// 'all2' = GA + Metricool allowed; 'basic' = no analytics. Older answers (including 'all') ask again.
+// Saying no later stops GA and deletes its cookies. Metricool keeps no cookies or storage.
 function noGA(){window['ga-disable-__GA__']=true;document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();
 if(/^_ga/.test(n))['',';domain=.beequation.com',';domain='+location.hostname].forEach(function(dm){document.cookie=n+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'+dm;});});}
-if(v==='basic')noGA();if(v!=='all2'&&v!=='basic')show();})();</script><!--/consent-->"""
+var v=ls.getItem('bq-consent');if(v!=='all2'&&v!=='basic')show();})();</script><!--/consent-->"""
 
 # ---------- the site header ----------
 # One floating "pill" header for every page (the English pages, every Learn page and each language site), made by
