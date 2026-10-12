@@ -2,7 +2,7 @@
 # text-only links, and the homepage demo's JavaScript strings. Shared by extract and build.
 import re, html
 
-PAGES = ['index.html', 'how-to-play.html', 'about.html', 'support.html', 'privacy.html', 'terms.html', '404.html', 'play.html', 'accessibility.html']
+PAGES = ['index.html', 'how-to-play.html', 'about.html', 'support.html', 'privacy.html', 'terms.html', '404.html', 'play.html', 'accessibility.html', 'easy-read/how-to-play.html', 'easy-read/privacy.html', 'easy-read/terms.html']
 BLOCK = re.compile(r'<(p|li|h1|h2|h3|figcaption|summary|button|dt|dd)(\s[^>]*)?>(.*?)</\1>', re.S)
 SPAN = re.compile(r'<(span|b) (class="(?:soon|soon-tag)"|id="(?:try-h|count)")>(.*?)</\1>', re.S)
 LINK = re.compile(r'<a ([^>]*)>([^<>]+)</a>')
@@ -14,7 +14,7 @@ SKIP_ATTR = re.compile(r'^(width=|initial-scale|#|summary_large_image|website|ar
 def norm(s): return re.sub(r'\s+', ' ', s).strip()
 
 def segments(src):
-    for m in ('header', 'footer', 'lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip'):
+    for m in ('header', 'footer', 'lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'nav', 'nav-css', 'skip', 'a11y', 'a11y-head', 'easy-link'):
         src = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', src, flags=re.S)   # added by build-langs.py, translated there
     head, body = src.split('</head>', 1)
     out = []
