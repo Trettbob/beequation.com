@@ -5,7 +5,7 @@
 # Logs: ../logs/daily-YYYY-MM-DD.log next to this repo; ../logs/daily-last-run holds the last successful date.
 set -u
 export DEVTOOLS="/Volumes/External SSD/Projects/devtools"
-export PATH="$DEVTOOLS/bin:$DEVTOOLS/node/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$DEVTOOLS/bin:$DEVTOOLS/node/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export GH_CONFIG_DIR="$DEVTOOLS/gh-config" NPM_CONFIG_CACHE="$DEVTOOLS/npm-cache" TMPDIR="$DEVTOOLS/tmp"
 export GIT_TERMINAL_PROMPT=0 GH_PROMPT_DISABLED=1
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
