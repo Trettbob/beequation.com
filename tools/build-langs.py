@@ -746,6 +746,7 @@ SOCIALS = [   # (name, url, monoline icon)
     ('TikTok', 'https://www.tiktok.com/@beequationapp', _ICON('<path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.4 2.6 2.3 4.4 5 4.6"/>')),
     ('YouTube', 'https://www.youtube.com/@beequationapp', _ICON('<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/>')),
     ('Facebook', 'https://www.facebook.com/beequationapp', _ICON('<path d="M15.5 3.5H14a4 4 0 0 0-4 4V10H7.5v3.5H10v7h3.5v-7h2.6l.6-3.5h-3.2V8a1 1 0 0 1 1-1h1z"/>')),
+    ('LinkedIn', 'https://www.linkedin.com/company/beequationapp', _ICON('<rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M7.8 10.5v6M7.8 7.4h.01M11.5 16.5v-6M11.5 13.2c0-1.6 1-2.8 2.5-2.8s2.3 1 2.3 2.7v3.4"/>')),
     ('X', 'https://x.com/beequationapp', _ICON('<path d="M4 4h4.2l11.8 16h-4.2z"/><path d="M19.6 4l-6.6 7.3M4.4 20l6.6-7.3"/>')),
     ('Threads', 'https://www.threads.com/@beequationapp', _ICON('<circle cx="12" cy="12" r="3.6"/><path d="M15.6 9v4.2a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.4 6.9"/>')),
     ('Pinterest', 'https://www.pinterest.com/beequationapp/', _ICON('<circle cx="12" cy="12" r="9"/><path d="M10 20.6l2.2-9"/><path d="M11 15.6c3 .8 5.6-1.3 5.6-4.3 0-2.6-2.1-4.4-4.7-4.4-3 0-5 2.1-5 4.6 0 1.1.4 2 1.1 2.6"/>')),
@@ -772,10 +773,10 @@ footer.bqf{margin-top:96px;padding:0 0 40px;border-top:0;font-size:15px;color:va
 .bqf-cols a::before{content:"";position:absolute;left:-14px;top:.38em;width:8px;height:9px;background:#FFB020;opacity:0;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:opacity .15s}
 .bqf-cols a:hover,.bqf-cols a:focus-visible{transform:translateX(6px)}
 .bqf-cols a:hover::before,.bqf-cols a:focus-visible::before{opacity:1}
-.bqf-social{position:relative;min-width:236px}
-.bqf-comb{display:flex;flex-wrap:wrap;width:232px;gap:0 4px;padding-top:4px}
+.bqf-social{position:relative;min-width:200px}
+.bqf-comb{display:flex;flex-wrap:wrap;width:168px;gap:0 4px;padding-top:4px}
 .bqf-comb li{width:53px;height:61px;margin-bottom:-11px}
-.bqf-comb li:nth-child(5){margin-left:28.5px}
+.bqf-comb li:nth-child(4){margin-left:28.5px}
 .bqf-comb a{display:grid;place-items:center;width:100%;height:100%;background:var(--line,#2A3142);color:var(--ink);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:background .15s,color .15s,transform .15s}
 .bqf-comb a:hover,.bqf-comb a:focus-visible{background:#FFB020;color:#12161F;transform:scale(1.06)}
 .bqf-comb a:focus-visible{outline:none}
