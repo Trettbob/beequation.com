@@ -12,6 +12,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fixPDF } from './a11y/pdf-ua-fix.mjs';
 
 const [, , PUP, ...REST] = process.argv;
 if (!PUP) throw new Error('usage: make-worksheets.mjs <puppeteer-core dir> [--lang <code>] [--html-only] [id ...]');
@@ -181,8 +182,10 @@ function poly(n, label, size = 22, fill = CANDY[0], rect = false) {
 
 function column(a, b, op) {
   const w = Math.max(String(a).length, String(b).length) + 1;
-  const row = (s, sign = '') => `<tr>${Array.from({ length: w }, (_, i) => { const d = String(s).padStart(w, ' ')[i]; return `<td>${i === 0 && sign ? sign : d === ' ' ? '' : d}</td>`; }).join('')}</tr>`;
-  return `<span class="column-expression">${a} ${op} ${b} = □</span><table class="col">${row(a)}${row(b, op)}<tr class="ans">${'<td></td>'.repeat(w)}</tr></table>`;
+  // This is a visual arrangement of one equation, not a data table. Chrome
+  // drops empty TDs from its PDF tag tree, producing unequal table-row spans.
+  const row = (s, sign = '') => `<div class="col-row">${Array.from({ length: w }, (_, i) => { const d = String(s).padStart(w, ' ')[i]; return `<span>${i === 0 && sign ? sign : d === ' ' ? '' : d}</span>`; }).join('')}</div>`;
+  return `<span class="column-expression">${a} ${op} ${b} = □</span><div class="col" aria-hidden="true">${row(a)}${row(b, op)}<div class="col-row ans">${'<span></span>'.repeat(w)}</div></div>`;
 }
 
 // ---------- the worksheets ----------
@@ -232,7 +235,7 @@ const SHEETS = [
     make: r => ({ kind: 'list', items: unique(25, () => [r.int(2, 12), r.int(2, 12)], ([a, b]) => Math.min(a, b) + 'x' + Math.max(a, b)).map(([a, b]) => ({ q: `${a} ${L.mul} ${b} = ${box}`, a: String(a * b) })) }) },
   { id: 'multiplication-grid', title: 'Multiplication grid', topic: 'multiplication-and-division', years: ['year-3', 'year-4', 'year-5', 'year-6'],
     desc: 'Fill in the 12 × 12 grid', how: 'Multiply the number at the start of each row by the number at the top of each column.', tip: 'Fill in the easy rows first (1, 2, 5, 10, 11). Then use the grid\'s pattern: 3 × 7 is the same as 7 × 3.', cols: 1,
-    make: () => { const g = full => `<table class="grid12"><tr><th>${L.mul}</th>${Array.from({ length: 12 }, (_, i) => `<th scope="col">${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th scope="row">${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : ''}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
+    make: () => { const g = full => `<table class="grid12"><tr><th>${L.mul}</th>${Array.from({ length: 12 }, (_, i) => `<th scope="col">${i + 1}</th>`).join('')}</tr>${Array.from({ length: 12 }, (_, r) => `<tr><th scope="row">${r + 1}</th>${Array.from({ length: 12 }, (_, c) => `<td>${full ? (r + 1) * (c + 1) : '□'}</td>`).join('')}</tr>`).join('')}</table>`; return { kind: 'whole', items: [{ q: g(false), a: g(true) }] }; } },
   { id: 'division-facts', title: 'Division facts', topic: 'multiplication-and-division', years: ['year-3', 'year-4'],
     desc: 'Using times tables to divide', how: 'Work out each answer.', tip: 'Division is the inverse of multiplication. For 42 ÷ 6, ask: 6 times what makes 42?', cols: 3,
     make: r => ({ kind: 'list', items: unique(30, () => [r.int(2, 12), r.int(2, 12)]).map(([a, b]) => ({ q: `${a * b} ${L.div} ${a} = ${box}`, a: String(b) })) }) },
@@ -371,10 +374,12 @@ const css = `
   .ansline { font-size: 10.5pt; display: flex; align-items: center; gap: 1.5mm; }
   .ansline.wide { width: 46mm; border-bottom: 0.35mm solid ${INK}; height: 7mm; color: ${SOFT}; }
   .coins { display: flex; flex-wrap: wrap; gap: 1.2mm; justify-content: center; align-items: center; max-width: 52mm; min-height: 16mm; }
-  table.col { border-collapse: collapse; font-size: 15pt; font-weight: 600; }
-  table.col td { width: 7mm; height: 8.5mm; text-align: center; border: 0.2mm solid #DCE8F4; }
-  table.col tr.ans td { border-top: 0.5mm solid ${INK}; border-bottom: 0.5mm solid ${INK}; height: 9mm; }
-  .column-expression { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .col { font-size: 15pt; font-weight: 600; }
+  .col-row { display: flex; }
+  .col-row span { width: 7mm; height: 8.5mm; text-align: center; border: 0.2mm solid #DCE8F4; }
+  .col-row.ans span { border-top: 0.5mm solid ${INK}; border-bottom: 0.5mm solid ${INK}; height: 9mm; }
+  /* Paint the semantic equation too: clipped text may be absent from the PDF. */
+  .column-expression { display: block; font-size: 10pt; line-height: 1.4; }
   .chart-data { border-collapse: collapse; font-size: 10pt; margin: 0 auto 2mm; }
   .chart-data th, .chart-data td { padding: 0.3mm 3mm; text-align: left; }
   .whole { display: flex; justify-content: center; margin: 2mm 0 4mm; }
@@ -419,7 +424,8 @@ const variantCSS = {
     .coins svg text, .coins svg tspan { font-size: 7.1px; }
     .clock { width: 45mm !important; height: 45mm !important; }
     .clock text { font-size: 14.2px; }
-    table.col td { width: 12mm; height: 13mm; }
+    .col-row span { width: 12mm; height: 13mm; }
+    .col-row.ans span { height: 13mm; }
     table.grid12 th, table.grid12 td { width: 12.8mm; height: 16mm; }
     .whole { flex: none; }
     .chart-picture { display: none; }
@@ -453,6 +459,7 @@ if (page) {
   page.on('request', request => /^(data:|about:)/.test(request.url()) ? request.continue() : request.abort());
 }
 const todo = USED.filter(s => !ONLY.length || ONLY.includes(s.id));
+let metadataWarningShown = false;
 try {
   for (const s of todo) {
     const data = { id: s.id, title: s.title, topic: s.topic, years: s.years, desc: s.desc, how: s.how, tip: s.tip,
@@ -469,6 +476,11 @@ try {
       await page.evaluateHandle('document.fonts.ready');
       await page.pdf({ path: path.join(OUT, `${s.id}${suffix}.pdf`), format: 'A4', printBackground: true,
         tagged: true, outline: true, margin: { top: '12mm', bottom: '8mm', left: '0', right: '0' } });
+      const repaired = await fixPDF(path.join(OUT, `${s.id}${suffix}.pdf`), { lang: L.htmlLang, optional: true });
+      if (repaired.skipped && !metadataWarningShown) {
+        console.warn(repaired.warning);
+        metadataWarningShown = true;
+      }
     }
     if (!HTML_ONLY) {
       await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 });

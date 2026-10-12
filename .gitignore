@@ -17,3 +17,9 @@ android/
 .DS_Store
 npm-debug.log*
 __pycache__/
+
+# Generated audit data stays local; Markdown summaries can be reviewed in git.
+reports/*
+!reports/a11y/
+reports/a11y/*
+!reports/a11y/*.md
