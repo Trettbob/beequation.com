@@ -258,7 +258,15 @@ var m=document.createElement('script'),counted=false;m.async=true;m.src='https:/
 function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
 counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}
 m.onload=visit;m.onreadystatechange=visit;document.head.appendChild(m);}
-load();document.addEventListener('bq-consent',load);})();</script><!--/ga-->""".replace('__GA__', GA_ID)
+load();document.addEventListener('bq-consent',load);
+// Key events (only once GA has loaded, so only with consent): play_click for links to the browser game, get_click for
+// the /get/ smart links and the store pages. No personal data; 'beacon' so they survive the navigation.
+document.addEventListener('click',function(e){if(!on||!ok()||typeof gtag!=='function'||!e.target.closest)return;var a=e.target.closest('a[href]');if(!a)return;
+var u;try{u=new URL(a.href,location.href);}catch(x){return;}var t=(a.textContent||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,60),here=location.origin+location.pathname,p=u.pathname;
+if(/(^|\\.)beequation\\.com$/.test(u.hostname)&&/\\/play\\.html$/.test(p)){gtag('event','play_click',{link_url:u.href,link_text:t,page_location:here,transport_type:'beacon'});return;}
+var store=/(^|\\.)(apps\\.apple\\.com|play\\.google\\.com)$/.test(u.hostname),get=/(^|\\.)beequation\\.com$/.test(u.hostname)&&/^\\/get(\\/|$)/.test(p);if(!store&&!get)return;
+var s=p+u.search,c=a.closest('[data-app]'),app=c?c.getAttribute('data-app'):/kids/i.test(s)?'kids':/\\/get\\/pro|com\\.trettlabs\\.beequation(?!kids)/.test(s)?'pro':'unknown';
+gtag('event','get_click',{link_url:u.href,app:app,link_text:t,page_location:here,transport_type:'beacon'});},true);})();</script><!--/ga-->""".replace('__GA__', GA_ID)
 CONSENT = """<!--consent--><script>(function(){var T=__CT__,ls;try{ls=window.localStorage;ls.getItem('x');}catch(e){return;}
 var st=document.createElement('style');st.textContent='.bq-ok{position:fixed;left:16px;bottom:16px;z-index:40;max-width:440px;display:flex;gap:12px;align-items:flex-end;background:#fff;color:#1C1A4A;border-radius:22px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.28);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;animation:bqok .5s cubic-bezier(.3,1.4,.6,1)}'
 +'.bq-ok h2{font:700 17px/1.2 Fredoka,system-ui,sans-serif;margin:0 0 4px;color:#1C1A4A}.bq-ok p{margin:0 0 10px}.bq-ok a{color:#3B24A8}'

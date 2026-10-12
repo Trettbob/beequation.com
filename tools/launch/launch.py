@@ -87,7 +87,8 @@ def urls(config, name):
 
 
 def links(config, name):
-    return ' · '.join(f'<a href="{html.escape(url, quote=True)}">{label}</a>' for label, url in urls(config, name).items())
+    # data-app lets the GA get_click event say which app an App Store link is for (its id alone doesn't).
+    return ' · '.join(f'<a href="{html.escape(url, quote=True)}" data-app="{name}">{label}</a>' for label, url in urls(config, name).items())
 
 
 def home_copy(config, words):
