@@ -326,10 +326,15 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 <h2>The standard we follow</h2>
 <p>We aim to meet the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" data-ext rel="noopener">Web Content Accessibility Guidelines (WCAG) 2.2<span class="vh"> (opens in a new tab)</span></a> at level AA, and Apple's and Google's accessibility guidelines for apps. We check our work as we build new features and fix problems as soon as we find them.</p>
 <h2>In both apps</h2>
+<p>Beequation Kids and Beequation Pro are not in the app stores yet. They launch on 1 November 2026, and this section describes the versions we're getting ready to release.</p>
 <ul>
-<li><b>Screen readers:</b> works with VoiceOver on iPhone and iPad and TalkBack on Android. Each new question is announced, every hexagon says its number and where it is (for example "15, middle row, left"), and right and wrong answers are announced.</li>
-<li><b>Larger text:</b> text follows your device's text size, and buttons grow rather than cutting words off.</li>
+<li><b>Screen readers:</b> built for VoiceOver on iPhone and iPad and TalkBack on Android. Every button has a label, each new question is announced, every hexagon says its number and where it is (for example "15, middle row, left"), and right and wrong answers are announced.</li>
+<li><b>Read all numbers:</b> a button that reads out the whole honeycomb, row by row.</li>
+<li><b>Results line:</b> a line of text under the board keeps the last message, so screen reader and braille users can go back and read it again.</li>
+<li><b>Portrait and landscape:</b> the apps work either way up, on phones and tablets.</li>
+<li><b>Larger text:</b> text follows your device's text size, up to 200% and beyond, and buttons grow rather than cutting words off.</li>
 <li><b>Easy-read font:</b> an option to use your device's own font with wider letter spacing, which some people with dyslexia find easier.</li>
+<li><b>Gentle maths:</b> a setting for levels and practice with fewer hexagons, number-line hints and no clock. In Beequation Kids, small numbers are also shown as dot pictures.</li>
 <li><b>Voice Control and Switch Control:</b> buttons are named the same as their visible text, and every button is at least 44 by 44 points.</li>
 <li><b>Not colour alone:</b> right and wrong answers, and results, are shown with ticks, crosses, numbers and shapes as well as colour.</li>
 <li><b>Contrast:</b> text meets WCAG contrast levels in light and dark mode, and a high-contrast setting adds stronger colours and outlines for each player.</li>
@@ -337,17 +342,25 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 <li><b>Dark mode:</b> light, dark or the same as your device.</li>
 <li><b>Reduce motion:</b> calmer animations, switched on automatically when Reduce Motion is on in your device's settings.</li>
 <li><b>No sound needed:</b> sounds and music are optional, and nothing depends on hearing them.</li>
-<li><b>Gentle feedback:</b> a light vibration on taps, and hints when a puzzle is hard.</li>
+<li><b>Vibration:</b> one short buzz means right, two short buzzes mean try again, and one long buzz (a stronger pulse on iPhone) means the round is over. You can turn it off with the Vibration switch.</li>
 </ul>
 <h2>In Beequation Pro</h2>
 <ul>
 <li><b>No timer:</b> an option that hides the clock in levels and the daily puzzle, so you can play for accuracy instead of speed. The 60-second Blitz is always timed and says so.</li>
+<li><b>Time checks in Blitz:</b> the time left is read out at 30, 10 and 5 seconds.</li>
 </ul>
 <h2>In Beequation Kids</h2>
 <ul>
 <li>No timers or countdowns, so children can take as long as they need.</li>
 <li>Indie can read the questions and her messages aloud, using your device's own voice, for children who are still learning to read.</li>
 <li>A short "How to play" walkthrough shows the rule with pictures before the first game.</li>
+</ul>
+<h2>In the browser game</h2>
+<p>The <a href="/play.html">browser game</a> has the same screen reader labels, Read all numbers button, results line, vibration patterns (on devices that support them) and Blitz time checks as the apps. Kids, levels and the daily puzzles have no clock. It also has:</p>
+<ul>
+<li><b>Keyboard play:</b> press Tab to move into the board, use the arrow keys to move between hexagons, and press Enter or Space to choose one. Press R to read all the numbers.</li>
+<li><b>Landscape layouts:</b> the board and buttons rearrange when a phone or tablet is turned sideways.</li>
+<li><b>Help:</b> the game has its own help section that explains the controls and settings.</li>
 </ul>
 <h2>Website accessibility settings</h2>
 <p>Open Accessibility in the header or phone menu. You can choose 125% or 150% text, a dyslexia-friendly font, extra spacing, high contrast, or Stop animations. Changes apply immediately. Reset restores the defaults. Stop animations starts on when your device requests reduced motion.</p>
@@ -359,21 +372,32 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 <li>Pages work with a keyboard, with a visible focus outline and a "Skip to content" link.</li>
 <li>Text meets WCAG contrast levels in light and dark mode, and pages follow your device's light or dark setting.</li>
 <li>Images and pictures have text alternatives.</li>
+<li>Links to other websites open in a new tab and say so, including to screen readers.</li>
 <li>The flying bee is decoration only: it is hidden from screen readers, never stays on screen for more than five seconds, and doesn't appear at all if Reduce Motion is on.</li>
-<li>The browser game has the same labels and settings as the apps.</li>
 </ul>
 <h2>Worksheets and printables</h2>
-<p>Every worksheet is available as a web page, a standard PDF, a large-print PDF and an easy-read PDF.</p>
-<p>Our PDFs are tagged and include text alternatives for meaningful pictures.</p>
+<p>Every worksheet is available as a web page and as four PDFs: standard, large print, easy read and tactile (for swell paper).</p>
+<p>Our PDFs are tagged, include text alternatives for meaningful pictures, and are checked against the PDF/UA accessibility standard.</p>
+<p>Worksheets are also available as braille files, in every language except Japanese.</p>
 <p><a href="/learn/braille.html">Get it in braille</a></p>
+<h2>How we test</h2>
+<ul>
+<li>Automated accessibility checks (axe-core) on every English page and on samples of the pages in other languages.</li>
+<li>Every PDF is checked with veraPDF.</li>
+<li>Layout checks on screens 320 pixels wide, with text at 200% and with extra text spacing.</li>
+<li>Every app screen is drawn and checked at 2 and 3.2 times the normal text size, in portrait and landscape.</li>
+</ul>
 <h2>Known limitations</h2>
 <ul>
-<li>The apps work in portrait (upright) only for now. We plan to support landscape, especially on iPad.</li>
+<li>We haven't yet tested the apps with VoiceOver or TalkBack on real phones, or with braille displays, and we haven't yet tested the website with NVDA or JAWS on Windows.</li>
+<li>We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href="/support.html">support page</a>.</li>
+<li>Our braille files are made by computer and haven't been proofread yet.</li>
 <li>The translated versions of this website and the apps have not all been reviewed by native speakers yet.</li>
+<li>The Hindi and Indian English versions of this website are new.</li>
 </ul>
 <h2>Tell us about a problem</h2>
 <p>If something is hard to use, or you need information in a different format, please let us know through our <a href="/support.html">support page</a>. We aim to reply within two working days and will tell you how and when we'll fix it.</p>
-<p>This statement was last reviewed on 12 October 2026.</p>
+<p>This statement was last reviewed on 13 October 2026.</p>
 </div></main><!--footer--><div class="wrap"><footer class="bqf"><div class="bqf-card"><div class="bqf-brand"><a class="bqf-logo" href="/"><img src="/assets/hexabee.svg" width="44" height="44" alt="">Beequation</a><p class="bqf-tag">Find the number made by two others.</p><a class="bqf-today" href="/today/"><i aria-hidden="true"></i>Today&#x27;s puzzle</a></div><nav class="bqf-cols" aria-label="Beequation"><div><p class="bqf-h">Play</p><ul><li><a href="/play.html">Play online</a></li><li><a href="/how-to-play.html">How to play</a></li><li><a href="/today/">Today&#x27;s puzzle</a></li></ul></div><div><p class="bqf-h">Learn</p><ul><li><a href="/learn/">Learn home</a></li><li><a href="/teachers.html">Free puzzle pack for teachers</a></li><li><a href="/blog/">Blog</a></li></ul></div><div><p class="bqf-h">Help &amp; info</p><ul><li><a href="/about.html">About Beequation</a></li><li><a href="/support.html">Support</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/accessibility.html">Accessibility</a></li><li><a href="/easy-read/how-to-play.html">Easy Read</a></li></ul></div></nav><div class="bqf-social"><p class="bqf-h">Follow the hive</p><ul class="bqf-comb"><li><a href="https://www.instagram.com/beequationapp" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)" title="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></svg></a></li><li><a href="https://www.tiktok.com/@beequationapp" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)" title="TikTok"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.4 2.6 2.3 4.4 5 4.6"/></svg></a></li><li><a href="https://www.youtube.com/@beequationapp" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)" title="YouTube"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/></svg></a></li><li><a href="https://www.twitch.tv/beequationapp" target="_blank" rel="noopener" aria-label="Twitch (opens in a new tab)" title="Twitch"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.5h15v10l-4.5 4.5h-3.5l-3 3v-3H4.5z"/><path d="M11 8v4M15.5 8v4"/></svg></a></li><li><a href="https://www.facebook.com/beequationapp" target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)" title="Facebook"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3.5H14a4 4 0 0 0-4 4V10H7.5v3.5H10v7h3.5v-7h2.6l.6-3.5h-3.2V8a1 1 0 0 1 1-1h1z"/></svg></a></li><li><a href="https://www.linkedin.com/company/beequationapp" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M7.8 10.5v6M7.8 7.4h.01M11.5 16.5v-6M11.5 13.2c0-1.6 1-2.8 2.5-2.8s2.3 1 2.3 2.7v3.4"/></svg></a></li><li><a href="https://x.com/beequationapp" target="_blank" rel="noopener" aria-label="X (opens in a new tab)" title="X"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4.2l11.8 16h-4.2z"/><path d="M19.6 4l-6.6 7.3M4.4 20l6.6-7.3"/></svg></a></li><li><a href="https://bsky.app/profile/did:plc:v7vs5upct4ovtvhrjaq3fzgx" target="_blank" rel="noopener" aria-label="Bluesky (opens in a new tab)" title="Bluesky"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11.3C10.5 8.3 6.9 4.5 4.8 4.5 3.6 4.5 3 5.3 3 6.7c0 1.2.6 4.4 1.4 5.3 1.2 1.3 3.3 1.3 4.6 1-2.4.8-3.6 2.3-2.2 4 1.7 2 3.8 1 5.2-1.9 1.4 2.9 3.5 3.9 5.2 1.9 1.4-1.7.2-3.2-2.2-4 1.3.3 3.4.3 4.6-1 .8-.9 1.4-4.1 1.4-5.3 0-1.4-.6-2.2-1.8-2.2-2.1 0-5.7 3.8-7.2 6.8z"/></svg></a></li><li><a href="https://www.threads.com/@beequationapp" target="_blank" rel="noopener" aria-label="Threads (opens in a new tab)" title="Threads"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 9v4.2a2.6 2.6 0 0 0 5.2 0V12a8.8 8.8 0 1 0-3.4 6.9"/></svg></a></li><li><a href="https://www.pinterest.com/beequationapp/" target="_blank" rel="noopener" aria-label="Pinterest (opens in a new tab)" title="Pinterest"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 20.6l2.2-9"/><path d="M11 15.6c3 .8 5.6-1.3 5.6-4.3 0-2.6-2.1-4.4-4.7-4.4-3 0-5 2.1-5 4.6 0 1.1.4 2 1.1 2.6"/></svg></a></li></ul><img class="bqf-bee" src="/assets/hexabee.svg" width="46" height="46" alt="" loading="lazy"></div></div><p class="bqf-legal">Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href="/support.html">support page</a>. © 2026 Trett Labs Limited.</p></footer></div><!--/footer-->
 <!--nav--><script>// Measure the full, unwrapped pill, including font/spacing preferences and translated labels.
 window.bqHeaderFits=function(h){
