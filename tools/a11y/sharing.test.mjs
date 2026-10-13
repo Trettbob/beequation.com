@@ -142,3 +142,49 @@ test('the browser game carries the current sharing core (tools/build-langs.py co
   assert.equal(play.match(/\/\*sharing-core\*\/([\s\S]*?)\/\*\/sharing-core\*\//)[1], core);
   assert.doesNotMatch(play, /<script[^>]+src=/, 'the game loads no scripts from anywhere else');
 });
+
+test('Kids Waggle links need app=kids, a Kids world, one of its levels and a score within the round', () => {
+  const round = { kind: 'kids', mode: 'add', tier: 3, seed: 4294967295, score: 9 };
+  const encoded = sharing.encodeWaggle(round);
+  assert.equal(encoded, 'v1.kids-add.3.4294967295.9');
+  assert.deepEqual(sharing.decodeWaggle(encoded, 'kids'), round);
+  assert.equal(sharing.decodeWaggle(encoded), null, 'a Pro link never reads a Kids round');
+  assert.equal(sharing.decodeWaggle('v1.blitz-mul.5.42.14', 'kids'), null, 'a Kids link never reads a Pro round');
+  assert.deepEqual(sharing.decodeWaggle('v1.kids-hive.5.0.3', 'kids'), { kind: 'kids', mode: 'hive', tier: 5, seed: 0, score: 3 });
+  for (const bad of ['v1.kids-add.9.1.3', 'v1.kids-mul.8.1.3', 'v1.kids-frac.7.1.3', 'v1.kids-tens.6.1.3', 'v1.kids-dec.5.1.3', 'v1.kids-hive.6.1.3',
+    'v1.kids-hive.1.1.4', 'v1.kids-add.1.1.11', 'v1.kids-neg.1.1.3', 'v1.kids-trio.1.1.3', 'v1.kids-add.0.1.3', 'v1.kids-add.1.01.3', 'v1.kids-add.1.4294967296.3',
+    'v1.kids-add.1.1.3 ', 'v2.kids-add.1.1.3', 'v1.kids-add.1.1.3.4', 'v1.kids-constructor.1.1.3', 'v1.kids-__proto__.1.1.3']) assert.equal(sharing.decodeWaggle(bad, 'kids'), null, bad);
+  assert.throws(() => sharing.encodeWaggle({ ...round, mode: 'trio' }), /Invalid Waggle round/);
+  assert.throws(() => sharing.encodeWaggle({ ...round, score: 11 }), /Invalid Waggle round/);
+});
+
+test('Kids links carry no campaign tags and the share text names no one', () => {
+  const round = { kind: 'kids', mode: 'mul', tier: 2, seed: 77, score: 9 };
+  assert.equal(sharing.waggleUrl(round, 'https://fr.beequation.com/'), 'https://fr.beequation.com/play.html?app=kids&waggle=v1.kids-mul.2.77.9');
+  assert.equal(sharing.kidsText(round), 'Can you beat a Beequation Kids player? 9/10 on this honeycomb 🐝 Your turn:\nhttps://beequation.com/play.html?app=kids&waggle=v1.kids-mul.2.77.9');
+  assert.equal(sharing.kidsText({ ...round, mode: 'hive', score: 2 }, 'https://de.beequation.com', '{score} von {of}').split('\n')[0], '2 von 3');
+  assert.throws(() => sharing.kidsText({ kind: 'blitz', mode: 'mul', tier: 2, seed: 77, score: 9 }), /Invalid Waggle round/);
+});
+
+test('the Kids worlds in the sharing core match the browser game (WORLDS in play.html)', async () => {
+  const fs = await import('node:fs');
+  const play = fs.readFileSync(new URL('../../play.html', import.meta.url), 'utf8');
+  const worlds = Object.fromEntries([...play.matchAll(/\{ id: '(\w+)', title: T\.worlds\.\w+\[0\],[^\n]*?tiers: (\d+)/g)].map(m => [m[1], Number(m[2])]));
+  assert.deepEqual(worlds, { ...sharing.kidsWorlds });
+});
+
+test('the family hive counts wins for the week from Monday, gives both a point for a tie and starts again', () => {
+  assert.equal(sharing.weekStart('2026-10-14'), '2026-10-12');
+  assert.equal(sharing.weekStart('2026-10-12'), '2026-10-12');
+  assert.equal(sharing.weekStart('2026-10-18'), '2026-10-12');
+  assert.equal(sharing.weekStart('2027-01-01'), '2026-12-28');
+  assert.equal(sharing.weekStart('2026-02-30'), null);
+  let state = sharing.addFamilyResult(undefined, '2026-10-12', 9, 7);
+  state = sharing.addFamilyResult(state, '2026-10-14', 5, 8);
+  state = sharing.addFamilyResult(state, '2026-10-18', 6, 6);
+  assert.deepEqual(state, { week: '2026-10-12', kids: 2, grown: 2 });
+  assert.deepEqual(sharing.familyWeek(state, '2026-10-19'), { week: '2026-10-19', kids: 0, grown: 0 });
+  assert.deepEqual(sharing.addFamilyResult(state, '2026-10-19', 1, 0), { week: '2026-10-19', kids: 1, grown: 0 });
+  assert.deepEqual(sharing.familyWeek({ week: '2026-10-12', kids: -3, grown: 'x' }, '2026-10-13'), { week: '2026-10-12', kids: 0, grown: 0 });
+  assert.deepEqual(state, { week: '2026-10-12', kids: 2, grown: 2 }, 'reading a week does not change the saved tally');
+});

@@ -275,3 +275,97 @@ test('old progress gets a hive streak from its saved dailies and no Honey Jars',
   assert.equal(state.current,3);assert.equal(state.jars,0);assert.equal(state.best,3);
   assert.equal(game(`BeeSharing.countdown(new Date(2026,9,12,20,47,15))`),'03:12:45');
 });
+
+// Kids: Challenge a grown-up. Seeded rounds, the grown-up's clock, the scoreboard and the family hive.
+function kidsRound(route, { kids = {}, open = true } = {}) {
+  const ui={messages:[],controls:{},focus:2,now:100000,timeouts:[],intervals:[],vibrations:[],clock:{textContent:''}};
+  const table=html.match(/\/\*T\*\/([\s\S]*?)\/\*\/T\*\//)[1];
+  const engine=html.slice(html.indexOf('// ---- engine:'),html.indexOf('// ---- end engine ----'));
+  const helpers=html.slice(html.indexOf('// ---------- helpers ----------'),html.indexOf('// ---------- router ----------'));
+  const code=html.slice(html.indexOf('function k_game('),html.indexOf('function k_win('));
+  class Clock extends Date { static now(){return ui.now;} }
+  const context=vm.createContext({ui,open,Date:Clock,window:{innerHeight:800},document:{getElementById:id=>id==='app'?{clientWidth:420}:id==='clock'?ui.clock:null},localStorage:{getItem:()=>null},navigator:{},setTimeout:fn=>ui.timeouts.push(fn),setInterval:fn=>ui.intervals.push(fn),clearInterval:()=>{ui.intervals=[];}});
+  vm.runInContext(`${table}\n${engine}\n${helpers}\n
+    const h=markup=>ui.markup=markup;
+    const on=(selector,fn)=>ui.controls[selector]=fn;
+    announce=msg=>ui.messages.push(msg);
+    focusCell=index=>ui.focus=index;
+    wireBoard=(tap,p)=>{ui.tap=tap;ui.puzzle=p;};
+    const back=()=>{};let cleanup;
+    const replace=r=>{ui.result=r;cleanup();};
+    const wOf=()=>({title:'Adding Meadow',stickers:['Sum Sprout','Plus Pal','Sum Superstar','Adding Ace']});
+    let K={stars:{},stickers:[],...${JSON.stringify(kids)}};
+    const kSave=()=>{},kStatus=()=>open?'open':'locked';
+    const kidStars=(m,h)=>m+h<=1?3:m+h<=4?2:1;
+    ui.daily=n=>{const rng=dailyRng(dayKey(),'kids');return Array.from({length:n},()=>JSON.stringify(generate('add',3,rng).cells));};
+    ${code}
+    k_game(${JSON.stringify(route)});ui.K=()=>K;`,context);
+  return ui;
+}
+test('every Kids round is seeded, and a grown-up replays exactly the same boards',()=>{
+  const child=kidsRound({mode:'mul',tier:2});
+  const played=boards(child,10);
+  assert.equal(child.result.name,'k_win');
+  const {seed,firsts,of}=child.result.res;
+  assert.ok(Number.isSafeInteger(seed)&&seed>=0&&seed<=4294967295);assert.equal(firsts,10);assert.equal(of,10);
+  assert.equal(JSON.stringify(child.K().last),JSON.stringify({mode:'mul',tier:2,seed,score:10}));
+  const grown=kidsRound({mode:'mul',tier:2,seed,vs:{kid:10,source:'local'}});
+  assert.deepEqual(boards(grown,10,true),played);
+});
+test('the Kids daily keeps its date puzzles, and its recorded seed replays them',()=>{
+  const child=kidsRound({mode:'add',tier:3,daily:true,seed:12345});
+  const daily=child.daily(10);
+  assert.deepEqual(boards(child,10),[...daily]);
+  assert.equal(child.K().dailyDone.length,10);assert.equal(JSON.stringify(child.K().stars),'{}');
+  const grown=kidsRound({mode:'add',tier:3,seed:child.result.res.seed,vs:{kid:10,source:'local',daily:true}});
+  assert.deepEqual(boards(grown,10),[...daily]);
+});
+test('the child scores puzzles right first time; hints do not count against them',()=>{
+  const child=kidsRound({mode:'add',tier:1});
+  child.controls['[data-hint]']();
+  boards(child,3,true);boards(child,7);
+  assert.equal(child.result.res.firsts,7);assert.equal(child.result.res.solved,10);
+});
+test('the grown-up has a clock, no hints, warnings, and time up ends the round with what was right first time',()=>{
+  const ui=kidsRound({mode:'add',tier:1,seed:5,vs:{kid:9,source:'local'}},{kids:{family:{week:'2000-01-03',kids:4,grown:4}}});
+  assert.match(ui.markup,/id="clock"[^>]*aria-hidden="true">1:00</);
+  assert.doesNotMatch(ui.markup,/data-hint/);assert.match(ui.markup,/<h1 class="vh">Grown-up’s turn<\/h1>/);
+  ui.now+=20000;ui.intervals[0]();assert.equal(ui.messages.length,1,'no auto-hint for grown-ups');
+  boards(ui,2,true);boards(ui,3);
+  ui.now+=10000;ui.intervals[0]();assert.equal(ui.messages.at(-1),'30 seconds remaining.');assert.equal(ui.clock.textContent,'0:30');
+  ui.now+=30000;ui.intervals[0]();
+  assert.equal(ui.result.name,'k_vs');
+  assert.deepEqual(JSON.parse(JSON.stringify(ui.result.res)),{mode:'add',tier:1,seed:5,of:10,kid:9,grown:3,source:'local',daily:false,timeUp:true});
+  assert.equal(ui.K().family.kids,1,'last week’s tally starts again');assert.equal(ui.K().family.grown,0);
+  assert.equal(JSON.stringify(ui.K().stars),'{}');assert.equal(ui.K().last,undefined,'the grown-up’s turn is not kept as a round');
+  const n=ui.messages.length;ui.tap(ui.puzzle.answer);assert.equal(ui.messages.length,n,'no answers after time up');
+});
+test('a grown-up from a Kids Waggle link leaves this device’s family hive alone',()=>{
+  const ui=kidsRound({mode:'hive',tier:1,seed:9,vs:{kid:2,source:'link'}});
+  for(let i=0;i<15&&!ui.result;i++){ui.tap(ui.puzzle.answer);ui.timeouts.at(-1)();}
+  assert.equal(ui.result.name,'k_vs');assert.equal(ui.result.res.of,3);assert.equal(ui.result.res.grown,3);
+  assert.equal(ui.K().family,undefined);
+});
+test('a rematch into a level the child has not opened is played without stars or stickers',()=>{
+  const ui=kidsRound({mode:'add',tier:3},{open:false});boards(ui,10);
+  assert.equal(JSON.stringify(ui.K().stars),'{}');assert.equal(ui.result.res.sticker,'');
+  const fresh=kidsRound({mode:'add',tier:1});boards(fresh,10);
+  assert.equal(fresh.K().stars['add-1'],3);assert.equal(fresh.result.res.sticker,'Sum Sprout');
+});
+test('the grown-up clock is 60 seconds for small rounds and grows with the level',()=>{
+  assert.equal(game("grownSeconds('add',1)"),60);assert.equal(game("grownSeconds('add',3)"),60);
+  assert.ok(game("grownSeconds('add',8)")>60);assert.ok(game("grownSeconds('hive',5)")>game("grownSeconds('hive',1)"));
+  for(const [m,t] of [['add',8],['mul',7],['frac',6],['tens',5],['dec',4],['hive',5]]) assert.equal(game(`grownSeconds('${m}',${t})`)%5,0);
+});
+test('Kids Waggle links open only with app=kids and stay out of the Pro reader',()=>{
+  const read=search=>game(`JSON.stringify(kidsWaggleFrom(${JSON.stringify(search)}))`,{URLSearchParams});
+  assert.equal(read('?app=kids&waggle=v1.kids-add.3.42.9'),'{"kind":"kids","mode":"add","tier":3,"seed":42,"score":9}');
+  for(const bad of ['?waggle=v1.kids-add.3.42.9','?app=pro&waggle=v1.kids-add.3.42.9','?app=kids&waggle=v1.blitz-mul.5.42.14','?app=kids&waggle=v1.kids-add.9.42.9','?app=kids&waggle=<script>','?app=kids']) assert.equal(read(bad),'null',bad);
+  assert.equal(game(`JSON.stringify(waggleFrom('?app=pro&waggle=v1.kids-add.3.42.9'))`,{URLSearchParams}),'null');
+});
+test('the Pro offer uses the smart link with the challenge campaigns and no family code until one exists',()=>{
+  assert.equal(game("proLink('kids-challenge')"),'https://beequation.com/get/pro/?c=kids-challenge');
+  assert.equal(game('FAMILY_CODE'),null);
+  assert.match(html,/proCard\(link \? 'kids-waggle' : 'kids-challenge'\)/);
+  assert.match(html,/on\('\[data-forgrown\]', \(\) => parentGate\(/,'links and sharing sit behind the grown-ups check');
+});

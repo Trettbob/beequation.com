@@ -174,6 +174,20 @@ h1, h2, p { margin: 0; }
 .card-a h2 { font-size: 18px; }
 .card-a p { font-size: 16px; line-height: 1.45; }
 .versus { font-size: 22px; font-weight: 700; letter-spacing: -.3px; font-variant-numeric: tabular-nums; }
+/* Kids: Challenge a grown-up, the scoreboard and the family hive */
+a.candy { text-decoration: none; text-align: center; }
+.challenge-card { align-self: stretch; background: var(--k-card); color: var(--k-ink); border-radius: 26px; padding: 16px; box-shadow: 0 6px 0 #3B24A8; margin-top: 20px; }
+.challenge-card > * + * { margin-top: 12px; }
+.win .challenge-card p { font-size: 18px; text-align: left; }
+.challenge-card .bee { flex: none; }
+.vs-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.vs-board > div { background: var(--k-card); border-radius: 22px; padding: 14px 10px; text-align: center; min-width: 0; box-shadow: 0 6px 0 var(--k-shadow); }
+.vs-board span { display: block; font-weight: 600; font-size: 18px; overflow-wrap: anywhere; }
+.vs-board b { display: block; font-size: 60px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.vs-board .lead { box-shadow: 0 6px 0 var(--lemon-lip), inset 0 0 0 4px var(--lemon); }
+.k-clock { flex: none; min-width: 64px; text-align: right; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.family-line { font-size: 15px; overflow-wrap: anywhere; }
+.to-beat { font-size: 24px; font-weight: 700; line-height: 1.2; }
 .jar-note { background: #FFF1B8; color: #1C1A4A; border-radius: 14px; padding: 10px 14px; font-weight: 600; font-size: 15px; }
 
 /* boards */
@@ -396,7 +410,8 @@ const T = {
   kidsPick: 'Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.', proPick: 'Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.',
   savedHere: 'Progress is saved in this browser only.',
   // sharing (Beequation No., Hive No. and Beequation stay as they are in every language)
-  shareWords: { slips: '{n} slips', noSlips: 'No slips', streak: '{n}-day hive streak', blitz: 'Beequation blitz 🐝 {score} in 60s ({mode}, {level})', level: 'Level {n}' },
+  shareWords: { slips: '{n} slips', noSlips: 'No slips', streak: '{n}-day hive streak', blitz: 'Beequation blitz 🐝 {score} in 60s ({mode}, {level})', level: 'Level {n}',
+    kids: 'Can you beat a Beequation Kids player? {score}/{of} on this honeycomb 🐝 Your turn:' },
   waggle: 'Waggle to a friend', waggleTitle: 'A Waggle from a friend',
   wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} of 10 first try (${mode}, ${level}). Your turn!`,
   friendBlitz: n => `A friend solved ${n} in 60s. Your turn!`, friendPractice: n => `A friend got ${n} of 10 right first try. Your turn!`,
@@ -408,6 +423,25 @@ const T = {
   jarTitle: 'Honey Jars', jarsAria: n => n === 1 ? '1 Honey Jar' : `${n} Honey Jars`,
   jarHelp: 'Every 7 days in a row that you play the Daily Pro earns a Honey Jar. You can hold 2. If you miss one day, a jar is used automatically and your streak carries on. Miss two or more days and the streak starts again.',
   jarSaved: n => `A Honey Jar saved your ${n}-day streak 🍯`, hatchesIn: t => `Next hive hatches in ${t}`,
+  // Challenge a grown-up (Kids, same device): the hand-over, the grown-up's timed turn and the scoreboard
+  challengeAsk: 'Think your grown-up can beat you? Challenge them!', challenge: 'Challenge a grown-up',
+  passTitle: 'Pass the phone to your grown-up 🐝', passHow: 'Your grown-up plays the same puzzles you just solved, against the clock.', imGrown: 'I’m the grown-up',
+  readyTitle: 'Ready, grown-up?', readyRules: (n, secs) => `The same ${n} puzzles. You have ${secs} seconds. Only answers right first time count, and there are no hints.`,
+  toBeat: (n, of) => `Score to beat: ${n} of ${of}`, start: 'Start', grownTurn: 'Grown-up’s turn',
+  vsYou: 'You', vsGrown: 'Grown-up', vsScore: (kid, grown) => `You: ${kid} · Grown-up: ${grown}`,
+  kidWins: 'You win the honey! 🍯', grownWins: 'Grown-up wins this time. Rematch?', vsTie: 'It’s a tie! Share the honey 🍯',
+  scoreHow: of => `Puzzles right first time, out of ${of}.`, rematch: 'Rematch', done: 'Done',
+  // A Kids Waggle link (play.html?app=kids&waggle=…), opened by a grown-up
+  kidsFriend: (n, of) => `A Beequation Kids player solved ${n} of ${of}. Your turn, grown-up!`,
+  kidsWhy: 'This link replays the round a Beequation Kids player just played. It has no names and nothing about the child.',
+  vsKid: 'Kids player', linkScore: (kid, you) => `Kids player: ${kid} · You: ${you}`,
+  linkKidWins: 'The Kids player wins the honey! 🍯', linkYouWin: 'You win this time, grown-up!',
+  // For grown-ups (after the grown-ups check)
+  proTitle: 'Beequation Pro', proPitch: 'Enjoyed that? Beequation Pro is the same game for grown-ups: a new puzzle every day, streaks and Blitz.',
+  proGet: 'Get Beequation Pro', familyOffer: code => `Families with Beequation Kids get 3 months of Pro free with the code ${code}.`,
+  sendTitle: 'Send a challenge', sendHow: 'Share a link that replays this round for another grown-up. No names, nothing about your child.',
+  familyHive: 'Family hive', familyTally: (kids, grown) => `Kids ${kids} · Grown-ups ${grown} this week`,
+  familyHow: 'Challenge wins on this device. The tally starts again every Monday.',
 };/*/T*/
 // ---- engine: generated by tools/sync-engine.mjs from packages/engine (do not edit) ----
 // Beequation puzzle engine. Pure TypeScript, no React — shared by the app and tests.
@@ -928,22 +962,36 @@ function addPlayTime(time                        , dateKey        , seconds     
     lines.push(hostUrl(host) + '/today/?utm_source=share&utm_medium=daily&utm_campaign=hive');
     return lines.join('\n');
   }
+  // Beequation Kids rounds (app=kids): the six worlds and how many levels each has (play.html WORLDS, the Kids app).
+  const kidsWorlds = Object.freeze({add: 8, mul: 7, frac: 6, tens: 5, dec: 4, hive: 5});
+  const kidsRoundLength = mode => mode === 'hive' ? 3 : 10;
   function encodeWaggle(round) {
     if (!round || !['tier', 'seed', 'score'].every(field => Number.isSafeInteger(round[field]))) throw new Error('Invalid Waggle round');
     const encoded = ['v1', round.kind + '-' + round.mode, round.tier, round.seed, round.score].join('.');
-    if (!decodeWaggle(encoded)) throw new Error('Invalid Waggle round');
+    if (!decodeWaggle(encoded, round.kind === 'kids' ? 'kids' : 'pro')) throw new Error('Invalid Waggle round');
     return encoded;
   }
-  function decodeWaggle(encoded) {
+  // app 'pro' (the default) reads Blitz and practice rounds; app 'kids' reads only Kids rounds (v1.kids-<world>...).
+  function decodeWaggle(encoded, app) {
     if (typeof encoded !== 'string' || encoded.length > 80) return null;
+    if (app === 'kids') {
+      const kids = /^v1\.kids-([a-z]+)\.([1-8])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
+      if (!kids || kids[0] !== encoded || !Object.prototype.hasOwnProperty.call(kidsWorlds, kids[1]) || Number(kids[2]) > kidsWorlds[kids[1]]) return null;
+      const seed = Number(kids[3]), score = Number(kids[4]);
+      if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > kidsRoundLength(kids[1])) return null;
+      return {kind: 'kids', mode: kids[1], tier: Number(kids[2]), seed, score};
+    }
     const match = /^v1\.(blitz|practice)-([a-z]+)\.(10|[1-9])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
     if (!match || match[0] !== encoded || !modes.includes(match[2])) return null;
     const seed = Number(match[4]), score = Number(match[5]);
     if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > (match[1] === 'practice' ? 10 : 1000)) return null;
     return {kind: match[1], mode: match[2], tier: Number(match[3]), seed, score};
   }
+  // Kids links carry no campaign tags: the game page has no analytics, and a child's round is nobody's campaign.
   function waggleUrl(round, host) {
-    return hostUrl(host) + '/play.html?app=pro&waggle=' + encodeWaggle(round) + '&utm_source=share&utm_medium=waggle';
+    const encoded = encodeWaggle(round);
+    if (round.kind === 'kids') return hostUrl(host) + '/play.html?app=kids&waggle=' + encoded;
+    return hostUrl(host) + '/play.html?app=pro&waggle=' + encoded + '&utm_source=share&utm_medium=waggle';
   }
   function blitzText(round, host, words) {
     if (!round || round.kind !== 'blitz') throw new Error('Invalid Waggle round');
@@ -997,7 +1045,33 @@ function addPlayTime(time                        , dateKey        , seconds     
     }
     return {state, savedStreak};
   }
-  return {dailyText, blitzText, encodeWaggle, decodeWaggle, waggleUrl, migrateHive, updateHive, countdown, formatCountdown};
+  // "Can you beat a Beequation Kids player? 9/10 on this honeycomb 🐝 Your turn:" and the replay link.
+  function kidsText(round, host, words) {
+    if (!round || round.kind !== 'kids') throw new Error('Invalid Waggle round');
+    const template = String(words || 'Can you beat a Beequation Kids player? {score}/{of} on this honeycomb 🐝 Your turn:');
+    const values = {score: round.score, of: kidsRoundLength(round.mode)};
+    return template.replace(/\{(score|of)\}/g, (_, key) => values[key]) + '\n' + waggleUrl(round, host);
+  }
+  // The family hive: challenge wins on this device, Kids and Grown-ups, for the week (Monday to Sunday) of the date.
+  function weekStart(date) {
+    const day = dateNumber(date);
+    if (day === null) return null;
+    const monday = day - (new Date(day * 86400000).getUTCDay() + 6) % 7;
+    return new Date(monday * 86400000).toISOString().slice(0, 10);
+  }
+  function familyWeek(previous, date) {
+    const week = weekStart(date), count = n => Number.isSafeInteger(n) && n > 0 ? n : 0;
+    return previous && week && previous.week === week ? {week, kids: count(previous.kids), grown: count(previous.grown)} : {week, kids: 0, grown: 0};
+  }
+  // The higher score wins a point; a tie gives both sides one.
+  function addFamilyResult(previous, date, kid, grown) {
+    const state = familyWeek(previous, date);
+    if (state.week === null) return state;
+    if (kid >= grown) state.kids++;
+    if (grown >= kid) state.grown++;
+    return state;
+  }
+  return {dailyText, blitzText, kidsText, encodeWaggle, decodeWaggle, waggleUrl, migrateHive, updateHive, countdown, formatCountdown, weekStart, familyWeek, addFamilyResult, kidsWorlds};
 });/*/sharing-core*/
 // Keep translations and display formatting outside the generated engine.
 const showCell = (f, p) => fmtCell(f, p.dec, T.decSep);
@@ -1025,6 +1099,21 @@ function waggleFrom(search) {
     return m && !m.kidsOnly && WAGGLE_MODES.includes(w.mode) && w.tier <= m.tiers ? w : null;
   } catch (e) { return null; }
 }
+// A Kids Waggle link (?app=kids&waggle=v1.kids-<world>.<level>.<seed>.<score>): a grown-up replays a child's round.
+function kidsWaggleFrom(search) {
+  try {
+    const q = new URLSearchParams(search);
+    return q.get('app') === 'kids' ? BeeSharing.decodeWaggle(q.get('waggle'), 'kids') : null;
+  } catch (e) { return null; }
+}
+const validSeed = seed => Number.isSafeInteger(seed) && seed >= 0 && seed <= 4294967295;
+// The grown-up's clock in Challenge a grown-up: 60 seconds for an easy round of 10, more for bigger boards and Big Hive
+// (the level's 3-star time, rounded up to 5 seconds). The child never has a clock.
+const grownSeconds = (mode, tier) => Math.max(60, Math.ceil(level(mode, tier).par / 5) * 5);
+// The Pro smart link. /get/ lives on beequation.com only and opens the visitor's own language and store.
+const proLink = campaign => `https://beequation.com/get/pro/?c=${campaign}`;
+// The family offer code (apps/*/src/catalog.ts FAMILY_CODE): mentioned only once it exists.
+const FAMILY_CODE = null;
 // Your hive: the streak and Honey Jars live with the Pro progress (P.hive). Older progress gets its streak from the
 // daily results already saved, and no jars.
 function checkHive(played) {
@@ -1249,7 +1338,7 @@ const boardTools = () => `<button class="btn b-plain" data-read aria-keyshortcut
 
 // ---------- router ----------
 let redrawGame = null;
-let stack = (q => waggleFrom(location.search) ? [{ name: 'a_home' }, { name: 'a_waggle', w: waggleFrom(location.search) }] : q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
+let stack = (q => waggleFrom(location.search) ? [{ name: 'a_home' }, { name: 'a_waggle', w: waggleFrom(location.search) }] : kidsWaggleFrom(location.search) ? [{ name: 'k_home' }, { name: 'k_wag', w: kidsWaggleFrom(location.search) }] :q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
 const replace = r => { stack[stack.length - 1] = r; render(); };
@@ -1345,8 +1434,9 @@ function parentGate(onPass) {
   document.body.appendChild(el); app.inert = true; ask(false);
 }
 
+const familyLine = fam => `<p class="soft family-line"><span aria-hidden="true">🐝</span> ${T.familyHive} · ${T.familyTally(fam.kids, fam.grown)}</p>`;
 function k_home() {
-  const done = K.dailyDone === dayKey();
+  const done = K.dailyDone === dayKey(), fam = BeeSharing.familyWeek(K.family, dayKey());
   h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="justify-content:space-between">
       <button class="candy k-white pill" data-stickers>${star(18)} ${T.stickersN(K.stickers.length)}</button>
@@ -1362,6 +1452,7 @@ function k_home() {
       return `<button class="candy world" style="--c:${w.c};--l:${w.l}" data-world="${w.id}">${g}<b>${w.title}</b><small>${kStatus(w.id, 1) === 'paid' ? T.unlock : T.starsOf(earned, w.tiers * 3)}</small></button>`;
     }).join('')}</div>
     <button class="candy k-white" style="height:64px;display:flex;align-items:center;gap:12px;padding:0 18px;font-size:18px" data-daily>${I.cal}<span class="grow" style="text-align:left">${T.today}</span><span class="soft">${done ? T.doneTick : T.isNew}</span></button>
+    ${fam.kids + fam.grown ? familyLine(fam) : ''}
     ${gameHelp()}
     ${switchLink()}
   </div></div>`);
@@ -1404,63 +1495,98 @@ function k_world(r) {
 
 function k_game(r) {
   boardIndex = 0;
-  const L = level(r.mode, r.tier), w = wOf(r.mode);
-  const rng = r.daily ? dailyRng(dayKey(), 'kids') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
-  const CHEER = T.cheer, YAY = T.yay;
+  // r.vs: the grown-up's turn in Challenge a grown-up ({ kid, source: 'local' | 'link', daily }), with a clock and no hints.
+  const L = level(r.mode, r.tier), w = wOf(r.mode), vs = r.vs || null;
+  // Every round has a seed so a grown-up can replay exactly the same puzzles. The daily still draws from
+  // dailyRng(date, 'kids'), which is makeRng(seedFromString(date + ':kids')): the seed only records it.
+  const seed = r.daily ? seedFromString(`${dayKey()}:kids`) : validSeed(r.seed) ? r.seed : randomSeed();
+  const rng = r.daily ? dailyRng(dayKey(), 'kids') : makeRng(seed);
+  const CHEER = T.cheer, YAY = T.yay, title = vs ? T.grownTurn : r.daily ? T.today : T.worldLevel(w.title, r.tier);
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, mistakes = 0, hints = 0, marks = {}, say = CHEER[0], busy = false, done = false, puzzleAt = Date.now();
+  // Score for the challenge: puzzles (a whole hive in Big Hive) solved with no wrong tap. Hints don't count against a child.
+  let firsts = 0, slipped = false;
+  const limit = vs ? grownSeconds(r.mode, r.tier) : 0, endAt = Date.now() + limit * 1000;
+  let previousRemaining = limit;
+  const left = () => Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
   const question = () => T.subJoin(T.puzzleOf(solved + 1, L.roundLength) + (item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''), item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(cur().op === 'add' ? T.added : T.multiplied));
-  const newPuzzle = () => { boardIndex = 0; draw(); focusCell(0); announce(question()); vibrate(10); };
+  const newPuzzle = () => { boardIndex = 0; draw(); focusCell(0); checkTime(question()); vibrate(10); };
+  // Only the grown-up's turn has a clock: warnings at 30, 10 and 5 seconds, then time up ends the round.
+  function checkTime(message = '') {
+    if (done) return;
+    if (!vs) { if (message) announce(message); return; }
+    const remaining = left();
+    if (remaining === 0) { finish(); return; }
+    const warning = blitzWarning(previousRemaining, remaining);
+    previousRemaining = remaining;
+    if (warning !== null) announce(message ? T.subJoin(message.replace(/[.!。]$/, ''), T.timeRemaining(warning)) : T.timeRemaining(warning));
+    else if (message) announce(message);
+  }
   function draw() {
     const p = cur(), space = gameBoardSpace(item.kind === 'hive' ? .34 : .42);
     const dots = Array.from({ length: L.roundLength }, (_, i) => hexSVG(L.roundLength > 5 ? 20 : 34, i < solved ? '#6A4BF5' : i === solved ? '#FFFFFF' : '#CFE3F3')).join('');
-    h(`<div class="stack game-main"><div class="game-controls"><h1 class="vh">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}</h1>
-      <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" role="img" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div></div>
-      <div class="card-k"><div class="soft">${r.daily ? T.today : T.worldLevel(w.title, r.tier)}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
+    h(`<div class="stack game-main"><div class="game-controls"><h1 class="vh">${title}</h1>
+      <div class="row"><button class="candy k-white" style="width:48px;height:48px;border-radius:24px;display:grid;place-items:center;flex:none;margin-bottom:0" aria-label="${T.back}" data-back>${I.back('#1C1A4A')}</button><div class="dots" role="img" aria-label="${T.puzzleOf(solved + 1, L.roundLength)}">${dots}</div>${vs ? `<div id="clock" class="k-clock" aria-hidden="true">${fmtTime(left())}</div>` : ''}</div>
+      <div class="card-k"><div class="soft">${title}${item.kind === 'hive' ? (stage < 4 ? T.smallCombOf(stage + 1) : T.bigComb) : ''}</div>
         <div style="font-size:22px;font-weight:700;line-height:1.2">${item.kind === 'hive' && stage === 4 ? T.useAnswers : T.kAsk(`<span style="color:#1C1A4A;background:#FFD84D;padding:0 6px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone">${p.op === 'add' ? T.added : T.multiplied}</span>`)}</div></div>
       ${item.kind === 'hive' ? `<div class="tray">${item.final.cells.map((v, k) => hexSVG(46, k < stage ? '#6A4BF5' : '#FFFFFF', `<text x="23" y="26.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="${k < stage ? '#fff' : '#5A5688'}">${k < stage ? showCell(v, item.final) : '?'}</text>`)).join('')}</div>` : ''}
       </div><div class="game-board">${board(p, marks, space.width, space.height, 'kids', solved + stage)}</div>
     </div><!--status--><div class="stack board-tools">
       ${boardTools()}
       <div class="game-aside"><div class="row" style="align-items:flex-end;gap:8px" aria-hidden="true">${buzz(84, busy)}<div class="bubble grow" style="margin-bottom:16px">${say}</div></div>
-      <button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button></div>
+      ${vs ? '' : `<button class="candy mid k-lemon" data-hint>${I.bulb} ${T.hint}</button>`}</div>
     </div>`);
     on('[data-back]', back); on('[data-hint]', () => hint(false)); wireBoard(tap, p);
   }
   function hint(auto) {
-    if (busy || Object.values(marks).includes('hint')) return;
+    if (vs || busy || Object.values(marks).includes('hint')) return;
     if (!auto) hints++;
     const p = cur(); marks = { [p.pair[0]]: 'hint' }; say = T.psst(speakCell(p.cells[p.pair[0]], p)); draw(); announce(say);
   }
   function tap(i) {
     if (busy || done) return;
+    if (vs && left() === 0) { finish(); return; }
     const p = cur();
     if (i === p.answer) {
-      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${showEquation(p)}`; busy = true; draw(); announce(say); vibrate(40);
-      setTimeout(advance, 1100);
+      marks = { ...Object.fromEntries(p.pair.map(k => [k, 'pair'])), [i]: 'correct' }; say = `${YAY[(solved + stage) % YAY.length]} ${showEquation(p)}`; busy = true; draw(); checkTime(say); vibrate(40);
+      setTimeout(advance, vs ? 500 : 1100);
     } else {
-      mistakes++; say = T.oops;
-      marks = Object.fromEntries(Object.entries(marks).filter(([, v]) => v === 'hint')); marks[i] = 'wrong'; draw(); announce(say); vibrate([40, 60, 40]);
+      mistakes++; slipped = true; say = T.oops;
+      marks = Object.fromEntries(Object.entries(marks).filter(([, v]) => v === 'hint')); marks[i] = 'wrong'; draw(); checkTime(say); vibrate([40, 60, 40]);
       setTimeout(() => { if (marks[i] === 'wrong' && !done) { delete marks[i]; draw(); } }, 500);
     }
   }
   function advance() {
     if (done) return;
+    if (vs && left() === 0) { finish(); return; }
     busy = false; marks = {}; puzzleAt = Date.now(); say = CHEER[(solved + stage + 1) % CHEER.length];
     if (item.kind === 'hive' && stage < 4) { stage++; return newPuzzle(); }
-    solved++;
+    solved++; if (!slipped) firsts++; slipped = false;
     if (solved >= L.roundLength) return finish();
     item = generate(r.mode, r.tier, rng); stage = 0; newPuzzle();
   }
   function finish() {
+    if (done) return;
     done = true; vibrate(300);
-    const s = kidStars(mistakes, hints), id = `${r.mode}-${r.tier}`, sticker = !r.daily && s === 3 && !K.stickers.includes(id);
-    if (r.daily) K.dailyDone = dayKey(); else K.stars[id] = Math.max(K.stars[id] || 0, s);
+    if (vs) {
+      // Nothing about the grown-up's turn is kept, apart from the family hive tally on this device.
+      if (vs.source === 'local') { K.family = BeeSharing.addFamilyResult(K.family, dayKey(), vs.kid, firsts); kSave(); }
+      return replace({ name: 'k_vs', res: { mode: r.mode, tier: r.tier, seed, of: L.roundLength, kid: vs.kid, grown: firsts, source: vs.source, daily: !!vs.daily, timeUp: left() === 0 } });
+    }
+    // A rematch after the daily can be a level the child hasn't opened yet: it is played, but earns no stars.
+    const s = kidStars(mistakes, hints), id = `${r.mode}-${r.tier}`, open = !r.daily && kStatus(r.mode, r.tier) === 'open';
+    const sticker = open && s === 3 && !K.stickers.includes(id);
+    if (r.daily) K.dailyDone = dayKey(); else if (open) K.stars[id] = Math.max(K.stars[id] || 0, s);
     if (sticker) K.stickers.push(id);
+    K.last = { mode: r.mode, tier: r.tier, seed, score: firsts };
     kSave();
-    replace({ name: 'k_win', res: { mode: r.mode, tier: r.tier, daily: !!r.daily, stars: s, hints, solved, sticker: sticker ? w.stickers[r.tier - 1] : '' } });
+    replace({ name: 'k_win', res: { mode: r.mode, tier: r.tier, daily: !!r.daily, stars: s, hints, solved, sticker: sticker ? w.stickers[r.tier - 1] : '', seed, firsts, of: L.roundLength } });
   }
-  const t = setInterval(() => { if (!busy && !done && Date.now() - puzzleAt > 15000) hint(true); }, 1000);
+  const t = setInterval(() => {
+    if (done) return;
+    if (vs) { const c = document.getElementById('clock'); if (c) c.textContent = fmtTime(left()); checkTime(); }
+    else if (!busy && Date.now() - puzzleAt > 15000) hint(true);
+  }, vs ? 200 : 1000);
   cleanup = () => { clearInterval(t); done = true; };
   redrawGame = draw;
   draw(); announce(question()); vibrate(10);
@@ -1472,6 +1598,8 @@ function k_win(r) {
   const conf = Array.from({ length: 24 }, (_, i) => { const c = CANDY[i % 6][0], s = 10 + (i % 3) * 4;
     return `<div style="position:absolute;left:${(i * 53) % 420}px;top:${(i * 37) % 420}px;transform:rotate(${(i * 41) % 90}deg)" aria-hidden="true">${i % 3 === 0 ? hexSVG(s, c) : `<div style="width:${s}px;height:${s / 2}px;border-radius:3px;background:${c}"></div>`}</div>`; }).join('');
   const helpLine = x.hints === 0 ? T.helpNone : x.hints === 1 ? T.helpOne : T.helpN(x.hints);
+  // Challenge a grown-up: an offer, not a pop-up. Older results (no seed) simply don't show it.
+  const canChallenge = validSeed(x.seed) && Number.isSafeInteger(x.firsts);
   h(`${conf}<div class="stack win screen-columns" style="position:relative;padding-top:50px;display:flex;flex-direction:column;align-items:center"><div class="screen-column">
     <div class="row" style="align-items:flex-start;gap:4px" role="img" aria-label="${T.starsAria(x.stars)}"><div style="margin-top:22px">${star(84, x.stars >= 1)}</div>${star(110, x.stars >= 2)}<div style="margin-top:22px">${star(84, x.stars >= 3)}</div></div>
     <h1>${HEAD[x.stars]}</h1><p>${T.solvedAll(x.solved)}<br>${helpLine}</p>
@@ -1479,6 +1607,8 @@ function k_win(r) {
     ${x.sticker ? `<div style="align-self:stretch;background:#fff;color:#1C1A4A;border-radius:26px;padding:16px;display:flex;align-items:center;gap:16px;box-shadow:0 6px 0 #3B24A8">
       ${hexSVG(78, w.c, `<g transform="translate(18,24)">${star(42, true, '#fff')}</g>`)}<div><div style="font-size:15px;font-weight:600;color:#5A5688">${T.newSticker}</div><div style="font-size:24px;font-weight:700">${x.sticker}</div><div style="font-size:15px;font-weight:600">${T.addedToBook}</div></div></div>` : ''}
     ${!x.daily && x.stars < 3 ? `<p style="font-size:16px;color:#FFFFFF">${T.get3}</p>` : ''}
+    ${canChallenge ? `<div class="challenge-card"><div class="row" style="gap:8px">${buzz(64, true)}<p class="grow" style="font-weight:600;line-height:1.3">${T.challengeAsk}</p></div>
+      <button class="candy mid k-lemon" data-challenge>${T.challenge}</button></div>` : ''}
     <div style="align-self:stretch;margin-top:28px">
       ${nextOpen ? `<button class="candy big k-lemon" style="font-size:26px" data-next>${T.nextLevel}</button>` : ''}
       ${!x.daily ? `<button class="candy mid" style="--c:#fff;--l:#3B24A8;color:#1C1A4A;margin-top:12px" data-again>${T.again}</button>` : ''}
@@ -1487,7 +1617,90 @@ function k_win(r) {
   on('[data-next]', () => replace({ name: 'k_game', mode: x.mode, tier: next }));
   on('[data-again]', () => replace({ name: 'k_game', mode: x.mode, tier: x.tier }));
   on('[data-done]', back);
+  on('[data-challenge]', () => go({ name: 'k_pass', ch: { mode: x.mode, tier: x.tier, seed: x.seed, kid: x.firsts, of: x.of, daily: x.daily } }));
   announce(T.subJoin(T.solvedAll(x.solved), T.subJoin(T.starsAria(x.stars), helpLine)));
+}
+
+// The hand-over: "Pass the phone to your grown-up", then "Ready, grown-up?" with the rules and the score to beat.
+function k_pass(r) {
+  const c = r.ch, of = level(c.mode, c.tier).roundLength;
+  h(r.ready ? `<div class="stack screen-columns"><div class="screen-column">${kTop(T.readyTitle)}
+      <div class="card-k stack"><p class="to-beat">${T.toBeat(c.kid, of)}</p><p style="font-size:17px;line-height:1.45;font-weight:500">${T.readyRules(of, grownSeconds(c.mode, c.tier))}</p></div>
+    </div><div class="screen-column">
+      <div class="row" style="gap:8px">${buzz(110)}<div class="bubble grow">${T.grownTurn}</div></div>
+      <button class="candy big k-grape" data-start>${I.play} ${T.start}</button>
+    </div></div>`
+    : `<div class="stack screen-columns"><div class="screen-column">${kTop(T.passTitle)}
+      <div class="row" style="gap:0">${buzz(140, true)}<div class="bubble">${T.passHow}</div></div>
+    </div><div class="screen-column">
+      <button class="candy big k-grape" data-ready>${T.imGrown}</button>
+    </div></div>`);
+  on('[data-back]', back);
+  on('[data-ready]', () => replace({ ...r, ready: true }));
+  on('[data-start]', () => replace({ name: 'k_game', mode: c.mode, tier: c.tier, seed: c.seed, vs: { kid: c.kid, source: 'local', daily: !!c.daily } }));
+}
+
+// The scoreboard. Same device: "You" and "Grown-up". From a link: "Kids player" and "You" (the grown-up).
+function k_vs(r) {
+  const x = r.res, link = x.source === 'link';
+  const verdict = x.kid > x.grown ? (link ? T.linkKidWins : T.kidWins) : x.grown > x.kid ? (link ? T.linkYouWin : T.grownWins) : T.vsTie;
+  const score = link ? T.linkScore(x.kid, x.grown) : T.vsScore(x.kid, x.grown);
+  const sides = [[link ? T.vsKid : T.vsYou, x.kid, x.kid >= x.grown], [link ? T.vsYou : T.vsGrown, x.grown, x.grown >= x.kid]];
+  h(`<div class="stack screen-columns"><div class="screen-column">
+    <div class="row" style="gap:8px">${buzz(96, x.kid >= x.grown)}<h1 class="grow" style="font-size:30px;line-height:1.15;overflow-wrap:anywhere">${verdict}</h1></div>
+    <div class="vs-board">${sides.map(([who, n, lead]) => `<div${lead ? ' class="lead"' : ''}><span>${who}</span><b>${n}</b></div>`).join('')}</div>
+    <p class="soft">${T.scoreHow(x.of)}</p>
+    </div><div class="screen-column">
+    <button class="candy big k-lemon" data-rematch>${T.rematch}</button>
+    <button class="candy mid k-white" data-done>${T.done}</button>
+    ${link ? '' : familyLine(BeeSharing.familyWeek(K.family, dayKey()))}
+    <button class="candy k-white pill" data-forgrown>${I.lock('currentColor')} ${T.forGrown}</button>
+  </div></div>`);
+  // Leave the match: the scoreboard, and the child's result under it.
+  const leave = () => { stack.pop(); if (stack.length > 1 && stack[stack.length - 1].name === 'k_win') stack.pop(); };
+  on('[data-done]', () => { leave(); render(); });
+  on('[data-rematch]', () => {
+    if (link) return replace({ name: 'k_game', mode: x.mode, tier: x.tier, seed: x.seed, vs: { kid: x.kid, source: 'link' } });
+    leave(); go({ name: 'k_game', mode: x.mode, tier: x.tier });
+  });
+  on('[data-forgrown]', () => parentGate(() => go({ name: 'k_parent', res: x })));
+  announce((x.timeUp ? T.timeUp + ' ' : '') + T.subJoin(score, verdict));
+}
+
+// Behind the grown-ups check: Beequation Pro, sending the round as a challenge, and the family hive.
+const proCard = campaign => `<div class="card-k stack"><h2 style="font-size:22px">${T.proTitle}</h2><p style="font-size:16px;line-height:1.45;font-weight:500">${T.proPitch}</p>
+  ${FAMILY_CODE ? `<p style="font-size:16px;line-height:1.45;font-weight:500">${T.familyOffer(FAMILY_CODE)}</p>` : ''}<a class="candy mid k-grape" href="${proLink(campaign)}">${T.proGet}</a></div>`;
+const sendCard = () => `<div class="card-k stack"><h2 style="font-size:22px">${T.sendTitle}</h2><p style="font-size:16px;line-height:1.45;font-weight:500">${T.sendHow}</p><button class="candy mid k-lemon" data-send>${T.sendTitle}</button></div>`;
+const familyCard = () => { const fam = BeeSharing.familyWeek(K.family, dayKey());
+  return `<div class="card-k stack"><h2 style="font-size:22px">${T.familyHive}</h2><p style="font-size:20px;font-weight:700">${T.familyTally(fam.kids, fam.grown)}</p><p class="soft">${T.familyHow}</p></div>`; };
+// The round as a Kids Waggle link: world, level, seed and the child's score. No names, nothing else about the child.
+const kidsRound = x => { try { const round = { kind: 'kids', mode: x.mode, tier: x.tier, seed: x.seed, score: x.score }; BeeSharing.encodeWaggle(round); return round; } catch (e) { return null; } };
+const sendRound = round => shareOut(BeeSharing.kidsText(round, SITE, T.shareWords.kids));
+function k_parent(r) {
+  const x = r.res, link = x.source === 'link', round = link ? null : kidsRound({ ...x, score: x.kid });
+  h(`<div class="stack screen-columns"><div class="screen-column">${kTop(T.forGrown)}
+    ${proCard(link ? 'kids-waggle' : 'kids-challenge')}
+    </div><div class="screen-column">
+    ${round ? sendCard() : ''}
+    ${link ? '' : familyCard()}
+  </div></div>`);
+  on('[data-back]', back);
+  on('[data-send]', () => sendRound(round));
+}
+
+// Opened from a Kids Waggle link: the child's score, the rules, and the same round with the grown-up's clock.
+function k_wag(r) {
+  const w = r.w, of = level(w.mode, w.tier).roundLength;
+  h(`<div class="stack screen-columns"><div class="screen-column">${kTop(T.kidsFriend(w.score, of))}
+    <div class="card-k stack"><p class="soft">${T.waggleTitle}</p><p style="font-size:19px;font-weight:700">${T.worldLevel(wOf(w.mode).title, w.tier)}</p>
+      <p style="font-size:16px;line-height:1.45;font-weight:500">${T.readyRules(of, grownSeconds(w.mode, w.tier))}</p><p class="soft">${T.kidsWhy}</p></div>
+    </div><div class="screen-column">
+    <div class="row" style="gap:8px">${buzz(110)}<div class="bubble grow">${T.toBeat(w.score, of)}</div></div>
+    <button class="candy big k-grape" data-playwaggle>${I.play} ${T.playRound}</button>
+    <button class="candy mid k-white" data-notnow>${T.notNow}</button>
+  </div></div>`);
+  on('[data-back]', back); on('[data-notnow]', back);
+  on('[data-playwaggle]', () => replace({ name: 'k_game', mode: w.mode, tier: w.tier, seed: w.seed, vs: { kid: w.score, source: 'link' } }));
 }
 
 function k_stickers() {
@@ -1501,7 +1714,7 @@ function k_stickers() {
 }
 
 function k_grown() {
-  const total = WORLDS.reduce((n, w) => n + w.tiers, 0), free = WORLDS.reduce((n, w) => n + w.free, 0);
+  const total = WORLDS.reduce((n, w) => n + w.tiers, 0), free = WORLDS.reduce((n, w) => n + w.free, 0), last = kidsRound(K.last);
   h(`<div class="stack screen-columns"><div class="screen-column">${kTop(T.forGrown)}
     <div class="card-k stack"><h2 style="font-size:22px">${K.full ? T.kFull : T.kUnlockAll(total)}</h2>
       <p style="font-size:16px;line-height:1.45;font-weight:500">${K.full ? T.kThanks : T.kFree(free)}</p>
@@ -1510,13 +1723,16 @@ function k_grown() {
       <p class="soft" style="font-size:13px">${T.previewNote}</p></div>
     </div><div class="screen-column">
     <div class="card-k stack"><h2 style="font-size:22px">${T.helpsTitle}</h2><p style="font-size:16px;line-height:1.45;font-weight:500">${T.helps}</p></div>
+    ${familyCard()}
+    ${last ? sendCard() : ''}
     <div class="card-k stack">${gameHelp()}</div>
     <div class="card-k stack"><h2 style="font-size:22px">${T.progress}</h2><button class="candy mid" style="--c:#EAF6FF;--l:#C7DDF0;color:#F2545B" data-reset>${T.reset}</button></div>
   </div></div>`);
   on('[data-back]', back);
   on('[data-buy]', () => { K.full = true; kSave(); toast(T.kFull); render(); });
   on('[data-lock]', () => { K.full = false; kSave(); render(); });
-  on('[data-reset]', () => { if (confirm(T.resetAsk)) { K = { ...K, stars: {}, stickers: [], dailyDone: '' }; kSave(); toast(T.resetDone); } });
+  on('[data-send]', () => sendRound(last));
+  on('[data-reset]', () => { if (confirm(T.resetAsk)) { K = { ...K, stars: {}, stickers: [], dailyDone: '', family: null, last: null }; kSave(); toast(T.resetDone); render(); } });
 }
 
 // ================= ADULT =================
@@ -1795,7 +2011,7 @@ function choose() {
   on('[data-adult]', () => { stack = [{ name: 'a_home' }]; render(); });
 }
 
-const SCREENS = { choose, k_home, k_world, k_game, k_win, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_hive, a_waggle, a_settings };
+const SCREENS = { choose, k_home, k_world, k_game, k_win, k_pass, k_vs, k_parent, k_wag, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_hive, a_waggle, a_settings };
 window.addEventListener('resize', () => { if (redrawGame) redrawGame(); });
 window.addEventListener('orientationchange', () => { if (redrawGame) redrawGame(); });
 if (typeof ResizeObserver === 'function') {

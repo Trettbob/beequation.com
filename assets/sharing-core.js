@@ -26,22 +26,36 @@
     lines.push(hostUrl(host) + '/today/?utm_source=share&utm_medium=daily&utm_campaign=hive');
     return lines.join('\n');
   }
+  // Beequation Kids rounds (app=kids): the six worlds and how many levels each has (play.html WORLDS, the Kids app).
+  const kidsWorlds = Object.freeze({add: 8, mul: 7, frac: 6, tens: 5, dec: 4, hive: 5});
+  const kidsRoundLength = mode => mode === 'hive' ? 3 : 10;
   function encodeWaggle(round) {
     if (!round || !['tier', 'seed', 'score'].every(field => Number.isSafeInteger(round[field]))) throw new Error('Invalid Waggle round');
     const encoded = ['v1', round.kind + '-' + round.mode, round.tier, round.seed, round.score].join('.');
-    if (!decodeWaggle(encoded)) throw new Error('Invalid Waggle round');
+    if (!decodeWaggle(encoded, round.kind === 'kids' ? 'kids' : 'pro')) throw new Error('Invalid Waggle round');
     return encoded;
   }
-  function decodeWaggle(encoded) {
+  // app 'pro' (the default) reads Blitz and practice rounds; app 'kids' reads only Kids rounds (v1.kids-<world>...).
+  function decodeWaggle(encoded, app) {
     if (typeof encoded !== 'string' || encoded.length > 80) return null;
+    if (app === 'kids') {
+      const kids = /^v1\.kids-([a-z]+)\.([1-8])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
+      if (!kids || kids[0] !== encoded || !Object.prototype.hasOwnProperty.call(kidsWorlds, kids[1]) || Number(kids[2]) > kidsWorlds[kids[1]]) return null;
+      const seed = Number(kids[3]), score = Number(kids[4]);
+      if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > kidsRoundLength(kids[1])) return null;
+      return {kind: 'kids', mode: kids[1], tier: Number(kids[2]), seed, score};
+    }
     const match = /^v1\.(blitz|practice)-([a-z]+)\.(10|[1-9])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
     if (!match || match[0] !== encoded || !modes.includes(match[2])) return null;
     const seed = Number(match[4]), score = Number(match[5]);
     if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > (match[1] === 'practice' ? 10 : 1000)) return null;
     return {kind: match[1], mode: match[2], tier: Number(match[3]), seed, score};
   }
+  // Kids links carry no campaign tags: the game page has no analytics, and a child's round is nobody's campaign.
   function waggleUrl(round, host) {
-    return hostUrl(host) + '/play.html?app=pro&waggle=' + encodeWaggle(round) + '&utm_source=share&utm_medium=waggle';
+    const encoded = encodeWaggle(round);
+    if (round.kind === 'kids') return hostUrl(host) + '/play.html?app=kids&waggle=' + encoded;
+    return hostUrl(host) + '/play.html?app=pro&waggle=' + encoded + '&utm_source=share&utm_medium=waggle';
   }
   function blitzText(round, host, words) {
     if (!round || round.kind !== 'blitz') throw new Error('Invalid Waggle round');
@@ -95,5 +109,31 @@
     }
     return {state, savedStreak};
   }
-  return {dailyText, blitzText, encodeWaggle, decodeWaggle, waggleUrl, migrateHive, updateHive, countdown, formatCountdown};
+  // "Can you beat a Beequation Kids player? 9/10 on this honeycomb 🐝 Your turn:" and the replay link.
+  function kidsText(round, host, words) {
+    if (!round || round.kind !== 'kids') throw new Error('Invalid Waggle round');
+    const template = String(words || 'Can you beat a Beequation Kids player? {score}/{of} on this honeycomb 🐝 Your turn:');
+    const values = {score: round.score, of: kidsRoundLength(round.mode)};
+    return template.replace(/\{(score|of)\}/g, (_, key) => values[key]) + '\n' + waggleUrl(round, host);
+  }
+  // The family hive: challenge wins on this device, Kids and Grown-ups, for the week (Monday to Sunday) of the date.
+  function weekStart(date) {
+    const day = dateNumber(date);
+    if (day === null) return null;
+    const monday = day - (new Date(day * 86400000).getUTCDay() + 6) % 7;
+    return new Date(monday * 86400000).toISOString().slice(0, 10);
+  }
+  function familyWeek(previous, date) {
+    const week = weekStart(date), count = n => Number.isSafeInteger(n) && n > 0 ? n : 0;
+    return previous && week && previous.week === week ? {week, kids: count(previous.kids), grown: count(previous.grown)} : {week, kids: 0, grown: 0};
+  }
+  // The higher score wins a point; a tie gives both sides one.
+  function addFamilyResult(previous, date, kid, grown) {
+    const state = familyWeek(previous, date);
+    if (state.week === null) return state;
+    if (kid >= grown) state.kids++;
+    if (grown >= kid) state.grown++;
+    return state;
+  }
+  return {dailyText, blitzText, kidsText, encodeWaggle, decodeWaggle, waggleUrl, migrateHive, updateHive, countdown, formatCountdown, weekStart, familyWeek, addFamilyResult, kidsWorlds};
 });
