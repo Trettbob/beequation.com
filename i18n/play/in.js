@@ -85,7 +85,7 @@ const T = {
   slips: n => n === 1 ? '1 slip' : `${n} slips`, subJoin: (a, b) => `${a}. ${b}`, for3: par => `For 3 stars: under ${par} with at most 1 slip.`, fullMarks: 'Full marks.',
   shareNo: n => `Beequation No. ${n}`, firstTry: 'First try', oneSlip: '1 slip', twoPlus: '2 or more', streak: n => `${n}-day streak`, last7: 'Last 7 days',
   share: 'Share result', nextName: (name, t) => `Next: ${name} ${t}`, unlockNext: 'Unlock the next levels', playBlitz: 'Play a 60s blitz',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} solved in 60s (${mode}, ${name})`, copied: 'Result copied',
+  copied: 'Result copied',
   aAll: n => `All ${n} levels`, aThanks: 'Thank you. Every level is open.',
   aFree: n => { return ((free, queen) =>
       `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to ${queen}, including Decimals, Trio and Big Hive expert puzzles.`)(n, T.tiers[9]); },
@@ -96,4 +96,17 @@ const T = {
   chooseIntro: 'Two apps built on the same puzzle. Pick one to try. You can switch at any time.',
   kidsPick: 'Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.', proPick: 'Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.',
   savedHere: 'Progress is saved in this browser only.',
+  // sharing (Beequation No., Hive No. and Beequation stay as they are)
+  shareWords: { slips: '{n} slips', noSlips: 'No slips', streak: '{n}-day hive streak', blitz: 'Beequation blitz 🐝 {score} in 60s ({mode}, {level})', level: 'Level {n}' },
+  waggle: 'Waggle to a friend', waggleTitle: 'A Waggle from a friend',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} of 10 first try (${mode}, ${level}). Your turn!`,
+  friendBlitz: n => `A friend solved ${n} in 60s. Your turn!`, friendPractice: n => `A friend got ${n} of 10 right first try. Your turn!`,
+  waggleWhy: 'Bees waggle-dance to show the hive where the best flowers are. This link replays the round your friend played.',
+  playRound: 'Play the same round', notNow: 'Not now', versus: (you, friend) => `You ${you} · Friend ${friend}`,
+  yourHive: 'Your hive', daysPlayed: 'Days played', currentStreak: 'Current streak', bestStreak: 'Best streak', jarsHeld: 'Honey Jars held',
+  avgTime: 'Average daily time', dayCount: n => n === 1 ? '1 day' : `${n} days`, dailyResults: 'Daily results',
+  pureHoney: 'Pure honey (no slips)', twoPlusSlips: '2 or more slips', noDailies: 'Play your first Daily Pro to start your hive.',
+  jarTitle: 'Honey Jars', jarsAria: n => n === 1 ? '1 Honey Jar' : `${n} Honey Jars`,
+  jarHelp: 'Every 7 days in a row that you play the Daily Pro earns a Honey Jar. You can hold 2. If you miss one day, a jar is used automatically and your streak carries on. Miss two or more days and the streak starts again.',
+  jarSaved: n => `A Honey Jar saved your ${n}-day streak 🍯`, hatchesIn: t => `Next hive hatches in ${t}`,
 };

@@ -113,7 +113,7 @@
  "Your rights": "Your rights",
  "Because we hold no personal data about you, there is nothing for us to access, correct or delete. You can contact us with any question at <a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">email address</a>.": "Because we hold no personal data about you, there is nothing for us to access, correct or delete. You can contact us with any question at <a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">email address</a>.",
  "Contact: Trett Labs Limited, <a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">email address</a>": "Contact: Trett Labs Limited, <a class=\"em\" href=\"/support.html\" data-e=\"bW9jLm5vaXRhdXFlZWJAb2xsZWg=\">email address</a>",
- "beequation.com uses Google Analytics and Metricool only if you say yes in Indie's cookie note. Then Google Analytics sets cookies, and Google receives information about your visit, such as the pages you view, your device and browser, and your approximate location. We use it only to see which pages are useful; Google processes it for us under its data processing terms (possibly outside the UK) and keeps it for 2 months. Metricool (Spain) receives the page you view, the page you came from, your screen size and your approximate location, to show us which posts and pages bring visitors; it sets no cookies and is never used for ads. Google signals and advertising features are turned off, and the browser game page has no analytics at all. If you say no, no analytics cookies are set, and nothing is sent to Metricool either. Either way, your browser keeps a few things on this device that are never sent to us: your progress in the free browser game, the language you choose and your cookie choice. Change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.": "beequation.com uses Google Analytics and Metricool only if you say yes in Indie's cookie note. Then Google Analytics sets cookies, and Google receives information about your visit, such as the pages you view, your device and browser, and your approximate location. We use it only to see which pages are useful; Google processes it for us under its data processing terms (possibly outside the UK) and keeps it for 2 months. Metricool (Spain) receives the page you view, the page you came from, your screen size and your approximate location, to show us which posts and pages bring visitors; it sets no cookies and is never used for ads. Google signals and advertising features are turned off, and the browser game page has no analytics at all. If you say no, no analytics cookies are set, and nothing is sent to Metricool either. Either way, your browser keeps a few things on this device that are never sent to us: your progress in the free browser game, the language you choose and your cookie choice. Change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.",
+ "beequation.com uses Google Analytics and Metricool only if you say yes in Indie's cookie note. Then Google Analytics sets cookies, and Google receives information about your visit, such as the pages you view, your device and browser, and your approximate location. We use it only to see which pages are useful; Google processes it for us under its data processing terms (possibly outside the UK) and keeps it for 2 months. Metricool (Spain) receives the page you view, the page you came from, your screen size and your approximate location, to show us which posts and pages bring visitors; it sets no cookies and is never used for ads. Google signals and advertising features are turned off, and the browser game page has no analytics at all. If you say no, no analytics cookies are set, and nothing is sent to Metricool either. Either way, your browser keeps your game progress and language on this device, never sent to us. Your cookie choice is saved in localStorage and in a strictly necessary first-party bq-consent cookie, shared across beequation.com and its language sites for one year. Change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.": "beequation.com uses Google Analytics and Metricool only if you say yes in Indie's cookie note. Then Google Analytics sets cookies, and Google receives information about your visit, such as the pages you view, your device and browser, and your approximate location. We use it only to see which pages are useful; Google processes it for us under its data processing terms (possibly outside the UK) and keeps it for 2 months. Metricool (Spain) receives the page you view, the page you came from, your screen size and your approximate location, to show us which posts and pages bring visitors; it sets no cookies and is never used for ads. Google signals and advertising features are turned off, and the browser game page has no analytics at all. If you say no, no analytics cookies are set, and nothing is sent to Metricool either. Either way, your browser keeps your game progress and language on this device, never sent to us. Your cookie choice is saved in localStorage and in a strictly necessary first-party bq-consent cookie, shared across beequation.com and its language sites for one year. Change your mind at any time with this button: <button type=\"button\" class=\"btn plain\" data-bq-consent style=\"min-height:40px;padding:0 14px;font-size:15px\">Change my choice</button>. Our web host may keep standard server logs, such as IP addresses, for security.",
  "Terms of use: Beequation": "Terms of use: Beequation",
  "Terms of use for Beequation Pro and Beequation Kids, including subscriptions, free trials, Lifetime purchases and promo codes.": "Terms of use for Beequation Pro and Beequation Kids, including subscriptions, free trials, Lifetime purchases and promo codes.",
  "<i>Last updated: 9 October 2026</i>": "<i>Last updated: 9 October 2026</i>",
@@ -377,6 +377,37 @@
   "suggestion": [
    "See Beequation for India",
    "Stay on this site"
-  ]
+  ],
+  "share": {
+   "heading": "Share this page",
+   "whatsapp": "Share on WhatsApp",
+   "facebook": "Share on Facebook",
+   "x": "Share on X",
+   "bluesky": "Share on Bluesky",
+   "email": "Email",
+   "email_label": "Share by email",
+   "copy": "Copy link",
+   "copied": "Link copied",
+   "copy_failed": "The link could not be copied. Copy it from the address bar instead.",
+   "native": "Share…",
+   "today": "Today's Beequation hive 🐝 Can you find the number made by two others?"
+  },
+  "certificate": {
+   "title": "Hive certificate | Beequation",
+   "description": "Print a Beequation Hive certificate with your child’s stars and worlds. Type their name in: it stays on this page and is never saved or sent.",
+   "h1": "Print a Hive certificate",
+   "intro": "Type your child’s name, check their stars and worlds, then print the certificate.",
+   "privacy": "The name stays on this page. It is never saved or sent anywhere.",
+   "name_label": "Child’s name",
+   "print": "Print the certificate",
+   "kicker": "Hive certificate",
+   "well_done": "Well done, {name}!",
+   "reason": "for brilliant number spotting in Beequation Kids",
+   "stars": "Stars collected",
+   "worlds": "Worlds completed",
+   "awarded": "Awarded on {date}",
+   "signed": "Signed",
+   "indie": "Indie the bee is very proud of you!"
+  }
  }
 }
