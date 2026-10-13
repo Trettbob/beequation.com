@@ -100,7 +100,7 @@ const T = {
   slips: n => n === 1 ? '1 fout' : `${n} fouten`, for3: par => `Voor 3 sterren: onder ${par} met hoogstens 1 fout.`, fullMarks: 'Perfecte score.',
   shareNo: n => `Beequation nr. ${n}`, firstTry: 'Meteen goed', oneSlip: '1 fout', twoPlus: '2 of meer', streak: n => n === 1 ? '1 dag op rij' : `${n} dagen op rij`, last7: 'Afgelopen 7 dagen',
   share: 'Resultaat delen', nextName: (name, t) => `Volgende: ${name} ${t}`, unlockNext: 'Ontgrendel de volgende levels', playBlitz: 'Speel een 60s-blitz',
-  shareBlitz: (n, mode, name) => `Beequation-blitz: ${n} opgelost in 60 s (${mode}, ${name})`, copied: 'Resultaat gekopieerd',
+  copied: 'Resultaat gekopieerd',
   aAll: n => `Alle ${n} levels`, aThanks: 'Bedankt. Alle levels zijn open.',
   aFree: n => { return ((free, queen) =>
       `Gratis: ${free} levels, de Dagpuzzel en de blitz. De volledige versie opent alle levels tot en met ‘${queen}’, inclusief Kommagetallen, Trio en de expertpuzzels van de Grote Korf.`)(n, T.tiers[9]); },
@@ -111,4 +111,17 @@ const T = {
   chooseIntro: 'Twee apps met dezelfde puzzel. Kies er een om te proberen. Je kunt altijd wisselen.',
   kidsPick: 'Van 5 tot 12 jaar. Werelden in snoepkleuren, Indie de bij, stickers en geen klok.', proPick: 'Tieners en volwassenen. Dagpuzzel met reeksen, 60-secondenblitz en expertlevels.',
   savedHere: 'Je voortgang wordt alleen in deze browser bewaard.',
+  // delen (Beequation No., Hive No. en Beequation blijven zoals ze zijn)
+  shareWords: { slips: '{n} fouten', noSlips: 'Geen fouten', streak: '{n} dagen op rij in de korf', blitz: 'Beequation-blitz 🐝 {score} in 60 s ({mode}, {level})', level: 'Level {n}' },
+  waggle: 'Daag een vriend uit', waggleTitle: 'Een uitdaging van een vriend',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} van de 10 meteen goed (${mode}, ${level}). Jouw beurt!`,
+  friendBlitz: n => `Een vriend loste er ${n} op in 60 s. Jouw beurt!`, friendPractice: n => `Een vriend had er ${n} van de 10 meteen goed. Jouw beurt!`,
+  waggleWhy: 'Bijen doen de kwispeldans om de korf te laten zien waar de beste bloemen staan. Deze link start dezelfde ronde die je vriend speelde.',
+  playRound: 'Speel dezelfde ronde', notNow: 'Niet nu', versus: (you, friend) => `Jij ${you} · Je vriend ${friend}`,
+  yourHive: 'Jouw korf', daysPlayed: 'Dagen gespeeld', currentStreak: 'Huidige reeks', bestStreak: 'Langste reeks', jarsHeld: 'Honingpotten op voorraad',
+  avgTime: 'Gemiddelde tijd per dag', dayCount: n => n === 1 ? '1 dag' : `${n} dagen`, dailyResults: 'Dagresultaten',
+  pureHoney: 'Pure honing (geen fouten)', twoPlusSlips: '2 of meer fouten', noDailies: 'Speel je eerste Dagpuzzel om je korf te starten.',
+  jarTitle: 'Honingpotten', jarsAria: n => n === 1 ? '1 honingpot' : `${n} honingpotten`,
+  jarHelp: 'Speel je de Dagpuzzel 7 dagen op rij, dan verdien je een honingpot. Je kunt er 2 bewaren. Mis je één dag, dan wordt er automatisch een pot gebruikt en loopt je reeks door. Mis je twee dagen of meer, dan begint de reeks opnieuw.',
+  jarSaved: n => `Een honingpot heeft je reeks van ${n === 1 ? '1 dag' : `${n} dagen`} gered 🍯`, hatchesIn: t => `De volgende korf komt uit over ${t}`,
 };

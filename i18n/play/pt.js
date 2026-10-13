@@ -88,7 +88,7 @@ const T = {
   slips: n => n === 1 ? '1 erro' : `${n} erros`, for3: par => `Para 3 estrelas: menos de ${par} com no máximo 1 erro.`, fullMarks: 'Nota máxima.',
   shareNo: n => `Beequation nº ${n}`, firstTry: 'De primeira', oneSlip: '1 erro', twoPlus: '2 ou mais', streak: n => `Sequência de ${n} ${n === 1 ? 'dia' : 'dias'}`, last7: 'Últimos 7 dias',
   share: 'Compartilhar resultado', nextName: (name, t) => `Próximo: ${name} ${t}`, unlockNext: 'Desbloquear os próximos níveis', playBlitz: 'Jogar uma blitz de 60 s',
-  shareBlitz: (n, mode, name) => `Blitz Beequation: ${n} ${n === 1 ? 'resolvido' : 'resolvidos'} em 60 s (${mode}, ${name})`, copied: 'Resultado copiado',
+  copied: 'Resultado copiado',
   aAll: n => `Todos os ${n} níveis`, aThanks: 'Obrigado. Todos os níveis estão abertos.',
   aFree: n => { return ((free, queen) =>
       `A versão grátis inclui ${free} níveis, o Diário Pro e a blitz. A versão completa abre todos os níveis até o nível ${queen}, incluindo Decimais, Trio e os desafios de nível especialista da Grande Colmeia.`)(n, T.tiers[9]); },
@@ -99,4 +99,17 @@ const T = {
   chooseIntro: 'Dois apps baseados no mesmo desafio. Escolha um para experimentar. Você pode trocar quando quiser.',
   kidsPick: 'De 5 a 12 anos. Mundos coloridos, a abelha Indie, figurinhas e sem relógio.', proPick: 'Adolescentes e adultos. Diário Pro com sequências, blitz de 60 segundos e níveis de especialista.',
   savedHere: 'O progresso fica salvo só neste navegador.',
+  // compartilhar (Beequation No., Hive No. e Beequation ficam como estão)
+  shareWords: { slips: '{n} erros', noSlips: 'Sem erros', streak: 'Sequência de {n} dias na colmeia', blitz: 'Blitz Beequation 🐝 {score} em 60 s ({mode}, {level})', level: 'Nível {n}' },
+  waggle: 'Desafiar um amigo', waggleTitle: 'Um desafio de um amigo',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} de 10 de primeira (${mode}, ${level}). Sua vez!`,
+  friendBlitz: n => `Um amigo resolveu ${n} em 60 s. Sua vez!`, friendPractice: n => `Um amigo acertou ${n} de 10 de primeira. Sua vez!`,
+  waggleWhy: 'As abelhas fazem a dança do requebrado para mostrar à colmeia onde estão as melhores flores. Este link repete a rodada que seu amigo jogou.',
+  playRound: 'Jogar a mesma rodada', notNow: 'Agora não', versus: (you, friend) => `Você ${you} · Seu amigo ${friend}`,
+  yourHive: 'Sua colmeia', daysPlayed: 'Dias jogados', currentStreak: 'Sequência atual', bestStreak: 'Melhor sequência', jarsHeld: 'Potes de mel guardados',
+  avgTime: 'Tempo médio diário', dayCount: n => n === 1 ? '1 dia' : `${n} dias`, dailyResults: 'Resultados diários',
+  pureHoney: 'Mel puro (sem erros)', twoPlusSlips: '2 erros ou mais', noDailies: 'Jogue seu primeiro Diário Pro para começar sua colmeia.',
+  jarTitle: 'Potes de mel', jarsAria: n => n === 1 ? '1 pote de mel' : `${n} potes de mel`,
+  jarHelp: 'A cada 7 dias seguidos jogando o Diário Pro, você ganha um pote de mel. Dá para guardar 2. Se você perder um dia, um pote é usado automaticamente e sua sequência continua. Se perder dois dias ou mais, a sequência recomeça.',
+  jarSaved: n => `Um pote de mel salvou sua sequência de ${n === 1 ? '1 dia' : `${n} dias`} 🍯`, hatchesIn: t => `A próxima colmeia nasce em ${t}`,
 };

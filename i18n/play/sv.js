@@ -89,7 +89,7 @@ const T = {
   slips: n => `${n} misstag`, for3: par => `För 3 stjärnor: under ${par} med högst 1 misstag.`, fullMarks: 'Full pott.',
   shareNo: n => `Beequation nr ${n}`, firstTry: 'Första försöket', oneSlip: '1 misstag', twoPlus: '2 eller fler', streak: n => `${n} ${n === 1 ? 'dag' : 'dagar'} i rad`, last7: 'Senaste 7 dagarna',
   share: 'Dela resultat', nextName: (name, t) => `Nästa: ${name} ${t}`, unlockNext: 'Lås upp fler nivåer', playBlitz: 'Spela en blixt på 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blixt: ${n} ${n === 1 ? 'löst' : 'lösta'} på 60 s (${mode}, ${name})`, copied: 'Resultatet är kopierat',
+  copied: 'Resultatet är kopierat',
   aAll: n => `Alla ${n} nivåer`, aThanks: 'Tack. Alla nivåer är öppna.',
   aFree: n => { return ((free, queen) =>
       `I gratisversionen ingår ${free} nivåer, Dagens kupa och blixten. Fullversionen öppnar alla nivåer upp till ${queen}, bland annat Decimaltal, Trio och expertpusslen i Stora kupan.`)(n, T.tiers[9]); },
@@ -100,4 +100,17 @@ const T = {
   chooseIntro: 'Två appar som bygger på samma pussel. Välj en och prova. Du kan byta när du vill.',
   kidsPick: 'För barn 5–12 år. Färgglada världar, biet Indie, klistermärken och ingen klocka.', proPick: 'Tonåringar och vuxna. Dagens kupa med svit, blixt på 60 sekunder och expertnivåer.',
   savedHere: 'Framstegen sparas bara i den här webbläsaren.',
+  // delning (Beequation No., Hive No. och Beequation står kvar som de är)
+  shareWords: { slips: '{n} misstag', noSlips: 'Inga misstag', streak: '{n} dagar i rad i kupan', blitz: 'Beequation blixt 🐝 {score} på 60 s ({mode}, {level})', level: 'Nivå {n}' },
+  waggle: 'Utmana en vän', waggleTitle: 'En utmaning från en vän',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} av 10 på första försöket (${mode}, ${level}). Din tur!`,
+  friendBlitz: n => `En vän löste ${n} på 60 s. Din tur!`, friendPractice: n => `En vän fick ${n} av 10 rätt på första försöket. Din tur!`,
+  waggleWhy: 'Bin dansar svänsdans för att visa kupan var de bästa blommorna finns. Den här länken spelar upp samma runda som din vän spelade.',
+  playRound: 'Spela samma runda', notNow: 'Inte nu', versus: (you, friend) => `Du ${you} · Din vän ${friend}`,
+  yourHive: 'Din kupa', daysPlayed: 'Spelade dagar', currentStreak: 'Nuvarande svit', bestStreak: 'Längsta svit', jarsHeld: 'Honungsburkar i förråd',
+  avgTime: 'Snittid per dag', dayCount: n => n === 1 ? '1 dag' : `${n} dagar`, dailyResults: 'Dagliga resultat',
+  pureHoney: 'Ren honung (inga misstag)', twoPlusSlips: '2 eller fler misstag', noDailies: 'Spela Dagens kupa för första gången för att börja bygga din kupa.',
+  jarTitle: 'Honungsburkar', jarsAria: n => n === 1 ? '1 honungsburk' : `${n} honungsburkar`,
+  jarHelp: 'Varje gång du spelar Dagens kupa 7 dagar i rad får du en honungsburk. Du kan spara 2. Missar du en dag används en burk automatiskt och din svit fortsätter. Missar du två dagar eller fler börjar sviten om.',
+  jarSaved: n => `En honungsburk räddade din svit på ${n === 1 ? '1 dag' : `${n} dagar`} 🍯`, hatchesIn: t => `Nästa kupa kläcks om ${t}`,
 };

@@ -94,7 +94,7 @@ const T = {
   slips: n => n === 1 ? '1 errore' : `${n} errori`, for3: par => `Per 3 stelle: meno di ${par} con al massimo 1 errore.`, fullMarks: 'Punteggio pieno.',
   shareNo: n => `Beequation n. ${n}`, firstTry: 'Al primo colpo', oneSlip: '1 errore', twoPlus: '2 o più', streak: n => `Serie di ${n} ${n === 1 ? 'giorno' : 'giorni'}`, last7: 'Ultimi 7 giorni',
   share: 'Condividi il risultato', nextName: (name, t) => `Prossimo: ${name} ${t}`, unlockNext: 'Sblocca i prossimi livelli', playBlitz: 'Gioca un blitz di 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} ${n === 1 ? 'risolto' : 'risolti'} in 60 s (${mode}, ${name})`, copied: 'Risultato copiato',
+  copied: 'Risultato copiato',
   aAll: n => `Tutti i ${n} livelli`, aThanks: 'Grazie. Tutti i livelli sono aperti.',
   aFree: n => { return ((free, queen) =>
       `La versione gratuita include ${free} livelli, la Sfida del giorno e il blitz. La versione completa apre tutti i livelli fino a «${queen}», compresi Decimali, Trio e i rompicapi esperti del Grande Alveare.`)(n, T.tiers[9]); },
@@ -105,4 +105,17 @@ const T = {
   chooseIntro: 'Due app basate sullo stesso rompicapo. Scegline una da provare. Puoi cambiare quando vuoi.',
   kidsPick: "Dai 5 ai 12 anni. Mondi coloratissimi, l'ape Indie, figurine e nessun cronometro.", proPick: 'Ragazzi e adulti. Sfida del giorno con le serie, blitz di 60 secondi, livelli per esperti.',
   savedHere: 'I progressi vengono salvati solo in questo browser.',
+  // condivisione (Beequation No., Hive No. e Beequation restano così)
+  shareWords: { slips: '{n} errori', noSlips: 'Nessun errore', streak: 'Serie di {n} giorni nell’alveare', blitz: 'Beequation blitz 🐝 {score} in 60 s ({mode}, {level})', level: 'Livello {n}' },
+  waggle: 'Sfida un amico', waggleTitle: 'Una sfida da un amico',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} su 10 al primo colpo (${mode}, ${level}). Tocca a te!`,
+  friendBlitz: n => `Un amico ne ha ${n === 1 ? 'risolto 1' : `risolti ${n}`} in 60 s. Tocca a te!`, friendPractice: n => `Un amico ne ha ${n === 1 ? 'indovinato 1' : `indovinati ${n}`} su 10 al primo colpo. Tocca a te!`,
+  waggleWhy: 'Le api fanno la danza scodinzolante per indicare all’alveare dove sono i fiori migliori. Questo link ripropone la stessa partita giocata dal tuo amico.',
+  playRound: 'Gioca la stessa partita', notNow: 'Non ora', versus: (you, friend) => `Tu ${you} · Il tuo amico ${friend}`,
+  yourHive: 'Il tuo alveare', daysPlayed: 'Giorni giocati', currentStreak: 'Serie attuale', bestStreak: 'Serie migliore', jarsHeld: 'Vasetti di miele da parte',
+  avgTime: 'Tempo medio giornaliero', dayCount: n => n === 1 ? '1 giorno' : `${n} giorni`, dailyResults: 'Risultati giornalieri',
+  pureHoney: 'Miele puro (nessun errore)', twoPlusSlips: '2 errori o più', noDailies: 'Gioca la tua prima Sfida del giorno per avviare il tuo alveare.',
+  jarTitle: 'Vasetti di miele', jarsAria: n => n === 1 ? '1 vasetto di miele' : `${n} vasetti di miele`,
+  jarHelp: 'Ogni 7 giorni di fila in cui giochi la Sfida del giorno guadagni un vasetto di miele. Puoi tenerne 2. Se salti un giorno, un vasetto viene usato in automatico e la tua serie continua. Se salti due o più giorni, la serie ricomincia.',
+  jarSaved: n => `Un vasetto di miele ha salvato la tua serie di ${n === 1 ? '1 giorno' : `${n} giorni`} 🍯`, hatchesIn: t => `Il prossimo alveare nasce tra ${t}`,
 };

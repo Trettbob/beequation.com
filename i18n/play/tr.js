@@ -88,7 +88,7 @@ const T = {
   slips: n => `${n} hata`, for3: par => `3 yıldız için: ${par} altında, en fazla 1 hata.`, fullMarks: 'Tam puan.',
   shareNo: n => `Beequation No. ${n}`, firstTry: 'İlk denemede', oneSlip: '1 hata', twoPlus: '2 veya daha fazla', streak: n => `${n} günlük seri`, last7: 'Son 7 gün',
   share: 'Sonucu paylaş', nextName: (name, t) => `Sıradaki: ${name} ${t}`, unlockNext: 'Sonraki seviyelerin kilidini aç', playBlitz: '60 sn Blitz oyna',
-  shareBlitz: (n, mode, name) => `Beequation Blitz: 60 saniyede ${n} bulmaca (${mode}, ${name})`, copied: 'Sonuç kopyalandı',
+  copied: 'Sonuç kopyalandı',
   aAll: n => `${n} seviyenin tamamı`, aThanks: 'Teşekkürler. Tüm seviyeler açık.',
   aFree: n => { return ((free, queen) =>
       `Ücretsiz sürümde ${free} seviye, Günün Kovanı ve Blitz var. Tam sürüm, Ondalıklar, Üçlü ve Büyük Kovan’ın uzman bulmacaları dahil olmak üzere ${queen} seviyesine kadar tüm seviyeleri açar.`)(n, T.tiers[9]); },
@@ -99,4 +99,17 @@ const T = {
   chooseIntro: 'Aynı bulmacaya dayanan iki uygulama. Denemek için birini seç. İstediğin zaman değiştirebilirsin.',
   kidsPick: '5–12 yaş arası. Şeker renkli dünyalar, Arı Indie ve çıkartmalar; saat yok.', proPick: 'Gençler ve yetişkinler. Seri takipli Günün Kovanı, 60 saniyelik Blitz ve uzman seviyeler.',
   savedHere: 'İlerleme yalnızca bu tarayıcıda kaydedilir.',
+  // paylaşım (Beequation No., Hive No. ve Beequation olduğu gibi kalır)
+  shareWords: { slips: '{n} hata', noSlips: 'Hatasız', streak: '{n} günlük kovan serisi', blitz: 'Beequation Blitz 🐝 60 saniyede {score} ({mode}, {level})', level: 'Seviye {n}' },
+  waggle: 'Bir arkadaşına meydan oku', waggleTitle: 'Arkadaşından bir meydan okuma',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 10 bulmacanın ${n} tanesi ilk denemede (${mode}, ${level}). Sıra sende!`,
+  friendBlitz: n => `Bir arkadaşın 60 saniyede ${n} bulmaca çözdü. Sıra sende!`, friendPractice: n => `Bir arkadaşın 10 bulmacanın ${n} tanesini ilk denemede çözdü. Sıra sende!`,
+  waggleWhy: 'Arılar en güzel çiçeklerin yerini kovana sallanma dansıyla gösterir. Bu bağlantı arkadaşının oynadığı turun aynısını açar.',
+  playRound: 'Aynı turu oyna', notNow: 'Şimdi değil', versus: (you, friend) => `Sen ${you} · Arkadaşın ${friend}`,
+  yourHive: 'Kovanın', daysPlayed: 'Oynanan gün', currentStreak: 'Şu anki seri', bestStreak: 'En uzun seri', jarsHeld: 'Eldeki bal kavanozları',
+  avgTime: 'Günlük ortalama süre', dayCount: n => `${n} gün`, dailyResults: 'Günlük sonuçlar',
+  pureHoney: 'Saf bal (hatasız)', twoPlusSlips: '2 veya daha fazla hata', noDailies: 'Kovanını başlatmak için ilk Günün Kovanı bulmacanı çöz.',
+  jarTitle: 'Bal kavanozları', jarsAria: n => `${n} bal kavanozu`,
+  jarHelp: 'Günün Kovanı’nı art arda 7 gün oynadığında bir bal kavanozu kazanırsın. En fazla 2 tane biriktirebilirsin. Bir gün kaçırırsan kavanozlardan biri otomatik olarak kullanılır ve serin devam eder. İki gün veya daha fazla kaçırırsan seri baştan başlar.',
+  jarSaved: n => `Bir bal kavanozu ${n} günlük serini kurtardı 🍯`, hatchesIn: t => `Yeni kovanın açılmasına ${t} kaldı`,
 };

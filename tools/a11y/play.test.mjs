@@ -207,3 +207,71 @@ test('grown-ups dialog keeps keyboard focus inside and restores its opener when 
   g.overlay.cancel.onclick();assert.equal(g.doc.activeElement,g.opener);assert.equal(g.app.inert,false);
   const escaped=gate();escaped.overlay.onkeydown({key:'Escape',preventDefault(){}});assert.equal(escaped.doc.activeElement,escaped.opener);assert.equal(escaped.app.inert,false);
 });
+
+// Sharing: Waggle links replay the same seeded round; dailies are untouched; old progress gets a hive streak.
+function proRound(route) {
+  const ui={messages:[],controls:{},focus:2,now:100000,timeouts:[],intervals:[],vibrations:[]};
+  const table=html.match(/\/\*T\*\/([\s\S]*?)\/\*\/T\*\//)[1];
+  const engine=html.slice(html.indexOf('// ---- engine:'),html.indexOf('// ---- end engine ----'));
+  const helpers=html.slice(html.indexOf('// ---------- helpers ----------'),html.indexOf('// ---------- router ----------'));
+  const pro=html.slice(html.indexOf('function a_game('),html.indexOf('function a_result('));
+  class Clock extends Date { static now(){return ui.now;} }
+  const context=vm.createContext({ui,Date:Clock,window:{innerHeight:800},document:{getElementById:id=>id==='app'?{clientWidth:420}:null},localStorage:{getItem:()=>null},navigator:{},setTimeout:fn=>ui.timeouts.push(fn),setInterval:fn=>ui.intervals.push(fn),clearInterval:()=>{ui.intervals=[];}});
+  vm.runInContext(`${table}\n${engine}\n${helpers}\n
+    const h=markup=>ui.markup=markup;
+    const on=(selector,fn)=>ui.controls[selector]=fn;
+    announce=msg=>ui.messages.push(msg);
+    focusCell=index=>ui.focus=index;
+    wireBoard=(tap,p)=>{ui.tap=tap;ui.puzzle=p;};
+    const back=()=>{};let cleanup;
+    const replace=r=>{ui.result=r;cleanup();};
+    let P={stars:{},blitz:{},daily:{}};
+    const aSave=()=>{},aStatus=()=>'locked';
+    ui.daily=()=>JSON.stringify(generate('mixed',5,dailyRng(dayKey(),'pro')).cells);
+    ${pro}
+    a_game(${JSON.stringify(route)});ui.P=()=>P;`,context);
+  return ui;
+}
+const boards=(ui,n,wrongFirst=false)=>Array.from({length:n},()=>{
+  const cells=JSON.stringify(ui.puzzle.cells);
+  if(wrongFirst){ui.tap((ui.puzzle.answer+1)%ui.puzzle.cells.length);ui.timeouts.at(-1)();}
+  ui.tap(ui.puzzle.answer);ui.timeouts.at(-1)();return cells;
+});
+test('a Waggle seed replays the same boards in Blitz and practice, whatever the slips',()=>{
+  for(const kind of ['round','blitz']) {
+    const route={mode:'mul',tier:3,kind,seed:4294967295};
+    assert.deepEqual(boards(proRound(route),5),boards(proRound(route),5,true));
+  }
+  assert.notEqual(JSON.stringify(proRound({mode:'add',tier:4,kind:'round',seed:1}).puzzle.cells),JSON.stringify(proRound({mode:'add',tier:4,kind:'round',seed:2}).puzzle.cells));
+});
+test('results keep the seed and the friend score; a Waggle into a locked level awards no stars',()=>{
+  const ui=proRound({mode:'add',tier:7,kind:'round',seed:99,friend:8});
+  boards(ui,10);
+  assert.equal(ui.result.name,'a_result');
+  assert.equal(ui.result.res.seed,99);assert.equal(ui.result.res.friend,8);
+  assert.equal(JSON.stringify(ui.P().stars),'{}');
+  const fresh=proRound({mode:'add',tier:1,kind:'round'});boards(fresh,10);
+  assert.ok(Number.isSafeInteger(fresh.result.res.seed)&&fresh.result.res.seed>=0&&fresh.result.res.seed<=4294967295);
+  assert.equal(fresh.result.res.friend,undefined);
+});
+test('the Daily Pro ignores any seed and still uses the date',()=>{
+  const ui=proRound({mode:'mixed',tier:5,kind:'daily',seed:12345});
+  assert.equal(JSON.stringify(ui.puzzle.cells),ui.daily());
+  boards(ui,10);
+  assert.equal(ui.result.res.seed,null);
+  assert.equal(ui.P().hive.current,1);assert.equal(ui.P().hive.jars,0);
+});
+test('Waggle links are checked strictly against the Pro modes and their levels',()=>{
+  const read=search=>game(`JSON.stringify(waggleFrom(${JSON.stringify(search)}))`,{URLSearchParams});
+  assert.equal(read('?app=pro&waggle=v1.blitz-mul.5.42.14&utm_source=share&utm_medium=waggle'),'{"kind":"blitz","mode":"mul","tier":5,"seed":42,"score":14}');
+  assert.equal(read('?app=pro&waggle=v1.practice-add.10.0.10'),'{"kind":"practice","mode":"add","tier":10,"seed":0,"score":10}');
+  for(const bad of ['?waggle=v1.blitz-mul.5.42.14','?app=kids&waggle=v1.blitz-mul.5.42.14','?app=pro&waggle=v1.practice-dec.7.1.3','?app=pro&waggle=v1.blitz-tens.1.1.3',
+    '?app=pro&waggle=v1.blitz-hive.1.1.3','?app=pro&waggle=v1.blitz-neg.9.1.3','?app=pro&waggle=<script>','?app=pro&waggle=','?app=pro']) assert.equal(read(bad),'null',bad);
+});
+test('old progress gets a hive streak from its saved dailies and no Honey Jars',()=>{
+  const state=JSON.parse(game(`let P={daily:{}};const aSave=()=>{};const t=new Date();
+    for(const n of [1,2,3])P.daily[dayKey(addDays(t,-n))]={seconds:60,slips:[0,0,0,0,0,0,0,0,0,0]};
+    checkHive(false);JSON.stringify(P.hive)`));
+  assert.equal(state.current,3);assert.equal(state.jars,0);assert.equal(state.best,3);
+  assert.equal(game(`BeeSharing.countdown(new Date(2026,9,12,20,47,15))`),'03:12:45');
+});
