@@ -25,7 +25,7 @@ class Element {
   querySelector(selector) { this.parts??={}; return this.parts[selector]??=new Element(selector); }
   remove() {this.parent.children.splice(this.parent.children.indexOf(this),1);}
 }
-function run(path, {languages=['fr-FR'], values={}, blocked=false, search='', hash=''}={}) {
+function run(path, {languages=['fr-FR'], values={}, blocked=false, search='', hash='', hostname='beequation.com', cookie=''}={}) {
   const html=source(path), store=new Map(Object.entries(values)), head=new Element('head'), body=new Element('body');
   const header=new Element('header'); header.id='bqh'; body.appendChild(header);
   const events={}, redirects=[], cookies=[];
@@ -34,9 +34,14 @@ function run(path, {languages=['fr-FR'], values={}, blocked=false, search='', ha
     addEventListener:(name,f)=>{(events[name]??=[]).push(f);},
     dispatchEvent:event=>{for(const f of events[event.type]||[])f(event);},
     querySelector:selector=>selector==='.bq-ok'?notice():null};
-  Object.defineProperty(document,'cookie',{get:()=> '_ga=test; _ga_3YFSG10Q1W=test',set:value=>cookies.push(value)});
+  const cookieJar=new Map(('_ga=test; _ga_3YFSG10Q1W=test; '+cookie).split(';').filter(value=>value.includes('=')).map(value=>{const separator=value.indexOf('=');return [value.slice(0,separator).trim(),value.slice(separator+1)];}));
+  Object.defineProperty(document,'cookie',{get:()=>[...cookieJar].map(([name,value])=>`${name}=${value}`).join('; '),set:value=>{
+    cookies.push(value);
+    const pair=value.split(';')[0], separator=pair.indexOf('='), name=pair.slice(0,separator), answer=pair.slice(separator+1);
+    if(/Max-Age=0|expires=Thu, 01 Jan 1970/i.test(value))cookieJar.delete(name);else cookieJar.set(name,answer);
+  }});
   const storage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)};
-  const context={document,navigator:{languages},location:{search,hash,replace:url=>redirects.push(url),pathname:'/'+path,hostname:'beequation.com'},URLSearchParams,Event};
+  const context={document,navigator:{languages},location:{search,hash,replace:url=>redirects.push(url),pathname:'/'+path,hostname},URLSearchParams,Event};
   Object.defineProperty(context,'localStorage',{get(){if(blocked)throw Error('storage denied');return storage;}});
   context.window=context;
   vm.createContext(context);
@@ -44,7 +49,7 @@ function run(path, {languages=['fr-FR'], values={}, blocked=false, search='', ha
   if(code)vm.runInContext(code,context);
   const consent=script(html,'consent'); if(consent)vm.runInContext(consent,context);
   const ga=script(html,'ga'); if(ga)vm.runInContext(ga,context);
-  return {store,head,body,events,redirects,context,cookies,notice,external:()=>head.children.filter(x=>x.tagName==='SCRIPT'),emit:()=>document.dispatchEvent(new Event('bq-consent')),banner:()=>body.children.find(x=>x.id==='bq-language-suggestion')};
+  return {store,head,body,events,redirects,context,cookies,cookieJar,notice,external:()=>head.children.filter(x=>x.tagName==='SCRIPT'),emit:()=>document.dispatchEvent(new Event('bq-consent')),banner:()=>body.children.find(x=>x.id==='bq-language-suggestion')};
 }
 let r=run('support.html',{search:'?from=test',hash:'#help'});
 assert.deepEqual(r.redirects,[], 'English page must not redirect');
@@ -63,6 +68,23 @@ r=run('support.html',{values:{'bq-consent':'no'}});r.banner().children[1].events
 assert.equal(r.store.has('bq-lang-dismissed'),false,'respect legacy no-storage preference');
 // Catch stale opt-in, duplicate loads, dual ready/load callbacks and revocation during download.
 for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].map(c=>`dist/${c}/support.html`)]) {
+  const html=source(path);
+  assert.ok(html.indexOf('<!--consent-->')<html.indexOf('<!--ga-->'),`${path}: consent precedes analytics`);
+  for(const answer of ['all2','basic']) {
+    for(const saved of [undefined,'all','no']) {
+      r=run(path,{values:saved?{'bq-consent':saved}:{},cookie:`other=value; bq-consent=${answer}`});
+      assert.equal(r.store.get('bq-consent'),answer,`${path}: adopts ${answer} cookie over ${saved}`);
+      assert.equal(r.notice(),undefined,`${path}: adopted answer suppresses note`);
+      assert.equal(r.external().length,answer==='all2'?2:0,`${path}: adoption precedes analytics loading`);
+    }
+    r=run(path,{values:{'bq-consent':answer},cookie:`bq-consent=${answer==='all2'?'basic':'all2'}`});
+    assert.equal(r.store.get('bq-consent'),answer,'valid local answer takes precedence');
+  }
+  for(const answer of ['all','no','all2-invalid','%61ll2']) {
+    r=run(path,{cookie:`bq-consent=${answer}`});
+    assert.ok(r.notice(),`${path}: invalid cookie ${answer} asks again`);
+    assert.equal(r.external().length,0);
+  }
   for(const value of [undefined,'all','basic','no','all2']) {
     r=run(path,{values:value?{'bq-consent':value}:{}});
     assert.equal(!!r.notice(),!['basic','all2'].includes(value),`${path}: notice for ${value}`);
@@ -85,12 +107,31 @@ for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','
   r.notice().querySelector('.n').events.click();
   assert.equal(r.store.get('bq-consent'),'basic');
   assert.equal(r.context['ga-disable-G-3YFSG10Q1W'],true);
-  assert.equal(r.cookies.length,6,'GA cookies deleted on decline');
+  assert.equal(r.cookies.filter(value=>/^_ga/.test(value)).length,6,'GA cookies deleted on decline');
   r.emit();metric.onload();assert.equal(r.external().length,2);assert.equal(visits.length,1);
   r=run(path,{values:{'bq-consent':'all2'}});
   const pending=r.external()[1];let sent=0;r.context.beTracker={t:()=>sent++};
   r.events.click.forEach(f=>f({target:{closest:()=>true}}));r.notice().querySelector('.n').events.click();
   pending.onload();assert.equal(sent,0,'decline before script completes prevents visit');
+}
+for(const hostname of ['beequation.com',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].map(code=>`${code}.beequation.com`),'nested.fr.beequation.com','localhost','127.0.0.1','notbeequation.com','beequation.com.example.com']) {
+  const beequationHost=/(^|\.)beequation\.com$/.test(hostname);
+  for(const answer of ['all2','basic']) {
+    r=run('support.html',{hostname});
+    r.notice().querySelector(answer==='all2'?'.y':'.n').events.click();
+    assert.equal(r.store.get('bq-consent'),answer);
+    assert.deepEqual(r.cookies.filter(value=>value.startsWith('bq-consent=')),beequationHost?[`bq-consent=${answer}; Domain=.beequation.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure`]:[],`${hostname}: domain-scoped ${answer} cookie`);
+    r.events.click.forEach(callback=>callback({target:{closest:()=>true}}));
+    assert.equal(r.store.has('bq-consent'),false,'change my choice clears local answer');
+    assert.equal(r.cookieJar.has('bq-consent'),false,'change my choice clears shared answer');
+    assert.ok(r.notice(),'change my choice shows original note');
+    assert.equal(r.cookies.filter(value=>value.startsWith('bq-consent=')).length,beequationHost?2:0,'reset cookie only on beequation hosts');
+    if(beequationHost)assert.match(r.cookies.at(-1),/^bq-consent=; Domain=\.beequation\.com; Path=\/; Max-Age=0; SameSite=Lax; Secure$/);
+    r.notice().querySelector('.n').events.click();
+    assert.equal(r.store.get('bq-consent'),'basic');
+    assert.equal(r.cookieJar.get('bq-consent'),beequationHost?'basic':undefined,'decline after reset persists shared choice');
+    assert.equal(r.context['ga-disable-G-3YFSG10Q1W'],true);
+  }
 }
 r=run('support.html',{blocked:true});r.banner().children[1].events.click();assert.equal(r.banner(),undefined);
 r=run('support.html',{search:'?lang=en'});assert.equal(r.banner(),undefined);assert.equal(r.store.get('bq-lang'),'en');
