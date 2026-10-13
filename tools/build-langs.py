@@ -899,6 +899,170 @@ def footer(lang):
             f'<img class="bqf-bee" src="/assets/hexabee.svg" width="46" height="46" alt="" loading="lazy"></div>'
             f'</div><p class="bqf-legal">{fw["legal"]}</p></footer></div>')
 
+# ---------- "Share this page" (Today, Learn articles and worksheets, blog posts, the teachers page) ----------
+# Plain links only: nothing loads from the networks until a visitor follows one (external_links() opens them in a new
+# tab and says so). Copy link and the system share sheet are buttons that appear only when the browser has them.
+# Other languages: i18n/<lang>.json "__site__" -> "share" (--check lists gaps). The visible word for Email is part of
+# its accessible name in every language (WCAG 2.5.3).
+SHARE_TEXT = {'en': {
+    'heading': 'Share this page', 'whatsapp': 'Share on WhatsApp', 'facebook': 'Share on Facebook', 'x': 'Share on X',
+    'bluesky': 'Share on Bluesky', 'email': 'Email', 'email_label': 'Share by email', 'copy': 'Copy link',
+    'copied': 'Link copied', 'copy_failed': 'The link could not be copied. Copy it from the address bar instead.',
+    'native': 'Share…', 'today': "Today's Beequation hive 🐝 Can you find the number made by two others?"}}
+_SOCIAL_ICON = {n: i for n, _, i in SOCIALS}
+SHARE_ICONS = {
+    'whatsapp': _ICON('<path d="M3.6 20.4l1.3-4.1a8.6 8.6 0 1 1 3.3 3.1z"/><path d="M9.1 8.2c-.4 2.9 3 6.6 6.4 6.7l1.1-1.5-2.1-1.1-1 .8c-1.1-.5-2.3-1.7-2.8-2.8l.8-1-1-2.1z"/>'),
+    'facebook': _SOCIAL_ICON['Facebook'], 'x': _SOCIAL_ICON['X'], 'bluesky': _SOCIAL_ICON['Bluesky'],
+    'email': _ICON('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 6.6l8.2 6.3 8.2-6.3"/>'),
+    'copy': _ICON('<path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1.2 1.2"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1.2-1.2"/>'),
+    'native': _ICON('<path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/>'),
+}
+SHARE_CSS = """
+.bq-share{margin:36px 0 8px;padding:18px 20px;border-radius:20px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--line)}
+.bq-share h2{font-size:18px!important;margin:0 0 12px!important;letter-spacing:0}
+.bq-share ul{list-style:none!important;margin:0!important;padding:0!important;display:flex;flex-wrap:wrap;gap:10px}
+.bq-share li{margin:0!important;padding:0!important}.bq-share li::before{content:none!important}
+.bq-share a,.bq-share button{display:inline-flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:0 14px;border-radius:14px;border:0;background:var(--ground);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);font:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer}
+.bq-share a:hover,.bq-share button:hover{background:#FFB020;color:#12161F}
+.bq-share a:focus-visible,.bq-share button:focus-visible{outline:3px solid #FFB020;outline-offset:2px}
+.bq-share svg{width:22px;height:22px;flex:none}
+.bq-share-msg{margin:10px 0 0!important;font-size:15px;min-height:1.4em}
+@media (forced-colors:active){.bq-share a,.bq-share button{border:1px solid ButtonText}}
+@media print{.bq-share{display:none}}
+"""
+SHARE_JS = ("<script>(function(){var s=document.currentScript&&document.currentScript.parentNode;if(!s)return;"
+            "var m=s.querySelector('.bq-share-msg'),c=s.querySelector('[data-bq-copy]'),n=s.querySelector('[data-bq-native]');"
+            "function say(t){m.textContent='';setTimeout(function(){m.textContent=t;},60);}"
+            "if(c&&navigator.clipboard&&navigator.clipboard.writeText){c.parentNode.hidden=false;c.addEventListener('click',function(){"
+            "navigator.clipboard.writeText(c.getAttribute('data-bq-copy')).then(function(){say(m.getAttribute('data-copied'));},function(){say(m.getAttribute('data-failed'));});});}"
+            "if(n&&navigator.share){n.parentNode.hidden=false;n.addEventListener('click',function(){"
+            "navigator.share({title:n.getAttribute('data-title'),text:n.getAttribute('data-text'),url:n.getAttribute('data-bq-native')}).catch(function(){});});}"
+            "})();</script>")
+
+def share_kind(page, s):
+    """Which pages get the share row: /today/, the teachers page, Learn articles and worksheets (not hubs), blog posts."""
+    if page == 'today/index.html': return 'today'
+    if page == 'teachers.html': return 'page'
+    if (page.startswith(('learn/', 'blog/')) and not page.startswith('blog/page/') and page != 'blog/index.html'
+            and '<article class="doc">' in s): return 'page'
+    return None
+
+def share_row(s, lang, page):
+    """The share row's HTML for this page ('' for pages without one): the page's canonical address, tagged with
+    utm_source=share and utm_medium=<network>."""
+    from urllib.parse import quote
+    kind = share_kind(page, s)
+    canonical = re.search(r'<link rel="canonical" href="([^"]+)"', s)
+    if not kind or not canonical: return ''
+    t = site_text(lang, 'share', SHARE_TEXT)
+    url = H.unescape(canonical.group(1))
+    h1 = re.search(r'<h1[^>]*>(.*?)</h1>', s, re.S)
+    text = t['today'] if kind == 'today' else re.sub(r'\s+', ' ', H.unescape(re.sub(r'<[^>]+>', '', h1.group(1) if h1 else ''))).strip()
+    tagged = lambda medium: url + ('&' if '?' in url else '?') + 'utm_source=share&utm_medium=' + medium
+    q = lambda v: quote(v, safe='')
+    links = [('whatsapp', 'WhatsApp', t['whatsapp'], 'https://wa.me/?text=' + q(text + ' ' + tagged('whatsapp'))),
+             ('facebook', 'Facebook', t['facebook'], 'https://www.facebook.com/sharer/sharer.php?u=' + q(tagged('facebook'))),
+             ('x', 'X', t['x'], 'https://x.com/intent/post?text=' + q(text) + '&url=' + q(tagged('x'))),
+             ('bluesky', 'Bluesky', t['bluesky'], 'https://bsky.app/intent/compose?text=' + q(text + ' ' + tagged('bluesky'))),
+             ('email', t['email'], t['email_label'], 'mailto:?subject=' + q(text) + '&body=' + q(text + '\n\n' + tagged('email')))]
+    items = ''.join(f'<li><a href="{esc(href)}" aria-label="{esc(label)}">{SHARE_ICONS[key]}<span>{esc(shown)}</span></a></li>'
+                    for key, shown, label, href in links)
+    items += f'<li hidden><button type="button" data-bq-copy="{esc(tagged("copy"))}">{SHARE_ICONS["copy"]}<span>{esc(t["copy"])}</span></button></li>'
+    items += (f'<li hidden><button type="button" data-bq-native="{esc(tagged("native"))}" data-title="{esc(text)}" data-text="{esc(text)}">'
+              f'{SHARE_ICONS["native"]}<span>{esc(t["native"])}</span></button></li>')
+    return (f'<!--share--><section class="bq-share" aria-labelledby="bq-share-h"><h2 id="bq-share-h">{esc(t["heading"])}</h2><ul>{items}</ul>'
+            f'<p class="bq-share-msg" role="status" data-copied="{esc(t["copied"])}" data-failed="{esc(t["copy_failed"])}"></p>{SHARE_JS}</section><!--/share-->')
+
+def add_share_row(s, row):
+    if not row: return s
+    if '<article class="doc">' in s and '</article>' in s: return s.replace('</article>', row + '</article>', 1)
+    return s.replace('</main>', row + '</main>', 1)
+
+# ---------- the Hive certificate (/certificate.html on every site) ----------
+# Opened from the Kids app's Grown-ups area: /certificate.html?w=<worlds completed>&s=<stars>&d=<YYYY-MM-DD>, numbers
+# only. A grown-up types the child's name into the page; it stays in the page (no form, nothing stored or sent, and no
+# analytics or cookie notice on this page). Printable on A4. noindex, and in no sitemap.
+# Other languages: i18n/<lang>.json "__site__" -> "certificate" (--check lists gaps).
+CERT_TEXT = {'en': {
+    'title': 'Hive certificate | Beequation',
+    'description': 'Print a Beequation Hive certificate with your child’s stars and worlds. Type their name in: it stays on this page and is never saved or sent.',
+    'h1': 'Print a Hive certificate',
+    'intro': 'Type your child’s name, check their stars and worlds, then print the certificate.',
+    'privacy': 'The name stays on this page. It is never saved or sent anywhere.',
+    'name_label': 'Child’s name', 'print': 'Print the certificate', 'kicker': 'Hive certificate',
+    'well_done': 'Well done, {name}!', 'reason': 'for brilliant number spotting in Beequation Kids',
+    'stars': 'Stars collected', 'worlds': 'Worlds completed', 'awarded': 'Awarded on {date}', 'signed': 'Signed',
+    'indie': 'Indie the bee is very proud of you!'}}
+CERT_CSS = """
+.cert-page{max-width:900px;margin:0 auto;padding:24px 24px 40px}
+.cert-tools{max-width:640px}
+.cert-tools h1{font-size:clamp(32px,5vw,46px);line-height:1.05;letter-spacing:-1.5px;margin:12px 0 14px}
+.cert-tools p{margin:0 0 12px}
+.cert-private{font-weight:600}
+.cert-tools label{display:block;font-weight:700;margin:18px 0 6px}
+.cert-tools input{width:100%;max-width:420px;min-height:52px;padding:10px 14px;border-radius:14px;border:2px solid var(--mute);background:var(--card);color:var(--ink);font:inherit;font-size:20px}
+.cert-tools input:focus-visible{outline:3px solid var(--honey);outline-offset:2px}
+.cert-tools .btn{margin:16px 0 28px}
+.cert{position:relative;max-width:820px;aspect-ratio:210/297;margin:0 auto;padding:34px;border-radius:24px;color:#1C1A4A;background-color:#FFD84D;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%23E0B21A' stroke-width='3'%3E%3Cpath d='M28 1l26 15v30L28 61 2 46V16z'/%3E%3Cpath d='M28 61v36M2 46L0 47M54 46l2 1'/%3E%3C/g%3E%3C/svg%3E");background-size:56px 97px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.cert-in{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;background:#FFFDF5;border:4px solid #1C1A4A;border-radius:18px;padding:36px 30px}
+.cert-in .indie{width:140px;height:auto}
+.cert-kicker{font-family:Fredoka,ui-rounded,system-ui,sans-serif;font-weight:700;font-size:20px;letter-spacing:2px;text-transform:uppercase;color:#5236D6;margin:0}
+.cert h2{font-family:Fredoka,ui-rounded,system-ui,sans-serif;font-size:clamp(30px,5.4vw,52px);line-height:1.1;margin:0;color:#1C1A4A;overflow-wrap:anywhere}
+.cert-name{display:inline-block;min-width:6ch;border-bottom:3px solid #1C1A4A}
+.cert-reason{font-size:20px;margin:0;color:#1C1A4A}
+.cert-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:10px 0 0;padding:0}
+.cert-stats div{min-width:150px;padding:14px 18px;border-radius:18px;background:#FFF1B8;border:2px solid #E0B21A}
+.cert-stats dt{font-size:15px;font-weight:600;margin:0}
+.cert-stats dd{font-family:Fredoka,ui-rounded,system-ui,sans-serif;font-size:44px;font-weight:700;line-height:1.1;margin:4px 0 0}
+.cert-date{font-size:17px;margin:6px 0 0;color:#1C1A4A}
+.cert-indie{font-family:Fredoka,ui-rounded,system-ui,sans-serif;font-size:18px;font-weight:600;color:#3B24A8;margin:0}
+.cert-sign{margin:18px 0 0;font-size:16px;display:flex;align-items:flex-end;gap:10px;color:#1C1A4A}
+.cert-sign span{display:inline-block;width:220px;border-bottom:2px solid #1C1A4A}
+@media (max-width:620px){.cert{aspect-ratio:auto;padding:18px}.cert-in{padding:26px 16px}.cert-stats div{min-width:120px}}
+@page{size:A4 portrait;margin:10mm}
+@media print{html,body{background:#fff!important}#bqh,.skip,.cert-tools,footer,.bqf,.bq-bee,.bq-peek,.bq-scene,.bq-drop,#bq-language-suggestion,#bq-a11y,.bq-a11y-trigger{display:none!important}main.cert-page{max-width:none;margin:0;padding:0}.cert{max-width:none;width:190mm;height:277mm;aspect-ratio:auto;margin:0 auto;border-radius:0;break-inside:avoid}.wrap:has(footer){display:none!important}}
+"""
+CERT_JS = r"""<script>(function(){var q=new URLSearchParams(location.search);
+function num(k,max){var v=q.get(k);return v!==null&&/^(0|[1-9]\d{0,3})$/.test(v)&&+v<=max?v:null;}
+var w=num('w',6),s=num('s',999),d=q.get('d'),t=null;
+if(d&&/^\d{4}-\d{2}-\d{2}$/.test(d)){var x=new Date(d+'T12:00:00Z');if(!isNaN(x)&&x.toISOString().slice(0,10)===d)t=x;}
+if(!t){var n0=new Date();t=new Date(Date.UTC(n0.getFullYear(),n0.getMonth(),n0.getDate(),12));}
+document.getElementById('cert-w').textContent=w===null?'–':w;document.getElementById('cert-s').textContent=s===null?'–':s;
+var o=document.getElementById('cert-d');try{o.textContent=new Intl.DateTimeFormat(document.documentElement.lang,{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(t);}catch(e){o.textContent=t.toISOString().slice(0,10);}
+o.setAttribute('datetime',t.toISOString().slice(0,10));
+var i=document.getElementById('cert-name'),n=document.getElementById('cert-shown'),blank=n.textContent;
+i.addEventListener('input',function(){var v=i.value.replace(/\s+/g,' ').trim();n.textContent=v||blank;});
+document.getElementById('cert-print').addEventListener('click',function(){window.print();});})();</script>"""
+
+def certificate_page(lang):
+    """The certificate page for one site (before chrome()): the site's base styles, the header and footer slots."""
+    t = site_text(lang, 'certificate', CERT_TEXT)
+    css = _learn().base_parts(lang)[0]
+    before, _, after = t['well_done'].partition('{name}')
+    date_before, _, date_after = t['awarded'].partition('{date}')
+    return '\n'.join([
+        '<!doctype html>', f'<html lang="{HTML_LANG[lang]}">', '<head>', '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
+        f'<title>{esc(t["title"])}</title>', f'<meta name="description" content="{esc(t["description"])}">',
+        '<meta name="robots" content="noindex">', f'<link rel="canonical" href="{site(lang)}/certificate.html">',
+        '<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">', '<link rel="icon" href="/favicon.ico">',
+        '<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">', '<meta name="theme-color" content="#12161F">',
+        '<link rel="stylesheet" href="/assets/fonts/fonts.css">', f'<style>{css}{CERT_CSS}</style>', '</head>', '<body>', HEADER_SLOT,
+        '<main class="cert-page"><div class="cert-tools">',
+        f'<h1>{esc(t["h1"])}</h1>', f'<p>{esc(t["intro"])}</p>', f'<p class="cert-private">{esc(t["privacy"])}</p>',
+        f'<label for="cert-name">{esc(t["name_label"])}</label>',
+        '<input id="cert-name" type="text" autocomplete="off" autocapitalize="words" spellcheck="false" maxlength="40">',
+        f'<button type="button" class="btn honey" id="cert-print">{esc(t["print"])}</button>', '</div>',
+        '<section class="cert" aria-labelledby="cert-title"><div class="cert-in">', _learn().indie(140),
+        f'<p class="cert-kicker">Beequation · {esc(t["kicker"])}</p>',
+        f'<h2 id="cert-title">{esc(before)}<span class="cert-name" id="cert-shown">______</span>{esc(after)}</h2>',
+        f'<p class="cert-reason">{esc(t["reason"])}</p>',
+        f'<dl class="cert-stats"><div><dt>{esc(t["stars"])}</dt><dd><span aria-hidden="true">★ </span><span id="cert-s">–</span></dd></div>'
+        f'<div><dt>{esc(t["worlds"])}</dt><dd id="cert-w">–</dd></div></dl>',
+        f'<p class="cert-date">{esc(date_before)}<time id="cert-d"></time>{esc(date_after)}</p>',
+        f'<p class="cert-indie">{esc(t["indie"])}</p>', f'<p class="cert-sign">{esc(t["signed"])} <span aria-hidden="true"></span></p>',
+        '</div></section>', CERT_JS, '</main>', FOOTER_SLOT, '</body></html>', ''])
+
 _SITE = {}
 def site_text(lang, key, table):
     """A per-language snippet (say, consent, menu, skip, nav): from the tables above, or i18n/<lang>.json \"__site__\"."""
@@ -914,7 +1078,7 @@ def strip_markers(s):
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
-              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
+              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link', 'share', 'share-css'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
@@ -951,10 +1115,14 @@ def _chrome(src, lang, page, label='Language'):
     if (page in PAGES or page.startswith('today/')) and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
     if page == 'play.html':   # the game: no header, flying bee or cookie notice over it, on every site
+        # The share texts, Waggle links and Honey Jars (assets/sharing-core.js) go inside the game's own script.
+        s = re.sub(r'/\*sharing-core\*/.*?/\*/sharing-core\*/', lambda m: '/*sharing-core*/' + rd('assets/sharing-core.js').strip() + '/*/sharing-core*/', s, count=1, flags=re.S)
         if lang == 'en' and LIVE:
             s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
         return s
     s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">' + a11y_head(), 1)
+    share = share_row(s, lang, page)   # (worked out before Learn's maths markup is added to the page)
+    if share: s = s.replace('</head>', '<!--share-css--><style>' + SHARE_CSS.strip().replace('\n', '') + '</style><!--/share-css-->\n</head>', 1)
     if page in ('how-to-play.html', 'privacy.html', 'terms.html'):
         t = site_text(lang, 'a11y', A11Y_TEXT)
         s = re.sub(r'(</h1>)', lambda m: m.group(1) + f'<!--easy-link--><p><a href="/easy-read/{page}">{esc(t["easy_version"])}</a></p><!--/easy-link-->', s, count=1)
@@ -976,8 +1144,9 @@ def _chrome(src, lang, page, label='Language'):
         s = s.replace(FOOTER_SLOT, '<!--footer-->' + footer(lang) + '<!--/footer-->', 1)
     if 'class="em"' in s: s = s.replace('</body>', EMAIL + '\n</body>', 1)
     s = s.replace('</body>', a11y_panel(lang) + '\n</body>', 1)
-    s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
-    s = s.replace('</body>', GA + '\n</body>', 1)
+    if page != 'certificate.html':   # the certificate page has no analytics (a child's name may be typed into it)
+        s = s.replace('</body>', CONSENT.replace('__CT__', json.dumps(site_text(lang, 'consent', CONSENT_TEXT), ensure_ascii=False)).replace('__GA__', GA_ID) + '\n</body>', 1)
+        s = s.replace('</body>', GA + '\n</body>', 1)
     s = s.replace('</body>', BEE.replace('__SAY__', json.dumps(site_text(lang, 'say', SAY), ensure_ascii=False)) + '\n</body>', 1)
     if lang == 'en':
         if LIVE:
@@ -988,7 +1157,7 @@ def _chrome(src, lang, page, label='Language'):
     if page.startswith('learn/'):
         s = re.sub(r'(<main\b[^>]*>)(.*?)(</main>)',
                    lambda m: m[1] + _learn().accessible_math(m[2], lang) + m[3], s, flags=re.S)
-    return scalable_text(s)
+    return scalable_text(add_share_row(s, share))
 
 def easy_sitemap_entry(page, lang):
     links = ''.join(f'<xhtml:link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}/{page}"/>' for c in LANGS)
@@ -1054,6 +1223,7 @@ def update_english():
         new = chrome(s, 'en', p)
         if new != s: open(os.path.join(ROOT, p), 'w', encoding='utf-8').write(new)
 
+    open(os.path.join(ROOT, 'certificate.html'), 'w', encoding='utf-8').write(chrome(certificate_page('en'), 'en', 'certificate.html'))
     build_today.build('en', build_date(), chrome=chrome)
     build_blog.build('en', learn=_learn(), chrome=chrome)
     build_blog.english_catalog()
@@ -1156,6 +1326,14 @@ def build(check_only=False):
         nav = T.get('__site__', {}).get('nav', {})
         for k, v in NAV_TEXT['en'].items():   # the header's words
             if not nav.get(k): print(f'  {lang} header: no translation for "{k}": {v}'); problems += 1
+        for part, table in (('share', SHARE_TEXT), ('certificate', CERT_TEXT)):   # the share row's and the certificate's words
+            got = T.get('__site__', {}).get(part, {})
+            for k, v in table['en'].items():
+                if not isinstance(got.get(k), str) or not got[k].strip(): print(f'  {lang} {part}: no translation for "{k}": {v}'); problems += 1
+            if part == 'share' and got.get('email') and got.get('email_label') and got['email'].casefold() not in got['email_label'].casefold():
+                print(f'  {lang} share: the Email button\'s visible word must be in its accessible name'); problems += 1
+            for k, holder in (('well_done', '{name}'), ('awarded', '{date}')):
+                if part == 'certificate' and got.get(k) and got[k].count(holder) != 1: print(f'  {lang} certificate: "{k}" needs {holder} once'); problems += 1
         out = os.path.join(ROOT, 'dist', lang)
         if not check_only:
             shutil.rmtree(out, ignore_errors=True); os.makedirs(out)
@@ -1170,6 +1348,7 @@ def build(check_only=False):
             os.makedirs(os.path.dirname(os.path.join(out, page)), exist_ok=True)
             open(os.path.join(out, page), 'w', encoding='utf-8').write(html_out)
         if check_only: continue
+        open(os.path.join(out, 'certificate.html'), 'w', encoding='utf-8').write(chrome(certificate_page(lang), lang, 'certificate.html', T.get('Language', 'Language')))
         shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf', '*.brf', '*-braille.txt', '*.epub'))
         learn_urls = []
         if has_learn(lang):   # that country's own Learn section, teachers page and worksheets

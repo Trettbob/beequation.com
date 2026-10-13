@@ -283,6 +283,37 @@
    "easy": "Lättläst",
    "easy_version": "Lättläst version",
    "full": "Fullständig version"
+  },
+  "share": {
+   "heading": "Dela den här sidan",
+   "whatsapp": "Dela på WhatsApp",
+   "facebook": "Dela på Facebook",
+   "x": "Dela på X",
+   "bluesky": "Dela på Bluesky",
+   "email": "E-post",
+   "email_label": "Dela via e-post",
+   "copy": "Kopiera länk",
+   "copied": "Länken är kopierad",
+   "copy_failed": "Länken kunde inte kopieras. Kopiera den från adressfältet.",
+   "native": "Dela…",
+   "today": "Dagens Beequation-kupa 🐝 Hittar du talet som bildas av två andra?"
+  },
+  "certificate": {
+   "title": "Kupdiplom | Beequation",
+   "description": "Skriv ut ett Beequation-diplom med ditt barns stjärnor och världar. Namnet stannar på den här sidan och sparas eller skickas aldrig.",
+   "h1": "Skriv ut ett kupdiplom",
+   "intro": "Skriv barnets namn, kontrollera stjärnor och världar och skriv sedan ut diplomet.",
+   "privacy": "Namnet stannar på den här sidan. Det sparas aldrig och skickas ingenstans.",
+   "name_label": "Barnets namn",
+   "print": "Skriv ut diplomet",
+   "kicker": "Kupdiplom",
+   "well_done": "Bra jobbat, {name}!",
+   "reason": "för fantastiskt sifferspanande i Beequation Kids",
+   "stars": "Samlade stjärnor",
+   "worlds": "Klarade världar",
+   "awarded": "Utdelat den {date}",
+   "signed": "Underskrift",
+   "indie": "Biet Indie är jättestolt över dig!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Spela Beequation gratis online: pusselspel i huvudräkning",

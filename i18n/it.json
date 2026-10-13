@@ -281,6 +281,37 @@
    "easy": "Facile da leggere",
    "easy_version": "Versione facile da leggere",
    "full": "Versione completa"
+  },
+  "share": {
+   "heading": "Condividi questa pagina",
+   "whatsapp": "Condividi su WhatsApp",
+   "facebook": "Condividi su Facebook",
+   "x": "Condividi su X",
+   "bluesky": "Condividi su Bluesky",
+   "email": "Email",
+   "email_label": "Condividi via email",
+   "copy": "Copia link",
+   "copied": "Link copiato",
+   "copy_failed": "Non è stato possibile copiare il link. Copialo dalla barra degli indirizzi.",
+   "native": "Condividi…",
+   "today": "L’alveare Beequation di oggi 🐝 Trovi il numero formato da altri due?"
+  },
+  "certificate": {
+   "title": "Attestato dell’alveare | Beequation",
+   "description": "Stampa un attestato di Beequation con le stelle e i mondi conquistati. Il nome resta su questa pagina: non viene mai salvato né inviato.",
+   "h1": "Stampa un attestato dell’alveare",
+   "intro": "Scrivi il nome del bambino o della bambina, controlla stelle e mondi e poi stampa l’attestato.",
+   "privacy": "Il nome resta su questa pagina. Non viene mai salvato né inviato da nessuna parte.",
+   "name_label": "Nome del bambino o della bambina",
+   "print": "Stampa l’attestato",
+   "kicker": "Attestato dell’alveare",
+   "well_done": "Complimenti, {name}!",
+   "reason": "per la bravura nello scovare i numeri in Beequation Kids",
+   "stars": "Stelle raccolte",
+   "worlds": "Mondi completati",
+   "awarded": "Assegnato il {date}",
+   "signed": "Firma",
+   "indie": "Indie l’ape è tanto fiera di te!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Gioca gratis a Beequation online: gioco di calcolo mentale",

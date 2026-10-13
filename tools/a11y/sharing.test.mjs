@@ -21,7 +21,9 @@ test('waggle codec strictly validates version, modes, tiers, seeds and scores', 
   const round = { kind: 'blitz', mode: 'mul', tier: 5, seed: 4294967295, score: 14 };
   assert.deepEqual(sharing.decodeWaggle(sharing.encodeWaggle(round)), round);
   assert.match(sharing.waggleUrl(round, 'https://ja.beequation.com'), /app=pro&waggle=v1\.blitz-mul\.5\.4294967295\.14&utm_source=share&utm_medium=waggle/);
-  for (const bad of ['v2.blitz-mul.5.1.14', 'v1.blitz-bad.5.1.14', 'v1.blitz-mul.0.1.14', 'v1.blitz-mul.5.-1.14', 'v1.blitz-mul.5.4294967296.14', 'v1.blitz-mul.5.01.14', 'v1.blitz-mul.5.1.14.extra', 'v1.practice-add.1.1.11']) assert.equal(sharing.decodeWaggle(bad), null);
+  for (const bad of ['v2.blitz-mul.5.1.14', 'v1.blitz-bad.5.1.14', 'v1.blitz-mul.0.1.14', 'v1.blitz-mul.5.-1.14', 'v1.blitz-mul.5.4294967296.14', 'v1.blitz-mul.5.01.14', 'v1.blitz-mul.5.1.14.extra', 'v1.practice-add.1.1.11', 'v1.blitz-add.11.1.3', 'v1.blitz-add.01.1.3']) assert.equal(sharing.decodeWaggle(bad), null);
+  // Pro levels go up to 10 (Hive Mind); the game checks each mode's own number of levels.
+  assert.deepEqual(sharing.decodeWaggle('v1.blitz-add.10.7.3'), { kind: 'blitz', mode: 'add', tier: 10, seed: 7, score: 3 });
 });
 
 test('Honey Jars earn every seven played days, cap at two and protect one missed day', () => {
@@ -131,4 +133,12 @@ test('migration ignores invalid calendar dates and does not mutate historical da
 test('countdown crosses month and year boundaries and rounds the remaining second up', () => {
   assert.equal(sharing.countdown(new Date(2026, 11, 31, 23, 59, 59, 500)), '00:00:01');
   assert.equal(sharing.countdown(new Date(2026, 9, 31, 0, 0, 0)), '24:00:00');
+});
+
+test('the browser game carries the current sharing core (tools/build-langs.py copies it in)', async () => {
+  const fs = await import('node:fs');
+  const play = fs.readFileSync(new URL('../../play.html', import.meta.url), 'utf8');
+  const core = fs.readFileSync(new URL('../../assets/sharing-core.js', import.meta.url), 'utf8').trim();
+  assert.equal(play.match(/\/\*sharing-core\*\/([\s\S]*?)\/\*\/sharing-core\*\//)[1], core);
+  assert.doesNotMatch(play, /<script[^>]+src=/, 'the game loads no scripts from anywhere else');
 });

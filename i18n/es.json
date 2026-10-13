@@ -226,6 +226,37 @@
    "easy": "Lectura fácil",
    "easy_version": "Versión de lectura fácil",
    "full": "Versión completa"
+  },
+  "share": {
+   "heading": "Comparte esta página",
+   "whatsapp": "Compartir en WhatsApp",
+   "facebook": "Compartir en Facebook",
+   "x": "Compartir en X",
+   "bluesky": "Compartir en Bluesky",
+   "email": "Correo",
+   "email_label": "Compartir por correo",
+   "copy": "Copiar enlace",
+   "copied": "Enlace copiado",
+   "copy_failed": "No se pudo copiar el enlace. Cópialo de la barra de direcciones.",
+   "native": "Compartir…",
+   "today": "La colmena de Beequation de hoy 🐝 ¿Encuentras el número que forman otros dos?"
+  },
+  "certificate": {
+   "title": "Certificado de la colmena | Beequation",
+   "description": "Imprime un certificado de Beequation con las estrellas y los mundos de tu peque. Su nombre se queda en esta página: nunca se guarda ni se envía.",
+   "h1": "Imprime un certificado de la colmena",
+   "intro": "Escribe el nombre de tu hijo o hija, revisa sus estrellas y mundos, y luego imprime el certificado.",
+   "privacy": "El nombre se queda en esta página. Nunca se guarda ni se envía a ningún sitio.",
+   "name_label": "Nombre del niño o la niña",
+   "print": "Imprimir el certificado",
+   "kicker": "Certificado de la colmena",
+   "well_done": "¡Muy bien, {name}!",
+   "reason": "por encontrar números de maravilla en Beequation Kids",
+   "stars": "Estrellas conseguidas",
+   "worlds": "Mundos completados",
+   "awarded": "Otorgado el {date}",
+   "signed": "Firma",
+   "indie": "¡Indie la abeja está muy orgullosa de ti!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Juega gratis a Beequation en línea: juego de cálculo mental",

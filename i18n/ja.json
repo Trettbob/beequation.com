@@ -281,6 +281,37 @@
    "easy": "やさしい説明",
    "easy_version": "やさしい説明を見る",
    "full": "詳しい説明"
+  },
+  "share": {
+   "heading": "このページをシェア",
+   "whatsapp": "WhatsAppでシェア",
+   "facebook": "Facebookでシェア",
+   "x": "Xでシェア",
+   "bluesky": "Blueskyでシェア",
+   "email": "メール",
+   "email_label": "メールでシェア",
+   "copy": "リンクをコピー",
+   "copied": "リンクをコピーしました",
+   "copy_failed": "リンクをコピーできませんでした。アドレスバーからコピーしてください。",
+   "native": "シェア…",
+   "today": "今日のBeequationのハチの巣 🐝 ほかの2つの数からできる数を見つけられるかな？"
+  },
+  "certificate": {
+   "title": "ハチの巣の賞状 | Beequation",
+   "description": "お子さまの星とワールドが入ったBeequationの賞状を印刷できます。名前はこのページの中だけで使われ、保存も送信もされません。",
+   "h1": "ハチの巣の賞状を印刷する",
+   "intro": "お子さまの名前を入力し、星とワールドを確認してから賞状を印刷してください。",
+   "privacy": "名前はこのページの中だけで使われます。保存されることも、どこかに送られることもありません。",
+   "name_label": "お子さまの名前",
+   "print": "賞状を印刷する",
+   "kicker": "ハチの巣の賞状",
+   "well_done": "{name}さん、よくできました！",
+   "reason": "Beequation Kidsで数をみごとに見つけました",
+   "stars": "集めた星",
+   "worlds": "クリアしたワールド",
+   "awarded": "{date}",
+   "signed": "サイン",
+   "indie": "ハチのIndieも、とってもほこらしいよ！"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Beequationをオンラインで無料プレイ：暗算パズルゲーム",

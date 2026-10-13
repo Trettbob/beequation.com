@@ -91,7 +91,7 @@ const T = {
   slips: n => n === 1 ? '1 virhe' : `${n} virhettä`, for3: par => `3 tähteen: alle ${par} ja enintään 1 virhe.`, fullMarks: 'Täydet pisteet.',
   shareNo: n => `Beequation nro ${n}`, firstTry: 'Heti oikein', oneSlip: '1 virhe', twoPlus: '2 tai enemmän', streak: n => `${n} päivän putki`, last7: 'Viimeiset 7 päivää',
   share: 'Jaa tulos', nextName: (name, t) => `Seuraava: ${name} ${t}`, unlockNext: 'Avaa seuraavat tasot', playBlitz: 'Pelaa 60 s pikapeli',
-  shareBlitz: (n, mode, name) => `Beequation-pikapeli: ${n === 1 ? '1 pulma' : `${n} pulmaa`} 60 sekunnissa (${mode}, ${name})`, copied: 'Tulos kopioitu',
+  copied: 'Tulos kopioitu',
   aAll: n => `Kaikki ${n} tasoa`, aThanks: 'Kiitos. Kaikki tasot ovat auki.',
   aFree: n => { return ((free, queen) =>
       `Ilmaisversiossa on ${free} tasoa, Päivän pesä ja pikapeli. Täysversio avaa kaikki tasot tasoon ”${queen}” asti, myös Desimaaliluvut, Trion ja Ison pesän mestaripulmat.`)(n, T.tiers[9]); },
@@ -102,4 +102,17 @@ const T = {
   chooseIntro: 'Kaksi sovellusta, sama pulma. Valitse, kumpaa kokeilet. Voit vaihtaa milloin tahansa.',
   kidsPick: '5–12-vuotiaille. Värikkäät maailmat, mehiläinen Indie ja tarrat. Ei kelloa.', proPick: 'Nuorille ja aikuisille. Päivän pesä ja putket, 60 sekunnin pikapeli ja mestaritasot.',
   savedHere: 'Edistyminen tallentuu vain tähän selaimeen.',
+  // jakaminen (Beequation No., Hive No. ja Beequation pysyvät ennallaan)
+  shareWords: { slips: 'Virheitä: {n}', noSlips: 'Ei virheitä', streak: '{n} päivän pesäputki', blitz: 'Beequation-pikapeli 🐝 {score} oikein 60 sekunnissa ({mode}, {level})', level: 'Taso {n}' },
+  waggle: 'Haasta ystävä', waggleTitle: 'Haaste ystävältä',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n}/10 heti oikein (${mode}, ${level}). Sinun vuorosi!`,
+  friendBlitz: n => `Ystäväsi ratkaisi ${n === 1 ? '1 pulman' : `${n} pulmaa`} 60 sekunnissa. Sinun vuorosi!`, friendPractice: n => `Ystäväsi sai ${n}/10 heti oikein. Sinun vuorosi!`,
+  waggleWhy: 'Mehiläiset kertovat pesälle parhaiden kukkien paikan tanssimalla. Tämä linkki avaa saman kierroksen, jonka ystäväsi pelasi.',
+  playRound: 'Pelaa sama kierros', notNow: 'Ei nyt', versus: (you, friend) => `Sinä ${you} · Ystäväsi ${friend}`,
+  yourHive: 'Sinun pesäsi', daysPlayed: 'Pelipäivät', currentStreak: 'Nykyinen putki', bestStreak: 'Pisin putki', jarsHeld: 'Hunajapurkkeja varastossa',
+  avgTime: 'Keskimääräinen aika', dayCount: n => n === 1 ? '1 päivä' : `${n} päivää`, dailyResults: 'Päivien tulokset',
+  pureHoney: 'Puhdasta hunajaa (ei virheitä)', twoPlusSlips: '2 virhettä tai enemmän', noDailies: 'Pelaa ensimmäinen Päivän pesä, niin pesäsi alkaa kasvaa.',
+  jarTitle: 'Hunajapurkit', jarsAria: n => n === 1 ? '1 hunajapurkki' : `${n} hunajapurkkia`,
+  jarHelp: 'Jokaisesta 7 peräkkäisestä päivästä, joina pelaat Päivän pesän, saat hunajapurkin. Voit säästää 2. Jos yksi päivä jää väliin, purkki käytetään automaattisesti ja putkesi jatkuu. Jos väliin jää kaksi päivää tai enemmän, putki alkaa alusta.',
+  jarSaved: n => `Hunajapurkki pelasti ${n} päivän putkesi 🍯`, hatchesIn: t => `Seuraava pesä kuoriutuu ${t} kuluttua`,
 };

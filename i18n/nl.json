@@ -281,6 +281,37 @@
    "easy": "Makkelijk lezen",
    "easy_version": "Versie in eenvoudige taal",
    "full": "Volledige versie"
+  },
+  "share": {
+   "heading": "Deel deze pagina",
+   "whatsapp": "Delen via WhatsApp",
+   "facebook": "Delen op Facebook",
+   "x": "Delen op X",
+   "bluesky": "Delen op Bluesky",
+   "email": "E-mail",
+   "email_label": "Delen via e-mail",
+   "copy": "Link kopiëren",
+   "copied": "Link gekopieerd",
+   "copy_failed": "De link kon niet worden gekopieerd. Kopieer hem uit de adresbalk.",
+   "native": "Delen…",
+   "today": "De Beequation-korf van vandaag 🐝 Vind jij het getal dat je met twee andere maakt?"
+  },
+  "certificate": {
+   "title": "Bijenkorf-oorkonde | Beequation",
+   "description": "Print een Beequation-oorkonde met de sterren en werelden van je kind. De naam blijft op deze pagina en wordt nooit opgeslagen of verstuurd.",
+   "h1": "Print een bijenkorf-oorkonde",
+   "intro": "Typ de naam van je kind, controleer de sterren en werelden en print dan de oorkonde.",
+   "privacy": "De naam blijft op deze pagina. Hij wordt nooit opgeslagen of ergens naartoe gestuurd.",
+   "name_label": "Naam van het kind",
+   "print": "Oorkonde printen",
+   "kicker": "Bijenkorf-oorkonde",
+   "well_done": "Goed gedaan, {name}!",
+   "reason": "voor knap getallen zoeken in Beequation Kids",
+   "stars": "Verzamelde sterren",
+   "worlds": "Voltooide werelden",
+   "awarded": "Uitgereikt op {date}",
+   "signed": "Handtekening",
+   "indie": "Indie de bij is heel trots op je!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Speel Beequation gratis online: hoofdrekenspel",

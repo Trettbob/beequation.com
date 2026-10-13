@@ -87,7 +87,7 @@ const T = {
   slips: n => (n === 0 ? 'ミスなし' : `ミス${n}回`), for3: par => `星3つの条件：${par}以内、ミス1回まで。`, fullMarks: '満点です。',
   shareNo: n => `Beequation No. ${n}`, firstTry: '一発正解', oneSlip: 'ミス1回', twoPlus: 'ミス2回以上', streak: n => `${n}日連続`, last7: '過去7日間',
   share: '結果をシェア', nextName: (name, t) => `次へ：${name} ${t}`, unlockNext: '次のレベルを解放', playBlitz: '60秒アタックに挑戦',
-  shareBlitz: (n, mode, name) => `Beequation 60秒アタック：${n}問正解（${mode}・${name}）`, copied: '結果をコピーしました',
+  copied: '結果をコピーしました',
   aAll: n => `全${n}レベル`, aThanks: 'ありがとうございます。すべてのレベルが解放されました。',
   aFree: n => { return ((free, queen) =>
       `無料版では${free}レベル、デイリーチャレンジ、60秒アタックが遊べます。フルバージョンでは「${queen}」までのすべてのレベルが解放され、小数、トリオ、大きなハチの巣のエキスパート問題も遊べます。`)(n, T.tiers[9]); },
@@ -98,4 +98,17 @@ const T = {
   chooseIntro: '同じパズルから生まれた2つのアプリです。試したい方を選んでください。いつでも切り替えられます。',
   kidsPick: '5〜12歳向け。カラフルなワールド、はちのインディ、シールつきで、時間制限なし。', proPick: '中高生・大人向け。連続記録つきのデイリーチャレンジ、60秒アタック、エキスパートレベル。',
   savedHere: '記録はこのブラウザにだけ保存されます。',
+  // シェア（Beequation No.、Hive No.、Beequation はそのまま）
+  shareWords: { slips: 'ミス{n}回', noSlips: 'ミスなし', streak: '{n}日連続でハチの巣クリア', blitz: 'Beequation 60秒アタック 🐝 {score}問正解（{mode}・{level}）', level: 'レベル{n}' },
+  waggle: '友だちに挑戦状を送る', waggleTitle: '友だちからの挑戦状',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 10問中${n}問を一発正解（${mode}・${level}）。次はあなたの番！`,
+  friendBlitz: n => `友だちが60秒で${n}問正解しました。次はあなたの番です！`, friendPractice: n => `友だちは10問中${n}問を一発で正解しました。次はあなたの番です！`,
+  waggleWhy: 'ミツバチは「8の字ダンス」で、いちばんいい花の場所を仲間に伝えます。このリンクでは、友だちが遊んだのと同じラウンドに挑戦できます。',
+  playRound: '同じラウンドであそぶ', notNow: 'あとで', versus: (you, friend) => `あなた ${you} · 友だち ${friend}`,
+  yourHive: 'あなたのハチの巣', daysPlayed: 'プレイした日数', currentStreak: '現在の連続記録', bestStreak: '最長の連続記録', jarsHeld: '持っているハチミツびん',
+  avgTime: '1日の平均タイム', dayCount: n => `${n}日`, dailyResults: 'デイリーの結果',
+  pureHoney: 'ピュアハニー（ミスなし）', twoPlusSlips: 'ミス2回以上', noDailies: '最初のデイリーチャレンジをクリアして、ハチの巣づくりを始めましょう。',
+  jarTitle: 'ハチミツびん', jarsAria: n => `ハチミツびん${n}個`,
+  jarHelp: 'デイリーチャレンジを7日連続で遊ぶごとに、ハチミツびんが1個もらえます（最大2個まで）。1日休んでも、ハチミツびんが自動で使われて連続記録はそのまま続きます。2日以上休むと、連続記録は最初からになります。',
+  jarSaved: n => `ハチミツびんが${n}日連続の記録を守りました 🍯`, hatchesIn: t => `次のハチの巣まであと ${t}`,
 };

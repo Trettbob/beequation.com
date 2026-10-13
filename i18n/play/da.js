@@ -88,7 +88,7 @@ const T = {
   slips: n => `${n} fejl`, for3: par => `For 3 stjerner: under ${par} med højst 1 fejl.`, fullMarks: 'Fuldt hus.',
   shareNo: n => `Beequation nr. ${n}`, firstTry: 'Første forsøg', oneSlip: '1 fejl', twoPlus: '2 eller flere', streak: n => `${n} ${n === 1 ? 'dag' : 'dage'} i træk`, last7: 'Sidste 7 dage',
   share: 'Del resultat', nextName: (name, t) => `Næste: ${name} ${t}`, unlockNext: 'Lås de næste baner op', playBlitz: 'Spil en blitz på 60 sekunder',
-  shareBlitz: (n, mode, name) => `Beequation-blitz: ${n} løst på 60 s (${mode}, ${name})`, copied: 'Resultat kopieret',
+  copied: 'Resultat kopieret',
   aAll: n => `Alle ${n} baner`, aThanks: 'Tak. Alle baner er åbne.',
   aFree: n => { return ((free, queen) =>
       `Gratis får du ${free} baner, Dagens bikube og blitz. Den fulde version åbner alle baner op til ${queen}, også ekspertopgaverne i Decimaltal, Trio og Kæmpebikuben.`)(n, T.tiers[9]); },
@@ -99,4 +99,17 @@ const T = {
   chooseIntro: 'To apps bygget på samme opgavetype. Vælg én at prøve. Du kan skifte når som helst.',
   kidsPick: '5–12 år. Farverige verdener, bien Indie, klistermærker og intet ur.', proPick: 'Unge og voksne. Dagens bikube med stimer, blitz på 60 sekunder og ekspertbaner.',
   savedHere: 'Dine fremskridt gemmes kun i denne browser.',
+  // deling (Beequation No., Hive No. og Beequation bliver stående)
+  shareWords: { slips: '{n} fejl', noSlips: 'Ingen fejl', streak: '{n} dage i træk i bikuben', blitz: 'Beequation-blitz 🐝 {score} på 60 s ({mode}, {level})', level: 'Bane {n}' },
+  waggle: 'Udfordr en ven', waggleTitle: 'En udfordring fra en ven',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} af 10 i første forsøg (${mode}, ${level}). Din tur!`,
+  friendBlitz: n => `En ven løste ${n} på 60 s. Din tur!`, friendPractice: n => `En ven fik ${n} af 10 rigtige i første forsøg. Din tur!`,
+  waggleWhy: 'Bier danser logredans for at vise bistadet, hvor de bedste blomster er. Dette link giver dig den samme runde, som din ven spillede.',
+  playRound: 'Spil den samme runde', notNow: 'Ikke nu', versus: (you, friend) => `Du ${you} · Din ven ${friend}`,
+  yourHive: 'Din bikube', daysPlayed: 'Dage spillet', currentStreak: 'Nuværende stime', bestStreak: 'Længste stime', jarsHeld: 'Honningkrukker på lager',
+  avgTime: 'Gennemsnitlig tid pr. dag', dayCount: n => n === 1 ? '1 dag' : `${n} dage`, dailyResults: 'Daglige resultater',
+  pureHoney: 'Ren honning (ingen fejl)', twoPlusSlips: '2 eller flere fejl', noDailies: 'Spil Dagens bikube for første gang for at starte din bikube.',
+  jarTitle: 'Honningkrukker', jarsAria: n => n === 1 ? '1 honningkrukke' : `${n} honningkrukker`,
+  jarHelp: 'Hver gang du spiller Dagens bikube 7 dage i træk, får du en honningkrukke. Du kan gemme 2. Springer du en dag over, bruges en krukke automatisk, og din stime fortsætter. Springer du to dage eller flere over, starter stimen forfra.',
+  jarSaved: n => `En honningkrukke reddede din stime på ${n === 1 ? '1 dag' : `${n} dage`} 🍯`, hatchesIn: t => `Næste bikube klækkes om ${t}`,
 };

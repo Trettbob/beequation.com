@@ -282,6 +282,37 @@
    "easy": "Łatwe czytanie",
    "easy_version": "Wersja łatwa do czytania",
    "full": "Pełna wersja"
+  },
+  "share": {
+   "heading": "Udostępnij tę stronę",
+   "whatsapp": "Udostępnij przez WhatsApp",
+   "facebook": "Udostępnij na Facebooku",
+   "x": "Udostępnij na X",
+   "bluesky": "Udostępnij na Bluesky",
+   "email": "E-mail",
+   "email_label": "Wyślij e-mailem",
+   "copy": "Kopiuj link",
+   "copied": "Skopiowano link",
+   "copy_failed": "Nie udało się skopiować linku. Skopiuj go z paska adresu.",
+   "native": "Udostępnij…",
+   "today": "Dzisiejszy ul Beequation 🐝 Znajdziesz liczbę, która powstaje z dwóch innych?"
+  },
+  "certificate": {
+   "title": "Dyplom ula | Beequation",
+   "description": "Wydrukuj dyplom Beequation z gwiazdkami i światami zdobytymi przez dziecko. Imię zostaje na tej stronie: nigdy nie jest zapisywane ani wysyłane.",
+   "h1": "Wydrukuj dyplom ula",
+   "intro": "Wpisz imię dziecka, sprawdź gwiazdki i światy, a potem wydrukuj dyplom.",
+   "privacy": "Imię zostaje na tej stronie. Nigdy nie jest zapisywane ani nigdzie wysyłane.",
+   "name_label": "Imię dziecka",
+   "print": "Wydrukuj dyplom",
+   "kicker": "Dyplom ula",
+   "well_done": "Brawo, {name}!",
+   "reason": "za świetne wyszukiwanie liczb w Beequation Kids",
+   "stars": "Zebrane gwiazdki",
+   "worlds": "Ukończone światy",
+   "awarded": "Przyznano {date}",
+   "signed": "Podpis",
+   "indie": "Pszczółka Indie jest z ciebie bardzo dumna!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Beequation online: darmowe łamigłówki matematyczne",

@@ -43,6 +43,7 @@
 <meta name="theme-color" content="#12161F">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
+[data-screen="k_home"] .row{flex-wrap:wrap;gap:8px}.logo-k{max-width:100%;overflow-wrap:anywhere;white-space:normal}.pill{max-width:100%}.li{box-sizing:border-box;max-width:100%}.li .grow{min-width:0}.li .row{flex-wrap:wrap;column-gap:8px}.li .row>*{min-width:0;overflow-wrap:anywhere}
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 :root {
   box-sizing: border-box;
@@ -157,6 +158,23 @@ h1, h2, p { margin: 0; }
 .timer { height: 6px; border-radius: 3px; background: var(--night-cell); } .timer i { display: block; height: 6px; border-radius: 3px; background: #5B7CFF; }
 .slot { width: 52px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-weight: 600; background: var(--night-cell); color: var(--night-mute); }
 .slot.on { background: var(--honey); color: #12161F; }
+/* sharing: Your hive, Waggle, the next-hive countdown */
+.countdown { font-size: 15px; line-height: 1.4; font-variant-numeric: tabular-nums; border-radius: 8px; }
+.countdown:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+.hero .countdown { color: #CBD1DB; } .hero .countdown:focus-visible { outline-color: #FFB020; }
+.hive-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.hive-stats > div { background: var(--a-card); border-radius: 18px; padding: 14px 16px; min-width: 0; }
+.hive-stats dt { font-size: 14px; color: var(--a-mute); overflow-wrap: anywhere; }
+.hive-stats dd { margin: 4px 0 0; font-size: 26px; font-weight: 700; letter-spacing: -.5px; overflow-wrap: anywhere; }
+.hive-bars { list-style: none; margin: 0; padding: 0; }
+.hive-bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; align-items: baseline; font-size: 15px; }
+.hive-bars li + li { margin-top: 14px; }
+.hive-bars .track { grid-column: 1 / -1; height: 12px; border-radius: 6px; background: var(--a-line); overflow: hidden; }
+.hive-bars .track i { display: block; height: 12px; border-radius: 6px; box-shadow: inset 0 0 0 1px rgba(18,22,31,.35); }
+.card-a h2 { font-size: 18px; }
+.card-a p { font-size: 16px; line-height: 1.45; }
+.versus { font-size: 22px; font-weight: 700; letter-spacing: -.3px; font-variant-numeric: tabular-nums; }
+.jar-note { background: #FFF1B8; color: #1C1A4A; border-radius: 14px; padding: 10px 14px; font-weight: 600; font-size: 15px; }
 
 /* boards */
 .board { max-width:100%;height:auto;display: block; margin: 0 auto; overflow: visible; touch-action: manipulation; }
@@ -366,7 +384,7 @@ const T = {
   slips: n => n === 1 ? '1 slip' : `${n} slips`, subJoin: (a, b) => `${a}. ${b}`, for3: par => `For 3 stars: under ${par} with at most 1 slip.`, fullMarks: 'Full marks.',
   shareNo: n => `Beequation No. ${n}`, firstTry: 'First try', oneSlip: '1 slip', twoPlus: '2 or more', streak: n => `${n}-day streak`, last7: 'Last 7 days',
   share: 'Share result', nextName: (name, t) => `Next: ${name} ${t}`, unlockNext: 'Unlock the next levels', playBlitz: 'Play a 60s blitz',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} solved in 60s (${mode}, ${name})`, copied: 'Result copied',
+  copied: 'Result copied',
   aAll: n => `All ${n} levels`, aThanks: 'Thank you. Every level is open.',
   aFree: n => { return ((free, queen) =>
       `Free includes ${free} levels, the Daily Pro and blitz. The full version opens every level up to ${queen}, including Decimals, Trio and Big Hive expert puzzles.`)(n, T.tiers[9]); },
@@ -377,6 +395,19 @@ const T = {
   chooseIntro: 'Two apps built on the same puzzle. Pick one to try. You can switch at any time.',
   kidsPick: 'Ages 5 to 12. Candy-coloured worlds, Indie the bee, stickers and no clock.', proPick: 'Teens and adults. Daily Pro with streaks, 60-second blitz, expert levels.',
   savedHere: 'Progress is saved in this browser only.',
+  // sharing (Beequation No., Hive No. and Beequation stay as they are in every language)
+  shareWords: { slips: '{n} slips', noSlips: 'No slips', streak: '{n}-day hive streak', blitz: 'Beequation blitz 🐝 {score} in 60s ({mode}, {level})', level: 'Level {n}' },
+  waggle: 'Waggle to a friend', waggleTitle: 'A Waggle from a friend',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} of 10 first try (${mode}, ${level}). Your turn!`,
+  friendBlitz: n => `A friend solved ${n} in 60s. Your turn!`, friendPractice: n => `A friend got ${n} of 10 right first try. Your turn!`,
+  waggleWhy: 'Bees waggle-dance to show the hive where the best flowers are. This link replays the round your friend played.',
+  playRound: 'Play the same round', notNow: 'Not now', versus: (you, friend) => `You ${you} · Friend ${friend}`,
+  yourHive: 'Your hive', daysPlayed: 'Days played', currentStreak: 'Current streak', bestStreak: 'Best streak', jarsHeld: 'Honey Jars held',
+  avgTime: 'Average daily time', dayCount: n => n === 1 ? '1 day' : `${n} days`, dailyResults: 'Daily results',
+  pureHoney: 'Pure honey (no slips)', twoPlusSlips: '2 or more slips', noDailies: 'Play your first Daily Pro to start your hive.',
+  jarTitle: 'Honey Jars', jarsAria: n => n === 1 ? '1 Honey Jar' : `${n} Honey Jars`,
+  jarHelp: 'Every 7 days in a row that you play the Daily Pro earns a Honey Jar. You can hold 2. If you miss one day, a jar is used automatically and your streak carries on. Miss two or more days and the streak starts again.',
+  jarSaved: n => `A Honey Jar saved your ${n}-day streak 🍯`, hatchesIn: t => `Next hive hatches in ${t}`,
 };/*/T*/
 // ---- engine: generated by tools/sync-engine.mjs from packages/engine (do not edit) ----
 // Beequation puzzle engine. Pure TypeScript, no React — shared by the app and tests.
@@ -868,6 +899,106 @@ function addPlayTime(time                        , dateKey        , seconds     
 // ---- end engine ----
 
 // ---------- helpers ----------
+// Share texts, Waggle links, Honey Jars and the countdown: assets/sharing-core.js, copied in here by tools/build-langs.py.
+/*sharing-core*/(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.BeeSharing = api;
+})(typeof globalThis === 'object' ? globalThis : this, function () {
+  const modes = ['add', 'mul', 'neg', 'frac', 'mixed', 'dec', 'trio'];
+  const text = (words, key, fallback, value) => String(words && words[key] || fallback).replace('{n}', value);
+  const hostUrl = host => String(host || 'https://beequation.com').replace(/\/$/, '');
+  function formatCountdown(seconds) {
+    const total = Math.max(0, Math.floor(seconds));
+    return [Math.floor(total / 3600), Math.floor(total % 3600 / 60), total % 60].map(value => String(value).padStart(2, '0')).join(':');
+  }
+  function countdown(now) {
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    return formatCountdown(Math.ceil((midnight - now) / 1000));
+  }
+  function dailyText(result, host, words) {
+    const slips = result.slips || [];
+    const mistakes = slips.reduce((total, value) => total + Math.max(0, value), 0);
+    const timed = result.seconds !== null && result.seconds !== undefined && !result.untimed;
+    const detail = timed ? Math.floor(result.seconds / 60) + ':' + String(result.seconds % 60).padStart(2, '0') : mistakes ? text(words, 'slips', '{n} slips', mistakes) : text(words, 'noSlips', 'No slips');
+    const lines = ['Beequation No. ' + result.number + (result.hard ? '★' : '') + ' 🐝 ' + detail];
+    const cells = slips.map(value => value < 0 ? '🟫' : value === 0 ? '🍯' : value === 1 ? '🟨' : '🟧');
+    for (let index = 0; index < cells.length; index += 5) lines.push(cells.slice(index, index + 5).join(''));
+    if (result.streak >= 2) lines.push('🐝 ' + text(words, 'streak', '{n}-day hive streak', result.streak));
+    lines.push(hostUrl(host) + '/today/?utm_source=share&utm_medium=daily&utm_campaign=hive');
+    return lines.join('\n');
+  }
+  function encodeWaggle(round) {
+    if (!round || !['tier', 'seed', 'score'].every(field => Number.isSafeInteger(round[field]))) throw new Error('Invalid Waggle round');
+    const encoded = ['v1', round.kind + '-' + round.mode, round.tier, round.seed, round.score].join('.');
+    if (!decodeWaggle(encoded)) throw new Error('Invalid Waggle round');
+    return encoded;
+  }
+  function decodeWaggle(encoded) {
+    if (typeof encoded !== 'string' || encoded.length > 80) return null;
+    const match = /^v1\.(blitz|practice)-([a-z]+)\.(10|[1-9])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
+    if (!match || match[0] !== encoded || !modes.includes(match[2])) return null;
+    const seed = Number(match[4]), score = Number(match[5]);
+    if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > (match[1] === 'practice' ? 10 : 1000)) return null;
+    return {kind: match[1], mode: match[2], tier: Number(match[3]), seed, score};
+  }
+  function waggleUrl(round, host) {
+    return hostUrl(host) + '/play.html?app=pro&waggle=' + encodeWaggle(round) + '&utm_source=share&utm_medium=waggle';
+  }
+  function blitzText(round, host, words) {
+    if (!round || round.kind !== 'blitz') throw new Error('Invalid Waggle round');
+    const url = waggleUrl(round, host);
+    const modeNames = {add: 'Plus', mul: 'Times', neg: 'Negative', frac: 'Fractions', mixed: 'Mixed', dec: 'Decimals', trio: 'Trio'};
+    const values = {score: round.score, mode: words && words.mode || modeNames[round.mode], level: text(words, 'level', 'Level {n}', round.tier)};
+    const template = String(words && words.blitz || 'Beequation blitz 🐝 {score} in 60s ({mode}, {level})');
+    return template.replace(/\{(score|mode|level)\}/g, (_, key) => values[key]) + '\n' + url;
+  }
+  function dateNumber(date) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date || '');
+    if (!match) return null;
+    const stamp = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+    return new Date(stamp).toISOString().slice(0, 10) === date ? stamp / 86400000 : null;
+  }
+  function migrateHive(daily) {
+    let state = {current: 0, best: 0, jars: 0, consecutive: 0, lastPlayed: null, checked: null};
+    for (const date of Object.keys(daily || {}).filter(date => dateNumber(date) !== null).sort()) {
+      const gap = dateNumber(date) - dateNumber(state.lastPlayed);
+      state.current = state.lastPlayed && gap === 1 ? state.current + 1 : 1;
+      state.best = Math.max(state.best, state.current);
+      state.lastPlayed = date;
+    }
+    return state;
+  }
+  function updateHive(previous, date, played) {
+    const state = Object.assign({current: 0, best: 0, jars: 0, consecutive: 0, lastPlayed: null, checked: null}, previous || {});
+    let savedStreak = 0;
+    const today = dateNumber(date), last = dateNumber(state.lastPlayed);
+    const checked = dateNumber(state.checked);
+    if (today === null || (last !== null && today < last) || (checked !== null && today < checked)) return {state, savedStreak};
+    const gap = last === null ? 0 : today - last;
+    if (state.checked !== date && gap > 1) {
+      if (gap === 2 && state.jars > 0 && state.current > 0) {
+        state.jars--;
+        state.savedDate = date;
+        savedStreak = state.current;
+      } else {
+        state.current = 0;
+        state.savedDate = null;
+      }
+      state.consecutive = 0;
+    }
+    state.checked = date;
+    if (played && state.lastPlayed !== date) {
+      state.current = gap === 1 || state.savedDate === date ? state.current + 1 : 1;
+      state.consecutive = gap === 1 ? state.consecutive + 1 : 1;
+      if (state.consecutive % 7 === 0) state.jars = Math.min(2, state.jars + 1);
+      state.best = Math.max(state.best, state.current);
+      state.lastPlayed = date;
+    }
+    return {state, savedStreak};
+  }
+  return {dailyText, blitzText, encodeWaggle, decodeWaggle, waggleUrl, migrateHive, updateHive, countdown, formatCountdown};
+});/*/sharing-core*/
 // Keep translations and display formatting outside the generated engine.
 const showCell = (f, p) => fmtCell(f, p.dec, T.decSep);
 const showEquation = p => equation(p, f => showCell(f, p));
@@ -881,6 +1012,44 @@ const store = (k, v) => { try { if (localStorage.getItem('bq-consent') !== 'no')
 const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
 const fmtTime = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+// Blitz and practice rounds are seeded, so a Waggle link replays exactly the same boards (dailies keep dailyRng).
+const randomSeed = () => { try { return crypto.getRandomValues(new Uint32Array(1))[0]; } catch (e) { return Math.floor(Math.random() * 4294967296); } };
+const WAGGLE_MODES = ['add', 'mul', 'neg', 'frac', 'mixed', 'dec', 'trio'];
+// Share links point at this site's own address (each language site has its own canonical host).
+const SITE = (() => { try { return new URL(document.querySelector('link[rel="canonical"]').href).origin; } catch (e) { return 'https://beequation.com'; } })();
+// A Waggle link (?app=pro&waggle=v1.<kind>-<mode>.<tier>.<seed>.<score>), checked strictly: anything else is ignored.
+function waggleFrom(search) {
+  try {
+    const q = new URLSearchParams(search), w = q.get('app') === 'pro' ? BeeSharing.decodeWaggle(q.get('waggle')) : null;
+    const m = w && MODES.find(x => x.id === w.mode);
+    return m && !m.kidsOnly && WAGGLE_MODES.includes(w.mode) && w.tier <= m.tiers ? w : null;
+  } catch (e) { return null; }
+}
+// Your hive: the streak and Honey Jars live with the Pro progress (P.hive). Older progress gets its streak from the
+// daily results already saved, and no jars.
+function checkHive(played) {
+  const { state, savedStreak } = BeeSharing.updateHive(P.hive && typeof P.hive === 'object' ? P.hive : BeeSharing.migrateHive(P.daily), dayKey(), played);
+  P.hive = state; aSave();
+  return savedStreak;
+}
+const hiveStreak = () => (P.hive && P.hive.current) || 0;
+// "Next hive hatches in 03:12:45": not a live region, so it is read only when focused.
+const countdownLine = () => `<p class="countdown" tabindex="0" aria-live="off" data-countdown>${T.hatchesIn(`<span data-left>${BeeSharing.countdown(new Date())}</span>`)}</p>`;
+function tickCountdown(onNewDay) {
+  const day = dayKey();
+  const id = setInterval(() => {
+    const el = app.querySelector('[data-left]');
+    if (!el) return;
+    if (dayKey() !== day) { clearInterval(id); if (onNewDay) onNewDay(); else el.textContent = '00:00:00'; return; }
+    el.textContent = BeeSharing.countdown(new Date());
+  }, 1000);
+  return () => clearInterval(id);
+}
+// The system share sheet where there is one, otherwise the clipboard.
+async function shareOut(text) {
+  try { if (navigator.share) { await navigator.share({ text }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+  try { await navigator.clipboard.writeText(text); toast(T.copied); } catch (e) { /* Nothing to share with: the result stays on screen. */ }
+}
 const SQ3 = Math.sqrt(3);
 const hexPts = (cx, cy, rr) => Array.from({ length: 6 }, (_, k) => { const a = Math.PI / 3 * k - Math.PI / 2; return `${(cx + rr * Math.cos(a)).toFixed(1)},${(cy + rr * Math.sin(a)).toFixed(1)}`; }).join(' ');
 const hexSVG = (w, fill, inner = '', lip = '') => { const h = w * 1.155, r = h / 2; return `<svg width="${w}" height="${(h + (lip ? 6 : 0)).toFixed(1)}" viewBox="0 0 ${w} ${(h + (lip ? 6 : 0)).toFixed(1)}" aria-hidden="true">${lip ? `<polygon points="${hexPts(w / 2, r + 6, r)}" fill="${lip}"/>` : ''}<polygon points="${hexPts(w / 2, r, r)}" fill="${fill}"/>${inner}</svg>`; };
@@ -1080,7 +1249,7 @@ const boardTools = () => `<button class="btn b-plain" data-read aria-keyshortcut
 
 // ---------- router ----------
 let redrawGame = null;
-let stack = (q => q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
+let stack = (q => waggleFrom(location.search) ? [{ name: 'a_home' }, { name: 'a_waggle', w: waggleFrom(location.search) }] : q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
 const replace = r => { stack[stack.length - 1] = r; render(); };
@@ -1181,7 +1350,7 @@ function k_home() {
   h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="justify-content:space-between">
       <button class="candy k-white pill" data-stickers>${star(18)} ${T.stickersN(K.stickers.length)}</button>
-      <button class="candy k-white pill" data-grown aria-label="${T.grownAria}">${I.lock('#1C1A4A')} ${T.grown}</button>
+      <button class="candy k-white pill" data-grown aria-label="${(' ' + T.grownAria.toLowerCase() + ' ').includes(' ' + T.grown.toLowerCase() + ' ') ? T.grownAria : T.grown + ' – ' + T.grownAria}">${I.lock('#1C1A4A')} ${T.grown}</button>
     </div>
     <div class="row" style="gap:0">${buzz(140)}<div class="bubble" style="border-radius:20px">${T.hello}</div></div>
     <h1 class="logo-k" aria-label="Beequation">${LET.map(([c, col]) => `<span style="color:${col}">${c}</span>`).join('')}</h1>
@@ -1358,21 +1527,23 @@ const aStatus = (mode, t) => (!level(mode, t).free && !P.full) ? 'paid' : (t ===
 const PRACTICE = [['add', '+', T.modes.add[0]], ['mul', '×', T.modes.mul[0]], ['neg', '−', T.modes.neg[0]], ['frac', '½', T.modes.frac[0]], ['mixed', '±', T.modes.mixed[0]], ['dec', `${T.decSep}5`, T.modes.dec[0]], ['trio', '∑', T.modes.trio[0]]];
 const LAUNCH = new Date(2026, 10, 1);   // 1 November 2026: Daily Pro "Hive No. 1", the same as the Pro app (apps/adult/src/catalog.ts)
 const dailyNo = (d = new Date()) => Math.max(1, Math.round((new Date(d.getFullYear(), d.getMonth(), d.getDate()) - LAUNCH) / 864e5) + 1);
-const streak = () => { let d = P.daily[dayKey()] ? new Date() : addDays(new Date(), -1), n = 0; while (P.daily[dayKey(d)]) { n++; d = addDays(d, -1); } return n; };
 const DATE = new Intl.DateTimeFormat(T.locale, { weekday: 'long', day: 'numeric', month: 'long' });
 const WD = new Intl.DateTimeFormat(T.locale, { weekday: 'narrow' });
 const aTop = title => `<div class="row"><button class="icon-btn" aria-label="${T.back}" data-back>${I.back('currentColor')}</button><h1 style="font-size:22px;letter-spacing:-.4px" class="grow">${title}</h1></div>`;
 const hexIcon = (w, fill, glyph = '', ink = '#fff') => hexSVG(w, fill, glyph ? `<text x="${w / 2}" y="${w * .58}" text-anchor="middle" dominant-baseline="central" font-size="${w * .52}" font-weight="700" fill="${ink}" font-family="Space Grotesk, ui-sans-serif, system-ui, sans-serif">${glyph}</text>` : '');
 
 function a_home() {
-  const today = P.daily[dayKey()], s = streak(), best = Math.max(0, ...Object.values(P.blitz));
+  const saved = checkHive(false), today = P.daily[dayKey()], s = hiveStreak(), jars = P.hive.jars || 0, best = Math.max(0, ...Object.values(P.blitz));
   h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="gap:10px"><a class="grow site-link" href="/" aria-label="${T.siteAria}" style="font-size:20px;font-weight:700;letter-spacing:-.4px"><img src="/assets/hexabee.svg" alt="" style="width:32px;height:32px">Beequation</a>
-      ${s ? `<span class="chip" aria-label="${T.streakAria(s)}">${I.flame} ${s}</span>` : ''}<button class="icon-btn" aria-label="${T.settings}" data-settings>${I.gear('currentColor')}</button></div>
+      ${s ? `<span class="chip" aria-label="${T.streakAria(s)}">${I.flame} ${s}</span>` : ''}${jars ? `<span class="chip" role="img" aria-label="${T.jarsAria(jars)}"><span aria-hidden="true">🍯</span> ${jars}</span>` : ''}<button class="icon-btn" aria-label="${T.settings}" data-settings>${I.gear('currentColor')}</button></div>
     <div class="hero"><div style="font-size:14px;color:#AEB6C4">${T.dailyOn(DATE.format(new Date()))}</div>
       <h1 style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">${T.hiveNo(dailyNo())}</h1>
       <div style="font-size:15px;color:#CBD1DB;line-height:1.4">${today ? T.doneIn(fmtTime(today.seconds)) : T.tenMixed}</div>
+      ${today ? countdownLine() : ''}
       ${today ? `<button class="btn b-dark" data-seedaily>${T.seeResult}</button>` : `<button class="btn b-honey" data-daily>${T.playToday}</button>`}</div>
+    ${saved ? `<p class="jar-note">${T.jarSaved(saved)}</p>` : ''}
+    <button class="btn b-plain" data-hivestats>${I.hex('currentColor')} ${T.yourHive}</button>
     </div><div class="screen-column">
     <div class="tiles"><button class="tile blue" data-blitz>${I.bolt('#fff')}<b>${T.blitzTile}</b><small>${best ? T.best(best) : T.beatClock}</small></button>
       <button class="tile" data-hive>${I.hex('currentColor')}<b>${T.modes.hive[0]}</b><small>${T.hiveSub}</small></button></div>
@@ -1389,7 +1560,10 @@ function a_home() {
   on('[data-blitz]', () => go({ name: 'a_blitz' }));
   on('[data-hive]', () => go({ name: 'a_levels', mode: 'hive' }));
   on('[data-mode]', el => go({ name: 'a_levels', mode: el.dataset.mode }));
+  on('[data-hivestats]', () => go({ name: 'a_hive' }));
   wireSwitch();
+  if (today) cleanup = tickCountdown(render);
+  if (saved) announce(T.jarSaved(saved));
 }
 
 function a_levels(r) {
@@ -1420,7 +1594,8 @@ function a_blitz() {
 function a_game(r) {
   boardIndex = 0;
   const L = uiLevel(r.mode, r.tier), blitz = r.kind === 'blitz';
-  const rng = r.kind === 'daily' ? dailyRng(dayKey(), 'pro') : makeRng((Date.now() ^ (Math.random() * 1e9)) >>> 0);
+  const seed = r.kind === 'daily' ? null : Number.isSafeInteger(r.seed) && r.seed >= 0 && r.seed <= 4294967295 ? r.seed : randomSeed();
+  const rng = r.kind === 'daily' ? dailyRng(dayKey(), 'pro') : makeRng(seed);
   let item = generate(r.mode, r.tier, rng), stage = 0, solved = 0, slips = [], curSlips = 0, run = 0, marks = {}, eq = '', busy = false, done = false;
   const startAt = Date.now(); let endAt = Date.now() + 60000;
   const cur = () => item.kind === 'hive' ? (stage < 4 ? item.subs[stage] : item.final) : item;
@@ -1483,11 +1658,13 @@ function a_game(r) {
     if (done) return; done = true; vibrate(300);
     const seconds = Math.round((Date.now() - startAt) / 1000), mistakes = slips.reduce((a, b) => a + b, 0);
     const st = blitz ? 0 : stars(L, seconds, mistakes, false), prevBest = P.blitz[L.id] || 0, today = dayKey();
-    if (r.kind === 'round') P.stars[L.id] = Math.max(P.stars[L.id] || 0, st);
+    // A Waggle can open a level this player hasn't reached: play it, but don't award its stars.
+    if (r.kind === 'round' && (r.friend === undefined || aStatus(r.mode, r.tier) === 'open')) P.stars[L.id] = Math.max(P.stars[L.id] || 0, st);
     if (r.kind === 'daily' && !P.daily[today]) P.daily[today] = { seconds, slips };
     if (blitz) P.blitz[L.id] = Math.max(prevBest, solved);
     aSave();
-    replace({ name: 'a_result', res: { kind: r.kind, mode: r.mode, tier: r.tier, seconds, slips, solved, mistakes, stars: st, best: Math.max(prevBest, solved), newBest: blitz && solved > prevBest, dateKey: today } });
+    const jarSaved = r.kind === 'daily' ? checkHive(true) : 0;
+    replace({ name: 'a_result', res: { kind: r.kind, mode: r.mode, tier: r.tier, seconds, slips, solved, mistakes, stars: st, best: Math.max(prevBest, solved), newBest: blitz && solved > prevBest, dateKey: today, seed, friend: r.friend, jarSaved } });
   }
   const t = setInterval(() => {
     if (done) return;
@@ -1502,10 +1679,15 @@ function a_game(r) {
 
 function a_result(r) {
   const x = r.res, L = uiLevel(x.mode, x.tier), isDaily = x.kind === 'daily', isBlitz = x.kind === 'blitz';
-  const no = dailyNo(new Date(x.dateKey + 'T12:00')), s = streak();
+  const no = dailyNo(new Date(x.dateKey + 'T12:00')), s = hiveStreak();
   const maxT = MODES.find(m => m.id === x.mode).tiers, next = x.kind === 'round' && x.tier < maxT ? x.tier + 1 : null;
   const prevKeys = Object.keys(P.daily).filter(k => k < x.dateKey).sort(), prev = prevKeys.length ? P.daily[prevKeys[prevKeys.length - 1]].seconds : null;
-  const slipC = n => n === 0 ? '#FFB020' : n === 1 ? '#FFE0A3' : '#C9CFD9', slipE = n => n === 0 ? '🟧' : n === 1 ? '🟨' : '⬜';
+  const slipC = n => n === 0 ? '#FFB020' : n === 1 ? '#FFE0A3' : '#C9CFD9';
+  const counts = [x.slips.filter(n => n === 0).length, x.slips.filter(n => n === 1).length, x.slips.filter(n => n > 1).length];
+  // Waggle: the same seeded round for a friend (Blitz, and practice rounds outside Big Hive).
+  const round = !isDaily && WAGGLE_MODES.includes(x.mode) && Number.isSafeInteger(x.seed)
+    ? { kind: isBlitz ? 'blitz' : 'practice', mode: x.mode, tier: x.tier, seed: x.seed, score: isBlitz ? x.solved : counts[0] } : null;
+  const versus = x.friend !== undefined && round ? T.versus(round.score, x.friend) : '';
   let label, head, sub;
   if (isDaily) { label = T.dailyDone; head = fmtTime(x.seconds); sub = prev === null ? T.firstDaily : x.seconds < prev ? T.faster(prev - x.seconds) : x.seconds > prev ? T.slower(x.seconds - prev) : T.sameTime; }
   else if (isBlitz) { label = T.blitzOf(L.name); head = T.nSolved(x.solved); sub = x.newBest ? T.newBest : T.yourBest(x.best); }
@@ -1514,29 +1696,69 @@ function a_result(r) {
   h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="justify-content:flex-end"><button class="icon-btn" aria-label="${T.close}" data-back>${I.close('currentColor')}</button></div>
     <div><h1 style="font-size:22px">${label}</h1><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
+    ${versus ? `<div class="card-a"><p class="versus">${versus}</p></div>` : ''}
+    ${x.jarSaved ? `<p class="jar-note">${T.jarSaved(x.jarSaved)}</p>` : ''}
     ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? T.shareNo(no) : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
-      <div class="hexrow">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
-      <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px">${[[T.firstTry, '#FFB020'], [T.oneSlip, '#FFE0A3'], [T.twoPlus, '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
+      <div class="hexrow" role="img" aria-label="${[T.firstTry, T.oneSlip, T.twoPlus].map((t, i) => `${t}: ${counts[i]}`).join(', ')}">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
+      <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px" aria-hidden="true">${[[T.firstTry, '#FFB020'], [T.oneSlip, '#FFE0A3'], [T.twoPlus, '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
     </div><div class="screen-column">
     ${isDaily ? `<div class="card-a"><div class="row" style="justify-content:space-between"><b>${T.streak(s)}</b><span class="mute" style="font-size:13px">${T.last7}</span></div>
-      <div class="week">${week.map((d, i) => `<div>${hexSVG(30, P.daily[dayKey(d)] ? (i === 6 ? '#2B50E8' : 'var(--a-ink)') : 'var(--a-line)')}<div style="margin-top:6px">${WD.format(d)}</div></div>`).join('')}</div></div>` : ''}
+      <div class="week">${week.map((d, i) => `<div>${hexSVG(30, P.daily[dayKey(d)] ? (i === 6 ? '#2B50E8' : 'var(--a-ink)') : 'var(--a-line)')}<div style="margin-top:6px">${WD.format(d)}</div></div>`).join('')}</div>
+      ${countdownLine()}</div>` : ''}
     <div style="margin-top:28px">
-      ${isDaily || isBlitz ? `<button class="btn b-cobalt" data-share>${I.share} ${T.share}</button>` : ''}
-      ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" data-next>${T.nextName(uiLevel(x.mode, next).name, next)}</button>` : ''}
-      ${next && aStatus(x.mode, next) === 'paid' ? `<button class="btn b-cobalt" data-unlock>${T.unlockNext}</button>` : ''}
+      ${isDaily ? `<button class="btn b-cobalt" data-share>${I.share} ${T.share}</button>` : ''}
+      ${round ? `<button class="btn b-cobalt" data-waggle>${I.share} ${T.waggle}</button>` : ''}
+      ${next && aStatus(x.mode, next) === 'open' ? `<button class="btn b-cobalt" style="margin-top:12px" data-next>${T.nextName(uiLevel(x.mode, next).name, next)}</button>` : ''}
+      ${next && aStatus(x.mode, next) === 'paid' ? `<button class="btn b-cobalt" style="margin-top:12px" data-unlock>${T.unlockNext}</button>` : ''}
+      ${isDaily ? `<button class="btn b-plain" style="margin-top:12px" data-hivestats>${I.hex('currentColor')} ${T.yourHive}</button>` : ''}
       ${!isDaily ? `<button class="btn b-plain" style="margin-top:12px" data-again>${T.again}</button>` : `<button class="btn b-plain" style="margin-top:12px" data-toblitz>${T.playBlitz}</button>`}
     </div></div></div>`);
   on('[data-back]', back);
-  on('[data-share]', async () => {
-    const grid = [x.slips.slice(0, 5), x.slips.slice(5, 10)].filter(a => a.length).map(a => a.map(slipE).join('')).join('\n');
-    const text = isDaily ? `${T.shareNo(no)}  ${fmtTime(x.seconds)}\n${grid}` : T.shareBlitz(x.solved, T.modes[x.mode][0], L.name);
-    try { if (navigator.share) await navigator.share({ text }); else { await navigator.clipboard.writeText(text); toast(T.copied); } } catch (e) {}
-  });
+  on('[data-share]', () => shareOut(BeeSharing.dailyText({ number: no, seconds: x.seconds, slips: x.slips, streak: s }, SITE, T.shareWords)));
+  on('[data-waggle]', () => shareOut(isBlitz ? BeeSharing.blitzText(round, SITE, { ...T.shareWords, mode: T.modes[x.mode][0] })
+    : T.wagglePractice(round.score, T.modes[x.mode][0], T.shareWords.level.replace('{n}', x.tier)) + '\n' + BeeSharing.waggleUrl(round, SITE)));
+  on('[data-hivestats]', () => go({ name: 'a_hive' }));
   on('[data-next]', () => replace({ name: 'a_game', mode: x.mode, tier: next, kind: 'round' }));
   on('[data-unlock]', () => replace({ name: 'a_settings' }));
   on('[data-again]', () => replace({ name: 'a_game', mode: x.mode, tier: x.tier, kind: x.kind }));
   on('[data-toblitz]', () => replace({ name: 'a_blitz' }));
-  announce((isBlitz ? T.timeUp + ' ' : '') + T.subJoin(head, T.subJoin(sub, isBlitz ? '' : T.starsAria(x.stars))));
+  if (isDaily) cleanup = tickCountdown();
+  // One sentence after another (no doubled full stops); stars only for level rounds, the only results that have them.
+  const said = [head, sub, x.kind === 'round' ? T.starsAria(x.stars) : '', versus, x.jarSaved ? T.jarSaved(x.jarSaved) : ''].filter(Boolean);
+  announce((isBlitz ? T.timeUp + ' ' : '') + said.reduce((a, b) => T.subJoin(a.replace(/[.!。]$/, ''), b)));
+}
+
+// "Your hive": everything here comes from the results already saved in this browser.
+function a_hive() {
+  checkHive(false);
+  const days = Object.keys(P.daily).filter(k => P.daily[k] && Array.isArray(P.daily[k].slips)).sort(), results = days.map(k => P.daily[k]);
+  const slipsOf = d => d.slips.reduce((a, b) => a + Math.max(0, b), 0);
+  const timed = results.filter(d => Number.isFinite(d.seconds)), avg = timed.length ? Math.round(timed.reduce((a, d) => a + d.seconds, 0) / timed.length) : null;
+  const buckets = [[T.pureHoney, results.filter(d => slipsOf(d) === 0).length, '#FFB020'], [T.oneSlip, results.filter(d => slipsOf(d) === 1).length, '#FFE0A3'], [T.twoPlusSlips, results.filter(d => slipsOf(d) > 1).length, '#C9CFD9']];
+  const most = Math.max(1, ...buckets.map(b => b[1])), doneToday = !!P.daily[dayKey()];
+  const stats = [[T.daysPlayed, days.length], [T.currentStreak, T.dayCount(hiveStreak())], [T.bestStreak, T.dayCount(Math.max(P.hive.best || 0, hiveStreak()))], [T.jarsHeld, `${P.hive.jars || 0}/2`], [T.avgTime, avg === null ? '–' : fmtTime(avg)]];
+  h(`<div class="stack screen-columns"><div class="screen-column">${aTop(T.yourHive)}
+    <dl class="hive-stats">${stats.map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join('')}</dl>
+    ${doneToday ? `<div class="card-a">${countdownLine()}</div>` : ''}
+    </div><div class="screen-column">
+    <div class="card-a"><h2>${T.dailyResults}</h2>${days.length ? `<ul class="hive-bars">${buckets.map(([t, n, c]) => `<li><span>${t}</span><b>${T.dayCount(n)}</b><span class="track" aria-hidden="true"><i style="width:${n / most * 100}%;background:${c}"></i></span></li>`).join('')}</ul>` : `<p>${T.noDailies}</p>`}</div>
+    <div class="card-a"><h2>${T.jarTitle}</h2><p>${T.jarHelp}</p></div>
+  </div></div>`);
+  on('[data-back]', back);
+  if (doneToday) cleanup = tickCountdown();
+}
+
+// Opened from a Waggle link: no names, just the friend's score and the same round.
+function a_waggle(r) {
+  const w = r.w, L = uiLevel(w.mode, w.tier);
+  h(`<div class="stack screen-columns"><div class="screen-column">${aTop(w.kind === 'blitz' ? T.friendBlitz(w.score) : T.friendPractice(w.score))}
+    <div class="card-a"><p class="mute" style="font-size:14px">${T.waggleTitle}</p><p><b>${T.modes[w.mode][0]}</b> · ${T.nameLevel(L.name, w.tier)}${w.kind === 'blitz' ? ` · ${T.blitzTile}` : ''}</p><p class="mute">${T.waggleWhy}</p></div>
+    </div><div class="screen-column">
+    <button class="btn b-honey" data-playwaggle>${T.playRound}</button>
+    <button class="btn b-plain" style="margin-top:12px" data-notnow>${T.notNow}</button>
+  </div></div>`);
+  on('[data-back]', back); on('[data-notnow]', back);
+  on('[data-playwaggle]', () => replace({ name: 'a_game', mode: w.mode, tier: w.tier, kind: w.kind === 'blitz' ? 'blitz' : 'round', seed: w.seed, friend: w.score }));
 }
 
 function a_settings() {
@@ -1549,7 +1771,7 @@ function a_settings() {
       ${P.full ? `<button class="btn b-plain" style="background:var(--a-ground)" data-lock>${T.backToFree}</button>` : `<button class="btn b-cobalt" data-buy>${T.aBuy}</button>`}
       <p class="mute" style="font-size:13px">${T.previewNote}</p></div>
     </div><div class="screen-column">
-    <div class="card-a"><h2 style="font-size:18px">${T.howTitle}</h2><p style="font-size:16px;line-height:1.45">${T.how}</p>${gameHelp()}</div>
+    <div class="card-a"><h2 style="font-size:18px">${T.howTitle}</h2><p style="font-size:16px;line-height:1.45">${T.how}</p><h3 style="font-size:16px;margin:14px 0 4px">${T.jarTitle}</h3><p style="font-size:16px;line-height:1.45">${T.jarHelp}</p>${gameHelp()}</div>
   </div></div>`);
   on('[data-back]', back);
   on('[data-buy]', () => { P.full = true; aSave(); toast(T.aFull); render(); });
@@ -1573,7 +1795,7 @@ function choose() {
   on('[data-adult]', () => { stack = [{ name: 'a_home' }]; render(); });
 }
 
-const SCREENS = { choose, k_home, k_world, k_game, k_win, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_settings };
+const SCREENS = { choose, k_home, k_world, k_game, k_win, k_stickers, k_grown, a_home, a_levels, a_blitz, a_game, a_result, a_hive, a_waggle, a_settings };
 window.addEventListener('resize', () => { if (redrawGame) redrawGame(); });
 window.addEventListener('orientationchange', () => { if (redrawGame) redrawGame(); });
 if (typeof ResizeObserver === 'function') {

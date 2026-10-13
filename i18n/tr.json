@@ -281,6 +281,37 @@
    "easy": "Kolay okuma",
    "easy_version": "Kolay okunan sürüm",
    "full": "Tam sürüm"
+  },
+  "share": {
+   "heading": "Bu sayfayı paylaşın",
+   "whatsapp": "WhatsApp’ta paylaş",
+   "facebook": "Facebook’ta paylaş",
+   "x": "X’te paylaş",
+   "bluesky": "Bluesky’da paylaş",
+   "email": "E-posta",
+   "email_label": "E-postayla paylaş",
+   "copy": "Bağlantıyı kopyala",
+   "copied": "Bağlantı kopyalandı",
+   "copy_failed": "Bağlantı kopyalanamadı. Adres çubuğundan kopyalayın.",
+   "native": "Paylaş…",
+   "today": "Bugünün Beequation kovanı 🐝 Diğer iki sayıdan oluşan sayıyı bulabilir misiniz?"
+  },
+  "certificate": {
+   "title": "Kovan sertifikası | Beequation",
+   "description": "Çocuğunuzun yıldızları ve dünyalarıyla bir Beequation sertifikası yazdırın. İsim bu sayfada kalır; asla kaydedilmez veya gönderilmez.",
+   "h1": "Kovan sertifikası yazdırın",
+   "intro": "Çocuğunuzun adını yazın, yıldızları ve dünyaları kontrol edin, sonra sertifikayı yazdırın.",
+   "privacy": "İsim bu sayfada kalır. Asla kaydedilmez ve hiçbir yere gönderilmez.",
+   "name_label": "Çocuğun adı",
+   "print": "Sertifikayı yazdır",
+   "kicker": "Kovan sertifikası",
+   "well_done": "Aferin, {name}!",
+   "reason": "Beequation Kids’te sayıları harika bulduğun için",
+   "stars": "Toplanan yıldızlar",
+   "worlds": "Tamamlanan dünyalar",
+   "awarded": "{date} tarihinde verildi",
+   "signed": "İmza",
+   "indie": "Arı Indie seninle çok gurur duyuyor!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Beequation: ücretsiz zihinden matematik oyunu",

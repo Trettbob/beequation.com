@@ -89,7 +89,7 @@ const T = {
   slips: n => n === 1 ? '1 fallo' : `${n} fallos`, for3: par => `Para 3 estrellas: menos de ${par} con 1 fallo como máximo.`, fullMarks: 'Puntuación máxima.',
   shareNo: n => `Beequation n.º ${n}`, firstTry: 'A la primera', oneSlip: '1 fallo', twoPlus: '2 o más', streak: n => `Racha de ${n} ${n === 1 ? 'día' : 'días'}`, last7: 'Últimos 7 días',
   share: 'Compartir resultado', nextName: (name, t) => `Siguiente: ${name} ${t}`, unlockNext: 'Desbloquear los siguientes niveles', playBlitz: 'Jugar un blitz de 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} ${n === 1 ? 'resuelto' : 'resueltos'} en 60 s (${mode}, ${name})`, copied: 'Resultado copiado',
+  copied: 'Resultado copiado',
   aAll: n => `Los ${n} niveles`, aThanks: 'Gracias. Todos los niveles están abiertos.',
   aFree: n => { return ((free, queen) =>
       `La versión gratuita incluye ${free} niveles, el Reto del día y el blitz. La versión completa abre todos los niveles hasta ${queen}, incluidos Decimales, Trío y los retos expertos de la Gran Colmena.`)(n, T.tiers[9]); },
@@ -100,4 +100,17 @@ const T = {
   chooseIntro: 'Dos apps, un mismo reto. Elige una para probarla. Puedes cambiar cuando quieras.',
   kidsPick: 'De 5 a 12 años. Mundos llenos de color, la abeja Indie, pegatinas y sin reloj.', proPick: 'Adolescentes y adultos. Reto del día con rachas, blitz de 60 segundos y niveles expertos.',
   savedHere: 'El progreso se guarda solo en este navegador.',
+  // compartir (Beequation No., Hive No. y Beequation no se traducen)
+  shareWords: { slips: '{n} fallos', noSlips: 'Sin fallos', streak: 'Racha de {n} días en la colmena', blitz: 'Beequation blitz 🐝 {score} en 60 s ({mode}, {level})', level: 'Nivel {n}' },
+  waggle: 'Retar a un amigo', waggleTitle: 'Un reto de un amigo',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} de 10 a la primera (${mode}, ${level}). ¡Te toca!`,
+  friendBlitz: n => `Un amigo resolvió ${n} en 60 s. ¡Te toca!`, friendPractice: n => `Un amigo acertó ${n} de 10 a la primera. ¡Te toca!`,
+  waggleWhy: 'Las abejas bailan la danza del meneo para mostrar a la colmena dónde están las mejores flores. Este enlace repite la ronda que jugó tu amigo.',
+  playRound: 'Jugar la misma ronda', notNow: 'Ahora no', versus: (you, friend) => `Tú ${you} · Tu amigo ${friend}`,
+  yourHive: 'Tu colmena', daysPlayed: 'Días jugados', currentStreak: 'Racha actual', bestStreak: 'Mejor racha', jarsHeld: 'Tarros de miel guardados',
+  avgTime: 'Tiempo medio diario', dayCount: n => n === 1 ? '1 día' : `${n} días`, dailyResults: 'Resultados diarios',
+  pureHoney: 'Miel pura (sin fallos)', twoPlusSlips: '2 fallos o más', noDailies: 'Juega tu primer Reto del día para empezar tu colmena.',
+  jarTitle: 'Tarros de miel', jarsAria: n => n === 1 ? '1 tarro de miel' : `${n} tarros de miel`,
+  jarHelp: 'Cada 7 días seguidos que juegas el Reto del día ganas un tarro de miel. Puedes guardar 2. Si te saltas un día, se usa un tarro automáticamente y tu racha sigue. Si te saltas dos días o más, la racha vuelve a empezar.',
+  jarSaved: n => `Un tarro de miel ha salvado tu racha de ${n === 1 ? '1 día' : `${n} días`} 🍯`, hatchesIn: t => `La próxima colmena nace en ${t}`,
 };

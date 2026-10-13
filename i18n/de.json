@@ -226,6 +226,37 @@
    "easy": "Leichte Sprache",
    "easy_version": "Version in Leichter Sprache",
    "full": "Vollständige Version"
+  },
+  "share": {
+   "heading": "Diese Seite teilen",
+   "whatsapp": "Auf WhatsApp teilen",
+   "facebook": "Auf Facebook teilen",
+   "x": "Auf X teilen",
+   "bluesky": "Auf Bluesky teilen",
+   "email": "E-Mail",
+   "email_label": "Per E-Mail teilen",
+   "copy": "Link kopieren",
+   "copied": "Link kopiert",
+   "copy_failed": "Der Link konnte nicht kopiert werden. Bitte kopieren Sie ihn aus der Adressleiste.",
+   "native": "Teilen…",
+   "today": "Die Beequation-Wabe von heute 🐝 Finden Sie die Zahl, die aus zwei anderen entsteht?"
+  },
+  "certificate": {
+   "title": "Bienenstock-Urkunde | Beequation",
+   "description": "Drucken Sie eine Beequation-Urkunde mit den Sternen und Welten Ihres Kindes. Der Name bleibt auf dieser Seite und wird nie gespeichert oder gesendet.",
+   "h1": "Eine Bienenstock-Urkunde drucken",
+   "intro": "Geben Sie den Namen Ihres Kindes ein, prüfen Sie Sterne und Welten und drucken Sie dann die Urkunde.",
+   "privacy": "Der Name bleibt auf dieser Seite. Er wird nie gespeichert oder irgendwohin gesendet.",
+   "name_label": "Name des Kindes",
+   "print": "Urkunde drucken",
+   "kicker": "Bienenstock-Urkunde",
+   "well_done": "Super gemacht, {name}!",
+   "reason": "für tolles Zahlenfinden in Beequation Kids",
+   "stars": "Gesammelte Sterne",
+   "worlds": "Geschaffte Welten",
+   "awarded": "Verliehen am {date}",
+   "signed": "Unterschrift",
+   "indie": "Indie die Biene ist sehr stolz auf dich!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Beequation kostenlos online spielen: Kopfrechenspiel",

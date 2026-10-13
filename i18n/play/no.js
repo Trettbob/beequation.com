@@ -87,7 +87,7 @@ const T = {
   slips: n => n === 1 ? '1 tabbe' : `${n} tabber`, for3: par => `For 3 stjerner: under ${par} med maks 1 tabbe.`, fullMarks: 'Full pott.',
   shareNo: n => `Beequation nr. ${n}`, firstTry: 'Første forsøk', oneSlip: '1 tabbe', twoPlus: '2 eller flere', streak: n => `${n} ${n === 1 ? 'dag' : 'dager'} på rad`, last7: 'Siste 7 dager',
   share: 'Del resultatet', nextName: (name, t) => `Neste: ${name} ${t}`, unlockNext: 'Lås opp de neste nivåene', playBlitz: 'Spill blitz på 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} løst på 60 s (${mode}, ${name})`, copied: 'Resultatet er kopiert',
+  copied: 'Resultatet er kopiert',
   aAll: n => `Alle ${n} nivåene`, aThanks: 'Tusen takk. Alle nivåene er åpne.',
   aFree: n => { return ((free, queen) =>
       `Gratis får du ${free} nivåer, Dagens kube og blitz. Fullversjonen åpner alle nivåene helt opp til «${queen}», blant annet Desimaltall, Trio og ekspertoppgavene i Storkuben.`)(n, T.tiers[9]); },
@@ -98,4 +98,17 @@ const T = {
   chooseIntro: 'To apper med den samme typen oppgaver. Velg den du vil prøve. Du kan bytte når som helst.',
   kidsPick: 'Fra 5 til 12 år. Fargesprakende verdener, bien Indie, klistremerker og ingen klokke.', proPick: 'Ungdom og voksne. Dagens kube der du holder rekken i gang, blitz på 60 sekunder og ekspertnivåer.',
   savedHere: 'Fremgangen lagres bare i denne nettleseren.',
+  // deling (Beequation No., Hive No. og Beequation står som de er)
+  shareWords: { slips: '{n} tabber', noSlips: 'Ingen tabber', streak: '{n} dager på rad i kuben', blitz: 'Beequation blitz 🐝 {score} på 60 s ({mode}, {level})', level: 'Nivå {n}' },
+  waggle: 'Utfordre en venn', waggleTitle: 'En utfordring fra en venn',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} av 10 på første forsøk (${mode}, ${level}). Din tur!`,
+  friendBlitz: n => `En venn løste ${n} på 60 s. Din tur!`, friendPractice: n => `En venn fikk ${n} av 10 riktige på første forsøk. Din tur!`,
+  waggleWhy: 'Bier danser logredans for å vise kuben hvor de beste blomstene er. Denne lenken gir deg den samme runden som vennen din spilte.',
+  playRound: 'Spill den samme runden', notNow: 'Ikke nå', versus: (you, friend) => `Du ${you} · Vennen din ${friend}`,
+  yourHive: 'Din kube', daysPlayed: 'Dager spilt', currentStreak: 'Nåværende rekke', bestStreak: 'Lengste rekke', jarsHeld: 'Honningkrukker på lager',
+  avgTime: 'Snittid per dag', dayCount: n => n === 1 ? '1 dag' : `${n} dager`, dailyResults: 'Daglige resultater',
+  pureHoney: 'Ren honning (ingen tabber)', twoPlusSlips: '2 eller flere tabber', noDailies: 'Spill Dagens kube for første gang for å starte kuben din.',
+  jarTitle: 'Honningkrukker', jarsAria: n => n === 1 ? '1 honningkrukke' : `${n} honningkrukker`,
+  jarHelp: 'Hver gang du spiller Dagens kube 7 dager på rad, får du en honningkrukke. Du kan ha 2. Hopper du over én dag, brukes en krukke automatisk, og rekken din fortsetter. Hopper du over to dager eller mer, starter rekken på nytt.',
+  jarSaved: n => `En honningkrukke reddet rekken din på ${n === 1 ? '1 dag' : `${n} dager`} 🍯`, hatchesIn: t => `Neste kube klekkes om ${t}`,
 };

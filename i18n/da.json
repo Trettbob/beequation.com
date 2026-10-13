@@ -281,6 +281,37 @@
    "easy": "Let at læse",
    "easy_version": "Letlæst udgave",
    "full": "Fuld udgave"
+  },
+  "share": {
+   "heading": "Del denne side",
+   "whatsapp": "Del på WhatsApp",
+   "facebook": "Del på Facebook",
+   "x": "Del på X",
+   "bluesky": "Del på Bluesky",
+   "email": "E-mail",
+   "email_label": "Del via e-mail",
+   "copy": "Kopiér link",
+   "copied": "Linket er kopieret",
+   "copy_failed": "Linket kunne ikke kopieres. Kopiér det fra adresselinjen.",
+   "native": "Del…",
+   "today": "Dagens Beequation-bikube 🐝 Kan du finde tallet, der er lavet af to andre?"
+  },
+  "certificate": {
+   "title": "Bistadediplom | Beequation",
+   "description": "Udskriv et Beequation-diplom med dit barns stjerner og verdener. Navnet bliver på denne side og bliver aldrig gemt eller sendt.",
+   "h1": "Udskriv et bistadediplom",
+   "intro": "Skriv barnets navn, tjek stjernerne og verdenerne, og udskriv så diplomet.",
+   "privacy": "Navnet bliver på denne side. Det bliver aldrig gemt eller sendt nogen steder hen.",
+   "name_label": "Barnets navn",
+   "print": "Udskriv diplomet",
+   "kicker": "Bistadediplom",
+   "well_done": "Godt gået, {name}!",
+   "reason": "for flot arbejde med at finde tal i Beequation Kids",
+   "stars": "Samlede stjerner",
+   "worlds": "Gennemførte verdener",
+   "awarded": "Tildelt den {date}",
+   "signed": "Underskrift",
+   "indie": "Bien Indie er meget stolt af dig!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Spil Beequation gratis online: hovedregningsspil",

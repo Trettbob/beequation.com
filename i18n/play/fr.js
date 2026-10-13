@@ -92,7 +92,7 @@ const T = {
   slips: n => n > 1 ? `${n} erreurs` : `${n} erreur`, for3: par => `Pour 3 étoiles : moins de ${par} avec 1 erreur au maximum.`, fullMarks: 'Sans faute.',
   shareNo: n => `Beequation n° ${n}`, firstTry: 'Du premier coup', oneSlip: '1 erreur', twoPlus: '2 ou plus', streak: n => `Série de ${n} ${n > 1 ? 'jours' : 'jour'}`, last7: '7 derniers jours',
   share: 'Partager le résultat', nextName: (name, t) => `Suivant : ${name} ${t}`, unlockNext: 'Débloquer les niveaux suivants', playBlitz: 'Jouer un blitz de 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blitz : ${n} ${n > 1 ? 'résolues' : 'résolue'} en 60 s (${mode}, ${name})`, copied: 'Résultat copié',
+  copied: 'Résultat copié',
   aAll: n => `Les ${n} niveaux`, aThanks: 'Merci. Tous les niveaux sont ouverts.',
   aFree: n => { return ((free, queen) =>
       `La version gratuite comprend ${free} niveaux, le Défi du jour et le blitz. La version complète ouvre tous les niveaux jusqu'à ${queen}, y compris Décimaux, Trio et les grilles expertes de la Grande Ruche.`)(n, T.tiers[9]); },
@@ -103,4 +103,17 @@ const T = {
   chooseIntro: 'Deux apps, un même casse-tête. Choisissez-en une pour l’essayer. Vous pourrez changer à tout moment.',
   kidsPick: 'De 5 à 12 ans. Des mondes aux couleurs acidulées, Indie l’abeille, des autocollants et pas de chrono.', proPick: 'Ados et adultes. Défi du jour avec séries, blitz de 60 secondes, niveaux experts.',
   savedHere: 'La progression est enregistrée uniquement dans ce navigateur.',
+  // partage (Beequation No., Hive No. et Beequation restent tels quels)
+  shareWords: { slips: '{n} erreurs', noSlips: 'Aucune erreur', streak: 'Série de {n} jours à la ruche', blitz: 'Beequation blitz 🐝 {score} en 60\xa0s ({mode}, {level})', level: 'Niveau {n}' },
+  waggle: 'Défier un ami', waggleTitle: 'Le défi d’un ami',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} sur 10 du premier coup (${mode}, ${level}). À vous\xa0!`,
+  friendBlitz: n => `Un ami a résolu ${n} ${n > 1 ? 'grilles' : 'grille'} en 60\xa0s. À vous\xa0!`, friendPractice: n => `Un ami a trouvé ${n} ${n > 1 ? 'grilles' : 'grille'} sur 10 du premier coup. À vous\xa0!`,
+  waggleWhy: 'Les abeilles dansent en frétillant pour montrer à la ruche où sont les meilleures fleurs. Ce lien vous fait jouer la même manche que votre ami.',
+  playRound: 'Jouer la même manche', notNow: 'Pas maintenant', versus: (you, friend) => `Vous ${you} · Votre ami ${friend}`,
+  yourHive: 'Votre ruche', daysPlayed: 'Jours joués', currentStreak: 'Série actuelle', bestStreak: 'Meilleure série', jarsHeld: 'Pots de miel en réserve',
+  avgTime: 'Temps moyen par jour', dayCount: n => n > 1 ? `${n} jours` : `${n} jour`, dailyResults: 'Résultats des défis du jour',
+  pureHoney: 'Miel pur (aucune erreur)', twoPlusSlips: '2 erreurs ou plus', noDailies: 'Jouez votre premier Défi du jour pour lancer votre ruche.',
+  jarTitle: 'Pots de miel', jarsAria: n => n > 1 ? `${n} pots de miel` : `${n} pot de miel`,
+  jarHelp: 'Chaque fois que vous jouez au Défi du jour 7 jours de suite, vous gagnez un pot de miel. Vous pouvez en garder 2. Si vous manquez un jour, un pot est utilisé automatiquement et votre série continue. Si vous manquez deux jours ou plus, la série repart de zéro.',
+  jarSaved: n => `Un pot de miel a sauvé votre série de ${n > 1 ? `${n} jours` : `${n} jour`} 🍯`, hatchesIn: t => `La prochaine ruche éclot dans ${t}`,
 };

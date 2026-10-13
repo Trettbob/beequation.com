@@ -281,6 +281,37 @@
    "easy": "Selkokieli",
    "easy_version": "Selkokielinen versio",
    "full": "Koko teksti"
+  },
+  "share": {
+   "heading": "Jaa tämä sivu",
+   "whatsapp": "Jaa WhatsAppissa",
+   "facebook": "Jaa Facebookissa",
+   "x": "Jaa X:ssä",
+   "bluesky": "Jaa Blueskyssa",
+   "email": "Sähköposti",
+   "email_label": "Jaa sähköpostilla",
+   "copy": "Kopioi linkki",
+   "copied": "Linkki kopioitu",
+   "copy_failed": "Linkkiä ei voitu kopioida. Kopioi se osoiteriviltä.",
+   "native": "Jaa…",
+   "today": "Päivän Beequation-pesä 🐝 Löydätkö luvun, joka syntyy kahdesta muusta?"
+  },
+  "certificate": {
+   "title": "Pesätodistus | Beequation",
+   "description": "Tulosta Beequation-todistus, jossa on lapsesi tähdet ja maailmat. Nimi pysyy tällä sivulla, eikä sitä koskaan tallenneta tai lähetetä.",
+   "h1": "Tulosta pesätodistus",
+   "intro": "Kirjoita lapsen nimi, tarkista tähdet ja maailmat ja tulosta sitten todistus.",
+   "privacy": "Nimi pysyy tällä sivulla. Sitä ei koskaan tallenneta eikä lähetetä minnekään.",
+   "name_label": "Lapsen nimi",
+   "print": "Tulosta todistus",
+   "kicker": "Pesätodistus",
+   "well_done": "Hienoa, {name}!",
+   "reason": "upeasta lukujen bongailusta Beequation Kidsissä",
+   "stars": "Kerätyt tähdet",
+   "worlds": "Läpäistyt maailmat",
+   "awarded": "Myönnetty {date}",
+   "signed": "Allekirjoitus",
+   "indie": "Mehiläinen Indie on sinusta tosi ylpeä!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Pelaa Beequationia ilmaiseksi verkossa: päässälaskupeli",

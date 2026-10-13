@@ -226,6 +226,37 @@
    "easy": "Leitura fácil",
    "easy_version": "Versão de leitura fácil",
    "full": "Versão completa"
+  },
+  "share": {
+   "heading": "Compartilhe esta página",
+   "whatsapp": "Compartilhar no WhatsApp",
+   "facebook": "Compartilhar no Facebook",
+   "x": "Compartilhar no X",
+   "bluesky": "Compartilhar no Bluesky",
+   "email": "E-mail",
+   "email_label": "Compartilhar por e-mail",
+   "copy": "Copiar link",
+   "copied": "Link copiado",
+   "copy_failed": "Não foi possível copiar o link. Copie da barra de endereços.",
+   "native": "Compartilhar…",
+   "today": "A colmeia Beequation de hoje 🐝 Você acha o número formado por outros dois?"
+  },
+  "certificate": {
+   "title": "Certificado da colmeia | Beequation",
+   "description": "Imprima um certificado do Beequation com as estrelas e os mundos da criança. O nome fica nesta página e nunca é salvo nem enviado.",
+   "h1": "Imprima um certificado da colmeia",
+   "intro": "Digite o nome da criança, confira as estrelas e os mundos e depois imprima o certificado.",
+   "privacy": "O nome fica só nesta página. Ele nunca é salvo nem enviado para lugar nenhum.",
+   "name_label": "Nome da criança",
+   "print": "Imprimir o certificado",
+   "kicker": "Certificado da colmeia",
+   "well_done": "Muito bem, {name}!",
+   "reason": "por encontrar números como ninguém no Beequation Kids",
+   "stars": "Estrelas conquistadas",
+   "worlds": "Mundos concluídos",
+   "awarded": "Concedido em {date}",
+   "signed": "Assinatura",
+   "indie": "A abelha Indie está muito orgulhosa de você!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Jogue Beequation grátis online: jogo de cálculo mental",

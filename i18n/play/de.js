@@ -88,7 +88,7 @@ const T = {
   slips: n => `${n} Fehler`, for3: par => `Für 3 Sterne: unter ${par} mit höchstens 1 Fehler.`, fullMarks: 'Volle Punktzahl.',
   shareNo: n => `Beequation Nr. ${n}`, firstTry: 'Auf Anhieb', oneSlip: '1 Fehler', twoPlus: '2 oder mehr', streak: n => `${n} ${n === 1 ? 'Tag' : 'Tage'} in Folge`, last7: 'Letzte 7 Tage',
   share: 'Ergebnis teilen', nextName: (name, t) => `Weiter: ${name} ${t}`, unlockNext: 'Nächste Level freischalten', playBlitz: '60-Sekunden-Blitz spielen',
-  shareBlitz: (n, mode, name) => `Beequation Blitz: ${n} in 60 s gelöst (${mode}, ${name})`, copied: 'Ergebnis kopiert',
+  copied: 'Ergebnis kopiert',
   aAll: n => `Alle ${n} Level`, aThanks: 'Danke! Alle Level sind offen.',
   aFree: n => { return ((free, queen) =>
       `Kostenlos sind ${free} Level, die Tages-Wabe und der Blitz. Die Vollversion öffnet alle Level bis „${queen}“, darunter Dezimalzahlen, Trio und die Profi-Rätsel der Großen Wabe.`)(n, T.tiers[9]); },
@@ -99,4 +99,17 @@ const T = {
   chooseIntro: 'Zwei Apps, ein Rätselprinzip. Einfach eine auswählen und ausprobieren. Wechseln geht jederzeit.',
   kidsPick: 'Für Kinder von 5 bis 12. Bonbonbunte Welten, die Biene Indie, Sticker und keine Uhr.', proPick: 'Für Jugendliche und Erwachsene. Tages-Wabe mit Serien, 60-Sekunden-Blitz und Profi-Level.',
   savedHere: 'Der Fortschritt wird nur in diesem Browser gespeichert.',
+  // Teilen (Beequation No., Hive No. und Beequation bleiben, wie sie sind)
+  shareWords: { slips: '{n} Fehler', noSlips: 'Keine Fehler', streak: '{n}-Tage-Serie im Bienenstock', blitz: 'Beequation Blitz 🐝 {score} in 60 s ({mode}, {level})', level: 'Level {n}' },
+  waggle: 'Freunde herausfordern', waggleTitle: 'Eine Herausforderung aus deinem Schwarm',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} von 10 auf Anhieb (${mode}, ${level}). Jetzt du!`,
+  friendBlitz: n => `Jemand aus deinem Schwarm hat ${n} in 60 s gelöst. Jetzt du!`, friendPractice: n => `Jemand aus deinem Schwarm hatte ${n} von 10 auf Anhieb richtig. Jetzt du!`,
+  waggleWhy: 'Bienen zeigen ihrem Stock mit dem Schwänzeltanz, wo die besten Blüten sind. Dieser Link startet genau dieselbe Runde noch einmal.',
+  playRound: 'Dieselbe Runde spielen', notNow: 'Nicht jetzt', versus: (you, friend) => `Du ${you} · Vorgabe ${friend}`,
+  yourHive: 'Dein Bienenstock', daysPlayed: 'Gespielte Tage', currentStreak: 'Aktuelle Serie', bestStreak: 'Längste Serie', jarsHeld: 'Honiggläser im Vorrat',
+  avgTime: 'Durchschnittszeit pro Tag', dayCount: n => n === 1 ? '1 Tag' : `${n} Tage`, dailyResults: 'Tagesergebnisse',
+  pureHoney: 'Reiner Honig (keine Fehler)', twoPlusSlips: '2 oder mehr Fehler', noDailies: 'Spiel deine erste Tages-Wabe, um deinen Bienenstock zu starten.',
+  jarTitle: 'Honiggläser', jarsAria: n => n === 1 ? '1 Honigglas' : `${n} Honiggläser`,
+  jarHelp: 'Für je 7 Tage in Folge, an denen du die Tages-Wabe spielst, bekommst du ein Honigglas. Du kannst 2 aufbewahren. Verpasst du einen Tag, wird automatisch ein Glas eingesetzt und deine Serie läuft weiter. Verpasst du zwei oder mehr Tage, beginnt die Serie von vorn.',
+  jarSaved: n => `Ein Honigglas hat deine Serie von ${n === 1 ? '1 Tag' : `${n} Tagen`} gerettet 🍯`, hatchesIn: t => `Die nächste Wabe schlüpft in ${t}`,
 };

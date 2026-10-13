@@ -88,7 +88,7 @@ const T = {
   slips: n => `실수 ${n}번`, for3: par => `별 3개 조건: ${par} 이내, 실수 최대 1번.`, fullMarks: '만점이에요.',
   shareNo: n => `Beequation No. ${n}`, firstTry: '한 번에', oneSlip: '실수 1번', twoPlus: '2번 이상', streak: n => `${n}일 연속`, last7: '최근 7일',
   share: '결과 공유', nextName: (name, t) => `다음: ${name} ${t}`, unlockNext: '다음 레벨 열기', playBlitz: '60초 블리츠 하기',
-  shareBlitz: (n, mode, name) => `Beequation 블리츠: 60초에 ${n}개 해결 (${mode}, ${name})`, copied: '결과를 복사했어요',
+  copied: '결과를 복사했어요',
   aAll: n => `레벨 ${n}개 전체`, aThanks: '감사합니다. 모든 레벨이 열렸어요.',
   aFree: n => { return ((free, queen) =>
       `무료로 레벨 ${free}개, 데일리 프로, 블리츠를 즐길 수 있어요. 정식 버전에서는 ‘${queen}’까지 모든 레벨이 열리고, 소수, 트리오, 대왕 벌집 전문가 퍼즐도 포함돼요.`)(n, T.tiers[9]); },
@@ -99,4 +99,17 @@ const T = {
   chooseIntro: '같은 퍼즐로 만든 두 가지 앱이에요. 하나를 골라 체험해 보세요. 언제든 바꿀 수 있어요.',
   kidsPick: '5~12세. 알록달록한 월드, 꿀벌 인디, 스티커, 시간제한 없음.', proPick: '청소년·성인. 연속 기록이 쌓이는 데일리 프로, 60초 블리츠, 전문가 레벨.',
   savedHere: '진행 상황은 이 브라우저에만 저장돼요.',
+  // 공유 (Beequation No., Hive No., Beequation은 그대로)
+  shareWords: { slips: '실수 {n}번', noSlips: '실수 없음', streak: '{n}일 연속 벌집 기록', blitz: 'Beequation 블리츠 🐝 60초에 {score}개 ({mode}, {level})', level: '레벨 {n}' },
+  waggle: '친구에게 도전장 보내기', waggleTitle: '친구가 보낸 도전장',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 10문제 중 ${n}개를 한 번에 맞혔어요 (${mode}, ${level}). 이제 당신 차례예요!`,
+  friendBlitz: n => `친구가 60초에 ${n}문제를 풀었어요. 이제 당신 차례예요!`, friendPractice: n => `친구가 10문제 중 ${n}개를 한 번에 맞혔어요. 이제 당신 차례예요!`,
+  waggleWhy: '꿀벌은 꼬리춤을 춰서 가장 좋은 꽃이 어디 있는지 벌집에 알려요. 이 링크는 친구가 했던 것과 똑같은 라운드를 열어요.',
+  playRound: '같은 라운드 하기', notNow: '나중에', versus: (you, friend) => `나 ${you} · 친구 ${friend}`,
+  yourHive: '나의 벌집', daysPlayed: '플레이한 날', currentStreak: '현재 연속 기록', bestStreak: '최장 연속 기록', jarsHeld: '모아 둔 꿀단지',
+  avgTime: '하루 평균 시간', dayCount: n => `${n}일`, dailyResults: '데일리 결과',
+  pureHoney: '순수한 꿀 (실수 없음)', twoPlusSlips: '실수 2번 이상', noDailies: '첫 데일리 프로를 풀고 벌집을 시작해 보세요.',
+  jarTitle: '꿀단지', jarsAria: n => `꿀단지 ${n}개`,
+  jarHelp: '데일리 프로를 7일 연속으로 할 때마다 꿀단지를 1개 받아요. 최대 2개까지 모을 수 있어요. 하루를 빠뜨리면 꿀단지가 자동으로 사용되어 연속 기록이 이어져요. 이틀 이상 빠뜨리면 연속 기록이 처음부터 다시 시작돼요.',
+  jarSaved: n => `꿀단지가 ${n}일 연속 기록을 지켜 줬어요 🍯`, hatchesIn: t => `다음 벌집까지 ${t}`,
 };

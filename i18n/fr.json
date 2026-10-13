@@ -226,6 +226,37 @@
    "easy": "Facile à lire",
    "easy_version": "Version facile à lire",
    "full": "Version complète"
+  },
+  "share": {
+   "heading": "Partager cette page",
+   "whatsapp": "Partager sur WhatsApp",
+   "facebook": "Partager sur Facebook",
+   "x": "Partager sur X",
+   "bluesky": "Partager sur Bluesky",
+   "email": "E-mail",
+   "email_label": "Partager par e-mail",
+   "copy": "Copier le lien",
+   "copied": "Lien copié",
+   "copy_failed": "Impossible de copier le lien. Copiez-le depuis la barre d’adresse.",
+   "native": "Partager…",
+   "today": "La ruche Beequation du jour 🐝 Saurez-vous trouver le nombre formé par deux autres ?"
+  },
+  "certificate": {
+   "title": "Certificat de la ruche | Beequation",
+   "description": "Imprimez un certificat Beequation avec les étoiles et les mondes de votre enfant. Son prénom reste sur cette page, jamais enregistré ni envoyé.",
+   "h1": "Imprimer un certificat de la ruche",
+   "intro": "Tapez le prénom de votre enfant, vérifiez ses étoiles et ses mondes, puis imprimez le certificat.",
+   "privacy": "Le prénom reste sur cette page. Il n’est jamais enregistré ni envoyé nulle part.",
+   "name_label": "Prénom de l’enfant",
+   "print": "Imprimer le certificat",
+   "kicker": "Certificat de la ruche",
+   "well_done": "Bravo, {name} !",
+   "reason": "pour ses super trouvailles de nombres dans Beequation Kids",
+   "stars": "Étoiles gagnées",
+   "worlds": "Mondes terminés",
+   "awarded": "Décerné le {date}",
+   "signed": "Signature",
+   "indie": "Indie l’abeille est très fière de toi !"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Jouez à Beequation gratuitement : calcul mental en ligne",

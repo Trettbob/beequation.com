@@ -281,6 +281,37 @@
    "easy": "쉬운 설명",
    "easy_version": "쉬운 설명 보기",
    "full": "전체 설명"
+  },
+  "share": {
+   "heading": "이 페이지 공유하기",
+   "whatsapp": "WhatsApp으로 공유",
+   "facebook": "Facebook에 공유",
+   "x": "X에 공유",
+   "bluesky": "Bluesky에 공유",
+   "email": "이메일",
+   "email_label": "이메일로 공유",
+   "copy": "링크 복사",
+   "copied": "링크를 복사했어요",
+   "copy_failed": "링크를 복사하지 못했어요. 주소 표시줄에서 복사해 주세요.",
+   "native": "공유…",
+   "today": "오늘의 Beequation 벌집 🐝 두 수로 만들어진 수를 찾을 수 있나요?"
+  },
+  "certificate": {
+   "title": "벌집 상장 | Beequation",
+   "description": "아이의 별과 월드가 담긴 Beequation 상장을 인쇄하세요. 이름은 이 페이지에만 머물며 저장되거나 전송되지 않아요.",
+   "h1": "벌집 상장 인쇄하기",
+   "intro": "아이 이름을 입력하고 별과 월드를 확인한 뒤 상장을 인쇄하세요.",
+   "privacy": "이름은 이 페이지에만 남아요. 저장되거나 어디로도 전송되지 않아요.",
+   "name_label": "아이 이름",
+   "print": "상장 인쇄하기",
+   "kicker": "벌집 상장",
+   "well_done": "{name}, 정말 잘했어요!",
+   "reason": "Beequation Kids에서 숫자를 멋지게 찾아냈어요",
+   "stars": "모은 별",
+   "worlds": "완료한 월드",
+   "awarded": "수여일: {date}",
+   "signed": "서명",
+   "indie": "꿀벌 Indie가 정말 자랑스러워해요!"
   }
  },
  "Play Beequation free online: mental maths puzzle game": "Beequation 무료 온라인 플레이: 암산 퍼즐 게임",

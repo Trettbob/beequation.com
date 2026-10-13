@@ -92,7 +92,7 @@ const T = {
   slips: n => `${n} ${n === 1 ? 'pomyłka' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'pomyłki' : 'pomyłek'}`, for3: par => `Na 3 gwiazdki: poniżej ${par} i najwyżej 1 pomyłka.`, fullMarks: 'Komplet punktów.',
   shareNo: n => `Beequation nr ${n}`, firstTry: 'Za pierwszym razem', oneSlip: '1 pomyłka', twoPlus: '2 lub więcej', streak: n => `Seria: ${n} ${n === 1 ? 'dzień' : 'dni'}`, last7: 'Ostatnie 7 dni',
   share: 'Udostępnij wynik', nextName: (name, t) => `Dalej: ${name} ${t}`, unlockNext: 'Odblokuj kolejne poziomy', playBlitz: 'Zagraj w blitz 60 s',
-  shareBlitz: (n, mode, name) => `Beequation blitz: ${n} ${n === 1 ? 'rozwiązana' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'rozwiązane' : 'rozwiązanych'} w 60 s (${mode}, ${name})`, copied: 'Skopiowano wynik',
+  copied: 'Skopiowano wynik',
   aAll: n => `Wszystkie ${n} ${n === 1 ? 'poziom' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 'poziomy' : 'poziomów'}`, aThanks: 'Dziękujemy. Wszystkie poziomy są otwarte.',
   aFree: n => { const plural = (n, one, few, many) => n === 1 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? few : many; return ((free, queen) =>
       `Za darmo: ${free} ${plural(free, 'poziom', 'poziomy', 'poziomów')}, Wyzwanie dnia i blitz. Pełna wersja otwiera wszystkie poziomy aż do poziomu „${queen}”, w tym Ułamki dziesiętne, Trio i eksperckie łamigłówki Wielkiego Ula.`)(n, T.tiers[9]); },
@@ -103,4 +103,17 @@ const T = {
   chooseIntro: 'Dwie aplikacje oparte na tej samej łamigłówce. Wybierz jedną i wypróbuj. W każdej chwili możesz zmienić wybór.',
   kidsPick: 'Od 5 do 12 lat. Kolorowe światy, pszczółka Indie, naklejki i żadnego zegara.', proPick: 'Nastolatki i dorośli. Wyzwanie dnia z seriami, blitz 60 sekund, poziomy dla ekspertów.',
   savedHere: 'Postępy są zapisywane tylko w tej przeglądarce.',
+  // udostępnianie (Beequation No., Hive No. i Beequation zostają bez zmian)
+  shareWords: { slips: 'Pomyłki: {n}', noSlips: 'Bez pomyłek', streak: 'Seria w ulu: {n} dni', blitz: 'Beequation blitz 🐝 {score} w 60 s ({mode}, {level})', level: 'Poziom {n}' },
+  waggle: 'Rzuć wyzwanie znajomemu', waggleTitle: 'Wyzwanie od znajomego',
+  wagglePractice: (n, mode, level) => `Beequation 🐝 ${n} z 10 za pierwszym razem (${mode}, ${level}). Twoja kolej!`,
+  friendBlitz: n => `Znajomy rozwiązał ${n} w 60 s. Twoja kolej!`, friendPractice: n => `Znajomy rozwiązał ${n} z 10 za pierwszym razem. Twoja kolej!`,
+  waggleWhy: 'Pszczoły tańczą taniec wywijany, żeby pokazać ulowi, gdzie są najlepsze kwiaty. Ten link uruchamia tę samą rundę, w którą grał twój znajomy.',
+  playRound: 'Zagraj w tę samą rundę', notNow: 'Nie teraz', versus: (you, friend) => `Ty ${you} · Znajomy ${friend}`,
+  yourHive: 'Twój ul', daysPlayed: 'Dni gry', currentStreak: 'Obecna seria', bestStreak: 'Najdłuższa seria', jarsHeld: 'Słoiki miodu w zapasie',
+  avgTime: 'Średni czas dzienny', dayCount: n => n === 1 ? '1 dzień' : `${n} dni`, dailyResults: 'Wyniki dzienne',
+  pureHoney: 'Czysty miód (bez pomyłek)', twoPlusSlips: '2 pomyłki lub więcej', noDailies: 'Zagraj w swoje pierwsze Wyzwanie dnia, aby założyć ul.',
+  jarTitle: 'Słoiki miodu', jarsAria: n => n === 1 ? '1 słoik miodu' : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? `${n} słoiki miodu` : `${n} słoików miodu`,
+  jarHelp: 'Za każde 7 dni z rzędu z Wyzwaniem dnia dostajesz słoik miodu. Możesz mieć najwyżej 2. Jeśli opuścisz jeden dzień, słoik zostanie użyty automatycznie i seria trwa dalej. Jeśli opuścisz dwa dni lub więcej, seria zaczyna się od nowa.',
+  jarSaved: n => `Słoik miodu uratował twoją serię: ${n === 1 ? '1 dzień' : `${n} dni`} 🍯`, hatchesIn: t => `Następny ul wykluje się za ${t}`,
 };

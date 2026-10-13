@@ -34,7 +34,7 @@
   }
   function decodeWaggle(encoded) {
     if (typeof encoded !== 'string' || encoded.length > 80) return null;
-    const match = /^v1\.(blitz|practice)-([a-z]+)\.([1-5])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
+    const match = /^v1\.(blitz|practice)-([a-z]+)\.(10|[1-9])\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.exec(encoded);
     if (!match || match[0] !== encoded || !modes.includes(match[2])) return null;
     const seed = Number(match[4]), score = Number(match[5]);
     if (!Number.isSafeInteger(seed) || seed > 4294967295 || !Number.isSafeInteger(score) || score > (match[1] === 'practice' ? 10 : 1000)) return null;
