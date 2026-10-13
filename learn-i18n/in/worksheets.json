@@ -1,0 +1,279 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Missing numbers to 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Count in 1s, 2s, 5s and 10s"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Tens and ones",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Break two-digit numbers into tens and ones"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Hundreds, tens and ones",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "Place value up to 999"
+ },
+ {
+  "id": "rounding",
+  "title": "Rounding off numbers",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Round off to the nearest 10, 100 and 1,000"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Pairs that make 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1"
+  ],
+  "desc": "Number pairs that add up to 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Pairs that make 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Number pairs that add up to 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Adding and subtracting up to 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Mixed sums up to 20"
+ },
+ {
+  "id": "column-addition",
+  "title": "Addition with carrying",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-3"
+  ],
+  "desc": "Three-digit numbers in columns, with carrying"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Subtraction with borrowing",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-3"
+  ],
+  "desc": "Three-digit numbers in columns, with borrowing"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Tables of 2, 5 and 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "Mixed questions from the tables"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Tables of 3, 4 and 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3"
+  ],
+  "desc": "Mixed questions from the tables"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "Multiplication grid",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3",
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Fill in the 12 × 12 grid"
+ },
+ {
+  "id": "division-facts",
+  "title": "Division using tables",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3",
+   "class-4"
+  ],
+  "desc": "Use the tables to divide"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Multiplying by a one-digit number",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Three-digit numbers × one-digit numbers, in columns"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "What fraction is shaded?",
+  "topic": "fractions",
+  "years": [
+   "class-2",
+   "class-3",
+   "class-4"
+  ],
+  "desc": "Halves, thirds, quarters and more"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Fraction of a number",
+  "topic": "fractions",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Like ½ of 12 and ¾ of 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Equivalent fractions",
+  "topic": "fractions",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Find the missing number"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Tenths and hundredths",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Fractions as decimals"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Percentage of a number",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "class-5"
+  ],
+  "desc": "10%, 25%, 50% and more"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "O'clock and half past",
+  "topic": "telling-the-time",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Read the clocks"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Quarter past and quarter to",
+  "topic": "telling-the-time",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "Read the clocks"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Time to 5 minutes",
+  "topic": "telling-the-time",
+  "years": [
+   "class-3"
+  ],
+  "desc": "Read the clocks"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Counting coins",
+  "topic": "money",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Add up Indian coins"
+ },
+ {
+  "id": "giving-change",
+  "title": "How much change?",
+  "topic": "money",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "Change from ₹20, ₹50 and ₹100"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Perimeter and area",
+  "topic": "measurement",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Rectangles on a centimetre grid"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "2D shapes",
+  "topic": "shape-and-geometry",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "Names, sides and corners"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Reading a bar graph",
+  "topic": "data-and-graphs",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Favourite fruit survey"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Find the missing number",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "class-3",
+   "class-4",
+   "class-5"
+  ],
+  "desc": "Find the number in the box"
+ }
+]

@@ -1,0 +1,115 @@
+{
+ "id": "missing-number-problems",
+ "title": "Find the missing number",
+ "topic": "algebra-and-ratio",
+ "years": [
+  "class-3",
+  "class-4",
+  "class-5"
+ ],
+ "desc": "Find the number in the box",
+ "how": "Find the missing number in each number sentence.",
+ "tip": "Do the reverse. For ▢ + 7 = 15, work out 15 − 7. For 3 × ▢ = 24, work out 24 ÷ 3.",
+ "yearsLabel": "Classes 3 to 5",
+ "htmlLang": "en-IN",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"bx\">□</span> + 9 = 29",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 8 = 10",
+   "a": "80"
+  },
+  {
+   "q": "24 − <span class=\"bx\">□</span> = 5",
+   "a": "19"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 5 = 19",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 6 = 8",
+   "a": "48"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 11 = 5",
+   "a": "55"
+  },
+  {
+   "q": "9 × <span class=\"bx\">□</span> = 63",
+   "a": "7"
+  },
+  {
+   "q": "27 − <span class=\"bx\">□</span> = 8",
+   "a": "19"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 8 = 25",
+   "a": "17"
+  },
+  {
+   "q": "10 × <span class=\"bx\">□</span> = 110",
+   "a": "11"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 4 = 10",
+   "a": "40"
+  },
+  {
+   "q": "4 × <span class=\"bx\">□</span> = 32",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 12 = 8",
+   "a": "96"
+  },
+  {
+   "q": "22 − <span class=\"bx\">□</span> = 3",
+   "a": "19"
+  },
+  {
+   "q": "4 × <span class=\"bx\">□</span> = 12",
+   "a": "3"
+  },
+  {
+   "q": "6 × <span class=\"bx\">□</span> = 18",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 4 = 11",
+   "a": "44"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 2 = 23",
+   "a": "21"
+  },
+  {
+   "q": "11 × <span class=\"bx\">□</span> = 66",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 11 = 11",
+   "a": "121"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 12 = 24",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> ÷ 9 = 9",
+   "a": "81"
+  },
+  {
+   "q": "25 − <span class=\"bx\">□</span> = 12",
+   "a": "13"
+  },
+  {
+   "q": "<span class=\"bx\">□</span> + 10 = 24",
+   "a": "14"
+  }
+ ],
+ "hasTactile": false
+}

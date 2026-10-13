@@ -15,7 +15,8 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
-LANGS = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
+LANGS = 'en fr es de pt it nl pl sv da no fi tr ja ko in hi'.split()
+PREVIEW = {'in', 'hi'}   # India: worksheets and braille files exist; Learn pages not yet
 NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
 PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core'
 PICTURES = {'2d-shapes', 'counting-coins', 'what-fraction-is-shaded', 'perimeter-and-area',
@@ -110,6 +111,7 @@ class BrailleTests(unittest.TestCase):
 
     def test_downloads_and_braille_pages_in_every_language(self):
         for code in LANGS:
+            if code in PREVIEW: continue   # India's Learn sections (and their braille pages) aren't written yet
             site = ROOT if code == 'en' else ROOT / 'dist' / code
             page = (site / 'learn/braille.html').read_text()
             self.assertIn(f'/assets/beequation-worksheets-{code}.epub', page)

@@ -1,13 +1,15 @@
 // Dependency-free execution check for generated suggestion/analytics scripts.
 // A small DOM boundary records actual script output; layout needs the browser check.
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync, existsSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import vm from 'node:vm';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const before = process.argv.includes('--before');
+// India's preview sites (not live yet, so no page offers them): their own pages are checked once built.
+const PREVIEW = before ? [] : ['in','hi'].filter(c => existsSync(resolve(root, `dist/${c}/support.html`)));
 function source(path) {
   return before ? execFileSync('git', ['show', `HEAD:${path}`], {cwd:root, encoding:'utf8'}) : readFileSync(resolve(root, path), 'utf8');
 }
@@ -62,7 +64,7 @@ for (const values of [{}, {'bq-consent':'all'}, {'bq-consent':'basic'}, {'bq-con
 r=run('support.html',{values:{'bq-consent':'no'}});r.banner().children[1].events.click();
 assert.equal(r.store.has('bq-lang-dismissed'),false,'respect legacy no-storage preference');
 // Catch stale opt-in, duplicate loads, dual ready/load callbacks and revocation during download.
-for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].map(c=>`dist/${c}/support.html`)]) {
+for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].concat(PREVIEW).map(c=>`dist/${c}/support.html`)]) {
   for(const value of [undefined,'all','basic','no','all2']) {
     r=run(path,{values:value?{'bq-consent':value}:{}});
     assert.equal(!!r.notice(),!['basic','all2'].includes(value),`${path}: notice for ${value}`);
@@ -106,8 +108,13 @@ for(const code of ['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','
 }
 for(const code of ['nb-NO','nn-NO']) assert.equal(run('learn/mental-maths-strategies.html',{languages:[code]}).banner().children[0].href,'https://no.beequation.com/learn/mental-maths-strategies.html');
 assert.equal(run('learn/years/year-1.html').banner().children[0].href,'https://fr.beequation.com/learn/');
-for(const path of ['play.html',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].map(c=>`dist/${c}/play.html`)]) {
+for(const path of ['play.html',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].concat(PREVIEW).map(c=>`dist/${c}/play.html`)]) {
   r=run(path,{values:{'bq-consent':'all2'}});assert.equal(r.external().length,0);assert.equal(script(source(path),'ga'),undefined);
 }
 r=run('play.html');assert.equal(r.banner().children[0].href,'https://fr.beequation.com/play.html');assert.equal(r.external().length,0);
-console.log('PASS: generated JavaScript, all 14 suggestions, no redirect, dismissal/revisit, blocked storage, explicit English, locale fallback, GA + Metricool consent, migration, once per page, callbacks, revocation, all 15 sites');
+if(!before){   // India: not offered until live; a bare 'in' (old Indonesian) never means India
+  assert.equal(run('support.html',{languages:['en-IN']}).banner(),undefined,'no India banner before it is live');
+  assert.equal(run('support.html',{languages:['hi-IN','hi']}).banner(),undefined,'no Hindi banner before it is live');
+  assert.equal(run('support.html',{languages:['in-ID','fr']}).banner().lang,'fr');
+}
+console.log('PASS: generated JavaScript, all 14 suggestions, no redirect, dismissal/revisit, blocked storage, explicit English, locale fallback, GA + Metricool consent, migration, once per page, callbacks, revocation, all 15 sites'+(PREVIEW.length?` + previews ${PREVIEW.join(', ')}`:'')+', India not offered yet');

@@ -4,7 +4,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {createRequire} from 'node:module';
 import {fileURLToPath, pathToFileURL} from 'node:url';
-import {LANGS, discoverPages, localFile, matchesGlob, groupFindings, md} from './common.mjs';
+import {LANGS, PREVIEW_LANGS, discoverPages, localFile, matchesGlob, groupFindings, md} from './common.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const DEV='/Volumes/External SSD/Projects/devtools';
 const TAGS=['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice'];
@@ -222,7 +222,7 @@ async function main() {
     opts[args[i].slice(2)]=args[++i];
   }
   const langs=opts.lang?opts.lang.split(','):LANGS;
-  if(langs.some(l=>!LANGS.includes(l)))throw Error(`Unknown language; choose ${LANGS.join(',')}`);
+  if(langs.some(l=>![...LANGS,...PREVIEW_LANGS].includes(l)))throw Error(`Unknown language; choose ${[...LANGS,...PREVIEW_LANGS].join(',')}`);
   const limit=opts.limit?Number(opts.limit):Infinity;
   if(limit!==Infinity&&(!Number.isInteger(limit)||limit<1))throw Error('--limit must be a positive integer');
   const report={generatedAt:new Date().toISOString(),tags:TAGS,concurrency:4,options:opts,sites:[],runs:[],errors:[],skips:[],rules:[]};

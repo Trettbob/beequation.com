@@ -1,0 +1,40 @@
+{
+ "id": "reading-bar-charts",
+ "title": "दंड आलेख पढ़ो",
+ "topic": "data-and-graphs",
+ "years": [
+  "class-4",
+  "class-5"
+ ],
+ "desc": "पसंदीदा फल का सर्वे",
+ "how": "कक्षा 3 के बच्चों ने अपने पसंदीदा फल के लिए वोट दिया। दंड आलेख देखकर सवालों के उत्तर दो।",
+ "tip": "दंड के सबसे ऊपर से उँगली सीधे बगल की संख्याओं तक ले जाओ और उसका मान पढ़ो।",
+ "yearsLabel": "कक्षा 4 और 5",
+ "htmlLang": "hi",
+ "kind": "chart",
+ "chart": "<svg role=\"img\" aria-label=\"पसंदीदा फल के वोटों का दंड आलेख; संख्याएँ नीचे की तालिका में हैं\" focusable=\"false\" viewBox=\"0 0 130 78\" style=\"width:150mm;height:90mm\"><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"65.4\" text-anchor=\"end\" font-size=\"3.8\">0</text><line x1=\"10\" x2=\"124\" y1=\"58\" y2=\"58\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"59.4\" text-anchor=\"end\" font-size=\"3.8\">1</text><line x1=\"10\" x2=\"124\" y1=\"52\" y2=\"52\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"53.4\" text-anchor=\"end\" font-size=\"3.8\">2</text><line x1=\"10\" x2=\"124\" y1=\"46\" y2=\"46\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"47.4\" text-anchor=\"end\" font-size=\"3.8\">3</text><line x1=\"10\" x2=\"124\" y1=\"40\" y2=\"40\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"41.4\" text-anchor=\"end\" font-size=\"3.8\">4</text><line x1=\"10\" x2=\"124\" y1=\"34\" y2=\"34\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"35.4\" text-anchor=\"end\" font-size=\"3.8\">5</text><line x1=\"10\" x2=\"124\" y1=\"28\" y2=\"28\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"29.4\" text-anchor=\"end\" font-size=\"3.8\">6</text><line x1=\"10\" x2=\"124\" y1=\"22\" y2=\"22\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"23.4\" text-anchor=\"end\" font-size=\"3.8\">7</text><line x1=\"10\" x2=\"124\" y1=\"16\" y2=\"16\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"17.4\" text-anchor=\"end\" font-size=\"3.8\">8</text><line x1=\"10\" x2=\"124\" y1=\"10\" y2=\"10\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"11.4\" text-anchor=\"end\" font-size=\"3.8\">9</text><line x1=\"10\" x2=\"124\" y1=\"4\" y2=\"4\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"5.4\" text-anchor=\"end\" font-size=\"3.8\">10</text><rect x=\"14\" y=\"16\" width=\"14\" height=\"48\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"21\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">आम</text><rect x=\"36\" y=\"28\" width=\"14\" height=\"36\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"43\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">केले</text><rect x=\"58\" y=\"10\" width=\"14\" height=\"54\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"65\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">सेब</text><rect x=\"80\" y=\"52\" width=\"14\" height=\"12\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"87\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">अमरूद</text><rect x=\"102\" y=\"40\" width=\"14\" height=\"24\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"109\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">अंगूर</text><line x1=\"10\" x2=\"10\" y1=\"4\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/></svg>",
+ "chartTable": "<table class=\"chart-data\"><thead><tr><th scope=\"col\">फल</th><th scope=\"col\">वोट</th></tr></thead><tbody><tr><th scope=\"row\">आम</th><td>8</td></tr><tr><th scope=\"row\">केले</th><td>6</td></tr><tr><th scope=\"row\">सेब</th><td>9</td></tr><tr><th scope=\"row\">अमरूद</th><td>2</td></tr><tr><th scope=\"row\">अंगूर</th><td>4</td></tr></tbody></table>",
+ "items": [
+  {
+   "q": "कितने बच्चों ने केले चुने? <span class=\"line\"></span>",
+   "a": "6"
+  },
+  {
+   "q": "सबसे ज़्यादा बच्चों ने कौन-सा फल चुना? <span class=\"line\"></span>",
+   "a": "सेब"
+  },
+  {
+   "q": "सबसे कम बच्चों ने कौन-सा फल चुना? <span class=\"line\"></span>",
+   "a": "अमरूद"
+  },
+  {
+   "q": "अमरूद की तुलना में सेब चुनने वाले बच्चे कितने ज़्यादा थे? <span class=\"line\"></span>",
+   "a": "7"
+  },
+  {
+   "q": "कुल कितने बच्चों ने वोट दिया? <span class=\"line\"></span>",
+   "a": "29"
+  }
+ ],
+ "hasTactile": true
+}

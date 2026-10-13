@@ -95,5 +95,31 @@ class InternationalSEO(unittest.TestCase):
                 org = next(x for x in objects if x.get('@type') == 'Organization')
                 self.assertEqual(org['@id'], 'https://beequation.com/#org')
 
+    def test_india_previews(self):
+        """India's sites (dist/in, dist/hi) are previews until live: right language and links on their own pages, and
+        not yet linked from any live site."""
+        for code, lang, hreflang in [('in', 'en-IN', 'en-IN'), ('hi', 'hi', 'hi-IN')]:
+            if not (root(code) / 'index.html').is_file(): continue   # not built (words still being written)
+            for rel in ['index.html', 'support.html', 'play.html', 'accessibility.html', 'easy-read/privacy.html']:
+                with self.subTest(code=code, page=rel):
+                    text = (root(code) / rel).read_text()
+                    self.assertIn(f'<html lang="{lang}"', text)
+                    self.assertIn(f'<link rel="canonical" href="{host(code)}/' + ('' if rel == 'index.html' else rel) + '">', text)
+                    alt = {a['hreflang']: a['href'] for a in Page(root(code) / rel).links if a.get('rel') == 'alternate' and a.get('hreflang')}
+                    self.assertEqual(alt[hreflang], host(code) + '/' + ('' if rel == 'index.html' else rel))
+                    self.assertEqual(alt['x-default'], host('en') + '/' + ('' if rel == 'index.html' else rel))
+            self.assertIn(f'{host(code)}/', (root(code) / 'sitemap.xml').read_text())
+            if code == 'in':
+                for p in pages(code):
+                    with self.subTest(page=str(p)):
+                        page = Page(p)
+                        self.assertLessEqual(len(page.title), 60, page.title)
+                        self.assertLessEqual(len(page.meta.get('description', '')), 160)
+        for code in LANGS:
+            for p in [root(code) / 'index.html', root(code) / 'support.html', root(code) / 'sitemap.xml']:
+                with self.subTest(live=str(p)):
+                    text = p.read_text()
+                    self.assertNotIn('in.beequation.com', text); self.assertNotIn('hi.beequation.com', text)
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

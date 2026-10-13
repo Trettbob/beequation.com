@@ -19,7 +19,7 @@ bash tools/daily.sh --date 2026-11-05
 
 ## Content queue
 
-The default queue is `../growth/content/queue/<code>/`. Codes: `en fr es de pt it nl pl sv da no fi tr ja ko`.
+The default queue is `../growth/content/queue/<code>/`. Codes: `en fr es de pt it nl pl sv da no fi tr ja ko`, plus `in` and `hi` (India; previews until live).
 Use `YYYY-MM-DD__slug.html`. The filename date determines when the source becomes due;
 `path` determines a Learn item's destination. Matching paths across languages produce Learn hreflang pairs.
 The ordinary builders also update menus, sitemaps, the blog and English `llms.txt`.

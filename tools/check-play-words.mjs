@@ -29,13 +29,17 @@ const walk = (a, b, at) => {
   if (typeof b === 'string' && /[£$]\{|\$\{/.test(b)) bad.push(`${at}: contains a template placeholder`);
 };
 walk(en, tr, 'T');
-if (tr.locale !== code && tr.locale !== { no: 'nb' }[code] && !String(tr.locale).startsWith(code)) bad.push(`T.locale: ${tr.locale}`);
-const appLang = { no: 'nb' }[code] || code;
+// 'no' is Norwegian Bokmål (nb); 'in' is Indian English (en-IN), whose number words are the apps' English ones
+if (tr.locale !== code && tr.locale !== { no: 'nb', in: 'en-IN' }[code] && !String(tr.locale).startsWith(code)) bad.push(`T.locale: ${tr.locale}`);
+const appLang = { no: 'nb', in: 'en' }[code] || code;
 const { numberInWords } = await import(pathToFileURL(path.join(APPS, 'apps/kids/src/i18n/numberWords.ts')).href);
-let n = 0;
-for (let th = 1; th <= 9; th++) for (let h = 1; h <= 9; h++) for (let r = 10; r <= 99; r++) {
+let n = 0, note = '';
+if (!numberInWords[appLang]) {
+  // A language the apps don't have yet (Hindi, until the apps get Hindi): nothing to compare the grown-ups check with.
+  note = ` (grown-ups number words NOT compared: the apps have no "${appLang}" number words yet; add them to the apps' numberWords.ts, then run this again)`;
+} else for (let th = 1; th <= 9; th++) for (let h = 1; h <= 9; h++) for (let r = 10; r <= 99; r++) {
   const x = th * 1000 + h * 100 + r; n++;
   if (tr.gateWords(x) !== numberInWords[appLang](x)) { bad.push(`gateWords(${x}): "${tr.gateWords(x)}" but the app says "${numberInWords[appLang](x)}"`); if (bad.length > 30) break; }
 }
-console.log(bad.length ? bad.join('\n') : `${code}: all keys match, ${n} grown-ups numbers match the app`);
+console.log(bad.length ? bad.join('\n') : note ? `${code}: all keys match${note}` : `${code}: all keys match, ${n} grown-ups numbers match the app`);
 process.exit(bad.length ? 1 : 0);

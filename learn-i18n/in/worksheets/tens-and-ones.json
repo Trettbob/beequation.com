@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "Tens and ones",
+ "topic": "counting-and-place-value",
+ "years": [
+  "class-1",
+  "class-2"
+ ],
+ "desc": "Break two-digit numbers into tens and ones",
+ "how": "Split each number into tens and ones.",
+ "tip": "The digit on the left tells you how many tens. 47 is 4 tens and 7 ones.",
+ "yearsLabel": "Classes 1 and 2",
+ "htmlLang": "en-IN",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "7 tens, 9 ones"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "3 tens, 6 ones"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "5 tens, 8 ones"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "1 tens, 9 ones"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "9 tens, 0 ones"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "9 tens, 5 ones"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "2 tens, 3 ones"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "6 tens, 8 ones"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "6 tens, 4 ones"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "3 tens, 3 ones"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "1 tens, 2 ones"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "8 tens, 1 ones"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "6 tens, 7 ones"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "3 tens, 5 ones"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "6 tens, 0 ones"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "1 tens, 8 ones"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "1 tens, 6 ones"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "8 tens, 8 ones"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "5 tens, 4 ones"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> tens and <span class=\"bx\">□</span> ones",
+   "a": "3 tens, 1 ones"
+  }
+ ],
+ "hasTactile": false
+}

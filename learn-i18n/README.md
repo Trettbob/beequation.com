@@ -11,6 +11,11 @@ Build: `python3 tools/build-langs.py --learn es` builds `dist/es/` with its Lear
 `tools/build-learn.py`, once every page is written and checked; until then the site neither builds nor links it.
 Worksheets: `node tools/make-worksheets.mjs <puppeteer-core dir> --lang es` (see below).
 
+India has two sites: `learn-i18n/in/` (Indian English, `in.beequation.com`, `en-IN`) and `learn-i18n/hi/` (Hindi,
+`hi.beequation.com`, `hi` / `hi-IN`), both with Classes 1 to 5 (`class-1` … `class-5`). They are previews, outside
+`LIVE` and `LEARN_LIVE`, until Lee has set up their repos and DNS; Indian English text outside Learn is
+`i18n/in.json`, kept complete with `python3 tools/i18n-identity.py in`.
+
 ## Folder layout
 
 ```
@@ -80,7 +85,8 @@ back up a fact; nothing else external.
 }
 ```
 
-`words.html_lang` is the page language (`es`, `fr`, `de`). `year_small` / `m_year_small` show a year's age
+`words.html_lang` is the page language (`es`, `fr`, `de`). `words.hreflang` (optional) is the hreflang search engines get when it
+should carry a region the page language doesn't (Hindi: `html_lang` `hi`, `hreflang` `hi-IN`). `year_small` / `m_year_small` show a year's age
 (`"{age} años"`). `m_years_hex` is the year-groups icon text (3 characters at most, e.g. `1–6`); each year's
 `short` is its icon text (1 to 3 characters). `m_sheet_n` is `["{n} ficha", "{n} fichas"]`. `alphabet` lists the
 glossary's letters in order (the glossary marks each letter's first entry with `id="<letter>"`, one character):
@@ -140,7 +146,7 @@ and PDF sitemap entries reflect the new files:
 (
   set -e
   export PATH="/Volumes/External SSD/Projects/devtools/node/bin:$PATH"
-  for code in en fr es de pt it nl pl sv da no fi tr ja ko; do
+  for code in en fr es de pt it nl pl sv da no fi tr ja ko in hi; do
     node tools/make-worksheets.mjs "/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core" --lang "$code"
   done
   python3 tools/build-learn.py

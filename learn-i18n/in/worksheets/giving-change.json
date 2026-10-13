@@ -1,0 +1,82 @@
+{
+ "id": "giving-change",
+ "title": "How much change?",
+ "topic": "money",
+ "years": [
+  "class-2",
+  "class-3"
+ ],
+ "desc": "Change from ₹20, ₹50 and ₹100",
+ "how": "Work out the change for each shopping trip.",
+ "tip": "Count up from the price to the money you paid. From ₹35 to ₹50: ₹5 makes ₹40, then ₹10 makes ₹50. The change is ₹15.",
+ "yearsLabel": "Classes 2 and 3",
+ "htmlLang": "en-IN",
+ "kind": "list",
+ "items": [
+  {
+   "q": "You buy a comic for ₹54 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹46"
+  },
+  {
+   "q": "You buy a comic for ₹37 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹63"
+  },
+  {
+   "q": "You buy a notebook for ₹30 and pay with ₹50. Change: <span class=\"bx\">□</span>",
+   "a": "₹20"
+  },
+  {
+   "q": "You buy a samosa for ₹99 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹1"
+  },
+  {
+   "q": "You buy some stickers for ₹85 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹15"
+  },
+  {
+   "q": "You buy a juice for ₹90 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹10"
+  },
+  {
+   "q": "You buy a packet of biscuits for ₹38 and pay with ₹50. Change: <span class=\"bx\">□</span>",
+   "a": "₹12"
+  },
+  {
+   "q": "You buy a notebook for ₹51 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹49"
+  },
+  {
+   "q": "You buy a samosa for ₹7 and pay with ₹20. Change: <span class=\"bx\">□</span>",
+   "a": "₹13"
+  },
+  {
+   "q": "You buy a comic for ₹15 and pay with ₹50. Change: <span class=\"bx\">□</span>",
+   "a": "₹35"
+  },
+  {
+   "q": "You buy a packet of biscuits for ₹41 and pay with ₹50. Change: <span class=\"bx\">□</span>",
+   "a": "₹9"
+  },
+  {
+   "q": "You buy an eraser for ₹19 and pay with ₹20. Change: <span class=\"bx\">□</span>",
+   "a": "₹1"
+  },
+  {
+   "q": "You buy a pencil for ₹22 and pay with ₹50. Change: <span class=\"bx\">□</span>",
+   "a": "₹28"
+  },
+  {
+   "q": "You buy a samosa for ₹18 and pay with ₹20. Change: <span class=\"bx\">□</span>",
+   "a": "₹2"
+  },
+  {
+   "q": "You buy a pencil for ₹16 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹84"
+  },
+  {
+   "q": "You buy a juice for ₹68 and pay with ₹100. Change: <span class=\"bx\">□</span>",
+   "a": "₹32"
+  }
+ ],
+ "hasTactile": false
+}

@@ -1,0 +1,65 @@
+{
+ "id": "column-subtraction",
+ "title": "Subtraction with borrowing",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "class-3"
+ ],
+ "desc": "Three-digit numbers in columns, with borrowing",
+ "how": "Subtract in columns. Start with the ones!",
+ "tip": "Check a subtraction with an addition: if 532 − 178 = 354, then 354 + 178 should be 532.",
+ "yearsLabel": "Class 3",
+ "htmlLang": "en-IN",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">728 − 546 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>7</span><span>2</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>5</span><span>4</span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "182"
+  },
+  {
+   "q": "<span class=\"column-expression\">542 − 161 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>5</span><span>4</span><span>2</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>6</span><span>1</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "381"
+  },
+  {
+   "q": "<span class=\"column-expression\">959 − 264 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>9</span><span>5</span><span>9</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>6</span><span>4</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "695"
+  },
+  {
+   "q": "<span class=\"column-expression\">827 − 679 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>8</span><span>2</span><span>7</span></div><div class=\"col-row\"><span>−</span><span>6</span><span>7</span><span>9</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "148"
+  },
+  {
+   "q": "<span class=\"column-expression\">435 − 283 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>3</span><span>5</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>8</span><span>3</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "152"
+  },
+  {
+   "q": "<span class=\"column-expression\">619 − 188 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>1</span><span>9</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>8</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">708 − 170 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>7</span><span>0</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>7</span><span>0</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "538"
+  },
+  {
+   "q": "<span class=\"column-expression\">518 − 215 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>5</span><span>1</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>1</span><span>5</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "303"
+  },
+  {
+   "q": "<span class=\"column-expression\">473 − 266 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>7</span><span>3</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>6</span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "207"
+  },
+  {
+   "q": "<span class=\"column-expression\">455 − 155 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>5</span><span>5</span></div><div class=\"col-row\"><span>−</span><span>1</span><span>5</span><span>5</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "300"
+  },
+  {
+   "q": "<span class=\"column-expression\">633 − 228 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>3</span><span>3</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>2</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "405"
+  },
+  {
+   "q": "<span class=\"column-expression\">848 − 207 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>8</span><span>4</span><span>8</span></div><div class=\"col-row\"><span>−</span><span>2</span><span>0</span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "641"
+  }
+ ],
+ "hasTactile": false
+}

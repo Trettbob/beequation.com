@@ -14,7 +14,8 @@ from generator_fixture import preserve_generator_outputs
 ROOT = Path(__file__).resolve().parents[2]
 NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
 PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core'
-LANGS = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko')
+LANGS = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi')
+PREVIEW = {'in', 'hi'}   # India: worksheets exist, Learn pages (dist/<code>/learn) not yet
 CLOCK_SHEETS = ('time-oclock-and-half-past', 'time-quarter-past-and-to', 'time-to-5-minutes')
 
 
@@ -83,9 +84,10 @@ class WorksheetTests(unittest.TestCase):
                 self.assertEqual(run.returncode, 0, run.stderr)
                 for sid in (*CLOCK_SHEETS, '2d-shapes'):
                     data = json.loads((src / 'worksheets' / (sid + '.json')).read_text())
-                    web = (site / 'learn/worksheets' / (sid + '.html')).read_text()
-                    questions = re.search(r'<ol class="worksheet-questions"[^>]*>(.*?)</ol>', web, re.S)[1]
-                    versions = [questions, ''.join(it['q'] for it in data['items'])]
+                    versions = [''.join(it['q'] for it in data['items'])]
+                    if code not in PREVIEW:
+                        web = (site / 'learn/worksheets' / (sid + '.html')).read_text()
+                        versions.insert(0, re.search(r'<ol class="worksheet-questions"[^>]*>(.*?)</ol>', web, re.S)[1])
                     for suffix in ('', '-large', '-easy-read'):
                         markup = (Path(tmp) / (sid + suffix + '.html')).read_text()
                         versions.append(markup.split('<section class="page answers">')[0].split('</style>')[-1])

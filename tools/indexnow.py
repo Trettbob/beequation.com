@@ -16,6 +16,17 @@ from sitemap_dates import london_today
 
 ROOT = Path(__file__).resolve().parents[1]
 CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
+# India's sites (in.beequation.com, hi.beequation.com) are submitted once they are live (LIVE in build-langs.py);
+# until then their dist/ folders are previews and their hosts don't answer.
+PREVIEW = ('in', 'hi')
+
+
+def live_codes():
+    live = re.search(r'^LIVE = \{([^}]*)\}', (ROOT / 'tools/build-langs.py').read_text(encoding='utf-8'), re.M)
+    return set(re.findall(r"'([a-z]{2})'", live[1])) if live else set()
+
+
+CODES += [code for code in PREVIEW if code in live_codes()]
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 

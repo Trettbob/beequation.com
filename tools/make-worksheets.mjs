@@ -28,6 +28,10 @@ const OUT = LANG === 'en' ? path.join(ROOT, 'assets', 'worksheets') : path.join(
 const MANIFEST = LANG === 'en' ? path.join(ROOT, 'learn-src', 'worksheets.json') : path.join(ROOT, 'learn-i18n', LANG, 'worksheets.json');
 const b64 = f => fs.readFileSync(path.join(ROOT, f)).toString('base64');
 const font = w => `data:font/ttf;base64,${b64(`assets/fonts/Fredoka_${w}.ttf`)}`;
+// Hindi sheets: Fredoka has no Devanagari, so Noto Sans Devanagari (embedded the same way) follows it in every stack.
+const DEVA_CSS = LANG !== 'hi' ? '' : [500, 600, 700].map((w, i) => `@font-face { font-family: 'Noto Sans Devanagari'; font-weight: ${w}; src: url(data:font/ttf;base64,${b64(`assets/fonts/NotoSansDevanagari-${['Medium', 'SemiBold', 'Bold'][i]}.ttf`)}); }`).join('\n');
+const DEVA_STACK = `${DEVA_CSS}\nbody, svg text { font-family: Fredoka, 'Noto Sans Devanagari'; }`;
+const DEVA_TACTILE = `${DEVA_CSS}\nhtml, body, svg text { font-family: sans-serif, 'Noto Sans Devanagari'; }`;
 const ICON = `data:image/png;base64,${b64('assets/beequation-kids-icon.png')}`;
 const YEAR = 2026;
 const INK = '#1C1A4A', SOFT = '#5A5688', GRAPE = '#6A4BF5', LEMON = '#FFD84D';
@@ -480,7 +484,7 @@ try {
     }
     for (const variant of ['standard', 'large', 'easy-read', ...(data.hasTactile ? ['tactile'] : [])]) {
       const suffix = variant === 'standard' ? '' : `-${variant}`;
-      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${variant === 'tactile' ? tactileCSS : css + variantCSS[variant]}</style></head><body class="variant-${variant}">${variant === 'tactile' ? renderTactile(data, BRAILLE_WORDS, labels) : render(s, data, variant)}</body></html>`;
+      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${variant === 'tactile' ? tactileCSS + (DEVA_CSS && DEVA_TACTILE) : css + variantCSS[variant] + (DEVA_CSS && DEVA_STACK)}</style></head><body class="variant-${variant}">${variant === 'tactile' ? renderTactile(data, BRAILLE_WORDS, labels) : render(s, data, variant)}</body></html>`;
       if (variant === 'standard') standard = html;
       if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}${suffix}.html`), html);
       if (HTML_ONLY) continue;

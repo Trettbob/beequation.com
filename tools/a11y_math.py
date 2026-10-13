@@ -18,6 +18,7 @@ FRACTIONS = {
 'fi': 'puolikas/puolikasta kolmasosa/kolmasosaa neljäsosa/neljäsosaa viidesosa/viidesosaa kuudesosa/kuudesosaa seitsemäsosa/seitsemäsosaa kahdeksasosa/kahdeksasosaa yhdeksäsosa/yhdeksäsosaa kymmenesosa/kymmenesosaa',
 'pl': 'druga/drugie trzecia/trzecie czwarta/czwarte piąta/piąte szósta/szóste siódma/siódme ósma/ósme dziewiąta/dziewiąte dziesiąta/dziesiąte',
 }
+FRACTIONS['in'] = FRACTIONS['en']   # Indian English (Hindi says every fraction as "3 बटा 4", the WORDS format below)
 # ×, ÷, −, blank, generic fraction format
 WORDS = {
 'en': ('times', 'divided by', 'minus', 'blank', '{n} over {d}'),
@@ -35,6 +36,8 @@ WORDS = {
 'tr': ('çarpı', 'bölü', 'eksi', 'boş kutu', '{n} bölü {d}'),
 'ja': ('かける', 'わる', 'マイナス', '空欄', '{d}分の{n}'),
 'ko': ('곱하기', '나누기', '마이너스', '빈칸', '{d}분의 {n}'),
+'in': ('times', 'divided by', 'minus', 'blank', '{n} over {d}'),
+'hi': ('गुणा', 'भाग', 'घटा', 'ख़ाली जगह', '{n} बटा {d}'),
 }
 GERMAN = 'null ein zwei drei vier fünf sechs sieben acht neun zehn elf zwölf'.split()
 TURKISH = 'sıfır bir iki üç dört beş altı yedi sekiz dokuz on'.split()

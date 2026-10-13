@@ -10,6 +10,8 @@ The English pages in this repo are the source. Translations live in i18n/<lang>.
 pairs: the page title, meta/alt/aria text, the inner HTML of each text block, text-only links and the homepage
 demo's JavaScript strings. When English text changes, the build lists what needs translating and stops.
 Each dist/<lang>/ folder is published to its own repo (Trettbob/<lang>.beequation.com) by tools/publish-langs.sh.
+A language that isn't in LIVE yet (India's 'in' and 'hi', for now) is a preview: dist/<lang>/ is built, but no live site
+links to it, and its gaps are listed without failing the build (unless asked for with --lang <code>).
 """
 import html as H, importlib.util, json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
@@ -21,15 +23,20 @@ from sitemap_dates import git_dates, refresh_sitemap
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
          'it': 'Italiano', 'nl': 'Nederlands', 'pl': 'Polski', 'sv': 'Svenska', 'da': 'Dansk', 'no': 'Norsk', 'fi': 'Suomi',
-         'tr': 'Türkçe', 'ja': '日本語', 'ko': '한국어'}
+         'tr': 'Türkçe', 'ja': '日本語', 'ko': '한국어', 'in': 'English (India)', 'hi': 'हिन्दी'}
 HTML_LANG = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR', 'it': 'it', 'nl': 'nl', 'pl': 'pl', 'sv': 'sv',
-             'da': 'da', 'no': 'nb', 'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko'}   # the subdomain is the key; 'no' is Norwegian Bokmål
+             'da': 'da', 'no': 'nb', 'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko', 'in': 'en-IN', 'hi': 'hi'}   # the subdomain is the key; 'no' is Norwegian Bokmål
 MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
 # these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
 LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
+# India (Lee, 2026-10-12): 'in' is Indian English (in.beequation.com) and 'hi' Hindi (hi.beequation.com). Both build into
+# dist/in and dist/hi for previews; they join LIVE (and build-learn.py's LEARN_LIVE) once their repos, DNS and HTTPS work.
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
+# Search engines get a region for Hindi (the html lang stays plain 'hi'); every other code uses its html lang.
+HREFLANG = {**HTML_LANG, 'hi': 'hi-IN'}
+def hreflang(lang): return HREFLANG[lang]
 def url_path(page): return '/' if page == 'index.html' else '/' + page.removesuffix('index.html') if page.startswith(('today/', 'blog/')) else '/' + page
 def rd(p): return open(os.path.join(ROOT, p), encoding='utf-8').read()
 
@@ -53,7 +60,8 @@ def lang_links(lang, page):
         path = url_path(page) if page in PAGES or page.startswith('today/') else learn_path(page, code)
         href = site(code) + path + ('?lang=en' if code == 'en' and lang != 'en' else '')
         cur = ' aria-current="true"' if code == lang else ''
-        links.append(f'<a href="{href}" lang="{code}" hreflang="{code}" data-lang="{code}"{cur}>{name}</a>')
+        tag = 'en-IN' if code == 'in' else code   # 'in' alone is the old code for Indonesian
+        links.append(f'<a href="{href}" lang="{tag}" hreflang="{tag}" data-lang="{code}"{cur}>{name}</a>')
     return links
 
 def learn_path(page, code):
@@ -71,7 +79,7 @@ def learn_path(page, code):
 
 def alternates(page, lang='en'):
     p = url_path(page)
-    tags = [f'<link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}{p}">' for c in LANGS if c == 'en' or c in LIVE or c == lang]
+    tags = [f'<link rel="alternate" hreflang="{hreflang(c)}" href="{site(c)}{p}">' for c in LANGS if c == 'en' or c in LIVE or c == lang]
     tags.append(f'<link rel="alternate" hreflang="x-default" href="{MAIN}{p}">')
     return '<!--hreflang-->\n' + '\n'.join(tags) + '\n<!--/hreflang-->'
 
@@ -103,7 +111,10 @@ def suggestion(page):
         text = site_text(code, 'suggestion', {})
         path = url_path(page) if page in PAGES or page.startswith('today/') else learn_path(page, code)
         options[code] = {'lang': HTML_LANG[code], 'url': site(code) + path, 'text': text}
-    return SUGGESTION.replace('__OPTIONS__', json.dumps(options, ensure_ascii=False))
+    script = SUGGESTION
+    if 'in' in options:   # English (India) is offered to en-IN browsers only; a bare 'in' is old Indonesian, not India
+        script = script.replace("if(c==='en')return;", "if(c==='in')continue;if(c==='en'){if(/^en-IN$/i.test(ls[i])){pick='in';break;}return;}")
+    return script.replace('__OPTIONS__', json.dumps(options, ensure_ascii=False))
 
 REMEMBER = """<!--lang-remember--><script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a&&a.dataset.lang!=='en'){try{if(localStorage.getItem('bq-consent')!=='no')localStorage.setItem('bq-lang',a.dataset.lang);}catch(x){}}});</script><!--/lang-remember-->"""
 
@@ -317,7 +328,8 @@ NAV_TEXT = {'en': {
 # country's schools, is ready (build-learn.py's LEARN_LIVE, or --learn <code> to preview one). Their words, topics and
 # school years come from build-learn.py (English) or learn-i18n/<code>/site.json.
 PREVIEW_LEARN = set(sys.argv[sys.argv.index('--learn') + 1].split(',')) if '--learn' in sys.argv else set()
-def has_learn(lang): return lang == 'en' or lang in _learn().LEARN_LIVE or lang in PREVIEW_LEARN
+def has_learn(lang):   # (a preview needs its Learn home written first: India's pages come after their briefs)
+    return lang == 'en' or lang in _learn().LEARN_LIVE or (lang in PREVIEW_LEARN and os.path.exists(os.path.join(ROOT, 'learn-i18n', lang, 'index.html')))
 
 def esc(s): return H.escape(str(s), quote=True)
 
@@ -724,6 +736,28 @@ html:has(.bqh-panel:not([hidden])) .bq-peek,html.bqm-open .bq-bee,html:has(.bqh-
 @media (prefers-contrast:more){.bqh-pill,.bqh-in,.bqh .lang .langs{border-color:var(--ink)}.bqh-kicker,.bqh-txt small,.bqh-app small,.bqh-home span{color:var(--ink)!important}.bqh .lang summary{box-shadow:inset 0 0 0 2px var(--ink)}}
 @media (forced-colors:active){.bqh-link[aria-expanded="true"],.bqh-tab[aria-expanded="true"],.bqh .lang[open] summary,.bqh-row[aria-current="page"],.bqh .lang .langs a[aria-current],.bqm-langs a[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.bqh-hex,.bqh-hive{forced-color-adjust:none}.bqh .bqh-hive:focus-visible{outline-color:Highlight}}
 """
+# Devanagari for the Hindi site, only on its pages (no other site loads these files). The brand fonts have no Devanagari,
+# so each brand family gets an extra face for the Devanagari range only (unicode-range), drawn from the self-hosted Noto
+# Sans Devanagari: every font stack keeps its brand font first and then falls through to Noto Sans Devanagari, in the
+# header, footer, panels, the game and SVG text alike, without rewriting the stacks. The fonts load only when a page
+# shows Devanagari (font-display: swap). Parts set in system-ui only (Indie's note, speech bubbles, the language
+# suggestion) put 'Noto Sans Devanagari' first, which has no Latin letters, so Latin text stays in the system font.
+DEVA_RANGE = 'U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF'
+DEVA_FACES = {400: 'Regular', 500: 'Medium', 600: 'SemiBold', 700: 'Bold'}
+def deva_css():
+    face = lambda family, weight, extra='': (f"@font-face{{font-family:{family};font-style:normal;font-weight:{weight};font-display:swap;"
+                                             f"src:url('/assets/fonts/NotoSansDevanagari-{DEVA_FACES[weight]}.ttf') format('truetype'){extra}}}")
+    css = [face("'Noto Sans Devanagari'", w) for w in DEVA_FACES]
+    # the brand faces' own weights only (fonts.css, accessibility.css), so Latin text matches them exactly as before;
+    # Space Grotesk keeps its own rupee sign, Fredoka and OpenDyslexic take Noto's
+    for family, weights, rupee in (("'Space Grotesk'", (400, 500, 600, 700), ''), ('Fredoka', (500, 600, 700), ',U+20B9'), ('OpenDyslexic', (400, 700), ',U+20B9')):
+        css += [face(family, w, f';unicode-range:{DEVA_RANGE}{rupee}') for w in weights]
+    css.append(":root:lang(hi) .bq-ok,:root:lang(hi) .bq-ok button,:root:lang(hi) .bq-bee .say,:root:lang(hi) .bq-peek .say,"
+               ":root:lang(hi) #bq-language-suggestion{font-family:'Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif}")
+    # Devanagari's vowel signs sit above and below the line: one-line labels get a little more room
+    css.append(":root:lang(hi) .bqh-link,:root:lang(hi) .bqh-cta,:root:lang(hi) .bqh .lang summary,:root:lang(hi) .bqh-hex,:root:lang(hi) .bq-ok button{line-height:1.35}")
+    return '<!--deva-fonts--><style>' + ''.join(css) + '</style><!--/deva-fonts-->'
+
 def nav_head(): return "<!--nav-css--><script>document.documentElement.classList.add('js-nav')</script><style>" + NAV_CSS.strip() + hex_css() + FOOTER_CSS.strip().replace('\n', '') + 'h1,h2,h3{overflow-wrap:break-word;hyphens:auto}.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}' + '</style><!--/nav-css-->'
 
 # Opens and closes the panels and the phone menu. Hover only opens panels for a mouse on a wide screen, after 150 ms
@@ -809,6 +843,8 @@ FOOTER_TEXT = {   # column headings and the social heading; everything else come
     'tr': ('Oyna', 'Yardım ve bilgi', 'Kovanı takip et'),
     'ja': ('遊ぶ', 'ヘルプと情報', 'ハチの巣をフォロー'),
     'ko': ('플레이', '도움말 및 정보', '벌집 팔로우하기'),
+    'in': ('Play', 'Help & info', 'Follow the hive'),
+    'hi': ('खेलें', 'मदद और जानकारी', 'छत्ते को फ़ॉलो करें'),
 }
 _ICON = lambda d: f'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{d}</svg>'
 SOCIALS = [   # (name, url, monoline icon)
@@ -912,7 +948,7 @@ def strip_markers(s):
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
-              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
+              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link', 'deva-fonts'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
@@ -948,6 +984,8 @@ def _chrome(src, lang, page, label='Language'):
     offer = bool(lang != 'en' or LIVE)        # the English site shows languages only once one is live
     if (page in PAGES or page.startswith('today/')) and offer:
         s = s.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + alternates(page, lang), 1)
+    if lang == 'hi':   # Devanagari fonts (the game too)
+        s = s.replace('</head>', deva_css() + '\n</head>', 1)
     if page == 'play.html':   # the game: no header, flying bee or cookie notice over it, on every site
         if lang == 'en' and LIVE:
             s = s.replace('</body>', suggestion(page) + '\n</body>', 1)
@@ -989,7 +1027,7 @@ def _chrome(src, lang, page, label='Language'):
     return scalable_text(s)
 
 def easy_sitemap_entry(page, lang):
-    links = ''.join(f'<xhtml:link rel="alternate" hreflang="{HTML_LANG[c]}" href="{site(c)}/{page}"/>' for c in LANGS)
+    links = ''.join(f'<xhtml:link rel="alternate" hreflang="{hreflang(c)}" href="{site(c)}/{page}"/>' for c in LANGS if c == 'en' or c in LIVE or c == lang)
     links += f'<xhtml:link rel="alternate" hreflang="x-default" href="{MAIN}/{page}"/>'
     return f'  <url><loc>{site(lang)}/{page}</loc>{links}</url>\n'
 
@@ -1006,7 +1044,7 @@ NEW_TAB_TEXT = {'en': 'opens in a new tab', 'fr': 's’ouvre dans un nouvel ongl
     'de': 'öffnet sich in einem neuen Tab', 'pt': 'abre em uma nova aba', 'it': 'si apre in una nuova scheda',
     'nl': 'opent in een nieuw tabblad', 'pl': 'otwiera się w nowej karcie', 'sv': 'öppnas i en ny flik', 'da': 'åbner i en ny fane',
     'no': 'åpnes i en ny fane', 'fi': 'avautuu uuteen välilehteen', 'tr': 'yeni sekmede açılır', 'ja': '新しいタブで開きます',
-    'ko': '새 탭에서 열립니다'}
+    'ko': '새 탭에서 열립니다', 'in': 'opens in a new tab', 'hi': 'नए टैब में खुलता है'}
 OWN_HOST = re.compile(r'^https?://(?:[a-z0-9-]+\.)?beequation\.com(?:[/:?#]|$)', re.I)
 EXT_LINK = re.compile(r'<a\b([^>]*?)\bhref="(https?://[^"]+)"([^>]*)>', re.S)
 
@@ -1123,18 +1161,28 @@ def localise(s, lang, page):
 def build(check_only=False):
     problems = 0
     only = sys.argv[sys.argv.index('--lang') + 1] if '--lang' in sys.argv else None
+    starts = {}   # where each language's problems start, to set aside those of languages that aren't live yet
     for lang in LANGS:
+        if lang != 'en' and not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')): continue   # not translated yet
+        counts = int(lang == 'en' or lang in LIVE or lang == only)   # a preview site's gaps are listed, not counted (below)
         try:
             blog_words = json.loads(rd(f'i18n/blog/{lang}.json'))
         except (OSError, ValueError):
-            print(f'  {lang} blog: missing or invalid i18n/blog/{lang}.json'); problems += 1
+            print(f'  {lang} blog: missing or invalid i18n/blog/{lang}.json'); problems += counts
             continue
         for key in ('heading', 'coming_soon', 'newer', 'older', 'page', 'feed_title', 'feed_description', 'date_format'):
             if not isinstance(blog_words.get(key), str) or not blog_words[key].strip():
-                print(f'  {lang} blog: no translation for {key}'); problems += 1
+                print(f'  {lang} blog: no translation for {key}'); problems += counts
     for lang in [l for l in LANGS if l != 'en' and (only is None or l == only)]:
         if not os.path.exists(os.path.join(ROOT, 'i18n', f'{lang}.json')):
             continue   # not translated yet
+        starts[lang] = problems
+        if lang in PREVIEW_LEARN and not has_learn(lang):
+            print(f'  {lang}: --learn: no learn-i18n/{lang}/index.html yet, so built without its Learn section')
+        lacking = [f for f in (f'i18n/today/{lang}.json', f'i18n/blog/{lang}.json', f'learn-i18n/{lang}/site.json', f'tools/braille/{lang}.json')
+                   if not os.path.exists(os.path.join(ROOT, f))]
+        if lacking:   # (a new language's words still being written)
+            print(f'  {lang}: not built, no {", ".join(lacking)}'); problems += len(lacking); continue
         expected = build_today.words('en')
         daily = build_today.words(lang)
         for key in expected:
@@ -1154,6 +1202,11 @@ def build(check_only=False):
         nav = T.get('__site__', {}).get('nav', {})
         for k, v in NAV_TEXT['en'].items():   # the header's words
             if not nav.get(k): print(f'  {lang} header: no translation for "{k}": {v}'); problems += 1
+        for key, table in (('say', SAY), ('consent', CONSENT_TEXT), ('menu', MENU_LABEL), ('skip', SKIP_LABEL)):   # Indie, the cookie note, the menu
+            if lang not in table and not T.get('__site__', {}).get(key):
+                print(f'  {lang}: no translation for __site__ "{key}"'); problems += 1
+        if lang not in FOOTER_TEXT or lang not in NEW_TAB_TEXT:
+            print(f'  {lang}: no footer headings or new-tab note (FOOTER_TEXT, NEW_TAB_TEXT)'); problems += 1
         out = os.path.join(ROOT, 'dist', lang)
         if not check_only:
             shutil.rmtree(out, ignore_errors=True); os.makedirs(out)
@@ -1168,7 +1221,8 @@ def build(check_only=False):
             os.makedirs(os.path.dirname(os.path.join(out, page)), exist_ok=True)
             open(os.path.join(out, page), 'w', encoding='utf-8').write(html_out)
         if check_only: continue
-        shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns('*.pdf', '*.brf', '*-braille.txt', '*.epub'))
+        skip = ('*.pdf', '*.brf', '*-braille.txt', '*.epub') + (() if lang == 'hi' else ('NotoSansDevanagari-*', 'OFL-NotoSansDevanagari.txt'))   # Devanagari: Hindi only
+        shutil.copytree(os.path.join(ROOT, 'assets'), os.path.join(out, 'assets'), ignore=shutil.ignore_patterns(*skip))
         learn_urls = []
         if has_learn(lang):   # that country's own Learn section, teachers page and worksheets
             L = _learn()
@@ -1195,6 +1249,13 @@ def build(check_only=False):
         open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}</urlset>\n')
         refresh_sitemap(os.path.join(out, 'sitemap.xml'), lang)
         open(os.path.join(out, 'README.md'), 'w').write(f'# {lang}.beequation.com\n\nBuilt from Trettbob/beequation.com by tools/build-langs.py. Do not edit here: change the English pages or i18n/{lang}.json there and rebuild.\n')
+    # A language that isn't live yet (in LIVE) is only a preview: its gaps are listed above but don't fail the build or
+    # the daily job, unless it was asked for with --lang.
+    order, total = list(starts) + [None], problems
+    for lang, nxt in zip(order, order[1:]):
+        gaps = (starts[nxt] if nxt else total) - starts[lang]
+        if lang not in LIVE and lang != only and gaps:
+            print(f'  {lang}: {gaps} gap(s) in a preview site (not live yet), not counted'); problems -= gaps
     return problems
 
 if __name__ == '__main__':

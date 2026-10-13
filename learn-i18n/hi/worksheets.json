@@ -1,0 +1,279 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "100 तक छूटी हुई संख्याएँ",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "1, 2, 5 और 10 के क्रम में गिनती"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "दहाई और इकाई",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "दो अंकों की संख्याओं को दहाई और इकाई में बाँटना"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "सैकड़ा, दहाई और इकाई",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "999 तक स्थानीय मान"
+ },
+ {
+  "id": "rounding",
+  "title": "संख्याओं का निकटतम मान",
+  "topic": "counting-and-place-value",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "निकटतम दहाई, सैकड़े और हज़ार तक"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "10 बनाने वाले जोड़े",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1"
+  ],
+  "desc": "वे जोड़े जिनका जोड़ 10 है"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "20 बनाने वाले जोड़े",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "वे जोड़े जिनका जोड़ 20 है"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "20 तक जोड़ और घटाना",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "20 तक के मिले-जुले सवाल"
+ },
+ {
+  "id": "column-addition",
+  "title": "हासिल वाला जोड़",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-3"
+  ],
+  "desc": "तीन अंकों की संख्याओं का खड़ा जोड़, हासिल के साथ"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "उधार वाला घटाना",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "class-3"
+  ],
+  "desc": "तीन अंकों की संख्याओं का खड़ा घटाना, उधार के साथ"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "2, 5 और 10 के पहाड़े",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "पहाड़ों से मिले-जुले सवाल"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "3, 4 और 8 के पहाड़े",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3"
+  ],
+  "desc": "पहाड़ों से मिले-जुले सवाल"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "गुणा तालिका",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3",
+   "class-4",
+   "class-5"
+  ],
+  "desc": "12 × 12 की तालिका भरो"
+ },
+ {
+  "id": "division-facts",
+  "title": "पहाड़ों से भाग",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-3",
+   "class-4"
+  ],
+  "desc": "पहाड़ों की मदद से भाग देना"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "एक अंक की संख्या से गुणा",
+  "topic": "multiplication-and-division",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "तीन अंकों की संख्या × एक अंक की संख्या, खड़ा गुणा"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "कितना भाग रंगा है?",
+  "topic": "fractions",
+  "years": [
+   "class-2",
+   "class-3",
+   "class-4"
+  ],
+  "desc": "आधा, तिहाई, चौथाई और भी"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "किसी संख्या का भिन्न भाग",
+  "topic": "fractions",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "जैसे 12 का ½ और 20 का ¾"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "तुल्य भिन्न",
+  "topic": "fractions",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "छूटी हुई संख्या ढूँढो"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "दसवाँ और सौवाँ भाग",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "भिन्न को दशमलव में लिखना"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "किसी संख्या का प्रतिशत",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "class-5"
+  ],
+  "desc": "10%, 25%, 50% और भी"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "पूरे घंटे और साढ़े",
+  "topic": "telling-the-time",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "घड़ी देखकर समय पढ़ो"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "सवा और पौने",
+  "topic": "telling-the-time",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "घड़ी देखकर समय पढ़ो"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "5-5 मिनट पर समय",
+  "topic": "telling-the-time",
+  "years": [
+   "class-3"
+  ],
+  "desc": "घड़ी देखकर समय पढ़ो"
+ },
+ {
+  "id": "counting-coins",
+  "title": "सिक्के गिनो",
+  "topic": "money",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "भारतीय सिक्कों का जोड़"
+ },
+ {
+  "id": "giving-change",
+  "title": "कितने पैसे वापस मिलेंगे?",
+  "topic": "money",
+  "years": [
+   "class-2",
+   "class-3"
+  ],
+  "desc": "₹20, ₹50 और ₹100 के नोट से बाक़ी पैसे"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "परिमाप और क्षेत्रफल",
+  "topic": "measurement",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "सेंटीमीटर ग्रिड पर आयत"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "समतल आकृतियाँ",
+  "topic": "shape-and-geometry",
+  "years": [
+   "class-1",
+   "class-2"
+  ],
+  "desc": "नाम, भुजाएँ और कोने"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "दंड आलेख पढ़ो",
+  "topic": "data-and-graphs",
+  "years": [
+   "class-4",
+   "class-5"
+  ],
+  "desc": "पसंदीदा फल का सर्वे"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "छूटी हुई संख्या ढूँढो",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "class-3",
+   "class-4",
+   "class-5"
+  ],
+  "desc": "डिब्बे वाली संख्या ढूँढो"
+ }
+]

@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "किसी संख्या का प्रतिशत",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "class-5"
+ ],
+ "desc": "10%, 25%, 50% और भी",
+ "how": "हर सवाल का उत्तर निकालो।",
+ "tip": "10% निकालने के लिए 10 से भाग दो। फिर आगे बढ़ो: 30% यानी 10% का तीन गुना, और 5% यानी 10% का आधा।",
+ "yearsLabel": "कक्षा 5",
+ "htmlLang": "hi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "290 का 50% = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "260 का 5% = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "48 का 25% = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "130 का 40% = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "180 का 10% = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "250 का 10% = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "12 का 25% = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "40 का 5% = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "180 का 5% = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "240 का 30% = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "250 का 30% = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "240 का 20% = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "120 का 50% = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "100 का 75% = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20 का 5% = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "48 का 75% = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "230 का 40% = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "40 का 25% = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "52 का 75% = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "300 का 10% = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ],
+ "hasTactile": false
+}

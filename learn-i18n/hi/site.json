@@ -1,0 +1,179 @@
+{
+  "words": {
+    "html_lang": "hi",
+    "hreflang": "hi-IN",
+    "home": "होम",
+    "learn": "सीखें",
+    "learn_home": "सीखें: मुख्य पेज",
+    "sections": {
+      "topics": "विषय",
+      "years": "कक्षाएँ",
+      "parents": "माता-पिता",
+      "teachers": "शिक्षक",
+      "worksheets": "वर्कशीट",
+      "glossary": "गणित शब्दकोश"
+    },
+    "all_topics": "सभी विषय →",
+    "all_years": "सभी कक्षाएँ →",
+    "year_small": "उम्र {age} वर्ष",
+    "tip": "इंडी का सुझाव",
+    "challenge": "इंडी की चुनौती",
+    "show": "उत्तर देखें",
+    "standard_pdf": "सामान्य PDF",
+    "large_print": "बड़े अक्षरों में",
+    "easy_read": "आसान भाषा में",
+    "show_answers": "उत्तर देखें",
+    "worksheet_questions": "प्रश्न",
+    "worksheet_downloads": "डाउनलोड",
+    "pdf_size_pending": "PDF; फ़ाइल बनने के बाद आकार दिखेगा",
+    "pdf_kb": "{size} KB",
+    "sheet_alt": "“{title}” वर्कशीट की झलक",
+    "download": "PDF डाउनलोड करें",
+    "try_title": "इंडी के साथ अभ्यास करें",
+    "try_text": "Beequation Kids गिनती और जोड़-गुणा के तथ्यों को छत्ते वाली पहेलियों में बदल देता है, और बच्चा अटक जाए तो इंडी इशारा देती है। कोई विज्ञापन नहीं, कोई डेटा इकट्ठा नहीं।",
+    "try_play": "ब्राउज़र में मुफ़्त खेलें",
+    "try_sheets": "मुफ़्त वर्कशीट",
+    "teachers": "शिक्षक",
+    "pack": "शिक्षकों के लिए मुफ़्त पज़ल पैक",
+    "pack_desc": "प्रिंट करने के लिए 24 छत्ता पहेलियाँ",
+    "home_desc": "घर और स्कूल के लिए मुफ़्त गणित मदद, कक्षा 1 से कक्षा 5 तक",
+    "worksheets": "मुफ़्त वर्कशीट",
+    "glossary_blurb": "प्राथमिक कक्षाओं के गणित शब्द आसान भाषा में, हर शब्द के साथ एक उदाहरण और वह कक्षा जिसमें बच्चे उसे आमतौर पर पहली बार पढ़ते हैं। एक अक्षर चुनें:",
+    "m_topics": "विषय",
+    "m_topics_k": "विषय देखें",
+    "m_topics_all": "सभी विषय",
+    "m_years": "कक्षाएँ",
+    "m_years_k": "कक्षा के अनुसार देखें",
+    "m_years_all": "सभी कक्षाएँ",
+    "m_years_hex": "1–5",
+    "m_year_small": "उम्र {age} वर्ष",
+    "m_parents": "माता-पिता के लिए",
+    "m_parents_k": "माता-पिता के लिए गाइड",
+    "m_parents_all": "माता-पिता के लिए सभी गाइड",
+    "m_teachers": "शिक्षकों के लिए",
+    "m_teachers_k": "शिक्षकों के लिए सामग्री",
+    "m_teachers_all": "शिक्षकों के लिए सारी सामग्री",
+    "m_sheets": "वर्कशीट",
+    "m_sheets_k": "विषय के अनुसार मुफ़्त वर्कशीट",
+    "m_sheets_all": "सभी वर्कशीट",
+    "m_sheet_n": [
+      "{n} वर्कशीट",
+      "{n} वर्कशीट"
+    ],
+    "m_glossary": "गणित शब्दकोश",
+    "m_glossary_k": "अ से ह तक गणित के शब्द",
+    "m_glossary_all": "शब्दकोश के सभी शब्द",
+    "alphabet": "अआइईउऊएऐओऔकखगघचछजझटठडढतथदधनपफबभमयरलवशसह",
+    "by": "लेखक: {name}",
+    "reviewed_by": "समीक्षक: {name}",
+    "published_on": "प्रकाशित: {date}",
+    "reviewed_on": "समीक्षा: {date}",
+    "report_error": "गलती की सूचना दें"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "गिनती और स्थानीय मान",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "जोड़ और घटाना",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "गुणा और भाग",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "भिन्न",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "दशमलव और प्रतिशत",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "समय देखना",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "पैसा (रुपये-पैसे)",
+      "glyph": "₹",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "मापन",
+      "glyph": "cm",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "आकृतियाँ और ज्यामिति",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "आँकड़ों का प्रबंधन",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "पैटर्न और बीजगणित",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "मानसिक गणित",
+      "glyph": "⚡",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "class-1",
+      "name": "कक्षा 1",
+      "age": "6 से 7",
+      "short": "1"
+    },
+    {
+      "slug": "class-2",
+      "name": "कक्षा 2",
+      "age": "7 से 8",
+      "short": "2"
+    },
+    {
+      "slug": "class-3",
+      "name": "कक्षा 3",
+      "age": "8 से 9",
+      "short": "3"
+    },
+    {
+      "slug": "class-4",
+      "name": "कक्षा 4",
+      "age": "9 से 10",
+      "short": "4"
+    },
+    {
+      "slug": "class-5",
+      "name": "कक्षा 5",
+      "age": "10 से 11",
+      "short": "5"
+    }
+  ]
+}

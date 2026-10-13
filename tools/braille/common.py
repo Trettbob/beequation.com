@@ -10,10 +10,11 @@ import tempfile
 import unicodedata
 
 ROOT = Path(__file__).resolve().parents[2]
-LANGS = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
+LANGS = 'en fr es de pt it nl pl sv da no fi tr ja ko in hi'.split()   # in, hi: India (Indian English, Hindi)
 LOUIS = Path(os.environ.get('LIBLOUIS_BIN', '/Volumes/External SSD/Projects/devtools/liblouis/bin'))
 TABLEPATH = Path(os.environ.get('LOUIS_TABLEPATH', '/Volumes/External SSD/Projects/devtools/liblouis/share/liblouis/tables'))
-TABLES = dict(zip([c for c in LANGS if c != 'ja'], '''en-ueb-g1.ctb fr-bfu-comp6.utb es-g1.ctb de-g0.utb pt-pt-g1.utb it-it-comp6.utb nl-NL-g0.utb Pl-Pl-g1.utb sv-g0.utb da-dk-g16.ctb no-no-g0.utb fi.utb tr-g1.ctb ko-g1.ctb'''.split()))
+TABLES = dict(zip([c for c in LANGS if c != 'ja'], '''en-ueb-g1.ctb fr-bfu-comp6.utb es-g1.ctb de-g0.utb pt-pt-g1.utb it-it-comp6.utb nl-NL-g0.utb Pl-Pl-g1.utb sv-g0.utb da-dk-g16.ctb no-no-g0.utb fi.utb tr-g1.ctb ko-g1.ctb en-ueb-g1.ctb hi-in-g1.utb'''.split()))
+# Indian English uses uncontracted UEB like English; Hindi uses Bharati braille (hi-in-g1.utb).
 LICENSE = 'https://creativecommons.org/licenses/by/4.0/'
 
 
@@ -80,8 +81,10 @@ def normalise(value, code):
     value = unicodedata.normalize('NFC', value).replace('□', words(code)['empty']).replace('cm²', ' ' + words(code)['squared']).replace('≈', ' ' + words(code)['approximately'] + ' ')
     value = value.translate(str.maketrans({'\u00a0':' ', '\u202f':' ', '’':"'", '‘':"'", '„':'"', '«':'"', '»':'"', '“':'"', '”':'"',
                                          '–':'-', '—':'-', '→':' = ', '…':'...', 'º':'o', 'ª':'a'}))
-    if code in ('es', 'it', 'ko'):
+    if code in ('es', 'it', 'ko', 'hi'):
         value = value.replace('−', '-')
+    if code in ('in', 'hi'):   # neither table has the rupee sign: write the abbreviation Indian print uses
+        value = re.sub(r'₹\s*', 'Rs ' if code == 'in' else 'रु ', value)
     if code == 'it':
         value = value.replace('×', '*').replace('·', '*')
     return value

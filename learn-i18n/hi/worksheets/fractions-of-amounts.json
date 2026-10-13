@@ -1,0 +1,114 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "किसी संख्या का भिन्न भाग",
+ "topic": "fractions",
+ "years": [
+  "class-4",
+  "class-5"
+ ],
+ "desc": "जैसे 12 का ½ और 20 का ¾",
+ "how": "हर सवाल का उत्तर निकालो।",
+ "tip": "पहले हर से भाग दो, फिर अंश से गुणा करो। 20 का ¾: 20 ÷ 4 = 5, फिर 5 × 3 = 15।",
+ "yearsLabel": "कक्षा 4 और 5",
+ "htmlLang": "hi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "35 का <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "6 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "24 का <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "12 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "18 का <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "6 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "30 का <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "20 का <span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "32 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "15 का <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "10 का <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "16 का <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "90 का <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "4 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "20 का <span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "40 का <span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "80 का <span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "40 का <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "36 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "20 का <span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "8 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "25 का <span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "18 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "15 का <span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ],
+ "hasTactile": false
+}

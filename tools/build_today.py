@@ -21,7 +21,9 @@ ROOT = Path(__file__).resolve().parents[1]
 FIRST_DAY = date(2026, 10, 19)
 PUBLISHED = date(2026, 10, 12)   # when /today/ first went live (Article datePublished)
 LAUNCH = date(2026, 11, 1)
-CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko')
+CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi')   # in, hi: India (previews until live)
+# the page language where it isn't the code itself ('in' is Indian English)
+LANGUAGE = {'en': 'en-GB', 'no': 'nb', 'pt': 'pt-BR', 'in': 'en-IN'}
 CONTENT = ROOT.parent / 'growth/content'
 NODE22 = Path('/Volumes/External SSD/Projects/devtools/node/bin/node')
 ROWS = {4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1], 12: [2, 3, 2, 3, 2]}
@@ -167,7 +169,7 @@ def template(code, page, title, content, day, archive, chrome):
     w = words(code)
     path = '/' + page.removesuffix('index.html')
     site = 'https://beequation.com' if code == 'en' else f'https://{code}.beequation.com'
-    language = 'en-GB' if code == 'en' else 'nb' if code == 'no' else 'pt-BR' if code == 'pt' else code
+    language = LANGUAGE.get(code, code)
     data = {'@context': 'https://schema.org', '@type': 'CollectionPage' if archive else 'Article',
             'name' if archive else 'headline': title, 'url': site + path, 'inLanguage': language}
     if not archive:

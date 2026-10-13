@@ -86,6 +86,7 @@ def rd(p): return open(p, encoding='utf-8').read()
 I18N = os.path.join(ROOT, 'learn-i18n')
 # Languages whose own Learn section is built into their site and linked from its header. Add a code once every page
 # in learn-i18n/<code>/ is written and checked (build-langs.py --learn <code> builds one that isn't, to preview it).
+# India's two sites ('in' Indian English, 'hi' Hindi) have learn-i18n/in and learn-i18n/hi but are not live yet.
 LEARN_LIVE = {'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
 # Every word the Learn templates and the header's Learn menu use. learn-i18n/<code>/site.json "words" overrides them.
 WORDS = {
@@ -134,6 +135,8 @@ class Site:
         cfg = {} if self.en else json.load(open(os.path.join(self.src, 'site.json'), encoding='utf-8'))
         self.w = {**WORDS, **cfg.get('words', {})}
         self.w['sections'] = {**SECTIONS, **self.w['sections']}
+        # hreflang for search engines: the page language, unless site.json gives a regional one (Hindi: hi-IN)
+        self.hreflang = self.w.get('hreflang', self.w['html_lang'])
         self.topics = TOPICS if self.en else [(t['slug'], t['name'], t['glyph'], t['colour']) for t in cfg['topics']]
         # school years: slug, name, age, US grade (English only), and the short label for the menu's hexagons
         self.years = YEARS if self.en else [(y['slug'], y['name'], y['age'], y.get('us', '')) for y in cfg['years']]
@@ -487,7 +490,7 @@ def alternates(rel, S):
     sites = [EN] + [site_of(c) for c in sorted(LEARN_LIVE | ({S.lang} - {'en'}))]
     have = [x for x in sites if x.has(rel) or (x.en and rel == PACK)]   # (English's teachers.html is a root page)
     if len(have) < 2: return ''
-    tag = lambda x: f'<link rel="alternate" hreflang="{x.w["html_lang"]}" href="{x.main}{url_of(rel)}">'
+    tag = lambda x: f'<link rel="alternate" hreflang="{x.hreflang}" href="{x.main}{url_of(rel)}">'
     return ('<!--learn-hreflang-->\n' + '\n'.join(tag(x) for x in have) +
             f'\n<link rel="alternate" hreflang="x-default" href="{MAIN}{url_of(rel)}">\n<!--/learn-hreflang-->\n')
 

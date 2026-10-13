@@ -98,7 +98,7 @@ def posts(root, code, learn, output):
 def news_alternates(root, rel, learn):
     have = [c for c in CODES if (source_dir(root, 'blog', c) / rel).is_file()]
     if len(have) < 2: return ''
-    tags = [f'<link rel="alternate" hreflang="{learn.site_of(c).w["html_lang"]}" href="{host(c)}/blog/{rel}">' for c in have]
+    tags = [f'<link rel="alternate" hreflang="{learn.site_of(c).hreflang}" href="{host(c)}/blog/{rel}">' for c in have]
     default = 'en' if 'en' in have else have[0]
     tags.append(f'<link rel="alternate" hreflang="x-default" href="{host(default)}/blog/{rel}">')
     return '\n'.join(tags)

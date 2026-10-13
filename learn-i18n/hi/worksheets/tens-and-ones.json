@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "दहाई और इकाई",
+ "topic": "counting-and-place-value",
+ "years": [
+  "class-1",
+  "class-2"
+ ],
+ "desc": "दो अंकों की संख्याओं को दहाई और इकाई में बाँटना",
+ "how": "हर संख्या को दहाई और इकाई में बाँटो।",
+ "tip": "बाईं ओर का अंक बताता है कि कितनी दहाइयाँ हैं। 47 में 4 दहाई और 7 इकाई हैं।",
+ "yearsLabel": "कक्षा 1 और 2",
+ "htmlLang": "hi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "7 दहाई, 9 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "3 दहाई, 6 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "5 दहाई, 8 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "1 दहाई, 9 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "9 दहाई, 0 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "9 दहाई, 5 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "2 दहाई, 3 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "6 दहाई, 8 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "6 दहाई, 4 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "3 दहाई, 3 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "1 दहाई, 2 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "8 दहाई, 1 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "6 दहाई, 7 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "3 दहाई, 5 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "6 दहाई, 0 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "1 दहाई, 8 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "1 दहाई, 6 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "8 दहाई, 8 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "5 दहाई, 4 इकाई"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> दहाई और <span class=\"bx\">□</span> इकाई",
+   "a": "3 दहाई, 1 इकाई"
+  }
+ ],
+ "hasTactile": false
+}

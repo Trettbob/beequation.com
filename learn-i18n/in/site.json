@@ -1,0 +1,178 @@
+{
+  "words": {
+    "html_lang": "en-IN",
+    "home": "Home",
+    "learn": "Learn",
+    "learn_home": "Learn home",
+    "sections": {
+      "topics": "Topics",
+      "years": "Classes",
+      "parents": "Parents",
+      "teachers": "Teachers",
+      "worksheets": "Worksheets",
+      "glossary": "Maths glossary"
+    },
+    "all_topics": "All topics →",
+    "all_years": "All classes →",
+    "year_small": "age {age}",
+    "tip": "Indie's tip",
+    "challenge": "Indie's challenge",
+    "show": "Show the answer",
+    "standard_pdf": "Standard PDF",
+    "large_print": "Large print",
+    "easy_read": "Easy-read",
+    "show_answers": "Show answers",
+    "worksheet_questions": "Questions",
+    "worksheet_downloads": "Downloads",
+    "pdf_size_pending": "PDF; size available after generation",
+    "pdf_kb": "{size} KB",
+    "sheet_alt": "Preview of the {title} worksheet",
+    "download": "Download PDF",
+    "try_title": "Practise with Indie",
+    "try_text": "Beequation Kids turns number facts into honeycomb puzzles, with Indie giving a hint when a child is stuck. No ads and no data collected.",
+    "try_play": "Play free in your browser",
+    "try_sheets": "Free worksheets",
+    "teachers": "Teachers",
+    "pack": "Free puzzle pack for teachers",
+    "pack_desc": "24 honeycomb puzzles to print",
+    "home_desc": "Free maths help for home and school, Class 1 to Class 5",
+    "worksheets": "Free worksheets",
+    "glossary_blurb": "Primary maths words explained simply, each with an example and the class in which children usually meet it. Pick a letter:",
+    "m_topics": "Topics",
+    "m_topics_k": "Browse topics",
+    "m_topics_all": "All topics",
+    "m_years": "Classes",
+    "m_years_k": "Browse classes",
+    "m_years_all": "All classes",
+    "m_years_hex": "1–5",
+    "m_year_small": "Age {age}",
+    "m_parents": "For parents",
+    "m_parents_k": "Guides for parents",
+    "m_parents_all": "All parent guides",
+    "m_teachers": "For teachers",
+    "m_teachers_k": "Resources for teachers",
+    "m_teachers_all": "All teacher resources",
+    "m_sheets": "Worksheets",
+    "m_sheets_k": "Free worksheets by topic",
+    "m_sheets_all": "All worksheets",
+    "m_sheet_n": [
+      "{n} worksheet",
+      "{n} worksheets"
+    ],
+    "m_glossary": "Maths glossary",
+    "m_glossary_k": "Maths words from A to Z",
+    "m_glossary_all": "All glossary words",
+    "alphabet": "abcdefghijklmnopqrstuvwxyz",
+    "by": "By {name}",
+    "reviewed_by": "Reviewed by {name}",
+    "published_on": "Published {date}",
+    "reviewed_on": "Reviewed on {date}",
+    "report_error": "Report an error"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "Counting and place value",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "Addition and subtraction",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "Multiplication and division",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "Fractions",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "Decimals and percentages",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "Telling the time",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "Money",
+      "glyph": "₹",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "Measurement",
+      "glyph": "cm",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "Shapes and geometry",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "Data handling",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "Patterns and algebra",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "Mental maths",
+      "glyph": "⚡",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "class-1",
+      "name": "Class 1",
+      "age": "6 to 7",
+      "short": "1"
+    },
+    {
+      "slug": "class-2",
+      "name": "Class 2",
+      "age": "7 to 8",
+      "short": "2"
+    },
+    {
+      "slug": "class-3",
+      "name": "Class 3",
+      "age": "8 to 9",
+      "short": "3"
+    },
+    {
+      "slug": "class-4",
+      "name": "Class 4",
+      "age": "9 to 10",
+      "short": "4"
+    },
+    {
+      "slug": "class-5",
+      "name": "Class 5",
+      "age": "10 to 11",
+      "short": "5"
+    }
+  ]
+}
