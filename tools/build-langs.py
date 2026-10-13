@@ -325,7 +325,7 @@ NAV_TEXT = {'en': {
     'kids_desc': 'Ages 5 to 12, with Indie the bee', 'pro_desc': 'Teens and adults, daily puzzle',
     'howto': 'How to play', 'howto_desc': 'The rules in one minute', 'online': 'Play online', 'online_desc': 'Free in your browser',
     'side_kicker': 'Free to try', 'side_text': 'Play puzzles in your browser. No sign-up and no ads.',
-    'about': 'About Beequation', 'about_desc': 'No ads, no tracking, made in the UK'}}
+    'about': 'About Beequation', 'about_desc': 'No ads, no tracking'}}
 # The Learn section and the teachers page are on beequation.com, and on a language site once its own, written for that
 # country's schools, is ready (build-learn.py's LEARN_LIVE, or --learn <code> to preview one). Their words, topics and
 # school years come from build-learn.py (English) or learn-i18n/<code>/site.json.
