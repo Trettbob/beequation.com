@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Chrome tagged-PDF metadata and unmarked decoration repair; validate with veraPDF.
+// Chrome tagged-PDF metadata, unmarked decoration and ToUnicode repair; validate with veraPDF.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createRequire} from 'node:module';
@@ -237,6 +237,215 @@ function repairContent(pdf,lib) {
   }
   return {streamsChanged,artifactRuns};
 }
+// ToUnicode repair (PDF/UA-1 7.21.7): Skia maps glyphs made by shaping (Devanagari reph, rakar,
+// conjuncts, matra variants, NullMark) to U+0000 and covers each such cluster with a /Span /ActualText.
+// The real text of an unmapped glyph is its cluster's ActualText minus the text of the other glyphs.
+// A glyph has one ToUnicode value per font, so the most common reading wins (reph is र् in र्ष, but
+// part of ई after इ). Readers that honour ActualText still get each exact cluster.
+const ZERO_WIDTH='\u034F'; // COMBINING GRAPHEME JOINER: default-ignorable, keeps the grapheme cluster.
+const UNKNOWN='\uFFFD';
+const badUnits=s=>/[\0\uFEFF\uFFFE]/.test(s);
+const utf16=hex=>{const b=Buffer.from(hex.length%4?hex.padEnd(hex.length+4-hex.length%4,'0'):hex,'hex');let s='';for(let i=0;i+1<b.length;i+=2)s+=String.fromCharCode((b[i]<<8)|b[i+1]);return s;};
+const toHex=s=>Array.from({length:s.length},(_,i)=>s.charCodeAt(i).toString(16).toUpperCase().padStart(4,'0')).join('');
+const hexOf=t=>t.raw.slice(1,-1).replace(/\s/g,'').toUpperCase();
+function stringBytes(t) {
+  if(t.type==='hex'){const h=hexOf(t);return Buffer.from(h.length%2?h+'0':h,'hex');}
+  if(t.type!=='string')return null;
+  const s=t.raw.slice(1,-1),out=[];
+  for(let i=0;i<s.length;i++) {
+    const c=s[i];
+    if(c!=='\\'){out.push(c.charCodeAt(0));continue;}
+    const n=s[++i];
+    if(/[0-7]/.test(n)){let o=n;while(o.length<3 && /[0-7]/.test(s[i+1]))o+=s[++i];out.push(parseInt(o,8)&255);}
+    else if(n==='\r'){if(s[i+1]==='\n')i++;}
+    else if(n!=='\n' && n!==undefined)out.push(({n:10,r:13,t:9,b:8,f:12})[n]??n.charCodeAt(0));
+  }
+  return Buffer.from(out);
+}
+function textString(t) {
+  const b=stringBytes(t);if(!b)return null;
+  if(b[0]===0xFE && b[1]===0xFF)return utf16(b.subarray(2).toString('hex'));
+  if(b[0]===0xEF && b[1]===0xBB && b[2]===0xBF)return b.subarray(3).toString('utf8');
+  return b.toString('latin1');
+}
+// Codes are uppercase hex; bfrange entries are expanded so every code can be replaced individually.
+export function parseToUnicode(source) {
+  const s=Buffer.isBuffer(source)?source.toString('latin1'):source,tokens=tokenizeContent(s);
+  const map=new Map(),ranges=[];let first=null,end=null;
+  for(let i=0;i<tokens.length;i++) {
+    const t=tokens[i];if(t.type!=='word')continue;
+    if(t.value==='endcmap'){end=t.start;break;}
+    if(t.value==='begincodespacerange')for(i++;tokens[i] && tokens[i].value!=='endcodespacerange';i+=2)ranges.push([hexOf(tokens[i]),hexOf(tokens[i+1])]);
+    if(t.value!=='beginbfchar' && t.value!=='beginbfrange')continue;
+    if(first===null)first=tokens[i-1]?.type==='number'?tokens[i-1].start:t.start;
+    const close=t.value==='beginbfchar'?'endbfchar':'endbfrange';
+    for(i++;tokens[i] && tokens[i].value!==close;) {
+      if(t.value==='beginbfchar'){const src=tokens[i],dst=tokens[i+1];if(src?.type!=='hex' || dst?.type!=='hex')throw Error('Unsupported ToUnicode bfchar');map.set(hexOf(src),utf16(hexOf(dst)));i+=2;continue;}
+      const [lo,hi,dst]=tokens.slice(i,i+3);i+=3;
+      if(lo?.type!=='hex' || hi?.type!=='hex')throw Error('Unsupported ToUnicode bfrange');
+      const width=hexOf(lo).length,a=parseInt(hexOf(lo),16),b=parseInt(hexOf(hi),16);
+      if(b<a || b-a>65535)throw Error('Invalid ToUnicode bfrange');
+      const items=dst.type==='array'?tokenizeContent(dst.raw.slice(1,-1)):null;
+      for(let c=a;c<=b;c++) {
+        const code=c.toString(16).toUpperCase().padStart(width,'0');
+        if(items){if(items[c-a]?.type!=='hex')throw Error('Short ToUnicode bfrange array');map.set(code,utf16(hexOf(items[c-a])));continue;}
+        if(dst?.type!=='hex')throw Error('Unsupported ToUnicode bfrange');
+        const base=utf16(hexOf(dst)),last=base.charCodeAt(base.length-1)+(c-a);
+        map.set(code,base.slice(0,-1)+String.fromCharCode(last&0xFFFF));
+      }
+    }
+  }
+  if(first===null || end===null)throw Error('ToUnicode CMap has no mappings or endcmap');
+  const bytes=ranges.length?ranges[0][0].length/2:2;
+  if(ranges.some(([lo,hi])=>lo.length!==bytes*2 || hi.length!==bytes*2))throw Error('Mixed-width ToUnicode code spaces are not supported');
+  return {map,bytes,head:s.slice(0,first),tail:s.slice(end)};
+}
+export function writeToUnicode({map,head,tail}) {
+  const entries=[...map].sort(([a],[b])=>a.length-b.length || (a<b?-1:a>b?1:0));
+  let body='';
+  for(let i=0;i<entries.length;i+=100) {
+    const chunk=entries.slice(i,i+100);
+    body+=`${chunk.length} beginbfchar\n${chunk.map(([c,u])=>`<${c}> <${toHex(u)}>`).join('\n')}\nendbfchar\n`;
+  }
+  return head+body+tail;
+}
+// Fonts draw some Devanagari vowels from other glyphs (ई as इ + reph, ो as ा + े-sign). These are the
+// Unicode "do not use" look-alike sequences; they are tried only when a cluster does not decompose.
+const LOOK_ALIKE=new Map([[0x0906,[0x0905,0x093E]],[0x0908,[0x0907,0x0930,0x094D]],[0x0910,[0x090F,0x0947]],[0x0911,[0x0905,0x0949]],
+  [0x0913,[0x0905,0x094B]],[0x0914,[0x0905,0x094C]],[0x0949,[0x093E,0x0945]],[0x094A,[0x093E,0x0946]],[0x094B,[0x093E,0x0947]],[0x094C,[0x093E,0x0948]]]);
+const lookAlike=t=>{const out=[];const add=c=>{const e=LOOK_ALIKE.get(c);if(e)e.forEach(add);else out.push(c);};for(const ch of t)add(ch.codePointAt(0));return String.fromCodePoint(...out);};
+// spans: [{text, glyphs:[key]}]; known(key) gives a mapped glyph's text, or undefined when it needs a value.
+// family(key) optionally names the same glyph in another weight of the same font (same glyph order).
+// Returns Map(key -> text); '' means the glyph carries no text of its own (written as ZERO_WIDTH).
+export function resolveGlyphText(spans,unknownKeys,known,family=()=>null) {
+  const resolved=new Map(),text=k=>resolved.has(k)?resolved.get(k):known(k);
+  const remainder=span=>subtract(span,span.text) ?? subtract(span,lookAlike(span.text));
+  const subtract=(span,whole)=>{
+    const rest=[...whole];
+    for(const k of span.glyphs) {
+      const t=text(k);if(t===undefined){if(unknownKeys.has(k))continue;return null;}
+      for(const ch of t.replaceAll(ZERO_WIDTH,'')){const i=rest.indexOf(ch);if(i<0)return null;rest.splice(i,1);}
+    }
+    return rest.join('');
+  };
+  const borrow=()=>{
+    const borrowed=new Map();
+    for(const [k,t] of resolved){const f=family(k);if(f!==null && !borrowed.has(f))borrowed.set(f,t);}
+    let copied=false;
+    for(const k of unknownKeys){const f=family(k);if(!resolved.has(k) && f!==null && borrowed.has(f)){resolved.set(k,borrowed.get(f));copied=true;}}
+    return copied;
+  };
+  const pending=()=>spans.map(span=>({span,open:span.glyphs.filter(k=>unknownKeys.has(k) && !resolved.has(k))})).filter(x=>x.open.length);
+  for(;;) {
+    const open=pending();if(!open.length)break;
+    const votes=new Map();
+    for(const {span,open:keys} of open) {
+      if(keys.length!==1)continue;
+      const r=remainder(span);if(r===null)continue;
+      const v=votes.get(keys[0])??new Map();v.set(r,(v.get(r)??0)+1);votes.set(keys[0],v);
+    }
+    if(votes.size) {
+      // Most common reading; prefer real text over an empty one, then the shorter.
+      for(const [k,v] of votes)resolved.set(k,[...v].sort(([a,x],[b,y])=>y-x || (!a)-(!b) || a.length-b.length || (a<b?-1:1))[0][0]);
+      continue;
+    }
+    // A glyph whose clusters never decompose borrows its reading from another weight of the font.
+    if(borrow())continue;
+    // Several unmapped glyphs only ever occur together: the first carries the remaining cluster text.
+    const next=open.find(({span})=>remainder(span)!==null);
+    if(!next)break;
+    resolved.set(next.open[0],remainder(next.span));
+  }
+  borrow(); // also for mapped glyphs that no cluster uses
+  return resolved;
+}
+function repairToUnicode(pdf,lib) {
+  const {PDFName:N,PDFDict,PDFArray,PDFRawStream,PDFRef,PDFHexString,PDFString,decodePDFRawStream}=lib,ctx=pdf.context;
+  const key=s=>N.of(s),decode=s=>Buffer.from(decodePDFRawStream(s).decode()).toString('latin1');
+  const fonts=new Map(); // font dict -> {ref, cmap, id, family} or null
+  const fontInfo=dict=>{
+    if(!fonts.has(dict)) {
+      const ref=dict.get(key('ToUnicode')),stream=ref&&ctx.lookup(ref);
+      // Identity-encoded CIDFonts share glyph IDs across weights of one family (Skia keeps original GIDs).
+      const descendant=dict.lookupMaybe(key('DescendantFonts'),PDFArray)?.lookup(0,PDFDict);
+      const identity=/^\/Identity-[HV]$/.test(dict.get(key('Encoding'))?.toString()??'') && [undefined,'/Identity'].includes(descendant?.get(key('CIDToGIDMap'))?.toString());
+      const family=identity?dict.get(key('BaseFont'))?.toString().replace(/^\/(?:[A-Z]{6}\+)?/,'').replace(/-[^-]*$/,''):null;
+      let cmap=null;
+      // A CMap this parser does not support is left exactly as it is.
+      if(stream instanceof PDFRawStream)try{cmap=parseToUnicode(decode(stream));}catch{}
+      fonts.set(dict,cmap?{ref,cmap,id:fonts.size,family:family||null}:null);
+    }
+    return fonts.get(dict);
+  };
+  // Skia writes every font as an indirect object: without a bad value among them, leave the PDF alone.
+  for(const [,obj] of ctx.enumerateIndirectObjects())if(obj instanceof PDFDict && obj.get(key('ToUnicode')) && ['/Type0','/TrueType','/Type1','/Type3'].includes(obj.get(key('Subtype'))?.toString()))fontInfo(obj);
+  const bad=()=>[...fonts.values()].some(f=>f && [...f.cmap.map.values()].some(badUnits));
+  if(!bad())return {toUnicodeFixed:0,toUnicodeUnknown:0};
+  const spans=[];
+  function scan(text,resources,state,marks,seen) {
+    const fontRes=resources?.lookupMaybe(key('Font'),PDFDict),props=resources?.lookupMaybe(key('Properties'),PDFDict);
+    let operands=[];const stack=[];
+    for(const t of tokenizeContent(text)) {
+      if(t.type!=='word' && t.type!=='inlineImage'){operands.push(t);continue;}
+      const op=t.value,args=operands;operands=[];
+      if(op==='q')stack.push(state.font);
+      else if(op==='Q')state.font=stack.pop()??state.font;
+      else if(op==='Tf'){const f=fontRes?.lookupMaybe(key(args[0]?.value??''),PDFDict);state.font=f?fontInfo(f):null;}
+      else if(op==='BMC')marks.push(null);
+      else if(op==='BDC') {
+        let dict=null;
+        if(args[1]?.type==='dict'){const items=tokenizeContent(args[1].raw.slice(2,-2));for(let i=0;i+1<items.length;i+=2)if(items[i].type==='name' && items[i].value==='ActualText')dict=textString(items[i+1]);}
+        else if(args[1]?.type==='name'){const p=props?.lookupMaybe(key(args[1].value),PDFDict)?.lookup(key('ActualText'));if(p instanceof PDFHexString || p instanceof PDFString)dict=p.decodeText();}
+        marks.push(dict===null?null:{text:dict,glyphs:[]});
+      }
+      else if(op==='EMC'){const m=marks.pop();if(m)spans.push(m);}
+      else if(op==='Do') {
+        const form=resources?.lookupMaybe(key('XObject'),PDFDict)?.lookup(key(args[0]?.value??''));
+        if(form instanceof PDFRawStream && form.dict.get(key('Subtype'))?.toString()==='/Form' && !seen.has(form))
+          scan(decode(form),form.dict.lookupMaybe(key('Resources'),PDFDict)??resources,{...state},marks,new Set([...seen,form]));
+      }
+      else if(textShows.has(op)) {
+        const strings=op==='TJ'?tokenizeContent(args[0].raw.slice(1,-1)).filter(x=>x.type==='hex' || x.type==='string'):[args.at(-1)];
+        const span=marks.findLast(Boolean);
+        for(const s of strings) {
+          const b=stringBytes(s),f=state.font;if(!b)continue;
+          if(!f){if(span)span.glyphs.push('?');continue;}
+          for(let i=0;i+f.cmap.bytes<=b.length;i+=f.cmap.bytes) {
+            if(span)span.glyphs.push(`${f.id}:${b.subarray(i,i+f.cmap.bytes).toString('hex').toUpperCase()}`);
+          }
+        }
+      }
+    }
+  }
+  for(const page of pdf.getPages()) {
+    const entry=page.node.get(key('Contents'));if(!entry)continue;
+    const contents=ctx.lookup(entry);
+    const streams=contents instanceof PDFArray?Array.from({length:contents.size()},(_,i)=>ctx.lookup(contents.get(i),PDFRawStream)):[contents];
+    scan(streams.map(decode).join('\n'),page.node.Resources(),{font:null},[],new Set());
+  }
+  const unknown=new Set();
+  for(const f of fonts.values())if(f)for(const [code,u] of f.cmap.map)if(badUnits(u))unknown.add(`${f.id}:${code}`);
+  if(!unknown.size)return {toUnicodeFixed:0,toUnicodeUnknown:0};
+  const byId=new Map([...fonts.values()].filter(Boolean).map(f=>[f.id,f]));
+  const known=k=>{if(k==='?')return undefined;const [id,code]=k.split(':'),u=byId.get(Number(id))?.cmap.map.get(code);return u===undefined || unknown.has(k)?undefined:u;};
+  const family=k=>{const [id,code]=k.split(':'),f=byId.get(Number(id))?.family;return f?`${f}:${code}`:null;};
+  const resolved=resolveGlyphText(spans,unknown,known,family);
+  const inSpans=new Set(spans.flatMap(s=>s.glyphs));
+  let fixed=0,guessed=0;
+  for(const k of unknown) {
+    const [id,code]=k.split(':'),f=byId.get(Number(id)),old=f.cmap.map.get(code);
+    let u=resolved.get(k);
+    // Still unknown: inside ActualText clusters it adds no text of its own; elsewhere keep any valid units.
+    if(u===undefined){const stripped=old.replace(/[\0\uFEFF\uFFFE]/g,'');u=inSpans.has(k)?'':stripped||UNKNOWN;guessed++;}
+    f.cmap.map.set(code,u===''?ZERO_WIDTH:u);f.changed=true;fixed++;
+  }
+  for(const f of byId.values()) {
+    if(!f.changed)continue;
+    const stream=ctx.flateStream(writeToUnicode(f.cmap));
+    if(f.ref instanceof PDFRef)ctx.assign(f.ref,stream);else throw Error('Inline ToUnicode stream cannot be repaired');
+  }
+  return {toUnicodeFixed:fixed,toUnicodeUnknown:guessed};
+}
 const xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 export function buildXMP(title,lang) {
   if(!title || !title.trim())throw Error('PDF must have a non-empty Title');
@@ -288,8 +497,8 @@ export async function fixPDF(file,{lang,langFromPath=false,optional=false,module
   let mark=pdf.catalog.lookupMaybe(PDFName.of('MarkInfo'),PDFDict);
   if(!mark){mark=pdf.context.obj({});pdf.catalog.set(PDFName.of('MarkInfo'),mark);changed=true;}
   if(mark.lookup(PDFName.of('Marked'))!==PDFBool.True){mark.set(PDFName.of('Marked'),PDFBool.True);changed=true;}
-  const repair=repairContent(pdf,lib);
-  if(!changed && !repair.streamsChanged)return {skipped:false,file,title:pdf.getTitle(),lang,...repair,unchanged:true};
+  const repair={...repairContent(pdf,lib),...repairToUnicode(pdf,lib)};
+  if(!changed && !repair.streamsChanged && !repair.toUnicodeFixed)return {skipped:false,file,title:pdf.getTitle(),lang,...repair,unchanged:true};
   const output=await pdf.save({useObjectStreams:false});
   // Save beside the file and rename only after success; preserve its permissions.
   const tempDir=await fs.mkdtemp(path.join(path.dirname(file),'.bq-pdf-ua-'));

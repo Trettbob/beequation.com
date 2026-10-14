@@ -60,3 +60,48 @@ test('malformed streams fail closed rather than writing partial repairs',()=>{
   assert.equal(typeof fixer.wrapArtifacts,'function');
   for(const src of ['(unterminated','[1 2','<< /x 1','<zz>','EMC','/P BMC 0 0 m S','Q','q 0 0 m S','BT (hi) Tj','ET','BI /W 8 /H 1 /BPC 8 /CS /G ID short'])assert.throws(()=>fixer.wrapArtifacts(src));
 });
+
+test('ToUnicode CMaps round-trip, with ranges expanded to individual codes',()=>{
+  const head='/CIDInit /ProcSet findresource begin\n12 dict begin\nbegincmap\n1 begincodespacerange\n<0000> <FFFF>\nendcodespacerange\n';
+  const tail='endcmap\nCMapName currentdict /CMap defineresource pop\nend\nend';
+  const cmap=fixer.parseToUnicode(`${head}2 beginbfchar\n<0005> <0905>\n<005B> <0000>\nendbfchar\n2 beginbfrange\n<0038> <003A> <0915>\n<0040> <0041> [<0930094D> <FEFF>]\nendbfrange\n${tail}`);
+  assert.equal(cmap.bytes,2);
+  assert.deepEqual([...cmap.map],[['0005','अ'],['005B','\0'],['0038','क'],['0039','ख'],['003A','ग'],['0040','र्'],['0041','\uFEFF']]);
+  cmap.map.set('005B','ज्ञ');
+  const text=fixer.writeToUnicode(cmap);
+  assert.ok(text.startsWith(head) && text.endsWith(tail));
+  assert.match(text,/7 beginbfchar\n<0005> <0905>\n<0038> <0915>/);
+  assert.deepEqual([...fixer.parseToUnicode(text).map].sort(),[...cmap.map].sort());
+});
+
+test('unmapped shaped glyphs take their cluster ActualText minus the other glyphs, by majority',()=>{
+  // Noto Sans Devanagari glyphs: reph, iMatra variant, t_ra, iMatra_anusvara, NullMark have no Unicode of their own.
+  const known={ssa:'ष',i:'इ',ta:'त',ka:'क',ba:'ब',ra:'र'};
+  const unknown=new Set(['reph','iMatra','t_ra','iMatraAnusvara','nullMark','orphan']);
+  const spans=[
+    {text:'र्ष',glyphs:['ssa','reph']},{text:'र्ष',glyphs:['ssa','reph']},
+    {text:'ई',glyphs:['i','reph']}, // ई drawn as इ + reph: inconsistent, so it does not vote
+    {text:'त्रि',glyphs:['iMatra','t_ra']}, // resolved once iMatra is known
+    {text:'ति',glyphs:['iMatra','ta']},
+    {text:'किं',glyphs:['iMatraAnusvara','ka','nullMark']},
+    {text:'बिं',glyphs:['iMatraAnusvara','ba','nullMark']},
+    {text:'रx',glyphs:['ra','missingFromCMap','orphan']}, // a glyph without any mapping makes the context unusable
+  ];
+  const got=fixer.resolveGlyphText(spans,unknown,k=>known[k]);
+  assert.deepEqual(Object.fromEntries(got),{reph:'र्',iMatra:'ि',t_ra:'त्र',iMatraAnusvara:'िं',nullMark:''});
+});
+
+test('a glyph whose clusters never decompose borrows the reading of the same glyph in another weight',()=>{
+  const known={'bold:i':'इ','medium:ssa':'ष'};
+  const spans=[{text:'x',glyphs:['bold:i','bold:reph']},{text:'र्ष',glyphs:['medium:ssa','medium:reph']}];
+  const unknown=new Set(['bold:reph','medium:reph','semibold:reph']);
+  assert.deepEqual(Object.fromEntries(fixer.resolveGlyphText(spans,unknown,k=>known[k])),{'medium:reph':'र्'});
+  const family=k=>`Noto:${k.split(':')[1]}`;
+  assert.deepEqual(Object.fromEntries(fixer.resolveGlyphText(spans,unknown,k=>known[k],family)),{'medium:reph':'र्','bold:reph':'र्','semibold:reph':'र्'});
+});
+
+test('vowels drawn from look-alike glyphs decompose by the Unicode do-not-use sequences',()=>{
+  const known={i:'इ',ga:'ग',aa:'ा'};
+  const spans=[{text:'ई',glyphs:['i','reph']},{text:'र्गों',glyphs:['ga','aa','eRephAnusvara']},{text:'xy',glyphs:['i','stray']}];
+  assert.deepEqual(Object.fromEntries(fixer.resolveGlyphText(spans,new Set(['reph','eRephAnusvara','stray']),k=>known[k])),{reph:'र्',eRephAnusvara:'र्ें'});
+});

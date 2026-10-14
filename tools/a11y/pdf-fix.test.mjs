@@ -78,6 +78,38 @@ test('page arrays and shared/nested Forms are repaired without artifacting tagge
   } finally {await fs.rm(tmp,{recursive:true,force:true});}
 });
 
+test('zero ToUnicode values from shaped Devanagari are rewritten from ActualText; clean fonts are untouched',async()=>{
+  const {PDFDocument,PDFName,PDFRawStream,decodePDFRawStream}=lib;
+  const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'bq-pdf-tounicode-'));
+  try {
+    const pdf=await PDFDocument.create();pdf.setTitle('ToUnicode');pdf.setLanguage('hi');
+    pdf.catalog.set(PDFName.of('StructTreeRoot'),pdf.context.register(pdf.context.obj({Type:'StructTreeRoot'})));
+    const cmap=body=>pdf.context.register(pdf.context.flateStream(`/CIDInit /ProcSet findresource begin\n12 dict begin\nbegincmap\n/CMapName /Adobe-Identity-UCS def\n/CMapType 2 def\n1 begincodespacerange\n<0000> <FFFF>\nendcodespacerange\n${body}endcmap\nCMapName currentdict /CMap defineresource pop\nend\nend`));
+    const font=(name,toUnicode)=>pdf.context.register(pdf.context.obj({Type:'Font',Subtype:'Type0',BaseFont:name,Encoding:'Identity-H',ToUnicode:toUnicode,
+      DescendantFonts:[pdf.context.obj({Type:'Font',Subtype:'CIDFontType2',BaseFont:name,CIDToGIDMap:'Identity'})]}));
+    const latinMap=cmap('1 beginbfrange\n<0001> <0003> <0041>\nendbfrange\n');
+    const devaMap=cmap('5 beginbfchar\n<0056> <0937>\n<0007> <0907>\n<01FA> <0000>\n<0221> <FEFF>\n<0047> <0924>\nendbfchar\n');
+    const page=pdf.addPage();
+    page.node.set(PDFName.of('Resources'),pdf.context.obj({Font:{F1:font('AAAAAA+NotoSansDevanagari-Medium',devaMap),F2:font('BAAAAA+Fredoka-Medium',latinMap)}}));
+    page.node.set(PDFName.of('Contents'),pdf.context.register(pdf.context.flateStream([
+      '/P <</MCID 0>> BDC BT /F2 12 Tf <000100020003> Tj /F1 12 Tf',
+      '/Span<</ActualText <FEFF093009370937> >> BDC <005601FA> Tj EMC', // a minority reading (रष) loses to र् below
+      '/Span<</ActualText <FEFF0930094D0937> >> BDC <0056> Tj <01FA> Tj EMC',
+      '/Span<</ActualText (\\376\\377\\011\\044\\011\\077) >> BDC [<0221> -20 <0047>] TJ EMC', // ति as a literal UTF-16 string
+      '/Span<</ActualText <FEFF0908> >> BDC <000701FA> Tj EMC ET EMC', // ई drawn as इ + reph
+    ].join('\n'))));
+    const file=path.join(tmp,'deva.pdf');await fs.writeFile(file,await pdf.save({useObjectStreams:false}));
+    const result=await fixPDF(file,{lang:'hi'});
+    assert.equal(result.toUnicodeFixed,2);assert.equal(result.toUnicodeUnknown,0);
+    const fixed=await PDFDocument.load(await fs.readFile(file),{updateMetadata:false});
+    const decode=ref=>Buffer.from(decodePDFRawStream(fixed.context.lookup(ref,PDFRawStream)).decode()).toString('latin1');
+    const {parseToUnicode}=await import('./pdf-ua-fix.mjs');
+    assert.deepEqual(Object.fromEntries(parseToUnicode(decode(devaMap)).map),{'0007':'\u0907','0047':'\u0924','0056':'\u0937','01FA':'\u0930\u094D','0221':'\u093F'});
+    assert.equal(decode(latinMap),Buffer.from(decodePDFRawStream(pdf.context.lookup(latinMap,PDFRawStream)).decode()).toString('latin1'),'a font without bad values keeps its CMap');
+    const first=await fs.readFile(file);await fixPDF(file,{lang:'hi'});assert.deepEqual(await fs.readFile(file),first,'idempotent');
+  } finally {await fs.rm(tmp,{recursive:true,force:true});}
+});
+
 test('directory CLI uses catalog Lang then learn-i18n path, recursively, without following symlinks',async()=>{
   const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'bq-pdf-tree-'));
   try {
