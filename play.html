@@ -233,8 +233,10 @@ a.candy { text-decoration: none; text-align: center; }
 .stack > .screen-column, .stack > .game-controls, .stack > .game-aside { margin-top: 0; }
 .game-board { margin: 0 -20px; }
 
-/* Match LANDSCAPE below. Small CSS viewports (including phone zoom) reflow as a stack. */
-@media (orientation: landscape) and (min-width: 600px) and (min-height: 280px) {
+/* Match LANDSCAPE below: short landscape screens (phones turned sideways, small windows) get two columns.
+   Taller screens (desktops, tablets) keep the centred single column. Small CSS viewports (including phone zoom)
+   reflow as a stack. */
+@media (orientation: landscape) and (min-width: 600px) and (min-height: 280px) and (max-height: 600px) {
   #app { max-width: 1120px; min-height: 0; padding: 12px max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px)); }
   .screen-columns { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 24px; align-items: start; }
   .screen-column { display: block; min-width: 0; }
@@ -1201,7 +1203,7 @@ function wirePreferences() {
 
 // ---------- boards ----------
 const ROWS = { 4: [1, 2, 1], 5: [2, 1, 2], 7: [2, 3, 2], 9: [1, 2, 3, 2, 1], 12: [2, 3, 2, 3, 2] };
-const LANDSCAPE = '(orientation: landscape) and (min-width: 600px) and (min-height: 280px)';
+const LANDSCAPE = '(orientation: landscape) and (min-width: 600px) and (min-height: 280px) and (max-height: 600px)';
 function fitBoardBox(width, height, availableWidth, availableHeight) {
   const scale = Math.max(0, Math.min(availableWidth / width, availableHeight / height));
   return { width: width * scale, height: height * scale };
