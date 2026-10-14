@@ -73,6 +73,8 @@ body.grape { background: var(--grape); color: #fff; }
 #app { max-width: 460px; margin: 0 auto; padding: 18px 20px 28px; min-height: 100vh; position: relative; overflow-x: hidden; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; }
 button:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; }
+/* Headings take focus only so screen readers announce a new screen; they are not controls, so no ring. */
+h1[tabindex="-1"]:focus { outline: none; }
 /* Two contrasting hexagon outlines stay inside the board, above its artwork. */
 .cell, .cell:focus { outline: none; }
 .cell .focus-edge { visibility: hidden; stroke-width: 0; pointer-events: none; }
@@ -233,7 +235,7 @@ a.candy { text-decoration: none; text-align: center; }
 
 /* Match LANDSCAPE below. Small CSS viewports (including phone zoom) reflow as a stack. */
 @media (orientation: landscape) and (min-width: 600px) and (min-height: 280px) {
-  #app { max-width: none; min-height: 0; padding: 12px max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px)); }
+  #app { max-width: 1120px; min-height: 0; padding: 12px max(20px, env(safe-area-inset-right, 0px)) 12px max(20px, env(safe-area-inset-left, 0px)); }
   .screen-columns { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 24px; align-items: start; }
   .screen-column { display: block; min-width: 0; }
   .stack > .screen-column + .screen-column > :first-child { margin-top: 0; }
@@ -1338,6 +1340,7 @@ const boardTools = () => `<button class="btn b-plain" data-read aria-keyshortcut
 
 // ---------- router ----------
 let redrawGame = null;
+let rendered = false;
 let stack = (q => waggleFrom(location.search) ? [{ name: 'a_home' }, { name: 'a_waggle', w: waggleFrom(location.search) }] : kidsWaggleFrom(location.search) ? [{ name: 'k_home' }, { name: 'k_wag', w: kidsWaggleFrom(location.search) }] :q.get('app') === 'pro' && q.get('daily') === '1' ? [{ name: 'a_home' }, { name: 'a_game', mode: 'mixed', tier: 5, kind: 'daily' }] : [{ name: q.get('app') === 'kids' ? 'k_home' : q.get('app') === 'pro' ? 'a_home' : 'choose' }])(new URLSearchParams(location.search)), cleanup = null;
 const go = r => { stack.push(r); render(); };
 const back = () => { if (stack.length > 1) stack.pop(); render(); };
@@ -1372,8 +1375,10 @@ function render() {
   document.body.className = r.name === 'choose' ? '' : kids ? (r.name === 'k_win' ? 'kids grape' : 'kids') : (r.name === 'a_game' ? 'adult night' : 'adult');
   SCREENS[r.name](r);
   const heading = app.querySelector('h1');
-  if (heading) { heading.tabIndex = -1; heading.focus(); }
-  // Heading focus announces navigation once; it does not also go through a live region.
+  // Heading focus announces navigation once; it does not also go through a live region. Not on page load: the
+  // page itself is announced then.
+  if (heading) { heading.tabIndex = -1; if (rendered) heading.focus(); }
+  rendered = true;
   window.scrollTo(0, 0);
 }
 app.addEventListener('keydown', e => {
