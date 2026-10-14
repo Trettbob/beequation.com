@@ -1,26 +1,27 @@
 {
-  "lang": "in",
+  "lang": "en-IN",
   "docTitle": "Beequation's classroom puzzle pack",
   "mul": "×",
   "sums": "Addition hives",
   "times": "Multiplication hives",
-  "howSums": "Find one number that is the <b>sum</b> of two others. Circle it and write the addition sentence.",
-  "howTimes": "Find one number that is the <b>product</b> of two others. Circle it and write the multiplication sentence.",
+  "howSums": "In each hive, one number is the <b>sum</b> of two others. Circle it, then write the addition sentence.",
+  "howTimes": "In each hive, one number is the <b>product</b> of two others. Circle it, then write the multiplication sentence.",
   "sheetOf": "Sheet {n} of 2",
-  "name": "Name:",
-  "date": "Date:",
-  "time": "Time, if you want to record it:",
+  "name": "Name",
+  "date": "Date",
+  "time": "Time (optional)",
   "answerKey": "Answers",
   "forGrownUps": "For parents and teachers",
-  "inClass": "Use a hive as a board starter, solve it in pairs, or keep the sheets for a quiet practice activity. Ask children to explain which two numbers they used.",
+  "inClass": "Using this in class",
   "tips": [
+    "Put one hive on the board as a warm-up, let children solve it in pairs, and ask them to explain which two numbers they used.",
     "Begin with an addition hive. Children can use counters or draw dots before writing a number sentence.",
     "For multiplication, choose tables the class has already explored through equal groups and arrays.",
     "A timer is optional. A clear explanation matters more than finishing first."
   ],
-  "promo": "<b>Meet Indie, Beequation's honeybee.</b> She invites you to look for a connection between three numbers. Try another hive at beequation.com.",
-  "footer": "This puzzle pack is shared under CC BY 4.0. Credit Beequation (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/",
+  "promo": "<b>More puzzles with Indie the honeybee.</b> Play free at in.beequation.com, or look for Beequation Kids on your phone or tablet: no ads, no tracking, no timers.",
+  "footer": "Free to share and adapt under CC BY 4.0, with credit to Beequation (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/",
   "hexAlt": "A number hive containing {list}",
   "listSep": ", ",
-  "partOf": "Hive {n} of {total}"
+  "partOf": "Part {n} of {total}"
 }
