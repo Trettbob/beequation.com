@@ -431,8 +431,8 @@ only as a heritage aside (**UNCERTAIN** spellings), never as something children 
 - **Decimal point:** a point: 2.5, read "दो दशमलव पाँच"; ₹25.50.
 - **Full stop in Hindi text: "।" (पूर्ण विराम)**, never "." at the end of a Hindi sentence. Keep "." only inside numbers
   (2.5), units and abbreviations (म.स., ल.स., सेमी optional). Question mark "?" and comma "," as usual.
-- **Fractions:** stacked (½, ¾); read **"तीन बटा चार"** (¾), "एक बटा दो" (½), and in words **आधा, एक-चौथाई, तीन-चौथाई,
-  एक-तिहाई, दो-तिहाई**. Mixed: 2¾ "दो पूर्णांक तीन बटा चार" (textbook) or "पौने तीन" (everyday). **अंश (numerator) / हर
+- **Fractions:** stacked (½, ¾); read **"तीन बटे चार"** (¾), "एक बटे दो" (½), and in words **आधा, एक-चौथाई, तीन-चौथाई,
+  एक-तिहाई, दो-तिहाई**. Mixed: 2¾ "दो पूर्णांक तीन बटे चार" (textbook) or "पौने तीन" (everyday). **अंश (numerator) / हर
   (denominator)**.
 - **Percent:** 25%, read "पच्चीस प्रतिशत" (speech also "परसेंट").
 - **Money:** ₹ before the number: **₹50, ₹25.50** (no space on our pages); read "पचास रुपये", "पच्चीस रुपये पचास पैसे". Older
@@ -519,7 +519,7 @@ term in brackets the first time on each page: "भागफल (quotient)".
 | गुणनखंड, गुणज | factor, multiple | |
 | अभाज्य संख्या, भाज्य (संयुक्त) संख्या | prime, composite | भाज्य clash with dividend |
 | महत्तम समापवर्तक (म.स.), लघुत्तम समापवर्त्य (ल.स.) | HCF, LCM | कक्षा 5 in many books |
-| भिन्न; अंश; हर | fraction; numerator; denominator | ¾ = "तीन बटा चार" |
+| भिन्न; अंश; हर | fraction; numerator; denominator | ¾ = "तीन बटे चार" |
 | इकाई भिन्न | unit fraction | |
 | समतुल्य भिन्न | equivalent fractions | |
 | उचित / विषम (अनुचित) / मिश्रित भिन्न | proper / improper / mixed fraction | **UNCERTAIN** which NCERT uses for improper |
