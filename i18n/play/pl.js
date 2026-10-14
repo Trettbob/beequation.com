@@ -74,6 +74,7 @@ const T = {
   helps: 'W każdej zagadce dziecko szuka liczby, która powstaje z dwóch innych. To utrwala rozkład liczb i ćwiczy szybkie liczenie w pamięci. Podpowiedzi Indie pomagają zachować spokój, a gwiazdki łagodnie uwzględniają podpowiedzi i pomyłki. Nie ma zegara, z którym trzeba się ścigać.',
   progress: 'Postępy', reset: 'Zresetuj postępy', resetAsk: 'Usunąć gwiazdki i naklejki na tym urządzeniu?', resetDone: 'Postępy zresetowane',
   // Beequation Pro (the player is addressed with "ty", Twój capitalised)
+  previewHive: 'Ul podglądowy',
   streakAria: n => `Seria: ${n} ${n === 1 ? 'dzień' : 'dni'}`, dailyOn: d => `Wyzwanie dnia, ${d}`, hiveNo: n => `Ul nr ${n}`, doneIn: t => `Ukończone w czasie ${t}. Nowy ul o północy.`,
   tenMixed: 'Dziesięć mieszanych łamigłówek. Dziś wszyscy grają w te same.', seeResult: 'Zobacz swój wynik', playToday: 'Zagraj w dzisiejszy ul', blitzTile: 'Blitz 60 s',
   best: n => `Rekord: ${n}`, beatClock: 'Wyścig z czasem', hiveSub: 'Dla ekspertów, 4 w 1', practice: 'Trening', highest: 'Najwyższy osiągnięty poziom', notStarted: 'Nie rozpoczęto',

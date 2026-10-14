@@ -77,6 +77,7 @@ const T = {
   helps: "Ogni rompicapo chiede di trovare un numero formato da altri due. Così i bambini allenano le relazioni tra i numeri e il calcolo mentale veloce. Gli aiutini di Indie mantengono il clima sereno, e le stelle contano aiutini ed errori con delicatezza: non c'è nessun cronometro da battere.",
   progress: 'Progressi', reset: 'Azzera i progressi', resetAsk: 'Cancellare le stelle e le figurine su questo dispositivo?', resetDone: 'Progressi azzerati',
   // Beequation Pro
+  previewHive: 'Alveare in anteprima',
   streakAria: n => `Serie di ${n} ${n === 1 ? 'giorno' : 'giorni'}`, dailyOn: d => `Sfida del giorno, ${d}`, hiveNo: n => `Alveare n. ${n}`, doneIn: t => `Fatto in ${t}. A mezzanotte arriva un nuovo alveare.`,
   tenMixed: 'Dieci rompicapi misti, oggi uguali per tutti.', seeResult: 'Vedi il tuo risultato', playToday: "Gioca l'alveare di oggi", blitzTile: 'Blitz 60 s',
   best: n => `Record ${n}`, beatClock: 'Sfida il tempo', hiveSub: 'Esperti, 4 in 1', practice: 'Allenamento', highest: 'Livello più alto raggiunto', notStarted: 'Non iniziato',

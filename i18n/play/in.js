@@ -69,6 +69,7 @@ const T = {
   helps: 'Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Indie keep it calm, and stars count hints and slips gently, so there is no clock to beat.',
   progress: 'Progress', reset: 'Reset progress', resetAsk: 'Clear stars and stickers on this device?', resetDone: 'Progress reset',
   // Beequation Pro
+  previewHive: 'Preview hive',
   streakAria: n => `${n}-day streak`, dailyOn: d => `Daily Pro, ${d}`, hiveNo: n => `Hive No. ${n}`, doneIn: t => `Done in ${t}. A new hive opens at midnight.`,
   tenMixed: 'Ten mixed puzzles. Everyone plays the same ones today.', seeResult: 'See your result', playToday: 'Play today\'s hive', blitzTile: '60s Blitz',
   best: n => `Best ${n}`, beatClock: 'Beat the clock', hiveSub: 'Expert, 4 into 1', practice: 'Practice', highest: 'Highest level reached', notStarted: 'Not started',

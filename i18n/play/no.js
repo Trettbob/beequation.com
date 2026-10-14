@@ -70,6 +70,7 @@ const T = {
   helps: 'I hver oppgave skal barnet finne et tall som er laget av to andre. Det bygger tallforståelse, tiervenner og rask hoderegning. Tips fra Indie holder stemningen rolig, og stjernene teller tips og feil på en snill måte, så det er ingen klokke å slå.',
   progress: 'Fremgang', reset: 'Nullstill fremgangen', resetAsk: 'Vil du slette stjerner og klistremerker på denne enheten?', resetDone: 'Fremgangen er nullstilt',
   // Beequation Pro
+  previewHive: 'Forhåndsvisning av kuben',
   streakAria: n => `${n} ${n === 1 ? 'dag' : 'dager'} på rad`, dailyOn: d => `Dagens kube, ${d}`, hiveNo: n => `Kube nr. ${n}`, doneIn: t => `Løst på ${t}. En ny kube åpnes ved midnatt.`,
   tenMixed: 'Ti blandede oppgaver. Alle spiller de samme i dag.', seeResult: 'Se resultatet ditt', playToday: 'Spill dagens kube', blitzTile: 'Blitz 60 s',
   best: n => `Rekord ${n}`, beatClock: 'Slå klokken', hiveSub: 'Ekspert, 4 i 1', practice: 'Øving', highest: 'Høyeste nivå nådd', notStarted: 'Ikke startet',

@@ -17,6 +17,16 @@ test('daily shares contain two five-cell rows, optional streak and tagged local 
   assert.match(sharing.dailyText({ ...result, hard: true, untimed: true, slips: [0, 0, 0, 0, 0, 0, 0, 0, 0, -1] }), /^Beequation No\. 123★ 🐝 No slips\n.*\n.*🟫/);
 });
 
+test('preview shares omit the number while preserving every other result detail', () => {
+  const result = { number: null, seconds: 47, slips: [0, 1, 2, 0, 0, 0, 0, 1, 2, 0], streak: 12 };
+  const expected = 'Preview hive 🐝 0:47\n🍯🟨🟧🍯🍯\n🍯🍯🟨🟧🍯\n🐝 12-day hive streak\nhttps://fr.beequation.com/today/?utm_source=share&utm_medium=daily&utm_campaign=hive';
+  assert.equal(sharing.dailyText(result, 'https://fr.beequation.com'), expected);
+  assert.equal(sharing.dailyText({ ...result, number: undefined }, 'https://fr.beequation.com'), expected);
+  assert.equal(sharing.dailyText({ ...result, number: 1 }, 'https://fr.beequation.com'), expected.replace('Preview hive', 'Beequation No. 1'));
+  const words = { previewHive: 'Ruche en aperçu', noSlips: 'Aucune erreur', streak: 'série de {n} jours' };
+  assert.equal(sharing.dailyText({ ...result, hard: true, untimed: true, slips: [0, 0, 0, 0, 0, 0, 0, 0, 0, -1] }, 'https://fr.beequation.com', words), 'Ruche en aperçu★ 🐝 Aucune erreur\n🍯🍯🍯🍯🍯\n🍯🍯🍯🍯🟫\n🐝 série de 12 jours\nhttps://fr.beequation.com/today/?utm_source=share&utm_medium=daily&utm_campaign=hive');
+});
+
 test('waggle codec strictly validates version, modes, tiers, seeds and scores', () => {
   const round = { kind: 'blitz', mode: 'mul', tier: 5, seed: 4294967295, score: 14 };
   assert.deepEqual(sharing.decodeWaggle(sharing.encodeWaggle(round)), round);

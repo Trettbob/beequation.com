@@ -70,6 +70,7 @@ const T = {
   helps: '퍼즐마다 아이는 다른 두 수로 만들어진 수를 찾아요. 이 과정에서 수 가르기와 모으기, 빠른 암산 실력이 자라요. 인디의 힌트 덕분에 차분하게 풀 수 있고, 별은 힌트와 실수를 너그럽게 반영해요. 시간제한도 없어요.',
   progress: '진행 상황', reset: '진행 상황 초기화', resetAsk: '이 기기에 저장된 별과 스티커를 지울까요?', resetDone: '진행 상황을 초기화했어요',
   // Beequation Pro
+  previewHive: '미리보기 벌집',
   streakAria: n => `${n}일 연속`, dailyOn: d => `데일리 프로 · ${d}`, hiveNo: n => `${n}호 벌집`, doneIn: t => `${t} 만에 완료. 자정에 새 벌집이 열려요.`,
   tenMixed: '혼합 퍼즐 10개. 오늘은 모두가 같은 퍼즐을 풀어요.', seeResult: '결과 보기', playToday: '오늘의 벌집 풀기', blitzTile: '60초 블리츠',
   best: n => `최고 ${n}`, beatClock: '시간과의 승부', hiveSub: '전문가용, 넷에서 하나로', practice: '연습', highest: '최고 도달 레벨', notStarted: '시작 전',

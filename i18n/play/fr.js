@@ -75,6 +75,7 @@ const T = {
   helps: 'Chaque défi demande à votre enfant de repérer un nombre formé à partir de deux autres. Cela consolide les tables d’addition et de multiplication, et le calcul mental rapide. Les indices d’Indie rendent le jeu apaisant, et les étoiles tiennent compte des indices et des erreurs en douceur : il n’y a pas de chrono à battre.',
   progress: 'Progression', reset: 'Réinitialiser la progression', resetAsk: 'Effacer les étoiles et les autocollants de cet appareil ?', resetDone: 'Progression réinitialisée',
   // Beequation Pro
+  previewHive: 'Ruche en aperçu',
   streakAria: n => `Série de ${n} ${n > 1 ? 'jours' : 'jour'}`, dailyOn: d => `Défi du jour, ${d}`, hiveNo: n => `Ruche n° ${n}`, doneIn: t => `Terminé en ${t}. Une nouvelle ruche arrive à minuit.`,
   tenMixed: 'Dix grilles mixtes, les mêmes pour tout le monde aujourd’hui.', seeResult: 'Voir votre résultat', playToday: 'Jouer la ruche du jour', blitzTile: 'Blitz 60 s',
   best: n => `Record : ${n}`, beatClock: 'Battez le chrono', hiveSub: 'Expert, 4 en 1', practice: 'Entraînement', highest: 'Plus haut niveau atteint', notStarted: 'Pas encore commencé',

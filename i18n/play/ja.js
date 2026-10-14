@@ -69,6 +69,7 @@ const T = {
   helps: 'どのパズルも、ほかの2つの数からできている数を見つけるものです。数の合成・分解の力と、すばやい暗算の力が身につきます。インディのヒントで落ち着いて取り組めて、星はヒントやミスをやさしく数えるだけ。時間制限はありません。',
   progress: '学習の記録', reset: '記録をリセット', resetAsk: 'この端末の星とシールを消去しますか？', resetDone: '記録をリセットしました',
   // Beequation Pro
+  previewHive: 'プレビューのハチの巣',
   streakAria: n => `${n}日連続`, dailyOn: d => `デイリーチャレンジ・${d}`, hiveNo: n => `ハチの巣 No.${n}`, doneIn: t => `${t}でクリア。午前0時に新しいハチの巣が登場します。`,
   tenMixed: 'ミックス問題が10問。今日は全員が同じ問題に挑戦します。', seeResult: '結果を見る', playToday: '今日のハチの巣に挑戦', blitzTile: '60秒アタック',
   best: n => `自己ベスト${n}問`, beatClock: '時間との勝負', hiveSub: 'エキスパート・4→1', practice: '練習', highest: '到達した最高レベル', notStarted: '未プレイ',

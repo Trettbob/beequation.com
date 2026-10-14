@@ -71,6 +71,7 @@ const T = {
   helps: 'I hver opgave skal dit barn finde et tal, der er lavet af to andre. Det styrker talforståelsen og den hurtige hovedregning. Indies tips holder stemningen rolig, og stjernerne tæller tips og fejl blidt med, så ingen skal kæmpe mod uret.',
   progress: 'Fremskridt', reset: 'Nulstil fremskridt', resetAsk: 'Vil du slette stjerner og klistermærker på denne enhed?', resetDone: 'Fremskridt nulstillet',
   // Beequation Pro
+  previewHive: 'Forhåndsvisning af bikuben',
   streakAria: n => `${n} ${n === 1 ? 'dag' : 'dage'} i træk`, dailyOn: d => `Dagens bikube, ${d}`, hiveNo: n => `Bikube nr. ${n}`, doneIn: t => `Klaret på ${t}. En ny bikube åbner ved midnat.`,
   tenMixed: 'Ti blandede opgaver. Alle spiller de samme i dag.', seeResult: 'Se dit resultat', playToday: 'Spil dagens bikube', blitzTile: 'Blitz 60 s',
   best: n => `Rekord ${n}`, beatClock: 'Kæmp mod uret', hiveSub: 'Ekspert, 4 i 1', practice: 'Træning', highest: 'Højeste bane nået', notStarted: 'Ikke startet',
