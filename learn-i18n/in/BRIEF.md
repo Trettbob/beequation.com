@@ -12,6 +12,11 @@ marked **UNCERTAIN**: leave it out of the pages, or phrase it loosely ("many sch
 back up a fact, the writer must open that source first and check it says what the page says. Do not invent
 statistics, studies, quotes, exact dates or chapter titles.
 
+**Fact check, 2026-10-14.** The UNCERTAIN items were checked against official sources (NCERT textbook PDFs, MoE/PIB,
+NIPUN guidelines, NCF-FS, NCF-SE, PARAKH, RBI, NIEPVD). Items that an official page settled now say "(confirmed: …)"
+or give the corrected fact; the rest are still marked **UNCERTAIN**. URLs and quotes for every item are in
+`learn-i18n/in/FACTS.md`; open that before linking a source.
+
 Official bodies and documents a writer may link (check each link before using it):
 
 - **Ministry of Education**, Government of India (education.gov.in): the **National Education Policy 2020 (NEP 2020)**,
@@ -45,7 +50,9 @@ and names (primary school, middle school…) have not all changed.
   elementary education (Classes 1 to 8) in a neighbourhood school. Private unaided schools must keep 25% of entry-level
   seats for children from disadvantaged groups (RTE section 12(1)(c)); mention only if relevant, never in detail.
 - **Age for Class 1:** NEP 2020's stages assume a child starts Class 1 at **6**. The Ministry of Education has written
-  to states (from 2023 onwards) asking them to set **6+ as the minimum age for Class 1**. Many states have moved to 6+,
+  to states asking them to set **6+ as the minimum age for Class 1** (confirmed: PIB, 22 Feb 2023, on a letter of
+  9 Feb 2023 that "reiterated" the direction). The NIPUN Bharat guidelines use the same bands: "Class I or age 6-7",
+  "Class II or age 7-8", "Class III or age 8-9" (confirmed: NIPUN guidelines). Many states have moved to 6+,
   but some still admitted children at 5+ until recently, and **each state sets its own cut-off date** (for example
   31 March, 1 April, 31 May, 30 June or 31 July: which state uses which is **UNCERTAIN**). On pages: "Most children
   start Class 1 at about 6, though the exact age and cut-off date depend on your state." Our fixed ages are
@@ -59,7 +66,7 @@ and names (primary school, middle school…) have not all changed.
 
 | Board / system | What it means for primary maths |
 |---|---|
-| **CBSE** (Central Board of Secondary Education) | The largest national board. Its schools follow the NCERT curriculum. At primary level CBSE does not set exams; schools set their own tests. **KVs** (Kendriya Vidyalayas, central government schools) and **JNVs** (Jawahar Navodaya Vidyalayas) are CBSE schools that use NCERT books. Many **private CBSE schools use private-publisher maths books in Classes 1 to 5** alongside or instead of NCERT (CBSE has repeatedly asked schools to use NCERT books; how strictly this applies at primary is **UNCERTAIN**). |
+| **CBSE** (Central Board of Secondary Education) | The largest national board. Its schools follow the NCERT curriculum. At primary level CBSE does not set exams; schools set their own tests. **KVs** (Kendriya Vidyalayas, central government schools) and **JNVs** (Jawahar Navodaya Vidyalayas) are CBSE schools that use NCERT books. Many **private CBSE schools use private-publisher maths books in Classes 1 to 5** alongside or instead of NCERT (CBSE has repeatedly asked schools to use NCERT books (confirmed: CBSE circular 10/2017, citing Acad/13/2016); how strictly this applies at primary is **UNCERTAIN**). |
 | **CISCE** ("ICSE board": ICSE is its Class 10 exam, ISC its Class 12 exam) | Mostly private English-medium schools. Publishes its own curriculum guidelines for primary classes; schools choose private-publisher textbooks. Content is broadly similar, often a little ahead (for example more on large numbers, Roman numerals, factors). Details **UNCERTAIN**: don't describe an "ICSE primary syllabus" in specifics. |
 | **State boards** | Each state's education department and its **SCERT** set the syllabus and books for government (and many private) schools. Examples: Uttar Pradesh (primary schools run by the **Basic Shiksha Parishad**; UP's "UP Board" is the secondary board), Maharashtra (**Balbharati** textbooks), Tamil Nadu (**Samacheer Kalvi**, the state's uniform system), Karnataka, Kerala, West Bengal, Bihar, Rajasthan, Madhya Pradesh, Gujarat… Several states use NCERT books or adapt them (which states, in which classes, is **UNCERTAIN**). Medium of instruction is often the state language. |
 | **International boards** (IB, Cambridge) | A small number of mostly urban private schools. Don't write for them; don't mention them except perhaps once. |
@@ -88,13 +95,19 @@ and names (primary school, middle school…) have not all changed.
 
 - **NCERT's older primary maths books** were the **Math-Magic** series for Classes 1 to 5 (2006 onwards; Hindi edition
   "गणित का जादू"). Chapters had story titles, not topic names. Many state books were based on them.
-- **New NCERT books under NCF-FS / NCF-SE** (free PDFs on the NCERT site):
-  - **Class 1 and Class 2: "Joyful Mathematics"** (2023; Hindi "आनंदमय गणित").
-  - **Class 3: "Maths Mela"** (2024).
-  - **Classes 4 and 5:** new books followed in 2025; the Class 4 and Class 5 maths titles are believed to continue the
-    "Maths Mela" name, but this is **UNCERTAIN**: on pages say "the new NCERT maths books" for Classes 4 and 5, and
-    don't name them.
+- **New NCERT books under NCF-FS / NCF-SE** (free PDFs on the NCERT site; all five classes have new books in 2026-27):
+  - **Class 1 and Class 2: "Joyful Mathematics"** (first edition May 2023; Hindi "आनंदमय गणित") (confirmed: NCERT PDFs).
+  - **Class 3: "Maths Mela"** (first edition April 2024; Hindi "गणित मेला") (confirmed: NCERT PDFs).
+  - **Classes 4 and 5: "Maths Mela"** too (Class 4 first edition March 2025, Class 5 June 2025; the title pages say
+    "Textbook of Mathematics for Grade 4/5"; Hindi "गणित मेला") (confirmed: NCERT PDFs).
   - Class 6: "Ganita Prakash" (2024) (outside our range; mention only on the Class 5 "what comes next" section, if at all).
+- **What the new NCERT books do and don't contain** (confirmed by searching the 2026-27 PDFs; see FACTS.md): numbers to
+  1,000 in Class 3, thousands in Class 4, ten thousands (5 digits) in Class 5, **no lakhs or crores** and no
+  international system; **> and <** from Class 3; **÷** from Class 3; multiples in Class 4, factors and prime numbers in
+  Class 5; right, acute and obtuse angles but **no degrees or protractor**; pictographs (Class 4) and bar graphs
+  (Class 5); AM/PM and the 24-hour clock in Classes 4 and 5. **Not in the new NCERT Class 1–5 books:** decimals,
+  percentages, Roman numerals, HCF/LCM, BODMAS, average, "face value". Private books often cover these earlier, so on
+  pages keep "many books…", but never say NCERT teaches them.
 - New NCERT chapters still have story titles (a fair, a festival, a journey) rather than "Addition"; **don't quote
   chapter names or chapter numbers** on our pages (the exact titles and order are **UNCERTAIN** and differ between
   books). Describe content by topic instead.
@@ -117,12 +130,18 @@ and names (primary school, middle school…) have not all changed.
 - Festivals and school holidays vary by state and religion; mention them as contexts, not as calendar facts.
 - **Reports:** a **report card** after each term or exam, given out at a **PTM**. Formats differ: marks, percentages or
   grades (A1, A2, B1… or A+, A, B…); many schools use grades instead of marks in Classes 1 and 2. NEP 2020 and PARAKH
-  introduced a **Holistic Progress Card (HPC)** for each stage; how widely schools use it is **UNCERTAIN** (say "some
-  schools now use a holistic progress card").
-- **Detention / repeating a year:** the RTE Act originally had a "no-detention" policy up to Class 8. A 2019 amendment
-  lets states hold regular exams in **Class 5** and Class 8, with a **re-exam within two months** for children who do
-  not pass, after which a child may be held back; central government schools moved to this in late 2024 (**UNCERTAIN**
-  detail; which states use it is also **UNCERTAIN**). On the Class 5 and tests pages say only: "In some states and
+  introduced a **Holistic Progress Card (HPC)** for each stage (confirmed: PARAKH has HPCs for the foundational,
+  preparatory, middle and secondary stages and runs workshops with states); how widely schools use it is
+  **UNCERTAIN** (say "some schools now use a holistic progress card").
+- **Detention / repeating a year:** the RTE Act originally had a "no-detention" policy up to Class 8. The RTE
+  (Amendment) Act 2019 lets states hold regular exams in **Class 5** and Class 8. Under the central rules of
+  21 December 2024, in schools run by the Central Government (Kendriya Vidyalayas, Navodayas and the like) a child who
+  doesn't meet the promotion criteria gets extra teaching and a **re-exam within two months** of the results; if they
+  still don't meet them, they stay in the same class; no child may be expelled before finishing Class 8 (confirmed:
+  PIB, 23 Dec 2024). As of December 2024, 18 States/UTs (among them Bihar, Madhya Pradesh, Rajasthan, Gujarat,
+  Tamil Nadu, West Bengal, Delhi) had moved to exams with detention, while 16 (among them Uttar Pradesh, Maharashtra,
+  Karnataka, Kerala, Andhra Pradesh, Telangana) kept no-detention up to Class 8 (confirmed: same PIB release); state
+  positions may have changed since (**UNCERTAIN** today). On the Class 5 and tests pages say only: "In some states and
   schools, children who don't pass the Class 5 annual exam get a second chance through a re-exam." No dates, no
   section numbers.
 
@@ -153,24 +172,32 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
   for mathematical and computational thinking from the early years. NEP also mentions Indian contributions to
   mathematics (for example zero and the decimal place value system) as something to teach; phrase loosely.
 - **NIPUN Bharat** (National Initiative for Proficiency in Reading with Understanding and Numeracy), launched by the
-  Ministry of Education in **July 2021**, is the FLN mission: its goal is that every child achieves foundational
-  literacy and numeracy **by the end of Class 3, by 2026–27**. It sets learning targets ("Lakshyas") for Balvatika and
-  Classes 1, 2 and 3. The numeracy targets (as recalled; **UNCERTAIN** wording, phrase loosely): by the end of
-  **Class 1**, reading and writing numbers **up to 99** and simple addition and subtraction with small numbers; by the
-  end of **Class 2**, numbers **up to 999** and addition and subtraction **up to 99**; by the end of **Class 3**, numbers
-  **up to 9,999**, addition and subtraction up to **999**, and simple multiplication (and division) facts. On pages:
+  Ministry of Education on **5 July 2021**, is the FLN mission: its goal is that every child achieves foundational
+  literacy and numeracy **by the end of Class 3, by 2026–27** (confirmed: MoE/PIB). It sets learning targets
+  ("Lakshyas") for Balvatika and Classes 1, 2 and 3. The numeracy targets, from the official guidelines (confirmed:
+  NIPUN Bharat guidelines, 2021, pp. 197–199): **Class 1** counts objects up to 20, **reads and writes numbers up to
+  99**, adds and subtracts **numbers up to 9** in daily life; **Class 2** **reads and writes numbers up to 999**, adds and
+  subtracts numbers **up to 99** (sum not exceeding 99), understands multiplication as repeated addition and division as
+  equal sharing, and builds the **tables of 2, 3 and 4**; **Class 3** **reads and writes numbers up to 9,999**, adds and
+  subtracts numbers **up to 999** (sum not exceeding 999), builds and uses the **tables of 2 to 10** and division facts,
+  measures with m, km, g, kg and litres, reads a calendar and **reads the clock in hours and half-hours**, and finds
+  **half, one-fourth and three-fourths** of a whole and of a collection. On pages:
   "The national NIPUN Bharat mission aims for children to read and write numbers up to about 9,999 and to add, subtract
   and begin to multiply confidently by the end of Class 3." Many states run their own "NIPUN" programmes, assessments
   and badges (for example "NIPUN schools"); details **UNCERTAIN**.
-- **NCF-FS 2022** (released October 2022) covers ages 3 to 8 (pre-school + Classes 1 and 2): learning through play,
-  toys, stories, songs, conversation and local materials; **no formal tests or exams in the foundational stage**,
-  assessment through observation and children's work (**UNCERTAIN** exact wording: "the framework discourages tests for
-  young children"). NCERT also made **"Vidya Pravesh"**, a three-month play-based school-readiness module for the start
-  of Class 1 (mention lightly, **UNCERTAIN** how widely used).
-- **NCF-SE 2023** (released August 2023) covers Classes 3 to 12. For the preparatory stage (Classes 3 to 5) it stresses
-  number sense, mental arithmetic and estimation, measuring in real situations, shapes and spatial thinking, patterns,
-  data, puzzles and games, and "mathematical thinking" over memorising procedures (wording **UNCERTAIN**: describe the
-  spirit, don't quote).
+- **NCF-FS 2022** (launched 20 October 2022) covers ages 3 to 8 (pre-school + Classes 1 and 2): learning through play,
+  toys, stories, songs, conversation and local materials; **no formal tests or exams in the foundational stage**:
+  "Explicit tests and examinations are completely inappropriate assessment tools for this Stage", and the two methods
+  of assessment are observing the child and looking at the child's work ("artefacts") (confirmed: NCF-FS pp. 172–173;
+  PIB 22 Feb 2023 for the date). NCERT also made **"Vidya Pravesh"**, a three-month play-based school preparation
+  programme for children entering Class 1; the Ministry reports that all States/UTs have run it since 2022-23
+  (confirmed: MoE achievements note, PIB, July 2023). Mention it lightly.
+- **NCF-SE 2023** (put in the public domain on 23 August 2023) covers Classes 3 to 12. The preparatory stage is "for
+  students aged between 8 and 11"; in maths the focus is "a conceptual understanding of numbers, the four basic
+  operations, shapes and spatial sense, measurement (standard tools and units), and data handling", with procedural
+  fluency and mathematical and computational thinking for daily-life problems; and "Short formal written assessments
+  are appropriate for this stage" alongside teachers' observation (confirmed: NCF-SE pp. 14 and 24; PIB 23 Dec 2024 for
+  the date). Describe the spirit; quote only these exact words if you quote at all.
 - There is **no single national per-Class syllabus** that every school follows; NCERT books are the reference most
   people know. The lists below give **what most children meet in each Class**, merging the NCERT books (old Math-Magic
   and the new ones) and the typical private-publisher books used in CBSE/ICSE private schools. Where the two differ, the
@@ -182,12 +209,12 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 - **Before numbers ("pre-number concepts"):** big/small, tall/short, near/far, top/bottom, inside/outside, before/after,
   more/less, sorting and matching. Very common opening chapters in Indian books.
 - **Numbers:** counting objects; reading and writing numerals **1 to 9, zero, then to 20, to 50 and to 99 or 100**
-  (NIPUN target: up to 99); number names in words ("one", "two"… often to 20 or more); **before, after, between**;
-  **counting forwards and backwards**; comparing with **"greater than / smaller than"** (the symbols > and < are
-  introduced in Class 1 in some books, Class 2 in others: **UNCERTAIN**); **tens and ones** using **bundles of ten
+  (NIPUN target: reads and writes up to 99, counts objects to 20); number names in words ("one", "two"… often to 20 or more); **before, after, between**;
+  **counting forwards and backwards**; comparing with **"greater than / smaller than"** (the symbols > and < come in
+  Class 3 in the new NCERT book (confirmed: Maths Mela 3); some private books bring them in Class 1 or 2: **UNCERTAIN**); **tens and ones** using **bundles of ten
   sticks** ("bundles and sticks", ice-cream sticks or matchsticks); skip counting in 2s, 5s, 10s; ordinal numbers
   (first, second… tenth); even and odd may appear (**UNCERTAIN**, more usual in Class 2).
-- **Addition and subtraction:** putting together and taking away with objects; **within 9, then within 20**; number
+- **Addition and subtraction:** putting together and taking away with objects; **within 9** (the NIPUN Class 1 target), **then within 20**; number
   facts ("pairs that make 10"); the signs +, −, =; simple word problems told as stories; zero in addition and
   subtraction; adding two-digit numbers **without carrying** in some private books (**UNCERTAIN**).
 - **Shapes:** solid objects (round, flat, rolling and sliding things: ball, box, can, dice); flat shapes **circle,
@@ -210,26 +237,29 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
   columns with T and O headings; three-digit numbers in many private books; checking subtraction by adding; word
   problems; mental adding of tens.
 - **Multiplication:** as **repeated addition** and **equal groups** ("4 groups of 3"), the × sign, arrays; **tables
-  of 2, 3, 4, 5 and 10** in most books (and often more; families often start learning tables to 10 at home in Class 2).
-- **Division:** as **equal sharing** and **grouping**, without the ÷ algorithm (the ÷ sign appears in some private
-  books in Class 2, **UNCERTAIN**).
+  of 2, 3, 4, 5 and 10** in most books (the NIPUN Class 2 target is the tables of 2, 3 and 4: confirmed, NIPUN guidelines) (and often more; families often start learning tables to 10 at home in Class 2).
+- **Division:** as **equal sharing** and **grouping**, without the ÷ algorithm (the ÷ sign comes in Class 3 in the
+  new NCERT book (confirmed: Maths Mela 3); in some private books it appears in Class 2, **UNCERTAIN**).
 - **Shapes:** 2D shapes with **sides and corners** (corners also called vertices later), straight lines, 3D shapes
   (cube, cuboid, cylinder, cone, sphere) in private books; tangrams and patterns with shapes.
 - **Measurement:** **centimetre and metre** (with a scale/ruler), kilogram and gram (simple), litre (simple), comparing
   using standard units.
-- **Time:** **reading the clock** to the hour and half hour, often to quarter past/to and 5 minutes in private books
-  (**UNCERTAIN**); days of the week, **months of the year**, reading a calendar.
+- **Time:** **reading the clock** to the hour and half hour (NIPUN expects hours and half-hours by the end of Class 3;
+  the new NCERT Class 3 book has "quarter past 8", "half past 8" and "07:15": confirmed), often to quarter past/to and
+  5 minutes in Class 2 private books (**UNCERTAIN**); days of the week, **months of the year**, reading a calendar.
 - **Money:** coins and notes up to ₹100 (often to ₹500), adding money, simple shopping problems in whole rupees.
 - **Data:** tally marks, simple pictographs.
 - **Patterns:** number and shape patterns, growing patterns.
 
 ### Class 3 (8 to 9)
 
-- **Numbers:** **to 999 in NCERT; to 9,999 in most private books** (NIPUN target by the end of Class 3: up to 9,999).
+- **Numbers:** **to 1,000 in the new NCERT book (confirmed: Maths Mela 3); to 9,999 in most private books** (NIPUN target by the end of Class 3: up to 9,999).
   Place value with **thousands** (Th H T O), **face value and place value** (in 4,582 the face value of 5 is 5 and its
-  place value is 500: a distinctly Indian textbook idea, keep it), expanded form, comparing, ordering, forming the
+  place value is 500: a distinctly Indian textbook idea found in private books, keep it; the new NCERT books don't use
+  the term "face value" (confirmed: not found in the NCERT Class 1–5 PDFs)), expanded form, comparing, ordering, forming the
   greatest and smallest number from given digits, **rounding off to the nearest 10 and 100** in some books, **Roman
-  numerals I to XX (or to 39)** in many private books (**UNCERTAIN**; not in NCERT primary books as far as is known).
+  numerals I to XX (or to 39)** in many private books (**UNCERTAIN**); not in the new NCERT Class 1–5 books (confirmed:
+  NCERT PDFs).
 - **Addition and subtraction:** three- and four-digit numbers with **carrying and borrowing**, including **borrowing
   across a zero** (500 − 278); word problems; estimating sums.
 - **Multiplication:** **tables up to 10** expected by most schools by the end of Class 3 (many go to 12 or further);
@@ -239,14 +269,15 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
   the ÷ sign; dividing a two-digit number by a one-digit number, **with remainders** in private books; the long
   division layout begins in many schools (section 4).
 - **Fractions:** **half, one-fourth (quarter), three-fourths**, one-third: fractions of a shape and of a collection
-  (½ of 12 = 6); numerator and denominator in private books (**UNCERTAIN** whether the new NCERT Class 3 book names
-  them; it does introduce halves and quarters through sharing).
+  (½ of 12 = 6); numerator and denominator in private books. The new NCERT Class 3 book teaches halves and quarters
+  through sharing ("called a quarter") without naming numerator and denominator; the words come in its Class 5 book
+  (confirmed: Maths Mela 3 and 5).
 - **Measurement:** length in **cm, m** (and km in some books), **weight in g and kg**, **capacity in mL and L**; simple
   conversions (1 m = 100 cm, 1 kg = 1000 g, 1 L = 1000 mL).
 - **Time:** reading the clock to **5 minutes** and to the minute in some books, **a.m. and p.m.**, calendar (days in
   each month, leap year), finding durations in hours.
-- **Money:** **rupees and paise** (the NCERT Math-Magic book had a chapter of that name: **UNCERTAIN** for the new
-  book), adding and subtracting money, bills, change.
+- **Money:** **rupees and paise** (the new NCERT books already show paise in Class 2: "100 Paise = 1 Rupee"; confirmed:
+  Joyful Mathematics 2), adding and subtracting money, bills, change.
 - **Shapes:** 2D and 3D shapes, edges/corners/faces, lines (straight, curved, horizontal, vertical, slanting),
   **symmetry** (a line of symmetry: rangoli and butterflies are favourite examples), tangram, simple tiling.
 - **Data:** tally marks, **pictographs** (with a key: "one picture = 5 children"), simple bar graphs in some books.
@@ -254,22 +285,25 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 
 ### Class 4 (9 to 10)
 
-- **Numbers:** **five-digit numbers to 99,999** (ten thousands), the **Indian place value chart** with periods
-  (ones, thousands, lakhs), number names in words, often the **international system** too (in many private books;
-  others wait until Class 5: **UNCERTAIN**), comparing, ordering, rounding off to 10, 100, 1,000, Roman numerals
+- **Numbers:** **five-digit numbers to 99,999** (ten thousands) in many private books (the new NCERT Class 4 book works
+  with thousands, "numbers one thousand and larger in the Indian number system"; ten thousands come in its Class 5
+  book: confirmed), the **Indian place value chart** with periods (ones, thousands, lakhs), number names in words,
+  often the **international system** too in private books (**UNCERTAIN** which class; the new NCERT books don't teach
+  it in Classes 1–5: confirmed), comparing, ordering, rounding off to 10, 100, 1,000, Roman numerals
   (continued in private books).
 - **Operations:** addition and subtraction of four- and five-digit numbers; **multiplication by two-digit (and
   three-digit) numbers**; **long division** by one-digit divisors (and two-digit divisors in some books); checking
   division with **dividend = divisor × quotient + remainder**; word problems with two steps; estimation.
-- **Factors and multiples:** in many private books in Class 4 (NCERT places this in Class 5: **UNCERTAIN** for the new
-  book); even/odd, simple divisibility rules for 2, 5, 10.
+- **Factors and multiples:** in many private books in Class 4; the new NCERT books teach **multiples in Class 4** and
+  **factors and prime numbers in Class 5** (confirmed: Maths Mela 4 and 5); even/odd, simple divisibility rules for 2, 5, 10.
 - **Fractions:** fractions of shapes and quantities, **equivalent fractions**, comparing fractions, like and unlike
   fractions, proper, improper and mixed fractions, adding and subtracting like fractions (private books).
-- **Decimals:** in many books, tenths and hundredths through **money (₹ and paise) and measurement (cm and m)**;
-  NCERT's older books left decimals to Class 5 (**UNCERTAIN** for the new ones).
+- **Decimals:** in many private books, tenths and hundredths through **money (₹ and paise) and measurement (cm and m)**;
+  the new NCERT books don't teach decimals in Classes 1–5 (confirmed: not found in Maths Mela 4 and 5).
 - **Measurement:** **conversions** between km, m, cm, mm; kg and g; L and mL; **perimeter** of shapes (adding the
   sides) and **area by counting squares**.
-- **Time:** **a.m. and p.m.**, the **24-hour clock** in some books (railway timetables), durations, calendar problems.
+- **Time:** **a.m. and p.m.**, the **24-hour clock** (railway timetables; in the new NCERT Class 4 book: confirmed),
+  durations, calendar problems.
 - **Money:** bills, rates ("1 kg costs ₹40, how much for 3 kg?"), profit/loss words in some books (**avoid** on our
   pages; it is not a primary idea in NCERT).
 - **Geometry:** **circle (centre, radius, diameter)** with compasses, angles as turns, right angles, nets of cubes, maps
@@ -279,29 +313,33 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 
 ### Class 5 (10 to 11)
 
-- **Numbers:** **six-digit numbers and beyond: lakhs and crores** (to 1,00,000 for NCERT; private books often go to
-  9-digit numbers, i.e. crores), **Indian and international systems** side by side (10 lakh = 1 million; 1 crore =
+- **Numbers:** **six-digit numbers and beyond: lakhs and crores** in private books (often to 9-digit numbers, i.e.
+  crores). Corrected: the new NCERT Class 5 book stops at five-digit numbers (ten thousands, TTh) and uses neither lakh
+  nor crore (confirmed: Maths Mela 5). **Indian and international systems** side by side in private books (10 lakh = 1 million; 1 crore =
   10 million), commas in both systems, rounding off, Roman numerals (private books).
 - **Operations:** all four operations with large numbers; **long division by two-digit divisors**; order of operations
-  (**BODMAS** in some private books; **UNCERTAIN** whether before Class 6; avoid on our pages unless as "later"),
+  (**BODMAS** in some private books; not in the NCERT Class 1–5 books (confirmed); avoid on our pages unless as
+  "later"),
   estimation; word problems.
 - **Factors and multiples:** factors, multiples, **prime and composite numbers**, divisibility rules, **common
-  factors and multiples, HCF and LCM** (HCF/LCM often in Class 5 private books; NCERT treats them in Class 6:
-  **UNCERTAIN**).
+  factors and multiples, HCF and LCM** (HCF/LCM often in Class 5 private books; not in the NCERT Class 1–5
+  books: confirmed).
 - **Fractions:** equivalent fractions, simplest form, comparing; **adding and subtracting like and unlike fractions**;
   multiplying a fraction by a whole number (and fractions by fractions in some books).
 - **Decimals:** **tenths and hundredths** (and thousandths in some books), decimals in money and measurement, comparing,
-  adding and subtracting decimals.
-- **Percentages:** introduced in many Class 5 private books (per cent as "out of 100", 50% = ½, 25% = ¼); **UNCERTAIN**
-  whether NCERT's Class 5 book covers it. Present percentages gently as "often starts in Class 5 or Class 6".
+  adding and subtracting decimals, in private books (not in the new NCERT Class 5 book: confirmed).
+- **Percentages:** introduced in many Class 5 private books (per cent as "out of 100", 50% = ½, 25% = ¼); NCERT's Class 5
+  book doesn't cover it (confirmed: not found). Present percentages gently as "often starts in Class 5 or Class 6".
 - **Measurement:** **perimeter and area of rectangles and squares** (cm², m²), volume by counting cubes, capacity,
   weight, conversions; temperature (°C) in some books.
-- **Time:** 24-hour clock, durations across noon, time zones are not primary.
+- **Time:** 24-hour clock (the new NCERT Class 5 book has a 12-hour/24-hour table: confirmed), durations across noon,
+  time zones are not primary.
 - **Geometry:** **angles** (right, acute, obtuse; straight angle), measuring angles in **degrees** with a
-  **protractor** (private books; NCERT introduces angle types: **UNCERTAIN** for degrees), circles, nets of 3D shapes,
+  **protractor** (private books; the new NCERT Class 4 and 5 books name right, acute and obtuse angles and quarter
+  turns but don't use degrees or a protractor: confirmed), circles, nets of 3D shapes,
   **symmetry and reflection**, maps, scale drawing (simple).
-- **Data:** bar graphs, line graphs in some books, **average** in some private books (**UNCERTAIN**), pie charts are
-  later (Class 7 or so).
+- **Data:** bar graphs (in the new NCERT Class 5 book: confirmed), line graphs in some books, **average** in some
+  private books (**UNCERTAIN**; not in NCERT Class 1–5: confirmed), pie charts are later (Class 7 or so).
 - **Patterns:** number sequences, triangular and square numbers, magic squares (NCERT books love magic squares and
   puzzles).
 - **What comes next:** Class 6 is the start of the middle stage (new NCERT book "Ganita Prakash"); integers (negative
@@ -312,12 +350,12 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 
 | Topic | Class 1 | Class 2 | Class 3 | Class 4 | Class 5 |
 |---|---|---|---|---|---|
-| Counting and place value | pre-number ideas; numbers to 99/100; tens and ones with bundles and sticks; before/after/between | to 999 (many books; NCERT to 100); H T O; expanded form; even/odd; >, < | to 9,999 (many books); Th H T O; face value and place value; rounding to 10/100 (some books); Roman numerals (private books) | to 99,999; Indian place value chart; rounding; (international system in some books) | lakhs and crores; Indian vs international system; commas |
+| Counting and place value | pre-number ideas; numbers to 99/100; tens and ones with bundles and sticks; before/after/between | to 999 (many books; NCERT to 100); H T O; expanded form; even/odd; >, < | to 9,999 (many books); Th H T O; face value and place value; rounding to 10/100 (some books); Roman numerals (private books) | to 99,999 (private books; NCERT: thousands); Indian place value chart; rounding; (international system in some books) | lakhs and crores, Indian vs international system (private books; NCERT stops at ten thousands); commas |
 | Addition and subtraction | within 20 with objects; +, −, = | two-digit with carrying and borrowing | three- and four-digit; borrowing across zero | four- and five-digit; estimation | large numbers; word problems |
-| Multiplication and division | (groups in play) | repeated addition; equal groups; tables 2, 3, 4, 5, 10; sharing | tables to 10; × by one digit; division facts; ÷ sign; remainders | × by two digits; long division by one digit; factors (many books) | long division by two digits; primes; HCF/LCM (many books) |
+| Multiplication and division | (groups in play) | repeated addition; equal groups; tables 2, 3, 4, 5, 10; sharing | tables to 10; × by one digit; division facts; ÷ sign; remainders | × by two digits; long division by one digit; multiples (NCERT), factors (many books) | long division by two digits; factors and primes (NCERT); HCF/LCM (private books) |
 | Fractions | (half in everyday talk) | half, quarter of shapes (some books) | half, one-fourth, three-fourths; fraction of a collection | equivalent fractions; like/unlike; proper/improper/mixed | add/subtract unlike fractions; fraction × whole number |
-| Decimals and percentages | – | – | (money with paise) | tenths, hundredths via money and cm (many books) | tenths, hundredths; operations; percentages start (many books) |
-| Telling the time | day/night; days of the week | o'clock, half past; months; calendar | to 5 minutes; a.m./p.m.; durations | 24-hour clock (some books); calendar problems | 24-hour clock; durations |
+| Decimals and percentages | – | – | (money with paise) | tenths, hundredths via money and cm (many private books; not NCERT) | tenths, hundredths; operations; percentages start (many private books; not NCERT) |
+| Telling the time | day/night; days of the week | o'clock, half past; months; calendar | to 5 minutes; a.m./p.m.; durations | a.m./p.m.; 24-hour clock (NCERT and many books); calendar problems | 24-hour clock; durations |
 | Money | coins and notes | adding money in whole rupees | rupees and paise; bills; change | rates; bills | decimals in money; unitary method in some books |
 | Measurement | comparing; non-standard units | cm, m; kg; L (simple) | cm, m, km; g, kg; mL, L; conversions | conversions; perimeter; area by squares | perimeter and area of rectangles; volume by cubes |
 | Shapes and geometry | solids; circle, triangle, square, rectangle | sides and corners; 3D shapes | lines; symmetry; tangram | circle (centre, radius, diameter); nets; views; angles as turns | angles (degrees in many books); symmetry; nets; maps |
@@ -331,11 +369,11 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 
 | Class | Assessment | What it is |
 |---|---|---|
-| Classes 1–2 | Observation, class work, worksheets; "activities"; in many private schools also short tests and term exams | NCF-FS discourages formal tests in the foundational stage; many schools still hold them, often reported as grades. |
+| Classes 1–2 | Observation, class work, worksheets; "activities"; in many private schools also short tests and term exams | NCF-FS says "Explicit tests and examinations are completely inappropriate assessment tools for this Stage" (confirmed: NCF-FS p. 172); many schools still hold them, often reported as grades. |
 | Classes 1–5 | **School exams**: **unit tests / periodic tests** (PT-1, PT-2…), **half-yearly** (term 1, around September–October) and **annual** (final, around February–March) exams; class work, notebooks, projects, oral tests ("viva") | Set and marked by the school. Names vary: "FA1–FA4, SA1, SA2" (formative/summative assessment) are still used in some schools and states from the CCE era. |
 | Classes 1–8 | **CCE** (Continuous and Comprehensive Evaluation) | Required by the RTE Act for elementary classes (section 29). CBSE's well-known CCE scheme for Classes 6–10 was withdrawn in 2017; in primary classes "continuous assessment" remains the idea. Mention only as background. |
-| Class 5 | Annual exam with a **possible re-exam** | See section 1 (detention rules vary; **UNCERTAIN** detail). |
-| Class 3 (and 6, 9) | **NAS / PARAKH Rashtriya Sarvekshan** | A **national sample survey**, run by NCERT (now through **PARAKH**, the national assessment centre set up under NCERT in 2023). NAS 2017 and NAS 2021 tested samples of children in Classes 3, 5, 8 (and 10 in 2021); the 2024 survey (PARAKH Rashtriya Sarvekshan) tested **Classes 3, 6 and 9** (**UNCERTAIN** details and dates). Only some schools and children take part; there are **no individual results** and nothing to prepare for. |
+| Class 5 | Annual exam with a **possible re-exam** | See section 1: re-exam within two months in central government schools (confirmed: PIB 23 Dec 2024); state rules vary (**UNCERTAIN** today). |
+| Class 3 (and 6, 9) | **NAS / PARAKH Rashtriya Sarvekshan** | A **national survey** run by NCERT, now through **PARAKH**, the national assessment centre set up in NCERT on 8 February 2023 (confirmed: parakh.ncert.gov.in). The **PARAKH Rashtriya Sarvekshan** was held across the country on **4 December 2024** for **Classes 3, 6 and 9**; Class 3 was tested in language and mathematics; 74,229 schools and 21,15,022 students took part (confirmed: PARAKH PRS 2024 page). NAS 2017 and NAS 2021 tested Classes 3, 5, 8 (and 10 in 2021) (**UNCERTAIN**: not checked). Only some schools and children take part; there are **no individual results** and nothing to prepare for. |
 | Classes 1–3 | State FLN / NIPUN assessments | Many states test reading and maths in Classes 1–3 to track the NIPUN goals (formats **UNCERTAIN**). |
 | Class 5 (optional) | **JNVST** (Navodaya) and **AISSEE** (Sainik Schools) | Entrance exams for Class 6 admission; both include arithmetic/maths. Optional; only for families applying. |
 | Classes 1–5 (optional) | **Olympiads** | e.g. the **International Mathematics Olympiad (IMO)** by the **Science Olympiad Foundation (SOF)**, open to Classes 1 to 12, taken at school, **Level 1** for all registered students and a **Level 2** round for top scorers from about Class 3 upwards (**UNCERTAIN** level details). Several other private organisations run similar maths Olympiads; schools register children, families pay a fee. They are **not** part of the curriculum. The official olympiad route (IOQM, leading to the International Mathematical Olympiad team) starts in secondary school: don't confuse the two. |
@@ -357,7 +395,8 @@ Don't mention English Years, Key Stages or US grades on any Indian page.
 
 Indian schools teach one standard set of written methods. Columns are often headed with place-value letters above the
 digits: **Th H T O** (thousands, hundreds, tens, ones); older books write **"U" (units)** for ones (H T U). In Hindi
-books: **ह सै द इ** (हज़ार, सैकड़ा, दहाई, इकाई). Use "ones" on our pages; mention once that some books say "units".
+books: **ह सै द इ** (हज़ार, सैकड़ा, दहाई, इकाई; the new NCERT Hindi Class 5 book prints them with dots, "सै. द. इ.":
+ confirmed). Use "ones" on our pages; mention once that some books say "units".
 Bundles of ten sticks, place value blocks, the abacus (as a place value tool) and the number line are the usual
 classroom materials.
 
@@ -372,9 +411,10 @@ classroom materials.
     6  3  2
 ```
 Said: "7 plus 5 is 12. Write 2 in the ones, **carry 1** to the tens. 4 plus 8 is 12, plus the 1 carried is 13. Write 3,
-carry 1. 3 plus 2 is 5, plus 1 is 6." 347 + 285 = 632. Some newer books say "regrouping"; "carry over" is what parents
-know. Where the small carried digit goes (above the column, or below the answer line) differs between schools
-(**UNCERTAIN**): keep it above in our pictures.
+carry 1. 3 plus 2 is 5, plus 1 is 6." 347 + 285 = 632. The new NCERT books say "regrouping" (Class 4 teacher note: "Use the word regrouping instead of 'carrying'";
+confirmed: Maths Mela 4); "carry over" is what parents know, so use both: "carry (your child's book may say
+regroup)". The new NCERT Class 5 book writes the carried digit small at the top of the next column (confirmed), so
+keep it above in our pictures; other schools may write it below the answer line (**UNCERTAIN** how common).
 
 ### Subtraction with borrowing
 
@@ -443,14 +483,22 @@ parents, standard in many Hindi-medium and state-board schools and older books):
          ───
            1
 ```
-Which layout a given school uses is **UNCERTAIN**: on our pages show one layout (prefer (a) on the topic and "how
+Which layout a given school uses is **UNCERTAIN**. The new NCERT books (Classes 4 and 5) use layout (a), divisor
+`)` dividend `(` with the quotient on the right, and build the quotient up from **partial quotients**: Class 4
+"3) 58 ( 10+5+3+1", Class 5 "8) 4376 (200+200+100+40+7", with the teacher note "Encourage the learners to divide
+using partial quotients … This will help us reach closer to the standard algorithm" (confirmed: Maths Mela 4 and 5).
+For 857 ÷ 4 that is: 4 ) 857 ( 200 + 10 + 4; 857 − 800 = 57, 57 − 40 = 17, 17 − 16 = 1; quotient 214, remainder 1.
+On our pages show one layout (prefer (a) on the topic and "how
 maths is taught" pages, with one sentence saying "Some books write the quotient above the dividend instead; the steps
 are the same") and tell parents to copy the layout in their child's notebook. Say the steps as "divide, multiply,
 subtract, bring down". **857 ÷ 4: quotient 214, remainder 1.** Indian books always teach the check:
 **Dividend = Divisor × Quotient + Remainder**: 4 × 214 + 1 = 856 + 1 = 857. Terms: **dividend, divisor, quotient,
 remainder** (Hindi भाज्य, भाजक, भागफल, शेषफल). Two-digit divisor example for Class 5: 9,876 ÷ 12 = 823 (12 × 823 =
 9,876, remainder 0). Remainders in a line are written "Q = 214, R = 1" in many books; avoid the English "r 1" style.
-The English "bus stop" short division, chunking and the grid method are **not** standard in India: don't show them.
+Corrected: subtracting chunks of the divisor (partial quotients) **is** now in the NCERT books, in the bracket layout
+above, so it may be shown as the NCERT way into long division. The English "bus stop" short division layout and the
+grid method are still not standard in India: don't show them. NCERT writes "Dividend (N) = Divisor (D) × Quotient (Q)"
+and "N = D × Q + R" (confirmed: Maths Mela 5).
 
 ---
 
@@ -468,7 +516,8 @@ The English "bus stop" short division, chunking and the grid method are **not** 
   - Write "lakh" and "crore" (not "lac"); after a number they stay singular in Indian English ("5 lakh people",
     "₹2 crore"); "lakhs of people" is everyday speech.
   - Number names: Indian English often omits "and" ("six hundred seventy-two") in textbooks but many people say "six
-    hundred and seventy-two"; both are fine (**UNCERTAIN** which NCERT prefers: be consistent within a page).
+    hundred and seventy-two"; both are fine. NCERT omits "and" ("Ten thousand four hundred fifty-eight"; confirmed: Maths Mela 5): prefer that,
+    and be consistent within a page.
   - No comma in years (2026), in four-digit house numbers or in times.
 - **Decimal point:** a point: 2.5, 0.25, ₹25.50. Read "two point five".
 - **Operation signs:** **+, −, × and ÷** in primary (always the proper symbols on our pages); "=" for "equals" / "is
@@ -476,8 +525,9 @@ The English "bus stop" short division, chunking and the grid method are **not** 
   in primary are a **box □** or a blank ("Fill in the blanks: 7 + ___ = 15"; "fill in the blanks" is a classic Indian
   exercise heading). No letters for unknowns before Class 6.
 - **Fractions:** stacked (½, ¾, ⅔); read "one-half", "**one-fourth**", "**three-fourths**", "two-thirds"
-  (Indian English and NCERT prefer "one-fourth" to "a quarter" for fractions; "quarter" is used for clock times and
-  everyday amounts). Mixed numbers: 2¾ "two and three-fourths". Words: numerator, denominator, like and unlike
+  (corrected: both are official usage. The NIPUN targets say "one-fourth, three-fourth"; the new NCERT Class 3 book
+  says "quarter" ("How many quarters in a whole?"), and the Class 4 book uses both "One Quarter" and "one-fourth";
+  confirmed. Use "one-fourth" with "quarter" as the everyday word, and "quarter" for clock times). Mixed numbers: 2¾ "two and three-fourths". Words: numerator, denominator, like and unlike
   fractions, proper, improper, mixed fractions, equivalent fractions, simplest form ("lowest terms").
 - **Percent:** 25% (no space), read "twenty-five per cent" (Indian English also writes "percent").
 - **Money:** **₹** before the number. Our pages write **₹50**, **₹25.50** (no space). Textbooks often print a space
@@ -488,18 +538,22 @@ The English "bus stop" short division, chunking and the grid method are **not** 
   "7.30 a.m."; our pages use a colon and "am"/"pm" without dots); 24-hour times on **railway** and flight timetables
   ("14:30"). See section 7.
 - **Dates:** day–month–year: 13/10/2026, "13 October 2026" ("13th October" in speech and many school notices).
-- **Units:** metric only in school: mm, cm, m, km; g, kg; mL, L (NCERT writes mL and L; older books write ml and l);
+- **Units:** metric only in school: mm, cm, m, km; g, kg; mL, L on our pages (corrected: the new NCERT books write
+  "500 ml", "1 l": confirmed, Maths Mela 5; either is fine, be consistent);
   °C. Everyday life also uses **feet and inches for people's height** and room sizes, **dozen** for bananas and eggs,
   and in markets **"paav" (250 g)** and "half kilo": fine as contexts, but school answers are in metric units.
 
 ## 6. Money
 
 - **₹1 = 100 paise.** The rupee sign ₹ has been official since 2010. Paise coins: **coins of 25 paise and below stopped
-  being legal tender in 2011**; the **50 paise coin is still legal tender** according to the RBI but is hardly ever used
-  (**UNCERTAIN**: if mentioned, say "you rarely see 50 paise coins now"). In daily life prices are in **whole rupees**;
+  being legal tender in 2011**; the **50 paise coin is still issued and legal tender** (for sums up to ₹10) (confirmed: RBI
+  currency FAQ, April 2025: 25 paise coins withdrawn from 30 June 2011; coins issued in 50 paise, ₹1, ₹2, ₹5, ₹10
+  and ₹20). It is hardly ever used (**UNCERTAIN**: if mentioned, say "you rarely see 50 paise coins now"). In daily life prices are in **whole rupees**;
   paise survive in bills, bank balances, fuel prices and textbook exercises (₹25.50). Our pages may use paise in Class
   3–5 exercises "as in your child's textbook", but shopping examples should mostly be whole rupees.
-- **Coins in use:** **₹1, ₹2, ₹5, ₹10, ₹20.** The ₹20 coin is **12-sided** (a dodecagon); the ₹10 and ₹20 coins are
+- **Coins in use:** **₹1, ₹2, ₹5, ₹10, ₹20.** The ₹20 coin is **12-sided** (a dodecagon) with no serrations, the others
+  are round, and in the 2019 series each value is bigger and heavier than the one below, to help blind and partially
+  sighted people (confirmed: PM India release, 7 Mar 2019). The ₹10 and ₹20 coins are
   **bimetallic** (a golden outer ring and a silver centre, **UNCERTAIN** which way round for each). Several older coin
   designs of each value still circulate. Approximate sizes of the newer series (**UNCERTAIN**, use only as
   approximate drawing sizes): ₹1 about 20 mm, ₹2 about 23 mm, ₹5 about 25 mm, ₹10 about 27 mm, ₹20 about 27 mm.
@@ -507,10 +561,12 @@ The English "bus stop" short division, chunking and the grid method are **not** 
   silver: **UNCERTAIN**), ₹10 and ₹20 golden ring with silver centre.
 - **Notes in use (Mahatma Gandhi New Series, from 2016 onwards):** **₹10, ₹20, ₹50, ₹100, ₹200, ₹500**. Older designs of
   ₹10, ₹20, ₹50 and ₹100 are still legal tender. The ₹2,000 note was **withdrawn from circulation in 2023** (it stays
-  legal tender, but don't use it in examples). ₹1, ₹2 and ₹5 notes exist but are rare: leave them out. Colours of the
-  new series (for SVGs; **UNCERTAIN** shades): ₹10 chocolate brown, ₹20 greenish yellow, ₹50 fluorescent blue, ₹100
-  lavender, ₹200 bright yellow, ₹500 stone grey. Approximate sizes (**UNCERTAIN**): ₹10 123 × 63 mm, ₹20 129 × 63 mm,
-  ₹50 135 × 66 mm, ₹100 142 × 66 mm, ₹200 146 × 66 mm, ₹500 150 × 66 mm. Don't draw portraits or copy note designs;
+  legal tender, but don't use it in examples). ₹1, ₹2 and ₹5 notes exist but are rare: leave them out. Colours and
+  sizes of the new series (confirmed: RBI press releases for each note): ₹10 chocolate brown, 123 × 63 mm; ₹20
+  greenish yellow, 129 × 63 mm; ₹50 fluorescent blue, 135 × 66 mm; ₹100 lavender, 142 × 66 mm; ₹200 bright yellow,
+  146 × 66 mm; ₹500 stone grey, 150 × 66 mm (the exact hex shades for SVGs are ours to choose). ₹2,000 withdrawal
+  confirmed: RBI, 19 May 2023. For blind users, notes of ₹100 and above carry a raised identification mark (triangle
+  ₹100, "H" ₹200, circle ₹500) and the RBI's free MANI app names a note's value (confirmed: RBI currency FAQ). Don't draw portraits or copy note designs;
   plain coloured rectangles with the value are enough.
 - **Digital payments:** UPI payments by phone (scanning a QR code) are everywhere, even at vegetable stalls. Pages can
   say: "Even if you pay by phone, say the price and the change aloud with your child." Don't name payment apps or
@@ -532,7 +588,8 @@ The English "bus stop" short division, chunking and the grid method are **not** 
   "पौने चार" (3:45), "डेढ़ बजे" (1:30) and "ढाई बजे" (2:30): a lovely aside on the time page (see section 8).
 - **12-hour clock with am and pm** in daily life ("school starts at 7:45 am"); "noon", "midnight". **24-hour times** on
   railway tickets and timetables (Indian Railways uses the 24-hour clock), flights and phones: 14:30 = 2:30 pm. The
-  24-hour clock appears in Class 4 or 5 in many books (**UNCERTAIN** which).
+  24-hour clock appears in the new NCERT Class 4 book (teacher note) and Class 5 book (12-hour/24-hour table)
+  (confirmed: Maths Mela 4 and 5).
 - Calendar: Gregorian months for school; children also know festival dates from the family's calendar (Hindu, Islamic,
   Sikh, regional calendars). Never give a festival's date: they move every year.
 - Daily rhythm for examples (**UNCERTAIN**, varies hugely): school from about 7:30–8:30 am to 1:30–3 pm; morning
@@ -548,24 +605,24 @@ Hindi word as a helpful aside ("in Hindi, carrying is हासिल").
 | English (UK) idea | Indian English at school | Hindi (Devanagari) | Notes |
 |---|---|---|---|
 | maths | **maths** (also "math"), "sums" for exercises ("do these sums") | गणित | "Sums" is everyday speech for any exercise; on our pages prefer "questions" or "problems", with "sums" now and then. |
-| times tables | **tables** ("learn your tables", "tables up to 20") | **पहाड़ा / पहाड़े** (also गुणन सारणी) | Recited "two ones are two, two twos are four…"; in Hindi "दो एकम दो, दो दूनी चार…". |
+| times tables | **tables** ("learn your tables", "tables up to 20") | **पहाड़ा / पहाड़े** (also गुणन सारणी; NCERT Hindi says "5 का पहाड़ा": confirmed) | Recited "two ones are two, two twos are four…"; in Hindi "दो एकम दो, दो दूनी चार…". |
 | number bonds | "number pairs", "pairs that make 10", "addition facts", "making 10" | 10 बनाने वाले जोड़े | No fixed Indian term: explain it. |
-| place value | **place value**; **face value** | **स्थानीय मान**; अंकित मान / जातीय मान (face value; **UNCERTAIN** which NCERT Hindi uses) | Face value vs place value is a standard Indian textbook distinction. |
-| ones, tens, hundreds | ones (older: units), tens, hundreds, thousands, ten thousands, lakhs, ten lakhs, crores | इकाई, दहाई, सैकड़ा, हज़ार, दस हज़ार, लाख, दस लाख, करोड़ | Column labels Th H T O / ह सै द इ. |
+| place value | **place value**; **face value** | **स्थानीय मान** (NCERT: "स्थानीय मान सारणी": confirmed); अंकित मान / जातीय मान (face value; **UNCERTAIN** which: the new NCERT books don't teach face value) | Face value vs place value is a standard Indian private-textbook distinction. |
+| ones, tens, hundreds | ones (older: units), tens, hundreds, thousands, ten thousands, lakhs, ten lakhs, crores | इकाई, दहाई, सैकड़ा, हज़ार, दस हज़ार, लाख, दस लाख, करोड़ | Column labels Th H T O / ह सै द इ (NCERT Hindi: "सै. द. इ.", "द.ह." for ten thousands; it spells हजार without the nukta: confirmed). |
 | expanded form | expanded form | विस्तारित रूप | 345 = 300 + 40 + 5 |
 | number name | number name ("write in words") | संख्या का नाम (शब्दों में) | |
 | predecessor, successor | just before / just after; predecessor / successor | ठीक पहले की संख्या / ठीक बाद की संख्या (पूर्ववर्ती / परवर्ती) | |
 | ascending / descending order | ascending / descending order | आरोही / अवरोही क्रम | |
 | even, odd | even, odd numbers | सम, विषम संख्याएँ | |
 | column method | "vertical method", "column addition", writing "one below the other" | खड़े रूप में (UNCERTAIN), "एक के नीचे एक लिखकर" | |
-| carrying | **carry over**, "carry" (newer books: regrouping) | **हासिल** ("हासिल वाला जोड़") | |
+| carrying | **carry over**, "carry" (newer books: regrouping; confirmed, NCERT) | **हासिल** ("हासिल वाला जोड़") | The new NCERT Hindi books say **पुनः समूहीकरण** (regrouping) and don't use हासिल or उधार (confirmed: गणित मेला 5). |
 | borrowing / exchanging | **borrow** (newer books: regrouping) | **उधार** ("उधार लेकर घटाना") | |
 | sum, difference | sum, difference | योगफल (जोड़), अंतर | |
 | product | product; multiplicand, multiplier | गुणनफल; गुण्य, गुणक | |
-| quotient, remainder | dividend, divisor, quotient, remainder | भाज्य, भाजक, **भागफल, शेषफल** | Check: dividend = divisor × quotient + remainder. |
+| quotient, remainder | dividend, divisor, quotient, remainder | भाज्य, भाजक, **भागफल, शेषफल** (confirmed: गणित मेला 5) | Check: dividend = divisor × quotient + remainder. |
 | factor, multiple | factor, multiple; prime, composite; HCF, LCM | गुणनखंड, गुणज; अभाज्य, भाज्य संख्या; म.स. (महत्तम समापवर्तक), ल.स. (लघुत्तम समापवर्त्य) | Hindi भाज्य means both "dividend" and "composite": careful. |
-| numerator, denominator | numerator, denominator | **अंश, हर** | ¾ read "three-fourths"; Hindi "तीन बटे चार" or "तीन-चौथाई". |
-| equivalent fractions | equivalent fractions | समतुल्य भिन्न | |
+| numerator, denominator | numerator, denominator | **अंश, हर** (confirmed: गणित मेला 5, "भिन्नों की तुलना – समान हर") | ¾ read "three-fourths"; Hindi "तीन बटे चार" or "तीन-चौथाई". |
+| equivalent fractions | equivalent fractions | समतुल्य भिन्न (NCERT uses both समतुल्य and तुल्य भिन्न: confirmed) | |
 | proper / improper / mixed | proper, improper, mixed fraction | उचित, विषम (also अनुचित), मिश्रित भिन्न (UNCERTAIN which NCERT uses) | |
 | like / unlike fractions | like, unlike fractions | सजातीय, विजातीय भिन्न (also "समान हर वाली") | |
 | decimal, tenth, hundredth | decimal (point), tenths, hundredths | दशमलव (बिंदु), दशांश, शतांश | |
@@ -577,7 +634,7 @@ Hindi word as a helpful aside ("in Hindi, carrying is हासिल").
 | hundred square | number chart (1–100) | 100 तक की संख्याओं का चार्ट | |
 | counters, blocks | counters, bundles and sticks, beads, abacus, place value blocks, "maths kit" | तीलियाँ और गड्डियाँ, मोती, गिनतारा (abacus) | Government schools received maths kits ("गणित किट") under Samagra Shiksha (**UNCERTAIN** detail). |
 | length, weight, capacity | length, weight (also "mass" in a few books), capacity, volume | लंबाई, भार / वज़न, धारिता, आयतन | Indian primary books say **weight**. |
-| perimeter, area | perimeter, area | **परिमाप** (also परिमिति), **क्षेत्रफल** | |
+| perimeter, area | perimeter, area | **परिमाप** (also परिमिति), **क्षेत्रफल** (both confirmed: गणित मेला 4 and 5) | |
 | shapes | circle, triangle, square, rectangle, pentagon, hexagon; cube, cuboid, cylinder, cone, sphere | वृत्त, त्रिभुज, वर्ग, आयत, पंचभुज, **षट्भुज**; घन, घनाभ, बेलन, शंकु, गोला | |
 | side, corner, edge, face | side, corner (vertex), edge, face | भुजा, कोना (शीर्ष), किनारा, फलक | |
 | angles | angle, right angle, acute, obtuse, straight angle; protractor, compasses, scale (ruler) | कोण, समकोण, न्यून कोण, अधिक कोण, सरल कोण; चाँदा, परकार, स्केल / पटरी | |
@@ -651,11 +708,11 @@ handling; Patterns and algebra; Mental maths. Note "Data handling" and "Patterns
 | "Number bonds" | "Pairs that make 10", addition facts |
 | £, p, coins 1p–£2, notes £5–£50 | ₹ and paise; coins ₹1, ₹2, ₹5, ₹10, ₹20; notes ₹10–₹500 |
 | Quarter past / half past / quarter to | The same in Indian English, plus "three fifteen"; Hindi सवा, साढ़े, पौने, डेढ़, ढाई |
-| Exchange / regroup | **Carry over, borrow** |
-| Short division "bus stop", grid method, chunking | Long division with the divisor on the left; quotient on the right (traditional) or on top |
+| Exchange / regroup | **Carry over, borrow** (parents); the new NCERT books say **regroup** (confirmed) |
+| Short division "bus stop", grid method, chunking | Long division with the divisor on the left; quotient on the right (traditional; NCERT builds it from partial quotients, a form of chunking: confirmed) or on top |
 | Commas every three digits, thousand/million | Indian grouping 1,00,000; lakh, crore; international system taught alongside |
 | Imperial units | Metric in school (feet/inches only as everyday context) |
-| Roman numerals in Year 3–6 | Roman numerals in many private books (Classes 3–5); not in NCERT primary (**UNCERTAIN**) |
+| Roman numerals in Year 3–6 | Roman numerals in many private books (Classes 3–5); not in the new NCERT Class 1–5 books (confirmed) |
 | Negative numbers, algebra with letters, ratio in Year 5–6 | Class 6 and later |
 | Bonfire Night, pound shop, pantomime | Diwali, Eid, Christmas, Pongal, Onam, Holi, Raksha Bandhan; kirana store, sabzi market, mela |
 
@@ -722,18 +779,22 @@ then pairs).
 - The braille page's words come mostly from `tools/braille/in.json` (a later task). The page itself needs the Indian
   "where to ask" section.
 - **English braille in India:** Indian schools for blind children teach English braille; whether India has formally
-  adopted **Unified English Braille (UEB)** and in which year is **UNCERTAIN** (it is believed to have done so in the
-  2010s). Maths braille in India: **UNCERTAIN** (both UEB maths and Nemeth code have been used). Say: "These files use
-  uncontracted Unified English Braille (UEB). Ask your child's teacher whether this is the code your child's school
-  uses."
-- **Bharati Braille** is the shared braille system for Indian languages (Hindi, Marathi, Bengali, Tamil and others,
-  adopted around 1951; date **UNCERTAIN**). Mention it on the `in` page in one sentence and point Hindi readers to the
-  Hindi site's braille page.
-- **Where to ask** (only bodies known to exist; check every URL before linking, and leave out any that can't be
-  confirmed): **NIEPVD**, the National Institute for the Empowerment of Persons with Visual Disabilities (Divyangjan),
-  **Dehradun** (formerly the National Institute for the Visually Handicapped; runs a central braille press: **UNCERTAIN**
-  detail); the **National Association for the Blind (NAB)** (**UNCERTAIN** which branch to name); **Sugamya
-  Pustakalaya**, the online accessible library run with the DAISY Forum of India (**UNCERTAIN** current URL and terms).
+  adopted **Unified English Braille (UEB)** and in which year is **UNCERTAIN** (no official adoption date found; NIEPVD
+  does publish "The Rules of Unified English Braille" among its braille codes: confirmed, niepvd.nic.in). Maths braille
+  in India: **UNCERTAIN** (both UEB maths and Nemeth code have been used). Say: "These files use uncontracted Unified
+  English Braille (UEB). Ask your child's teacher whether this is the code your child's school uses."
+- **Bharati Braille** is the shared braille system for Indian languages (Hindi, Marathi, Bengali, Tamil and others),
+  adopted as a single national standard in **1951** (confirmed: PIB, 4 Jan 2026). A Standard Bharati Braille Code with
+  Unicode mapping was published on 4 January 2025 under DEPwD and NIEPVD, and NIEPVD put a "Draft Bharati Braille 2.1"
+  (validated with Liblouis tables) up for comment on 4 January 2026 (confirmed: same PIB note). Mention it on the `in`
+  page in one sentence and point Hindi readers to the Hindi site's braille page.
+- **Where to ask** (check every URL before linking, and leave out any that can't be confirmed): **NIEPVD**, the
+  National Institute for the Empowerment of Persons with Visual Disabilities (Divyangjan), **Dehradun**
+  (https://niepvd.nic.in/): its **Central Braille Press** was set up in 1951, and the centre became the National
+  Institute for the Visually Handicapped in 1979 (confirmed: NIEPVD "About the Institute" and "Central Braille Press"
+  pages); the **National Association for the Blind (NAB)** (**UNCERTAIN** which branch to name); **Sugamya
+  Pustakalaya** (https://sugamyapustakalaya.org.in/), the online accessible library, "a collaborative effort of TCS,
+  Daisy Forum of India and NIEPVD" (confirmed: NIEPVD's Sugamya Pustakalaya page; membership terms not checked).
   Also: the child's **special educator** or **resource teacher**, and the block resource centre under **Samagra
   Shiksha** (government schools' inclusive education support for **CWSN**; **UNCERTAIN** detail).
 - Accessibility matters greatly to Beequation: keep the large-print and easy-read worksheet mentions where the English
@@ -741,16 +802,22 @@ then pairs).
 
 ## 14. Open questions (UNCERTAIN)
 
-- The exact titles of the new NCERT maths books for Classes 4 and 5 (2025) and the Hindi title of "Maths Mela".
+Settled on 2026-10-14 (see FACTS.md): the titles of all the new NCERT books (Maths Mela for Classes 3–5, गणित मेला in
+Hindi); NIPUN Bharat's numeracy targets; the PARAKH Rashtriya Sarvekshan 2024 date and classes; the central detention
+rules and the state list as of Dec 2024; what the new NCERT books do and don't contain (>, <, 24-hour clock, no
+percentages, decimals, degrees or HCF/LCM); the long-division layout and partial quotients in NCERT; where NCERT writes
+the carried digit; NCERT's "and"-less number names; note colours and sizes; Bharati Braille's date.
+
+Still open:
+
 - Chapter lists and order in the new NCERT books for Classes 1 to 5 (don't quote them).
-- NIPUN Bharat's exact numeracy targets per class.
 - Which states have moved to 6+ for Class 1 and their cut-off dates; which states start the year in April and which in
   June.
-- Detention rules in Class 5 by state after the 2019 RTE amendment and the 2024 central notification.
-- The 2024 PARAKH Rashtriya Sarvekshan classes and the next survey's date.
-- Whether the new NCERT books introduce >/<, the 24-hour clock, percentages, angles in degrees, HCF/LCM in Classes 1–5
-  and in which class.
-- Which long-division layout (quotient on the right or on top) and which carry/borrow marking the new NCERT books show.
-- Whether "one-fourth" or "quarter" is the NCERT default in the new books (both are understood).
-- Coin and note sizes and colours (RBI pages to check before worksheets are drawn).
-- The braille codes (UEB adoption, maths code) used in Indian schools today.
+- Detention rules in Class 5 by state today (the PIB list is from December 2024).
+- NAS 2017 and 2021 classes; the next PARAKH survey's date; how widely the Holistic Progress Card is used.
+- In private books: when >/<, the 24-hour clock, percentages, degrees, HCF/LCM and decimals come.
+- Which long-division layout schools other than NCERT use (quotient on the right or on top); 0 or × in long
+  multiplication.
+- Coin sizes, metals and colours (only reported from the 2019 gazette; not opened on an official site).
+- The braille codes (UEB adoption year, maths code) used in Indian schools today.
+- JNVST section sizes and languages (navodaya.gov.in could not be loaded).
