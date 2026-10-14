@@ -564,7 +564,7 @@ Hindi word as a helpful aside ("in Hindi, carrying is हासिल").
 | product | product; multiplicand, multiplier | गुणनफल; गुण्य, गुणक | |
 | quotient, remainder | dividend, divisor, quotient, remainder | भाज्य, भाजक, **भागफल, शेषफल** | Check: dividend = divisor × quotient + remainder. |
 | factor, multiple | factor, multiple; prime, composite; HCF, LCM | गुणनखंड, गुणज; अभाज्य, भाज्य संख्या; म.स. (महत्तम समापवर्तक), ल.स. (लघुत्तम समापवर्त्य) | Hindi भाज्य means both "dividend" and "composite": careful. |
-| numerator, denominator | numerator, denominator | **अंश, हर** | ¾ read "three-fourths"; Hindi "तीन बटा चार" or "तीन-चौथाई". |
+| numerator, denominator | numerator, denominator | **अंश, हर** | ¾ read "three-fourths"; Hindi "तीन बटे चार" or "तीन-चौथाई". |
 | equivalent fractions | equivalent fractions | समतुल्य भिन्न | |
 | proper / improper / mixed | proper, improper, mixed fraction | उचित, विषम (also अनुचित), मिश्रित भिन्न (UNCERTAIN which NCERT uses) | |
 | like / unlike fractions | like, unlike fractions | सजातीय, विजातीय भिन्न (also "समान हर वाली") | |
