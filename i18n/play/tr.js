@@ -71,6 +71,7 @@ const T = {
   helps: 'Her bulmacada çocuğunuz, diğer iki sayıdan oluşan sayıyı bulur. Bu da sayılar arasındaki ilişkileri görmesini ve zihinden işlem becerisini geliştirir. Indie’nin ipuçları ortamı sakin tutar; yıldızlar ipuçlarını ve hataları nazikçe hesaba katar ve yarışılacak bir saat yoktur.',
   progress: 'İlerleme', reset: 'İlerlemeyi sıfırla', resetAsk: 'Bu cihazdaki yıldızlar ve çıkartmalar silinsin mi?', resetDone: 'İlerleme sıfırlandı',
   // Beequation Pro (the player is addressed with "sen", as in the app)
+  previewHive: 'Önizleme kovanı',
   streakAria: n => `${n} günlük seri`, dailyOn: d => `Günün Kovanı, ${d}`, hiveNo: n => `Kovan No. ${n}`, doneIn: t => `Tamamlandı: ${t}. Gece yarısı yeni bir kovan açılır.`,
   tenMixed: 'On karışık bulmaca. Bugün herkes aynı bulmacaları oynuyor.', seeResult: 'Sonucunu gör', playToday: 'Bugünün kovanını oyna', blitzTile: '60 sn Blitz',
   best: n => `Rekor ${n}`, beatClock: 'Zamana karşı yarış', hiveSub: 'Uzman, 4’ü 1 arada', practice: 'Alıştırma', highest: 'Ulaşılan en yüksek seviye', notStarted: 'Başlanmadı',

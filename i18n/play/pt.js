@@ -71,6 +71,7 @@ const T = {
   helps: 'Cada desafio pede que a criança encontre um número formado por outros dois. Isso fortalece os fatos básicos e a agilidade no cálculo mental. As dicas da Indie deixam tudo tranquilo, e as estrelas contam dicas e erros com leveza, sem relógio correndo.',
   progress: 'Progresso', reset: 'Apagar progresso', resetAsk: 'Apagar as estrelas e figurinhas deste aparelho?', resetDone: 'Progresso apagado',
   // Beequation Pro
+  previewHive: 'Colmeia de pré-visualização',
   streakAria: n => `Sequência de ${n} ${n === 1 ? 'dia' : 'dias'}`, dailyOn: d => `Diário Pro, ${d}`, hiveNo: n => `Colmeia nº ${n}`, doneIn: t => `Concluída em ${t}. Uma colmeia nova abre à meia-noite.`,
   tenMixed: 'Dez desafios mistos. Hoje todo mundo joga os mesmos.', seeResult: 'Ver seu resultado', playToday: 'Jogar a colmeia de hoje', blitzTile: 'Blitz de 60 s',
   best: n => `Recorde: ${n}`, beatClock: 'Corra contra o relógio', hiveSub: 'Especialista, 4 em 1', practice: 'Treino', highest: 'Nível mais alto', notStarted: 'Não iniciado',

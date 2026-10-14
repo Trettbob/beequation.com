@@ -19,7 +19,8 @@
     const mistakes = slips.reduce((total, value) => total + Math.max(0, value), 0);
     const timed = result.seconds !== null && result.seconds !== undefined && !result.untimed;
     const detail = timed ? Math.floor(result.seconds / 60) + ':' + String(result.seconds % 60).padStart(2, '0') : mistakes ? text(words, 'slips', '{n} slips', mistakes) : text(words, 'noSlips', 'No slips');
-    const lines = ['Beequation No. ' + result.number + (result.hard ? '★' : '') + ' 🐝 ' + detail];
+    const label = result.number === null || result.number === undefined ? text(words, 'previewHive', 'Preview hive') : 'Beequation No. ' + result.number;
+    const lines = [label + (result.hard ? '★' : '') + ' 🐝 ' + detail];
     const cells = slips.map(value => value < 0 ? '🟫' : value === 0 ? '🍯' : value === 1 ? '🟨' : '🟧');
     for (let index = 0; index < cells.length; index += 5) lines.push(cells.slice(index, index + 5).join(''));
     if (result.streak >= 2) lines.push('🐝 ' + text(words, 'streak', '{n}-day hive streak', result.streak));

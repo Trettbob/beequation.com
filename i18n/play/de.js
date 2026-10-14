@@ -71,6 +71,7 @@ const T = {
   helps: 'Bei jedem Rätsel sucht Ihr Kind eine Zahl, die aus zwei anderen entsteht. Das stärkt Zahlzerlegung, Einmaleins und schnelles Kopfrechnen. Indie hilft mit Tipps, ganz ohne Druck. Tipps und Fehler kosten nur wenige Sterne, und es läuft keine Uhr.',
   progress: 'Fortschritt', reset: 'Fortschritt zurücksetzen', resetAsk: 'Sterne und Sticker auf diesem Gerät löschen?', resetDone: 'Fortschritt zurückgesetzt',
   // Beequation Pro
+  previewHive: 'Vorschau-Wabe',
   streakAria: n => `${n} ${n === 1 ? 'Tag' : 'Tage'} in Folge`, dailyOn: d => `Tages-Wabe, ${d}`, hiveNo: n => `Wabe Nr. ${n}`, doneIn: t => `Geschafft in ${t}. Um Mitternacht gibt es eine neue Wabe.`,
   tenMixed: 'Zehn gemischte Rätsel. Heute spielen alle dieselben.', seeResult: 'Dein Ergebnis ansehen', playToday: 'Heutige Wabe spielen', blitzTile: '60-Sekunden-Blitz',
   best: n => `Rekord ${n}`, beatClock: 'Gegen die Uhr', hiveSub: 'Profi, 4 in 1', practice: 'Training', highest: 'Höchstes Level', notStarted: 'Noch nicht begonnen',

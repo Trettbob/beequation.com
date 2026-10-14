@@ -385,6 +385,7 @@ const T = {
   progress: 'Progress', reset: 'Reset progress', resetAsk: 'Clear stars and stickers on this device?', resetDone: 'Progress reset',
   // Beequation Pro
   streakAria: n => `${n}-day streak`, dailyOn: d => `Daily Pro, ${d}`, hiveNo: n => `Hive No. ${n}`, doneIn: t => `Done in ${t}. A new hive opens at midnight.`,
+  previewHive: 'Preview hive',
   tenMixed: 'Ten mixed puzzles. Everyone plays the same ones today.', seeResult: 'See your result', playToday: 'Play today\'s hive', blitzTile: '60s Blitz',
   best: n => `Best ${n}`, beatClock: 'Beat the clock', hiveSub: 'Expert, 4 into 1', practice: 'Practice', highest: 'Highest level reached', notStarted: 'Not started',
   rounds: (tagline, hive) => `${tagline}. Rounds of ${hive ? '3 hives' : '10 puzzles'}.`,
@@ -957,7 +958,8 @@ function addPlayTime(time                        , dateKey        , seconds     
     const mistakes = slips.reduce((total, value) => total + Math.max(0, value), 0);
     const timed = result.seconds !== null && result.seconds !== undefined && !result.untimed;
     const detail = timed ? Math.floor(result.seconds / 60) + ':' + String(result.seconds % 60).padStart(2, '0') : mistakes ? text(words, 'slips', '{n} slips', mistakes) : text(words, 'noSlips', 'No slips');
-    const lines = ['Beequation No. ' + result.number + (result.hard ? '★' : '') + ' 🐝 ' + detail];
+    const label = result.number === null || result.number === undefined ? text(words, 'previewHive', 'Preview hive') : 'Beequation No. ' + result.number;
+    const lines = [label + (result.hard ? '★' : '') + ' 🐝 ' + detail];
     const cells = slips.map(value => value < 0 ? '🟫' : value === 0 ? '🍯' : value === 1 ? '🟨' : '🟧');
     for (let index = 0; index < cells.length; index += 5) lines.push(cells.slice(index, index + 5).join(''));
     if (result.streak >= 2) lines.push('🐝 ' + text(words, 'streak', '{n}-day hive streak', result.streak));
@@ -1747,19 +1749,22 @@ const aSave = () => store(AK, P);
 const aStatus = (mode, t) => (!level(mode, t).free && !P.full) ? 'paid' : (t === 1 || (P.stars[`${mode}-${t - 1}`] || 0) > 0) ? 'open' : 'locked';
 const PRACTICE = [['add', '+', T.modes.add[0]], ['mul', '×', T.modes.mul[0]], ['neg', '−', T.modes.neg[0]], ['frac', '½', T.modes.frac[0]], ['mixed', '±', T.modes.mixed[0]], ['dec', `${T.decSep}5`, T.modes.dec[0]], ['trio', '∑', T.modes.trio[0]]];
 const LAUNCH = new Date(2026, 10, 1);   // 1 November 2026: Daily Pro "Hive No. 1", the same as the Pro app (apps/adult/src/catalog.ts)
-const dailyNo = (d = new Date()) => Math.max(1, Math.round((new Date(d.getFullYear(), d.getMonth(), d.getDate()) - LAUNCH) / 864e5) + 1);
+const dailyNo = (d = new Date()) => {
+  const day = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  return day < LAUNCH ? null : Math.round((day - LAUNCH) / 864e5) + 1;
+};
 const DATE = new Intl.DateTimeFormat(T.locale, { weekday: 'long', day: 'numeric', month: 'long' });
 const WD = new Intl.DateTimeFormat(T.locale, { weekday: 'narrow' });
 const aTop = title => `<div class="row"><button class="icon-btn" aria-label="${T.back}" data-back>${I.back('currentColor')}</button><h1 style="font-size:22px;letter-spacing:-.4px" class="grow">${title}</h1></div>`;
 const hexIcon = (w, fill, glyph = '', ink = '#fff') => hexSVG(w, fill, glyph ? `<text x="${w / 2}" y="${w * .58}" text-anchor="middle" dominant-baseline="central" font-size="${w * .52}" font-weight="700" fill="${ink}" font-family="Space Grotesk, ui-sans-serif, system-ui, sans-serif">${glyph}</text>` : '');
 
 function a_home() {
-  const saved = checkHive(false), today = P.daily[dayKey()], s = hiveStreak(), jars = P.hive.jars || 0, best = Math.max(0, ...Object.values(P.blitz));
+  const saved = checkHive(false), today = P.daily[dayKey()], s = hiveStreak(), jars = P.hive.jars || 0, best = Math.max(0, ...Object.values(P.blitz)), no = dailyNo();
   h(`<div class="stack screen-columns"><div class="screen-column">
     <div class="row" style="gap:10px"><a class="grow site-link" href="/" aria-label="${T.siteAria}" style="font-size:20px;font-weight:700;letter-spacing:-.4px"><img src="/assets/hexabee.svg" alt="" style="width:32px;height:32px">Beequation</a>
       ${s ? `<span class="chip" aria-label="${T.streakAria(s)}">${I.flame} ${s}</span>` : ''}${jars ? `<span class="chip" role="img" aria-label="${T.jarsAria(jars)}"><span aria-hidden="true">🍯</span> ${jars}</span>` : ''}<button class="icon-btn" aria-label="${T.settings}" data-settings>${I.gear('currentColor')}</button></div>
     <div class="hero"><div style="font-size:14px;color:#AEB6C4">${T.dailyOn(DATE.format(new Date()))}</div>
-      <h1 style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1">${T.hiveNo(dailyNo())}</h1>
+      <h1 style="font-size:36px;font-weight:700;letter-spacing:-1px;line-height:1.05;overflow-wrap:break-word;hyphens:auto">${no === null ? T.previewHive : T.hiveNo(no)}</h1>
       <div style="font-size:15px;color:#CBD1DB;line-height:1.4">${today ? T.doneIn(fmtTime(today.seconds)) : T.tenMixed}</div>
       ${today ? countdownLine() : ''}
       ${today ? `<button class="btn b-dark" data-seedaily>${T.seeResult}</button>` : `<button class="btn b-honey" data-daily>${T.playToday}</button>`}</div>
@@ -1919,7 +1924,7 @@ function a_result(r) {
     <div><h1 style="font-size:22px">${label}</h1><div class="big-num" style="margin-top:4px">${head}</div><div style="font-size:16px;margin-top:6px">${sub}</div></div>
     ${versus ? `<div class="card-a"><p class="versus">${versus}</p></div>` : ''}
     ${x.jarSaved ? `<p class="jar-note">${T.jarSaved(x.jarSaved)}</p>` : ''}
-    ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? T.shareNo(no) : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
+    ${!isBlitz ? `<div class="card-a"><div class="row" style="gap:8px">${hexSVG(18, '#FFB020')}<b class="grow" style="font-size:15px">${isDaily ? (no === null ? T.previewHive : T.shareNo(no)) : `${L.name} ${L.tier}`}</b>${!isDaily ? [1, 2, 3].map(n => hexSVG(14, n <= x.stars ? '#FFB020' : 'var(--a-line)')).join('') : ''}</div>
       <div class="hexrow" role="img" aria-label="${[T.firstTry, T.oneSlip, T.twoPlus].map((t, i) => `${t}: ${counts[i]}`).join(', ')}">${x.slips.map(n => hexSVG(38, slipC(n))).join('')}</div>
       <div class="row mute" style="gap:16px;flex-wrap:wrap;font-size:13px" aria-hidden="true">${[[T.firstTry, '#FFB020'], [T.oneSlip, '#FFE0A3'], [T.twoPlus, '#C9CFD9']].map(([t, c]) => `<span class="row" style="gap:6px">${hexSVG(12, c)}${t}</span>`).join('')}</div></div>` : ''}
     </div><div class="screen-column">
@@ -1935,7 +1940,7 @@ function a_result(r) {
       ${!isDaily ? `<button class="btn b-plain" style="margin-top:12px" data-again>${T.again}</button>` : `<button class="btn b-plain" style="margin-top:12px" data-toblitz>${T.playBlitz}</button>`}
     </div></div></div>`);
   on('[data-back]', back);
-  on('[data-share]', () => shareOut(BeeSharing.dailyText({ number: no, seconds: x.seconds, slips: x.slips, streak: s }, SITE, T.shareWords)));
+  on('[data-share]', () => shareOut(BeeSharing.dailyText({ number: no, seconds: x.seconds, slips: x.slips, streak: s }, SITE, { ...T.shareWords, previewHive: T.previewHive })));
   on('[data-waggle]', () => shareOut(isBlitz ? BeeSharing.blitzText(round, SITE, { ...T.shareWords, mode: T.modes[x.mode][0] })
     : T.wagglePractice(round.score, T.modes[x.mode][0], T.shareWords.level.replace('{n}', x.tier)) + '\n' + BeeSharing.waggleUrl(round, SITE)));
   on('[data-hivestats]', () => go({ name: 'a_hive' }));

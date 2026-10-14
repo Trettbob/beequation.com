@@ -74,6 +74,7 @@ const T = {
   helps: 'Jokaisessa pulmassa lapsi etsii luvun, joka muodostuu kahdesta muusta. Se vahvistaa hajotelmien ja kymppiparien hallintaa sekä nopeaa päässälaskua. Indien vihjeet pitävät tunnelman rauhallisena, ja tähdet huomioivat vihjeet ja virheet lempeästi. Kelloa vastaan ei kilpailla.',
   progress: 'Edistyminen', reset: 'Nollaa edistyminen', resetAsk: 'Poistetaanko tämän laitteen tähdet ja tarrat?', resetDone: 'Edistyminen nollattu',
   // Beequation Pro
+  previewHive: 'Esikatselupesä',
   streakAria: n => `${n} päivän putki`, dailyOn: d => `Päivän pesä, ${d}`, hiveNo: n => `Pesä nro ${n}`, doneIn: t => `Ratkaistu ajassa ${t}. Uusi pesä aukeaa keskiyöllä.`,
   tenMixed: 'Kymmenen sekalaista pulmaa. Kaikki pelaavat tänään samat.', seeResult: 'Katso tuloksesi', playToday: 'Pelaa päivän pesä', blitzTile: '60 s pikapeli',
   best: n => `Ennätys ${n}`, beatClock: 'Kelloa vastaan', hiveSub: 'Mestareille, 4 yhdeksi', practice: 'Harjoittelu', highest: 'Korkein saavutettu taso', notStarted: 'Ei aloitettu',

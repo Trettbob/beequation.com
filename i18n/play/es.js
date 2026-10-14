@@ -72,6 +72,7 @@ const T = {
   helps: 'Cada reto pide a tu hijo o hija que encuentre un número formado por otros dos. Así afianza las combinaciones numéricas básicas y gana agilidad en el cálculo mental. Las pistas de Indie ayudan a jugar con calma, las estrellas penalizan poco las pistas y los fallos, y no hay ningún reloj contra el que competir.',
   progress: 'Progreso', reset: 'Reiniciar progreso', resetAsk: '¿Borrar las estrellas y las pegatinas de este dispositivo?', resetDone: 'Progreso reiniciado',
   // Beequation Pro
+  previewHive: 'Colmena de vista previa',
   streakAria: n => `Racha de ${n} ${n === 1 ? 'día' : 'días'}`, dailyOn: d => `Reto del día, ${d}`, hiveNo: n => `Colmena n.º ${n}`, doneIn: t => `Completado en ${t}. A medianoche se abre una colmena nueva.`,
   tenMixed: 'Diez retos mixtos. Hoy todo el mundo juega los mismos.', seeResult: 'Ver tu resultado', playToday: 'Jugar la colmena de hoy', blitzTile: 'Blitz de 60 s',
   best: n => `Récord: ${n}`, beatClock: 'Gánale al reloj', hiveSub: 'Experto, 4 en 1', practice: 'Práctica', highest: 'Nivel más alto alcanzado', notStarted: 'Sin empezar',

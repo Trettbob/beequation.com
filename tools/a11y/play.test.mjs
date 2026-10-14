@@ -9,6 +9,31 @@ function game(code, extra = {}, lang) {
   const helpers = html.slice(html.indexOf('// ---------- helpers ----------'), html.indexOf('// ---------- router ----------'));
   return vm.runInNewContext(`${table}\n${engine}\n${helpers}\n${code}`, {document: {getElementById: () => ({})}, localStorage: {getItem: () => null}, navigator: {}, ...extra});
 }
+
+test('daily numbering starts at local midnight on launch day', () => {
+  const numbering = html.slice(html.indexOf('const LAUNCH ='), html.indexOf('const DATE ='));
+  const numberAt = (month, day, hour = 0, minute = 0, second = 0) => vm.runInNewContext(`${numbering}\ndailyNo(new Date(2026, ${month}, ${day}, ${hour}, ${minute}, ${second}))`);
+  assert.equal(numberAt(9, 14), null);
+  assert.equal(numberAt(9, 31, 23, 59, 59), null);
+  assert.equal(numberAt(10, 1), 1);
+  assert.equal(numberAt(10, 1, 23), 1);
+  assert.equal(numberAt(10, 2), 2);
+  assert.equal(numberAt(10, 3), 3);
+});
+
+test('preview hive labels are available in every play language', () => {
+  const labels = {
+    en: 'Preview hive', da: 'Forhåndsvisning af bikuben', de: 'Vorschau-Wabe',
+    es: 'Colmena de vista previa', fi: 'Esikatselupesä', fr: 'Ruche en aperçu',
+    hi: 'पूर्वावलोकन छत्ता', in: 'Preview hive', it: 'Alveare in anteprima',
+    ja: 'プレビューのハチの巣', ko: '미리보기 벌집', nl: 'Voorbeeldkorf',
+    no: 'Forhåndsvisning av kuben', pl: 'Ul podglądowy',
+    pt: 'Colmeia de pré-visualização', sv: 'Förhandsvisning av kupan', tr: 'Önizleme kovanı'
+  };
+  for (const [language, label] of Object.entries(labels)) {
+    assert.equal(game('T.previewHive', {}, language === 'en' ? undefined : language), label, language);
+  }
+});
 test('arrows follow staggered rows, stay at edges and Home/End reach board endpoints', () => {
   assert.equal(game('typeof boardNeighbour'), 'function');
   for (const [i,key,want] of [[0,'ArrowRight',1],[1,'ArrowRight',1],[0,'ArrowLeft',0],[0,'ArrowDown',2],[1,'ArrowDown',3],[2,'ArrowUp',0],[4,'ArrowUp',1],[3,'ArrowDown',5],[5,'ArrowUp',2],[6,'ArrowDown',6],[4,'Home',0],[0,'End',6]]) {

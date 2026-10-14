@@ -72,6 +72,7 @@ const T = {
   helps: 'I varje pussel letar ditt barn efter ett tal som bildas av två andra. Det bygger upp talkamrater och snabb huvudräkning. Indies tips håller stämningen lugn, och stjärnorna räknar tips och misstag på ett snällt sätt, så det finns ingen klocka att tävla mot.',
   progress: 'Framsteg', reset: 'Nollställ framsteg', resetAsk: 'Radera stjärnor och klistermärken på den här enheten?', resetDone: 'Framstegen är nollställda',
   // Beequation Pro
+  previewHive: 'Förhandsvisning av kupan',
   streakAria: n => `${n} ${n === 1 ? 'dag' : 'dagar'} i rad`, dailyOn: d => `Dagens kupa, ${d}`, hiveNo: n => `Kupa nr ${n}`, doneIn: t => `Klar på ${t}. En ny kupa öppnar vid midnatt.`,
   tenMixed: 'Tio blandade pussel. Alla spelar samma i dag.', seeResult: 'Se ditt resultat', playToday: 'Spela dagens kupa', blitzTile: 'Blixt 60 s',
   best: n => `Rekord ${n}`, beatClock: 'Tävla mot klockan', hiveSub: 'Expert, 4 blir 1', practice: 'Träna', highest: 'Högsta nivå hittills', notStarted: 'Inte påbörjad',

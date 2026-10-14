@@ -83,6 +83,7 @@ const T = {
   helps: 'Bij elke puzzel zoekt je kind een getal dat met twee andere getallen te maken is. Zo oefent je kind spelenderwijs splitsen en vlot hoofdrekenen. Indie houdt het rustig met tips, tips en foutjes tellen maar licht mee voor de sterren, en er loopt geen klok.',
   progress: 'Voortgang', reset: 'Voortgang wissen', resetAsk: 'Sterren en stickers op dit apparaat wissen?', resetDone: 'Voortgang gewist',
   // Beequation Pro
+  previewHive: 'Voorbeeldkorf',
   streakAria: n => n === 1 ? '1 dag op rij' : `${n} dagen op rij`, dailyOn: d => `Dagpuzzel, ${d}`, hiveNo: n => `Korf nr. ${n}`, doneIn: t => `Opgelost in ${t}. Om middernacht komt er een nieuwe korf.`,
   tenMixed: 'Tien gemengde puzzels. Iedereen speelt vandaag dezelfde.', seeResult: 'Bekijk je resultaat', playToday: 'Speel de korf van vandaag', blitzTile: '60s-blitz',
   best: n => `Record ${n}`, beatClock: 'Race tegen de klok', hiveSub: 'Expert, 4 in 1', practice: 'Oefenen', highest: 'Hoogste level', notStarted: 'Nog niet begonnen',
