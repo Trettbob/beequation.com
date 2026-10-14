@@ -1,0 +1,26 @@
+{
+  "lang": "in",
+  "docTitle": "Beequation's classroom puzzle pack",
+  "mul": "×",
+  "sums": "Addition hives",
+  "times": "Multiplication hives",
+  "howSums": "Find one number that is the <b>sum</b> of two others. Circle it and write the addition sentence.",
+  "howTimes": "Find one number that is the <b>product</b> of two others. Circle it and write the multiplication sentence.",
+  "sheetOf": "Sheet {n} of 2",
+  "name": "Name:",
+  "date": "Date:",
+  "time": "Time, if you want to record it:",
+  "answerKey": "Answers",
+  "forGrownUps": "For parents and teachers",
+  "inClass": "Use a hive as a board starter, solve it in pairs, or keep the sheets for a quiet practice activity. Ask children to explain which two numbers they used.",
+  "tips": [
+    "Begin with an addition hive. Children can use counters or draw dots before writing a number sentence.",
+    "For multiplication, choose tables the class has already explored through equal groups and arrays.",
+    "A timer is optional. A clear explanation matters more than finishing first."
+  ],
+  "promo": "<b>Meet Indie, Beequation's honeybee.</b> She invites you to look for a connection between three numbers. Try another hive at beequation.com.",
+  "footer": "This puzzle pack is shared under CC BY 4.0. Credit Beequation (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/",
+  "hexAlt": "A number hive containing {list}",
+  "listSep": ", ",
+  "partOf": "Hive {n} of {total}"
+}
