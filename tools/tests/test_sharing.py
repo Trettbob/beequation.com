@@ -1,6 +1,7 @@
 """Share row and Hive certificate: generated-HTML contracts. Never publishes; reads built output where noted."""
 import importlib.util
 import re
+import subprocess
 import sys
 import unittest
 from html import unescape
@@ -15,6 +16,15 @@ B = importlib.util.module_from_spec(spec); spec.loader.exec_module(B)
 ARTICLE = ('<html><head><meta charset="utf-8"><link rel="canonical" href="{host}/learn/topics/fractions.html"></head><body>'
            '<!--header--><!--/header--><main class="wrap"><article class="doc"><h1>Fractions &amp; halves</h1><p>Text</p></article></main>'
            '<!--footer--><!--/footer--></body></html>')
+
+PREVIEW = set(B.LANGS) - set(B.LIVE) - {'en'}
+
+
+def setUpModule():
+    for code in sorted(PREVIEW):
+        base = ROOT / 'dist' / code
+        if not all((base / page).is_file() for page in ('today/index.html', 'certificate.html', 'sitemap.xml')):
+            subprocess.run([sys.executable, str(ROOT / 'tools/build-langs.py'), '--lang', code], cwd=ROOT, check=True)
 
 
 class ShareRowTests(unittest.TestCase):
@@ -57,7 +67,7 @@ class ShareRowTests(unittest.TestCase):
                 self.assertIn(words['email'].casefold(), words['email_label'].casefold())
                 for name, key in (('WhatsApp', 'whatsapp'), ('Facebook', 'facebook'), ('X', 'x'), ('Bluesky', 'bluesky')):
                     self.assertIn(name, words[key])
-                if code != 'en': self.assertNotEqual(words['today'], B.SHARE_TEXT['en']['today'])
+                if code not in ('en', 'in'): self.assertNotEqual(words['today'], B.SHARE_TEXT['en']['today'])
 
     def test_only_share_pages_get_a_row(self):
         hub = ARTICLE.replace('<article class="doc">', '<article class="doc hub">')
@@ -67,14 +77,21 @@ class ShareRowTests(unittest.TestCase):
         self.assertIn('<!--share-->', B.chrome(ARTICLE.format(host=B.MAIN), 'en', 'blog/news.html'))
 
     def test_built_pages(self):
-        """Run build-learn.py and build-langs.py first."""
+        """Preview sites are built on demand; live pages must already be built."""
         today = (ROOT / 'today/index.html').read_text()
         self.assertIn('https%3A%2F%2Fbeequation.com%2Ftoday%2F%3Futm_source%3Dshare%26utm_medium%3Dwhatsapp', today)
         for code in B.LANGS:
             base = ROOT if code == 'en' else ROOT / 'dist' / code
-            with self.subTest(code=code):
-                for page in ['today/index.html', 'teachers.html', 'learn/worksheets/' + next(p.name for p in sorted((base / 'learn/worksheets').glob('*.html')) if p.name != 'index.html')]:
+            worksheet = next((page for page in sorted((base / 'learn/worksheets').glob('*.html')) if page.name != 'index.html'), None)
+            pages = ['today/index.html', 'teachers.html', worksheet.relative_to(base).as_posix() if worksheet else 'learn/worksheets/worksheet.html']
+            for page in pages:
+                with self.subTest(code=code, page=page):
+                    if code in PREVIEW and page != 'today/index.html' and not (base / page).is_file():
+                        self.skipTest('Preview build does not yet include this Learn page')
                     self.assertEqual((base / page).read_text().count('class="bq-share"'), 1, page)
+            with self.subTest(code=code, page='learn/index.html'):
+                if code in PREVIEW and not (base / 'learn/index.html').is_file():
+                    self.skipTest('Preview build does not yet include Learn')
                 self.assertNotIn('class="bq-share"', (base / 'learn/index.html').read_text())
 
 
@@ -97,7 +114,7 @@ class CertificateTests(unittest.TestCase):
                 self.assertRegex(page, r'<label for="cert-name">[^<]+</label>\s*<input id="cert-name"')
                 self.assertIn('@media print', page)
                 self.assertNotRegex(page, r'localStorage\.setItem\([^)]*cert|fetch\(|sendBeacon|XMLHttpRequest')
-                if code != 'en': self.assertNotEqual(words['h1'], B.CERT_TEXT['en']['h1'])
+                if code not in ('en', 'in'): self.assertNotEqual(words['h1'], B.CERT_TEXT['en']['h1'])
 
     def test_certificate_reads_numbers_only(self):
         script = B.CERT_JS

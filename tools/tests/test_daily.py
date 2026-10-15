@@ -97,8 +97,17 @@ class DailyTests(unittest.TestCase):
             self.assertNotIn('push', log.read_text())
 
     def test_initial_router_opens_daily_with_pro_home_beneath(self):
-        line = next(l for l in (ROOT / 'play.html').read_text().splitlines() if l.startswith('let stack ='))
-        js = "const location={search:process.argv[1]}; " + line + "; console.log(JSON.stringify(stack));"
+        html = (ROOT / 'play.html').read_text()
+        table = re.search(r'/\*T\*/([\s\S]*?)/\*/T\*/', html)
+        router = re.search(r'// ---------- router ----------([\s\S]*?)(?=\bconst\s+go\s*=)', html)
+        self.assertIsNotNone(table)
+        self.assertIsNotNone(router)
+        engine = html[html.index('// ---- engine:'):html.index('// ---- end engine ----')]
+        helpers = html[html.index('// ---------- helpers ----------'):html.index('// ---------- router ----------')]
+        script = '\n'.join([table.group(1), engine, helpers, router.group(1), 'JSON.stringify(stack)'])
+        js = ('const vm=require("node:vm"); console.log(vm.runInNewContext(' + json.dumps(script) +
+              ', {URLSearchParams, URL, location:{search:process.argv[1]}, '
+              'document:{getElementById:()=>({})}, localStorage:{getItem:()=>null}, navigator:{}}));')
         for query, expected in [('?app=pro&daily=1', [{'name':'a_home'}, {'name':'a_game','mode':'mixed','tier':5,'kind':'daily'}]), ('?app=pro', [{'name':'a_home'}]), ('?app=kids&daily=1', [{'name':'k_home'}]), ('', [{'name':'choose'}])]:
             result = subprocess.run([NODE, '-e', js, query], capture_output=True, text=True, check=True)
             self.assertEqual(json.loads(result.stdout), expected)
