@@ -1,9 +1,10 @@
-import test from 'node:test';
+import test,{after} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { createRequire } from 'node:module';
 const moduleURL = pathToFileURL(path.resolve('tools/a11y/common.mjs'));
 const common = await import(moduleURL).catch(() => ({}));
 
@@ -83,4 +84,57 @@ test('site server serves directory indexes and denies paths outside its root',as
     assert.equal((await fetch(server.origin+'/outside/')).status,404);
     assert.equal((await fetch(server.origin+'/missing.html')).status,404);
   } finally {if(server)await server.close();await fs.rm(root,{recursive:true,force:true});}
+});
+
+// Roving tabindex: real Chrome presses Tab and arrow keys (host only, like browser.test.mjs).
+const CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const noChrome=process.env.BQ_SKIP_BROWSER==='1'?'Chrome is unavailable in this sandbox; run on the host':false;
+let rovingBrowser;
+after(async()=>{if(rovingBrowser)await rovingBrowser.close();});
+async function keyboardFindings(html) {
+  const {inspectKeyboard}=await import('./audit-pages.mjs');
+  if(!rovingBrowser) {
+    const puppeteer=createRequire('/Volumes/External SSD/Projects/devtools/tools/shots/package.json')('puppeteer-core');
+    rovingBrowser=await puppeteer.launch({executablePath:CHROME,headless:true});
+  }
+  const ctx=await rovingBrowser.createBrowserContext();
+  try {
+    const page=await ctx.newPage();await page.setViewport({width:800,height:600});
+    await page.setContent(html);
+    const findings=await inspectKeyboard(page);
+    const tabindex=await page.$$eval('[tabindex]',es=>Object.fromEntries(es.map(e=>[e.id,e.getAttribute('tabindex')])));
+    const flagged=findings.find(f=>f.id==='keyboard-unreachable')?.nodes||[];
+    return {flagged:flagged.map(n=>n.target[0]),summaries:flagged.map(n=>n.failureSummary),tabindex};
+  } finally {await ctx.close();}
+}
+const ROVE=`<script>for(const c of document.querySelectorAll('.cell'))c.onkeydown=e=>{const all=[...document.querySelectorAll('.cell')],i=all.indexOf(c);
+  const j={ArrowRight:i+1,ArrowDown:i+1,ArrowLeft:i-1,ArrowUp:i-1,Home:0,End:all.length-1}[e.key];if(j===undefined||!all[j])return;e.preventDefault();
+  all.forEach((x,k)=>x.tabIndex=k===j?0:-1);all[j].focus();};</script>`;
+const board=(tabindexes,{script=ROVE,extra=''}={})=>`<!doctype html><html lang="en"><title>Roving fixture</title><style>:focus-visible{outline:3px solid red}</style><body>
+  <button id="before">Before</button><div role="grid" aria-label="Board"><div role="row">${tabindexes.map((t,i)=>`<div role="gridcell"><span class="cell" role="button" id="c${i}" tabindex="${t}" aria-label="Cell ${i+1}">${i+1}</span></div>`).join('')}</div></div>
+  <button id="after">After</button>${extra}${script}</body></html>`;
+
+test('valid roving-tabindex group is reachable by arrow keys and not flagged',{skip:noChrome},async()=>{
+  const r=await keyboardFindings(board([0,-1,-1,-1]));
+  assert.deepEqual(r.flagged,[]);
+  assert.deepEqual(r.tabindex,{c0:'0',c1:'-1',c2:'-1',c3:'-1'},'roving state is restored after the arrow-key check');
+});
+test('well-formed roving markup without working arrow keys is still flagged',{skip:noChrome},async()=>{
+  const r=await keyboardFindings(board([0,-1,-1],{script:''}));
+  assert.deepEqual(r.flagged,['#c1','#c2']);
+  assert.match(r.summaries[0],/arrow/);
+});
+test('roving group with two tabindex=0 members is flagged',{skip:noChrome},async()=>{
+  const r=await keyboardFindings(board([0,0,-1]));
+  assert.deepEqual(r.flagged,['#c2']);
+  assert.match(r.summaries[0],/2 tabindex=0 members/);
+});
+test('roving group with no tabindex=0 member is flagged',{skip:noChrome},async()=>{
+  const r=await keyboardFindings(board([-1,-1,-1]));
+  assert.deepEqual(r.flagged,['#c0','#c1','#c2']);
+  assert.match(r.summaries[0],/0 tabindex=0 members/);
+});
+test('stray tabindex=-1 button outside a roving group is flagged',{skip:noChrome},async()=>{
+  const r=await keyboardFindings(board([0,-1],{extra:'<button id="stray" tabindex="-1">Stray</button>'}));
+  assert.deepEqual(r.flagged,['#stray']);
 });

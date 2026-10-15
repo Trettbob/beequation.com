@@ -152,13 +152,72 @@ export async function inspectKeyboard(page) {
     reached.add(focus.id);
     if(!focus.visible || !focus.indication)missingFocus.push({target:focus.target,html:focus.html,failureSummary:'Tab focus has no changed visible outline, box-shadow or ancestor filter; check alternative indicators manually'});
   }
-  const unreachable=await page.evaluate(ids=>[...window.__bqAudit.entries.values()].filter(e=>!ids.includes(e.id)).map(e=>({target:e.target,html:e.html,failureSummary:'Not reached during a complete Tab traversal'})),[...reached]);
+  const missed=await page.evaluate(ids=>[...window.__bqAudit.entries.values()].filter(e=>!ids.includes(e.id)).map(e=>({id:e.id,target:e.target,html:e.html})),[...reached]);
+  const roving=missed.length?await inspectRoving(page,missed.map(e=>e.id),[...reached]):{reached:new Set(),notes:new Map()};
+  const unreachable=missed.filter(e=>!roving.reached.has(e.id)).map(e=>({target:e.target,html:e.html,failureSummary:roving.notes.get(e.id)||'Not reached during a complete Tab traversal'}));
   const out=[];
-  if(unreachable.length)out.push({id:'keyboard-unreachable',impact:'serious',description:'Visible interactive elements not reachable by Tab (radio groups treated as one stop)',nodes:unreachable});
+  if(unreachable.length)out.push({id:'keyboard-unreachable',impact:'serious',description:'Visible interactive elements not reachable by keyboard (radio groups and verified roving-tabindex groups treated as one stop)',nodes:unreachable});
   if(missingFocus.length)out.push({id:'focus-indicator-review',impact:'moderate',description:'No detected focus indicator; color-only/pseudo-element indicators need manual review',nodes:missingFocus});
   if(truncated&&count)out.push({id:'keyboard-traversal-incomplete',impact:'serious',description:'Tab traversal failed to return to its first focus stop',nodes:[{target:['body'],html:'',failureSummary:'Possible focus trap or dynamically changing tab order'}]});
   await page.evaluate(()=>{for(const e of document.querySelectorAll('[data-bq-audit]'))e.removeAttribute('data-bq-audit');delete window.__bqAudit;});
   return out;
+}
+
+// Roving tabindex (APG composite widgets such as play.html's board): Tab skips the
+// tabindex=-1 members by design and arrow keys move focus between them. Markup alone
+// never exempts a control: the group must be well formed AND real key presses from
+// its tabindex=0 member must reach the member. Runs after the Tab traversal.
+const ROVING_CONTAINER=['grid','treegrid','group','radiogroup','toolbar','listbox','menu','menubar','tablist','tree'].map(r=>`[role=${r}]`).join(',');
+const ROVING_KEYS=['ArrowRight','ArrowDown','ArrowLeft','ArrowUp','Home','End'];
+export async function inspectRoving(page,ids,reached) {
+  const groups=await page.evaluate(({ids,reached,CONTAINER})=>{
+    const INTERACTIVE='a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=link],[role=checkbox],[role=radio],[role=switch],[role=tab],[role=menuitem],[role=menuitemcheckbox],[role=menuitemradio],[role=option],[role=gridcell],[role=treeitem],[role=slider],[role=spinbutton]';
+    const named=e=>!!((e.getAttribute('aria-label')||'').trim()||(e.getAttribute('aria-labelledby')||'').split(/\s+/).some(id=>id&&document.getElementById(id)?.textContent.trim())||(e.getAttribute('title')||'').trim()||e.textContent.trim()||e.querySelector('img[alt]:not([alt=""]),[role=img][aria-label]'));
+    const byId=new Map([...window.__bqAudit.entries].map(([e,v])=>[v.id,e])),boxes=new Map();
+    for(const id of ids) {
+      const e=byId.get(id),box=e.getAttribute('tabindex')?.trim()==='-1'?e.parentElement?.closest(CONTAINER):null;
+      if(box){if(!boxes.has(box))boxes.set(box,[]);boxes.get(box).push(e);}
+    }
+    return [...boxes].map(([box,missed],gid)=>{
+      const members=[...box.querySelectorAll('[tabindex]')].filter(m=>m.matches(INTERACTIVE)&&m.parentElement.closest(CONTAINER)===box);
+      const zeros=members.filter(m=>m.getAttribute('tabindex').trim()==='0'),zero=zeros[0];
+      let problem=null;
+      if(zeros.length!==1)problem=`roving group has ${zeros.length} tabindex=0 members; exactly one is required`;
+      else if(members.some(m=>!['0','-1'].includes(m.getAttribute('tabindex').trim())))problem='roving group members must use only tabindex 0 and -1';
+      else if(members.some(m=>m.matches(':disabled')||!named(m)))problem='roving group has disabled or unnamed members';
+      else if(!window.__bqAuditHelpers.visible(zero,false)||(window.__bqAudit.entries.has(zero)&&!reached.includes(window.__bqAudit.entries.get(zero).id)))problem='roving group tabindex=0 member is not reachable by Tab';
+      members.forEach(m=>m.setAttribute('data-bq-roving',gid));
+      return {gid,problem,zero:members.indexOf(zero),missed:missed.map(e=>({id:window.__bqAudit.entries.get(e).id,index:members.indexOf(e)}))};
+    });
+  },{ids,reached,CONTAINER:ROVING_CONTAINER});
+  const result={reached:new Set(),notes:new Map()};
+  for(const g of groups) {
+    const sel=`[data-bq-roving="${g.gid}"]`,seen=new Set([g.zero]);
+    const at=()=>page.evaluate(sel=>[...document.querySelectorAll(sel)].indexOf(document.activeElement),sel);
+    const focus=i=>page.evaluate((sel,i)=>{const m=document.querySelectorAll(sel)[i];m?.focus();return !!m&&document.activeElement===m;},sel,i);
+    if(!g.problem) {
+      const saved=await page.evaluate(sel=>[...document.querySelectorAll(sel)].map(m=>m.getAttribute('tabindex')),sel);
+      // Breadth-first over members actually reached by key presses, starting at the Tab stop.
+      const queue=(await focus(g.zero))?[g.zero]:[];
+      while(queue.length) {
+        const i=queue.shift();
+        for(const key of ROVING_KEYS) {
+          if(await at()!==i&&!(await focus(i)))break;
+          await page.keyboard.press(key);
+          const j=await at();if(j>=0&&!seen.has(j)){seen.add(j);queue.push(j);}
+        }
+      }
+      // Restore the widget's own roving state, then the original attributes.
+      await focus(g.zero);
+      await page.evaluate((sel,saved)=>document.querySelectorAll(sel).forEach((m,i)=>m.setAttribute('tabindex',saved[i])),sel,saved);
+    }
+    for(const m of g.missed) {
+      if(!g.problem&&seen.has(m.index))result.reached.add(m.id);
+      else result.notes.set(m.id,g.problem?`Not reached by Tab; ${g.problem}`:'Not reached by Tab, nor by arrow/Home/End keys from its roving group\'s tabindex=0 member');
+    }
+  }
+  await page.evaluate(()=>{document.activeElement?.blur();for(const e of document.querySelectorAll('[data-bq-roving]'))e.removeAttribute('data-bq-roving');});
+  return result;
 }
 
 export async function auditState(page,meta,axeSource) {
