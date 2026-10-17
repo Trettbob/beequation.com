@@ -54,16 +54,18 @@ footer comes from the translated About page. The game uses `i18n/play/<code>.js`
 | es | Español | https://es.beequation.com | live |
 | de | Deutsch | https://de.beequation.com | live |
 | pt | Português (Brasil) | https://pt.beequation.com | live |
-| it | Italiano | it.beequation.com | translated, not set up |
-| nl | Nederlands | nl.beequation.com | translated, not set up |
-| pl | Polski | pl.beequation.com | translated, not set up |
-| sv | Svenska | sv.beequation.com | translated, not set up |
-| da | Dansk | da.beequation.com | translated, not set up |
-| no | Norsk (bokmål) | no.beequation.com | translated, not set up |
-| fi | Suomi | fi.beequation.com | translated, not set up |
-| tr | Türkçe | tr.beequation.com | translated, not set up |
-| ja | 日本語 | ja.beequation.com | translated, not set up |
-| ko | 한국어 | ko.beequation.com | translated, not set up |
+| it | Italiano | it.beequation.com | live |
+| nl | Nederlands | nl.beequation.com | live |
+| pl | Polski | pl.beequation.com | live |
+| sv | Svenska | sv.beequation.com | live |
+| da | Dansk | da.beequation.com | live |
+| no | Norsk (bokmål) | no.beequation.com | live |
+| fi | Suomi | fi.beequation.com | live |
+| tr | Türkçe | tr.beequation.com | live |
+| ja | 日本語 | ja.beequation.com | live |
+| ko | 한국어 | ko.beequation.com | live |
+| in | English (India) | https://in.beequation.com | live |
+| hi | हिन्दी | https://hi.beequation.com | live |
 | id | Bahasa Indonesia | id.beequation.com | preview, not live |
 | vi | Tiếng Việt | vi.beequation.com | preview, not live |
 | th | ไทย | th.beequation.com | preview, not live |

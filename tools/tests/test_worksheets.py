@@ -16,7 +16,7 @@ NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
 PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core'
 LANGS = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi')
 LANGS = list(LANGS) + [c for c in ('id', 'vi', 'th', 'uk', 'ar') if (ROOT / f'learn-i18n/{c}/worksheets.mjs').is_file()]
-PREVIEW = {'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'}   # India: worksheets exist, Learn pages (dist/<code>/learn) not yet
+PREVIEW = {'id', 'vi', 'th', 'uk', 'ar'}   # Learn sections are still in progress
 CLOCK_SHEETS = ('time-oclock-and-half-past', 'time-quarter-past-and-to', 'time-to-5-minutes')
 
 

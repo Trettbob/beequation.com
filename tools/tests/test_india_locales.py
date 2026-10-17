@@ -1,7 +1,7 @@
 """India's two sites: in (Indian English, in.beequation.com) and hi (Hindi, hi.beequation.com).
 
-They are wired everywhere a language list exists, build into dist/in and dist/hi for previews, and stay out of every
-live site (menus, hreflang, suggestion banner, IndexNow) until they are added to LIVE / LEARN_LIVE."""
+Both are live, build into dist/in and dist/hi, and appear in live site menus, hreflang,
+suggestion banners and IndexNow submissions."""
 import importlib.util
 import json
 import subprocess
@@ -28,7 +28,7 @@ PAGE = ('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>T<
 
 
 class IndiaLocalesTests(unittest.TestCase):
-    def test_preview_locales_are_registered_but_not_live(self):
+    def test_india_locales_are_registered_and_live(self):
         self.assertEqual(BUILD.LANGS['in'], 'English (India)')
         self.assertEqual(BUILD.LANGS['hi'], 'हिन्दी')
         self.assertEqual(BUILD.HTML_LANG['in'], 'en-IN')
@@ -36,33 +36,27 @@ class IndiaLocalesTests(unittest.TestCase):
         self.assertEqual((BUILD.hreflang('in'), BUILD.hreflang('hi'), BUILD.hreflang('en'), BUILD.hreflang('no')), ('en-IN', 'hi-IN', 'en-GB', 'nb'))
         self.assertEqual((BUILD.site('in'), BUILD.site('hi')), ('https://in.beequation.com', 'https://hi.beequation.com'))
         for code in ('in', 'hi'):
-            self.assertNotIn(code, BUILD.LIVE)
-            self.assertNotIn(code, LEARN.LEARN_LIVE)
+            self.assertIn(code, BUILD.LIVE)
+            self.assertIn(code, LEARN.LEARN_LIVE)
 
-    def test_live_sites_do_not_offer_india_yet(self):
+    def test_live_sites_offer_india(self):
         menu = ''.join(BUILD.lang_links('en', 'index.html'))
-        self.assertNotIn('in.beequation.com', menu)
-        self.assertNotIn('hi.beequation.com', menu)
+        self.assertIn('in.beequation.com', menu)
+        self.assertIn('hi.beequation.com', menu)
         for code in ('en', 'fr'):
             tags = BUILD.alternates('support.html', code)
-            self.assertNotIn('en-IN', tags); self.assertNotIn('hi-IN', tags)
-        self.assertNotIn('in.beequation.com', BUILD.suggestion('support.html'))
-        self.assertNotIn('hreflang="hi-IN"', BUILD.easy_sitemap_entry('easy-read/privacy.html', 'fr'))
-        # a preview site lists itself, with its regional hreflang
+            self.assertIn('en-IN', tags); self.assertIn('hi-IN', tags)
+        self.assertIn('in.beequation.com', BUILD.suggestion('support.html'))
+        self.assertIn('hreflang="hi-IN"', BUILD.easy_sitemap_entry('easy-read/privacy.html', 'fr'))
+        # Each India site lists itself with its regional hreflang
         self.assertIn('hreflang="hi-IN" href="https://hi.beequation.com/support.html"', BUILD.alternates('support.html', 'hi'))
         self.assertIn('hreflang="en-IN" href="https://in.beequation.com/support.html"', BUILD.alternates('support.html', 'in'))
 
-    def test_suggestion_offers_india_to_en_in_browsers_once_live(self):
-        before = set(BUILD.LIVE)
-        try:
-            BUILD.LIVE.update({'in', 'hi'})
-            script = BUILD.suggestion('support.html')
-        finally:
-            BUILD.LIVE.clear(); BUILD.LIVE.update(before)
+    def test_suggestion_offers_india_to_en_in_browsers(self):
+        script = BUILD.suggestion('support.html')
         self.assertIn('"in": {"lang": "en-IN", "url": "https://in.beequation.com/support.html"', script)
         self.assertIn('"hi": {"lang": "hi", "url": "https://hi.beequation.com/support.html"', script)
         self.assertIn("if(c==='in')continue;if(c==='en'){if(/^en-IN$/i.test(ls[i])){pick='in';break;}return;}", script)
-        self.assertNotIn("if(c==='in')continue", BUILD.suggestion('support.html'))
 
     def test_devanagari_fonts_only_on_hindi_pages(self):
         hi, fr = BUILD.chrome(PAGE, 'hi', 'about.html'), BUILD.chrome(PAGE, 'fr', 'about.html')
@@ -122,7 +116,7 @@ class IndiaLocalesTests(unittest.TestCase):
         self.assertEqual(common.normalise('₹20 − ₹5', 'hi'), 'रु 20 - रु 5')
         self.assertEqual(common.normalise('₹20', 'in'), 'Rs 20')
         indexnow = load('india_indexnow', 'tools/indexnow.py')
-        self.assertNotIn('in', indexnow.CODES); self.assertNotIn('hi', indexnow.CODES)
+        self.assertIn('in', indexnow.CODES); self.assertIn('hi', indexnow.CODES)
         self.assertEqual(indexnow.live_codes(), BUILD.LIVE)
 
 

@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR',
          'it': 'it', 'nl': 'nl', 'pl': 'pl', 'sv': 'sv', 'da': 'da', 'no': 'nb',
-         'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko'}
+         'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko', 'in': 'en-IN', 'hi': 'hi'}
 GUIDES = ['mental-maths-strategies.html', 'times-tables-practice.html',
           'daily-maths-puzzle-for-adults.html', 'number-bonds-to-20.html']
 def host(code):
@@ -38,14 +38,14 @@ class Page(HTMLParser):
 class InternationalSEO(unittest.TestCase):
     def test_reciprocal_guides_and_accessibility(self):
         for rel in ['learn/' + g for g in GUIDES] + ['accessibility.html']:
-            expected = {v: host(k) + '/' + rel for k, v in LANGS.items()}
+            expected = {('hi-IN' if k == 'hi' else v): host(k) + '/' + rel for k, v in LANGS.items()}
             expected['x-default'] = host('en') + '/' + rel
             for code in LANGS:
                 with self.subTest(code=code, page=rel):
                     p = root(code) / rel
                     self.assertTrue(p.is_file(), str(p))
                     links = [a for a in Page(p).links if a.get('rel') == 'alternate' and a.get('hreflang')]
-                    self.assertEqual(len(links), 16)
+                    self.assertEqual(len(links), 18)
                     self.assertEqual({a['hreflang']: a['href'] for a in links}, expected)
     def test_local_accessibility_and_recovery(self):
         for code in LANGS.keys() - {'en'}:
@@ -95,9 +95,8 @@ class InternationalSEO(unittest.TestCase):
                 org = next(x for x in objects if x.get('@type') == 'Organization')
                 self.assertEqual(org['@id'], 'https://beequation.com/#org')
 
-    def test_language_previews(self):
-        """Preview sites have the right language and links on their own pages, and are
-        not yet linked from any live site."""
+    def test_india_and_preview_languages(self):
+        """India and previews have correct regional metadata; only live sites are offered."""
         for code, lang, hreflang in [('in', 'en-IN', 'en-IN'), ('hi', 'hi', 'hi-IN')] + [(c, c, c) for c in ('id', 'vi', 'th', 'uk', 'ar')]:
             if not (root(code) / 'index.html').is_file(): continue   # not built (words still being written)
             for rel in ['index.html', 'support.html', 'play.html', 'accessibility.html', 'easy-read/privacy.html']:
@@ -122,7 +121,7 @@ class InternationalSEO(unittest.TestCase):
             for p in [root(code) / 'index.html', root(code) / 'support.html', root(code) / 'sitemap.xml']:
                 with self.subTest(live=str(p)):
                     text = p.read_text()
-                    for preview in ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'):
+                    for preview in ('id', 'vi', 'th', 'uk', 'ar'):
                         self.assertNotIn(f'{preview}.beequation.com', text)
 
 if __name__ == '__main__':

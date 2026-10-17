@@ -33,9 +33,9 @@ MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
 # these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
-LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko'}
-# India (Lee, 2026-10-12): 'in' is Indian English (in.beequation.com) and 'hi' Hindi (hi.beequation.com). Both build into
-# dist/in and dist/hi for previews; they join LIVE (and build-learn.py's LEARN_LIVE) once their repos, DNS and HTTPS work.
+LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi'}
+# India's live sites: 'in' is Indian English (in.beequation.com) and 'hi' Hindi (hi.beequation.com).
+# Both include their Learn sections and have working repos, DNS and HTTPS.
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'
 # Search engines get a region for Hindi (the html lang stays plain 'hi'); every other code uses its html lang.
 HREFLANG = {**HTML_LANG, 'hi': 'hi-IN'}
@@ -333,7 +333,7 @@ NAV_TEXT = {'en': {
 # country's schools, is ready (build-learn.py's LEARN_LIVE, or --learn <code> to preview one). Their words, topics and
 # school years come from build-learn.py (English) or learn-i18n/<code>/site.json.
 PREVIEW_LEARN = set(sys.argv[sys.argv.index('--learn') + 1].split(',')) if '--learn' in sys.argv else set()
-def has_learn(lang):   # (a preview needs its Learn home written first: India's pages come after their briefs)
+def has_learn(lang):   # a preview needs its Learn home written first
     return lang == 'en' or lang in _learn().LEARN_LIVE or (lang in PREVIEW_LEARN and os.path.exists(os.path.join(ROOT, 'learn-i18n', lang, 'index.html')))
 
 def esc(s): return H.escape(str(s), quote=True)

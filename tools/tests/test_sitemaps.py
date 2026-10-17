@@ -18,8 +18,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
-CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
-CODES += [c for c in ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar') if (ROOT / 'dist' / c / 'sitemap.xml').is_file()]
+CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko in hi'.split()
+CODES += [c for c in ('id', 'vi', 'th', 'uk', 'ar') if (ROOT / 'dist' / c / 'sitemap.xml').is_file()]
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 KEY = '0123456789abcdef0123456789abcdef'
 
@@ -128,7 +128,7 @@ class IndexNowTests(unittest.TestCase):
         result, output = self.invoke(['--all', '--dry-run'], forbidden)
         self.assertEqual(result, 0)
         payloads = [json.loads(line) for line in output.splitlines() if line.startswith('{')]
-        self.assertEqual(len(payloads), 30)
+        self.assertEqual(len(payloads), 34)
         for payload in payloads:
             self.assertEqual(set(payload), {'host', 'key', 'keyLocation', 'urlList'})
             self.assertEqual(payload['key'], KEY)
@@ -136,7 +136,7 @@ class IndexNowTests(unittest.TestCase):
             self.assertLessEqual(len(payload['urlList']), 10000)
             self.assertTrue(payload['urlList'])
             self.assertTrue(all(urlsplit(u).netloc == payload['host'] for u in payload['urlList']))
-        self.assertEqual(sum(len(p['urlList']) for p in payloads), 15 * 10005)
+        self.assertEqual(sum(len(p['urlList']) for p in payloads), 17 * 10005)
         self.assertFalse(self.state.exists())
 
     def test_successful_hosts_advance_state_failed_hosts_retry_and_all_hosts_are_attempted(self):
@@ -154,7 +154,7 @@ class IndexNowTests(unittest.TestCase):
             return Response(202, '')
         result, output = self.invoke([], opener)
         self.assertEqual(result, 1)
-        self.assertEqual(len(gets), 15); self.assertEqual(len(sent), 15)
+        self.assertEqual(len(gets), 17); self.assertEqual(len(sent), 17)
         self.assertIn('429', output); self.assertIn('202', output)
         state = json.loads(self.state.read_text())
         self.assertIn('beequation.com', state['hosts']); self.assertNotIn('fr.beequation.com', state['hosts'])
@@ -191,7 +191,7 @@ class IndexNowTests(unittest.TestCase):
             return Response()
         result, output = self.invoke([], opener)
         self.assertEqual(result, 1)
-        self.assertEqual(len(attempted), 15)
+        self.assertEqual(len(attempted), 17)
         self.assertIn('IncompleteRead', output); self.assertIn('503', output)
         state = json.loads(self.state.read_text())['hosts']
         self.assertNotIn('beequation.com', state)

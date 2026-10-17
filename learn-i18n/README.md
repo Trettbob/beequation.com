@@ -12,8 +12,8 @@ Build: `python3 tools/build-langs.py --learn es` builds `dist/es/` with its Lear
 Worksheets: `node tools/make-worksheets.mjs <puppeteer-core dir> --lang es` (see below).
 
 India has two sites: `learn-i18n/in/` (Indian English, `in.beequation.com`, `en-IN`) and `learn-i18n/hi/` (Hindi,
-`hi.beequation.com`, `hi` / `hi-IN`), both with Classes 1 to 5 (`class-1` … `class-5`). They are previews, outside
-`LIVE` and `LEARN_LIVE`, until Lee has set up their repos and DNS; Indian English text outside Learn is
+`hi.beequation.com`, `hi` / `hi-IN`), both with Classes 1 to 5 (`class-1` … `class-5`). Both are live in
+`LIVE` and `LEARN_LIVE`, with working repos, DNS and HTTPS. Indian English text outside Learn is
 `i18n/in.json`, kept complete with `python3 tools/i18n-identity.py in`.
 
 ## Folder layout

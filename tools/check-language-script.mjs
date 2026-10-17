@@ -8,8 +8,8 @@ import {fileURLToPath} from 'node:url';
 import vm from 'node:vm';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const before = process.argv.includes('--before');
-// India's preview sites (not live yet, so no page offers them): their own pages are checked once built.
-const PREVIEW = before ? [] : ['in','hi','id','vi','th','uk','ar'].filter(c => existsSync(resolve(root, `dist/${c}/support.html`)));
+// Preview sites are checked once built; live India sites are always checked.
+const PREVIEW = before ? [] : ['id','vi','th','uk','ar'].filter(c => existsSync(resolve(root, `dist/${c}/support.html`)));
 function source(path) {
   return before ? execFileSync('git', ['show', `HEAD:${path}`], {cwd:root, encoding:'utf8'}) : readFileSync(resolve(root, path), 'utf8');
 }
@@ -69,7 +69,7 @@ for (const values of [{}, {'bq-consent':'all'}, {'bq-consent':'basic'}, {'bq-con
 r=run('support.html',{values:{'bq-consent':'no'}});r.banner().children[1].events.click();
 assert.equal(r.store.has('bq-lang-dismissed'),false,'respect legacy no-storage preference');
 // Catch stale opt-in, duplicate loads, dual ready/load callbacks and revocation during download.
-for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].concat(PREVIEW).map(c=>`dist/${c}/support.html`)]) {
+for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko','in','hi'].concat(PREVIEW).map(c=>`dist/${c}/support.html`)]) {
   const html=source(path);
   assert.ok(html.indexOf('<!--consent-->')<html.indexOf('<!--ga-->'),`${path}: consent precedes analytics`);
   for(const answer of ['all2','basic']) {
@@ -116,7 +116,7 @@ for(const path of ['support.html', ...['fr','es','de','pt','it','nl','pl','sv','
   r.events.click.forEach(f=>f({target:{closest:()=>true}}));r.notice().querySelector('.n').events.click();
   pending.onload();assert.equal(sent,0,'decline before script completes prevents visit');
 }
-for(const hostname of ['beequation.com',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].map(code=>`${code}.beequation.com`),'nested.fr.beequation.com','localhost','127.0.0.1','notbeequation.com','beequation.com.example.com']) {
+for(const hostname of ['beequation.com',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko','in','hi'].map(code=>`${code}.beequation.com`),'nested.fr.beequation.com','localhost','127.0.0.1','notbeequation.com','beequation.com.example.com']) {
   const beequationHost=/(^|\.)beequation\.com$/.test(hostname);
   for(const answer of ['all2','basic']) {
     r=run('support.html',{hostname});
@@ -142,22 +142,22 @@ assert.equal(run('support.html',{languages:['en-GB','fr']}).banner(),undefined);
 assert.equal(run('support.html',{languages:['zz-ZZ']}).banner(),undefined);
 assert.equal(run('support.html',{languages:['zz-ZZ','fr']}).banner().lang,'fr');
 for(const saved of ['constructor','__proto__','toString','xx']) assert.equal(run('support.html',{values:{'bq-lang':saved}}).banner().lang,'fr');
-for(const code of ['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko']) {
-  r=run('support.html',{languages:[code]});
+for(const code of ['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko','in','hi']) {
+  r=run('support.html',{languages:[code==='in'?'en-IN':code]});
   assert.equal(r.banner().children[0].href,`https://${code}.beequation.com/support.html`);
   assert.ok(r.banner().children.every(x=>x.textContent.length>0));
 }
 for(const code of ['nb-NO','nn-NO']) assert.equal(run('learn/mental-maths-strategies.html',{languages:[code]}).banner().children[0].href,'https://no.beequation.com/learn/mental-maths-strategies.html');
 assert.equal(run('learn/years/year-1.html').banner().children[0].href,'https://fr.beequation.com/learn/');
-for(const path of ['play.html',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko'].concat(PREVIEW).map(c=>`dist/${c}/play.html`)]) {
+for(const path of ['play.html',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko','in','hi'].concat(PREVIEW).map(c=>`dist/${c}/play.html`)]) {
   r=run(path,{values:{'bq-consent':'all2'}});assert.equal(r.external().length,0);assert.equal(script(source(path),'ga'),undefined);
 }
 r=run('play.html');assert.equal(r.banner().children[0].href,'https://fr.beequation.com/play.html');assert.equal(r.external().length,0);
 if(!before){
   for(const code of ['id','vi','th','uk','ar']) assert.equal(run('support.html',{languages:[code]}).banner(),undefined,`${code} is a preview`);
-  // India: not offered until live; a bare 'in' (old Indonesian) never means India
-  assert.equal(run('support.html',{languages:['en-IN']}).banner(),undefined,'no India banner before it is live');
-  assert.equal(run('support.html',{languages:['hi-IN','hi']}).banner(),undefined,'no Hindi banner before it is live');
+  // India is live; a bare 'in' (old Indonesian) never means India
+  assert.equal(run('support.html',{languages:['en-IN']}).banner().children[0].href,'https://in.beequation.com/support.html');
+  assert.equal(run('support.html',{languages:['hi-IN','hi']}).banner().children[0].href,'https://hi.beequation.com/support.html');
   assert.equal(run('support.html',{languages:['in-ID','fr']}).banner().lang,'fr');
 }
-console.log('PASS: generated JavaScript, all 14 suggestions, no redirect, dismissal/revisit, blocked storage, explicit English, locale fallback, GA + Metricool consent, migration, once per page, callbacks, revocation, all 15 sites'+(PREVIEW.length?` + previews ${PREVIEW.join(', ')}`:'')+', India not offered yet');
+console.log('PASS: generated JavaScript, all 16 suggestions, no redirect, dismissal/revisit, blocked storage, explicit English, locale fallback, GA + Metricool consent, migration, once per page, callbacks, revocation, all 17 sites'+(PREVIEW.length?` + previews ${PREVIEW.join(', ')}`:'')+', India live');
