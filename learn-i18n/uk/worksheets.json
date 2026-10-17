@@ -1,0 +1,263 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Пропущені числа до 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-klas",
+   "2-klas"
+  ],
+  "desc": "Продовж числові послідовності"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Десятки й одиниці",
+  "topic": "counting-and-place-value",
+  "years": [
+   "1-klas",
+   "2-klas"
+  ],
+  "desc": "Розклади двоцифрове число"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Сотні, десятки й одиниці",
+  "topic": "counting-and-place-value",
+  "years": [
+   "3-klas"
+  ],
+  "desc": "Розрядний склад трицифрових чисел"
+ },
+ {
+  "id": "rounding",
+  "title": "Округлення натуральних чисел",
+  "topic": "counting-and-place-value",
+  "years": [
+   "5-klas"
+  ],
+  "desc": "До десятків, сотень і тисяч"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Склад числа 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "1-klas"
+  ],
+  "desc": "Знайди другий доданок"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Склад числа 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-klas"
+  ],
+  "desc": "Пари чисел із сумою 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Додавання й віднімання до 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "2-klas"
+  ],
+  "desc": "Обчислення з переходом через десяток"
+ },
+ {
+  "id": "column-addition",
+  "title": "Додавання стовпчиком",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Трицифрові числа з переходом розряду"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Віднімання стовпчиком",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Трицифрові числа з розмінюванням"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Множення на 2, 5 і 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-klas",
+   "3-klas"
+  ],
+  "desc": "Табличні випадки та додаткові завдання"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Множення на 3, 4 і 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "2-klas",
+   "3-klas"
+  ],
+  "desc": "Зв’язки між добутками"
+ },
+ {
+  "id": "division-facts",
+  "title": "Ділення за таблицею множення",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Знайди частки"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Письмове множення",
+  "topic": "multiplication-and-division",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Множення на одноцифрове число"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Яку частину зафарбовано?",
+  "topic": "fractions",
+  "years": [
+   "4-klas",
+   "5-klas"
+  ],
+  "desc": "Запис дробів за малюнками"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Дріб від числа",
+  "topic": "fractions",
+  "years": [
+   "4-klas",
+   "5-klas"
+  ],
+  "desc": "Половина, чверть та інші дроби"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Рівні дроби",
+  "topic": "fractions",
+  "years": [
+   "6-klas"
+  ],
+  "desc": "Доповни чисельник або знаменник"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Десяті й соті",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "5-klas"
+  ],
+  "desc": "Запиши звичайний дріб десятковим"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Відсотки від числа",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "6-klas"
+  ],
+  "desc": "10 %, 25 %, 50 % та інші частки"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Година й пів години",
+  "topic": "telling-the-time",
+  "years": [
+   "2-klas"
+  ],
+  "desc": "Читаємо стрілковий годинник"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Чверть години",
+  "topic": "telling-the-time",
+  "years": [
+   "2-klas",
+   "3-klas"
+  ],
+  "desc": "П’ятнадцять і сорок п’ять хвилин"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Час із точністю до п’яти хвилин",
+  "topic": "telling-the-time",
+  "years": [
+   "3-klas"
+  ],
+  "desc": "Читаємо години й хвилини"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Рахуємо гривні й копійки",
+  "topic": "money",
+  "years": [
+   "2-klas",
+   "3-klas"
+  ],
+  "desc": "Монети 50 коп. та 1, 2, 5, 10 грн"
+ },
+ {
+  "id": "giving-change",
+  "title": "Обчислюємо решту",
+  "topic": "money",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Навчальні покупки за 20, 50 або 100 грн"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Периметр і площа прямокутника",
+  "topic": "measurement",
+  "years": [
+   "4-klas",
+   "5-klas"
+  ],
+  "desc": "Обводимо межу й рахуємо клітинки"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Плоскі фігури",
+  "topic": "shape-and-geometry",
+  "years": [
+   "2-klas",
+   "3-klas"
+  ],
+  "desc": "Назви, сторони й вершини"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Читаємо стовпчасту діаграму",
+  "topic": "data-and-graphs",
+  "years": [
+   "3-klas",
+   "4-klas"
+  ],
+  "desc": "Навчальне опитування про фрукти"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Знаходимо невідоме число",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "3-klas",
+   "4-klas",
+   "5-klas"
+  ],
+  "desc": "Доповнюємо рівності"
+ }
+]

@@ -1,0 +1,279 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Bilangan yang hilang sampai 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "kelas-2",
+   "kelas-3"
+  ],
+  "desc": "Urutan dengan langkah 1, 2, 5, atau 10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Puluhan dan satuan",
+  "topic": "counting-and-place-value",
+  "years": [
+   "kelas-1",
+   "kelas-2"
+  ],
+  "desc": "Mengurai bilangan dua angka"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Ratusan, puluhan, dan satuan",
+  "topic": "counting-and-place-value",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Mengurai bilangan sampai 999"
+ },
+ {
+  "id": "rounding",
+  "title": "Pembulatan bilangan",
+  "topic": "counting-and-place-value",
+  "years": [
+   "kelas-4",
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Puluhan, ratusan, dan ribuan terdekat"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Pasangan pembentuk 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kelas-1",
+   "kelas-2"
+  ],
+  "desc": "Dua bagian dengan jumlah 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Pasangan pembentuk 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kelas-1",
+   "kelas-2"
+  ],
+  "desc": "Dua bagian dengan jumlah 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Tambah dan kurang sampai 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kelas-1",
+   "kelas-2"
+  ],
+  "desc": "Memilih cara menghitung"
+ },
+ {
+  "id": "column-addition",
+  "title": "Penjumlahan bersusun",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Bilangan tiga angka dengan pengelompokan kembali"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Pengurangan bersusun",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Bilangan tiga angka dengan penukaran nilai tempat"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Perkalian 2, 5, dan 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Kelompok sama banyak"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Perkalian 3, 4, dan 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Menghubungkan hasil kali"
+ },
+ {
+  "id": "division-facts",
+  "title": "Pembagian dari perkalian",
+  "topic": "multiplication-and-division",
+  "years": [
+   "kelas-3",
+   "kelas-4",
+   "kelas-5"
+  ],
+  "desc": "Mencari banyak kelompok atau isi kelompok"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Perkalian bersusun satu angka",
+  "topic": "multiplication-and-division",
+  "years": [
+   "kelas-4",
+   "kelas-5"
+  ],
+  "desc": "Mengalikan bilangan tiga angka"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Pecahan bagian berwarna",
+  "topic": "fractions",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Bagian dari satu bangun utuh"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Pecahan dari banyak benda",
+  "topic": "fractions",
+  "years": [
+   "kelas-4",
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Membagi sama banyak lalu mengambil bagian"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Pecahan senilai",
+  "topic": "fractions",
+  "years": [
+   "kelas-4",
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Nilai sama, pembagian berbeda"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Persepuluhan dan perseratusan",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "kelas-4",
+   "kelas-5"
+  ],
+  "desc": "Mengubah pecahan menjadi desimal"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Persen dari suatu jumlah",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Pengayaan: 10%, 25%, 50%, dan lainnya"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Jam tepat dan setengah jam",
+  "topic": "telling-the-time",
+  "years": [
+   "kelas-2",
+   "kelas-3"
+  ],
+  "desc": "Membaca jarum jam"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Lewat dan kurang seperempat",
+  "topic": "telling-the-time",
+  "years": [
+   "kelas-2",
+   "kelas-3"
+  ],
+  "desc": "Membaca selang 15 menit"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Membaca jam setiap lima menit",
+  "topic": "telling-the-time",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Kata-kata dan angka untuk waktu"
+ },
+ {
+  "id": "counting-coins",
+  "title": "Menghitung koin rupiah",
+  "topic": "money",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Koin Rp100, Rp200, Rp500, dan Rp1.000"
+ },
+ {
+  "id": "giving-change",
+  "title": "Menghitung uang kembalian",
+  "topic": "money",
+  "years": [
+   "kelas-3",
+   "kelas-4",
+   "kelas-5"
+  ],
+  "desc": "Pembayaran Rp2.000, Rp5.000, atau Rp10.000"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Keliling dan luas persegi panjang",
+  "topic": "measurement",
+  "years": [
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Mengukur tepi dan menghitung petak"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Nama dan sifat bangun datar",
+  "topic": "shape-and-geometry",
+  "years": [
+   "kelas-3",
+   "kelas-4"
+  ],
+  "desc": "Sisi lurus dan titik sudut"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Membaca diagram batang",
+  "topic": "data-and-graphs",
+  "years": [
+   "kelas-4",
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Contoh data buah pilihan murid"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Bilangan dalam kotak",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "kelas-4",
+   "kelas-5",
+   "kelas-6"
+  ],
+  "desc": "Menjaga kedua sisi tetap sama"
+ }
+]

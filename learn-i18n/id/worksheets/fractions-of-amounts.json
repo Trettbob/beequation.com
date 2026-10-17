@@ -1,0 +1,115 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "Pecahan dari banyak benda",
+ "topic": "fractions",
+ "years": [
+  "kelas-4",
+  "kelas-5",
+  "kelas-6"
+ ],
+ "desc": "Membagi sama banyak lalu mengambil bagian",
+ "how": "Hitung pecahan dari setiap jumlah.",
+ "tip": "¾ dari 20: bagi 20 menjadi 4 kelompok, lalu ambil 3 kelompok. Hasilnya 15.",
+ "yearsLabel": "SD Kelas 4, SD Kelas 5, SD Kelas 6",
+ "htmlLang": "id",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 35 = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> dari 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> dari 24 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> dari 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> dari 18 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> dari 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> dari 30 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> dari 20 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> dari 32 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 15 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 10 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> dari 16 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> dari 90 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> dari 4 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 20 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> dari 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> dari 80 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> dari 36 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 20 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> dari 8 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> dari 25 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> dari 18 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> dari 15 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ],
+ "hasTactile": false
+}

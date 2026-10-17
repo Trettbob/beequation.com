@@ -15,6 +15,11 @@ LOUIS = Path(os.environ.get('LIBLOUIS_BIN', '/Volumes/External SSD/Projects/devt
 TABLEPATH = Path(os.environ.get('LOUIS_TABLEPATH', '/Volumes/External SSD/Projects/devtools/liblouis/share/liblouis/tables'))
 TABLES = dict(zip([c for c in LANGS if c != 'ja'], '''en-ueb-g1.ctb fr-bfu-comp6.utb es-g1.ctb de-g0.utb pt-pt-g1.utb it-it-comp6.utb nl-NL-g0.utb Pl-Pl-g1.utb sv-g0.utb da-dk-g16.ctb no-no-g0.utb fi.utb tr-g1.ctb ko-g1.ctb en-ueb-g1.ctb hi-in-g1.utb'''.split()))
 # Indian English uses uncontracted UEB like English; Hindi uses Bharati braille (hi-in-g1.utb).
+# Indonesian uses uncontracted Latin letters. With no Indonesian table installed,
+# UEB grade 1 is an explicit fallback, including UEB punctuation/maths (see id.json).
+# Vietnamese g0 is six-dot, uncontracted literary braille; vi-cb8 is computer braille.
+TABLES.update(id='en-ueb-g1.ctb', vi='vi-vn-g0.utb', th='th-g1.utb', uk='uk.utb', ar='ar-ar-g1.utb')
+LANGS += ['id', 'vi', 'th', 'uk', 'ar']
 LICENSE = 'https://creativecommons.org/licenses/by/4.0/'
 
 
@@ -85,6 +90,16 @@ def normalise(value, code):
         value = value.replace('−', '-')
     if code in ('in', 'hi'):   # neither table has the rupee sign: write the abbreviation Indian print uses
         value = re.sub(r'₹\s*', 'Rs ' if code == 'in' else 'रु ', value)
+    # These literary tables lack their currency symbol. Keep the unit in words,
+    # never silently drop it. Thai th-g1 already supports the baht sign.
+    for symbol, unit in {'vi': {'₫': 'đồng'}, 'uk': {'₴': 'грн'}, 'ar': {'﷼': 'ريال'}}.get(code, {}).items():
+        value = value.replace(symbol, unit)
+    if code == 'uk':
+        value = value.replace('см²', ' ' + words(code)['squared'])
+    if code == 'ar':
+        value = value.replace('سم²', ' ' + words(code)['squared'])
+        # Print-only bidi controls have no tactile cells; braille stays LTR.
+        value = re.sub('[\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]', '', value)
     if code == 'it':
         value = value.replace('×', '*').replace('·', '*')
     return value
@@ -97,6 +112,11 @@ class Translator:
         self.env = {**os.environ, 'LOUIS_TABLEPATH':str(TABLEPATH)}
         self.tmp = tempfile.TemporaryDirectory(prefix='beequation-louis-')
         self.displays = {'brf':'en-us-brf.dis', 'unicode':'unicode.dis'}
+        if code == 'uk':
+            # uk.utb includes ru-litbrl.ctb, whose Cyrillic letters carry virtual
+            # dot 9. Use liblouis's shipped Cyrillic display mappings, not a
+            # blanket removal of dots from translated output.
+            self.displays = {'brf': 'ru-brf.dis', 'unicode': 'ru-unicode.dis'}
         if code == 'nl':
             # Dutch uses virtual dots 9..f to distinguish digits etc. Its official
             # nl-unicode.dis maps these to physical cells. Extend the requested

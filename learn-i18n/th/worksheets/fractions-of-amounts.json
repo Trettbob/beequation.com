@@ -1,0 +1,114 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "หาเศษส่วนของจำนวน",
+ "topic": "fractions",
+ "years": [
+  "prathom-5",
+  "prathom-6"
+ ],
+ "desc": "เช่น ½ ของ 12 และ ¾ ของ 20",
+ "how": "แบ่งจำนวนเป็นกลุ่มเท่ากันตามตัวส่วน แล้วเลือกตามตัวเศษ",
+ "tip": "¾ ของ 20: 20 ÷ 4 = 5 แล้ว 5 × 3 = 15",
+ "yearsLabel": "ป.5, ป.6",
+ "htmlLang": "th",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 35 = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> ของ 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> ของ 24 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> ของ 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> ของ 18 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> ของ 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> ของ 30 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> ของ 20 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> ของ 32 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 15 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 10 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> ของ 16 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> ของ 90 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> ของ 4 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 20 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> ของ 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> ของ 80 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> ของ 36 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 20 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> ของ 8 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> ของ 25 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> ของ 18 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> ของ 15 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ],
+ "hasTactile": false
+}

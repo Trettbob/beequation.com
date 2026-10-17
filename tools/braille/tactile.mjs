@@ -112,5 +112,7 @@ export function renderTactile(data,words,labels) {
     else drawing=pictures.map((svg,j)=>outline(svg,data.id==='what-fraction-is-shaded',`${i}-${j}`)).join('');
     page(i+1,drawing,strip(it.q.replace(/<svg\b[\s\S]*?<\/svg>/g,'')));
   });
-  return pages.join('');
+  const markup = pages.join('');
+  // Braille cells and diagram order stay LTR inside an Arabic print page.
+  return data.htmlLang === 'ar' ? markup.replace(/class="(question-label|diagram)"/g, '$& dir="ltr"') : markup;
 }

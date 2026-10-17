@@ -1,0 +1,26 @@
+{
+  "lang": "id",
+  "docTitle": "Paket teka-teki Beequation Kids",
+  "mul": "×",
+  "sums": "Penjumlahan sampai 20",
+  "times": "Perkalian",
+  "howSums": "Di setiap sarang, satu bilangan adalah <b>hasil penjumlahan</b> dua bilangan lainnya. Lingkari hasilnya, lalu tulis kalimat matematikanya.",
+  "howTimes": "Di setiap sarang, satu bilangan adalah <b>hasil perkalian</b> dua bilangan lainnya. Lingkari hasilnya, lalu tulis kalimat matematikanya.",
+  "hexAlt": "Sarang dengan bilangan {list}",
+  "listSep": ", ",
+  "partOf": "Bagian {n} dari {total}",
+  "sheetOf": "Lembar {n} dari 2",
+  "name": "Nama",
+  "date": "Tanggal",
+  "time": "Waktu",
+  "answerKey": "Kunci jawaban",
+  "forGrownUps": "Untuk orang dewasa",
+  "inClass": "Penggunaan di kelas",
+  "tips": [
+    "Tampilkan satu sarang sebagai kegiatan pembuka. Beri waktu berpikir, lalu minta murid menjelaskan caranya.",
+    "Kerjakan berpasangan: satu murid mengusulkan pasangan bilangan, satu lagi memeriksa. Bergantian setelah setiap soal.",
+    "Minta murid membuat sarang sendiri. Periksa semua pasangan agar hanya ada satu bilangan jawaban."
+  ],
+  "promo": "<b>Teka-teki lain bersama Indie.</b> Main gratis di id.beequation.com atau cari Beequation Kids di ponsel atau tablet. Coba Padang Penjumlahan dan Kebun Perkalian.",
+  "footer": "Boleh dibagikan dan diadaptasi dengan lisensi CC BY 4.0, dengan atribusi kepada Beequation (<b>beequation.com</b>).<br>https://creativecommons.org/licenses/by/4.0/"
+}

@@ -1,0 +1,82 @@
+{
+ "id": "giving-change",
+ "title": "Tính tiền trả lại bằng đồng",
+ "topic": "money",
+ "years": [
+  "lop-3",
+  "lop-4"
+ ],
+ "desc": "Tình huống giả định với 10.000, 20.000, 50.000 đồng.",
+ "how": "Tính tiền trả lại. Các giá trong bài là số liệu giả định để luyện toán.",
+ "tip": "Số tiền mua hàng cộng số tiền trả lại phải bằng số tiền đã đưa.",
+ "yearsLabel": "Lớp 3, Lớp 4",
+ "htmlLang": "vi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Mua rau hết 27.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "23.000 đồng"
+  },
+  {
+   "q": "Mua rau hết 19.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "31.000 đồng"
+  },
+  {
+   "q": "Mua giấy màu hết 12.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "8.000 đồng"
+  },
+  {
+   "q": "Mua trái cây hết 49.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "1.000 đồng"
+  },
+  {
+   "q": "Mua nhãn vở hết 42.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "8.000 đồng"
+  },
+  {
+   "q": "Mua bánh hết 45.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "5.000 đồng"
+  },
+  {
+   "q": "Mua vở hết 15.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "5.000 đồng"
+  },
+  {
+   "q": "Mua giấy màu hết 26.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "24.000 đồng"
+  },
+  {
+   "q": "Mua trái cây hết 4.000 đồng, đưa 10.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "6.000 đồng"
+  },
+  {
+   "q": "Mua rau hết 6.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "14.000 đồng"
+  },
+  {
+   "q": "Mua vở hết 16.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "4.000 đồng"
+  },
+  {
+   "q": "Mua bút hết 9.000 đồng, đưa 10.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "1.000 đồng"
+  },
+  {
+   "q": "Mua đồ dùng học tập hết 9.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "11.000 đồng"
+  },
+  {
+   "q": "Mua đồ dùng học tập hết 8.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "42.000 đồng"
+  },
+  {
+   "q": "Mua bánh hết 34.000 đồng, đưa 50.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "16.000 đồng"
+  },
+  {
+   "q": "Mua bánh hết 18.000 đồng, đưa 20.000 đồng. Số tiền được trả lại: <span class=\"bx\">□</span>",
+   "a": "2.000 đồng"
+  }
+ ],
+ "hasTactile": false
+}

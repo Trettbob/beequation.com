@@ -1,0 +1,137 @@
+{
+ "id": "add-and-subtract-within-20",
+ "title": "Додавання й віднімання до 20",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "2-klas"
+ ],
+ "desc": "Обчислення з переходом через десяток",
+ "how": "Обчисли. За потреби скористайся числовим променем.",
+ "tip": "Для 8 + 5 спочатку додай 2 до десяти, потім решту 3: отримаєш 13.",
+ "yearsLabel": "2 клас",
+ "htmlLang": "uk",
+ "kind": "list",
+ "items": [
+  {
+   "q": "10 + 1 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "12 − 6 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "11 + 7 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "5 + 15 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 + 6 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "12 − 3 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "13 + 7 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "8 + 9 = <span class=\"bx\">□</span>",
+   "a": "17"
+  },
+  {
+   "q": "3 + 11 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "16 − 14 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "7 − 2 = <span class=\"bx\">□</span>",
+   "a": "5"
+  },
+  {
+   "q": "11 + 6 = <span class=\"bx\">□</span>",
+   "a": "17"
+  },
+  {
+   "q": "12 − 11 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "4 + 12 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "8 − 2 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "3 + 16 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "6 + 14 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "11 − 4 = <span class=\"bx\">□</span>",
+   "a": "7"
+  },
+  {
+   "q": "10 + 3 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "7 − 1 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "7 + 13 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "20 − 9 = <span class=\"bx\">□</span>",
+   "a": "11"
+  },
+  {
+   "q": "14 + 5 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "9 + 7 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "16 − 3 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "12 + 7 = <span class=\"bx\">□</span>",
+   "a": "19"
+  },
+  {
+   "q": "13 + 1 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "14 + 4 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "20 − 14 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "9 − 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  }
+ ],
+ "hasTactile": false
+}

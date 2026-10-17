@@ -37,7 +37,7 @@ def generate(data, code, translator, cells=30, lines=27):
     lead = [data['title'], w['warning'], '', data['how']]
     if data['id'] in ('column-addition','column-subtraction','short-multiplication'):
         lead.append(w['columnNote'])
-    if code == 'pt':
+    if code in ('pt', 'id'):
         lead.append(w['tableNote'])
     if context(data,code):
         lead.append(context(data,code))

@@ -109,7 +109,9 @@ const EN = {
 };
 const LOC = LANG === 'en' ? {} : (await import(path.join(ROOT, 'learn-i18n', LANG, 'worksheets.mjs'))).default;
 const BRAILLE_WORDS = JSON.parse(fs.readFileSync(path.join(ROOT, 'tools', 'braille', `${LANG}.json`), 'utf8'));
-const L = { ...EN, ...LOC, footer: BRAILLE_WORDS.license + '<br>https://creativecommons.org/licenses/by/4.0/' };
+// The licence URL is isolated left-to-right on Arabic sheets, or its trailing slash jumps to the front.
+const CC_URL = 'https://creativecommons.org/licenses/by/4.0/';
+const L = { ...EN, ...LOC, footer: BRAILLE_WORDS.license + '<br>' + (LANG === 'ar' ? `<span dir="ltr">${CC_URL}</span>` : CC_URL) };
 
 // Indie the Hexabee (apps/kids/src/components/Indie.tsx)
 const HEXP = 'M82 60 L66 86 L34 86 L18 60 L34 34 L66 34 Z';
@@ -321,6 +323,10 @@ const footer = `<footer><span class="dots" aria-hidden="true"><i></i><i></i><i><
 function render(s, data, variant = 'standard') {
   const { kind, items, chart, chartTable } = data, sub = yearsLabel(s.years);
   const large = variant === 'large';
+  // Isolate complete numeric questions (including answer boxes and column rows),
+  // while Arabic word problems keep their natural reading direction.
+  const math = markup => LANG === 'ar' && !/[\u0600-\u06ff]/u.test(String(markup).replace(/<[^>]*>/g, ''))
+    ? `<div dir="ltr">${markup}</div>` : markup;
   const chunks = (xs, n) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, (i + 1) * n));
   // A wide multiplication grid keeps its column headings on every continuation page.
   const grids = html => {
@@ -329,15 +335,15 @@ function render(s, data, variant = 'standard') {
   };
   const perPage = kind === 'cards' ? 2 : 4;
   const groups = large ? (kind === 'whole' ? grids(items[0].q) : chunks(items, perPage)) : [items];
-  const qs = (group, pageIndex) => kind === 'whole' ? `<div class="whole">${large ? group : items[0].q}</div>`
-    : kind === 'chart' ? `${pageIndex === 0 ? `<div class="whole chart-picture">${chart}</div>${chartTable}` : ''}<ol class="qlist" start="${pageIndex * perPage + 1}">${group.map(it => `<li>${it.q}</li>`).join('')}</ol>`
+  const qs = (group, pageIndex) => kind === 'whole' ? `<div class="whole">${math(large ? group : items[0].q)}</div>`
+    : kind === 'chart' ? `${pageIndex === 0 ? `<div class="whole chart-picture">${chart}</div>${chartTable}` : ''}<ol class="qlist" start="${pageIndex * perPage + 1}">${group.map(it => `<li>${math(it.q)}</li>`).join('')}</ol>`
     : `<div class="${kind}" style="grid-template-columns:repeat(${large ? 1 : s.cols},1fr)">${group.map((it, i) => {
       const number = pageIndex * perPage + i + 1;
-      return `<div class="it"><span class="num" style="background:${CANDY[(number - 1) % 6]}">${number}</span><div class="q">${it.q}</div></div>`;
+      return `<div class="it"><span class="num" style="background:${CANDY[(number - 1) % 6]}">${number}</span><div class="q">${math(it.q)}</div></div>`;
     }).join('')}</div>`;
   const answerGroups = large ? (kind === 'whole' ? grids(items[0].a) : chunks(items, 8)) : [items];
-  const as = (group, i) => kind === 'whole' ? `<div class="whole">${large ? group : items[0].a}</div>`
-    : `<ol class="alist" start="${i * 8 + 1}" style="columns:${large ? 1 : kind === 'cards' && items[0].a.length > 14 ? 2 : 3}">${group.map(it => `<li>${it.a}</li>`).join('')}</ol>`;
+  const as = (group, i) => kind === 'whole' ? `<div class="whole">${math(large ? group : items[0].a)}</div>`
+    : `<ol class="alist" start="${i * 8 + 1}" style="columns:${large ? 1 : kind === 'cards' && items[0].a.length > 14 ? 2 : 3}">${group.map(it => `<li>${math(it.a)}</li>`).join('')}</ol>`;
   return groups.map((group, i) => `<section class="page questions">${header(s.title, sub, false)}<p class="how">${s.how}</p>
     <div class="fields"><span>${L.name}</span><span>${L.date}</span></div>${qs(group, i)}
     <div class="tipbar">${indie('mini')}<p><b>${L.tip}</b> ${s.tip}</p></div>${footer}</section>`).join('') +
@@ -484,7 +490,10 @@ try {
     }
     for (const variant of ['standard', 'large', 'easy-read', ...(data.hasTactile ? ['tactile'] : [])]) {
       const suffix = variant === 'standard' ? '' : `-${variant}`;
-      const html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${variant === 'tactile' ? tactileCSS + (DEVA_CSS && DEVA_TACTILE) : css + variantCSS[variant] + (DEVA_CSS && DEVA_STACK)}</style></head><body class="variant-${variant}">${variant === 'tactile' ? renderTactile(data, BRAILLE_WORDS, labels) : render(s, data, variant)}</body></html>`;
+      let html = `<!doctype html><html lang="${L.htmlLang}"><head><meta charset="utf-8"><title>${attr(L.titleTag(s.title))}</title><style>${variant === 'tactile' ? tactileCSS + (DEVA_CSS && DEVA_TACTILE) : css + variantCSS[variant] + (DEVA_CSS && DEVA_STACK)}</style></head><body class="variant-${variant}">${variant === 'tactile' ? renderTactile(data, BRAILLE_WORDS, labels) : render(s, data, variant)}</body></html>`;
+      if (LANG === 'ar' || LANG === 'th') {
+        html = execFileSync('python3', [path.join(ROOT, 'tools/print-locale.py'), LANG], {input: html, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024});
+      }
       if (variant === 'standard') standard = html;
       if (process.env.HTML_DIR) fs.writeFileSync(path.join(process.env.HTML_DIR, `${s.id}${suffix}.html`), html);
       if (HTML_ONLY) continue;

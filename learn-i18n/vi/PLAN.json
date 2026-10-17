@@ -1,0 +1,257 @@
+{
+  "language": "vi",
+  "country": "Việt Nam",
+  "curriculum": "Chương trình GDPT 2018 môn Toán",
+  "address": "Bạn/con với gia đình; thầy cô/học sinh với giáo viên; Indie là cô ong, xưng mình.",
+  "years": [
+    {
+      "slug": "mau-giao-5-tuoi",
+      "name": "Mẫu giáo 5 tuổi",
+      "age": "5–6",
+      "short": "MG"
+    },
+    {
+      "slug": "lop-1",
+      "name": "Lớp 1",
+      "age": "6–7",
+      "short": "1"
+    },
+    {
+      "slug": "lop-2",
+      "name": "Lớp 2",
+      "age": "7–8",
+      "short": "2"
+    },
+    {
+      "slug": "lop-3",
+      "name": "Lớp 3",
+      "age": "8–9",
+      "short": "3"
+    },
+    {
+      "slug": "lop-4",
+      "name": "Lớp 4",
+      "age": "9–10",
+      "short": "4"
+    },
+    {
+      "slug": "lop-5",
+      "name": "Lớp 5",
+      "age": "10–11",
+      "short": "5"
+    }
+  ],
+  "pages": [
+    {
+      "rel": "braille.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "daily-maths-puzzle-for-adults.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "glossary/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "mental-maths-strategies.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "number-bonds-to-20.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "pack.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/everyday-maths.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/helping-at-home.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/how-maths-is-taught.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/maths-anxiety.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "parents/maths-tests-explained.html",
+      "notes": "Giải thích kiểm tra theo Thông tư 27, không có kì thi tốt nghiệp tiểu học toàn quốc."
+    },
+    {
+      "rel": "teachers/differentiation-in-maths.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "teachers/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "teachers/maths-games-for-the-classroom.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "teachers/maths-starters.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "teachers/reasoning-and-problem-solving.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "times-tables-practice.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/addition-and-subtraction.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/algebra-and-ratio.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/counting-and-place-value.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/data-and-graphs.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/decimals-and-percentages.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/fractions.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/measurement.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/mental-maths.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/money.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/multiplication-and-division.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/shape-and-geometry.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "topics/telling-the-time.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "worksheets/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/index.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/mau-giao-5-tuoi.html",
+      "notes": "Chơi với đồ vật, không dạy trước chương trình."
+    },
+    {
+      "rel": "years/lop-1.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/lop-2.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/lop-3.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/lop-4.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    },
+    {
+      "rel": "years/lop-5.html",
+      "notes": "Nội dung độc lập theo BRIEF.md; ví dụ Việt Nam, liên kết nội bộ, lời Indie và gợi ý thực hành."
+    }
+  ],
+  "verification": [
+    "Đối chiếu đủ đường dẫn với es, thay riêng các trang lớp.",
+    "Đọc lại phép tính và kiểm tra độc lập bằng tính toán.",
+    "Đủ khoá WORDS và W; tham chiếu lớp, chủ đề, liên kết hợp lệ.",
+    "Chạy hai lệnh yêu cầu trong giới hạn chỉ ghi learn-i18n/vi; báo chính xác lỗi công cụ chung."
+  ],
+  "excluded": [
+    "Không sửa công cụ, CSS, i18n hoặc ngôn ngữ khác.",
+    "Không cài đặt, commit hoặc push.",
+    "Không khẳng định đã tạo PDF/chữ nổi nếu chưa kiểm chứng."
+  ],
+  "verification_results": {
+    "date": "2026-10-17",
+    "source_pages": 40,
+    "worksheet_definitions": 27,
+    "glossary_entries": 62,
+    "template_words_keys": 58,
+    "pack_word_keys": 20,
+    "checks": [
+      "Đủ đường dẫn như es, thay trang lớp bằng mẫu giáo 5 tuổi và Lớp 1–5.",
+      "Không có liên kết nội bộ hỏng, thẻ HTML sai, shortcode thiếu hoặc metadata quá dài.",
+      "40 trang được render trong bộ nhớ bằng hàm page của build-learn.py; không ghi dist.",
+      "23 đáp án thử thách được tính lại độc lập; ba bộ câu đố được kiểm mọi cặp số.",
+      "Phép tính trong bài được đọc lại và đối chiếu số học; các phép sai cố ý có giải thích sửa.",
+      "27 bộ câu hỏi được chạy trong bộ nhớ bằng seed gốc ws-<id>; không ghi manifest hay giả lập tệp tải."
+    ],
+    "commands": [
+      {
+        "command": "node tools/make-worksheets.mjs --html-only --lang vi",
+        "result": "Lỗi CLI chung: --html-only bị coi là đường dẫn gói; createRequire nhận --html-only/package.json."
+      },
+      {
+        "command": "node tools/make-worksheets.mjs <gói puppeteer-core đã có> --html-only --lang vi",
+        "result": "ENOENT: tools/braille/vi.json; không cài gói hoặc sửa công cụ."
+      },
+      {
+        "command": "python3 tools/build-langs.py --learn vi",
+        "execution": "Chạy entrypoint với đúng argv qua runpy, tắt bytecode và chặn mọi ghi ngoài learn-i18n/vi.",
+        "result": "Bị chặn trước khi ghi learn/braille.html ngoài phạm vi cho phép."
+      },
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 python3 tools/build-langs.py --learn vi --lang vi --check",
+        "result": "Mã thoát 1: vi: not built, no tools/braille/vi.json; 1 untranslated piece(s)."
+      }
+    ],
+    "remaining": [
+      "Công cụ chung cần nhận đúng lệnh --html-only và có tài nguyên tools/braille/vi.json.",
+      "Chưa tạo worksheets.json, câu hỏi JSON, PDF, ảnh xem trước, BRF, EPUB hoặc gói PDF tiếng Việt.",
+      "Chưa dựng toàn bộ dist/vi và chưa xác nhận giao diện triển khai. Công việc ngoài learn-i18n/vi không thuộc phạm vi phiên này."
+    ]
+  }
+}

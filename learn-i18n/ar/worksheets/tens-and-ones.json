@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "العشرات والآحاد",
+ "topic": "counting-and-place-value",
+ "years": [
+  "saff-1",
+  "saff-2"
+ ],
+ "desc": "تفكيك الأعداد المكونة من رقمين",
+ "how": "اكتب عدد العشرات وعدد الآحاد.",
+ "tip": "في 47 توجد 4 عشرات و7 آحاد. قيمة الرقم 4 هنا هي 40.",
+ "yearsLabel": "الصف الأول الابتدائي، الصف الثاني الابتدائي",
+ "htmlLang": "ar",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 7، آحاد: 9"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 3، آحاد: 6"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 5، آحاد: 8"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 1، آحاد: 9"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 9، آحاد: 0"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 9، آحاد: 5"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 2، آحاد: 3"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 6، آحاد: 8"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 6، آحاد: 4"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 3، آحاد: 3"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 1، آحاد: 2"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 8، آحاد: 1"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 6، آحاد: 7"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 3، آحاد: 5"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 6، آحاد: 0"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 1، آحاد: 8"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 1، آحاد: 6"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 8، آحاد: 8"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 5، آحاد: 4"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = عشرات: <span class=\"bx\">□</span>، آحاد: <span class=\"bx\">□</span>",
+   "a": "عشرات: 3، آحاد: 1"
+  }
+ ],
+ "hasTactile": false
+}

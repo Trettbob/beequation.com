@@ -1,0 +1,40 @@
+{
+ "id": "reading-bar-charts",
+ "title": "อ่านแผนภูมิแท่ง",
+ "topic": "data-and-graphs",
+ "years": [
+  "prathom-4",
+  "prathom-5"
+ ],
+ "desc": "เปรียบเทียบจำนวนผู้เลือกผลไม้จากข้อมูลสมมติ",
+ "how": "อ่านชื่อแกนและมาตราส่วน แล้วตอบคำถามโดยใช้ข้อมูลในแผนภูมิ",
+ "tip": "ช่องระหว่างเส้นอาจแทนมากกว่า 1 คน ตรวจตัวเลขกำกับก่อนอ่านความสูงของแท่ง",
+ "yearsLabel": "ป.4, ป.5",
+ "htmlLang": "th",
+ "kind": "chart",
+ "chart": "<svg role=\"img\" aria-label=\"แผนภูมิแท่งแสดงจำนวนผู้เลือกผลไม้แต่ละชนิด มีข้อมูลในตารางด้านล่าง\" focusable=\"false\" viewBox=\"0 0 130 78\" style=\"width:150mm;height:90mm\"><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"65.4\" text-anchor=\"end\" font-size=\"3.8\">0</text><line x1=\"10\" x2=\"124\" y1=\"58\" y2=\"58\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"59.4\" text-anchor=\"end\" font-size=\"3.8\">1</text><line x1=\"10\" x2=\"124\" y1=\"52\" y2=\"52\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"53.4\" text-anchor=\"end\" font-size=\"3.8\">2</text><line x1=\"10\" x2=\"124\" y1=\"46\" y2=\"46\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"47.4\" text-anchor=\"end\" font-size=\"3.8\">3</text><line x1=\"10\" x2=\"124\" y1=\"40\" y2=\"40\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"41.4\" text-anchor=\"end\" font-size=\"3.8\">4</text><line x1=\"10\" x2=\"124\" y1=\"34\" y2=\"34\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"35.4\" text-anchor=\"end\" font-size=\"3.8\">5</text><line x1=\"10\" x2=\"124\" y1=\"28\" y2=\"28\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"29.4\" text-anchor=\"end\" font-size=\"3.8\">6</text><line x1=\"10\" x2=\"124\" y1=\"22\" y2=\"22\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"23.4\" text-anchor=\"end\" font-size=\"3.8\">7</text><line x1=\"10\" x2=\"124\" y1=\"16\" y2=\"16\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"17.4\" text-anchor=\"end\" font-size=\"3.8\">8</text><line x1=\"10\" x2=\"124\" y1=\"10\" y2=\"10\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"11.4\" text-anchor=\"end\" font-size=\"3.8\">9</text><line x1=\"10\" x2=\"124\" y1=\"4\" y2=\"4\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"5.4\" text-anchor=\"end\" font-size=\"3.8\">10</text><rect x=\"14\" y=\"16\" width=\"14\" height=\"48\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"21\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">มะม่วง</text><rect x=\"36\" y=\"28\" width=\"14\" height=\"36\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"43\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">กล้วย</text><rect x=\"58\" y=\"10\" width=\"14\" height=\"54\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"65\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">ส้ม</text><rect x=\"80\" y=\"52\" width=\"14\" height=\"12\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"87\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">แตงโม</text><rect x=\"102\" y=\"40\" width=\"14\" height=\"24\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"109\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">ฝรั่ง</text><line x1=\"10\" x2=\"10\" y1=\"4\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/></svg>",
+ "chartTable": "<table class=\"chart-data\"><thead><tr><th scope=\"col\">ผลไม้</th><th scope=\"col\">จำนวนผู้เลือก</th></tr></thead><tbody><tr><th scope=\"row\">มะม่วง</th><td>8</td></tr><tr><th scope=\"row\">กล้วย</th><td>6</td></tr><tr><th scope=\"row\">ส้ม</th><td>9</td></tr><tr><th scope=\"row\">แตงโม</th><td>2</td></tr><tr><th scope=\"row\">ฝรั่ง</th><td>4</td></tr></tbody></table>",
+ "items": [
+  {
+   "q": "มีผู้เลือกกล้วยกี่คน <span class=\"line\"></span>",
+   "a": "6"
+  },
+  {
+   "q": "ผลไม้ใดมีผู้เลือกมากที่สุด <span class=\"line\"></span>",
+   "a": "ส้ม"
+  },
+  {
+   "q": "ผลไม้ใดมีผู้เลือกน้อยที่สุด <span class=\"line\"></span>",
+   "a": "แตงโม"
+  },
+  {
+   "q": "ผู้เลือกส้มมากกว่าผู้เลือกแตงโมกี่คน <span class=\"line\"></span>",
+   "a": "7"
+  },
+  {
+   "q": "มีผู้เลือกผลไม้ทั้งหมดกี่คน <span class=\"line\"></span>",
+   "a": "29"
+  }
+ ],
+ "hasTactile": true
+}

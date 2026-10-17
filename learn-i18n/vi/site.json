@@ -1,0 +1,184 @@
+{
+  "words": {
+    "html_lang": "vi",
+    "home": "Trang chủ",
+    "learn": "Học toán",
+    "learn_home": "Trang học toán",
+    "sections": {
+      "topics": "Chủ đề",
+      "years": "Theo lớp",
+      "parents": "Cha mẹ",
+      "teachers": "Giáo viên",
+      "worksheets": "Phiếu bài tập",
+      "glossary": "Từ điển toán"
+    },
+    "all_topics": "Tất cả chủ đề →",
+    "all_years": "Tất cả các lớp →",
+    "year_small": "{age} tuổi",
+    "tip": "Gợi ý của Indie",
+    "challenge": "Thử thách của Indie",
+    "show": "Xem lời giải",
+    "standard_pdf": "PDF thông thường",
+    "large_print": "Bản chữ lớn",
+    "easy_read": "Bản dễ đọc",
+    "show_answers": "Xem đáp án",
+    "worksheet_questions": "Câu hỏi",
+    "worksheet_downloads": "Tải tài liệu",
+    "pdf_size_pending": "PDF; dung lượng sẽ có sau khi tạo tệp",
+    "pdf_kb": "{size} KB",
+    "sheet_alt": "Xem trước phiếu {title}",
+    "download": "Tải PDF",
+    "try_title": "Luyện tập cùng Indie",
+    "try_text": "Trong Beequation Kids, cô ong Indie cùng con tìm phép tính giữa các ô tổ ong. Có gợi ý khi con cần, không quảng cáo và không thu thập dữ liệu về trẻ.",
+    "try_play": "Chơi miễn phí trên trình duyệt",
+    "try_sheets": "Phiếu bài tập miễn phí",
+    "teachers": "Giáo viên",
+    "pack": "Bộ câu đố miễn phí cho giáo viên",
+    "pack_desc": "24 câu đố tổ ong để luyện tập",
+    "home_desc": "Học toán ở nhà và trên lớp, từ mẫu giáo 5 tuổi đến Lớp 5",
+    "worksheets": "Phiếu bài tập miễn phí",
+    "glossary_blurb": "Từ ngữ toán tiểu học, giải thích bằng lời và ví dụ. Chọn chữ cái đầu của từ:",
+    "m_topics": "Chủ đề",
+    "m_topics_k": "Chọn chủ đề",
+    "m_topics_all": "Tất cả chủ đề",
+    "m_years": "Theo lớp",
+    "m_years_k": "Chọn lớp",
+    "m_years_all": "Tất cả các lớp",
+    "m_years_hex": "1–5",
+    "m_year_small": "{age} tuổi",
+    "m_parents": "Dành cho cha mẹ",
+    "m_parents_k": "Đồng hành cùng con",
+    "m_parents_all": "Tất cả bài cho cha mẹ",
+    "m_teachers": "Dành cho giáo viên",
+    "m_teachers_k": "Tài liệu cho lớp học",
+    "m_teachers_all": "Tất cả bài cho giáo viên",
+    "m_sheets": "Phiếu bài tập",
+    "m_sheets_k": "Phiếu theo chủ đề",
+    "m_sheets_all": "Tất cả phiếu",
+    "m_sheet_n": [
+      "{n} phiếu",
+      "{n} phiếu"
+    ],
+    "m_glossary": "Từ điển toán",
+    "m_glossary_k": "Hiểu từ ngữ toán học",
+    "m_glossary_all": "Tất cả từ ngữ",
+    "alphabet": "aăâbcdđeêghiklmnoôơpqrstuưvxy",
+    "by": "Người viết: {name}",
+    "reviewed_by": "Người rà soát: {name}",
+    "published_on": "Đăng ngày {date}",
+    "reviewed_on": "Rà soát ngày {date}",
+    "report_error": "Báo lỗi nội dung"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "Đếm và giá trị theo hàng",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "Phép cộng và phép trừ",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "Phép nhân và phép chia",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "Phân số",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "Số thập phân và tỉ số phần trăm",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "Xem giờ",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "Tiền Việt Nam",
+      "glyph": "đ",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "Đo lường",
+      "glyph": "cm",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "Hình học",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "Dữ liệu và biểu đồ",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "Biểu thức và tỉ số",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "Tính nhẩm",
+      "glyph": "=",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "mau-giao-5-tuoi",
+      "name": "Mẫu giáo 5 tuổi",
+      "age": "5–6",
+      "short": "MG"
+    },
+    {
+      "slug": "lop-1",
+      "name": "Lớp 1",
+      "age": "6–7",
+      "short": "1"
+    },
+    {
+      "slug": "lop-2",
+      "name": "Lớp 2",
+      "age": "7–8",
+      "short": "2"
+    },
+    {
+      "slug": "lop-3",
+      "name": "Lớp 3",
+      "age": "8–9",
+      "short": "3"
+    },
+    {
+      "slug": "lop-4",
+      "name": "Lớp 4",
+      "age": "9–10",
+      "short": "4"
+    },
+    {
+      "slug": "lop-5",
+      "name": "Lớp 5",
+      "age": "10–11",
+      "short": "5"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "Điền số còn thiếu đến 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "lop-1",
+   "lop-2"
+  ],
+  "desc": "Đếm tiếp từng 1, 2, 5 hoặc 10 đơn vị."
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "Chục và đơn vị",
+  "topic": "counting-and-place-value",
+  "years": [
+   "lop-1"
+  ],
+  "desc": "Tách số có hai chữ số theo hàng."
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "Trăm, chục, đơn vị",
+  "topic": "counting-and-place-value",
+  "years": [
+   "lop-2"
+  ],
+  "desc": "Viết số có ba chữ số thành tổng theo hàng."
+ },
+ {
+  "id": "rounding",
+  "title": "Làm tròn đến chục, trăm, nghìn",
+  "topic": "counting-and-place-value",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Chọn số tròn gần nhất theo yêu cầu."
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "Các cặp số có tổng bằng 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "lop-1"
+  ],
+  "desc": "Tách và gộp 10 bằng hình hoặc phép tính."
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "Các cặp số có tổng bằng 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "lop-2"
+  ],
+  "desc": "Luyện cộng và trừ để tạo thành 20."
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "Cộng trừ trong phạm vi 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "lop-2"
+  ],
+  "desc": "Có phép tính qua chục, dành cho Lớp 2."
+ },
+ {
+  "id": "column-addition",
+  "title": "Đặt tính cộng ba chữ số",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Luyện thêm với các phép cộng có nhớ."
+ },
+ {
+  "id": "column-subtraction",
+  "title": "Đặt tính trừ ba chữ số",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Luyện thêm với phép trừ có nhớ."
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "Nhân với 2, 5 và 10: luyện thêm",
+  "topic": "multiplication-and-division",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Ôn bảng 2, 5 và mở rộng với thừa số đến 12."
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "Nhân với 3, 4 và 8: luyện thêm",
+  "topic": "multiplication-and-division",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Ôn bảng nhân và mở rộng với thừa số 10–12."
+ },
+ {
+  "id": "division-facts",
+  "title": "Dùng phép nhân để tìm thương",
+  "topic": "multiplication-and-division",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Phép chia hết; có câu mở rộng ngoài bảng 2–9."
+ },
+ {
+  "id": "short-multiplication",
+  "title": "Nhân ba chữ số với một chữ số",
+  "topic": "multiplication-and-division",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Luyện thêm đặt tính nhân có nhớ."
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "Phân số chỉ phần tô màu",
+  "topic": "fractions",
+  "years": [
+   "lop-4"
+  ],
+  "desc": "Đọc tử số và mẫu số từ các phần bằng nhau."
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "Tìm phân số của một số",
+  "topic": "fractions",
+  "years": [
+   "lop-4",
+   "lop-5"
+  ],
+  "desc": "Chia đều rồi lấy số phần cần tìm."
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "Phân số bằng nhau",
+  "topic": "fractions",
+  "years": [
+   "lop-4",
+   "lop-5"
+  ],
+  "desc": "Tìm số còn thiếu mà không đổi giá trị phân số."
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "Phần mười và phần trăm",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "lop-5"
+  ],
+  "desc": "Nối phân số thập phân với số thập phân."
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "Tìm tỉ số phần trăm của một số",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "lop-5"
+  ],
+  "desc": "Luyện những tỉ lệ quen thuộc của Lớp 5."
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "Xem giờ đúng và giờ rưỡi",
+  "topic": "telling-the-time",
+  "years": [
+   "lop-2"
+  ],
+  "desc": "Đọc giờ và 30 phút trên đồng hồ kim."
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "Xem giờ theo từng 15 phút",
+  "topic": "telling-the-time",
+  "years": [
+   "lop-3"
+  ],
+  "desc": "Đọc giờ đúng, 15 phút, 30 phút, 45 phút."
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "Xem giờ theo từng 5 phút",
+  "topic": "telling-the-time",
+  "years": [
+   "lop-3"
+  ],
+  "desc": "Nối đồng hồ kim với cách viết giờ bằng số."
+ },
+ {
+  "id": "counting-coins",
+  "title": "Khám phá tiền kim loại Việt Nam",
+  "topic": "money",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Cộng các mệnh giá đã phát hành từ 200 đến 5.000 đồng."
+ },
+ {
+  "id": "giving-change",
+  "title": "Tính tiền trả lại bằng đồng",
+  "topic": "money",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Tình huống giả định với 10.000, 20.000, 50.000 đồng."
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "Chu vi và diện tích hình chữ nhật",
+  "topic": "measurement",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Đếm ô vuông và phân biệt hai đại lượng."
+ },
+ {
+  "id": "2d-shapes",
+  "title": "Đếm cạnh và đỉnh của hình phẳng",
+  "topic": "shape-and-geometry",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Hình quen thuộc và đa giác mở rộng."
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "Đọc biểu đồ cột về trái cây",
+  "topic": "data-and-graphs",
+  "years": [
+   "lop-4",
+   "lop-5"
+  ],
+  "desc": "Đọc và so sánh số liệu giả định."
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "Tìm thành phần chưa biết",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "lop-3",
+   "lop-4"
+  ],
+  "desc": "Điền số trong phép cộng, trừ, nhân, chia."
+ }
+]

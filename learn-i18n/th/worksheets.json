@@ -1,0 +1,287 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "เติมจำนวนที่หายไปถึง 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "prathom-1",
+   "prathom-2"
+  ],
+  "desc": "นับเพิ่มหรือลดตามแบบรูป"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "หลักสิบและหลักหน่วย",
+  "topic": "counting-and-place-value",
+  "years": [
+   "prathom-1",
+   "prathom-2"
+  ],
+  "desc": "แยกจำนวนสองหลักเป็นสิบกับหน่วย"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "หลักร้อย หลักสิบ หลักหน่วย",
+  "topic": "counting-and-place-value",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "เขียนจำนวนไม่เกิน 999 ในรูปกระจาย"
+ },
+ {
+  "id": "rounding",
+  "title": "ค่าประมาณของจำนวน",
+  "topic": "counting-and-place-value",
+  "years": [
+   "prathom-4",
+   "prathom-5",
+   "prathom-6"
+  ],
+  "desc": "ประมาณเป็นจำนวนเต็มสิบ ร้อย และพัน"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "คู่จำนวนที่รวมได้ 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "anuban-3",
+   "prathom-1"
+  ],
+  "desc": "เติมส่วนที่ขาดให้ครบ 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "คู่จำนวนที่รวมได้ 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "prathom-1",
+   "prathom-2"
+  ],
+  "desc": "เชื่อมคู่จำนวน 10 กับคู่จำนวน 20"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "บวกและลบไม่เกิน 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "prathom-1",
+   "prathom-2"
+  ],
+  "desc": "ฝึกผลบวกและผลต่างด้วยจำนวนเล็ก"
+ },
+ {
+  "id": "column-addition",
+  "title": "ตั้งบวกจำนวนสามหลัก",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "บวกตามหลักและฝึกการทด"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "ตั้งลบจำนวนสามหลัก",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "ลบตามหลักและฝึกการกระจาย"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "สูตรคูณแม่ 2, 5 และ 10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "เชื่อมกลุ่มเท่า ๆ กันกับสูตรคูณ"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "สูตรคูณแม่ 3, 4 และ 8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "ใช้ความสัมพันธ์ช่วยหาผลคูณ"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "ตารางคูณ 12 × 12",
+  "topic": "multiplication-and-division",
+  "years": [
+   "prathom-3",
+   "prathom-4",
+   "prathom-5",
+   "prathom-6"
+  ],
+  "desc": "ตารางสำหรับทบทวนและสำรวจแบบรูป"
+ },
+ {
+  "id": "division-facts",
+  "title": "หารโดยใช้สูตรคูณ",
+  "topic": "multiplication-and-division",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "หาผลหารจากความสัมพันธ์ของการคูณ"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "ตั้งคูณด้วยจำนวนหนึ่งหลัก",
+  "topic": "multiplication-and-division",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "จำนวนสามหลักคูณจำนวนหนึ่งหลัก"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "ส่วนที่ระบายสีเป็นเศษส่วนเท่าไร",
+  "topic": "fractions",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "อ่านเศษส่วนจากส่วนที่เท่ากัน"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "หาเศษส่วนของจำนวน",
+  "topic": "fractions",
+  "years": [
+   "prathom-5",
+   "prathom-6"
+  ],
+  "desc": "เช่น ½ ของ 12 และ ¾ ของ 20"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "เศษส่วนที่เท่ากัน",
+  "topic": "fractions",
+  "years": [
+   "prathom-4",
+   "prathom-5",
+   "prathom-6"
+  ],
+  "desc": "เติมตัวเศษหรือตัวส่วนที่หายไป"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "ส่วนสิบและส่วนร้อย",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "prathom-4",
+   "prathom-5"
+  ],
+  "desc": "เขียนเศษส่วนเป็นทศนิยม"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "หาร้อยละของจำนวน",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "prathom-5",
+   "prathom-6"
+  ],
+  "desc": "ใช้ 10%, 25% และ 50% เป็นจุดเริ่ม"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "อ่านเวลาตรงชั่วโมงและครึ่งชั่วโมง",
+  "topic": "telling-the-time",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "อ่านเข็มสั้นกับเข็มยาวร่วมกัน"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "อ่านเวลา 15 และ 45 นาที",
+  "topic": "telling-the-time",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "ดูตำแหน่งเข็มที่ผ่านชั่วโมงมาแล้ว"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "อ่านเวลาทีละ 5 นาที",
+  "topic": "telling-the-time",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "อ่านหน้าปัดและเขียนเวลาแบบตัวเลข"
+ },
+ {
+  "id": "counting-coins",
+  "title": "รวมเงินเหรียญบาทและสตางค์",
+  "topic": "money",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "เหรียญ 25, 50 สตางค์ และ 1, 2, 5, 10 บาท"
+ },
+ {
+  "id": "giving-change",
+  "title": "คำนวณเงินทอน",
+  "topic": "money",
+  "years": [
+   "prathom-3",
+   "prathom-4"
+  ],
+  "desc": "ทอนจาก 20, 50 หรือ 100 บาทในร้านสมมติ"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "ความยาวรอบรูปและพื้นที่",
+  "topic": "measurement",
+  "years": [
+   "prathom-4",
+   "prathom-5"
+  ],
+  "desc": "รูปสี่เหลี่ยมมุมฉากบนตารางหน่วย"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "ชื่อรูป ด้าน และจุดยอด",
+  "topic": "shape-and-geometry",
+  "years": [
+   "prathom-2",
+   "prathom-3"
+  ],
+  "desc": "รูปหลายเหลี่ยมกับวงกลม พร้อมรูปต่อยอด"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "อ่านแผนภูมิแท่ง",
+  "topic": "data-and-graphs",
+  "years": [
+   "prathom-4",
+   "prathom-5"
+  ],
+  "desc": "เปรียบเทียบจำนวนผู้เลือกผลไม้จากข้อมูลสมมติ"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "หาตัวไม่ทราบค่า",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "prathom-3",
+   "prathom-4",
+   "prathom-5"
+  ],
+  "desc": "เติมจำนวนในประโยคสัญลักษณ์การคำนวณ"
+ }
+]

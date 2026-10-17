@@ -1,0 +1,114 @@
+{
+ "id": "rounding",
+ "title": "Làm tròn đến chục, trăm, nghìn",
+ "topic": "counting-and-place-value",
+ "years": [
+  "lop-3",
+  "lop-4"
+ ],
+ "desc": "Chọn số tròn gần nhất theo yêu cầu.",
+ "how": "Làm tròn từng số đến hàng được nêu.",
+ "tip": "Xem chữ số ngay bên phải hàng cần làm tròn: từ 5 trở lên thì tăng hàng đó một đơn vị.",
+ "yearsLabel": "Lớp 3, Lớp 4",
+ "htmlLang": "vi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Làm tròn <b class=\"n\">7.067</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "7.070"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">1.481</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "1.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">3.667</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "3.670"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">3.729</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "3.730"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">4.704</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "5.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">5.302</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "5.300"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">1.734</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "1.700"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">8.011</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">4.180</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "4.180"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">2.156</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "2.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">5.982</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "5.980"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">9.636</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "9.600"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">8.883</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">3.523</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "3.520"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">2.770</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "2.800"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">4.431</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "4.430"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">5.548</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "5.500"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">9.455</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">2.963</b> đến hàng trăm: <span class=\"bx\">□</span>",
+   "a": "3.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">4.896</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "4.900"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">3.930</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "4.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">7.873</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">6.257</b> đến hàng chục: <span class=\"bx\">□</span>",
+   "a": "6.260"
+  },
+  {
+   "q": "Làm tròn <b class=\"n\">1.530</b> đến hàng nghìn: <span class=\"bx\">□</span>",
+   "a": "2.000"
+  }
+ ],
+ "hasTactile": false
+}

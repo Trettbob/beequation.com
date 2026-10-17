@@ -1,0 +1,184 @@
+{
+  "words": {
+    "html_lang": "uk",
+    "home": "Головна",
+    "learn": "Навчання",
+    "learn_home": "Навчання: головна",
+    "sections": {
+      "topics": "Теми",
+      "years": "Класи",
+      "parents": "Батькам",
+      "teachers": "Учителям",
+      "worksheets": "Аркуші із завданнями",
+      "glossary": "Математичний словник"
+    },
+    "all_topics": "Усі теми →",
+    "all_years": "Усі класи →",
+    "year_small": "{age} років",
+    "tip": "Порада Інді",
+    "challenge": "Задача від Інді",
+    "show": "Показати відповідь",
+    "standard_pdf": "Звичайний PDF",
+    "large_print": "Великий шрифт",
+    "easy_read": "Полегшене читання",
+    "show_answers": "Показати відповіді",
+    "worksheet_questions": "Завдання",
+    "worksheet_downloads": "Завантаження",
+    "pdf_size_pending": "PDF: розмір буде відомий після створення",
+    "pdf_kb": "{size} КБ",
+    "sheet_alt": "Попередній перегляд аркуша «{title}»",
+    "download": "Завантажити PDF",
+    "try_title": "Потренуйтеся з Інді",
+    "try_text": "У Beequation Kids шукайте суми й добутки в стільниках. Бджілка Інді допомагає підказками. Обирайте завдання за тим, що дитина вже вивчає.",
+    "try_play": "Грати безкоштовно в браузері",
+    "try_sheets": "Безкоштовні аркуші",
+    "teachers": "Учителям",
+    "pack": "Безкоштовні головоломки для класу",
+    "pack_desc": "24 числові стільники для занять",
+    "home_desc": "Математика для дому й школи: 1–4 класи та продовження в 5–6 класах",
+    "worksheets": "Безкоштовні аркуші",
+    "glossary_blurb": "Математичні слова з поясненнями, прикладами та орієнтиром за класами. Виберіть літеру:",
+    "m_topics": "Теми",
+    "m_topics_k": "Обрати тему",
+    "m_topics_all": "Усі теми",
+    "m_years": "Класи",
+    "m_years_k": "Обрати клас",
+    "m_years_all": "Усі класи",
+    "m_years_hex": "1–6",
+    "m_year_small": "{age} років",
+    "m_parents": "Батькам",
+    "m_parents_k": "Порадники для батьків",
+    "m_parents_all": "Усі порадники для батьків",
+    "m_teachers": "Учителям",
+    "m_teachers_k": "Матеріали для вчителів",
+    "m_teachers_all": "Усі матеріали для вчителів",
+    "m_sheets": "Аркуші",
+    "m_sheets_k": "Завдання за темами",
+    "m_sheets_all": "Усі аркуші",
+    "m_sheet_n": [
+      "Аркушів: {n}",
+      "Аркушів: {n}"
+    ],
+    "m_glossary": "Словник",
+    "m_glossary_k": "Математичні слова за абеткою",
+    "m_glossary_all": "Увесь словник",
+    "alphabet": "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя",
+    "by": "Автор: {name}",
+    "reviewed_by": "Перевірка: {name}",
+    "published_on": "Опубліковано {date}",
+    "reviewed_on": "Перевірено {date}",
+    "report_error": "Повідомити про помилку"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "Лічба й розрядний склад",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "Додавання й віднімання",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "Множення й ділення",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "Звичайні дроби",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "Десяткові дроби й відсотки",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "Годинник і час",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "Гривні й копійки",
+      "glyph": "₴",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "Вимірювання",
+      "glyph": "см",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "Фігури й геометрія",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "Дані й діаграми",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "Рівняння, відношення й пропорції",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "Усні обчислення",
+      "glyph": "±",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "1-klas",
+      "name": "1 клас",
+      "age": "6–7",
+      "short": "1"
+    },
+    {
+      "slug": "2-klas",
+      "name": "2 клас",
+      "age": "7–8",
+      "short": "2"
+    },
+    {
+      "slug": "3-klas",
+      "name": "3 клас",
+      "age": "8–9",
+      "short": "3"
+    },
+    {
+      "slug": "4-klas",
+      "name": "4 клас",
+      "age": "9–10",
+      "short": "4"
+    },
+    {
+      "slug": "5-klas",
+      "name": "5 клас",
+      "age": "10–11",
+      "short": "5"
+    },
+    {
+      "slug": "6-klas",
+      "name": "6 клас",
+      "age": "11–12",
+      "short": "6"
+    }
+  ]
+}

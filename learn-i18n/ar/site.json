@@ -1,0 +1,190 @@
+{
+  "words": {
+    "html_lang": "ar",
+    "home": "الرئيسية",
+    "learn": "تعلّم",
+    "learn_home": "الرئيسية للتعلّم",
+    "sections": {
+      "topics": "الموضوعات",
+      "years": "الصفوف",
+      "parents": "للأسرة",
+      "teachers": "للمعلمين",
+      "worksheets": "أوراق العمل",
+      "glossary": "معجم الرياضيات"
+    },
+    "all_topics": "جميع الموضوعات",
+    "all_years": "جميع الصفوف",
+    "year_small": "العمر التقريبي بالسنوات: {age}",
+    "tip": "نصيحة إندي",
+    "challenge": "تحدي إندي",
+    "show": "إظهار الإجابة",
+    "standard_pdf": "PDF عادي",
+    "large_print": "طباعة كبيرة",
+    "easy_read": "قراءة ميسرة",
+    "show_answers": "إظهار الإجابات",
+    "worksheet_questions": "الأسئلة",
+    "worksheet_downloads": "التنزيلات",
+    "pdf_size_pending": "PDF؛ يظهر الحجم بعد إنشاء الملف",
+    "pdf_kb": "{size} كيلوبايت",
+    "sheet_alt": "معاينة ورقة العمل: {title}",
+    "download": "تنزيل PDF",
+    "try_title": "تدرّب مع إندي",
+    "try_text": "في Beequation Kids ابحث عن مجموع عددين أو حاصل ضربهما داخل قرص العسل. جرّب تلميح خط الأعداد عندما تحتاج إلى مساعدة.",
+    "try_play": "العب مجانًا في المتصفح",
+    "try_sheets": "أوراق عمل مجانية",
+    "teachers": "للمعلمين",
+    "pack": "حزمة ألغاز مجانية للمعلمين",
+    "pack_desc": "24 لغزًا من أقراص العسل",
+    "home_desc": "مساعدة في الرياضيات للأسرة والمدرسة، من الروضة إلى الصف السادس",
+    "worksheets": "أوراق عمل مجانية",
+    "glossary_blurb": "مصطلحات الرياضيات بشرح واضح ومثال. المراحل المذكورة اقتراح للتعلّم وليست توزيعًا وزاريًا. اختر حرفًا:",
+    "m_topics": "الموضوعات",
+    "m_topics_k": "تصفّح الموضوعات",
+    "m_topics_all": "جميع الموضوعات",
+    "m_years": "الصفوف",
+    "m_years_k": "تصفّح الصفوف",
+    "m_years_all": "جميع الصفوف",
+    "m_years_hex": "1–6",
+    "m_year_small": "العمر التقريبي بالسنوات: {age}",
+    "m_parents": "للأسرة",
+    "m_parents_k": "أدلة الأسرة",
+    "m_parents_all": "جميع أدلة الأسرة",
+    "m_teachers": "للمعلمين",
+    "m_teachers_k": "موارد المعلمين",
+    "m_teachers_all": "جميع موارد المعلمين",
+    "m_sheets": "أوراق العمل",
+    "m_sheets_k": "أوراق حسب الموضوع",
+    "m_sheets_all": "جميع أوراق العمل",
+    "m_sheet_n": [
+      "ورقة عمل واحدة",
+      "عدد أوراق العمل: {n}"
+    ],
+    "m_glossary": "معجم الرياضيات",
+    "m_glossary_k": "مصطلحات الرياضيات حسب الحروف",
+    "m_glossary_all": "جميع المصطلحات",
+    "alphabet": "ابتثجحخدذرزسشصضطظعغفقكلمنهوي",
+    "by": "إعداد: {name}",
+    "reviewed_by": "مراجعة: {name}",
+    "published_on": "تاريخ النشر: {date}",
+    "reviewed_on": "تاريخ المراجعة: {date}",
+    "report_error": "الإبلاغ عن خطأ"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "العد والقيمة المكانية",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "الجمع والطرح",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "الضرب والقسمة",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "الكسور",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "الأعداد العشرية والنسب المئوية",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "قراءة الساعة",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "النقود",
+      "glyph": "نقد",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "القياس",
+      "glyph": "سم",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "الأشكال والهندسة",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "البيانات والرسوم البيانية",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "الجبر والنسبة",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "الحساب الذهني",
+      "glyph": "±",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "kg2",
+      "name": "الروضة / KG2",
+      "age": "5 إلى 6",
+      "short": "KG2"
+    },
+    {
+      "slug": "saff-1",
+      "name": "الصف الأول الابتدائي",
+      "age": "6 إلى 7",
+      "short": "1"
+    },
+    {
+      "slug": "saff-2",
+      "name": "الصف الثاني الابتدائي",
+      "age": "7 إلى 8",
+      "short": "2"
+    },
+    {
+      "slug": "saff-3",
+      "name": "الصف الثالث الابتدائي",
+      "age": "8 إلى 9",
+      "short": "3"
+    },
+    {
+      "slug": "saff-4",
+      "name": "الصف الرابع الابتدائي",
+      "age": "9 إلى 10",
+      "short": "4"
+    },
+    {
+      "slug": "saff-5",
+      "name": "الصف الخامس الابتدائي",
+      "age": "10 إلى 11",
+      "short": "5"
+    },
+    {
+      "slug": "saff-6",
+      "name": "الصف السادس الابتدائي",
+      "age": "11 إلى 12",
+      "short": "6"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+ "id": "rounding",
+ "title": "تقريب الأعداد",
+ "topic": "counting-and-place-value",
+ "years": [
+  "saff-3",
+  "saff-4"
+ ],
+ "desc": "التقريب لأقرب 10 أو100 أو1000",
+ "how": "قرّب العدد إلى المنزلة المطلوبة.",
+ "tip": "حدّد العددين الأقرب على جانبي العدد. عند المنتصف نختار الأكبر في هذه التمارين.",
+ "yearsLabel": "الصف الثالث الابتدائي، الصف الرابع الابتدائي",
+ "htmlLang": "ar",
+ "kind": "list",
+ "items": [
+  {
+   "q": "قرّب <bdi dir=\"ltr\">7067</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "7070"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">1481</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "1000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">3667</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "3670"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">3729</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "3730"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">4704</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "5000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">5302</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "5300"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">1734</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "1700"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">8011</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">4180</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "4180"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">2156</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "2000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">5982</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "5980"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">9636</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "9600"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">8883</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">3523</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "3520"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">2770</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "2800"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">4431</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "4430"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">5548</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "5500"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">9455</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "9000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">2963</bdi> إلى أقرب <bdi dir=\"ltr\">100</bdi>: <span class=\"bx\">□</span>",
+   "a": "3000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">4896</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "4900"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">3930</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "4000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">7873</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "8000"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">6257</bdi> إلى أقرب <bdi dir=\"ltr\">10</bdi>: <span class=\"bx\">□</span>",
+   "a": "6260"
+  },
+  {
+   "q": "قرّب <bdi dir=\"ltr\">1530</bdi> إلى أقرب <bdi dir=\"ltr\">1000</bdi>: <span class=\"bx\">□</span>",
+   "a": "2000"
+  }
+ ],
+ "hasTactile": false
+}

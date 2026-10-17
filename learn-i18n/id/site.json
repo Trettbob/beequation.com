@@ -1,0 +1,190 @@
+{
+  "words": {
+    "html_lang": "id",
+    "home": "Beranda",
+    "learn": "Belajar",
+    "learn_home": "Beranda belajar",
+    "sections": {
+      "topics": "Topik",
+      "years": "Kelas",
+      "parents": "Orang tua",
+      "teachers": "Guru",
+      "worksheets": "Lembar kerja",
+      "glossary": "Glosarium matematika"
+    },
+    "all_topics": "Semua topik →",
+    "all_years": "Semua kelas →",
+    "year_small": "sekitar {age} tahun",
+    "tip": "Saran Indie",
+    "challenge": "Tantangan Indie",
+    "show": "Lihat jawaban",
+    "standard_pdf": "PDF standar",
+    "large_print": "Huruf besar",
+    "easy_read": "Mudah dibaca",
+    "show_answers": "Lihat kunci jawaban",
+    "worksheet_questions": "Soal",
+    "worksheet_downloads": "Unduhan",
+    "pdf_size_pending": "PDF; ukuran tersedia setelah berkas dibuat",
+    "pdf_kb": "{size} KB",
+    "sheet_alt": "Pratinjau lembar kerja {title}",
+    "download": "Unduh PDF",
+    "try_title": "Berlatih bersama Indie",
+    "try_text": "Beequation Kids mengajak anak mencari hubungan bilangan dalam teka-teki sarang. Indie memberi petunjuk saat dibutuhkan. Tanpa iklan dan tanpa pengumpulan data anak.",
+    "try_play": "Main gratis di peramban",
+    "try_sheets": "Lembar kerja gratis",
+    "teachers": "Guru",
+    "pack": "Paket teka-teki gratis untuk guru",
+    "pack_desc": "24 teka-teki sarang untuk kegiatan kelas",
+    "home_desc": "Pendampingan matematika di rumah dan sekolah, dari TK B sampai SD Kelas 6",
+    "worksheets": "Lembar kerja gratis",
+    "glossary_blurb": "Istilah matematika SD, dengan penjelasan, contoh, dan saran tahap belajar. Pilih huruf:",
+    "m_topics": "Topik",
+    "m_topics_k": "Jelajahi topik",
+    "m_topics_all": "Semua topik",
+    "m_years": "Kelas",
+    "m_years_k": "Pilih kelas",
+    "m_years_all": "Semua kelas",
+    "m_years_hex": "1–6",
+    "m_year_small": "Sekitar {age} tahun",
+    "m_parents": "Untuk orang tua",
+    "m_parents_k": "Panduan orang tua",
+    "m_parents_all": "Semua panduan orang tua",
+    "m_teachers": "Untuk guru",
+    "m_teachers_k": "Bahan untuk guru",
+    "m_teachers_all": "Semua bahan untuk guru",
+    "m_sheets": "Lembar kerja",
+    "m_sheets_k": "Latihan menurut topik",
+    "m_sheets_all": "Semua lembar kerja",
+    "m_sheet_n": [
+      "{n} lembar kerja",
+      "{n} lembar kerja"
+    ],
+    "m_glossary": "Glosarium",
+    "m_glossary_k": "Istilah matematika A–Z",
+    "m_glossary_all": "Semua istilah",
+    "alphabet": "abcdefghijklmnopqrstuvwxyz",
+    "by": "Oleh {name}",
+    "reviewed_by": "Ditinjau oleh {name}",
+    "published_on": "Terbit {date}",
+    "reviewed_on": "Ditinjau {date}",
+    "report_error": "Laporkan kesalahan"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "Membilang dan nilai tempat",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "Penjumlahan dan pengurangan",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "Perkalian dan pembagian",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "Pecahan",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "Desimal dan persen",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "Membaca waktu",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "Uang rupiah",
+      "glyph": "Rp",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "Pengukuran",
+      "glyph": "cm",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "Bangun dan geometri",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "Data dan diagram",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "Pola dan perbandingan",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "Berhitung dalam pikiran",
+      "glyph": "12",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "tk-b",
+      "name": "TK B",
+      "age": "5–6",
+      "short": "TK"
+    },
+    {
+      "slug": "kelas-1",
+      "name": "SD Kelas 1",
+      "age": "6–8",
+      "short": "1"
+    },
+    {
+      "slug": "kelas-2",
+      "name": "SD Kelas 2",
+      "age": "7–9",
+      "short": "2"
+    },
+    {
+      "slug": "kelas-3",
+      "name": "SD Kelas 3",
+      "age": "8–10",
+      "short": "3"
+    },
+    {
+      "slug": "kelas-4",
+      "name": "SD Kelas 4",
+      "age": "9–11",
+      "short": "4"
+    },
+    {
+      "slug": "kelas-5",
+      "name": "SD Kelas 5",
+      "age": "10–12",
+      "short": "5"
+    },
+    {
+      "slug": "kelas-6",
+      "name": "SD Kelas 6",
+      "age": "11–13",
+      "short": "6"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "หลักสิบและหลักหน่วย",
+ "topic": "counting-and-place-value",
+ "years": [
+  "prathom-1",
+  "prathom-2"
+ ],
+ "desc": "แยกจำนวนสองหลักเป็นสิบกับหน่วย",
+ "how": "เขียนว่ามีกี่สิบกับกี่หน่วย",
+ "tip": "47 คือ 4 สิบ กับ 7 หน่วย ลองจัดสิ่งของเป็นกลุ่มละ 10 เพื่อตรวจ",
+ "yearsLabel": "ป.1, ป.2",
+ "htmlLang": "th",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "7 สิบ กับ 9 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "3 สิบ กับ 6 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "5 สิบ กับ 8 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "1 สิบ กับ 9 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "9 สิบ กับ 0 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "9 สิบ กับ 5 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "2 สิบ กับ 3 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "6 สิบ กับ 8 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "6 สิบ กับ 4 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "3 สิบ กับ 3 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "1 สิบ กับ 2 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "8 สิบ กับ 1 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "6 สิบ กับ 7 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "3 สิบ กับ 5 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "6 สิบ กับ 0 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "1 สิบ กับ 8 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "1 สิบ กับ 6 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "8 สิบ กับ 8 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "5 สิบ กับ 4 หน่วย"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> สิบ กับ <span class=\"bx\">□</span> หน่วย",
+   "a": "3 สิบ กับ 1 หน่วย"
+  }
+ ],
+ "hasTactile": false
+}

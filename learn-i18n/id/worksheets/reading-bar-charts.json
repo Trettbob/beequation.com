@@ -1,0 +1,41 @@
+{
+ "id": "reading-bar-charts",
+ "title": "Membaca diagram batang",
+ "topic": "data-and-graphs",
+ "years": [
+  "kelas-4",
+  "kelas-5",
+  "kelas-6"
+ ],
+ "desc": "Contoh data buah pilihan murid",
+ "how": "Baca diagram atau tabel, lalu jawab pertanyaan. Data ini dibuat untuk latihan.",
+ "tip": "Periksa skala. Satu langkah pada sumbu tidak selalu berarti satu murid.",
+ "yearsLabel": "SD Kelas 4, SD Kelas 5, SD Kelas 6",
+ "htmlLang": "id",
+ "kind": "chart",
+ "chart": "<svg role=\"img\" aria-label=\"Diagram batang buah pilihan murid; nilainya juga tercantum pada tabel\" focusable=\"false\" viewBox=\"0 0 130 78\" style=\"width:150mm;height:90mm\"><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"65.4\" text-anchor=\"end\" font-size=\"3.8\">0</text><line x1=\"10\" x2=\"124\" y1=\"58\" y2=\"58\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"59.4\" text-anchor=\"end\" font-size=\"3.8\">1</text><line x1=\"10\" x2=\"124\" y1=\"52\" y2=\"52\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"53.4\" text-anchor=\"end\" font-size=\"3.8\">2</text><line x1=\"10\" x2=\"124\" y1=\"46\" y2=\"46\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"47.4\" text-anchor=\"end\" font-size=\"3.8\">3</text><line x1=\"10\" x2=\"124\" y1=\"40\" y2=\"40\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"41.4\" text-anchor=\"end\" font-size=\"3.8\">4</text><line x1=\"10\" x2=\"124\" y1=\"34\" y2=\"34\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"35.4\" text-anchor=\"end\" font-size=\"3.8\">5</text><line x1=\"10\" x2=\"124\" y1=\"28\" y2=\"28\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"29.4\" text-anchor=\"end\" font-size=\"3.8\">6</text><line x1=\"10\" x2=\"124\" y1=\"22\" y2=\"22\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"23.4\" text-anchor=\"end\" font-size=\"3.8\">7</text><line x1=\"10\" x2=\"124\" y1=\"16\" y2=\"16\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"17.4\" text-anchor=\"end\" font-size=\"3.8\">8</text><line x1=\"10\" x2=\"124\" y1=\"10\" y2=\"10\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"11.4\" text-anchor=\"end\" font-size=\"3.8\">9</text><line x1=\"10\" x2=\"124\" y1=\"4\" y2=\"4\" stroke=\"#C7DDF0\" stroke-width=\"0.3\"/><text x=\"8\" y=\"5.4\" text-anchor=\"end\" font-size=\"3.8\">10</text><rect x=\"14\" y=\"16\" width=\"14\" height=\"48\" fill=\"#FFD84D\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"21\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Mangga</text><rect x=\"36\" y=\"28\" width=\"14\" height=\"36\" fill=\"#7EE8C6\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"43\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Pisang</text><rect x=\"58\" y=\"10\" width=\"14\" height=\"54\" fill=\"#8FD3FF\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"65\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Pepaya</text><rect x=\"80\" y=\"52\" width=\"14\" height=\"12\" fill=\"#FFA8D2\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"87\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Jeruk</text><rect x=\"102\" y=\"40\" width=\"14\" height=\"24\" fill=\"#FFB37A\" stroke=\"#1C1A4A\" stroke-width=\"0.5\"/><text x=\"109\" y=\"70\" text-anchor=\"middle\" font-size=\"4.2\">Jambu</text><line x1=\"10\" x2=\"10\" y1=\"4\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/><line x1=\"10\" x2=\"124\" y1=\"64\" y2=\"64\" stroke=\"#1C1A4A\" stroke-width=\"0.6\"/></svg>",
+ "chartTable": "<table class=\"chart-data\"><thead><tr><th scope=\"col\">Buah</th><th scope=\"col\">Banyak pilihan</th></tr></thead><tbody><tr><th scope=\"row\">Mangga</th><td>8</td></tr><tr><th scope=\"row\">Pisang</th><td>6</td></tr><tr><th scope=\"row\">Pepaya</th><td>9</td></tr><tr><th scope=\"row\">Jeruk</th><td>2</td></tr><tr><th scope=\"row\">Jambu</th><td>4</td></tr></tbody></table>",
+ "items": [
+  {
+   "q": "Berapa murid memilih pisang? <span class=\"line\"></span>",
+   "a": "6"
+  },
+  {
+   "q": "Buah apa yang paling banyak dipilih? <span class=\"line\"></span>",
+   "a": "Pepaya"
+  },
+  {
+   "q": "Buah apa yang paling sedikit dipilih? <span class=\"line\"></span>",
+   "a": "Jeruk"
+  },
+  {
+   "q": "Berapa selisih banyak pemilih pepaya dan jeruk? <span class=\"line\"></span>",
+   "a": "7"
+  },
+  {
+   "q": "Berapa jumlah seluruh pilihan? <span class=\"line\"></span>",
+   "a": "29"
+  }
+ ],
+ "hasTactile": true
+}

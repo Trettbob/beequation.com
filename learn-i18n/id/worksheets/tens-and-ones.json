@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "Puluhan dan satuan",
+ "topic": "counting-and-place-value",
+ "years": [
+  "kelas-1",
+  "kelas-2"
+ ],
+ "desc": "Mengurai bilangan dua angka",
+ "how": "Tuliskan banyak puluhan dan satuannya.",
+ "tip": "47 terdiri dari 4 puluhan dan 7 satuan. Gunakan ikatan sedotan jika diperlukan.",
+ "yearsLabel": "SD Kelas 1, SD Kelas 2",
+ "htmlLang": "id",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "7 puluhan dan 9 satuan"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "3 puluhan dan 6 satuan"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "5 puluhan dan 8 satuan"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "1 puluhan dan 9 satuan"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "9 puluhan dan 0 satuan"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "9 puluhan dan 5 satuan"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "2 puluhan dan 3 satuan"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "6 puluhan dan 8 satuan"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "6 puluhan dan 4 satuan"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "3 puluhan dan 3 satuan"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "1 puluhan dan 2 satuan"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "8 puluhan dan 1 satuan"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "6 puluhan dan 7 satuan"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "3 puluhan dan 5 satuan"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "6 puluhan dan 0 satuan"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "1 puluhan dan 8 satuan"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "1 puluhan dan 6 satuan"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "8 puluhan dan 8 satuan"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "5 puluhan dan 4 satuan"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> puluhan dan <span class=\"bx\">□</span> satuan",
+   "a": "3 puluhan dan 1 satuan"
+  }
+ ],
+ "hasTactile": false
+}

@@ -1,0 +1,115 @@
+{
+ "id": "rounding",
+ "title": "Pembulatan bilangan",
+ "topic": "counting-and-place-value",
+ "years": [
+  "kelas-4",
+  "kelas-5",
+  "kelas-6"
+ ],
+ "desc": "Puluhan, ratusan, dan ribuan terdekat",
+ "how": "Bulatkan ke nilai tempat yang diminta.",
+ "tip": "Letakkan bilangan di antara dua kelipatan terdekat. Jika tepat di tengah, bulatkan ke atas.",
+ "yearsLabel": "SD Kelas 4, SD Kelas 5, SD Kelas 6",
+ "htmlLang": "id",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">7.067</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "7.070"
+  },
+  {
+   "q": "<b class=\"n\">1.481</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "1.000"
+  },
+  {
+   "q": "<b class=\"n\">3.667</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "3.670"
+  },
+  {
+   "q": "<b class=\"n\">3.729</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "3.730"
+  },
+  {
+   "q": "<b class=\"n\">4.704</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "5.000"
+  },
+  {
+   "q": "<b class=\"n\">5.302</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "5.300"
+  },
+  {
+   "q": "<b class=\"n\">1.734</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "1.700"
+  },
+  {
+   "q": "<b class=\"n\">8.011</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "<b class=\"n\">4.180</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "4.180"
+  },
+  {
+   "q": "<b class=\"n\">2.156</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "2.000"
+  },
+  {
+   "q": "<b class=\"n\">5.982</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "5.980"
+  },
+  {
+   "q": "<b class=\"n\">9.636</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "9.600"
+  },
+  {
+   "q": "<b class=\"n\">8.883</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "<b class=\"n\">3.523</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "3.520"
+  },
+  {
+   "q": "<b class=\"n\">2.770</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "2.800"
+  },
+  {
+   "q": "<b class=\"n\">4.431</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "4.430"
+  },
+  {
+   "q": "<b class=\"n\">5.548</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "5.500"
+  },
+  {
+   "q": "<b class=\"n\">9.455</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "9.000"
+  },
+  {
+   "q": "<b class=\"n\">2.963</b> dibulatkan ke 100 terdekat → <span class=\"bx\">□</span>",
+   "a": "3.000"
+  },
+  {
+   "q": "<b class=\"n\">4.896</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "4.900"
+  },
+  {
+   "q": "<b class=\"n\">3.930</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "4.000"
+  },
+  {
+   "q": "<b class=\"n\">7.873</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "8.000"
+  },
+  {
+   "q": "<b class=\"n\">6.257</b> dibulatkan ke 10 terdekat → <span class=\"bx\">□</span>",
+   "a": "6.260"
+  },
+  {
+   "q": "<b class=\"n\">1.530</b> dibulatkan ke 1.000 terdekat → <span class=\"bx\">□</span>",
+   "a": "2.000"
+  }
+ ],
+ "hasTactile": false
+}

@@ -1,0 +1,97 @@
+{
+ "id": "tens-and-ones",
+ "title": "Chục và đơn vị",
+ "topic": "counting-and-place-value",
+ "years": [
+  "lop-1"
+ ],
+ "desc": "Tách số có hai chữ số theo hàng.",
+ "how": "Điền số chục và số đơn vị của mỗi số.",
+ "tip": "47 gồm 4 chục và 7 đơn vị; chữ số 4 biểu thị 40.",
+ "yearsLabel": "Lớp 1",
+ "htmlLang": "vi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "7 chục và 9 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "3 chục và 6 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "5 chục và 8 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "1 chục và 9 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "9 chục và 0 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "9 chục và 5 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "2 chục và 3 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "6 chục và 8 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "6 chục và 4 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "3 chục và 3 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "1 chục và 2 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "8 chục và 1 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "6 chục và 7 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "3 chục và 5 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "6 chục và 0 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "1 chục và 8 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "1 chục và 6 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "8 chục và 8 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "5 chục và 4 đơn vị"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = <span class=\"bx\">□</span> chục và <span class=\"bx\">□</span> đơn vị",
+   "a": "3 chục và 1 đơn vị"
+  }
+ ],
+ "hasTactile": false
+}

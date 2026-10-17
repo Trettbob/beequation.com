@@ -1,0 +1,113 @@
+{
+ "id": "tenths-and-hundredths",
+ "title": "Десяті й соті",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "5-klas"
+ ],
+ "desc": "Запиши звичайний дріб десятковим",
+ "how": "Запиши кожний дріб десятковим дробом із комою.",
+ "tip": "7/100 = 0,07: сім сотих. Нуль на місці десятих потрібний.",
+ "yearsLabel": "5 клас",
+ "htmlLang": "uk",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>75</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,75"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,7"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,02"
+  },
+  {
+   "q": "<span class=\"fr\"><b>35</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,35"
+  },
+  {
+   "q": "<span class=\"fr\"><b>91</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,91"
+  },
+  {
+   "q": "<span class=\"fr\"><b>9</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>28</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>80</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,80"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,5"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,08"
+  },
+  {
+   "q": "<span class=\"fr\"><b>6</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>66</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,66"
+  },
+  {
+   "q": "<span class=\"fr\"><b>82</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,82"
+  },
+  {
+   "q": "<span class=\"fr\"><b>15</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,15"
+  },
+  {
+   "q": "<span class=\"fr\"><b>98</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,98"
+  },
+  {
+   "q": "<span class=\"fr\"><b>72</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>10</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>46</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,46"
+  },
+  {
+   "q": "<span class=\"fr\"><b>33</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,33"
+  },
+  {
+   "q": "<span class=\"fr\"><b>92</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,92"
+  },
+  {
+   "q": "<span class=\"fr\"><b>49</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,49"
+  },
+  {
+   "q": "<span class=\"fr\"><b>88</b><span class=\"fraction-slash\">/</span><i>100</i></span> = <span class=\"bx\">□</span>",
+   "a": "0,88"
+  }
+ ],
+ "hasTactile": false
+}

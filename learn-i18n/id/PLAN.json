@@ -1,0 +1,225 @@
+{
+  "language": "Bahasa Indonesia",
+  "site": "id.beequation.com",
+  "brief": "BRIEF.md",
+  "address": "Anda untuk orang dewasa; instruksi langsung untuk anak; aku untuk Indie.",
+  "years": [
+    {
+      "slug": "tk-b",
+      "name": "TK B",
+      "age": "5–6",
+      "short": "TK"
+    },
+    {
+      "slug": "kelas-1",
+      "name": "SD Kelas 1",
+      "age": "6–8",
+      "short": "1"
+    },
+    {
+      "slug": "kelas-2",
+      "name": "SD Kelas 2",
+      "age": "7–9",
+      "short": "2"
+    },
+    {
+      "slug": "kelas-3",
+      "name": "SD Kelas 3",
+      "age": "8–10",
+      "short": "3"
+    },
+    {
+      "slug": "kelas-4",
+      "name": "SD Kelas 4",
+      "age": "9–11",
+      "short": "4"
+    },
+    {
+      "slug": "kelas-5",
+      "name": "SD Kelas 5",
+      "age": "10–12",
+      "short": "5"
+    },
+    {
+      "slug": "kelas-6",
+      "name": "SD Kelas 6",
+      "age": "11–13",
+      "short": "6"
+    }
+  ],
+  "curriculum": "Kurikulum Merdeka: Fase Fondasi, A, B, C. Urutan per kelas adalah saran, sesuaikan ATP sekolah.",
+  "pages": [
+    {
+      "rel": "braille.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "daily-maths-puzzle-for-adults.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "glossary/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "mental-maths-strategies.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "number-bonds-to-20.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "pack.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/everyday-maths.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/helping-at-home.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/how-maths-is-taught.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/maths-anxiety.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "parents/maths-tests-explained.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "teachers/differentiation-in-maths.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "teachers/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "teachers/maths-games-for-the-classroom.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "teachers/maths-starters.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "teachers/reasoning-and-problem-solving.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "times-tables-practice.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "topics/addition-and-subtraction.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/algebra-and-ratio.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/counting-and-place-value.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/data-and-graphs.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/decimals-and-percentages.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/fractions.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "topics/measurement.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/mental-maths.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/money.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/multiplication-and-division.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/shape-and-geometry.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "topics/telling-the-time.html",
+      "notes": "Panduan kegiatan, contoh lengkap, kekeliruan, permainan, tantangan dan jawaban, lembar latihan, tanya jawab, serta tautan lanjut."
+    },
+    {
+      "rel": "worksheets/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/index.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/tk-b.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-1.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-2.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-3.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-4.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-5.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    },
+    {
+      "rel": "years/kelas-6.html",
+      "notes": "Isi asli untuk keluarga dan guru di Indonesia; seluruh tautan menuju bagian lokal."
+    }
+  ],
+  "checks": [
+    "41 halaman sumber setara jalur es, dengan tahun lokal",
+    "Seluruh kunci WORDS dan W",
+    "Dua pemeriksaan aritmetika dan jawaban tantangan",
+    "Tautan, metadata, shortcode, dan format rupiah",
+    "Generator HTML lembar kerja dan build lokal sebatas izin direktori"
+  ],
+  "scope": "Hanya learn-i18n/id/; tanpa instalasi, commit, atau push."
+}

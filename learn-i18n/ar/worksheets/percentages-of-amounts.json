@@ -1,0 +1,98 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "النسبة المئوية من كمية",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "saff-5",
+  "saff-6"
+ ],
+ "desc": "النصف والربع و10% ونسب أخرى",
+ "how": "احسب القيمة المطلوبة. يمكنك تقسيم النسبة إلى أجزاء تعرفها.",
+ "tip": "10% تعني العشر. 30% تساوي ثلاثة أعشار، و5% نصف العشر.",
+ "yearsLabel": "الصف الخامس الابتدائي، الصف السادس الابتدائي",
+ "htmlLang": "ar",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<bdi dir=\"ltr\">50%</bdi> من <bdi dir=\"ltr\">290</bdi> = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">5%</bdi> من <bdi dir=\"ltr\">260</bdi> = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">25%</bdi> من <bdi dir=\"ltr\">48</bdi> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">40%</bdi> من <bdi dir=\"ltr\">130</bdi> = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">10%</bdi> من <bdi dir=\"ltr\">180</bdi> = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">10%</bdi> من <bdi dir=\"ltr\">250</bdi> = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">25%</bdi> من <bdi dir=\"ltr\">12</bdi> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">5%</bdi> من <bdi dir=\"ltr\">40</bdi> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">5%</bdi> من <bdi dir=\"ltr\">180</bdi> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">30%</bdi> من <bdi dir=\"ltr\">240</bdi> = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">30%</bdi> من <bdi dir=\"ltr\">250</bdi> = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">20%</bdi> من <bdi dir=\"ltr\">240</bdi> = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">50%</bdi> من <bdi dir=\"ltr\">120</bdi> = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">75%</bdi> من <bdi dir=\"ltr\">100</bdi> = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">5%</bdi> من <bdi dir=\"ltr\">20</bdi> = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">75%</bdi> من <bdi dir=\"ltr\">48</bdi> = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">40%</bdi> من <bdi dir=\"ltr\">230</bdi> = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">25%</bdi> من <bdi dir=\"ltr\">40</bdi> = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">75%</bdi> من <bdi dir=\"ltr\">52</bdi> = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "<bdi dir=\"ltr\">10%</bdi> من <bdi dir=\"ltr\">300</bdi> = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ],
+ "hasTactile": false
+}

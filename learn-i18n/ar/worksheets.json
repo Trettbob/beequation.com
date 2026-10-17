@@ -1,0 +1,287 @@
+[
+ {
+  "id": "missing-numbers-to-100",
+  "title": "الأعداد الناقصة حتى 100",
+  "topic": "counting-and-place-value",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "عد متتابع وقفزات بمقدار 2 و5 و10"
+ },
+ {
+  "id": "tens-and-ones",
+  "title": "العشرات والآحاد",
+  "topic": "counting-and-place-value",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "تفكيك الأعداد المكونة من رقمين"
+ },
+ {
+  "id": "hundreds-tens-ones",
+  "title": "المئات والعشرات والآحاد",
+  "topic": "counting-and-place-value",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "القيمة المكانية للأعداد حتى 999"
+ },
+ {
+  "id": "rounding",
+  "title": "تقريب الأعداد",
+  "topic": "counting-and-place-value",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "التقريب لأقرب 10 أو100 أو1000"
+ },
+ {
+  "id": "number-bonds-to-10",
+  "title": "أزواج تكوين 10",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "kg2",
+   "saff-1"
+  ],
+  "desc": "عددان مجموعهما 10"
+ },
+ {
+  "id": "number-bonds-to-20",
+  "title": "أزواج تكوين 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "تكوين 20 من جزأين"
+ },
+ {
+  "id": "add-and-subtract-within-20",
+  "title": "الجمع والطرح حتى 20",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "تدريب على الجمع والطرح في مجال صغير"
+ },
+ {
+  "id": "column-addition",
+  "title": "الجمع الرأسي مع إعادة التجميع",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "جمع أعداد من 3 أرقام"
+ },
+ {
+  "id": "column-subtraction",
+  "title": "الطرح الرأسي مع إعادة التجميع",
+  "topic": "addition-and-subtraction",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "طرح أعداد من 3 أرقام"
+ },
+ {
+  "id": "times-tables-2-5-10",
+  "title": "جداول 2 و5 و10",
+  "topic": "multiplication-and-division",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "حقائق الضرب بترتيب متنوع"
+ },
+ {
+  "id": "times-tables-3-4-8",
+  "title": "جداول 3 و4 و8",
+  "topic": "multiplication-and-division",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "ربط الحقائق بالمضاعفة"
+ },
+ {
+  "id": "multiplication-grid",
+  "title": "شبكة الضرب حتى 12",
+  "topic": "multiplication-and-division",
+  "years": [
+   "saff-3",
+   "saff-4",
+   "saff-5",
+   "saff-6"
+  ],
+  "desc": "شبكة للمراجعة واكتشاف العلاقات"
+ },
+ {
+  "id": "division-facts",
+  "title": "القسمة باستخدام حقائق الضرب",
+  "topic": "multiplication-and-division",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "قسمة تامة وعلاقتها بالضرب"
+ },
+ {
+  "id": "short-multiplication",
+  "title": "الضرب في عدد من رقم واحد",
+  "topic": "multiplication-and-division",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "ضرب رأسي مع القيمة المكانية"
+ },
+ {
+  "id": "what-fraction-is-shaded",
+  "title": "ما الكسر المظلل؟",
+  "topic": "fractions",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "قراءة أجزاء متساوية من شكل"
+ },
+ {
+  "id": "fractions-of-amounts",
+  "title": "الكسر من كمية",
+  "topic": "fractions",
+  "years": [
+   "saff-3",
+   "saff-4",
+   "saff-5"
+  ],
+  "desc": "حساب جزء من مجموعة أو عدد"
+ },
+ {
+  "id": "equivalent-fractions",
+  "title": "الكسور المتكافئة",
+  "topic": "fractions",
+  "years": [
+   "saff-4",
+   "saff-5"
+  ],
+  "desc": "كسور مختلفة في الكتابة ومتساوية في القيمة"
+ },
+ {
+  "id": "tenths-and-hundredths",
+  "title": "الأعشار والأجزاء من مائة",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "saff-4",
+   "saff-5"
+  ],
+  "desc": "كتابة الكسور في صورة أعداد عشرية"
+ },
+ {
+  "id": "percentages-of-amounts",
+  "title": "النسبة المئوية من كمية",
+  "topic": "decimals-and-percentages",
+  "years": [
+   "saff-5",
+   "saff-6"
+  ],
+  "desc": "النصف والربع و10% ونسب أخرى"
+ },
+ {
+  "id": "time-oclock-and-half-past",
+  "title": "الساعة الكاملة ونصف الساعة",
+  "topic": "telling-the-time",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "قراءة عقربي الساعات والدقائق"
+ },
+ {
+  "id": "time-quarter-past-and-to",
+  "title": "الربع وإلا ربعًا",
+  "topic": "telling-the-time",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "قراءة ربع الساعة وثلاثة أرباعها"
+ },
+ {
+  "id": "time-to-5-minutes",
+  "title": "قراءة الساعة كل 5 دقائق",
+  "topic": "telling-the-time",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "الوقت بالكلمات والأرقام"
+ },
+ {
+  "id": "counting-coins",
+  "title": "عد النقود السعودية",
+  "topic": "money",
+  "years": [
+   "saff-2",
+   "saff-3"
+  ],
+  "desc": "جمع قطع من 5 و10 و25 و50 هللة"
+ },
+ {
+  "id": "giving-change",
+  "title": "حساب الباقي بالريال السعودي",
+  "topic": "money",
+  "years": [
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "أسعار افتراضية للتدريب على الباقي"
+ },
+ {
+  "id": "perimeter-and-area",
+  "title": "المحيط والمساحة",
+  "topic": "measurement",
+  "years": [
+   "saff-4",
+   "saff-5"
+  ],
+  "desc": "مستطيلات على شبكة مربعات"
+ },
+ {
+  "id": "2d-shapes",
+  "title": "الأشكال المستوية",
+  "topic": "shape-and-geometry",
+  "years": [
+   "saff-1",
+   "saff-2"
+  ],
+  "desc": "الأسماء والأضلاع والرؤوس"
+ },
+ {
+  "id": "reading-bar-charts",
+  "title": "قراءة التمثيل بالأعمدة",
+  "topic": "data-and-graphs",
+  "years": [
+   "saff-3",
+   "saff-4",
+   "saff-5"
+  ],
+  "desc": "مقارنة بيانات تصويت تدريبي"
+ },
+ {
+  "id": "missing-number-problems",
+  "title": "العدد المجهول",
+  "topic": "algebra-and-ratio",
+  "years": [
+   "saff-2",
+   "saff-3",
+   "saff-4"
+  ],
+  "desc": "فهم المساواة والعملية العكسية"
+ }
+]

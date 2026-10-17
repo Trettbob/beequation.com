@@ -1,0 +1,66 @@
+{
+ "id": "column-addition",
+ "title": "الجمع الرأسي مع إعادة التجميع",
+ "topic": "addition-and-subtraction",
+ "years": [
+  "saff-2",
+  "saff-3"
+ ],
+ "desc": "جمع أعداد من 3 أرقام",
+ "how": "ابدأ بالآحاد ثم العشرات ثم المئات.",
+ "tip": "كل 10 آحاد تعادل عشرة واحدة. اكتب العشرة الجديدة في منزلتها.",
+ "yearsLabel": "الصف الثاني الابتدائي، الصف الثالث الابتدائي",
+ "htmlLang": "ar",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">373 + 271 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>3</span><span>7</span><span>3</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>7</span><span>1</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "644"
+  },
+  {
+   "q": "<span class=\"column-expression\">259 + 218 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>2</span><span>5</span><span>9</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>1</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "477"
+  },
+  {
+   "q": "<span class=\"column-expression\">128 + 200 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>2</span><span>8</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>0</span><span>0</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "328"
+  },
+  {
+   "q": "<span class=\"column-expression\">672 + 239 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>7</span><span>2</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>3</span><span>9</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "911"
+  },
+  {
+   "q": "<span class=\"column-expression\">481 + 272 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>8</span><span>1</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>7</span><span>2</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "753"
+  },
+  {
+   "q": "<span class=\"column-expression\">163 + 268 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>6</span><span>3</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>6</span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "431"
+  },
+  {
+   "q": "<span class=\"column-expression\">466 + 274 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>6</span><span>6</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>7</span><span>4</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "740"
+  },
+  {
+   "q": "<span class=\"column-expression\">465 + 132 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>6</span><span>5</span></div><div class=\"col-row\"><span>+</span><span>1</span><span>3</span><span>2</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "597"
+  },
+  {
+   "q": "<span class=\"column-expression\">212 + 227 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>2</span><span>1</span><span>2</span></div><div class=\"col-row\"><span>+</span><span>2</span><span>2</span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "439"
+  },
+  {
+   "q": "<span class=\"column-expression\">126 + 157 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>2</span><span>6</span></div><div class=\"col-row\"><span>+</span><span>1</span><span>5</span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "283"
+  },
+  {
+   "q": "<span class=\"column-expression\">608 + 121 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>6</span><span>0</span><span>8</span></div><div class=\"col-row\"><span>+</span><span>1</span><span>2</span><span>1</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "729"
+  },
+  {
+   "q": "<span class=\"column-expression\">551 + 152 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>5</span><span>5</span><span>1</span></div><div class=\"col-row\"><span>+</span><span>1</span><span>5</span><span>2</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "703"
+  }
+ ],
+ "hasTactile": false
+}

@@ -1,0 +1,66 @@
+{
+ "id": "short-multiplication",
+ "title": "الضرب في عدد من رقم واحد",
+ "topic": "multiplication-and-division",
+ "years": [
+  "saff-3",
+  "saff-4"
+ ],
+ "desc": "ضرب رأسي مع القيمة المكانية",
+ "how": "اضرب بدءًا من الآحاد، ثم أضف ما أعدت تجميعه.",
+ "tip": "قدّر الناتج قبل الحساب لتعرف إن كانت إجابته معقولة.",
+ "yearsLabel": "الصف الثالث الابتدائي، الصف الرابع الابتدائي",
+ "htmlLang": "ar",
+ "kind": "cards",
+ "items": [
+  {
+   "q": "<span class=\"column-expression\">420 × 9 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>2</span><span>0</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>9</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "3780"
+  },
+  {
+   "q": "<span class=\"column-expression\">356 × 3 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>3</span><span>5</span><span>6</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>3</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "1068"
+  },
+  {
+   "q": "<span class=\"column-expression\">276 × 6 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>2</span><span>7</span><span>6</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "1656"
+  },
+  {
+   "q": "<span class=\"column-expression\">319 × 9 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>3</span><span>1</span><span>9</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>9</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "2871"
+  },
+  {
+   "q": "<span class=\"column-expression\">198 × 3 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>9</span><span>8</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>3</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "594"
+  },
+  {
+   "q": "<span class=\"column-expression\">129 × 7 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>2</span><span>9</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "903"
+  },
+  {
+   "q": "<span class=\"column-expression\">264 × 7 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>2</span><span>6</span><span>4</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "1848"
+  },
+  {
+   "q": "<span class=\"column-expression\">169 × 8 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>6</span><span>9</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>8</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "1352"
+  },
+  {
+   "q": "<span class=\"column-expression\">116 × 4 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>1</span><span>1</span><span>6</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>4</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "464"
+  },
+  {
+   "q": "<span class=\"column-expression\">444 × 6 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>4</span><span>4</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "2664"
+  },
+  {
+   "q": "<span class=\"column-expression\">459 × 7 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>5</span><span>9</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>7</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "3213"
+  },
+  {
+   "q": "<span class=\"column-expression\">410 × 6 = □</span><div class=\"col\" aria-hidden=\"true\"><div class=\"col-row\"><span></span><span>4</span><span>1</span><span>0</span></div><div class=\"col-row\"><span>×</span><span></span><span></span><span>6</span></div><div class=\"col-row ans\"><span></span><span></span><span></span><span></span></div></div>",
+   "a": "2460"
+  }
+ ],
+ "hasTactile": false
+}

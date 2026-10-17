@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Tìm tỉ số phần trăm của một số",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "lop-5"
+ ],
+ "desc": "Luyện những tỉ lệ quen thuộc của Lớp 5.",
+ "how": "Tính giá trị phần trăm của mỗi số.",
+ "tip": "10% là một phần mười; 25% là một phần tư; 50% là một nửa.",
+ "yearsLabel": "Lớp 5",
+ "htmlLang": "vi",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50% của 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5% của 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25% của 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40% của 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10% của 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10% của 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25% của 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5% của 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5% của 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30% của 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30% của 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20% của 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50% của 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75% của 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5% của 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75% của 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40% của 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25% của 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75% của 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10% của 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ],
+ "hasTactile": false
+}

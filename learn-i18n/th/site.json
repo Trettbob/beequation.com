@@ -1,0 +1,190 @@
+{
+  "words": {
+    "html_lang": "th",
+    "home": "หน้าหลัก",
+    "learn": "เรียนรู้",
+    "learn_home": "หน้าแรกของการเรียนรู้",
+    "sections": {
+      "topics": "หัวข้อ",
+      "years": "ชั้นเรียน",
+      "parents": "ผู้ปกครอง",
+      "teachers": "ครู",
+      "worksheets": "ใบงาน",
+      "glossary": "คำศัพท์คณิตศาสตร์"
+    },
+    "all_topics": "ดูทุกหัวข้อ →",
+    "all_years": "ดูทุกชั้นเรียน →",
+    "year_small": "อายุ {age} ปี",
+    "tip": "เคล็ดลับจากอินดี้",
+    "challenge": "โจทย์ท้าคิดจากอินดี้",
+    "show": "ดูเฉลย",
+    "standard_pdf": "PDF ฉบับมาตรฐาน",
+    "large_print": "ฉบับตัวอักษรใหญ่",
+    "easy_read": "ฉบับอ่านสะดวก",
+    "show_answers": "ดูเฉลย",
+    "worksheet_questions": "โจทย์",
+    "worksheet_downloads": "ดาวน์โหลด",
+    "pdf_size_pending": "PDF จะแสดงขนาดไฟล์เมื่อสร้างแล้ว",
+    "pdf_kb": "{size} KB",
+    "sheet_alt": "ตัวอย่างใบงาน {title}",
+    "download": "ดาวน์โหลด PDF",
+    "try_title": "ฝึกกับอินดี้",
+    "try_text": "ฝึกความสัมพันธ์ของจำนวนผ่านรังผึ้งใน Beequation Kids เลือกคณิตคิดสบายเพื่อใช้ภาพจุดและคำใบ้เส้นจำนวนในด่านและการฝึก หรือเลือกไม่จับเวลาในด่านและโจทย์ประจำวัน",
+    "try_play": "เล่นฟรีในเบราว์เซอร์",
+    "try_sheets": "ใบงานฟรี",
+    "teachers": "ครู",
+    "pack": "ชุดปริศนาฟรีสำหรับครู",
+    "pack_desc": "แนวทางใช้ปริศนารังผึ้งในห้องเรียน",
+    "home_desc": "คณิตศาสตร์สำหรับบ้านและห้องเรียน ตั้งแต่อนุบาล 3 ถึง ป.6",
+    "worksheets": "ใบงานฟรี",
+    "glossary_blurb": "คำศัพท์คณิตศาสตร์ประถมพร้อมตัวอย่าง เลือกพยัญชนะต้นของคำ คำที่มีสระนำจัดไว้ตามพยัญชนะต้น",
+    "m_topics": "หัวข้อ",
+    "m_topics_k": "เลือกตามหัวข้อ",
+    "m_topics_all": "ทุกหัวข้อ",
+    "m_years": "ชั้นเรียน",
+    "m_years_k": "เลือกตามชั้นเรียน",
+    "m_years_all": "ทุกชั้นเรียน",
+    "m_years_hex": "1–6",
+    "m_year_small": "อายุ {age} ปี",
+    "m_parents": "สำหรับผู้ปกครอง",
+    "m_parents_k": "คู่มือสำหรับครอบครัว",
+    "m_parents_all": "คู่มือผู้ปกครองทั้งหมด",
+    "m_teachers": "สำหรับครู",
+    "m_teachers_k": "สื่อและกิจกรรมในห้องเรียน",
+    "m_teachers_all": "สื่อสำหรับครูทั้งหมด",
+    "m_sheets": "ใบงาน",
+    "m_sheets_k": "ใบงานแยกตามหัวข้อ",
+    "m_sheets_all": "ใบงานทั้งหมด",
+    "m_sheet_n": [
+      "{n} ใบงาน",
+      "{n} ใบงาน"
+    ],
+    "m_glossary": "คำศัพท์คณิตศาสตร์",
+    "m_glossary_k": "ค้นคำตามพยัญชนะต้น",
+    "m_glossary_all": "คำศัพท์ทั้งหมด",
+    "alphabet": "กขคจฉชตทบปผพมรลวศสหอ",
+    "by": "เขียนโดย {name}",
+    "reviewed_by": "ตรวจทานโดย {name}",
+    "published_on": "เผยแพร่ {date}",
+    "reviewed_on": "ตรวจทานเมื่อ {date}",
+    "report_error": "แจ้งข้อผิดพลาด"
+  },
+  "topics": [
+    {
+      "slug": "counting-and-place-value",
+      "name": "การนับและค่าประจำหลัก",
+      "glyph": "123",
+      "colour": "lemon"
+    },
+    {
+      "slug": "addition-and-subtraction",
+      "name": "การบวกและการลบ",
+      "glyph": "+",
+      "colour": "mint"
+    },
+    {
+      "slug": "multiplication-and-division",
+      "name": "การคูณและการหาร",
+      "glyph": "×",
+      "colour": "sky"
+    },
+    {
+      "slug": "fractions",
+      "name": "เศษส่วน",
+      "glyph": "½",
+      "colour": "pink"
+    },
+    {
+      "slug": "decimals-and-percentages",
+      "name": "ทศนิยมและร้อยละ",
+      "glyph": "%",
+      "colour": "lilac"
+    },
+    {
+      "slug": "telling-the-time",
+      "name": "การอ่านเวลา",
+      "glyph": "3:00",
+      "colour": "peach"
+    },
+    {
+      "slug": "money",
+      "name": "เงิน",
+      "glyph": "฿",
+      "colour": "lemon"
+    },
+    {
+      "slug": "measurement",
+      "name": "การวัด",
+      "glyph": "cm",
+      "colour": "mint"
+    },
+    {
+      "slug": "shape-and-geometry",
+      "name": "รูปเรขาคณิต",
+      "glyph": "△",
+      "colour": "sky"
+    },
+    {
+      "slug": "data-and-graphs",
+      "name": "ข้อมูลและแผนภูมิ",
+      "glyph": "▥",
+      "colour": "pink"
+    },
+    {
+      "slug": "algebra-and-ratio",
+      "name": "แบบรูปและอัตราส่วน",
+      "glyph": "x",
+      "colour": "lilac"
+    },
+    {
+      "slug": "mental-maths",
+      "name": "การคิดเลขในใจ",
+      "glyph": "±",
+      "colour": "peach"
+    }
+  ],
+  "years": [
+    {
+      "slug": "anuban-3",
+      "name": "อนุบาล 3",
+      "age": "5–6",
+      "short": "อ.3"
+    },
+    {
+      "slug": "prathom-1",
+      "name": "ป.1",
+      "age": "6–7",
+      "short": "1"
+    },
+    {
+      "slug": "prathom-2",
+      "name": "ป.2",
+      "age": "7–8",
+      "short": "2"
+    },
+    {
+      "slug": "prathom-3",
+      "name": "ป.3",
+      "age": "8–9",
+      "short": "3"
+    },
+    {
+      "slug": "prathom-4",
+      "name": "ป.4",
+      "age": "9–10",
+      "short": "4"
+    },
+    {
+      "slug": "prathom-5",
+      "name": "ป.5",
+      "age": "10–11",
+      "short": "5"
+    },
+    {
+      "slug": "prathom-6",
+      "name": "ป.6",
+      "age": "11–12",
+      "short": "6"
+    }
+  ]
+}

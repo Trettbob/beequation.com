@@ -3,6 +3,7 @@
 import argparse
 import html
 from pathlib import Path
+import re
 import zipfile
 from common import LANGS, LICENSE, assets, context, items, words, worksheets
 
@@ -11,9 +12,18 @@ def esc(s):
     return html.escape(str(s),quote=True)
 
 
+def list_item(value, code):
+    # Text alternatives have no visual markup left. Keep complete calculations,
+    # including the translated blank, LTR within the Arabic reading order.
+    numeric = code == 'ar' and not re.search(r'[\u0600-\u06ff]', value.replace(words(code)['empty'], ''))
+    direction = ' dir="ltr"' if numeric else ''
+    return f'<li{direction}>{esc(value)}</li>'
+
+
 def xhtml(title, lang, body):
+    direction = ' dir="rtl"' if lang == 'ar' else ''
     return f'''<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="{esc(lang)}" lang="{esc(lang)}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="{esc(lang)}" lang="{esc(lang)}"{direction}>
 <head><title>{esc(title)}</title><meta charset="utf-8"/></head><body>{body}</body></html>'''
 
 
@@ -33,9 +43,9 @@ def build(code):
         if context(d,code): body += f'<p>{esc(context(d,code))}</p>'
         if d['id'] in ('column-addition','column-subtraction','short-multiplication'):
             body += f'<p>{esc(w["columnNote"])}</p>'
-        body += '<ol>' + ''.join(f'<li>{esc(q)}</li>' for q,a in pairs) + '</ol>'
+        body += '<ol>' + ''.join(list_item(q, code) for q,a in pairs) + '</ol>'
         body += f'<section id="answers"><h2>{esc(w["answers"])}</h2><ol>'
-        body += ''.join(f'<li>{esc(a)}</li>' for q,a in pairs) + '</ol></section>'
+        body += ''.join(list_item(a, code) for q,a in pairs) + '</ol></section>'
         body += f'<p>{esc(w["license"])} <a href="{LICENSE}">CC BY 4.0</a></p></main>'
         contents[f'EPUB/{d["id"]}.xhtml'] = xhtml(d['title'],lang,body)
         nav += f'<li><a href="{d["id"]}.xhtml">{esc(d["title"])}</a></li>'

@@ -1,0 +1,97 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "Відсотки від числа",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "6-klas"
+ ],
+ "desc": "10 %, 25 %, 50 % та інші частки",
+ "how": "Знайди зазначений відсоток від числа.",
+ "tip": "10 % — десята частина; 5 % — половина від 10 %; 25 % — чверть.",
+ "yearsLabel": "6 клас",
+ "htmlLang": "uk",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50 % від 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5 % від 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25 % від 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40 % від 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10 % від 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10 % від 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25 % від 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5 % від 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5 % від 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30 % від 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30 % від 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20 % від 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50 % від 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75 % від 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5 % від 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75 % від 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40 % від 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25 % від 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75 % від 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10 % від 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ],
+ "hasTactile": false
+}

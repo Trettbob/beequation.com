@@ -1,0 +1,115 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "الكسر من كمية",
+ "topic": "fractions",
+ "years": [
+  "saff-3",
+  "saff-4",
+  "saff-5"
+ ],
+ "desc": "حساب جزء من مجموعة أو عدد",
+ "how": "احسب الكمية التي يمثلها الكسر.",
+ "tip": "لإيجاد ثلاثة أرباع 20، اقسم 20 على 4، ثم اضرب 5 في 3؛ الناتج 15.",
+ "yearsLabel": "الصف الثالث الابتدائي، الصف الرابع الابتدائي، الصف الخامس الابتدائي",
+ "htmlLang": "ar",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">35</bdi> = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span></bdi> من <bdi dir=\"ltr\">6</bdi> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span></bdi> من <bdi dir=\"ltr\">24</bdi> = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span></bdi> من <bdi dir=\"ltr\">12</bdi> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span></bdi> من <bdi dir=\"ltr\">18</bdi> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span></bdi> من <bdi dir=\"ltr\">6</bdi> = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span></bdi> من <bdi dir=\"ltr\">30</bdi> = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span></bdi> من <bdi dir=\"ltr\">20</bdi> = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span></bdi> من <bdi dir=\"ltr\">32</bdi> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">15</bdi> = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">10</bdi> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span></bdi> من <bdi dir=\"ltr\">16</bdi> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span></bdi> من <bdi dir=\"ltr\">90</bdi> = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span></bdi> من <bdi dir=\"ltr\">4</bdi> = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">20</bdi> = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span></bdi> من <bdi dir=\"ltr\">40</bdi> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span></bdi> من <bdi dir=\"ltr\">80</bdi> = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">40</bdi> = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span></bdi> من <bdi dir=\"ltr\">36</bdi> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">20</bdi> = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span></bdi> من <bdi dir=\"ltr\">8</bdi> = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span></bdi> من <bdi dir=\"ltr\">25</bdi> = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span></bdi> من <bdi dir=\"ltr\">18</bdi> = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<bdi dir=\"ltr\"><span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span></bdi> من <bdi dir=\"ltr\">15</bdi> = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ],
+ "hasTactile": false
+}

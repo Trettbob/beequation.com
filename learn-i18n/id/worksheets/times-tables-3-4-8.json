@@ -1,0 +1,138 @@
+{
+ "id": "times-tables-3-4-8",
+ "title": "Perkalian 3, 4, dan 8",
+ "topic": "multiplication-and-division",
+ "years": [
+  "kelas-3",
+  "kelas-4"
+ ],
+ "desc": "Menghubungkan hasil kali",
+ "how": "Hitung hasil kali. Soal dengan faktor 11 atau 12 boleh dikerjakan dengan gambar atau penguraian.",
+ "tip": "8 × 6 adalah dua kali 4 × 6: 24 + 24 = 48.",
+ "yearsLabel": "SD Kelas 3, SD Kelas 4",
+ "htmlLang": "id",
+ "kind": "list",
+ "items": [
+  {
+   "q": "8 × 5 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "6 × 4 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "11 × 4 = <span class=\"bx\">□</span>",
+   "a": "44"
+  },
+  {
+   "q": "4 × 11 = <span class=\"bx\">□</span>",
+   "a": "44"
+  },
+  {
+   "q": "4 × 5 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "3 × 10 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "5 × 3 = <span class=\"bx\">□</span>",
+   "a": "15"
+  },
+  {
+   "q": "4 × 4 = <span class=\"bx\">□</span>",
+   "a": "16"
+  },
+  {
+   "q": "3 × 8 = <span class=\"bx\">□</span>",
+   "a": "24"
+  },
+  {
+   "q": "3 × 7 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "6 × 3 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "3 × 3 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "8 × 11 = <span class=\"bx\">□</span>",
+   "a": "88"
+  },
+  {
+   "q": "9 × 4 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "1 × 3 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "4 × 8 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "4 × 12 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "8 × 12 = <span class=\"bx\">□</span>",
+   "a": "96"
+  },
+  {
+   "q": "5 × 8 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "8 × 10 = <span class=\"bx\">□</span>",
+   "a": "80"
+  },
+  {
+   "q": "3 × 6 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "1 × 4 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "10 × 3 = <span class=\"bx\">□</span>",
+   "a": "30"
+  },
+  {
+   "q": "4 × 2 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "8 × 8 = <span class=\"bx\">□</span>",
+   "a": "64"
+  },
+  {
+   "q": "7 × 8 = <span class=\"bx\">□</span>",
+   "a": "56"
+  },
+  {
+   "q": "4 × 8 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "1 × 8 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "2 × 3 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "3 × 1 = <span class=\"bx\">□</span>",
+   "a": "3"
+  }
+ ],
+ "hasTactile": false
+}

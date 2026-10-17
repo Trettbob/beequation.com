@@ -1,0 +1,83 @@
+{
+ "id": "giving-change",
+ "title": "Menghitung uang kembalian",
+ "topic": "money",
+ "years": [
+  "kelas-3",
+  "kelas-4",
+  "kelas-5"
+ ],
+ "desc": "Pembayaran Rp2.000, Rp5.000, atau Rp10.000",
+ "how": "Kurangi uang pembayaran dengan harga. Harga di sini adalah contoh latihan.",
+ "tip": "Harga + kembalian harus sama dengan pembayaran.",
+ "yearsLabel": "SD Kelas 3, SD Kelas 4, SD Kelas 5",
+ "htmlLang": "id",
+ "kind": "list",
+ "items": [
+  {
+   "q": "Kamu membeli sebuah penghapus seharga Rp5.400 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp4.600"
+  },
+  {
+   "q": "Kamu membeli sebuah penghapus seharga Rp3.700 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp6.300"
+  },
+  {
+   "q": "Kamu membeli sebuah buku kecil seharga Rp3.000 dan membayar Rp5.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp2.000"
+  },
+  {
+   "q": "Kamu membeli sepotong kue seharga Rp9.900 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp100"
+  },
+  {
+   "q": "Kamu membeli selembar stiker seharga Rp8.500 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp1.500"
+  },
+  {
+   "q": "Kamu membeli sebuah pisang seharga Rp9.000 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp1.000"
+  },
+  {
+   "q": "Kamu membeli sebungkus kerupuk seharga Rp3.800 dan membayar Rp5.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp1.200"
+  },
+  {
+   "q": "Kamu membeli sebuah buku kecil seharga Rp5.100 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp4.900"
+  },
+  {
+   "q": "Kamu membeli sepotong kue seharga Rp700 dan membayar Rp2.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp1.300"
+  },
+  {
+   "q": "Kamu membeli sebuah penghapus seharga Rp1.500 dan membayar Rp5.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp3.500"
+  },
+  {
+   "q": "Kamu membeli sebungkus kerupuk seharga Rp4.100 dan membayar Rp5.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp900"
+  },
+  {
+   "q": "Kamu membeli sebuah jeruk seharga Rp1.900 dan membayar Rp2.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp100"
+  },
+  {
+   "q": "Kamu membeli sebuah pensil seharga Rp2.200 dan membayar Rp5.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp2.800"
+  },
+  {
+   "q": "Kamu membeli sepotong kue seharga Rp1.800 dan membayar Rp2.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp200"
+  },
+  {
+   "q": "Kamu membeli sebuah pensil seharga Rp1.600 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp8.400"
+  },
+  {
+   "q": "Kamu membeli sebuah pisang seharga Rp6.800 dan membayar Rp10.000. Kembalian: <span class=\"bx\">□</span>",
+   "a": "Rp3.200"
+  }
+ ],
+ "hasTactile": false
+}

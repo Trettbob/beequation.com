@@ -1,0 +1,114 @@
+{
+ "id": "fractions-of-amounts",
+ "title": "Дріб від числа",
+ "topic": "fractions",
+ "years": [
+  "4-klas",
+  "5-klas"
+ ],
+ "desc": "Половина, чверть та інші дроби",
+ "how": "Знайди зазначений дріб від кожного числа.",
+ "tip": "¾ від 20: спершу 20 : 4 = 5, потім 5 · 3 = 15.",
+ "yearsLabel": "4 клас; 5 клас",
+ "htmlLang": "uk",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 35 = <span class=\"bx\">□</span>",
+   "a": "28"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> від 6 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> від 24 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> від 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>3</i></span> від 18 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> від 6 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> від 30 = <span class=\"bx\">□</span>",
+   "a": "21"
+  },
+  {
+   "q": "<span class=\"fr\"><b>7</b><span class=\"fraction-slash\">/</span><i>10</i></span> від 20 = <span class=\"bx\">□</span>",
+   "a": "14"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> від 32 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 15 = <span class=\"bx\">□</span>",
+   "a": "6"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 10 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>4</i></span> від 16 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> від 90 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> від 4 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "<span class=\"fr\"><b>2</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 20 = <span class=\"bx\">□</span>",
+   "a": "8"
+  },
+  {
+   "q": "<span class=\"fr\"><b>8</b><span class=\"fraction-slash\">/</span><i>10</i></span> від 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>5</b><span class=\"fraction-slash\">/</span><i>10</i></span> від 80 = <span class=\"bx\">□</span>",
+   "a": "40"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 40 = <span class=\"bx\">□</span>",
+   "a": "32"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>4</i></span> від 36 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>3</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 20 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> від 8 = <span class=\"bx\">□</span>",
+   "a": "4"
+  },
+  {
+   "q": "<span class=\"fr\"><b>4</b><span class=\"fraction-slash\">/</span><i>5</i></span> від 25 = <span class=\"bx\">□</span>",
+   "a": "20"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>2</i></span> від 18 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "<span class=\"fr\"><b>1</b><span class=\"fraction-slash\">/</span><i>3</i></span> від 15 = <span class=\"bx\">□</span>",
+   "a": "5"
+  }
+ ],
+ "hasTactile": false
+}

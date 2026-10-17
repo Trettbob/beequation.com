@@ -1,0 +1,98 @@
+{
+ "id": "percentages-of-amounts",
+ "title": "หาร้อยละของจำนวน",
+ "topic": "decimals-and-percentages",
+ "years": [
+  "prathom-5",
+  "prathom-6"
+ ],
+ "desc": "ใช้ 10%, 25% และ 50% เป็นจุดเริ่ม",
+ "how": "คำนวณร้อยละของจำนวนในแต่ละข้อ",
+ "tip": "10% ของ 200 คือ 20 ดังนั้น 30% ของ 200 คือ 60",
+ "yearsLabel": "ป.5, ป.6",
+ "htmlLang": "th",
+ "kind": "list",
+ "items": [
+  {
+   "q": "50% ของ 290 = <span class=\"bx\">□</span>",
+   "a": "145"
+  },
+  {
+   "q": "5% ของ 260 = <span class=\"bx\">□</span>",
+   "a": "13"
+  },
+  {
+   "q": "25% ของ 48 = <span class=\"bx\">□</span>",
+   "a": "12"
+  },
+  {
+   "q": "40% ของ 130 = <span class=\"bx\">□</span>",
+   "a": "52"
+  },
+  {
+   "q": "10% ของ 180 = <span class=\"bx\">□</span>",
+   "a": "18"
+  },
+  {
+   "q": "10% ของ 250 = <span class=\"bx\">□</span>",
+   "a": "25"
+  },
+  {
+   "q": "25% ของ 12 = <span class=\"bx\">□</span>",
+   "a": "3"
+  },
+  {
+   "q": "5% ของ 40 = <span class=\"bx\">□</span>",
+   "a": "2"
+  },
+  {
+   "q": "5% ของ 180 = <span class=\"bx\">□</span>",
+   "a": "9"
+  },
+  {
+   "q": "30% ของ 240 = <span class=\"bx\">□</span>",
+   "a": "72"
+  },
+  {
+   "q": "30% ของ 250 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "20% ของ 240 = <span class=\"bx\">□</span>",
+   "a": "48"
+  },
+  {
+   "q": "50% ของ 120 = <span class=\"bx\">□</span>",
+   "a": "60"
+  },
+  {
+   "q": "75% ของ 100 = <span class=\"bx\">□</span>",
+   "a": "75"
+  },
+  {
+   "q": "5% ของ 20 = <span class=\"bx\">□</span>",
+   "a": "1"
+  },
+  {
+   "q": "75% ของ 48 = <span class=\"bx\">□</span>",
+   "a": "36"
+  },
+  {
+   "q": "40% ของ 230 = <span class=\"bx\">□</span>",
+   "a": "92"
+  },
+  {
+   "q": "25% ของ 40 = <span class=\"bx\">□</span>",
+   "a": "10"
+  },
+  {
+   "q": "75% ของ 52 = <span class=\"bx\">□</span>",
+   "a": "39"
+  },
+  {
+   "q": "10% ของ 300 = <span class=\"bx\">□</span>",
+   "a": "30"
+  }
+ ],
+ "hasTactile": false
+}

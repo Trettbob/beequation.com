@@ -1,0 +1,98 @@
+{
+ "id": "tens-and-ones",
+ "title": "Десятки й одиниці",
+ "topic": "counting-and-place-value",
+ "years": [
+  "1-klas",
+  "2-klas"
+ ],
+ "desc": "Розклади двоцифрове число",
+ "how": "Запиши, скільки десятків і одиниць у числі.",
+ "tip": "У числі 43 є 4 десятки й 3 одиниці. Поклади чотири пучки по десять паличок і три окремі.",
+ "yearsLabel": "1 клас; 2 клас",
+ "htmlLang": "uk",
+ "kind": "list",
+ "items": [
+  {
+   "q": "<b class=\"n\">79</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 7; одиниць: 9"
+  },
+  {
+   "q": "<b class=\"n\">36</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 3; одиниць: 6"
+  },
+  {
+   "q": "<b class=\"n\">58</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 5; одиниць: 8"
+  },
+  {
+   "q": "<b class=\"n\">19</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 1; одиниць: 9"
+  },
+  {
+   "q": "<b class=\"n\">90</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 9; одиниць: 0"
+  },
+  {
+   "q": "<b class=\"n\">95</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 9; одиниць: 5"
+  },
+  {
+   "q": "<b class=\"n\">23</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 2; одиниць: 3"
+  },
+  {
+   "q": "<b class=\"n\">68</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 6; одиниць: 8"
+  },
+  {
+   "q": "<b class=\"n\">64</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 6; одиниць: 4"
+  },
+  {
+   "q": "<b class=\"n\">33</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 3; одиниць: 3"
+  },
+  {
+   "q": "<b class=\"n\">12</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 1; одиниць: 2"
+  },
+  {
+   "q": "<b class=\"n\">81</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 8; одиниць: 1"
+  },
+  {
+   "q": "<b class=\"n\">67</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 6; одиниць: 7"
+  },
+  {
+   "q": "<b class=\"n\">35</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 3; одиниць: 5"
+  },
+  {
+   "q": "<b class=\"n\">60</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 6; одиниць: 0"
+  },
+  {
+   "q": "<b class=\"n\">18</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 1; одиниць: 8"
+  },
+  {
+   "q": "<b class=\"n\">16</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 1; одиниць: 6"
+  },
+  {
+   "q": "<b class=\"n\">88</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 8; одиниць: 8"
+  },
+  {
+   "q": "<b class=\"n\">54</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 5; одиниць: 4"
+  },
+  {
+   "q": "<b class=\"n\">31</b> = Десятків: <span class=\"bx\">□</span>; одиниць: <span class=\"bx\">□</span>",
+   "a": "Десятків: 3; одиниць: 1"
+  }
+ ],
+ "hasTactile": false
+}

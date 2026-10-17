@@ -1,0 +1,26 @@
+{
+  "lang": "vi",
+  "docTitle": "Bộ câu đố Beequation Kids",
+  "mul": "×",
+  "sums": "Phép cộng trong phạm vi 20",
+  "times": "Bảng nhân",
+  "howSums": "Trong mỗi tổ ong, một số là <b>tổng</b> của hai số ở hai ô khác. Khoanh số đó rồi viết phép tính.",
+  "howTimes": "Trong mỗi tổ ong, một số là <b>tích</b> của hai số ở hai ô khác. Khoanh số đó rồi viết phép tính.",
+  "hexAlt": "Tổ ong gồm các số {list}",
+  "listSep": ", ",
+  "partOf": "Phần {n} trên {total}",
+  "sheetOf": "Phiếu {n} trên 2",
+  "name": "Họ tên",
+  "date": "Ngày",
+  "time": "Thời gian",
+  "answerKey": "Đáp án",
+  "forGrownUps": "Dành cho người lớn",
+  "inClass": "Gợi ý dùng trong lớp",
+  "tips": [
+    "Cho cả lớp quan sát một tổ ong, suy nghĩ riêng rồi giải thích cách tìm đáp án.",
+    "Làm một vài câu không tính giờ; lần sau để học sinh tự nhận ra cách làm đã tiến bộ.",
+    "Mỗi học sinh tạo một tổ ong cho bạn, rồi cùng kiểm tra tất cả các cặp số."
+  ],
+  "promo": "<b>Cùng cô ong Indie khám phá thêm câu đố.</b> Chơi miễn phí tại vi.beequation.com hoặc tìm Beequation Kids trên điện thoại, máy tính bảng. Chọn bài vừa sức và dành thời gian giải thích cách làm.",
+  "footer": "Được chia sẻ và điều chỉnh theo CC BY 4.0, ghi công Beequation (beequation.com).<br>https://creativecommons.org/licenses/by/4.0/"
+}
