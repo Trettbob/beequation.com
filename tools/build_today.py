@@ -16,12 +16,13 @@ import re
 import shutil
 import subprocess
 from zoneinfo import ZoneInfo
+from locale_output import locale_output
 
 ROOT = Path(__file__).resolve().parents[1]
 FIRST_DAY = date(2026, 10, 19)
 PUBLISHED = date(2026, 10, 12)   # when /today/ first went live (Article datePublished)
 LAUNCH = date(2026, 11, 1)
-CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi')   # in, hi: India (previews until live)
+CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar')   # preview codes stay out of LIVE
 # the page language where it isn't the code itself ('in' is Indian English)
 LANGUAGE = {'en': 'en-GB', 'no': 'nb', 'pt': 'pt-BR', 'in': 'en-IN'}
 CONTENT = ROOT.parent / 'growth/content'
@@ -39,6 +40,7 @@ def words(code):
 
 
 def format_date(day, w):
+    # Python integer formatting deliberately uses Western digits, including Arabic.
     return w['date_format'].format(day=day.day, month=w['months'][day.month - 1], year=day.year)
 
 
@@ -196,7 +198,7 @@ def template(code, page, title, content, day, archive, chrome):
 <main class="today-content"><h1>{esc(title)}</h1>{content}</main>{foot}
 </body></html>
 '''
-    return chrome(s, code, page) if chrome else s
+    return chrome(s, code, page) if chrome else locale_output(s, code)
 
 
 def build(code='en', day=None, *, output=None, data=None, decorate=True, chrome=None):

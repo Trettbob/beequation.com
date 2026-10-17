@@ -13,6 +13,7 @@ look over the new entries, adapt the ones that need it, then rebuild (tools/buil
 import html as H, importlib.util, json, os, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+# id (Indonesian), vi, th, uk and ar must never receive English identity translations.
 VARIANTS = {'in'}   # English variants: the only codes whose missing text may be filled with the English text
 
 

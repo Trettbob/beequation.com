@@ -16,9 +16,9 @@ from sitemap_dates import london_today
 
 ROOT = Path(__file__).resolve().parents[1]
 CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
-# India's sites (in.beequation.com, hi.beequation.com) are submitted once they are live (LIVE in build-langs.py);
+# Preview sites are submitted only once they are live (LIVE in build-langs.py);
 # until then their dist/ folders are previews and their hosts don't answer.
-PREVIEW = ('in', 'hi')
+PREVIEW = ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar')
 
 
 def live_codes():

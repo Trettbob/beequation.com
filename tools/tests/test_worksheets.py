@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[2]
 NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
 PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core'
 LANGS = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi')
-PREVIEW = {'in', 'hi'}   # India: worksheets exist, Learn pages (dist/<code>/learn) not yet
+LANGS = list(LANGS) + [c for c in ('id', 'vi', 'th', 'uk', 'ar') if (ROOT / f'learn-i18n/{c}/worksheets.mjs').is_file()]
+PREVIEW = {'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'}   # India: worksheets exist, Learn pages (dist/<code>/learn) not yet
 CLOCK_SHEETS = ('time-oclock-and-half-past', 'time-quarter-past-and-to', 'time-to-5-minutes')
 
 

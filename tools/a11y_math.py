@@ -38,6 +38,11 @@ WORDS = {
 'ko': ('곱하기', '나누기', '마이너스', '빈칸', '{d}분의 {n}'),
 'in': ('times', 'divided by', 'minus', 'blank', '{n} over {d}'),
 'hi': ('गुणा', 'भाग', 'घटा', 'ख़ाली जगह', '{n} बटे {d}'),
+'id': ('kali', 'dibagi', 'kurang', 'kosong', '{n} per {d}'),
+'vi': ('nhân', 'chia', 'trừ', 'ô trống', '{n} phần {d}'),
+'th': ('คูณ', 'หาร', 'ลบ', 'ช่องว่าง', '{n} ส่วน {d}'),
+'uk': ('помножити на', 'поділити на', 'мінус', 'порожнє місце', '{n} поділити на {d}'),
+'ar': ('ضرب', 'قسمة', 'ناقص', 'فراغ', '{n} على {d}'),
 }
 GERMAN = 'null ein zwei drei vier fünf sechs sieben acht neun zehn elf zwölf'.split()
 TURKISH = 'sıfır bir iki üç dört beş altı yedi sekiz dokuz on'.split()

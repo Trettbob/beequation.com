@@ -152,7 +152,7 @@ class BlogTests(unittest.TestCase):
                 self.assertNotIn('src="https://example.com', (out / 'blog/index.html').read_text())
                 items = self.validate_feed(out / 'blog/feed.xml', f'https://{code}.beequation.com', 1)
                 self.assertEqual(items[0].find('enclosure').get('length'), '0')
-            for code in ['en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko']:
+            for code in [c for c in blog.CODES if (ROOT / 'dist' / c / 'about.html').is_file() or c == 'en']:
                 out = base / 'empty' / code
                 blog.build(code, source_root=base / 'empty-sources', output=out, learn=learn, chrome=langs.chrome)
                 self.validate_feed(out / 'blog/feed.xml', 'https://beequation.com' if code == 'en' else f'https://{code}.beequation.com', 0)

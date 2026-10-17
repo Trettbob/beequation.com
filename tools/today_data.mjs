@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Evaluate only the pure engine already synced into the browser game.
+// Locale-neutral: id, vi, th, uk and ar use the same geometry and Western-digit cells.
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';

@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// id, vi, th, uk and ar use their own keys; only no/in need aliases below.
 const [, , code, APPS = path.join(ROOT, '..', 'beequation')] = process.argv;
 const table = src => (0, eval)(`(() => { ${src.replace(/^[\s\S]*?(const T = )/, '$1')}; return T; })()`);
 const en = table(fs.readFileSync(path.join(ROOT, 'play.html'), 'utf8').match(/\/\*T\*\/([\s\S]*?)\/\*\/T\*\//)[1]);
@@ -35,7 +36,7 @@ const appLang = { no: 'nb', in: 'en' }[code] || code;
 const { numberInWords } = await import(pathToFileURL(path.join(APPS, 'apps/kids/src/i18n/numberWords.ts')).href);
 let n = 0, note = '';
 if (!numberInWords[appLang]) {
-  // A language the apps don't have yet (Hindi, until the apps get Hindi): nothing to compare the grown-ups check with.
+  // A language the apps do not have yet: report the missing comparison explicitly.
   note = ` (grown-ups number words NOT compared: the apps have no "${appLang}" number words yet; add them to the apps' numberWords.ts, then run this again)`;
 } else for (let th = 1; th <= 9; th++) for (let h = 1; h <= 9; h++) for (let r = 10; r <= 99; r++) {
   const x = th * 1000 + h * 100 + r; n++;

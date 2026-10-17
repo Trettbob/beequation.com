@@ -71,8 +71,8 @@ try{
  await blocked.goto(origin+'/privacy.html');await blocked.click('.bqh-pill [data-bq-a11y-open]');await blocked.select('#bq-a11y-size','125');
  assert.equal(await blocked.evaluate(()=>window.bqA11y.text),125);await blocked.close();
  // Check every locale, small viewport, dark contrast, and each local Easy Read destination.
- // plus India's preview sites once built (dist/in, dist/hi)
- for(const code of ['en','fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko',...['in','hi'].filter(c=>fs.existsSync(path.join(root,'dist',c,'privacy.html')))]){
+ // plus preview sites once built
+ for(const code of ['en','fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko',...['in','hi','id','vi','th','uk','ar'].filter(c=>fs.existsSync(path.join(root,'dist',c,'privacy.html')))]){
   const prefix=code==='en'?'':'/dist/'+code;
   await page.goto(origin+prefix+'/easy-read/privacy.html');
   await page.evaluate(()=>{localStorage.setItem('bq-consent','basic');});

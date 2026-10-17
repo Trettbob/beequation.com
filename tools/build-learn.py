@@ -40,6 +40,7 @@ import html, json, os, re, sys
 from urllib.parse import quote
 from build_today import format_date, words as today_words
 from datetime import date
+from locale_output import HTML_LANG, locale_output
 from sitemap_dates import git_dates, refresh_sitemap
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -128,12 +129,14 @@ class Site:
     """One language's Learn section: where its sources are, where it's built to, its words, topics and school years."""
     def __init__(self, lang='en'):
         self.lang, self.en = lang, lang == 'en'
-        self.bw = braille_words(lang)
+        # Blog/today shells do not require a Learn curriculum or braille resources.
+        has_config = self.en or os.path.isfile(os.path.join(I18N, lang, 'site.json'))
+        self.bw = braille_words(lang) if os.path.isfile(os.path.join(ROOT, 'tools/braille', lang + '.json')) else {}
         self.src = SRC if self.en else os.path.join(I18N, lang)
         self.out = OUT if self.en else os.path.join(ROOT, 'dist', lang, 'learn')
         self.main = MAIN if self.en else f'https://{lang}.beequation.com'
-        cfg = {} if self.en else json.load(open(os.path.join(self.src, 'site.json'), encoding='utf-8'))
-        self.w = {**WORDS, **cfg.get('words', {})}
+        cfg = {} if self.en else (json.load(open(os.path.join(self.src, 'site.json'), encoding='utf-8')) if has_config else {'topics': [], 'years': []})
+        self.w = {**WORDS, 'html_lang': HTML_LANG.get(lang, lang), **cfg.get('words', {})}
         self.w['sections'] = {**SECTIONS, **self.w['sections']}
         # hreflang for search engines: the page language, unless site.json gives a regional one (Hindi: hi-IN)
         self.hreflang = self.w.get('hreflang', self.w['html_lang'])
@@ -562,7 +565,7 @@ def page(rel, meta, body, parts, names, S=None):
         hero = f'<div class="say">{indie(110 if meta.get("layout") == "hub" else 92)}<div class="bubble">{meta["indie"]}</div></div>'
     kicker = f'<p class="kicker">{esc(meta["kicker"])}</p>' if meta.get('kicker') else ''
     t, d = esc(meta['title']), esc(meta['description'])
-    return f'''<!doctype html>
+    return locale_output(f'''<!doctype html>
 <html lang="{S.w['html_lang']}">
 <head>
 <meta charset="utf-8">
@@ -597,7 +600,7 @@ def page(rel, meta, body, parts, names, S=None):
 </article></main>{foot}
 {NAV_JS}
 </body></html>
-'''
+''', S.lang)
 
 def legacy(rel, nav_html):
     """Adds the Learn menu to the older hand-made articles."""

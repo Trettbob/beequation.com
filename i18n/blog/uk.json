@@ -1,0 +1,10 @@
+{
+  "heading": "Блог",
+  "coming_soon": "Перші дописи незабаром! Повертайтеся по новини й математичні ідеї.",
+  "newer": "Новіші дописи",
+  "older": "Старіші дописи",
+  "page": "Сторінка {n}",
+  "feed_title": "Блог Beequation",
+  "feed_description": "Новини, математичні ідеї та нові посібники Beequation.",
+  "date_format": "{day} {month} {year} року"
+}

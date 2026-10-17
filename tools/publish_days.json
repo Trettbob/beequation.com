@@ -3,5 +3,6 @@
   "es": ["Tuesday"], "fr": ["Wednesday"], "de": ["Thursday"], "pt": ["Friday"],
   "pl": ["Tuesday"], "it": ["Monday"], "nl": ["Wednesday"], "sv": ["Thursday"],
   "da": ["Friday"], "no": ["Monday"], "fi": ["Tuesday"], "tr": ["Wednesday"],
-  "ja": ["Thursday"], "ko": ["Friday"], "in": ["Monday"], "hi": ["Thursday"]
+  "ja": ["Thursday"], "ko": ["Friday"], "in": ["Monday"], "hi": ["Thursday"],
+  "ar": ["Monday"], "id": ["Tuesday"], "th": ["Tuesday"], "vi": ["Wednesday"], "uk": ["Friday"]
 }

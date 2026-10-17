@@ -64,12 +64,25 @@ footer comes from the translated About page. The game uses `i18n/play/<code>.js`
 | tr | Türkçe | tr.beequation.com | translated, not set up |
 | ja | 日本語 | ja.beequation.com | translated, not set up |
 | ko | 한국어 | ko.beequation.com | translated, not set up |
+| id | Bahasa Indonesia | id.beequation.com | preview, not live |
+| vi | Tiếng Việt | vi.beequation.com | preview, not live |
+| th | ไทย | th.beequation.com | preview, not live |
+| uk | Українська | uk.beequation.com | preview, not live |
+| ar | العربية | ar.beequation.com | preview, not live; right-to-left |
 
 `LIVE` in `tools/build-langs.py` lists the languages whose site works. Every site only offers, links to and
 suggests those (a site that isn't live yet also lists itself), so a translated language stays invisible until
 its site is up. Indie's speech bubbles, the cookie note and the menu labels for the newer languages are in each
 `i18n/<code>.json` under `"__site__"`; the header's words for every language are under `"__site__"` → `"nav"`
 (English in `NAV_TEXT` in `tools/build-langs.py`; `--check` lists any that are missing).
+
+The five new previews stay out of both `LIVE` and `LEARN_LIVE`. A site without a Learn section needs only its
+site, game, today and blog translations; it does not require Learn or braille resources to build.
+`tools/locale_output.py` adds Arabic `lang="ar" dir="rtl"` to all page types, converts inline CSS to logical
+properties, and includes `assets/rtl.css` for directional icons and runtime UI. Boards, equations, numbers and
+code stay LTR; Arabic dates use Western digits. Arabic and Thai alone receive system font fallback stacks.
+English output passes through unchanged. `i18n-identity.py` remains restricted to Indian English (`in`);
+Indonesian (`id`) and the other new languages must not be filled with English identity translations.
 
 ## The header
 
@@ -110,6 +123,21 @@ python3 tools/build-langs.py --check
 python3 tools/check-international-seo.py
 node tools/check-language-script.mjs
 ```
+
+For changes that must preserve English bytes, snapshot **after the baseline build and before editing**, then
+compare after the new build (including all Arabic HTML, recursively):
+
+```sh
+python3 tools/check-rtl.py --snapshot /tmp/beequation-english-before.json
+# Make the changes and rebuild with the commands above.
+python3 tools/check-rtl.py --english-baseline /tmp/beequation-english-before.json
+python3 -m unittest discover -s tools/tests -p test_preview_locales.py
+node tools/check-rtl-browser.mjs
+```
+
+The RTL browser check uses the existing local Chrome/puppeteer-core, blocks external requests and checks desktop
+and mobile navigation, board geometry/keyboard movement, back arrows and Western-digit certificate dates.
+The output check fails explicitly if Arabic translations have not yet produced `dist/ar/`.
 
 The last script checks the four older guides and accessibility hreflang across all 15 sites, local accessibility
 links, localized footers, Latin-script metadata limits, WebSite identities and public PDF sitemap entries.

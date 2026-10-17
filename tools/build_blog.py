@@ -18,6 +18,7 @@ BLOG_START = '2026-10-12'   # when the blog went live: the empty feed's lastBuil
 
 from build_today import CODES, ROOT, format_date, words as today_words
 from publish_queue import parse
+from locale_output import locale_output
 
 MAIN = 'https://beequation.com'
 GENERATED = '<!--blog-built-->'
@@ -114,7 +115,7 @@ def template(code, url, title, description, content, ld, learn, *, image=None, a
     S = learn.site_of(code); css, nav, foot = learn.base_parts(code)
     esc = html.escape; absolute = host(code) + url
     image = image or host(code) + '/assets/og-image.png'
-    return f'''<!doctype html>
+    return locale_output(f'''<!doctype html>
 {GENERATED}
 <html lang="{S.w['html_lang']}">
 <head>
@@ -145,7 +146,7 @@ def template(code, url, title, description, content, ld, learn, *, image=None, a
 {foot}
 {learn.NAV_JS}
 </body></html>
-'''
+''', code)
 
 
 def news_page(post, code, root, learn, w):
