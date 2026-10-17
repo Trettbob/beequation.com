@@ -118,6 +118,7 @@ class IndiaLocalesTests(unittest.TestCase):
         indexnow = load('india_indexnow', 'tools/indexnow.py')
         self.assertIn('in', indexnow.CODES); self.assertIn('hi', indexnow.CODES)
         self.assertEqual(indexnow.live_codes(), BUILD.LIVE)
+        self.assertEqual(set(indexnow.CODES), set('en fr es de pt it nl pl sv da no fi tr ja ko in hi id vi th uk ar'.split()))
 
 
 if __name__ == '__main__':

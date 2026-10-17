@@ -91,7 +91,7 @@ the box. There are no requests to the growth project or third-party services fro
 
 ## Daily puzzle builds
 
-`python3 tools/build-langs.py` builds today's pages for all 15 sites. English output is `today/`;
+`python3 tools/build-langs.py` builds today's pages for all 22 sites. English output is `today/`;
 other languages are `dist/<code>/today/`. `tools/build_today.py` is also importable and can
 build individual sites, for example `python3 tools/build_today.py --lang fr --date 2026-11-05`
 after the normal language build. To simulate all sites and their sitemaps, use
@@ -167,7 +167,7 @@ copied into each `dist/<code>/` by the language build, so normal language public
 includes it. The verification file is excluded from sitemaps. Keep these files together;
 the builder does not regenerate or rotate the key.
 
-Once the key file and rebuilt sitemaps have been published on all 15 hosts, preview and
+Once the key file and rebuilt sitemaps have been published on all 22 hosts, preview and
 make the one-off full submission from this checkout:
 
 ```sh

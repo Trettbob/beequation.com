@@ -65,7 +65,7 @@ class AccessibilityTests(unittest.TestCase):
             entry = B.easy_sitemap_entry('easy-read/privacy.html', code)
             self.assertIn('<loc>' + B.site(code) + '/easy-read/privacy.html</loc>', entry)
             # English and the live languages, plus x-default; a preview site also lists itself
-            self.assertEqual(entry.count('xhtml:link'), 18 + (code != 'en' and code not in B.LIVE))
+            self.assertEqual(entry.count('xhtml:link'), 23 + (code != 'en' and code not in B.LIVE))
 
     def test_math_has_one_spoken_name_in_the_local_language(self):
         sample = '<p><span class="fr"><b>3</b><i>4</i></span> × 2 ÷ 1 − 1</p><svg><text>×</text></svg>'

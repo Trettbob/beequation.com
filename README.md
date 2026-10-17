@@ -54,23 +54,23 @@ footer comes from the translated About page. The game uses `i18n/play/<code>.js`
 | es | Español | https://es.beequation.com | live |
 | de | Deutsch | https://de.beequation.com | live |
 | pt | Português (Brasil) | https://pt.beequation.com | live |
-| it | Italiano | it.beequation.com | live |
-| nl | Nederlands | nl.beequation.com | live |
-| pl | Polski | pl.beequation.com | live |
-| sv | Svenska | sv.beequation.com | live |
-| da | Dansk | da.beequation.com | live |
-| no | Norsk (bokmål) | no.beequation.com | live |
-| fi | Suomi | fi.beequation.com | live |
-| tr | Türkçe | tr.beequation.com | live |
-| ja | 日本語 | ja.beequation.com | live |
-| ko | 한국어 | ko.beequation.com | live |
+| it | Italiano | https://it.beequation.com | live |
+| nl | Nederlands | https://nl.beequation.com | live |
+| pl | Polski | https://pl.beequation.com | live |
+| sv | Svenska | https://sv.beequation.com | live |
+| da | Dansk | https://da.beequation.com | live |
+| no | Norsk (bokmål) | https://no.beequation.com | live |
+| fi | Suomi | https://fi.beequation.com | live |
+| tr | Türkçe | https://tr.beequation.com | live |
+| ja | 日本語 | https://ja.beequation.com | live |
+| ko | 한국어 | https://ko.beequation.com | live |
 | in | English (India) | https://in.beequation.com | live |
 | hi | हिन्दी | https://hi.beequation.com | live |
-| id | Bahasa Indonesia | id.beequation.com | preview, not live |
-| vi | Tiếng Việt | vi.beequation.com | preview, not live |
-| th | ไทย | th.beequation.com | preview, not live |
-| uk | Українська | uk.beequation.com | preview, not live |
-| ar | العربية | ar.beequation.com | preview, not live; right-to-left |
+| id | Bahasa Indonesia | https://id.beequation.com | live |
+| vi | Tiếng Việt | https://vi.beequation.com | live |
+| th | ไทย | https://th.beequation.com | live |
+| uk | Українська | https://uk.beequation.com | live |
+| ar | العربية | https://ar.beequation.com | live; right-to-left |
 
 `LIVE` in `tools/build-langs.py` lists the languages whose site works. Every site only offers, links to and
 suggests those (a site that isn't live yet also lists itself), so a translated language stays invisible until
@@ -78,7 +78,8 @@ its site is up. Indie's speech bubbles, the cookie note and the menu labels for 
 `i18n/<code>.json` under `"__site__"`; the header's words for every language are under `"__site__"` → `"nav"`
 (English in `NAV_TEXT` in `tools/build-langs.py`; `--check` lists any that are missing).
 
-The five new previews stay out of both `LIVE` and `LEARN_LIVE`. A site without a Learn section needs only its
+Indonesian (`id`), Vietnamese (`vi`), Thai (`th`), Ukrainian (`uk`) and Arabic (`ar`) are live in both
+`LIVE` and `LEARN_LIVE`. A site without a Learn section needs only its
 site, game, today and blog translations; it does not require Learn or braille resources to build.
 `tools/locale_output.py` adds Arabic `lang="ar" dir="rtl"` to all page types, converts inline CSS to logical
 properties, and includes `assets/rtl.css` for directional icons and runtime UI. Boards, equations, numbers and
@@ -141,8 +142,8 @@ The RTL browser check uses the existing local Chrome/puppeteer-core, blocks exte
 and mobile navigation, board geometry/keyboard movement, back arrows and Western-digit certificate dates.
 The output check fails explicitly if Arabic translations have not yet produced `dist/ar/`.
 
-The last script checks the four older guides and accessibility hreflang across all 15 sites, local accessibility
-links, localized footers, Latin-script metadata limits, WebSite identities and public PDF sitemap entries.
+`check-international-seo.py` checks the four older guides and accessibility hreflang across all 22 sites, local accessibility
+links, localized footers, metadata limits (except Japanese and Korean), WebSite identities and public PDF sitemap entries.
 English hreflang annotations and explicit English language-menu choices remain intentional.
 `build-learn.py` adds public `assets/**/*.pdf` resources to the English sitemap; `build-langs.py` adds each
 language's public PDFs after copying its localized assets. All current PDFs are worksheets or puzzle packs

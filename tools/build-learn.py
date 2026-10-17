@@ -88,10 +88,8 @@ I18N = os.path.join(ROOT, 'learn-i18n')
 # Languages whose own Learn section is built into their site and linked from its header. Add a code once every page
 # in learn-i18n/<code>/ is written and checked (build-langs.py --learn <code> builds one that isn't, to preview it).
 # India's live sites ('in' Indian English, 'hi' Hindi) use learn-i18n/in and learn-i18n/hi.
-LEARN_LIVE = {'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi'}
-# id, vi, th, uk and ar have downloadable assets and use the same Site builder
-# via --learn <code>. Keep them out of LEARN_LIVE until publication is requested;
-# adding them here would also change English navigation and hreflang output.
+LEARN_LIVE = {'es', 'fr', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'}
+# Indonesian, Vietnamese, Thai, Ukrainian and Arabic sites include Learn and downloadable assets.
 # Every word the Learn templates and the header's Learn menu use. learn-i18n/<code>/site.json "words" overrides them.
 WORDS = {
     'html_lang': 'en-GB', 'home': 'Home', 'learn': 'Learn', 'learn_home': 'Learn home', 'sections': SECTIONS,

@@ -16,6 +16,9 @@ India has two sites: `learn-i18n/in/` (Indian English, `in.beequation.com`, `en-
 `LIVE` and `LEARN_LIVE`, with working repos, DNS and HTTPS. Indian English text outside Learn is
 `i18n/in.json`, kept complete with `python3 tools/i18n-identity.py in`.
 
+Indonesian (`id`), Vietnamese (`vi`), Thai (`th`), Ukrainian (`uk`) and Arabic (`ar`)
+are live in both `LIVE` and `LEARN_LIVE`, including their Learn sections and downloadable assets.
+
 ## Folder layout
 
 ```

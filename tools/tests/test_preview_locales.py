@@ -1,4 +1,4 @@
-"""Preview routing and RTL boundaries, without needing unfinished translations."""
+"""Live locale routing and RTL boundaries."""
 import importlib.util
 from pathlib import Path
 import re
@@ -9,20 +9,22 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
-spec = importlib.util.spec_from_file_location('preview_build', ROOT / 'tools/build-langs.py')
+spec = importlib.util.spec_from_file_location('live_build', ROOT / 'tools/build-langs.py')
 B = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(B)
 
 
-class PreviewLocales(unittest.TestCase):
-    def test_preview_routes_exist_without_becoming_live(self):
+class LiveLocales(unittest.TestCase):
+    def test_live_routes_are_offered(self):
         for code in ('id', 'vi', 'th', 'uk', 'ar'):
             with self.subTest(code=code):
                 self.assertIn(code, B.LANGS)
                 self.assertIn(f'hreflang="{code}" href="https://{code}.beequation.com/"', B.alternates('index.html', code))
-                self.assertNotIn(f'{code}.beequation.com', B.alternates('index.html'))
-                self.assertNotIn(f'{code}.beequation.com', ''.join(B.lang_links('en', 'index.html')))
-                self.assertNotIn(code, B._learn().LEARN_LIVE)
+                self.assertIn(f'{code}.beequation.com', B.alternates('index.html'))
+                self.assertIn(f'{code}.beequation.com', ''.join(B.lang_links('en', 'index.html')))
+                self.assertIn(code, B.LIVE)
+                self.assertIn(code, B._learn().LEARN_LIVE)
+                self.assertIn(f'{code}.beequation.com', B.suggestion('support.html'))
 
     def test_arabic_decorator_is_shared_by_every_page_type(self):
         self.assertTrue(hasattr(B, 'locale_output'), 'Missing language-only output decoration')
@@ -35,7 +37,7 @@ class PreviewLocales(unittest.TestCase):
         self.assertEqual(B.locale_output(src, 'en'), src)
         self.assertEqual(B.locale_output(out, 'ar'), out)
 
-    def test_preview_blog_shell_needs_no_learn_or_braille_translation(self):
+    def test_untranslated_blog_shell_needs_no_learn_or_braille_translation(self):
         self.assertIn('ar', B.LANGS)
         with tempfile.TemporaryDirectory() as empty, patch.object(B._learn(), 'I18N', empty):
             S = B._learn().Site('ar')
@@ -70,10 +72,9 @@ class PreviewLocales(unittest.TestCase):
         self.assertIn('<svg id="board" dir="ltr">', out)
         self.assertIn('<p><bdi dir="ltr">x + 5 = 12</bdi></p>', out)
 
-    def test_built_arabic_pages_are_rtl_when_available(self):
+    def test_built_arabic_pages_are_rtl(self):
         pages = list((ROOT / 'dist/ar').rglob('*.html'))
-        if not pages:
-            self.skipTest('Arabic translations not built yet; use check-rtl.py after building')
+        self.assertTrue(pages, 'Live Arabic pages must be built')
         for p in pages:
             with self.subTest(page=p.relative_to(ROOT)):
                 self.assertRegex(p.read_text(), r'<html\b[^>]*lang="ar"[^>]*dir="rtl"')

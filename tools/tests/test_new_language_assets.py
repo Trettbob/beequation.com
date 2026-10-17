@@ -20,6 +20,14 @@ PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppetee
 
 
 class NewLanguageAssets(unittest.TestCase):
+    def test_live_downloads_are_built(self):
+        for code in CODES:
+            with self.subTest(code=code):
+                site = ROOT / 'dist' / code
+                self.assertTrue((site / 'learn/braille.html').is_file())
+                self.assertTrue((site / 'teachers.html').is_file())
+                self.assertTrue((site / 'assets' / f'beequation-worksheets-{code}.epub').is_file())
+
     def test_html_only_builds_every_sheet_and_accessible_download(self):
         for code in CODES:
             with self.subTest(code=code), tempfile.TemporaryDirectory() as tmp:

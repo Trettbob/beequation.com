@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FIRST_DAY = date(2026, 10, 19)
 PUBLISHED = date(2026, 10, 12)   # when /today/ first went live (Article datePublished)
 LAUNCH = date(2026, 11, 1)
-CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar')   # preview codes stay out of LIVE
+CODES = ('en', 'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar')
 # the page language where it isn't the code itself ('in' is Indian English)
 LANGUAGE = {'en': 'en-GB', 'no': 'nb', 'pt': 'pt-BR', 'in': 'en-IN'}
 CONTENT = ROOT.parent / 'growth/content'

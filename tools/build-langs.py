@@ -33,7 +33,7 @@ MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
 # these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
 # A language is built into dist/<code>/ as soon as i18n/<code>.json exists, live or not.
-LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi'}
+LIVE = {'fr', 'es', 'de', 'pt', 'it', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'ja', 'ko', 'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'}
 # India's live sites: 'in' is Indian English (in.beequation.com) and 'hi' Hindi (hi.beequation.com).
 # Both include their Learn sections and have working repos, DNS and HTTPS.
 def site(lang): return MAIN if lang == 'en' else f'https://{lang}.beequation.com'

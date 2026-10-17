@@ -15,9 +15,6 @@ import xml.etree.ElementTree as ET
 from sitemap_dates import london_today
 
 ROOT = Path(__file__).resolve().parents[1]
-CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko in hi'.split()
-# Preview sites are submitted only once they are live (LIVE in build-langs.py).
-PREVIEW = ('id', 'vi', 'th', 'uk', 'ar')
 
 
 def live_codes():
@@ -25,7 +22,7 @@ def live_codes():
     return set(re.findall(r"'([a-z]{2})'", live[1])) if live else set()
 
 
-CODES += [code for code in PREVIEW if code in live_codes()]
+CODES = ['en'] + sorted(live_codes())
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 

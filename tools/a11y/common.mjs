@@ -1,8 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-export const LANGS = ['en','da','de','es','fi','fr','it','ja','ko','nl','no','pl','pt','sv','tr','in','hi'];
-// Preview sites: audited only when asked for with --lang, until they are live.
-export const PREVIEW_LANGS = ['id','vi','th','uk','ar'];
+export const LANGS = ['en','da','de','es','fi','fr','it','ja','ko','nl','no','pl','pt','sv','tr','in','hi','id','vi','th','uk','ar'];
 export const impactRank = {critical:0,serious:1,moderate:2,minor:3,unknown:4};
 export const md = value => String(value).replaceAll('|','\\|').replace(/[\r\n]+/g,' ');
 const xmlText = s => s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'");

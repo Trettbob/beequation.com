@@ -15,7 +15,6 @@ if [ "$1" = "--first" ]; then
   fi
   LIST="$2"; MSG="${3:-First publish from beequation.com}"
 else
-  # Preview codes id, vi, th, uk and ar are supported by --first only.
   # Only live languages have a working site; a new language needs its repo, DNS and HTTPS first (see README).
   LIST="$(python3 "$HERE/tools/build-langs.py" --live)"; MSG="${1:-Update from beequation.com}"
 fi
