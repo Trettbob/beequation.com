@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_APPS = Path('/Volumes/External SSD/Projects/Beequation/beequation')
 LANGS = 'fr es de pt it nl pl sv da no fi tr ja ko'.split()
 # India's sites (Indian English, Hindi) are switched too once their words exist, so they never keep "coming soon".
-LANGS += [c for c in ('in', 'hi') if (ROOT / 'i18n' / f'{c}.json').is_file() and (ROOT / 'i18n/play' / f'{c}.js').is_file()]
+LANGS += [c for c in ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar') if (ROOT / 'i18n' / f'{c}.json').is_file() and (ROOT / 'i18n/play' / f'{c}.js').is_file()]
 OLD_DESCRIPTION = 'Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.'
 OLD_HERO = 'Coming soon to iPhone and Android. Follow <a href="https://www.instagram.com/beequationapp" target="_blank" rel="noopener" style="color:var(--honey)">@beequationapp</a> for launch day.'
 OLD_CHIP = 'iPhone and Android: coming soon'

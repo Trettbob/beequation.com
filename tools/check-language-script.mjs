@@ -9,7 +9,7 @@ import vm from 'node:vm';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const before = process.argv.includes('--before');
 // India's preview sites (not live yet, so no page offers them): their own pages are checked once built.
-const PREVIEW = before ? [] : ['in','hi'].filter(c => existsSync(resolve(root, `dist/${c}/support.html`)));
+const PREVIEW = before ? [] : ['in','hi','id','vi','th','uk','ar'].filter(c => existsSync(resolve(root, `dist/${c}/support.html`)));
 function source(path) {
   return before ? execFileSync('git', ['show', `HEAD:${path}`], {cwd:root, encoding:'utf8'}) : readFileSync(resolve(root, path), 'utf8');
 }
@@ -153,7 +153,9 @@ for(const path of ['play.html',...['fr','es','de','pt','it','nl','pl','sv','da',
   r=run(path,{values:{'bq-consent':'all2'}});assert.equal(r.external().length,0);assert.equal(script(source(path),'ga'),undefined);
 }
 r=run('play.html');assert.equal(r.banner().children[0].href,'https://fr.beequation.com/play.html');assert.equal(r.external().length,0);
-if(!before){   // India: not offered until live; a bare 'in' (old Indonesian) never means India
+if(!before){
+  for(const code of ['id','vi','th','uk','ar']) assert.equal(run('support.html',{languages:[code]}).banner(),undefined,`${code} is a preview`);
+  // India: not offered until live; a bare 'in' (old Indonesian) never means India
   assert.equal(run('support.html',{languages:['en-IN']}).banner(),undefined,'no India banner before it is live');
   assert.equal(run('support.html',{languages:['hi-IN','hi']}).banner(),undefined,'no Hindi banner before it is live');
   assert.equal(run('support.html',{languages:['in-ID','fr']}).banner().lang,'fr');

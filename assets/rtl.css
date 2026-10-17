@@ -1,0 +1,28 @@
+/* Included only in Arabic output. Source CSS is converted to logical properties
+   by locale_output.py; these rules cover directional artwork and runtime CSS. */
+[dir=rtl] .bqh-chev.r{transform:rotate(135deg)}
+[dir=rtl] .bqh-chev.l{transform:rotate(-45deg)}
+[dir=rtl] .bqm-scr.f-in{animation-name:bqmRtlIn}
+[dir=rtl] .bqm-scr.f-out,[dir=rtl] .bqm-scr.b-in{animation-name:bqmRtlSide}
+[dir=rtl] .bqm-scr.b-out{animation-name:bqmRtlOut}
+[dir=rtl] .bqm-scr.b-in{animation-direction:reverse}
+@keyframes bqmRtlIn{from{transform:translateX(-100%)}}
+@keyframes bqmRtlSide{to{transform:translateX(25%);opacity:0}}
+@keyframes bqmRtlOut{to{transform:translateX(-100%)}}
+[dir=rtl] [data-back] svg{transform:scaleX(-1)}
+[dir=rtl] .bqf-cols a:hover,[dir=rtl] .bqf-cols a:focus-visible{transform:translateX(-6px)}
+[dir=rtl] .bqf-bee{transform:rotate(-12deg)}
+[dir=rtl] .bqh .langs a,[dir=rtl] .bqm-langs a{unicode-bidi:isolate}
+[dir=rtl] .bq-ok{left:auto;right:16px;text-align:start}
+@media(max-width:520px){[dir=rtl] .bq-ok{left:10px;right:10px}}
+[dir=rtl] #bq-language-suggestion{direction:rtl;text-align:start}
+/* Indie positions and flight transforms are viewport coordinates, not flow.
+   Mirror only the bubble and tail; leave her physics and honey trails intact. */
+[dir=rtl] .bq-bee .say,[dir=rtl] .bq-peek .say{left:auto;right:62px;transform-origin:100% 100%;white-space:normal;width:max-content;max-width:min(260px,70vw);text-align:start}
+[dir=rtl] .bq-peek .say{right:50px}
+[dir=rtl] .bq-peek.f .say{right:auto;left:50px}
+[dir=rtl] .bq-bee .say:after,[dir=rtl] .bq-peek .say:after{left:auto;right:10px}
+[dir=rtl] .bq-peek.f .say:after{right:auto;left:10px}
+/* SVG board geometry, maths, counters, code and entered numeric answers stay LTR. */
+[dir=rtl] :is(#board,.board,.puzzle-board,.eqline,.math,.math-fraction,.math-symbol,.fr,.big-num,.k-clock,#clock,[data-left],.hive-stats dd,code,pre,math,input[type=number],input[inputmode=numeric],input[type=email],input[type=url],[dir=ltr]){direction:ltr;unicode-bidi:isolate}
+[dir=rtl] :is(#board,.board,.puzzle-board) text{direction:ltr;unicode-bidi:isolate}

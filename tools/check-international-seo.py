@@ -95,10 +95,10 @@ class InternationalSEO(unittest.TestCase):
                 org = next(x for x in objects if x.get('@type') == 'Organization')
                 self.assertEqual(org['@id'], 'https://beequation.com/#org')
 
-    def test_india_previews(self):
-        """India's sites (dist/in, dist/hi) are previews until live: right language and links on their own pages, and
+    def test_language_previews(self):
+        """Preview sites have the right language and links on their own pages, and are
         not yet linked from any live site."""
-        for code, lang, hreflang in [('in', 'en-IN', 'en-IN'), ('hi', 'hi', 'hi-IN')]:
+        for code, lang, hreflang in [('in', 'en-IN', 'en-IN'), ('hi', 'hi', 'hi-IN')] + [(c, c, c) for c in ('id', 'vi', 'th', 'uk', 'ar')]:
             if not (root(code) / 'index.html').is_file(): continue   # not built (words still being written)
             for rel in ['index.html', 'support.html', 'play.html', 'accessibility.html', 'easy-read/privacy.html']:
                 with self.subTest(code=code, page=rel):
@@ -108,6 +108,9 @@ class InternationalSEO(unittest.TestCase):
                     alt = {a['hreflang']: a['href'] for a in Page(root(code) / rel).links if a.get('rel') == 'alternate' and a.get('hreflang')}
                     self.assertEqual(alt[hreflang], host(code) + '/' + ('' if rel == 'index.html' else rel))
                     self.assertEqual(alt['x-default'], host('en') + '/' + ('' if rel == 'index.html' else rel))
+            if code == 'ar':
+                for p in root(code).rglob('*.html'):
+                    self.assertRegex(p.read_text(), r'<html\b[^>]*lang="ar"[^>]*dir="rtl"', str(p))
             self.assertIn(f'{host(code)}/', (root(code) / 'sitemap.xml').read_text())
             if code == 'in':
                 for p in pages(code):
@@ -119,7 +122,8 @@ class InternationalSEO(unittest.TestCase):
             for p in [root(code) / 'index.html', root(code) / 'support.html', root(code) / 'sitemap.xml']:
                 with self.subTest(live=str(p)):
                     text = p.read_text()
-                    self.assertNotIn('in.beequation.com', text); self.assertNotIn('hi.beequation.com', text)
+                    for preview in ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'):
+                        self.assertNotIn(f'{preview}.beequation.com', text)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

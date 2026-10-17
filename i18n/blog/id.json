@@ -1,0 +1,10 @@
+{
+  "heading": "Blog",
+  "coming_soon": "Artikel pertama segera hadir! Kembali lagi untuk kabar dan ide matematika.",
+  "newer": "Tulisan lebih baru",
+  "older": "Tulisan lebih lama",
+  "page": "Halaman {n}",
+  "feed_title": "Blog Beequation",
+  "feed_description": "Kabar, ide matematika, dan panduan baru dari Beequation.",
+  "date_format": "{day} {month} {year}"
+}

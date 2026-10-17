@@ -16,7 +16,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 LANGS = 'en fr es de pt it nl pl sv da no fi tr ja ko in hi'.split()
-PREVIEW = {'in', 'hi'}   # India: worksheets and braille files exist; Learn pages not yet
+LANGS = list(LANGS) + [c for c in ('id', 'vi', 'th', 'uk', 'ar') if (ROOT / f'tools/braille/{c}.json').is_file()]
+PREVIEW = {'in', 'hi', 'id', 'vi', 'th', 'uk', 'ar'}   # India: worksheets and braille files exist; Learn pages not yet
 NODE = '/Volumes/External SSD/Projects/devtools/node/bin/node'
 PUP = '/Volumes/External SSD/Projects/devtools/tools/shots/node_modules/puppeteer-core'
 PICTURES = {'2d-shapes', 'counting-coins', 'what-fraction-is-shaded', 'perimeter-and-area',

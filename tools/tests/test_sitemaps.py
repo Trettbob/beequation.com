@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 CODES = 'en fr es de pt it nl pl sv da no fi tr ja ko'.split()
+CODES += [c for c in ('in', 'hi', 'id', 'vi', 'th', 'uk', 'ar') if (ROOT / 'dist' / c / 'sitemap.xml').is_file()]
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 KEY = '0123456789abcdef0123456789abcdef'
 

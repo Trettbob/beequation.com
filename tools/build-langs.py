@@ -10,7 +10,7 @@ The English pages in this repo are the source. Translations live in i18n/<lang>.
 pairs: the page title, meta/alt/aria text, the inner HTML of each text block, text-only links and the homepage
 demo's JavaScript strings. When English text changes, the build lists what needs translating and stops.
 Each dist/<lang>/ folder is published to its own repo (Trettbob/<lang>.beequation.com) by tools/publish-langs.sh.
-A language that isn't in LIVE yet (India's 'in' and 'hi', for now) is a preview: dist/<lang>/ is built, but no live site
+A language that isn't in LIVE yet is a preview: dist/<lang>/ is built, but no live site
 links to it, and its gaps are listed without failing the build (unless asked for with --lang <code>).
 """
 import html as H, importlib.util, json, os, re, shutil, sys
@@ -19,13 +19,16 @@ from i18n_segments import PAGES, segments, norm, BLOCK, SPAN, LINK, ATTR, TITLE
 import build_today
 import build_blog
 from sitemap_dates import git_dates, refresh_sitemap
+from locale_output import locale_output
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 LANGS = {'en': 'English', 'fr': 'Français', 'es': 'Español', 'de': 'Deutsch', 'pt': 'Português',
          'it': 'Italiano', 'nl': 'Nederlands', 'pl': 'Polski', 'sv': 'Svenska', 'da': 'Dansk', 'no': 'Norsk', 'fi': 'Suomi',
-         'tr': 'Türkçe', 'ja': '日本語', 'ko': '한국어', 'in': 'English (India)', 'hi': 'हिन्दी'}
+         'tr': 'Türkçe', 'ja': '日本語', 'ko': '한국어', 'in': 'English (India)', 'hi': 'हिन्दी',
+         'id': 'Bahasa Indonesia', 'vi': 'Tiếng Việt', 'th': 'ไทย', 'uk': 'Українська', 'ar': 'العربية'}
 HTML_LANG = {'en': 'en-GB', 'fr': 'fr', 'es': 'es', 'de': 'de', 'pt': 'pt-BR', 'it': 'it', 'nl': 'nl', 'pl': 'pl', 'sv': 'sv',
-             'da': 'da', 'no': 'nb', 'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko', 'in': 'en-IN', 'hi': 'hi'}   # the subdomain is the key; 'no' is Norwegian Bokmål
+             'da': 'da', 'no': 'nb', 'fi': 'fi', 'tr': 'tr', 'ja': 'ja', 'ko': 'ko', 'in': 'en-IN', 'hi': 'hi',
+             'id': 'id', 'vi': 'vi', 'th': 'th', 'uk': 'uk', 'ar': 'ar'}   # the subdomain is the key; 'no' is Norwegian Bokmål
 MAIN = 'https://beequation.com'
 # Languages whose subdomain is live (DNS added and HTTPS working). Every site only offers, links to and switches to
 # these (plus itself while it's being built); add a code here once its site loads over https, then rebuild and commit.
@@ -847,6 +850,11 @@ FOOTER_TEXT = {   # column headings and the social heading; everything else come
     'ko': ('플레이', '도움말 및 정보', '벌집 팔로우하기'),
     'in': ('Play', 'Help & info', 'Follow the hive'),
     'hi': ('खेलें', 'मदद और जानकारी', 'छत्ते को फ़ॉलो करें'),
+    'id': ('Main', 'Bantuan & info', 'Ikuti sarang'),
+    'vi': ('Chơi', 'Trợ giúp & thông tin', 'Theo dõi tổ ong'),
+    'th': ('เล่น', 'ความช่วยเหลือและข้อมูล', 'ติดตามรังผึ้ง'),
+    'uk': ('Грати', 'Допомога та інформація', 'Стежте за вуликом'),
+    'ar': ('العب', 'المساعدة والمعلومات', 'تابع الخلية'),
 }
 _ICON = lambda d: f'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{d}</svg>'
 SOCIALS = [   # (name, url, monoline icon)
@@ -1114,7 +1122,7 @@ def strip_markers(s):
     s = re.sub(r'<!--header-->.*?<!--/header-->', HEADER_SLOT, s, flags=re.S)
     s = re.sub(r'<div class="wrap"><nav class="top".*?</nav></div>', HEADER_SLOT, s, count=1, flags=re.S)
     for m in ('lang-menu', 'hreflang', 'lang-redirect', 'lang-suggestion', 'lang-remember', 'bee', 'em', 'consent', 'ga', 'nav', 'nav-css', 'skip',
-              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link', 'share', 'share-css', 'deva-fonts'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
+              'drip', 'blog-rss', 'a11y', 'a11y-head', 'easy-link', 'share', 'share-css', 'deva-fonts', 'locale-output'):   # 'drip': the honey drip's old snippet (it's part of BEE now)
         s = re.sub(rf'\n?<!--{m}-->.*?<!--/{m}-->', '', s, flags=re.S)
     s = re.sub(r'<!--today-footer-->.*?<!--/today-footer-->', '', s, flags=re.S)
     s = FOOTER_RE.sub(FOOTER_SLOT, s, count=1)
@@ -1215,7 +1223,9 @@ NEW_TAB_TEXT = {'en': 'opens in a new tab', 'fr': 's’ouvre dans un nouvel ongl
     'de': 'öffnet sich in einem neuen Tab', 'pt': 'abre em uma nova aba', 'it': 'si apre in una nuova scheda',
     'nl': 'opent in een nieuw tabblad', 'pl': 'otwiera się w nowej karcie', 'sv': 'öppnas i en ny flik', 'da': 'åbner i en ny fane',
     'no': 'åpnes i en ny fane', 'fi': 'avautuu uuteen välilehteen', 'tr': 'yeni sekmede açılır', 'ja': '新しいタブで開きます',
-    'ko': '새 탭에서 열립니다', 'in': 'opens in a new tab', 'hi': 'नए टैब में खुलता है'}
+    'ko': '새 탭에서 열립니다', 'in': 'opens in a new tab', 'hi': 'नए टैब में खुलता है',
+    'id': 'terbuka di tab baru', 'vi': 'mở trong thẻ mới', 'th': 'เปิดในแท็บใหม่',
+    'uk': 'відкривається в новій вкладці', 'ar': 'يفتح في علامة تبويب جديدة'}
 OWN_HOST = re.compile(r'^https?://(?:[a-z0-9-]+\.)?beequation\.com(?:[/:?#]|$)', re.I)
 EXT_LINK = re.compile(r'<a\b([^>]*?)\bhref="(https?://[^"]+)"([^>]*)>', re.S)
 
@@ -1242,7 +1252,7 @@ def external_links(s, lang):
     return ''.join(x if x.startswith(('<script', '<style')) else fix(x) for x in parts)
 
 def chrome(src, lang, page, label='Language'):
-    return external_links(_chrome(src, lang, page, label), lang)
+    return locale_output(external_links(_chrome(src, lang, page, label), lang), lang)
 
 def build_date():
     from datetime import date
@@ -1351,7 +1361,10 @@ def build(check_only=False):
         starts[lang] = problems
         if lang in PREVIEW_LEARN and not has_learn(lang):
             print(f'  {lang}: --learn: no learn-i18n/{lang}/index.html yet, so built without its Learn section')
-        lacking = [f for f in (f'i18n/today/{lang}.json', f'i18n/blog/{lang}.json', f'learn-i18n/{lang}/site.json', f'tools/braille/{lang}.json')
+        required = [f'i18n/today/{lang}.json', f'i18n/blog/{lang}.json']
+        if has_learn(lang):
+            required += [f'learn-i18n/{lang}/site.json', f'tools/braille/{lang}.json']
+        lacking = [f for f in required
                    if not os.path.exists(os.path.join(ROOT, f))]
         if lacking:   # (a new language's words still being written)
             print(f'  {lang}: not built, no {", ".join(lacking)}'); problems += len(lacking); continue
@@ -1361,7 +1374,7 @@ def build(check_only=False):
             if key not in daily or not daily[key]:
                 print(f'  {lang} today: no translation for {key}'); problems += 1
         for key in ('by', 'reviewed_by', 'published_on', 'reviewed_on', 'report_error'):
-            if not _learn().site_of(lang).w.get(key):
+            if has_learn(lang) and not _learn().site_of(lang).w.get(key):
                 print(f'  {lang} Learn: no translation for {key}'); problems += 1
         T = json.load(open(os.path.join(ROOT, 'i18n', f'{lang}.json'), encoding='utf-8'))
         suggestion_text = T.get('__site__', {}).get('suggestion')

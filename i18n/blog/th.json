@@ -1,0 +1,10 @@
+{
+  "heading": "บล็อก",
+  "coming_soon": "บทความแรกกำลังมา! กลับมาดูข่าวและไอเดียคณิตศาสตร์กันนะ",
+  "newer": "บทความใหม่กว่า",
+  "older": "บทความเก่ากว่า",
+  "page": "หน้า {n}",
+  "feed_title": "บล็อก Beequation",
+  "feed_description": "ข่าว ไอเดียคณิตศาสตร์ และคู่มือใหม่จาก Beequation",
+  "date_format": "{day} {month} ค.ศ. {year}"
+}
