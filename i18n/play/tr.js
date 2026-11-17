@@ -67,7 +67,7 @@ const T = {
   kFree: free =>
       `Ücretsiz sürümde ${free} seviye ve günün bulmacası var. Abone olun ya da ömür boyu erişimi bir kez satın alın; altı dünyanın tüm seviyeleri açılsın: daha zor toplama işlemleri, 20’ye kadar çarpım tablosu, kesirler, onluklar ve yüzlükler, ondalık sayılar ve Büyük Kovan.`,
   kPrice: 'Fiyatlar ayda 4,99 £ ile başlar; ilk 7 gün ücretsiz. Reklam yok. Veri toplanmaz. İstediğiniz zaman iptal edin.', backToFree: 'Ücretsiz sürüme dön (yalnızca önizleme)',
-  kBuy: 'Tam sürümün kilidini açın', previewNote: 'Bu önizlemede gerçek bir satın alma yapılmaz. Uygulamada bu düğmeyle App Store ya da Google Play açılır.', helpsTitle: 'Nasıl yardımcı olur?',
+  kBuy: 'Tam sürümün kilidini açın', previewNote: "Bu tarayıcı demosunda satın alma işlemleri simüle edilir. Gerçek satın alma işlemleri için uygulamayı indirin.", helpsTitle: 'Nasıl yardımcı olur?',
   helps: 'Her bulmacada çocuğunuz, diğer iki sayıdan oluşan sayıyı bulur. Bu da sayılar arasındaki ilişkileri görmesini ve zihinden işlem becerisini geliştirir. Indie’nin ipuçları ortamı sakin tutar; yıldızlar ipuçlarını ve hataları nazikçe hesaba katar ve yarışılacak bir saat yoktur.',
   progress: 'İlerleme', reset: 'İlerlemeyi sıfırla', resetAsk: 'Bu cihazdaki yıldızlar ve çıkartmalar silinsin mi?', resetDone: 'İlerleme sıfırlandı',
   // Beequation Pro (the player is addressed with "sen", as in the app)

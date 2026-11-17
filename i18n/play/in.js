@@ -65,7 +65,7 @@ const T = {
   kFree: free =>
       `The free game has ${free} levels and a daily puzzle. Subscribe, or buy Lifetime once, to open every level in all six worlds: harder sums, times tables up to 20, fractions, tens and hundreds, decimals, and Big Hive.`,
   kPrice: 'From £4.99 a month (UK price: in India the App Store and Google Play show it in rupees), with 7 days free. No ads. No data collected. Cancel any time.', backToFree: 'Back to the free version (preview only)',
-  kBuy: 'Unlock full game', previewNote: 'This preview simulates the purchase. In the app, this opens the App Store or Google Play.', helpsTitle: 'How it helps',
+  kBuy: 'Unlock full game', previewNote: "This browser demo simulates purchases. Get the app for real purchases.", helpsTitle: 'How it helps',
   helps: 'Each puzzle asks your child to spot a number made from two others. That builds number bonds and quick mental maths. Hints from Indie keep it calm, and stars count hints and slips gently, so there is no clock to beat.',
   progress: 'Progress', reset: 'Reset progress', resetAsk: 'Clear stars and stickers on this device?', resetDone: 'Progress reset',
   // Beequation Pro

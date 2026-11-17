@@ -67,7 +67,7 @@ const T = {
   kFree: free =>
       `Die kostenlose Version hat ${free} Level und das Rätsel des Tages. Mit einem Abo oder einem Einmalkauf öffnen sich alle Level in allen sechs Welten: schwierigere Plusaufgaben, das Einmaleins bis zur 20er-Reihe, Brüche, Zehner und Hunderter, Dezimalzahlen und die Große Wabe.`,
   kPrice: 'Ab 4,99 £ im Monat, die ersten 7 Tage gratis. Keine Werbung. Keine Datenerfassung. Jederzeit kündbar.', backToFree: 'Zurück zur kostenlosen Version (nur in der Vorschau)',
-  kBuy: 'Vollversion freischalten', previewNote: 'Diese Vorschau simuliert den Kauf. In der App öffnet sich hier der App Store oder Google Play.', helpsTitle: 'Was Ihr Kind lernt',
+  kBuy: 'Vollversion freischalten', previewNote: "Diese Browser-Demo simuliert Käufe. Laden Sie die App herunter, um echte Käufe zu tätigen.", helpsTitle: 'Was Ihr Kind lernt',
   helps: 'Bei jedem Rätsel sucht Ihr Kind eine Zahl, die aus zwei anderen entsteht. Das stärkt Zahlzerlegung, Einmaleins und schnelles Kopfrechnen. Indie hilft mit Tipps, ganz ohne Druck. Tipps und Fehler kosten nur wenige Sterne, und es läuft keine Uhr.',
   progress: 'Fortschritt', reset: 'Fortschritt zurücksetzen', resetAsk: 'Sterne und Sticker auf diesem Gerät löschen?', resetDone: 'Fortschritt zurückgesetzt',
   // Beequation Pro

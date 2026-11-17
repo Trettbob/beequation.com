@@ -115,7 +115,7 @@ return gateWords;
   "kPrice": "Từ £4,99 mỗi tháng, miễn phí 7 ngày. Không quảng cáo. Không thu thập dữ liệu. Hủy bất cứ lúc nào.",
   "backToFree": "Về bản miễn phí (chỉ trong bản xem thử)",
   "kBuy": "Mở trò chơi đầy đủ",
-  "previewNote": "Bản xem thử này mô phỏng giao dịch mua. Trong ứng dụng, App Store hoặc Google Play sẽ mở.",
+  "previewNote": "Bản demo trên trình duyệt này chỉ mô phỏng việc mua hàng. Hãy tải ứng dụng để mua thật.",
   "helpsTitle": "Lợi ích cho trẻ",
   "helps": "Mỗi câu đố yêu cầu trẻ tìm một số được tạo từ hai số khác. Qua đó trẻ hiểu các cách ghép số và luyện tính nhẩm nhanh. Gợi ý của Indie giúp trẻ thoải mái; sao được tính nhẹ nhàng dựa trên gợi ý và lỗi, không phải chạy đua với thời gian.",
   "progress": "Tiến độ",

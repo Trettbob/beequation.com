@@ -14,7 +14,6 @@
  "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.": "Dall'Area genitori dell'app Kids si può aprire un certificato Hive da stampare sul nostro sito. Il link contiene solo tre valori: mondi completati, stelle e data. Il nome di tuo figlio viene digitato sulla pagina, resta lì e non viene mai salvato né inviato. La pagina non usa strumenti di analisi. Il nostro servizio di hosting, GitHub Pages, può conservare il link e questi valori nei suoi normali registri del server.",
  "The name you type on a Hive certificate stays on the page and is never saved or sent.": "Il nome che digiti su un certificato Hive resta sulla pagina e non viene mai salvato né inviato.",
  "Beequation: mental maths puzzle game for kids and adults": "Beequation: gioco di calcolo mentale per bambini e adulti",
- "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.": "Calcolo mentale gratis dai 5 anni: trova somme e prodotti. Gioca nel browser, presto su iPhone e Android. Senza pubblicità.",
  "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.": "Beequation: trova il numero formato da altri due. Un rompicapo a favo dove 14 + 6 = 20.",
  "Main": "Menu principale",
  "Puzzle board": "Campo di gioco",
@@ -56,10 +55,8 @@
  "Free puzzles for your class": "Rompicapi gratuiti per la tua classe",
  "A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.": "Un pacchetto stampabile di 24 rompicapi a favo, con addizioni entro il 20 e tabelline, e le soluzioni. Proiettane uno come riscaldamento di due minuti, oppure assegna la scheda come sfida a tempo che gli alunni potranno battere la settimana dopo. (Pacchetto in inglese.)",
  "Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href=\"/support.html\">support page</a>. © 2026 Trett Labs Limited.": "Beequation è creato da Trett Labs Limited, società registrata in Inghilterra e Galles con il numero 17310137. Sede legale: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contatti: <a href=\"/support.html\">pagina di assistenza</a>. © 2026 Trett Labs Limited.",
- "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.": "Presto su iPhone e Android. Segui <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> per non perderti il lancio.",
  "Try one now": "Provane uno subito",
  "Puzzle 1 of 6": "Rompicapo 1 di 6",
- "iPhone and Android: coming soon": "iPhone e Android: in arrivo",
  "Apps": "App",
  "How to play": "Come si gioca",
  "Learn": "Impara",
@@ -483,5 +480,11 @@
  "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.": "Cerchiamo tester ciechi e sordociechi. Se vuoi aiutarci, contattaci dalla <a href=\"/support.html\">pagina di assistenza</a>.",
  "Our braille files are made by computer and haven't been proofread yet.": "I nostri file braille sono generati al computer e non sono ancora stati revisionati.",
  "The Hindi and Indian English versions of this website are new.": "Le versioni in hindi e in inglese indiano di questo sito sono nuove.",
- "This statement was last reviewed on 13 October 2026.": "Questa dichiarazione è stata rivista l’ultima volta il 13 ottobre 2026."
+ "This statement was last reviewed on 13 October 2026.": "Questa dichiarazione è stata rivista l’ultima volta il 13 ottobre 2026.",
+ "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.": "Trova il numero che è la somma o il prodotto di altri due. Rompicapi di calcolo mentale gratuiti dai 5 anni all'età adulta, nel browser e nelle app. Senza pubblicità.",
+ "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>": "Beequation Kids e Beequation Pro sono ora disponibili.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>",
+ "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>": "Scarica l’app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>",
+ "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>": "Scarica l’app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>",
+ "App Store": "App Store",
+ "Google Play": "Google Play"
 }

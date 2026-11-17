@@ -116,7 +116,7 @@ return gateWords;
   "kPrice": "Mulai £4,99 per bulan, dengan 7 hari gratis. Tanpa iklan. Tanpa pengumpulan data. Batalkan kapan saja.",
   "backToFree": "Kembali ke versi gratis (hanya pratinjau)",
   "kBuy": "Buka permainan lengkap",
-  "previewNote": "Pratinjau ini menyimulasikan pembelian. Di aplikasi, App Store atau Google Play akan terbuka.",
+  "previewNote": "Demo peramban ini hanya menyimulasikan pembelian. Unduh aplikasinya untuk pembelian sungguhan.",
   "helpsTitle": "Manfaatnya",
   "helps": "Setiap soal meminta anak menemukan bilangan yang dihasilkan dari dua bilangan lain. Ini melatih pasangan bilangan dan berhitung cepat dalam pikiran. Petunjuk Indie menjaga suasana santai. Bintang memperhitungkan petunjuk dan kesalahan dengan ringan, tanpa perlu berpacu dengan waktu.",
   "progress": "Kemajuan",

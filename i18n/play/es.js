@@ -68,7 +68,7 @@ const T = {
   kFree: free =>
       `El juego gratuito tiene ${free} niveles y el Reto del día. Con una suscripción, o con el acceso de por vida (un solo pago), se abren todos los niveles de los seis mundos: sumas más difíciles, tablas de multiplicar hasta la del 20, fracciones, decenas y centenas, decimales y la Gran Colmena.`,
   kPrice: 'Desde 4,99 £ al mes, con 7 días gratis. Sin anuncios. Sin recogida de datos. Cancela cuando quieras.', backToFree: 'Volver a la versión gratuita (solo en la vista previa)',
-  kBuy: 'Desbloquear el juego completo', previewNote: 'Esta vista previa simula la compra. En la app, se abre el App Store o Google Play.', helpsTitle: 'Cómo ayuda',
+  kBuy: 'Desbloquear el juego completo', previewNote: "Esta demo en el navegador simula las compras. Descarga la app para hacer compras reales.", helpsTitle: 'Cómo ayuda',
   helps: 'Cada reto pide a tu hijo o hija que encuentre un número formado por otros dos. Así afianza las combinaciones numéricas básicas y gana agilidad en el cálculo mental. Las pistas de Indie ayudan a jugar con calma, las estrellas penalizan poco las pistas y los fallos, y no hay ningún reloj contra el que competir.',
   progress: 'Progreso', reset: 'Reiniciar progreso', resetAsk: '¿Borrar las estrellas y las pegatinas de este dispositivo?', resetDone: 'Progreso reiniciado',
   // Beequation Pro

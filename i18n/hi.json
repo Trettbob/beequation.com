@@ -14,7 +14,6 @@
  "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.": "Kids ऐप के बड़ों के सेक्शन से हमारी वेबसाइट पर प्रिंट करने लायक Hive प्रमाणपत्र खोला जा सकता है। लिंक में सिर्फ़ तीन मान होते हैं: पूरे किए गए वर्ल्ड, स्टार और तारीख़। आपके बच्चे का नाम पेज पर टाइप किया जाता है, वहीं रहता है और कभी सेव या भेजा नहीं जाता। पेज पर कोई एनालिटिक्स नहीं है। हमारी वेबसाइट को होस्ट करने वाला GitHub Pages इस लिंक और इन मानों को अपने सामान्य सर्वर लॉग में रख सकता है।",
  "The name you type on a Hive certificate stays on the page and is never saved or sent.": "Hive प्रमाणपत्र पर आप जो नाम टाइप करते हैं, वह पेज पर ही रहता है और कभी सेव या भेजा नहीं जाता।",
  "Beequation: mental maths puzzle game for kids and adults": "Beequation: बच्चों और बड़ों के लिए मेंटल मैथ्स पज़ल गेम",
- "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.": "मुफ़्त मेंटल मैथ्स पज़ल, 5 साल से बड़ों तक: दो संख्याओं को जोड़ने या गुणा करने से बनी संख्या खोजें। अभी ब्राउज़र में, जल्द iPhone और Android पर। विज्ञापन नहीं।",
  "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.": "Beequation: दो दूसरी संख्याओं से बनी संख्या खोजें। छत्ते वाला एक पज़ल, जिसमें 14 + 6 = 20।",
  "Main": "मुख्य",
  "Puzzle board": "पज़ल बोर्ड",
@@ -56,10 +55,8 @@
  "Free puzzles for your class": "आपकी कक्षा के लिए मुफ़्त पज़ल",
  "A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.": "छत्ते वाले 24 पज़ल का प्रिंट करने लायक पैक, 20 तक के जोड़ और पहाड़े, जवाबों के साथ। किसी एक पज़ल को दो मिनट के वॉर्म-अप के लिए स्क्रीन पर दिखाएँ, या शीट को समय वाली चुनौती की तरह दें, जिसमें छात्र अगले हफ़्ते अपना ही रिकॉर्ड तोड़ सकें।",
  "Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href=\"/support.html\">support page</a>. © 2026 Trett Labs Limited.": "Beequation को Trett Labs Limited ने बनाया है, जो इंग्लैंड और वेल्स में रजिस्टर्ड है, कंपनी नंबर 17310137। रजिस्टर्ड ऑफ़िस: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom। संपर्क: <a href=\"/support.html\">मदद पेज</a>। © 2026 Trett Labs Limited।",
- "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.": "जल्द ही iPhone और Android पर। लॉन्च के दिन की ख़बर के लिए <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> को फ़ॉलो करें।",
  "Try one now": "अभी एक आज़माएँ",
  "Puzzle 1 of 6": "पज़ल 1 (6 में से)",
- "iPhone and Android: coming soon": "iPhone और Android के लिए ऐप जल्द आ रहे हैं",
  "Apps": "ऐप्स",
  "How to play": "कैसे खेलें",
  "Learn": "सीखें",
@@ -483,5 +480,11 @@
  "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.": "हम दृष्टिहीन और बधिर-दृष्टिहीन टेस्टर ढूँढ रहे हैं। अगर आप मदद करना चाहते हैं, तो कृपया हमारे <a href=\"/support.html\">मदद पेज</a> के ज़रिए हमसे संपर्क करें।",
  "Our braille files are made by computer and haven't been proofread yet.": "हमारी ब्रेल फ़ाइलें कंप्यूटर से बनाई जाती हैं और अभी तक उनकी प्रूफ़रीडिंग नहीं हुई है।",
  "The Hindi and Indian English versions of this website are new.": "इस वेबसाइट के हिन्दी और भारतीय अंग्रेज़ी वर्ज़न नए हैं।",
- "This statement was last reviewed on 13 October 2026.": "इस विवरण की आख़िरी समीक्षा 13 अक्टूबर 2026 को हुई थी।"
+ "This statement was last reviewed on 13 October 2026.": "इस विवरण की आख़िरी समीक्षा 13 अक्टूबर 2026 को हुई थी।",
+ "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.": "दो दूसरी संख्याओं को जोड़कर या गुणा करके बनी संख्या ढूँढिए। 5 साल के बच्चों से लेकर बड़ों तक के लिए मुफ़्त मानसिक गणित पहेलियाँ, ब्राउज़र में भी और ऐप में भी। कोई विज्ञापन नहीं।",
+ "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>": "Beequation Kids और Beequation Pro अब उपलब्ध हैं।<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>",
+ "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>": "ऐप डाउनलोड करें: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>",
+ "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>": "ऐप डाउनलोड करें: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>",
+ "App Store": "App Store",
+ "Google Play": "Google Play"
 }

@@ -14,7 +14,6 @@
  "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.": "Kidsアプリの「おうちのかたへ」から、当社のウェブサイトで印刷用のHive修了証を開くことができます。リンクに含まれるのは、クリアしたワールド数、スター数、日付の3つの値だけです。お子さまの名前はページ上で入力し、そのページ内だけにとどまり、保存も送信もされません。このページにはアクセス解析はありません。ウェブサイトのホスティングサービスであるGitHub Pagesは、通常のサーバーログにリンクとこれらの値を記録する場合があります。",
  "The name you type on a Hive certificate stays on the page and is never saved or sent.": "Hive修了証に入力した名前はページ内だけにとどまり、保存も送信もされません。",
  "Beequation: mental maths puzzle game for kids and adults": "Beequation：子どもから大人まで楽しめる暗算パズルゲーム",
- "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.": "ほかの2つの数をたす、またはかけるとできる数を見つけよう。5歳から大人まで楽しめる無料の暗算パズルを、いますぐブラウザで。iPhone・Android版も近日公開。広告なし。",
  "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.": "Beequation：ほかの2つの数からできる数を見つけよう。14 + 6 = 20のような、ハニカム型の数字パズルです。",
  "Main": "メインメニュー",
  "Puzzle board": "パズルの盤面",
@@ -56,10 +55,8 @@
  "Free puzzles for your class": "授業で使える無料パズル",
  "A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.": "20までのたし算とかけ算のハニカムパズル24問を収録した、解答つきの印刷用パックです。2分間のウォーミングアップとして1問を投影したり、時間を計るチャレンジとして配って、翌週に記録更新を目指したりできます。（パックは英語版です。）",
  "Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href=\"/support.html\">support page</a>. © 2026 Trett Labs Limited.": "Beequationは、イングランドおよびウェールズで登記されたTrett Labs Limited（会社番号17310137）が運営しています。登記上の住所：The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom。お問い合わせ：<a href=\"/support.html\">サポートページ</a>。© 2026 Trett Labs Limited",
- "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.": "iPhone・Android版は近日公開。リリース情報は<a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a>をフォローしてチェックしてください。",
  "Try one now": "いますぐ挑戦",
  "Puzzle 1 of 6": "パズル 1/6",
- "iPhone and Android: coming soon": "iPhone・Android版：近日公開",
  "Apps": "アプリ",
  "How to play": "遊び方",
  "Learn": "学ぶ",
@@ -483,5 +480,11 @@
  "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.": "全盲の方や盲ろうの方で、テストにご協力いただける方を探しています。ご協力いただける場合は、<a href=\"/support.html\">サポートページ</a>からご連絡ください。",
  "Our braille files are made by computer and haven't been proofread yet.": "点字ファイルはコンピューターで作成しており、まだ校正されていません。",
  "The Hindi and Indian English versions of this website are new.": "このウェブサイトのヒンディー語版とインド英語版は、新しく追加したものです。",
- "This statement was last reviewed on 13 October 2026.": "この声明の最終確認日は2026年10月13日です。"
+ "This statement was last reviewed on 13 October 2026.": "この声明の最終確認日は2026年10月13日です。",
+ "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.": "ほかの2つの数をたす、またはかけるとできる数を見つけよう。5歳から大人まで楽しめる無料の暗算パズルを、ブラウザでもアプリでも。広告なし。",
+ "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>": "Beequation KidsとBeequation Proがリリースされました。<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>",
+ "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>": "アプリをダウンロード： <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>",
+ "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>": "アプリをダウンロード： <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>",
+ "App Store": "App Store",
+ "Google Play": "Google Play"
 }

@@ -68,7 +68,7 @@ const T = {
   kFree: free =>
       `Gratisspelet har ${free} nivåer och ett dagligt pussel. Prenumerera, eller köp Livstid en gång, så öppnas alla nivåer i alla sex världar: svårare plustal, multiplikationstabellen upp till 20, bråk, tiotal och hundratal, decimaltal och Stora kupan.`,
   kPrice: 'Från 4,99 £ i månaden, med 7 dagar gratis. Ingen reklam. Ingen datainsamling. Säg upp när du vill.', backToFree: 'Tillbaka till gratisversionen (bara i förhandsvisningen)',
-  kBuy: 'Lås upp hela spelet', previewNote: 'Förhandsvisningen simulerar köpet. I appen öppnas App Store eller Google Play.', helpsTitle: 'Så hjälper det',
+  kBuy: 'Lås upp hela spelet', previewNote: "Den här webbläsardemon simulerar köp. Hämta appen för att göra riktiga köp.", helpsTitle: 'Så hjälper det',
   helps: 'I varje pussel letar ditt barn efter ett tal som bildas av två andra. Det bygger upp talkamrater och snabb huvudräkning. Indies tips håller stämningen lugn, och stjärnorna räknar tips och misstag på ett snällt sätt, så det finns ingen klocka att tävla mot.',
   progress: 'Framsteg', reset: 'Nollställ framsteg', resetAsk: 'Radera stjärnor och klistermärken på den här enheten?', resetDone: 'Framstegen är nollställda',
   // Beequation Pro

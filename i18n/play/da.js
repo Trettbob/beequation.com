@@ -67,7 +67,7 @@ const T = {
   kFree: free =>
       `Det gratis spil har ${free} baner og en daglig opgave. Tag et abonnement, eller køb livstidsadgang én gang, og åbn alle baner i alle seks verdener: sværere plusstykker, tabeller op til 20, brøker, tiere og hundreder, decimaltal og Kæmpebikuben.`,
   kPrice: 'Fra 4,99 £ om måneden med 7 dage gratis. Ingen reklamer. Ingen dataindsamling. Opsig når som helst.', backToFree: 'Tilbage til gratisversionen (kun i forhåndsvisningen)',
-  kBuy: 'Lås hele spillet op', previewNote: 'Denne forhåndsvisning simulerer købet. I appen åbnes App Store eller Google Play her.', helpsTitle: 'Sådan hjælper det',
+  kBuy: 'Lås hele spillet op', previewNote: "Denne browserdemo simulerer køb. Hent appen for at foretage rigtige køb.", helpsTitle: 'Sådan hjælper det',
   helps: 'I hver opgave skal dit barn finde et tal, der er lavet af to andre. Det styrker talforståelsen og den hurtige hovedregning. Indies tips holder stemningen rolig, og stjernerne tæller tips og fejl blidt med, så ingen skal kæmpe mod uret.',
   progress: 'Fremskridt', reset: 'Nulstil fremskridt', resetAsk: 'Vil du slette stjerner og klistermærker på denne enhed?', resetDone: 'Fremskridt nulstillet',
   // Beequation Pro

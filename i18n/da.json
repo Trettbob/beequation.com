@@ -14,7 +14,6 @@
  "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.": "Voksenområdet i Kids-appen kan åbne et Hive-certifikat på vores hjemmeside, som kan udskrives. Linket indeholder kun tre værdier: gennemførte verdener, stjerner og datoen. Dit barns navn indtastes på siden, bliver der og bliver aldrig gemt eller sendt. Siden bruger ingen analyseværktøjer. Vores webhost, GitHub Pages, kan gemme linket og disse værdier i sine almindelige serverlogfiler.",
  "The name you type on a Hive certificate stays on the page and is never saved or sent.": "Navnet, du skriver på et Hive-certifikat, bliver på siden og bliver aldrig gemt eller sendt.",
  "Beequation: mental maths puzzle game for kids and adults": "Beequation: hovedregningsspil for børn og voksne",
- "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.": "Gratis hovedregning fra 5 år: find summer og produkter. Spil i browseren, snart på iPhone og Android. Ingen reklamer.",
  "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.": "Beequation: find tallet, der er lavet af to andre. En bikageopgave, hvor 14 + 6 = 20.",
  "Main": "Hovedmenu",
  "Puzzle board": "Spilleplade",
@@ -56,10 +55,8 @@
  "Free puzzles for your class": "Gratis opgaver til din klasse",
  "A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.": "Et opgavehæfte til print med 24 bikageopgaver, plus op til 20 og tabeller, med facitliste. Vis en på tavlen som to minutters opvarmning, eller giv arket som en udfordring på tid, som eleverne kan prøve at slå i næste uge. (Hæftet er på engelsk.)",
  "Beequation is made by Trett Labs Limited, registered in England and Wales, company number 17310137. Registered office: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Contact: <a href=\"/support.html\">support page</a>. © 2026 Trett Labs Limited.": "Beequation er lavet af Trett Labs Limited, registreret i England og Wales, selskabsnummer 17310137. Registreret adresse: The 1812 Building, Wheatley Park, Mirfield, West Yorkshire, WF14 8HE, United Kingdom. Kontakt: <a href=\"/support.html\">supportsiden</a>. © 2026 Trett Labs Limited.",
- "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.": "Kommer snart til iPhone og Android. Følg <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a>, så du ikke går glip af lanceringen.",
  "Try one now": "Prøv en nu",
  "Puzzle 1 of 6": "Opgave 1 af 6",
- "iPhone and Android: coming soon": "iPhone og Android: kommer snart",
  "Apps": "Apps",
  "How to play": "Sådan spiller du",
  "Learn": "Lær",
@@ -483,5 +480,11 @@
  "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.": "Vi leder efter blinde og døvblinde testere. Hvis du vil hjælpe, så kontakt os via vores <a href=\"/support.html\">hjælpeside</a>.",
  "Our braille files are made by computer and haven't been proofread yet.": "Vores punktskriftsfiler er lavet af en computer og er endnu ikke korrekturlæst.",
  "The Hindi and Indian English versions of this website are new.": "Versionerne af hjemmesiden på hindi og indisk engelsk er nye.",
- "This statement was last reviewed on 13 October 2026.": "Denne erklæring blev senest gennemgået den 13. oktober 2026."
+ "This statement was last reviewed on 13 October 2026.": "Denne erklæring blev senest gennemgået den 13. oktober 2026.",
+ "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.": "Find tallet, der er to andre lagt sammen eller ganget sammen. Gratis opgaver i hovedregning for alle fra 5 år til voksne, i din browser og som apps. Ingen reklamer.",
+ "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>": "Beequation Kids og Beequation Pro er nu tilgængelige.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>",
+ "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>": "Hent appen: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>",
+ "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>": "Hent appen: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>",
+ "App Store": "App Store",
+ "Google Play": "Google Play"
 }

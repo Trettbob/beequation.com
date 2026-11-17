@@ -100,5 +100,35 @@
     "available": "Beequation Kids और Beequation Pro अब उपलब्ध हैं।",
     "download": "ऐप डाउनलोड करें:",
     "preview": "यह ब्राउज़र डेमो ख़रीदारी सिर्फ़ दिखाता है। असली ख़रीदारी के लिए ऐप डाउनलोड करें।"
+  },
+  "id": {
+    "description": "Cari bilangan hasil tambah atau kali dua bilangan lain. Hitung mental gratis untuk usia 5 tahun hingga dewasa, di peramban dan di aplikasi. Tanpa iklan.",
+    "available": "Beequation Kids dan Beequation Pro sudah tersedia.",
+    "download": "Unduh aplikasinya:",
+    "preview": "Demo peramban ini hanya menyimulasikan pembelian. Unduh aplikasinya untuk pembelian sungguhan."
+  },
+  "vi": {
+    "description": "Tìm số bằng tổng hoặc tích của hai số khác. Đố tính nhẩm miễn phí từ 5 tuổi đến người lớn, trên trình duyệt và trong ứng dụng. Không quảng cáo.",
+    "available": "Beequation Kids và Beequation Pro đã có mặt.",
+    "download": "Tải ứng dụng:",
+    "preview": "Bản demo trên trình duyệt này chỉ mô phỏng việc mua hàng. Hãy tải ứng dụng để mua thật."
+  },
+  "th": {
+    "description": "หาจำนวนที่เป็นผลบวกหรือผลคูณของอีกสองจำนวน โจทย์คิดเลขในใจฟรีตั้งแต่อายุ 5 ปีถึงผู้ใหญ่ เล่นได้ทั้งในเบราว์เซอร์และในแอป ไม่มีโฆษณา",
+    "available": "Beequation Kids และ Beequation Pro พร้อมให้ดาวน์โหลดแล้ว",
+    "download": "ดาวน์โหลดแอป:",
+    "preview": "เดโมในเบราว์เซอร์นี้เป็นการจำลองการซื้อเท่านั้น ดาวน์โหลดแอปเพื่อซื้อจริง"
+  },
+  "uk": {
+    "description": "Знайдіть суму або добуток двох чисел. Безкоштовні задачі на усну лічбу від 5 років до дорослого віку: у браузері та в застосунках. Без реклами.",
+    "available": "Beequation Kids і Beequation Pro вже доступні.",
+    "download": "Завантажте застосунок:",
+    "preview": "Ця браузерна демоверсія лише імітує покупки. Для справжніх покупок завантажте застосунок."
+  },
+  "ar": {
+    "description": "اعثر على العدد الناتج عن جمع عددين آخرين أو ضربهما. ألغاز حساب ذهني مجانية من عمر 5 سنوات إلى الكبار، في المتصفح وفي التطبيقات. بلا إعلانات.",
+    "available": "Beequation Kids وBeequation Pro متاحان الآن.",
+    "download": "حمّل التطبيق:",
+    "preview": "هذا العرض التجريبي في المتصفح يحاكي عمليات الشراء فقط. حمّل التطبيق لإجراء عمليات شراء حقيقية."
   }
 }

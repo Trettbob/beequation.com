@@ -79,7 +79,7 @@ const T = {
   kFree: free =>
       `Het gratis spel heeft ${free} levels en elke dag een puzzel. Neem een abonnement, of koop één keer Levenslang, om alle levels in alle zes de werelden te openen: moeilijkere sommen, de tafels tot en met 20, breuken, tientallen en honderdtallen, kommagetallen en de Grote Korf.`,
   kPrice: 'Vanaf £ 4,99 per maand, met 7 dagen gratis. Geen advertenties. We verzamelen geen gegevens. Altijd opzegbaar.', backToFree: 'Terug naar de gratis versie (alleen in deze preview)',
-  kBuy: 'Volledig spel ontgrendelen', previewNote: 'In deze preview wordt de aankoop alleen nagebootst. In de app opent hier de App Store of Google Play.', helpsTitle: 'Wat je kind ervan leert',
+  kBuy: 'Volledig spel ontgrendelen', previewNote: "Deze browserdemo bootst aankopen na. Download de app om echte aankopen te doen.", helpsTitle: 'Wat je kind ervan leert',
   helps: 'Bij elke puzzel zoekt je kind een getal dat met twee andere getallen te maken is. Zo oefent je kind spelenderwijs splitsen en vlot hoofdrekenen. Indie houdt het rustig met tips, tips en foutjes tellen maar licht mee voor de sterren, en er loopt geen klok.',
   progress: 'Voortgang', reset: 'Voortgang wissen', resetAsk: 'Sterren en stickers op dit apparaat wissen?', resetDone: 'Voortgang gewist',
   // Beequation Pro

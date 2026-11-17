@@ -70,7 +70,7 @@ const T = {
   kFree: free =>
       `Ilmaisessa pelissä on ${free} tasoa ja päivän pulma. Tilaa tai osta elinikäinen käyttöoikeus kertamaksulla, niin kaikkien kuuden maailman tasot aukeavat: vaikeammat yhteenlaskut, kertotaulut 20:een asti, murtoluvut, kymmenet ja sadat, desimaaliluvut sekä Iso pesä.`,
   kPrice: 'Alkaen 4,99 £ kuukaudessa, ja 7 ensimmäistä päivää ovat ilmaisia. Ei mainoksia. Ei tietojen keruuta. Voit perua milloin tahansa.', backToFree: 'Takaisin ilmaisversioon (vain esikatselussa)',
-  kBuy: 'Avaa koko peli', previewNote: 'Tämä esikatselu vain jäljittelee ostoa. Sovelluksessa tästä avautuu App Store tai Google Play.', helpsTitle: 'Miten peli auttaa',
+  kBuy: 'Avaa koko peli', previewNote: "Tämä selaindemo simuloi ostoksia. Lataa sovellus, jotta voit tehdä oikeita ostoksia.", helpsTitle: 'Miten peli auttaa',
   helps: 'Jokaisessa pulmassa lapsi etsii luvun, joka muodostuu kahdesta muusta. Se vahvistaa hajotelmien ja kymppiparien hallintaa sekä nopeaa päässälaskua. Indien vihjeet pitävät tunnelman rauhallisena, ja tähdet huomioivat vihjeet ja virheet lempeästi. Kelloa vastaan ei kilpailla.',
   progress: 'Edistyminen', reset: 'Nollaa edistyminen', resetAsk: 'Poistetaanko tämän laitteen tähdet ja tarrat?', resetDone: 'Edistyminen nollattu',
   // Beequation Pro

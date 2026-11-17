@@ -14,12 +14,10 @@
  "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.": "The Kids app's grown-up area can open a printable Hive certificate on our website. The link carries only three values: worlds completed, stars and the date. Your child's name is typed on the page, stays there and is never saved or sent. The page has no analytics. Our web host, GitHub Pages, may keep the link and those values in its standard server logs.",
  "The name you type on a Hive certificate stays on the page and is never saved or sent.": "The name you type on a Hive certificate stays on the page and is never saved or sent.",
  "Beequation: mental maths puzzle game for kids and adults": "Beequation: mental maths puzzle game for kids and adults",
- "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.": "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser now and soon on iPhone and Android. No ads.",
  "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.": "Beequation: find the number made by two others. A honeycomb puzzle where 14 + 6 = 20.",
  "Mental maths puzzle game for kids and adults": "Mental maths puzzle game for kids and adults",
  "Find the number made by two others.": "Find the number made by two others.",
  "Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.": "Every honeycomb hides one number that two others add up (or multiply) to. Spot it fast. Beequation is quick mental maths for every age, from 5 to expert.",
- "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.": "Coming soon to iPhone and Android. Follow <a href=\"https://www.instagram.com/beequationapp\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--honey)\">@beequationapp</a> for launch day.",
  "Try one now": "Try one now",
  "Puzzle 1 of 6": "Puzzle 1 of 6",
  "Puzzle board": "Puzzle board",
@@ -49,7 +47,6 @@
  "Play the free levels and the daily puzzle for nothing. Unlock every level from £2.99 a month, with 7 days free. Cancel any time.": "Play the free levels and the daily puzzle for nothing. Unlock every level from £2.99 a month (UK price: in India, the App Store and Google Play show the price in rupees), with 7 days free. Cancel any time.",
  "Free puzzles for your class": "Free puzzles for your class",
  "A printable pack of 24 honeycomb puzzles, sums to 20 and times tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge pupils can beat next week.": "A printable pack of 24 honeycomb puzzles, sums to 20 and multiplication tables, with an answer key. Project one as a two-minute warm-up, or set the sheet as a timed challenge students can beat next week.",
- "iPhone and Android: coming soon": "iPhone and Android: coming soon",
  "Beequation Pro app icon": "Beequation Pro app icon",
  "Beequation Kids app icon": "Beequation Kids app icon",
  "First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Indie the bee and spaces to write the number sentence": "First page of the Beequation Kids puzzle pack: twelve colourful honeycomb puzzles with Indie the bee and spaces to write the number sentence",
@@ -451,5 +448,11 @@
  "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.": "We're looking for blind and deafblind testers. If you'd like to help, please contact us through our <a href=\"/support.html\">support page</a>.",
  "Our braille files are made by computer and haven't been proofread yet.": "Our braille files are made by computer and haven't been proofread yet.",
  "The Hindi and Indian English versions of this website are new.": "The Hindi and Indian English versions of this website are new.",
- "This statement was last reviewed on 13 October 2026.": "This statement was last reviewed on 13 October 2026."
+ "This statement was last reviewed on 13 October 2026.": "This statement was last reviewed on 13 October 2026.",
+ "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.": "Find the number two others add up or multiply to. Free mental maths puzzles for ages 5 to adult, in your browser and as apps. No ads.",
+ "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>": "Beequation Kids and Beequation Pro are available now.<br><span>Beequation Kids: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a></span> · <span>Beequation Pro: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a></span>",
+ "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>": "Get the app: <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequationkids\" data-app=\"kids\">Google Play</a>",
+ "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>": "Get the app: <a href=\"https://apps.apple.com/app/id6824660502\" data-app=\"pro\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=com.trettlabs.beequation\" data-app=\"pro\">Google Play</a>",
+ "App Store": "App Store",
+ "Google Play": "Google Play"
 }

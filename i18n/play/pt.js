@@ -67,7 +67,7 @@ const T = {
   kFree: free =>
       `O jogo grátis tem ${free} níveis e o desafio do dia. Assine, ou compre o Vitalício uma vez, para abrir todos os níveis dos seis mundos: somas mais difíceis, tabuada até a do 20, frações, dezenas e centenas, decimais e a Grande Colmeia.`,
   kPrice: 'A partir de £ 4,99 por mês, com 7 dias grátis. Sem anúncios. Sem coleta de dados. Cancele quando quiser.', backToFree: 'Voltar à versão grátis (só na prévia)',
-  kBuy: 'Desbloquear o jogo completo', previewNote: 'Esta prévia simula a compra. No app, isso abre a App Store ou o Google Play.', helpsTitle: 'Como o jogo ajuda',
+  kBuy: 'Desbloquear o jogo completo', previewNote: "Esta demonstração no navegador simula as compras. Baixe o app para fazer compras reais.", helpsTitle: 'Como o jogo ajuda',
   helps: 'Cada desafio pede que a criança encontre um número formado por outros dois. Isso fortalece os fatos básicos e a agilidade no cálculo mental. As dicas da Indie deixam tudo tranquilo, e as estrelas contam dicas e erros com leveza, sem relógio correndo.',
   progress: 'Progresso', reset: 'Apagar progresso', resetAsk: 'Apagar as estrelas e figurinhas deste aparelho?', resetDone: 'Progresso apagado',
   // Beequation Pro

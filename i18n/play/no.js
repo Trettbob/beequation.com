@@ -66,7 +66,7 @@ const T = {
   kFree: free =>
       `Gratisversjonen har ${free} nivåer og en daglig nøtt. Abonner, eller kjøp Livstid én gang, for å åpne alle nivåene i alle de seks verdenene: vanskeligere plusstykker, gangetabellen opp til 20, brøk, tiere og hundrere, desimaltall og Storkuben.`,
   kPrice: 'Fra 4,99 pund i måneden, med 7 dager gratis. Ingen reklame. Ingen data samles inn. Si opp når som helst.', backToFree: 'Tilbake til gratisversjonen (bare i forhåndsvisningen)',
-  kBuy: 'Lås opp hele spillet', previewNote: 'Kjøpet er bare simulert i denne forhåndsvisningen. I appen åpner dette App Store eller Google Play.', helpsTitle: 'Slik hjelper det',
+  kBuy: 'Lås opp hele spillet', previewNote: "Denne nettleserdemoen simulerer kjøp. Last ned appen for å gjøre ekte kjøp.", helpsTitle: 'Slik hjelper det',
   helps: 'I hver oppgave skal barnet finne et tall som er laget av to andre. Det bygger tallforståelse, tiervenner og rask hoderegning. Tips fra Indie holder stemningen rolig, og stjernene teller tips og feil på en snill måte, så det er ingen klokke å slå.',
   progress: 'Fremgang', reset: 'Nullstill fremgangen', resetAsk: 'Vil du slette stjerner og klistremerker på denne enheten?', resetDone: 'Fremgangen er nullstilt',
   // Beequation Pro

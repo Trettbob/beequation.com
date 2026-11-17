@@ -71,7 +71,7 @@ const T = {
   kFree: free =>
       `Le jeu gratuit comprend ${free} niveaux et un défi du jour. Abonnez-vous, ou achetez l'accès à vie en une fois, pour ouvrir tous les niveaux des six mondes : additions plus difficiles, tables jusqu'à 20, fractions, dizaines et centaines, nombres décimaux et Grande Ruche.`,
   kPrice: 'Dès 4,99 £ par mois, avec 7 jours d’essai gratuit. Sans publicité. Aucune donnée collectée. Résiliable à tout moment.', backToFree: 'Revenir à la version gratuite (aperçu uniquement)',
-  kBuy: 'Débloquer le jeu complet', previewNote: 'Cet aperçu simule l’achat. Dans l’app, ce bouton ouvre l’App Store ou Google Play.', helpsTitle: 'Ce que votre enfant y gagne',
+  kBuy: 'Débloquer le jeu complet', previewNote: "Cette démo dans le navigateur simule les achats. Téléchargez l’app pour effectuer de vrais achats.", helpsTitle: 'Ce que votre enfant y gagne',
   helps: 'Chaque défi demande à votre enfant de repérer un nombre formé à partir de deux autres. Cela consolide les tables d’addition et de multiplication, et le calcul mental rapide. Les indices d’Indie rendent le jeu apaisant, et les étoiles tiennent compte des indices et des erreurs en douceur : il n’y a pas de chrono à battre.',
   progress: 'Progression', reset: 'Réinitialiser la progression', resetAsk: 'Effacer les étoiles et les autocollants de cet appareil ?', resetDone: 'Progression réinitialisée',
   // Beequation Pro

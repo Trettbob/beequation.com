@@ -6,9 +6,9 @@
 // Links: https://beequation.com/get/kids/?c=tiktok-daily
 //        https://beequation.com/get/pro/?c=x-daily&m=social
 // Launch-day configuration: ios is the numeric App Store ID, filled in at launch.
-const STORES = { kids: { ios: '', android: 'com.trettlabs.beequationkids' }, pro: { ios: '', android: 'com.trettlabs.beequation' } };
-const LIVE = { ios: false, android: false }; // Set true when that store page is live.
-const APPLE_PT = ''; // App Store Connect campaign provider token.
+const STORES = {"kids": {"ios": "", "android": "com.trettlabs.beequationkids"}, "pro": {"ios": "6824660502", "android": "com.trettlabs.beequation"}};
+const LIVE = {"ios": true, "android": true}; // Set true when that store page is live.
+const APPLE_PT = ""; // App Store Connect campaign provider token.
 
 const query = new URLSearchParams(location.search);
 const pathApp = location.pathname.match(/^\/get\/(kids|pro)\/?$/);

@@ -46,6 +46,8 @@ def validate(config):
     for name, package in [('kids', 'com.trettlabs.beequationkids'), ('pro', 'com.trettlabs.beequation')]:
         app = config['apps'][name]
         text(app['ios_app_id'], f'{name}.ios_app_id', r'[1-9][0-9]+')
+        if 'ios_live' in app and type(app['ios_live']) is not bool:
+            raise ValueError(f'{name}.ios_live must be a JSON boolean')
         if app['android_package'] != package:
             raise ValueError(f'{name}.android_package must be {package} (released app identity)')
         for store in ['ios', 'android']:
@@ -78,10 +80,15 @@ def marked(source, name, initial, value):
     return replace_one(source, pattern, start + value + end, name, re.S)
 
 
+def ios_live(config, name):
+    return config['stores_live']['ios'] and config['apps'][name].get('ios_live', True) is not False
+
+
 def urls(config, name):
     app = config['apps'][name]
     result = {}
-    if config['stores_live']['ios']:
+    # An app can hold back its App Store link (ios_live: false) while its own review is still pending.
+    if ios_live(config, name):
         result['App Store'] = 'https://apps.apple.com/app/id' + app['ios_app_id']
     if config['stores_live']['android']:
         result['Google Play'] = 'https://play.google.com/store/apps/details?id=' + app['android_package']
@@ -149,7 +156,7 @@ def plan(config, apps_root):
     source = before.replace(OLD_DESCRIPTION, en['description'])
     if source.count(en['description']) != 2:
         raise ValueError('index.html: expected description and OG description')
-    source = marked(source, 'hero', r'<span class="soon">.*?</span>', '<p class="launch-available">' + hero + '</p>')
+    source = marked(source, 'hero', r'<span class="soon">.*?for launch day\.</span>', '<p class="launch-available">' + hero + '</p>')
     # Source order is Pro, then Kids. Markers give each app a stable update anchor.
     for name in ['pro', 'kids']:
         source = marked(source, name, re.escape('<span class="soon-tag">' + OLD_CHIP + '</span>'),
@@ -195,7 +202,9 @@ def plan(config, apps_root):
         before = read(p, ROOT)
         source = before
         values = {
-            'STORES': {name: {'ios': app['ios_app_id'], 'android': app['android_package']} for name, app in config['apps'].items()},
+            # An empty iOS ID sends that app's iPhone visitors to the browser game instead of an unreleased listing.
+            'STORES': {name: {'ios': app['ios_app_id'] if ios_live(config, name) else '', 'android': app['android_package']}
+                       for name, app in config['apps'].items()},
             'LIVE': config['stores_live'], 'APPLE_PT': config['app_store_provider_token']}
         for name, value in values.items():
             source = replace_one(source, rf'^const {name} = [^\n]*?;', f'const {name} = {dumps(value)};', rel + ':' + name, re.M)
@@ -204,8 +213,11 @@ def plan(config, apps_root):
     for code in ['en', *LANGS]:
         p = ROOT / 'play.html' if code == 'en' else ROOT / 'i18n/play' / (code + '.js')
         before = read(p, ROOT)
-        source = replace_one(before, r'''\bpreviewNote:\s*(?:'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*")''',
-                             'previewNote: ' + dumps(copy[code]['preview']), str(p))
+        # The newer game dictionaries quote the key ("previewNote": ...); keep whichever form the file uses.
+        match = re.search(r'''(?<![\w$.])(["']?)previewNote\1:\s*''', before)
+        key = (match.group(1) + 'previewNote' + match.group(1)) if match else 'previewNote'
+        source = replace_one(before, r'''(?<![\w$.])(["']?)previewNote\1:\s*(?:'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*")''',
+                             key + ': ' + dumps(copy[code]['preview']), str(p))
         if code == 'en':
             js_start, js_end = '/*launch:stores*/', '/*/launch:stores*/'
             js = js_start + '\nconst LAUNCH_STORES = ' + dumps({name: links(config, name) for name in ['kids', 'pro']}) + ';\n' + js_end + '\n'

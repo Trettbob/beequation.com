@@ -73,7 +73,7 @@ const T = {
   kFree: free =>
       `Il gioco gratuito ha ${free} livelli e la sfida del giorno. Abbonati, o acquista l'accesso a vita una volta sola, per aprire tutti i livelli dei sei mondi: calcoli più difficili, tabelline fino al 20, frazioni, decine e centinaia, numeri decimali e il Grande Alveare.`,
   kPrice: 'Da 4,99 £ al mese, con 7 giorni gratis. Niente pubblicità. Nessun dato raccolto. Puoi annullare quando vuoi.', backToFree: 'Torna alla versione gratuita (solo anteprima)',
-  kBuy: 'Sblocca il gioco completo', previewNote: "Questa anteprima simula l'acquisto. Nell'app, qui si apre l'App Store o Google Play.", helpsTitle: 'Cosa si impara',
+  kBuy: 'Sblocca il gioco completo', previewNote: "Questa demo nel browser simula gli acquisti. Scarica l’app per effettuare acquisti reali.", helpsTitle: 'Cosa si impara',
   helps: "Ogni rompicapo chiede di trovare un numero formato da altri due. Così i bambini allenano le relazioni tra i numeri e il calcolo mentale veloce. Gli aiutini di Indie mantengono il clima sereno, e le stelle contano aiutini ed errori con delicatezza: non c'è nessun cronometro da battere.",
   progress: 'Progressi', reset: 'Azzera i progressi', resetAsk: 'Cancellare le stelle e le figurine su questo dispositivo?', resetDone: 'Progressi azzerati',
   // Beequation Pro

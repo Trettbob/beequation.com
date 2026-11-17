@@ -70,7 +70,7 @@ const T = {
   kFree: n => { const plural = (n, one, few, many) => n === 1 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? few : many; return (free =>
       `Darmowa wersja ma ${free} ${plural(free, 'poziom', 'poziomy', 'poziomów')} i zagadkę dnia. Wykup subskrypcję albo jednorazowo dostęp na zawsze, by otworzyć wszystkie poziomy w sześciu światach: trudniejsze dodawanie, tabliczkę mnożenia aż do 20, ułamki, dziesiątki i setki, ułamki dziesiętne oraz Wielki Ul.`)(n); },
   kPrice: 'Już od 4,99 £ miesięcznie, z 7 dniami za darmo. Bez reklam. Bez zbierania danych. Możesz zrezygnować w każdej chwili.', backToFree: 'Wróć do darmowej wersji (tylko w podglądzie)',
-  kBuy: 'Odblokuj pełną wersję', previewNote: 'Ten podgląd tylko symuluje zakup. W aplikacji otworzy się App Store lub Google Play.', helpsTitle: 'Jak to pomaga',
+  kBuy: 'Odblokuj pełną wersję', previewNote: "Ta wersja demonstracyjna w przeglądarce symuluje zakupy. Pobierz aplikację, aby dokonywać prawdziwych zakupów.", helpsTitle: 'Jak to pomaga',
   helps: 'W każdej zagadce dziecko szuka liczby, która powstaje z dwóch innych. To utrwala rozkład liczb i ćwiczy szybkie liczenie w pamięci. Podpowiedzi Indie pomagają zachować spokój, a gwiazdki łagodnie uwzględniają podpowiedzi i pomyłki. Nie ma zegara, z którym trzeba się ścigać.',
   progress: 'Postępy', reset: 'Zresetuj postępy', resetAsk: 'Usunąć gwiazdki i naklejki na tym urządzeniu?', resetDone: 'Postępy zresetowane',
   // Beequation Pro (the player is addressed with "ty", Twój capitalised)
