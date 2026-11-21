@@ -421,7 +421,7 @@
    "indie": "Indie the bee is very proud of you!"
   }
  },
- "Beequation Kids and Beequation Pro are not in the app stores yet. They launch on 1 November 2026, and this section describes the versions we're getting ready to release.": "Beequation Kids and Beequation Pro are not in the app stores yet. They launch on 1 November 2026, and this section describes the versions we're getting ready to release.",
+ "This section describes the current versions of Beequation Kids and Beequation Pro.": "This section describes the current versions of Beequation Kids and Beequation Pro.",
  "<b>Screen readers:</b> built for VoiceOver on iPhone and iPad and TalkBack on Android. Every button has a label, each new question is announced, every hexagon says its number and where it is (for example \"15, middle row, left\"), and right and wrong answers are announced.": "<b>Screen readers:</b> built for VoiceOver on iPhone and iPad and TalkBack on Android. Every button has a label, each new question is announced, every hexagon says its number and where it is (for example \"15, middle row, left\"), and right and wrong answers are announced.",
  "<b>Read all numbers:</b> a button that reads out the whole honeycomb, row by row.": "<b>Read all numbers:</b> a button that reads out the whole honeycomb, row by row.",
  "<b>Results line:</b> a line of text under the board keeps the last message, so screen reader and braille users can go back and read it again.": "<b>Results line:</b> a line of text under the board keeps the last message, so screen reader and braille users can go back and read it again.",
