@@ -856,6 +856,12 @@ FOOTER_TEXT = {   # column headings and the social heading; everything else come
     'uk': ('Грати', 'Допомога та інформація', 'Стежте за вуликом'),
     'ar': ('العب', 'المساعدة والمعلومات', 'تابع الخلية'),
 }
+PRESS_TEXT = {   # the footer's Press link; it goes to the English press page on every site
+    'en': 'Press', 'fr': 'Presse', 'es': 'Prensa', 'de': 'Presse', 'pt': 'Imprensa', 'it': 'Stampa', 'nl': 'Pers',
+    'pl': 'Prasa', 'sv': 'Press', 'da': 'Presse', 'no': 'Presse', 'fi': 'Media', 'tr': 'Basın', 'ja': 'プレス',
+    'ko': '언론 보도', 'in': 'Press', 'hi': 'प्रेस', 'id': 'Pers', 'vi': 'Báo chí', 'th': 'สื่อมวลชน', 'uk': 'Преса',
+    'ar': 'الصحافة',
+}
 _ICON = lambda d: f'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{d}</svg>'
 SOCIALS = [   # (name, url, monoline icon)
     ('Instagram', 'https://www.instagram.com/beequationapp', _ICON('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/>')),
@@ -931,7 +937,7 @@ def footer(lang):
     learn_items.append(('/blog/', build_blog.words(lang)['heading']))
     cols = (f'<div><p class="bqf-h">{esc(play_h)}</p>' + links([('/play.html', t['online']), ('/how-to-play.html', t['howto']), ('/today/', today)]) + '</div>'
             f'<div><p class="bqf-h">{esc(tr("Learn"))}</p>' + links(learn_items) + '</div>'
-            f'<div><p class="bqf-h">{esc(info_h)}</p>' + links([('/about.html', t['about']), ('/support.html', tr('Support')), ('/privacy.html', tr('Privacy')),
+            f'<div><p class="bqf-h">{esc(info_h)}</p>' + links([('/about.html', t['about']), ('/press.html' if lang == 'en' else f'{MAIN}/press.html', PRESS_TEXT.get(lang, 'Press')), ('/support.html', tr('Support')), ('/privacy.html', tr('Privacy')),
                                                              ('/terms.html', tr('Terms')), ('/accessibility.html', tr('Accessibility')),
                                                              ('/easy-read/how-to-play.html', site_text(lang, 'a11y', A11Y_TEXT)['easy'])]) + '</div>')
     comb = ''.join(f'<li><a href="{u}" target="_blank" rel="noopener" aria-label="{n}" title="{n}">{i}</a></li>' for n, u, i in SOCIALS)
