@@ -263,18 +263,16 @@ CONSENT_TEXT = {
 # ('bq-consent' = 'all2'), with Google signals and ad personalisation off; never on the game page (play.html), and only
 # on beequation.com and its language subdomains (never localhost or previews).
 GA_ID = 'G-3YFSG10Q1W'
-GTM_ID = 'GTM-W9MNXL3Z'   # Tag Manager container (Lee, 2026-10-12): its only tag is the GA4 Google tag above. It loads
-                          # only after opt-in, like GA did; signals/ad personalisation are switched off here with 'set'.
+GTM_ID = 'GTM-W9MNXL3Z'   # Tag Manager container (Lee, 2026-10-12): the GA4 Google tag above and, since 2026-11-23, Metricool
+                          # (all tracking via GTM, never hard-coded). It loads only after opt-in; analytics consent is set
+                          # granted (ads denied) before gtm.js, then 'consent_tracking' is pushed. Signals/ad personalisation off via 'set'.
 GA = """<!--ga--><script>(function(){var ID='__GA__',on=false,h=location.hostname;if(!/(^|\\.)beequation\\.com$/.test(h))return;
 function ok(){try{return localStorage.getItem('bq-consent')==='all2';}catch(e){return false;}}
 function load(){if(on||!ok())return;on=true;window['ga-disable-'+ID]=false;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
-gtag('js',new Date());gtag('set',{allow_google_signals:false,allow_ad_personalization_signals:false});
+gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('set',{allow_google_signals:false,allow_ad_personalization_signals:false});
 dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
 var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=__GTM__';document.head.appendChild(s);
-var m=document.createElement('script'),counted=false;m.async=true;m.src='https://tracker.metricool.com/resources/be.js';
-function visit(){if(counted||!ok()||(m.readyState&&m.readyState!=='loaded'&&m.readyState!=='complete'))return;
-counted=true;beTracker.t({hash:'c337db956c4b6298e8a11c302d888802'});}
-m.onload=visit;m.onreadystatechange=visit;document.head.appendChild(m);}
+dataLayer.push({event:'consent_tracking'});}
 load();document.addEventListener('bq-consent',load);
 // Key events (only once GA has loaded, so only with consent): play_click for links to the browser game, get_click for
 // the /get/ smart links and the store pages. No personal data; 'beacon' so they survive the navigation.

@@ -54,10 +54,10 @@ try {
   await page.locator('.bq-ok .y').click();
   await page.waitForTimeout(100);
   assert.ok(external.some(u => u.startsWith('https://www.googletagmanager.com/gtm.js?id=GTM-W9MNXL3Z')), 'explicit opt-in loads GA');
-  assert.equal(external.filter(u => u === 'https://tracker.metricool.com/resources/be.js').length, 1, 'explicit opt-in loads Metricool once');
+  assert.equal(external.filter(u => u.startsWith('https://www.googletagmanager.com/gtm.js')).length, 1, 'explicit opt-in loads Tag Manager once (Metricool runs inside it)');
   assert.equal(await page.evaluate(() => localStorage.getItem('bq-consent')), 'all2');
   await page.evaluate(() => document.dispatchEvent(new Event('bq-consent')));
-  assert.equal(external.filter(u => u === 'https://tracker.metricool.com/resources/be.js').length, 1);
+  assert.equal(external.filter(u => u.startsWith('https://www.googletagmanager.com/gtm.js')).length, 1);
   await page.evaluate(() => localStorage.setItem('bq-consent', 'all'));
   external.length = 0;
   await page.reload();

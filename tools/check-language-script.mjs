@@ -76,7 +76,7 @@ for(const path of ['support.html', ...LIVE.map(c=>`dist/${c}/support.html`)]) {
       r=run(path,{values:saved?{'bq-consent':saved}:{},cookie:`other=value; bq-consent=${answer}`});
       assert.equal(r.store.get('bq-consent'),answer,`${path}: adopts ${answer} cookie over ${saved}`);
       assert.equal(r.notice(),undefined,`${path}: adopted answer suppresses note`);
-      assert.equal(r.external().length,answer==='all2'?2:0,`${path}: adoption precedes analytics loading`);
+      assert.equal(r.external().length,answer==='all2'?1:0,`${path}: adoption precedes analytics loading`);
     }
     r=run(path,{values:{'bq-consent':answer},cookie:`bq-consent=${answer==='all2'?'basic':'all2'}`});
     assert.equal(r.store.get('bq-consent'),answer,'valid local answer takes precedence');
@@ -89,31 +89,27 @@ for(const path of ['support.html', ...LIVE.map(c=>`dist/${c}/support.html`)]) {
   for(const value of [undefined,'all','basic','no','all2']) {
     r=run(path,{values:value?{'bq-consent':value}:{}});
     assert.equal(!!r.notice(),!['basic','all2'].includes(value),`${path}: notice for ${value}`);
-    assert.equal(r.external().length,value==='all2'?2:0,`${path}: analytics for ${value}`);
+    assert.equal(r.external().length,value==='all2'?1:0,`${path}: analytics for ${value}`);
   }
   r=run(path,{values:{'bq-consent':'all'}});
   r.notice().querySelector('.y').events.click();
   assert.equal(r.store.get('bq-consent'),'all2');
   assert.equal(r.notice(),undefined);
-  assert.equal(r.external().length,2,'both analytics load after explicit consent');
-  r.emit();r.emit();assert.equal(r.external().length,2,'once per page');
+  assert.equal(r.external().length,1,'Tag Manager (GA4 + Metricool) loads after explicit consent');
+  r.emit();r.emit();assert.equal(r.external().length,1,'once per page');
   assert.match(r.external()[0].src,/^https:\/\/www.googletagmanager.com\/gtm\.js\?id=GTM-W9MNXL3Z$/);
-  const metric=r.external()[1], visits=[];
-  assert.equal(metric.src,'https://tracker.metricool.com/resources/be.js');
-  r.context.beTracker={t:value=>visits.push(value.hash)};
-  metric.readyState='loading';metric.onreadystatechange();assert.equal(visits.length,0);
-  metric.readyState='loaded';metric.onreadystatechange();metric.onload();
-  assert.deepEqual(visits,['c337db956c4b6298e8a11c302d888802'],'only one Metricool visit');
+  // Metricool loads from Tag Manager (once per page, on Window Loaded or consent_tracking), never hard-coded.
+  const dl=r.context.dataLayer.map(e=>e&&e.event?e.event:e&&e[0]==='consent'?'consent '+e[1]:'');
+  assert.ok(dl.indexOf('consent default')>=0&&dl.indexOf('consent default')<dl.indexOf('gtm.js'),'analytics consent set before gtm.js');
+  assert.equal(dl.filter(e=>e==='consent_tracking').length,1,'consent_tracking pushed once');
+  assert.equal(r.context.dataLayer.find(e=>e&&e[0]==='consent')[2].analytics_storage,'granted');
+  assert.equal(r.context.dataLayer.find(e=>e&&e[0]==='consent')[2].ad_storage,'denied');
   r.events.click.forEach(f=>f({target:{closest:()=>true}}));
   r.notice().querySelector('.n').events.click();
   assert.equal(r.store.get('bq-consent'),'basic');
   assert.equal(r.context['ga-disable-G-3YFSG10Q1W'],true);
   assert.equal(r.cookies.filter(value=>/^_ga/.test(value)).length,6,'GA cookies deleted on decline');
-  r.emit();metric.onload();assert.equal(r.external().length,2);assert.equal(visits.length,1);
-  r=run(path,{values:{'bq-consent':'all2'}});
-  const pending=r.external()[1];let sent=0;r.context.beTracker={t:()=>sent++};
-  r.events.click.forEach(f=>f({target:{closest:()=>true}}));r.notice().querySelector('.n').events.click();
-  pending.onload();assert.equal(sent,0,'decline before script completes prevents visit');
+  r.emit();assert.equal(r.external().length,1);
 }
 for(const hostname of ['beequation.com',...['fr','es','de','pt','it','nl','pl','sv','da','no','fi','tr','ja','ko','in','hi'].map(code=>`${code}.beequation.com`),'nested.fr.beequation.com','localhost','127.0.0.1','notbeequation.com','beequation.com.example.com']) {
   const beequationHost=/(^|\.)beequation\.com$/.test(hostname);
